@@ -1,16 +1,16 @@
 LFS Book Conversion Tools Installation Instructions
 
-After downloading the SVN source, there are some things that need to be set up
-on your computer if you want to convert the XML source into something easier to
-read (e.g. HTML, TXT, or PDF).  If you are interested in this, then keep
-reading.  If you are only interested in editing the XML source for re-
-submission to the lfs-book or lfs-dev mailing lists, then you do not need this
-document.  Instead, you need to read the LFS Editor's Manual.  See the LFS
-website at https://www.linuxfromscratch.org for more information.
+Etter å ha lastet ned SVN-kilden, er det noen ting som må settes opp
+på datamaskinen din hvis du vil konvertere XML-kilden til noe som er enklere å
+les (f.eks. HTML, TXT eller PDF). Hvis du er interessert i dette, så fortsett
+lesning. Hvis du bare er interessert i å redigere XML-kilden for re-
+innsending til lfs-book eller lfs-dev postlister, så trenger du ikke dette
+dokument. I stedet må du lese LFS Editor's Manual. Se LFS
+nettstedet på https://www.linuxfromscratch.org for mer informasjon.
 
 -------------------------------------------------------------------------------
 
-If you want to convert the XML to HTML, install the following:
+Hvis du vil konvertere XML til HTML, installer følgende:
 
 * libxml2
   - https://www.linuxfromscratch.org/blfs/view/svn/general/libxml2.html
@@ -29,16 +29,16 @@ If you want to convert the XML to HTML, install the following:
 
 -------------------------------------------------------------------------------
 
-If you want to convert the XML to TXT, install the above items, and then install
-the following:
+Hvis du vil konvertere XML til TXT, installer elementene ovenfor og installer deretter
+følgende:
 
 * lynx
   - https://www.linuxfromscratch.org/blfs/view/svn/basicnet/lynx.html
 
 -------------------------------------------------------------------------------
 
-If you want to convert the XML to PDF, install the items listed above (except
-lynx) and then install the following:
+Hvis du vil konvertere XML til PDF, installer elementene som er oppført ovenfor (unntatt
+lynx) og installer deretter følgende:
 
 * JDK
   - https://www.linuxfromscratch.org/blfs/view/svn/general/openjdk.html
