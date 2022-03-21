@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<appendix id="appendixa" xreflabel="Vedlegg A">
+  <?dbhtml dir="appendices"?>
+  <?dbhtml filename="acronymlist.html"?>
+
+  <title>Akronymer og begreper</title>
+
+  <variablelist>
+    <?dbfo list-presentation="list"?>
+    <?dbhtml list-presentation="table"?>
+
+    <varlistentry>
+      <term><emphasis role="bold">ABI</emphasis></term>
+      <listitem>
+        <para>Binært applikasjonsgrensesnitt (Application Binary Interface)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">ALFS</emphasis></term>
+      <listitem>
+        <para>Automatisert Linux fra bunnen (Automated Linux From Scratch)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">API</emphasis></term>
+      <listitem>
+        <para>Applikasjonsprogrammeringsgrensesnitt (Application Programming Interface)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">ASCII</emphasis></term>
+      <listitem>
+        <para>Amerikansk standardkode for informasjonsutveksling (American Standard Code for Information Interchange)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">BIOS</emphasis></term>
+      <listitem>
+        <para>Grunnleggende system for inndata/utdata (Basic Input/Output System)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">BLFS</emphasis></term>
+      <listitem>
+        <para>Utover Linux fra bunnen (Beyond Linux From Scratch)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">BSD</emphasis></term>
+      <listitem>
+        <para>Berkeley programvaredistribusjon (Berkeley Software Distribution)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">chroot</emphasis></term>
+      <listitem>
+        <para>endre rot (change root)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">CMOS</emphasis></term>
+      <listitem>
+        <para>Komplementær metalloksyd halvleder (Complementary Metal Oxide Semiconductor)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">COS</emphasis></term>
+      <listitem>
+        <para>Tjenesteklasse (Class Of Service)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">CPU</emphasis></term>
+      <listitem>
+        <para>Sentral prosesseringsenhet (Central Processing Unit)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">CRC</emphasis></term>
+      <listitem>
+        <para>Syklisk redundanssjekk (Cyclic Redundancy Check)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">CVS</emphasis></term>
+      <listitem>
+        <para>System for samtidige versjoner (Concurrent Versions System)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">DHCP</emphasis></term>
+      <listitem>
+        <para>Dynamisk vertskonfigurasjonsprotokoll (Dynamic Host Configuration Protocol)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">DNS</emphasis></term>
+      <listitem>
+        <para>Domenenavntjeneste (Domain Name Service)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">EGA</emphasis></term>
+      <listitem>
+        <para>Forbedret grafikkadapter (Enhanced Graphics Adapter)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">ELF</emphasis></term>
+      <listitem>
+        <para>Kjørbart og koblingsbart format (Executable and Linkable Format)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">EOF</emphasis></term>
+      <listitem>
+        <para>Slutt på fil (End of File)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">EQN</emphasis></term>
+      <listitem>
+        <para>ligning (equation)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">ext2</emphasis></term>
+      <listitem>
+        <para>andre utvidede filsystemet (second extended file system)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">ext3</emphasis></term>
+      <listitem>
+        <para>tredje utvidede filsystemet (third extended file system)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">ext4</emphasis></term>
+      <listitem>
+        <para>fjerde utvidede filsystemet (fourth extended file system)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">FAQ</emphasis></term>
+      <listitem>
+        <para>Ofte stilte spørsmål (Frequently Asked Questions)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">FHS</emphasis></term>
+      <listitem>
+        <para>Standard for Filsystemhierarkiet (Filesystem Hierarchy Standard)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">FIFO</emphasis></term>
+      <listitem>
+        <para>Først inn først ut (First-In, First Out)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">FQDN</emphasis></term>
+      <listitem>
+        <para>Fullt kvalifisert domenenavn (Fully Qualified Domain Name)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">FTP</emphasis></term>
+      <listitem>
+        <para>Filoverføringsprotokoll (File Transfer Protocol)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">GB</emphasis></term>
+      <listitem>
+        <para>Gigabyte (Gigabytes)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">GCC</emphasis></term>
+      <listitem>
+        <para>GNU kompilatorsamling (GNU Compiler Collection)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">GID</emphasis></term>
+      <listitem>
+        <para>Gruppeidentifikator (Group Identifier)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">GMT</emphasis></term>
+      <listitem>
+        <para>Greenwich gjennomsnittstid (Greenwich Mean Time)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">HTML</emphasis></term>
+      <listitem>
+        <para>Hypertekst markeringsspråk (Hypertext Markup Language)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">IDE</emphasis></term>
+      <listitem>
+        <para>Integrert drivelektronikk (Integrated Drive Electronics)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">IEEE</emphasis></term>
+      <listitem>
+        <para>Institutt for elektriske og elektroniske ingeniører (Institute of Electrical and Electronic Engineers)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">IO</emphasis></term>
+      <listitem>
+        <para>Inndata/utdata (Input/Output)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">IP</emphasis></term>
+      <listitem>
+        <para>Internett protokoll (Internet Protocol)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">IPC</emphasis></term>
+      <listitem>
+        <para>Kommunikasjon mellom prosesser (Inter-Process Communication)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">IRC</emphasis></term>
+      <listitem>
+        <para>Internett relé nettprat (Internet Relay Chat)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">ISO</emphasis></term>
+      <listitem>
+        <para>Internasjonal organisasjon for standardisasjon (International Organization for Standardization)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">ISP</emphasis></term>
+      <listitem>
+        <para>Internett tjenesteleverandør (Internet Service Provider)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">KB</emphasis></term>
+      <listitem>
+        <para>Kilobyte (Kilobytes)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">LED</emphasis></term>
+      <listitem>
+        <para>Lysemitterende diode (Light Emitting Diode)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">LFS</emphasis></term>
+      <listitem>
+        <para>Linux fra bunnen (Linux From Scratch)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">LSB</emphasis></term>
+      <listitem>
+        <para>Linux standardbase (Linux Standard Base)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">MB</emphasis></term>
+      <listitem>
+        <para>Megabyte (Megabytes)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">MBR</emphasis></term>
+      <listitem>
+        <para>Master oppstart opptak (Master Boot Record)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">MD5</emphasis></term>
+      <listitem>
+        <para>Meldingssammendrag 5 (Message Digest 5)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">NIC</emphasis></term>
+      <listitem>
+        <para>Nettverksgrensesnittkort (Network Interface Card)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">NLS</emphasis></term>
+      <listitem>
+        <para>Støtte for morsmål (Native Language Support)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">NNTP</emphasis></term>
+      <listitem>
+        <para>Transportprotokoll for nettverksnyheter (Network News Transport Protocol)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">NPTL</emphasis></term>
+      <listitem>
+        <para>Innebygd POSIX trådbibliotek (Native POSIX Threading Library)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">OSS</emphasis></term>
+      <listitem>
+        <para>Åpent lydsystem (Open Sound System)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">PCH</emphasis></term>
+      <listitem>
+        <para>Forhåndskompilerte deklarasjonsfiler (Pre-Compiled Headers)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">PCRE</emphasis></term>
+      <listitem>
+        <para>Perlkompatibelt regulært uttrykk (Perl Compatible Regular Expression)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">PID</emphasis></term>
+      <listitem>
+        <para>Prosessidentifikator (Process Identifier)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">PTY</emphasis></term>
+      <listitem>
+        <para>pseudoterminal (pseudo terminal)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">QOS</emphasis></term>
+      <listitem>
+        <para>Tjenestekvalitet (Quality Of Service)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">RAM</emphasis></term>
+      <listitem>
+        <para>Tilfeldig tilgangsminne (Random Access Memory)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">RPC</emphasis></term>
+      <listitem>
+        <para>Anrop for ekstern prosedyre (Remote Procedure Call)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">RTC</emphasis></term>
+      <listitem>
+        <para>Sanntidsklokke (Real Time Clock)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">SBU</emphasis></term>
+      <listitem>
+        <para>Standard byggeenhet (Standard Build Unit)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">SCO</emphasis></term>
+      <listitem>
+        <para>Santa Cruz operasjonen (The Santa Cruz Operation)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">SHA1</emphasis></term>
+      <listitem>
+        <para>Sikker nøkkel algoritme 1 (Secure-Hash Algorithm 1)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">TLDP</emphasis></term>
+      <listitem>
+        <para>Linux dokumentasjonsprosjekt (The Linux Documentation Project)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">TFTP</emphasis></term>
+      <listitem>
+        <para>Triviell filoverføringsprotokoll (Trivial File Transfer Protocol)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">TLS</emphasis></term>
+      <listitem>
+        <para>Trådlokal lagring (Thread-Local Storage)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">UID</emphasis></term>
+      <listitem>
+        <para>Brukeridentifikator (User Identifier)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">umask</emphasis></term>
+      <listitem>
+        <para>maske for opprettelse av brukerfil (user file-creation mask)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">USB</emphasis></term>
+      <listitem>
+        <para>Universell seriebuss (Universal Serial Bus)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">UTC</emphasis></term>
+      <listitem>
+        <para>Koordinert universell tid (Coordinated Universal Time)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">UUID</emphasis></term>
+      <listitem>
+        <para>Universell unik identifikator (Universally Unique Identifier9</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">VC</emphasis></term>
+      <listitem>
+        <para>Virtuell konsoll (Virtual Console)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">VGA</emphasis></term>
+      <listitem>
+        <para>Videografikkmatrise (Video Graphics Array)</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><emphasis role="bold">VT</emphasis></term>
+      <listitem>
+        <para>Virtuell terminal (Virtual Terminal)</para>
+      </listitem>
+    </varlistentry>
+
+  </variablelist>
+
+</appendix>
