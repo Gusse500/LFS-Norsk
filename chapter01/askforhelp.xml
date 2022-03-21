@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-intro-askforhelp">
+  <?dbhtml filename="askforhelp.html"?>
+
+  <title>Hjelp</title>
+
+  <para>Hvis det oppstår et problem eller et spørsmål mens du arbeider gjennom
+   denne boken, vennligst sjekk siden FAQ på <ulink url="&faq-root;#generalfaq"/>.
+  Spørsmål er ofte allerede besvart der. Hvis spørsmålet ditt ikke er
+   svart på denne siden, prøv å finne kilden til problemet. De
+   følgende tips vil gi deg veiledning for feilsøking:
+  <ulink url="&hints-root;errors.txt"/>.</para>
+
+  <para>Hvis du ikke finner problemet oppført i vanlige spørsmål, søk i E-post
+   listene på <ulink url="&lfs-root;search.html"/>.</para>
+
+  <para>Vi har også et fantastisk LFS fellesskap som er villig til å tilby
+   hjelp gjennom E-postlistene og IRC (se <xref
+  linkend="ch-intro-resources"/> delen av denne boken). Imidlertid
+   får vi flere brukerspørsmål hver dag, og mange av dem kan være
+   besvart gjennom FAQ og gjennom E-postlistene, søk der først.
+   Så for at vi skal kunne tilby best mulig hjelp, må du gjøre noe
+   forskning på egen hånd først. Det lar oss fokusere på de mere uvanlige
+   brukerstøtte. Hvis søkene dine ikke gir en løsning, vennligst ta med
+   all relevant informasjon (nevnt nedenfor) i din forespørsel om hjelp.</para>
+
+  <sect2>
+    <title>Ting å nevne</title>
+
+    <para>Bortsett fra en kort forklaring av problemet som oppleves,
+     de viktigste tingene å inkludere i enhver forespørsel om hjelp er:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>Versjonen av boken som brukes (i dette tilfellet &version;)</para>
+      </listitem>
+      <listitem>
+        <para>Vertsdistribusjonen og versjonen som brukes til å lage LFS</para>
+      </listitem>
+      <listitem>
+        <para>Utdata fra  <xref linkend='version-check'/> skriptet</para>
+      </listitem>
+      <listitem>
+        <para>Pakken eller seksjonen problemet ble oppdaget i</para>
+      </listitem>
+      <listitem>
+        <para>Den nøyaktige feilmeldingen eller symptomet som mottas</para>
+      </listitem>
+      <listitem>
+        <para>Gi beskjed om du har avviket fra boken </para>
+      </listitem>
+    </itemizedlist>
+
+    <note>
+      <para>Avvik fra denne boken gjør <emphasis>ikke</emphasis> at
+       vi ikke vil hjelpe deg. Tross alt handler LFS om personlig preferanse.
+       Å være på forhånd om eventuelle endringer i den etablerte prosedyren hjelper oss
+       å vurdere og finne mulige årsaker til problemet ditt.</para>
+    </note>
+
+  </sect2>
+
+  <sect2>
+    <title>Konfigurasjonsskript problemer</title>
+
+    <para>Hvis noe går galt mens du kjører <command>configure</command>
+    skript, gjennomgå <filename>config.log</filename> filen. Denne filen kan
+     inneholde feil oppstått under <command>configure</command> som ikke
+     ble skrevet ut på skjermen. Inkluder <emphasis>relevante</emphasis> linjer
+     hvis du trenger å be om hjelp.</para>
+
+  </sect2>
+
+  <sect2>
+    <title>Kompileringsproblemer</title>
+
+    <para>Både skjermutdata og innholdet i ulike filer er nyttige
+     ved å fastslå årsaken til kompileringsproblemer. Skjermens utdata
+     fra <command>configure</command> skriptet og <command>make</command>
+    kjøringen kan være nyttig. Det er ikke nødvendig å inkludere hele utdataen, men
+     inkludere nok av relevant informasjon. Nedenfor er et eksempel på
+     type informasjon som skal inkluderes fra skjermens utdata fra
+    <command>make</command>:</para>
+
+<screen><computeroutput>gcc -DALIASPATH=\"/mnt/lfs/usr/share/locale:.\"
+-DLOCALEDIR=\"/mnt/lfs/usr/share/locale\"
+-DLIBDIR=\"/mnt/lfs/usr/lib\"
+-DINCLUDEDIR=\"/mnt/lfs/usr/include\" -DHAVE_CONFIG_H -I. -I.
+-g -O2 -c getopt1.c
+gcc -g -O2 -static -o make ar.o arscan.o commands.o dir.o
+expand.o file.o function.o getopt.o implicit.o job.o main.o
+misc.o read.o remake.o rule.o signame.o variable.o vpath.o
+default.o remote-stub.o version.o opt1.o
+-lutil job.o: In function `load_too_high':
+/lfs/tmp/make-3.79.1/job.c:1565: undefined reference
+to `getloadavg'
+collect2: ld returned 1 exit status
+make[2]: *** [make] Error 1
+make[2]: Leaving directory `/lfs/tmp/make-3.79.1'
+make[1]: *** [all-recursive] Error 1
+make[1]: Leaving directory `/lfs/tmp/make-3.79.1'
+make: *** [all-recursive-am] Error 2</computeroutput></screen>
+
+    <para>I dette tilfellet vil mange mennesker bare inkludere seksjonen
+     fra bunnen:</para>
+
+<screen><computeroutput>make [2]: *** [make] Error 1</computeroutput></screen>
+
+    <para>Dette er ikke nok informasjon til å diagnostisere problemet riktig
+     fordi den bare merker at noe gikk galt, ikke
+    <emphasis>hva</emphasis> som gikk galt. Hele delen, som i
+     eksempelet ovenfor, er det som skal lagres fordi det inkluderer kommandoen
+     som ble utført og tilhørende feilmelding(er).</para>
+
+    <para>En utmerket artikkel om å be om hjelp på Internett er
+     tilgjengelig på nett på <ulink
+    url="http://catb.org/~esr/faqs/smart-questions.html"/>. Les og
+     følg tipsene i dette dokumentet for å øke sannsynligheten for å få
+     hjelpen du trenger.</para>
+
+  </sect2>
+
+</sect1>
