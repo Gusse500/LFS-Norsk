@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-partitioning-stages">
+  <?dbhtml filename="stages.html"?>
+
+  <title>Bygge LFS i etapper</title>
+
+  <para>LFS er designet for å bygges i én økt. Det er det
+   instruksjonene forutsetter, at systemet ikke vil bli slått av
+   under prosessen. Det betyr ikke at systemet må
+   gjøres i en økt. Problemet er at visse prosedyrer
+   må gjenopprettes etter en omstart hvis LFS gjenopptas på
+   forskjellige punkter.</para>
+
+  <sect2>
+  <title>Kapitler&nbsp;1&ndash;4</title>
+
+    <para>Disse kapitlene er utført på vertssystemet. Ved
+     omstart, vær forsiktig med følgende:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>Prosedyrer utført som
+        <systemitem class="username">root</systemitem> brukeren etter seksjon
+         2.4 må ha LFS miljøvariabelen satt
+        <emphasis>FOR BRUKEREN ROOT</emphasis>.</para>
+      </listitem>
+    </itemizedlist>
+  </sect2>
+
+  <sect2>
+  <title>Kapitler&nbsp;5&ndash;6</title>
+
+    <itemizedlist>
+      <listitem>
+        <para>/mnt/lfs partisjonen må være montert.</para>
+      </listitem>
+
+      <listitem>
+        <para>Disse to kapitlene <emphasis>må</emphasis> gjøres som bruker
+        <systemitem class="username">lfs</systemitem>.
+        En <command>su - lfs</command> må gjøres før noen oppgaver i disse
+         kapitlene. Hvis du ikke gjør det, risikerer du å installere pakker til
+         vertssystemet, og potensielt gjøre det ubrukelig.</para>
+      </listitem>
+
+      <listitem>
+         <para>Prosedyrene i <xref linkend='ch-tools-generalinstructions'/>
+         er kritiske. Hvis det er noen
+          tvil om installerte pakker, sørg for at tidligere utpakkede
+          tarballs fjernes, pakk deretter ut pakkefilene på nytt og fullfør alle
+          instruksjonene i den delen.</para>
+      </listitem>
+    </itemizedlist>
+  </sect2>
+
+  <sect2>
+  <title>Kapitler&nbsp;7&ndash;10</title>
+
+    <itemizedlist>
+      <listitem>
+         <para>/mnt/lfs partisjonen må være montert.</para>
+      </listitem>
+
+      <listitem>
+        <para>Noen få operasjoner, fra <quote>Skifte eierskap</quote> for
+        <quote>Gå inn i Chroot miljøet</quote> må gjøres som
+        <systemitem class="username">root</systemitem> brukeren, med LFS
+         miljøvariabel satt for
+        <systemitem class="username">root</systemitem>brukeren.</para>
+      </listitem>
+
+      <listitem>
+         <para> Når du går inn i chroot, må LFS miljøvariabelen angis
+          til <systemitem class="username">root</systemitem>. LFS
+          variabelen brukes ikke i etterkant.</para>
+      </listitem>
+
+      <listitem>
+         <para> De virtuelle filsystemene må være montert. Dette kan gjøres
+          før eller etter at chroot er gått inn i, ved å bytte til en virtuell vertsterminal
+          og som <systemitem class="username">root</systemitem>, kjøre
+          kommandoene i
+         <xref linkend='ch-tools-bindmount'/> og
+         <xref linkend='ch-tools-kernfsmount'/>.</para>
+      </listitem>
+    </itemizedlist>
+  </sect2>
+</sect1>
