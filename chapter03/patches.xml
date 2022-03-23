@@ -19,7 +19,7 @@
   <variablelist role="materials">
 <!--
     <varlistentry>
-      <term>Autoconf konsolidert oppdatering - <token>&autoconf-fixes-patch-size;</token>:</term>
+      <term>Autoconf Consolidated Fixes Patch - <token>&autoconf-fixes-patch-size;</token>:</term>
       <listitem>
         <para>Laste ned: <ulink url="&patches-root;&autoconf-fixes-patch;"/></para>
         <para>MD5 sum: <literal>&autoconf-fixes-patch-md5;</literal></para>
@@ -28,7 +28,7 @@
 -->
 <!--
     <varlistentry>
-      <term>Bash oppstrøms oppdatering - <token>&bash-fixes-patch-size;</token>:</term>
+      <term>Bash Upstream Fixes Patch - <token>&bash-fixes-patch-size;</token>:</term>
       <listitem>
         <para>Laste ned: <ulink url="&patches-root;&bash-fixes-patch;"/></para>
         <para>MD5 sum: <literal>&bash-fixes-patch-md5;</literal></para>
@@ -69,7 +69,7 @@
     </varlistentry>
 <!--
     <varlistentry>
-      <term>File oppstrøms oppdatering - <token>&file-upstream-fixes-patch-size;</token>:</term>
+      <term>File Upstream Fixes Patch - <token>&file-upstream-fixes-patch-size;</token>:</term>
       <listitem>
         <para>Laste ned: <ulink url="&patches-root;&file-upstream-fixes-patch;"/></para>
         <para>MD5 sum: <literal>&file-upstream-fixes-md5;</literal></para>
@@ -93,7 +93,7 @@
     </varlistentry>
 <!--
     <varlistentry>
-      <term>Meson oppstrøms oppdatering - <token>&meson-fix-patch-size;</token>:</term>
+      <term>Meson Upstream Fix Patch - <token>&meson-fix-patch-size;</token>:</term>
       <listitem>
         <para>Laste ned: <ulink url="&patches-root;&meson-fix-patch;"/></para>
         <para>MD5 sum: <literal>&meson-fix-patch-md5;</literal></para>
@@ -101,7 +101,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term>Libpipeline sjekk oppdatering - <token>&libpipeline-checks-patch-size;</token>:</term>
+      <term>Libpipeline Checks Patch - <token>&libpipeline-checks-patch-size;</token>:</term>
       <listitem>
         <para>Laste ned: <ulink url="&patches-root;&libpipeline-checks-patch;"/></para>
         <para>MD5 sum: <literal>&libpipeline-checks-patch-md5;</literal></para>
@@ -118,7 +118,7 @@
     </varlistentry>
 <!--
     <varlistentry>
-      <term>Shadow Segfault oppdatering - <token>&shadow-segfault-patch-size;</token>:</term>
+      <term>Shadow Segfault Fix Patch - <token>&shadow-segfault-patch-size;</token>:</term>
       <listitem>
         <para>Laste ned: <ulink url="&patches-root;&shadow-segfault-patch;"/></para>
         <para>MD5 sum: <literal>&shadow-segfault-patch-md5;</literal></para>
