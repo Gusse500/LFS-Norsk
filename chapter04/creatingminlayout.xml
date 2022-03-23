@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-tools-creatingminlayout">
+  <?dbhtml filename="creatingminlayout.html"?>
+
+  <title>Opprette et begrenset mappeoppsett i LFS filsystemet</title>
+
+  <para>Den første oppgaven som utføres i LFS partisjonen er å lage et begrenset
+   mappehierarki slik at programmer kompilert i <xref
+  linkend="chapter-temporary-tools"/> (i tillegg til glibc og libstdc++ i <xref
+  linkend="chapter-cross-tools"/>) kan installeres i deres endelige
+   plassering. Dette er nødvendig for at de midlertidige programmene skal overskrives
+   når du bygger dem igjen i <xref linkend="chapter-building-system"/>.</para>
+
+  <para>Opprett det nødvendige mappeoppsettet ved å kjøre følgende som
+  <systemitem class="username">root</systemitem>:</para>
+
+<screen><userinput>mkdir -pv $LFS/{etc,var} $LFS/usr/{bin,lib,sbin}
+
+for i in bin lib sbin; do
+  ln -sv usr/$i $LFS/$i
+done
+
+case $(uname -m) in
+  x86_64) mkdir -pv $LFS/lib64 ;;
+esac</userinput></screen>
+
+  <para>Programmer i <xref linkend="chapter-temporary-tools"/> vil bli kompilert
+   med en krysskompilator (mer detaljer i avsnitt <xref
+  linkend="ch-tools-toolchaintechnotes"/>). For å skille denne
+   krysskompilatoren fra de andre programmene, vil den bli installert i en spesiell
+   mappe. Opprett denne mappen med:</para>
+
+<screen><userinput>mkdir -pv $LFS/tools</userinput></screen>
+
+</sect1>
