@@ -88,10 +88,6 @@
 <!ENTITY systemd-upstream-fixes-patch-md5 "71eac6abdad5fba2039dcd011a9ae5b3">
 <!ENTITY systemd-upstream-fixes-patch-size "20 KB">
 
-<!ENTITY zstd-version "1.5.2">
-<!ENTITY zstd-size "1,892 KB">
-<!ENTITY zstd-url "https://github.com/facebook/zstd/releases/download/v&zstd-version;/zstd-&zstd-version;.tar.gz">
-<!ENTITY zstd-md5 "072b10f71f5820c24761a65f31f43e73">
-<!ENTITY zstd-home "https://facebook.github.io/zstd/">
-<!ENTITY zstd-fin-du "55 MB">
-<!ENTITY zstd-fin-sbu "1.1 SBU">
+<!ENTITY zstd-upstream-fixes-patch "zstd-&zstd-version;-upstream_fixes-1.patch">
+<!ENTITY zstd-upstream-fixes-patch-md5 "a7e576e3f87415fdf388392b257cdcf3">
+<!ENTITY zstd-upstream-fixes-patch-size "4 KB">
