@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-preps-aboutsbus">
+  <?dbhtml filename="aboutsbus.html"?>
+
+  <title>Om SBU</title>
+
+  <para>Mange vil gjerne vite på forhånd hvor lenge
+   det tar å kompilere og installere hver pakke. Fordi Linux Fra
+   Scratch kan bygges på mange forskjellige systemer, er det umulig å
+   gi nøyaktige tidsanslag. Den største pakken (Glibc) vil
+   ta omtrent 20 minutter på de raskeste systemene, men kan ta
+   opptil tre dager på tregere systemer! I stedet for å oppgi faktiske tider,
+   vil Standard byggenhet (SBU)
+   brukes i stedet.</para>
+
+  <para>SBU fungerer som følgende. Den første pakken som skal kompileres
+   fra denne boken er binutils i <xref linkend="chapter-cross-tools"/>. Den
+   tiden det tar å kompilere denne pakken er det som vil bli referert til som
+   Standard byggenhet eller SBU. Alle andre kompileringstider vil bli uttrykt relative
+   til denne tiden.</para>
+
+  <para>Tenk for eksempel på en pakke hvis kompileringstid er 4,5
+   SBU. Dette betyr at hvis et system tok 10 minutter å kompilere og
+   installer det første passet med binutils, vil det ta
+  <emphasis>omtrent</emphasis> 45 minutter å bygge denne eksempelpakken.
+   Heldigvis er de fleste byggetidene kortere enn den for binutils.</para>
+
+  <para>Generelt er ikke SBU helt nøyaktige fordi de er avhengige av mange
+   faktorer, inkludert vertssystemets versjon av GCC. De er gitt her
+   for å gi et estimat på hvor lang tid det kan ta å installere en pakke, men
+   tall kan variere med så mye som dusinvis av minutter i noen tilfeller.</para>
+
+  <note>
+    <para>For mange moderne systemer med flere prosessorer (eller kjerner) kan
+     kompileringstiden for en pakke reduseres ved å utføre en "parallell
+     make" ved å enten sette en miljøvariabel eller fortelle
+    <command>make</command> programmer hvor mange prosessorer som er tilgjengelige. For
+     eksempel kan en Intel i5-6500 CPU støtte fire samtidige prosesser med:</para>
+
+    <screen role="nodump"><userinput>export MAKEFLAGS='-j4'</userinput></screen>
+
+    <para>eller bare bygge med:</para>
+
+    <screen role="nodump"><userinput>make -j4</userinput></screen>
+
+    <para>Når flere prosessorer brukes på denne måten, vil SBU enhetene i
+     boken variere enda mer enn de normalt ville gjort. I noen tilfeller, make
+     trinnet vil rett og slett mislykkes. Å analysere resultatet av byggeprosessen vil også
+     være vanskeligere fordi linjene i forskjellige prosesser vil være
+     sammenflettet. Hvis du får et problem med et byggetrinn, gå tilbake til et
+     enkelt prosessorbygg for å analysere feilmeldingene på riktig måte.</para>
+  </note>
+
+</sect1>
+
