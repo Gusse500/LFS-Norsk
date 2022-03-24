@@ -42,7 +42,7 @@
    normalt er. Rekkefølgen er <filename
   class='directory'>/etc/rc.d/init.d</filename>, <filename
   class='directory'>/etc/sysconfig</filename>, <filename
-  class='directory'>/etc/sysconfig/network-devices</filename>, and <filename
+  class='directory'>/etc/sysconfig/network-devices</filename>, og <filename
   class='directory'>/etc/sysconfig/network-devices/services</filename>.  Innenfor
    hver seksjon vises filene i den rekkefølgen de vanligvis kalles.
   </para>

@@ -12,10 +12,10 @@
   <title>Avhengigheter</title>
 
   <para>Hver pakke bygget i LFS er avhengig av en eller flere andre pakker
-   for å bygge og installere riktig. Noen pakker deltar til og med
+   for å bygges og installeres riktig. Noen pakker deltar til og med i
    sirkulære avhengigheter, det vil si at den første pakken avhenger av den andre
-   i sin tur avhenger av den første. På grunn av disse avhengighetene vil rekkefølgen i
-   hvilke pakker som bygges i LFS er veldig viktig. Formålet med denne siden
+   i sin tur avhenger av den første. På grunn av disse avhengighetene er rekkefølgen som
+   pakkene bygges i LFS veldig viktig. Formålet med denne siden
    er å dokumentere avhengighetene til hver pakke bygget i LFS.</para>
 
   <para>For hver pakke som bygges er det tre, og noen ganger opptil
@@ -24,14 +24,14 @@
    Den andre viser pakkene som må være tilgjengelige når noen programmer eller
    biblioteker fra pakken brukes under kjøring. Den tredje viser hvilke pakker,
    i tillegg til de på den første listen, må være tilgjengelige for å kjøre
-   testsuitene. Den fjerde listen over avhengigheter er pakker som krever at
-   denne pakken bygges og installeres på den endelige plasseringen før de er
+   testpakkene. Den fjerde listen over avhengigheter er pakker som krever at
+   denne pakken bygges og installeres på den endelige plasseringen før de blir
    bygget og installert. I de fleste tilfeller er dette fordi disse pakkene hardkoder
    kodebaner til binærfiler i skriptene deres. Hvis ikke dette blir bygget i en bestemt rekkefølge,
    kan det føre til at stier til /tools/bin/[binær] blir plassert inne i skript
    installert i det endelige systemet. Dette er åpenbart ikke ønskelig.</para>
 
-  <para>Den siste listen over avhengigheter er valgfrie pakker som ikke er det
+  <para>Den siste listen over avhengigheter er valgfrie pakker som ikke er
    adressert i LFS, men kan være nyttig for brukeren. Disse pakkene kan ha
    ekstra obligatoriske eller valgfrie avhengigheter. For disse
    avhengigheter, er den anbefalte praksisen å installere dem etter fullføring av
