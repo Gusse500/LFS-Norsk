@@ -25,12 +25,12 @@
   <xsl:template name="graphical.admonition">
     <xsl:variable name="admon.type">
       <xsl:choose>
-        <xsl:when test="local-name(.)='note'">Bemerk</xsl:when>
-        <xsl:when test="local-name(.)='warning'">Advarsel</xsl:when>
-        <xsl:when test="local-name(.)='caution'">Forsiktig</xsl:when>
-        <xsl:when test="local-name(.)='tip'">Tips</xsl:when>
-        <xsl:when test="local-name(.)='important'">Viktig</xsl:when>
-        <xsl:otherwise>Bemerk</xsl:otherwise>
+        <xsl:when test="local-name(.)='note'">Note</xsl:when>
+        <xsl:when test="local-name(.)='warning'">Warning</xsl:when>
+        <xsl:when test="local-name(.)='caution'">Caution</xsl:when>
+        <xsl:when test="local-name(.)='tip'">Tip</xsl:when>
+        <xsl:when test="local-name(.)='important'">Important</xsl:when>
+        <xsl:otherwise>Note</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
     <xsl:variable name="alt">
