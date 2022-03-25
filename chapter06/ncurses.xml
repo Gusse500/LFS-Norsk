@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-tools-ncurses" role="wrap">
+  <?dbhtml filename="ncurses.html"?>
+
+  <sect1info condition="script">
+    <productname>ncurses</productname>
+    <productnumber>&ncurses-version;</productnumber>
+    <address>&ncurses-url;</address>
+  </sect1info>
+
+  <title>Ncurses-&ncurses-version;</title>
+
+  <indexterm zone="ch-tools-ncurses">
+    <primary sortas="a-Ncurses">Ncurses</primary>
+    <secondary>tools</secondary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../chapter08/ncurses.xml"
+    xpointer="xpointer(/sect1/sect2[1]/para[1])"/>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&ncurses-tmp-sbu;</seg>
+        <seg>&ncurses-tmp-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Ncurses</title>
+
+    <para>Først, sørg for at <command>gawk</command> blir funnet først under konfigurasjonen:</para>
+
+<screen><userinput remap="pre">sed -i s/mawk// configure</userinput></screen>
+
+    <para>Kjør deretter følgende kommandoer for å bygge <quote>tic</quote>
+    programmet på byggeverten:</para>
+
+<screen><userinput remap="pre">mkdir build
+pushd build
+  ../configure
+  make -C include
+  make -C progs tic
+popd</userinput></screen>
+
+    <para>Forbered Ncurses for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr                \
+            --host=$LFS_TGT              \
+            --build=$(./config.guess)    \
+            --mandir=/usr/share/man      \
+            --with-manpage-format=normal \
+            --with-shared                \
+            --without-debug              \
+            --without-ada                \
+            --without-normal             \
+            --disable-stripping          \
+            --enable-widec</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av de nye konfigureringsalternativene:</title>
+
+      <varlistentry>
+        <term><parameter>--with-manpage-format=normal</parameter></term>
+        <listitem>
+          <para>Dette forhindrer Ncurses fra å installere komprimerte manual
+           sider, noe som kan skje hvis selve vertsdistribusjonen
+           har komprimerte manual sider.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--without-ada</parameter></term>
+        <listitem>
+          <para>Dette sikrer at Ncurses ikke bygger støtte for Ada
+           kompilator som kan være til stede på verten, men som ikke vil være tilgjengelig
+           når vi går inn i <command>chroot</command> miljøet.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--disable-stripping</parameter></term>
+        <listitem>
+          <para>Denne bryteren hindrer byggesystemet å strippe
+           programmene som bruker <command>strip</command> programmet fra verten.
+          Bruk av vertsverktøy på krysskompilerte program kan forårsake feil.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--enable-widec</parameter></term>
+        <listitem>
+          <para>Denne bryteren forårsaker biblioteker med store tegn (f.eks., <filename
+          class="libraryfile">libncursesw.so.&ncurses-version;</filename>)
+          skal bygges i stedet for vanlige (f.eks., <filename
+          class="libraryfile">libncurses.so.&ncurses-version;</filename>).
+          Disse brede tegnbibliotekene er brukbare i både multibyte og
+           tradisjonelle 8-biters lokaliteter, mens vanlige biblioteker fungerer som de skal
+           bare i 8-biters lokaliteter. Brede karakterer og normale biblioteker er
+           kildekompatibel, men ikke binærkompatibel.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--without-normal</parameter></term>
+        <listitem>
+          <para>Denne bryteren deaktiverer bygging og installasjon av de fleste statiske biblioteker.
+          </para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make DESTDIR=$LFS TIC_PATH=$(pwd)/build/progs/tic install
+echo "INPUT(-lncursesw)" > $LFS/usr/lib/libncurses.so</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av installasjonsalternativene:</title>
+
+      <varlistentry>
+        <term><parameter>TIC_PATH=$(pwd)/build/progs/tic</parameter></term>
+        <listitem>
+          <para>Vi må sende stien til den nettopp bygde
+          <command>tic</command> så den er i stand til å kjøre på byggemaskinen, slik at
+           terminaldatabasen kan opprettes uten feil.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><command>echo "INPUT(-lncursesw)" > $LFS/usr/lib/libncurses.so</command></term>
+        <listitem>
+          <para><filename>libncurses.so</filename> biblioteket trengs av
+           noen få pakker vi skal bygge snart. Vi lager denne lille linkskriptet
+           , da dette er det som gjøres i <xref
+          linkend="chapter-building-system"/>.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+  <sect2 role="content">
+    <title/>
+
+    <para>Detaljer om denne pakken finner du i
+    <xref linkend="contents-ncurses" role="."/></para>
+
+  </sect2>
+
+</sect1>
