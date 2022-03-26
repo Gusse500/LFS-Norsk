@@ -51,7 +51,7 @@
 
 <screen><userinput remap="pre">sed '6009s/$add_dir//' -i ltmain.sh</userinput></screen>
 
-    <para>Opprett en egen byggekatalog igjen:</para>
+    <para>Opprett en egen byggemappe igjen:</para>
 
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>

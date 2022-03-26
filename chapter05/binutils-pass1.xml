@@ -84,7 +84,7 @@ cd       build</userinput></screen>
         <listitem>
           <para>Dette forteller konfigurasjonsskriptet å forberede for å installere
           Binutils programmene i <filename
-          class="directory">$LFS/tools</filename> katalogen.</para>
+          class="directory">$LFS/tools</filename> mappen.</para>
         </listitem>
       </varlistentry>
 

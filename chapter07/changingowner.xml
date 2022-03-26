@@ -18,10 +18,10 @@
     class="username">root</systemitem> sitt miljø.</para>
   </note>
 
-  <para>For øyeblikket er hele kataloghierarkiet i <filename
+  <para>For øyeblikket er hele mappehierarkiet i <filename
   class="directory">$LFS</filename>
   eid av brukeren <systemitem class="username">lfs</systemitem>, en bruker
-   som bare eksisterer på vertssystemet. Hvis katalogene og filene under <filename
+   som bare eksisterer på vertssystemet. Hvis mappene og filene under <filename
   class="directory">$LFS</filename> blir holdt som de er, vil de være
    eid av en bruker-ID uten en tilsvarende konto. Dette er farlig pga
    en brukerkonto opprettet senere kan få samme bruker-ID og eie alle
@@ -29,7 +29,7 @@
    disse filene til mulig ondsinnet manipulasjon.</para>
 
   <para>For å løse dette problemet, endre
-   eierskap til <filename class="directory">$LFS/*</filename> kataloger til
+   eierskap til <filename class="directory">$LFS/*</filename> mapper til
    bruker <systemitem class="username">root</systemitem> ved å kjøre følgende
    kommando:</para>
 

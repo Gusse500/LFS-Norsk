@@ -51,7 +51,7 @@
 
 <screen role="nodump"><userinput>mkdir -v $LFS/sources</userinput></screen>
 
-  <para>Gjør denne katalogen skrivbar og låst (sticky). <quote>Låst</quote>
+  <para>Gjør denne mappen skrivbar og låst (sticky). <quote>Låst</quote>
   betyr at selv om flere brukere har skrivetillatelse på en
    mappe, er det bare eieren av en fil som kan slette filen i en
    låst mappe. Følgende kommando vil aktivere skrive og

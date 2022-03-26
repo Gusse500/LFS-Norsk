@@ -42,9 +42,9 @@
     <title>Installasjon av Util-linux</title>
 
     <para>FHS anbefaler å bruke <filename
-    class="directory">/var/lib/hwclock</filename> katalogen i stedet for den
-     vanlige <filename class="directory">/etc</filename> katalog som
-     plassering for <filename>adjtime</filename> filen. Opprett denne katalogen
+    class="directory">/var/lib/hwclock</filename> mappen i stedet for den
+     vanlige <filename class="directory">/etc</filename> mappen som
+     plassering for <filename>adjtime</filename> filen. Opprett denne mappen
      med:</para>
 
 <screen><userinput remap="pre">mkdir -pv /var/lib/hwclock</userinput></screen>
@@ -84,7 +84,7 @@
         <listitem>
           <para>Denne bryteren sikrer
           <filename class="extension">.so</filename> målrettes mot symbolkoblinger
-           i den delte bibliotekfilen i samme katalog
+           i den delte bibliotekfilen i samme mappe
           (<filename class="directory">/usr/lib</filename>) direkte.</para>
         </listitem>
       </varlistentry>

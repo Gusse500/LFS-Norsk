@@ -70,7 +70,7 @@ rm usr/include/Makefile
 
     <segmentedlist>
       <segtitle>Installerte overskrifter</segtitle>
-      <segtitle>Installerte kataloger</segtitle>
+      <segtitle>Installerte mapper</segtitle>
 
       <seglistitem>
         <seg>/usr/include/asm/*.h, /usr/include/asm-generic/*.h,

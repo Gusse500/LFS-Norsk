@@ -27,7 +27,7 @@
 
     <para>
       Den nåværende systemstørrelsen er nå omtrent 3 GB,
-       /tools-katalogen er ikke lenger nødvendig. Den bruker ca
+       /tools mappen er ikke lenger nødvendig. Den bruker ca
        1 GB diskplass. Slett den nå:
     </para>
 
@@ -101,19 +101,19 @@ umount $LFS/{sys,proc,run,dev}</userinput></screen>
     <para>
       Sørg for at du har minst 1 GB ledig diskplass (kildenes tarballer
        vil bli inkludert i sikkerhetskopiarkivet) på filsystemet som inneholder
-       katalogen der du oppretter sikkerhetskopiarkivet.
+       mappen der du oppretter sikkerhetskopiarkivet.
     </para>
 
     <para>
-      Merk at instruksjonene nedenfor spesifiserer hjemmekatalogen til vertenssystemets
+      Merk at instruksjonene nedenfor spesifiserer hjemmemappen til vertenssystemets
        bruker <systemitem class="username">root</systemitem> som
        vanligvis finnes på rotfilsystemet.
     </para>
 
     <para>
-      Erstatt <envar>$HOME</envar> av en katalog etter eget valg hvis du
+      Erstatt <envar>$HOME</envar> av en mappe etter eget valg hvis du
        ikke ønsker å ha sikkerhetskopien lagret i <systemitem
-      class="username">root</systemitem> sin hjemmekatalog.
+      class="username">root</systemitem> sin hjemmemappe.
     </para>
 
     <para>
@@ -157,7 +157,7 @@ tar -cJpf $HOME/lfs-temp-tools-&version;.tar.xz .</userinput></screen>
 
     <warning><para>Følgende kommandoer er ekstremt farlige. Hvis
      du kjører <command>rm -rf ./*</command> som root brukeren og du
-     ikke endret til $LFS-katalogen eller <envar>LFS</envar>
+     ikke endret til $LFS-mappen eller <envar>LFS</envar>
     miljøvariabelen ikke er satt for brukeren root, vil den ødelegge
      hele vertssystemet ditt. DU ER ADVART.</para></warning>
 

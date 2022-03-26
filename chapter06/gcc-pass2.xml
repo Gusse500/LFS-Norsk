@@ -44,7 +44,7 @@
     <title>Installasjon av GCC</title>
 
     <para>Som i den første versjonen av GCC, er GMP-, MPFR- og MPC-pakkene
-     nødvendig. Pakk ut tarballene og flytt dem til den nødvendige katalogen
+     nødvendig. Pakk ut tarballene og flytt dem til den nødvendige mappen
      :</para>
 
 <screen><userinput remap="pre">tar -xf ../mpfr-&mpfr-version;.tar.xz
@@ -54,7 +54,7 @@ mv -v gmp-&gmp-version; gmp
 tar -xf ../mpc-&mpc-version;.tar.gz
 mv -v mpc-&mpc-version; mpc</userinput></screen>
 
-    <para>Hvis du bygger på x86_64, endre standard katalognavn for 64-bit
+    <para>Hvis du bygger på x86_64, endre standard mappenavn for 64-bit
      bibliotekene til <quote>lib</quote>:</para>
 
 <screen><userinput remap="pre">case $(uname -m) in
@@ -68,7 +68,7 @@ esac</userinput></screen>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&gcc-cross-patch;</userinput></screen>
 -->
-    <para>Opprett en egen byggekatalog igjen:</para>
+    <para>Opprett en egen byggemappe igjen:</para>
 
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>

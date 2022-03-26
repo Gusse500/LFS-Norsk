@@ -65,14 +65,14 @@ esac</userinput></screen>
     </note>
 
     <para>Noen av Glibc-programmene bruker FHS inkompatible
-    <filename class="directory">/var/db</filename> katalogen for å lagre deres
+    <filename class="directory">/var/db</filename> mappen for å lagre deres
      kjøretidsdata. Bruk følgende oppdatering for å få slike programmer til å lagre sine
      kjøretidsdata på de FHS kompatible stedene:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../glibc-&glibc-version;-fhs-1.patch</userinput></screen>
 
     <para>Glibc dokumentasjonen anbefaler å bygge Glibc
-     i en dedikert byggekatalog:</para>
+     i en dedikert byggemappe:</para>
 
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>
@@ -118,7 +118,7 @@ cd       build</userinput></screen>
         <term><parameter>--with-headers=$LFS/usr/include</parameter></term>
         <listitem>
           <para>Dette forteller Glibc å kompilere seg selv mot deklarasjonene
-           nylig installert i katalogen $LFS/usr/include, slik at
+           nylig installert i mappen $LFS/usr/include, slik at
            den vet nøyaktig hvilke funksjoner kjernen har og kan optimalisere
            seg selv deretter.</para>
         </listitem>
@@ -176,7 +176,7 @@ cd       build</userinput></screen>
           <para><envar>DESTDIR</envar> make variabelen brukes av nesten alle
            pakker for å definere plasseringen der pakken skal være
            installert. Hvis den ikke er angitt, er den standard til roten (<filename
-          class="directory">/</filename>) katalogen. Her spesifiserer vi at
+          class="directory">/</filename>) mappen. Her spesifiserer vi at
            pakken installeres i <filename class="directory">$LFS
           </filename>, som vil bli roten etter <xref linkend=
           "ch-tools-chroot"/>.</para>

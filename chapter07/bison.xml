@@ -55,7 +55,7 @@
         <term><parameter>--docdir=/usr/share/doc/bison-&bison-version;</parameter></term>
         <listitem>
           <para>Dette forteller byggesystemet å installere bison dokumentasjonen
-           i en versjonert katalog.</para>
+           i en versjonert mappe.</para>
         </listitem>
       </varlistentry>
 

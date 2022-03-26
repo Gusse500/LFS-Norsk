@@ -158,7 +158,7 @@
        LFS) vil være nødvendig for å starte et system med separat
       <filename class="directory">/usr</filename> partisjon.</para></listitem>
 
-      <listitem><para>/opt &ndash; Denne katalogen er mest nyttig for
+      <listitem><para>/opt &ndash; Denne mappen er mest nyttig for
        BLFS der flere installasjoner av store pakker som Gnome eller KDE kan
        installeres uten å bygge inn filene i /usr hierarkiet. Hvis den
        brukes, er 5 til 10 gigabyte generelt tilstrekkelig.</para>

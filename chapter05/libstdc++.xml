@@ -29,7 +29,7 @@
      (en del av GCC er skrevet i C++), men vi måtte utsette installasjonen
      da vi bygde <xref linkend="ch-tools-gcc-pass1"/>
     fordi det avhenger av glibc, som ennå ikke var tilgjengelig i mål
-     katalogen.
+     mappen.
     </para>
 
     <segmentedlist>
@@ -50,10 +50,10 @@
     <note>
       <para><application>Libstdc++</application> er en del av GCC kildene.
        Du bør først pakke ut GCC tarball og bytte til
-      <filename>gcc-&gcc-version;</filename> katalogen.</para>
+      <filename>gcc-&gcc-version;</filename> mappen.</para>
     </note>
 
-    <para>Opprett en egen byggekatalog for libstdc++ og gå inn i den:</para>
+    <para>Opprett en egen byggemappe for libstdc++ og gå inn i den:</para>
 
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>
@@ -94,11 +94,11 @@ cd       build</userinput></screen>
         <listitem>
           <para>Dette spesifiserer installasjonsmappen for inkluderende filer.
            Fordi libstdc++ er standard C++-biblioteket for LFS, skal denne
-           katalogen samsvare med plasseringen der C++-kompilatoren
+           mappen samsvare med plasseringen der C++-kompilatoren
           (<command>$LFS_TGT-g++</command>) ville søke etter
            standard C++ inkludererende filer. I en normal konstruksjon, sendes denne informasjonen
            automatisk til libstdc++ <command>configure</command>
-          alternativer fra toppnivåkatalogen. I vårt tilfelle, denne informasjonen
+          alternativer fra toppnivåmappen. I vårt tilfelle, denne informasjonen
            må gis eksplisitt.
            C++-kompilatoren vil legge til sysroot banen
           <filename class="directory">$LFS</filename> (spesifisert bygning

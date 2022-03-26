@@ -48,14 +48,14 @@
     <note>
       <para><application>Libstdc++</application> er en del av GCC kildene.
        Du bør først pakke ut GCC tarballen og bytte til
-      <filename>gcc-&gcc-version;</filename> katalogen.</para>
+      <filename>gcc-&gcc-version;</filename> mappen.</para>
     </note>
 
     <para>Lag en lenke som eksisterer når du bygger libstdc++ i gcc treet:</para>
 
 <screen><userinput remap="pre">ln -s gthr-posix.h libgcc/gthr-default.h</userinput></screen>
 
-    <para>Opprett en egen byggekatalog for libstdc++ og skriv gå inn i den:</para>
+    <para>Opprett en egen byggemappe for libstdc++ og skriv gå inn i den:</para>
 
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>

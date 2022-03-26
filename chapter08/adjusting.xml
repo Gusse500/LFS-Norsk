@@ -28,7 +28,7 @@ ln -sv /tools/bin/ld /tools/$(uname -m)-pc-linux-gnu/bin/ld</userinput></screen>
    først pek GCC til den nye dynamiske linkeren. Bare med å slette alle forekomster av
   <quote>/tools</quote> bør gi oss den riktige veien til den dynamiske
    linkeren.For det andre, la GCC få vite hvor den finner Glibc startfilene. Tredje,
-   legg til katalogen /usr/include på slutten av standardsøkebanen, sånn
+   legg til mapper /usr/include på slutten av standardsøkebanen, sånn
    at deklarasjonsfiler lagt til i kapittel 6 blir funnet.
   En <command>sed</command> kommandoen oppnår dette:</para>
 

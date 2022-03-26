@@ -45,14 +45,14 @@
 
     <para>GCC krever GMP-, MPFR- og MPC pakkene. Siden disse pakkene kanskje ikke
     er inkludert i vertsdistribusjonen din, blir de bygget med
-    GCC.  Pakk ut hver pakke i GCC-kildekatalogen, og gi nytt navn til de
-    resulterende katalogene slik at GCC byggprosedyrene automatisk
+    GCC.  Pakk ut hver pakke i GCC-kildemappen, og gi nytt navn til de
+    resulterende mappene slik at GCC byggprosedyrene automatisk
     bruker dem:</para>
 
     <note><para>Det er hyppige misforståelser om dette kapittelet. Prosedyrene
     er de samme som alle andre kapitler som forklart tidligere (<xref
-    linkend='buildinstr'/>).  Pakk først ut gcc-tarballen fra kildekatalogen
-    og bytt deretter til den opprettede katalogen.  Først da bør du
+    linkend='buildinstr'/>).  Pakk først ut gcc-tarballen fra kildemappen
+    og bytt deretter til den opprettede mappen.  Først da bør du
     fortsette med instruksjonene nedenfor.</para></note>
 
 <screen><userinput remap="pre">tar -xf ../mpfr-&mpfr-version;.tar.xz
@@ -62,7 +62,7 @@ mv -v gmp-&gmp-version; gmp
 tar -xf ../mpc-&mpc-version;.tar.gz
 mv -v mpc-&mpc-version; mpc</userinput></screen>
 
-    <para>På x86_64-verter, sett standard katalognavn for
+    <para>På x86_64-verter, sett standard mappenavn for
     64-bits biblioteker til <quote>lib</quote>:</para>
 
 <screen><userinput remap="pre">case $(uname -m) in
@@ -73,7 +73,7 @@ mv -v mpc-&mpc-version; mpc</userinput></screen>
 esac</userinput></screen>
 
     <para>GCC dokumentasjonen anbefaler å bygge GCC
-    i en dedikert byggekatalog:</para>
+    i en dedikert byggemappe:</para>
 
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>

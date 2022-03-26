@@ -38,7 +38,7 @@
 
   <title>Oppstarts og sysconfig skriptversjon-&lfs-bootscripts-version;</title>
 
-  <para>Skriptene i dette vedlegget er oppført etter katalogene der de er
+  <para>Skriptene i dette vedlegget er oppført etter mappene der de er
    normalt er. Rekkefølgen er <filename
   class='directory'>/etc/rc.d/init.d</filename>, <filename
   class='directory'>/etc/sysconfig</filename>, <filename
