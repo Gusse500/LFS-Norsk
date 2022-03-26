@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-automake" role="wrap">
+  <?dbhtml filename="automake.html"?>
+
+  <sect1info condition="script">
+    <productname>automake</productname>
+    <productnumber>&automake-version;</productnumber>
+    <address>&automake-url;</address>
+  </sect1info>
+
+  <title>Automake-&automake-version;</title>
+
+  <indexterm zone="ch-system-automake">
+    <primary sortas="a-Automake">Automake</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Automake pakken inneholder programmer for å generere Make filer for bruk
+     med Autoconf.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&automake-fin-sbu;</seg>
+        <seg>&automake-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Automake</title>
+<!--
+    <para>Fix a failing test:</para>
+
+<screen><userinput remap="pre">sed -i "s/''/etags/" t/tags-lisp-space.sh</userinput></screen>
+-->
+    <para>Forbered Automake for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr --docdir=/usr/share/doc/automake-&automake-version;</userinput></screen>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para> Å bruke make -j4 alternativet øker hastigheten på testene, selv på systemer med
+     kun én prosessor, på grunn av interne forsinkelser i individuelle tester. Å teste
+     resultatene, utsted:</para>
+
+<screen><userinput remap="test">make -j4 check</userinput></screen>
+
+    <para>Testen t/subobj.sh er kjent for å mislykkes.</para>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+  </sect2>
+
+
+  <sect2 id="contents-automake" role="content">
+    <title>Innholdet i Automake</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installerte mapper</segtitle>
+
+      <seglistitem>
+        <seg>aclocal, aclocal-&am-minor-version; (hardlinket til aclocal), automake, og
+        automake-&am-minor-version; (hardlinket til automake) </seg>
+        <seg>/usr/share/aclocal-&am-minor-version;, /usr/share/automake-&am-minor-version;, og
+        /usr/share/doc/automake-&automake-version;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="aclocal">
+        <term><command>aclocal</command></term>
+        <listitem>
+          <para>Genererer <filename>aclocal.m4</filename> filer basert på
+           innholdet i <filename>configure.in</filename> filene</para>
+          <indexterm zone="ch-system-automake aclocal">
+            <primary sortas="b-aclocal">aclocal</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="aclocalversion">
+        <term><command>aclocal-&am-minor-version;</command></term>
+        <listitem>
+          <para>En hard lenke til <command>aclocal</command></para>
+          <indexterm zone="ch-system-automake aclocalversion">
+            <primary sortas="b-aclocal-&am-minor-version;">aclocal-&am-minor-version;</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="automake">
+        <term><command>automake</command></term>
+        <listitem>
+          <para>Et verktøy for automatisk generering av
+          <filename>Makefile.in</filename> filer fra
+          <filename>Makefile.am</filename> filer [For å lage alle
+          <filename>Makefile.in</filename> filer for en pakke, kjør dette programmet
+           i mappen på øverste nivå. Ved å skanne
+          <filename>configure.in</filename> filen, finner den automatisk hver
+           passende <filename>Makefile.am</filename> fil og genererer
+           tilsvarende <filename>Makefile.in</filename> fil.]</para>
+          <indexterm zone="ch-system-automake automake">
+            <primary sortas="b-automake">automake</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="automake-version">
+        <term><command>automake-&am-minor-version;</command></term>
+        <listitem>
+          <para>En hard lenke til <command>automake</command></para>
+          <indexterm zone="ch-system-automake automake-version">
+            <primary sortas="b-automake-&am-minor-version;">automake-&am-minor-version;</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>

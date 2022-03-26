@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-bash" role="wrap">
+  <?dbhtml filename="bash.html"?>
+
+  <sect1info condition="script">
+    <productname>bash</productname>
+    <productnumber>&bash-version;</productnumber>
+    <address>&bash-url;</address>
+  </sect1info>
+
+  <title>Bash-&bash-version;</title>
+
+  <indexterm zone="ch-system-bash">
+    <primary sortas="a-Bash">Bash</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Bash pakken inneholder Bourne-Again Skallet (Bourne-Again SHell).</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&bash-fin-sbu;</seg>
+        <seg>&bash-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Bash</title>
+
+    <para>Forbered Bash for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr                      \
+            --docdir=/usr/share/doc/bash-&bash-version; \
+            --without-bash-malloc              \
+            --with-installed-readline</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av det nye konfigureringsalternativet:</title>
+
+      <varlistentry>
+        <term><parameter>--with-installed-readline</parameter></term>
+        <listitem>
+          <para>Dette alternativet forteller Bash å bruke <filename
+          class="libraryfile">readline</filename> biblioteket som allerede er
+           installert på systemet i stedet for å bruke sin egen readline
+           versjon.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Hopp ned til <quote>Installer
+     pakken</quote> hvis du ikke kjører testpakken.</para>
+
+    <para>For å forberede testene, sørg for at brukeren <systemitem class="username">tester</systemitem> kan skrive til kildetreet:</para>
+
+<screen><userinput remap="test">chown -Rv tester .</userinput></screen>
+
+    <para>Testpakken til pakken er designet for å kjøres som en ikke-root
+     bruker som eier terminalen koblet til standardinngang. For å tilfredsstille
+     krav, skap en ny pseudoterminal ved hjelp av
+    <application>Expect</application> og kjør testene som bruker <systemitem
+    class="username">tester</systemitem>:</para>
+
+<screen><userinput remap="test">su -s /usr/bin/expect tester &lt;&lt; EOF
+set timeout -1
+spawn make tests
+expect eof
+lassign [wait] _ _ _ value
+exit $value
+EOF</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+    <para>Kjør den nylig kompilerte <command>bash</command> programmet (erstatter det som
+     kjøres for øyeblikket):</para>
+
+ <screen role="nodump"><userinput>exec /usr/bin/bash --login</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-bash" role="content">
+    <title>Innholdet i Bash</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installert mappe</segtitle>
+
+      <seglistitem>
+        <seg>bash, bashbug, og sh (linker til bash)</seg>
+        <seg>/usr/include/bash, /usr/lib/bash, og
+        /usr/share/doc/bash-&bash-version;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="bash">
+        <term><command>bash</command></term>
+        <listitem>
+          <para>En mye brukt kommandotolk; den utfører mange typer av
+           utvidelser og erstatninger på en gitt kommandolinje før kjøringen gjøres
+           , og dette gjør dermed denne tolken til et kraftig verktøy</para>
+          <indexterm zone="ch-system-bash bash">
+            <primary sortas="b-bash">bash</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="bashbug">
+        <term><command>bashbug</command></term>
+        <listitem>
+          <para>Et skallskript for å hjelpe brukeren med å skrive og sende standard
+           formaterte feilrapporter vedrørende <command>bash</command></para>
+          <indexterm zone="ch-system-bash bashbug">
+            <primary sortas="b-bashbug">bashbug</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="sh">
+        <term><command>sh</command></term>
+        <listitem>
+          <para>En symbolsk lenke til <command>bash</command> programmet; når det påkalles
+           som <command>sh</command>, <command>bash</command> prøver å etterligne
+           oppstartadferd av historiske versjoner av <command>sh</command> 
+           så nært som mulig, samtidig som den samsvarer med POSIX standarden
+           også</para>
+          <indexterm zone="ch-system-bash sh">
+            <primary sortas="b-sh">sh</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>
