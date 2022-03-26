@@ -95,13 +95,13 @@
 
 <!ENTITY anduin-sources  "https://anduin.linuxfromscratch.org/LFS">
 
-<!ENTITY buildtime       "Approximate build time">
-<!ENTITY diskspace       "Required disk space">
-<!ENTITY dependencies    "Installation depends on">
-<!ENTITY runtime         "Required at runtime">
-<!ENTITY testsuites      "Test suite depends on">
-<!ENTITY before          "Must be installed before">
-<!ENTITY external        "Optional dependencies">
+<!ENTITY buildtime       "Omtrentlig byggetid">
+<!ENTITY diskspace       "Nødvendig diskplass">
+<!ENTITY dependencies    "Installasjonen avhenger av">
+<!ENTITY runtime         "Påkrevd ved kjøretid">
+<!ENTITY testsuites      "Testpakke avhenger av">
+<!ENTITY before          "Må installeres før">
+<!ENTITY external        "Valgfrie avhengigheter">
 
 <!ENTITY gnu             "https://ftp.gnu.org/gnu/">
 <!ENTITY gnu-software    "https://www.gnu.org/software/">
