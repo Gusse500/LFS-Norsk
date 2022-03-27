@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-check" role="wrap">
+  <?dbhtml filename="check.html"?>
+
+  <sect1info condition="script">
+    <productname>check</productname>
+    <productnumber>&check-version;</productnumber>
+    <address>&check-url;</address>
+  </sect1info>
+
+  <title>Check-&check-version;</title>
+
+  <indexterm zone="ch-system-check">
+    <primary sortas="a-Check">Check</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Check er et rammeverk for C enhetstesting.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&check-fin-sbu;</seg>
+        <seg>&check-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Check</title>
+
+    <para>Forbered sjekk for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr --disable-static</userinput></screen>
+
+    <para>Bygg pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Samlingen er nå fullført. For å kjøre testpakkene for Check, utsted
+     følgende kommando:</para>
+
+<screen><userinput remap="test">make check</userinput></screen>
+
+<!--    <para>Merk at testpakkene for Check kan ta relativt lang tid
+    (opp til 4 SBU).</para>
+-->
+    <para>Installer pakken:</para>
+
+    <screen><userinput remap="install">make docdir=/usr/share/doc/check-&check-version; install</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-check" role="content">
+    <title>Innholdet i Check</title>
+
+    <segmentedlist>
+      <segtitle>Installert program</segtitle>
+      <segtitle>Installert bibliotek</segtitle>
+
+      <seglistitem>
+        <seg>checkmk</seg>
+        <seg>libcheck.so</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="checkmk">
+        <term><command>checkmk</command></term>
+        <listitem>
+          <para>Awk skript for å generere C enhetstester for bruk med Check's
+           rammeverk for enhetstesting</para>
+          <indexterm zone="ch-system-check checkmk">
+            <primary sortas="b-checmk">checkmk</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libcheck">
+        <term><filename class="libraryfile">libcheck.{a,so}</filename></term>
+        <listitem>
+          <para>Inneholder funksjoner som gjør at Check kan kalles fra et test
+           program</para>
+          <indexterm zone="ch-system-check libcheck">
+            <primary sortas="c-libcheck">libcheck</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>

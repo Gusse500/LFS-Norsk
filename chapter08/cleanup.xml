@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-cleanup">
+  <?dbhtml filename="cleanup.html"?>
+
+  <title>Rydde opp</title>
+
+  <para>Til slutt, ryd opp i noen ekstra filer som er igjen etter å ha kjørt testene:</para>
+
+<screen><userinput>rm -rf /tmp/*</userinput></screen>
+
+  <para>Det er også flere filer installert i /usr/lib og /usr/libexec
+   mappene med filtypen .la. Disse er "libtool arkivfiler"
+   . Som allerede sagt, er de bare nyttige når du kobler til statiske
+   biblioteker. De er unødvendige, og potensielt skadelige, når du bruker dynamiske
+   delte biblioteker, spesielt når du også bruker byggesystemer som ikke bruker autoverktøy.
+   For å fjerne dem, kjør:</para>
+
+<screen><userinput>find /usr/lib /usr/libexec -name \*.la -delete</userinput></screen>
+
+   <para>For mer informasjon om libtool arkivfiler, se <ulink
+   url="&blfs-book;introduction/la-files.html">BLFS delen "Om Libtool
+    Arkiver (.la) filer"</ulink>.</para>
+
+   <para>Kompilatoren bygd i <xref linkend="chapter-temporary-tools"/> og
+   <xref linkend="chapter-chroot-temporary-tools"/> er fortsatt delvis
+    installert og ikke nødvendig lenger. Fjern den med:</para>
+
+<screen><userinput>find /usr -depth -name $(uname -m)-lfs-linux-gnu\* | xargs rm -rf</userinput></screen>
+
+   <para>Til slutt fjerner du den midlertidige "tester" brukerkontoen som ble opprettet på
+    begynnelsen av forrige kapittel.</para>
+
+<screen><userinput>userdel -r tester</userinput></screen>
+</sect1>

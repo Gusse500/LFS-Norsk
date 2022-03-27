@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-bzip2" role="wrap">
+  <?dbhtml filename="bzip2.html"?>
+
+  <sect1info condition="script">
+    <productname>bzip2</productname>
+    <productnumber>&bzip2-version;</productnumber>
+    <address>&bzip2-url;</address>
+  </sect1info>
+
+  <title>Bzip2-&bzip2-version;</title>
+
+  <indexterm zone="ch-system-bzip2">
+    <primary sortas="a-Bzip2">Bzip2</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Bzip2 pakken inneholder programmer for komprimering og dekomprimering
+     av filer. Komprimering av tekstfiler med <command>bzip2</command> gir mye
+     bedre kompresjonsprosent enn med den tradisjonelle
+    <command>gzip</command>.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&bzip2-fin-sbu;</seg>
+        <seg>&bzip2-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Bzip2</title>
+
+    <para>Bruk en oppdatering som vil installere dokumentasjonen for denne pakken:</para>
+
+<screen><userinput remap="pre">patch -Np1 -i ../&bzip2-docs-patch;</userinput></screen>
+
+   <para>Følgende kommando sikrer at installasjonen av symbolske lenker er relative:</para>
+
+<screen><userinput remap="pre">sed -i 's@\(ln -s -f \)$(PREFIX)/bin/@\1@' Makefile</userinput></screen>
+
+    <para>Sørg for at man sidene er installert på riktig sted:</para>
+
+<screen><userinput remap="pre">sed -i "s@(PREFIX)/man@(PREFIX)/share/man@g" Makefile</userinput></screen>
+
+    <para>Forbered Bzip2 for kompilering med:</para>
+
+<screen><userinput remap="make">make -f Makefile-libbz2_so
+make clean</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av make parameteren:</title>
+
+      <varlistentry>
+        <term><parameter>-f Makefile-libbz2_so</parameter></term>
+        <listitem>
+          <para>Vil føre til at Bzip2 bygges med en annen
+          <filename>Makefile</filename> fil, i dette tilfellet
+          <filename>Makefile-libbz2_so</filename> filen, som skaper en dynamisk
+          <filename class="libraryfile">libbz2.so</filename> bibliotek og lenker
+           Bzip2 verktøyene mot det.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Kompiler og test pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Installer programmene:</para>
+
+<screen><userinput remap="install">make PREFIX=/usr install</userinput></screen>
+
+    <para>Installer det delte biblioteket:</para>
+<screen><userinput remap="install">cp -av libbz2.so.* /usr/lib
+ln -sv libbz2.so.&bzip2-version; /usr/lib/libbz2.so</userinput></screen>
+
+    <para>Installer den delte <command>bzip2</command> binær inn i
+    <filename class="directory">/usr/bin</filename> mappen, og erstatt
+     to eksemplarer av <command>bzip2</command> med symbolske lenker:</para>
+
+<screen><userinput remap="install">cp -v bzip2-shared /usr/bin/bzip2
+for i in /usr/bin/{bzcat,bunzip2}; do
+  ln -sfv bzip2 $i
+done</userinput></screen>
+
+    <para>Fjern et ubrukelig statisk bibliotek:</para>
+
+<screen><userinput remap="install">rm -fv /usr/lib/libbz2.a</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-bzip2" role="content">
+    <title>Innhold i Bzip2</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installerte biblioteker</segtitle>
+      <segtitle>Installert mappe</segtitle>
+
+      <seglistitem>
+        <seg>bunzip2 (linker til bzip2), bzcat (linker til bzip2), bzcmp (linker til
+        bzdiff), bzdiff, bzegrep (linker til bzgrep), bzfgrep (linker til bzgrep),
+        bzgrep, bzip2, bzip2recover, bzless (linker til bzmore), og bzmore</seg>
+        <seg>libbz2.so</seg>
+        <seg>/usr/share/doc/bzip2-&bzip2-version;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="bunzip2">
+        <term><command>bunzip2</command></term>
+        <listitem>
+          <para>Dekomprimerer bzippede filer</para>
+          <indexterm zone="ch-system-bzip2 bunzip2">
+            <primary sortas="b-bunzip2">bunzip2</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="bzcat">
+        <term><command>bzcat</command></term>
+        <listitem>
+          <para>Dekomprimerer til standard utgang</para>
+          <indexterm zone="ch-system-bzip2 bzcat">
+            <primary sortas="b-bzcat">bzcat</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="bzcmp">
+        <term><command>bzcmp</command></term>
+        <listitem>
+          <para>Kjører <command>cmp</command> på bzippede filer</para>
+          <indexterm zone="ch-system-bzip2 bzcmp">
+            <primary sortas="b-bzcmp">bzcmp</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="bzdiff">
+        <term><command>bzdiff</command></term>
+        <listitem>
+          <para>Kjører <command>diff</command> på bzippede filer</para>
+          <indexterm zone="ch-system-bzip2 bzdiff">
+            <primary sortas="b-bzdiff">bzdiff</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="bzegrep">
+        <term><command>bzegrep</command></term>
+        <listitem>
+          <para>Kjører <command>egrep</command> på bzippede filer</para>
+          <indexterm zone="ch-system-bzip2 bzegrep">
+            <primary sortas="b-bzegrep">bzegrep</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="bzfgrep">
+        <term><command>bzfgrep</command></term>
+        <listitem>
+          <para>Kjører <command>fgrep</command> på bzippede filer</para>
+          <indexterm zone="ch-system-bzip2 bzfgrep">
+            <primary sortas="b-bzfgrep">bzfgrep</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="bzgrep">
+        <term><command>bzgrep</command></term>
+        <listitem>
+          <para>Kjører <command>grep</command> på bzippede filer</para>
+          <indexterm zone="ch-system-bzip2 bzgrep">
+            <primary sortas="b-bzgrep">bzgrep</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="bzip2">
+        <term><command>bzip2</command></term>
+        <listitem>
+          <para>Komprimerer filer ved å bruke Burrows-Wheeler sortering på blokktekst
+           komprimeringsalgoritme med Huffman-koding; kompresjonshastigheten er
+           bedre enn det som oppnås med mer konvensjonelle kompressorer som bruker
+          <quote>Lempel-Ziv</quote> algoritmer, som <command>gzip</command></para>
+          <indexterm zone="ch-system-bzip2 bzip2">
+            <primary sortas="b-bzip2">bzip2</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="bzip2recover">
+        <term><command>bzip2recover</command></term>
+        <listitem>
+          <para>Prøver å gjenopprette data fra skadde bzippede filer</para>
+          <indexterm zone="ch-system-bzip2 bzip2recover">
+            <primary sortas="b-bzip2recover">bzip2recover</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="bzless">
+        <term><command>bzless</command></term>
+        <listitem>
+          <para>Kjører <command>less</command> på bzippede filer</para>
+          <indexterm zone="ch-system-bzip2 bzless">
+            <primary sortas="b-bzless">bzless</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="bzmore">
+        <term><command>bzmore</command></term>
+        <listitem>
+          <para>Kjører <command>more</command> på bzippede filer</para>
+          <indexterm zone="ch-system-bzip2 bzmore">
+            <primary sortas="b-bzmore">bzmore</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libbz2">
+        <term><filename class="libraryfile">libbz2</filename></term>
+        <listitem>
+          <para>Biblioteket implementerer tapsfri, blokksorterende data
+           komprimering ved å bruke Burrows-Wheeler-algoritmen</para>
+          <indexterm zone="ch-system-bzip2 libbz2">
+            <primary sortas="c-libbz2">libbz2</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>
