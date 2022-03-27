@@ -101,7 +101,7 @@
   
   <!-- Norsk -->
   <l:l10n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0"
-          language="nb" english-language-name="Norwegian (Bokmål)">
+          language="no" english-language-name="Norwegian">
 
     <l:gentext key="description" text="beskrivelse"/>
     <l:gentext key="Bootscripts" text="Oppstartsskript"/>
