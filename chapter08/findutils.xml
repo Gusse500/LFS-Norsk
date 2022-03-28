@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-findutils" role="wrap">
+  <?dbhtml filename="findutils.html"?>
+
+  <sect1info condition="script">
+    <productname>findutils</productname>
+    <productnumber>&findutils-version;</productnumber>
+    <address>&findutils-url;</address>
+  </sect1info>
+
+  <title>Findutils-&findutils-version;</title>
+
+  <indexterm zone="ch-system-findutils">
+    <primary sortas="a-Findutils">Findutils</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Findutils pakken inneholder programmer for å finne filer. Disse programmene
+     er gitt for å rekursivt søke gjennom et katalogtre og til å
+     opprette, vedlikeholde og søke i en database (ofte raskere enn den rekursive
+     letingen, men er upålitelig hvis databasen ikke nylig har blitt oppdatert).</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&findutils-fin-sbu;</seg>
+        <seg>&findutils-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Findutils</title>
+
+    <para>Forbered Findutils for kompilering:</para>
+
+<screen><userinput remap="configure">case $(uname -m) in
+    i?86)   TIME_T_32_BIT_OK=yes ./configure --prefix=/usr --localstatedir=/var/lib/locate ;;
+    x86_64) ./configure --prefix=/usr --localstatedir=/var/lib/locate ;;
+esac</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av konfigureringsalternativene:</title>
+
+      <varlistentry>
+        <term><command>TIME_32_BIT_OK=yes</command></term>
+        <listitem>
+          <para>Denne innstillingen er nødvendig for å bygge et 32 bit system.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--localstatedir</parameter></term>
+        <listitem>
+          <para>Dette alternativet endrer plasseringen av <command>locate</command>
+          databasen til å være i <filename class="directory">/var/lib/locate</filename>,
+          som er FHS kompatibel.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>For å teste resultatene, utsted:</para>
+
+<screen><userinput remap="test">chown -Rv tester .
+su tester -c "PATH=$PATH make check"</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-findutils" role="content">
+    <title>Innhold i Findutils</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installert mappe</segtitle>
+
+      <seglistitem>
+        <seg>find, locate, updatedb, og xargs</seg>
+        <seg>/var/lib/locate</seg>
+      </seglistitem>
+
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="find">
+        <term><command>find</command></term>
+        <listitem>
+          <para>Søker i gitte katalogtrær etter filer som samsvarer med de spesifiserte
+           kriterier</para>
+          <indexterm zone="ch-system-findutils find">
+            <primary sortas="b-find">find</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="locate">
+        <term><command>locate</command></term>
+        <listitem>
+          <para>Søker gjennom en database med filnavn og rapporterer navnene
+           som inneholder en gitt streng eller samsvarer med et gitt mønster</para>
+          <indexterm zone="ch-system-findutils locate">
+            <primary sortas="b-locate">locate</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="updatedb">
+      <term><command>updatedb</command></term>
+        <listitem>
+          <para>Oppdaterer <command>locate</command> databasen; den skanner
+           hele filsystemet (inkludert andre filsystemer som for øyeblikket er
+           montert, med mindre den blir bedt om å ikke gjøre det) og legger inn hvert filnavn den finner
+           i databasen</para>
+          <indexterm zone="ch-system-findutils updatedb">
+            <primary sortas="b-updatedb">updatedb</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="xargs">
+        <term><command>xargs</command></term>
+        <listitem>
+          <para>Kan brukes til å gi en gitt kommando til en liste over filer</para>
+          <indexterm zone="ch-system-findutils xargs">
+            <primary sortas="b-xargs">xargs</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>
