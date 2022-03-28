@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-expect" role="wrap">
+  <?dbhtml filename="expect.html"?>
+
+  <sect1info condition="script">
+    <productname>expect</productname>
+    <productnumber>&expect-version;</productnumber>
+    <address>&expect-url;</address>
+  </sect1info>
+
+  <title>Expect-&expect-version;</title>
+
+  <indexterm zone="ch-system-expect">
+    <primary sortas="a-Expect">Expect</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para><application>Expect</application> pakken inneholder verktøy for å
+     automatisere, via skriptede dialoger, interaktive applikasjoner som f.eks
+    <command>telnet</command>, <command>ftp</command>,
+    <command>passwd</command>, <command>fsck</command>,
+    <command>rlogin</command>, og <command>tip</command>.
+    <application>Expect</application> er også nyttig for å teste disse samme
+     applikasjoner i tillegg til å lette alle slags oppgaver som er uoverkommelige
+     vanskelig med noe annet. <application>DejaGnu</application>
+    rammeverket er skrevet i <application>Expect</application>.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&expect-tmp-sbu;</seg>
+        <seg>&expect-tmp-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Expect</title>
+
+    <para>Forbered Expect for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr           \
+            --with-tcl=/usr/lib     \
+            --enable-shared         \
+            --mandir=/usr/share/man \
+            --with-tclinclude=/usr/include</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av konfigureringsalternativene:</title>
+
+      <varlistentry>
+        <term><parameter>--with-tcl=/usr/lib</parameter></term>
+        <listitem>
+          <para>Denne parameteren er nødvendig for å fortelle
+          <command>configure</command> hvor
+          <command>tclConfig.sh</command> skriptet er plassert.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--with-tclinclude=/usr/include</parameter></term>
+        <listitem>
+          <para>Dette forteller Expect eksplisitt hvor du finner Tcls interne
+           deklarasjoner.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Bygg pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>For å teste resultatene, utsted:</para>
+
+<screen><userinput remap="test">make test</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install
+ln -svf expect&expect-version;/libexpect&expect-version;.so /usr/lib</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-expect" role="content">
+    <title>Innhold i Expect</title>
+
+    <segmentedlist>
+      <segtitle>Installert program</segtitle>
+      <segtitle>Installert bibliotek</segtitle>
+
+      <seglistitem>
+        <seg>expect</seg>
+        <seg>libexpect&expect-version;.so</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="expect">
+        <term><command>expect</command></term>
+        <listitem>
+          <para>Kommuniserer med andre interaktive programmer iht
+           til et skript</para>
+          <indexterm zone="ch-system-expect expect">
+            <primary sortas="b-expect">expect</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libexpect">
+        <term><filename class="libraryfile">libexpect-&expect-version;.so</filename></term>
+        <listitem>
+          <para>Inneholder funksjoner som gjør at Expect kan brukes som en Tcl
+           utvidelse eller brukes direkte fra C eller C++ (uten Tcl)</para>
+          <indexterm zone="ch-system-expect libexpect">
+            <primary sortas="c-libexpect-&expect-version;">libexpect-&expect-version;</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>
