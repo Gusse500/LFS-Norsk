@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-e2fsprogs" role="wrap">
+  <?dbhtml filename="e2fsprogs.html"?>
+
+  <sect1info condition="script">
+    <productname>e2fsprogs</productname>
+    <productnumber>&e2fsprogs-version;</productnumber>
+    <address>&e2fsprogs-url;</address>
+  </sect1info>
+
+  <title>E2fsprogs-&e2fsprogs-version;</title>
+
+  <indexterm zone="ch-system-e2fsprogs">
+    <primary sortas="a-E2fsprogs">E2fsprogs</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>e2fsprogs pakken inneholder verktøyene for å håndtere
+    <systemitem class="filesystem">ext2</systemitem> filsystem. Det støtter
+     også <systemitem class="filesystem">ext3</systemitem> og
+    <systemitem class="filesystem">ext4</systemitem> journalførende
+     filsystemer.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&e2fsprogs-fin-sbu;</seg>
+        <seg>&e2fsprogs-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av E2fsprogs</title>
+
+    <para>e2fsprogs dokumentasjonen anbefaler at pakken bygges i
+     en undermappe til kildetreet: </para>
+
+<screen><userinput remap="pre">mkdir -v build
+cd       build</userinput></screen>
+
+    <para>Forbered e2fsprogs for kompilering:</para>
+
+<screen><userinput remap="configure">../configure --prefix=/usr           \
+             --sysconfdir=/etc       \
+             --enable-elf-shlibs     \
+             --disable-libblkid      \
+             --disable-libuuid       \
+             --disable-uuidd         \
+             --disable-fsck</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av konfigureringsalternativene:</title>
+
+      <varlistentry>
+        <term><parameter>--enable-elf-shlibs</parameter></term>
+        <listitem>
+          <para>Dette oppretter de delte bibliotekene som noen programmer
+           i denne pakken bruk.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--disable-*</parameter></term>
+        <listitem>
+          <para>Dette forhindrer e2fsprogs fra å bygge og installere
+          <systemitem class="library">libuuid</systemitem> og
+          <systemitem class="library">libblkid</systemitem> bibliotekene,
+          <systemitem class="daemon">uuidd</systemitem> nissen, og
+          <command>fsck</command> innpakningen, siden util-linux installerer
+           nyere versjoner.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>For å kjøre testene, utsted:</para>
+
+<screen><userinput remap="test">make check</userinput></screen>
+
+    <para>En test, u_direct_io, er kjent for å mislykkes på noen systemer.</para>
+
+<!-- Dette er en latterlig mengde nå! Og er det fortsatt sant?
+      Ser ikke ut til å være sant for versjon 1.46.3. Tid med prøver
+      26 sekunder med tester (med mange kjerner og ram og en ssd-disk).
+
+    <para>En av e2fsprogs-testene vil forsøke å allokere 256 MB minne.
+     Hvis du ikke har betydelig mer RAM enn dette, sørg for å aktivere
+     tilstrekkelig vekselminne for testen. Se <xref
+    linkend="ch-partitioning-creatingfilesystem"/> og <xref
+    linkend="ch-partitioning-mounting"/>
+    for detaljer om å opprette og aktivere vekselminne.</para>
+
+    <para>På en spinnende harddisk tar testene litt mer enn 4 SBUer. Det
+     kan være mye kortere på en SSD (ned til ca. 1,5 SBU).</para>
+-->
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+    <para>Fjern ubrukelige statiske biblioteker:</para>
+
+<screen><userinput remap="install">rm -fv /usr/lib/{libcom_err,libe2p,libext2fs,libss}.a</userinput></screen>
+
+    <para>Denne pakken installerer en gzipped
+    <filename class="extension">.info</filename> fil, men oppdaterer ikke
+     systemets <filename>dir</filename> fil. Pakk ut denne filen og oppdater deretter
+     systemets <filename>dir</filename> fil ved hjelp av følgende
+     kommandoer:</para>
+
+<screen><userinput remap="install">gunzip -v /usr/share/info/libext2fs.info.gz
+install-info --dir-file=/usr/share/info/dir /usr/share/info/libext2fs.info</userinput></screen>
+
+    <para>Hvis ønskelig, opprett og installer litt tilleggsdokumentasjon ved å
+     utstede følgende kommandoer:</para>
+
+<screen><userinput remap="install">makeinfo -o      doc/com_err.info ../lib/et/com_err.texinfo
+install -v -m644 doc/com_err.info /usr/share/info
+install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userinput></screen>
+  </sect2>
+
+  <sect2 id="contents-e2fsprogs" role="content">
+    <title>Innhold i E2fsprogs</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installerte biblioteker</segtitle>
+      <segtitle>Installerte kataloger</segtitle>
+
+      <seglistitem>
+        <seg>badblocks, chattr, compile_et, debugfs, dumpe2fs, e2freefrag,
+        e2fsck, e2image, e2label, e2mmpstatus, e2scrub, e2scrub_all, e2undo,
+        e4crypt, e4defrag, filefrag, fsck.ext2,
+        fsck.ext3, fsck.ext4, logsave, lsattr, mk_cmds, mke2fs,
+        mkfs.ext2, mkfs.ext3, mkfs.ext4, mklost+found,
+        resize2fs, og tune2fs</seg>
+        <seg>libcom_err.so, libe2p.so, libext2fs.so, og libss.so</seg>
+        <seg>/usr/include/e2p, /usr/include/et, /usr/include/ext2fs,
+        /usr/include/ss, /usr/lib/e2fsprogs, /usr/share/et, og
+        /usr/share/ss</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="badblocks">
+        <term><command>badblocks</command></term>
+        <listitem>
+          <para>Søker en enhet (vanligvis en diskpartisjon) etter dårlige
+           blokker</para>
+          <indexterm zone="ch-system-e2fsprogs badblocks">
+            <primary sortas="b-badblocks">badblocks</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="chattr">
+        <term><command>chattr</command></term>
+        <listitem>
+          <para>Endrer attributtene til filer på et <systemitem
+          class="filesystem">ext2</systemitem> filsystem; det endrer
+           også <systemitem class="filesystem">ext3</systemitem>
+          filsystemer, journalversjonen av <systemitem
+          class="filesystem">ext2</systemitem> filsystemet</para>
+          <indexterm zone="ch-system-e2fsprogs chattr">
+            <primary sortas="b-chattr">chattr</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="compile_et">
+        <term><command>compile_et</command></term>
+        <listitem>
+          <para>En feiltabellkompilator; den konverterer en tabell med navn på
+           feilkoder og meldinger til en C-kildefil som er egnet for bruk med
+          <filename class="libraryfile">com_err</filename> biblioteket</para>
+          <indexterm zone="ch-system-e2fsprogs compile_et">
+            <primary sortas="b-compile_et">compile_et</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="debugfs">
+        <term><command>debugfs</command></term>
+        <listitem>
+          <para>En feilsøker for filsystemet; den kan brukes til å undersøke og endre
+           tilstanden til et <systemitem class="filesystem">ext2</systemitem>
+          filsystem</para>
+          <indexterm zone="ch-system-e2fsprogs debugfs">
+            <primary sortas="b-debugfs">debugfs</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="dumpe2fs">
+        <term><command>dumpe2fs</command></term>
+        <listitem>
+          <para>Skriver ut superblokken og informasjonen for gruppeblokkerer for
+           filsystemet på en gitt enhet</para>
+          <indexterm zone="ch-system-e2fsprogs dumpe2fs">
+            <primary sortas="b-dumpe2fs">dumpe2fs</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="e2freefrag">
+        <term><command>e2freefrag</command></term>
+        <listitem>
+          <para>Rapporterer informasjon om fragmentering av ledig plass</para>
+          <indexterm zone="ch-system-e2fsprogs e2freefrag">
+            <primary sortas="b-e2freefrag">e2freefrag</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="e2fsck">
+        <term><command>e2fsck</command></term>
+        <listitem>
+          <para>Brukes til å sjekke, og eventuelt reparere <systemitem
+          class="filesystem">ext2</systemitem> filsystemer og <systemitem
+          class="filesystem">ext3</systemitem> filsystemer</para>
+          <indexterm zone="ch-system-e2fsprogs e2fsck">
+            <primary sortas="b-e2fsck">e2fsck</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="e2image">
+        <term><command>e2image</command></term>
+        <listitem>
+          <para>Brukes til å lagre kritiske <systemitem
+          class="filesystem">ext2</systemitem> filsystemdata til en fil</para>
+          <indexterm zone="ch-system-e2fsprogs e2image">
+            <primary sortas="b-e2image">e2image</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="e2label">
+        <term><command>e2label</command></term>
+        <listitem>
+          <para>Viser eller endrer filsystemetiketten på et <systemitem
+          class="filesystem">ext2</systemitem> filsystem tilstede på en gitt
+           enhet</para>
+          <indexterm zone="ch-system-e2fsprogs e2label">
+            <primary sortas="b-e2label">e2label</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="e2mmpstatus">
+        <term><command>e2mmpstatus</command></term>
+        <listitem>
+          <para>Sjekker MMP status for et ext4 filsystem</para>
+          <indexterm zone="ch-system-e2fsprogs e2mmpstatus">
+            <primary sortas="b-e2mmpstatus">e2mmpstatus</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="e2scrub">
+        <term><command>e2scrub</command></term>
+        <listitem>
+          <para>Sjekker innholdet i et montert ext[234] filsystem</para>
+          <indexterm zone="ch-system-e2fsprogs e2scrub">
+            <primary sortas="b-e2scrub">e2scrub</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="e2scrub_all">
+        <term><command>e2scrub_all</command></term>
+        <listitem>
+          <para>Sjekker alle monterte ext[234] filsystemer for feil</para>
+          <indexterm zone="ch-system-e2fsprogs e2scrub_all">
+            <primary sortas="b-e2scrub_all">e2scrub_all</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="e2undo">
+        <term><command>e2undo</command></term>
+        <listitem>
+          <para>Spiller angreloggen undo_log for et ext2/ext3/ext4 filsystem
+           funnet på en enhet [Dette kan brukes til å angre en mislykket operasjon av et
+           e2fsprogs program.]</para>
+          <indexterm zone="ch-system-e2fsprogs e2undo">
+            <primary sortas="b-e2undo">e2undo</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="e4crypt">
+        <term><command>e4crypt</command></term>
+        <listitem>
+          <para>Ext4 filsystem krypteringsverktøy</para>
+          <indexterm zone="ch-system-e2fsprogs e4crypt">
+            <primary sortas="b-e4crypt">e4crypt</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="e4defrag">
+        <term><command>e4defrag</command></term>
+        <listitem>
+          <para>Tilkoblet defragmentering for ext4 filsystemer</para>
+          <indexterm zone="ch-system-e2fsprogs e4defrag">
+            <primary sortas="b-e4defrag">e4defrag</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="filefrag">
+        <term><command>filefrag</command></term>
+        <listitem>
+          <para>Rapporter om hvor dårlig fragmentert en bestemt fil kan være</para>
+          <indexterm zone="ch-system-e2fsprogs filefrag">
+            <primary sortas="b-filefrag">filefrag</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="fsck.ext2">
+        <term><command>fsck.ext2</command></term>
+        <listitem>
+          <para>Som standard sjekker <systemitem class="filesystem">ext2</systemitem>
+          filsystemer og er en hard kobling til <command>e2fsck</command></para>
+          <indexterm zone="ch-system-e2fsprogs fsck.ext2">
+            <primary sortas="b-fsck.ext2">fsck.ext2</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="fsck.ext3">
+        <term><command>fsck.ext3</command></term>
+        <listitem>
+          <para>Som standard sjekker <systemitem class="filesystem">ext3</systemitem>
+          filsystemer og er en hard kobling til <command>e2fsck</command></para>
+          <indexterm zone="ch-system-e2fsprogs fsck.ext3">
+            <primary sortas="b-fsck.ext3">fsck.ext3</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="fsck.ext4">
+        <term><command>fsck.ext4</command></term>
+        <listitem>
+          <para>Som standard sjekker <systemitem class="filesystem">ext4</systemitem>
+          filsystemer og er en hard kobling til <command>e2fsck</command></para>
+          <indexterm zone="ch-system-e2fsprogs fsck.ext4">
+            <primary sortas="b-fsck.ext4">fsck.ext4</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="logsave">
+        <term><command>logsave</command></term>
+        <listitem>
+          <para>Lagrer utdata fra en kommando til en loggfil</para>
+          <indexterm zone="ch-system-e2fsprogs logsave">
+            <primary sortas="b-logsave">logsave</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="lsattr">
+        <term><command>lsattr</command></term>
+        <listitem>
+          <para>Viser attributtene til filene på et andre utvidet
+           filsystem</para>
+          <indexterm zone="ch-system-e2fsprogs lsattr">
+            <primary sortas="b-lsattr">lsattr</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="mk_cmds">
+        <term><command>mk_cmds</command></term>
+        <listitem>
+          <para>Konverterer en tabell med kommandonavn og hjelpemeldinger til en C
+           kildefil egnet for bruk med <filename
+          class="libraryfile">libss</filename> delsystembibliotek</para>
+          <indexterm zone="ch-system-e2fsprogs mk_cmds">
+            <primary sortas="b-mk_cmds">mk_cmds</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="mke2fs">
+        <term><command>mke2fs</command></term>
+        <listitem>
+          <para>Oppretter et <systemitem class="filesystem">ext2</systemitem>
+          eller <systemitem class="filesystem">ext3</systemitem> filsystemet på
+           den angitte enheten</para>
+          <indexterm zone="ch-system-e2fsprogs mke2fs">
+            <primary sortas="b-mke2fs">mke2fs</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="mkfs.ext2">
+        <term><command>mkfs.ext2</command></term>
+        <listitem>
+          <para>Som standard oppretter <systemitem class="filesystem">ext2</systemitem>
+          filsystemer og er en hard kobling til <command>mke2fs</command></para>
+          <indexterm zone="ch-system-e2fsprogs mkfs.ext2">
+            <primary sortas="b-mkfs.ext2">mkfs.ext2</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="mkfs.ext3">
+        <term><command>mkfs.ext3</command></term>
+        <listitem>
+          <para>Som standard oppretter <systemitem class="filesystem">ext3</systemitem>
+          filsystemer og er en hard kobling til <command>mke2fs</command></para>
+          <indexterm zone="ch-system-e2fsprogs mkfs.ext3">
+            <primary sortas="b-mkfs.ext3">mkfs.ext3</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="mkfs.ext4">
+        <term><command>mkfs.ext4</command></term>
+        <listitem>
+          <para>Som standard oppretter <systemitem class="filesystem">ext4</systemitem>
+          filsystemer og er en hard kobling til <command>mke2fs</command></para>
+          <indexterm zone="ch-system-e2fsprogs mkfs.ext4">
+            <primary sortas="b-mkfs.ext4">mkfs.ext4</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="mklost-found">
+        <term><command>mklost+found</command></term>
+        <listitem>
+          <para>Brukes til å lage en <filename class="directory">lost+found</filename>
+          mappe på et <systemitem class="filesystem">ext2</systemitem> filsystem
+          ; den forhåndstildeler diskblokker til denne katalogen for å lette
+           oppgaven til <command>e2fsck</command></para>
+          <indexterm zone="ch-system-e2fsprogs mklost-found">
+            <primary sortas="b-mklost+found">mklost+found</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="resize2fs">
+        <term><command>resize2fs</command></term>
+        <listitem>
+          <para>Kan brukes til å forstørre eller krympe et <systemitem
+          class="filesystem">ext2</systemitem> filsystem</para>
+          <indexterm zone="ch-system-e2fsprogs resize2fs">
+            <primary sortas="b-resize2fs">resize2fs</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="tune2fs">
+        <term><command>tune2fs</command></term>
+        <listitem>
+          <para>Justerer justerbare filsystemparametere på et <systemitem
+          class="filesystem">ext2</systemitem> filsystem</para>
+          <indexterm zone="ch-system-e2fsprogs tune2fs">
+            <primary sortas="b-tune2fs">tune2fs</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libcom_err">
+        <term><filename class="libraryfile">libcom_err</filename></term>
+        <listitem>
+          <para>Den vanlige feilvisningsrutinen</para>
+          <indexterm zone="ch-system-e2fsprogs libcom_err">
+            <primary sortas="c-libcom_err">libcom_err</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libe2p">
+        <term><filename class="libraryfile">libe2p</filename></term>
+        <listitem>
+          <para>Brukt av <command>dumpe2fs</command>, <command>chattr</command>,
+          og <command>lsattr</command></para>
+          <indexterm zone="ch-system-e2fsprogs libe2p">
+            <primary sortas="c-libe2p">libe2p</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libext2fs">
+        <term><filename class="libraryfile">libext2fs</filename></term>
+        <listitem>
+          <para>Inneholder rutiner for å gjøre det mulig for programmer på brukernivå å manipulere et
+          <systemitem class="filesystem">ext2</systemitem> filsystem</para>
+          <indexterm zone="ch-system-e2fsprogs libext2fs">
+            <primary sortas="c-libext2fs">libext2fs</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libss">
+        <term><filename class="libraryfile">libss</filename></term>
+        <listitem>
+          <para>Brukt av <command>debugfs</command></para>
+          <indexterm zone="ch-system-e2fsprogs libss">
+            <primary sortas="c-libss">libss</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>
