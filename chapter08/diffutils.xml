@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-diffutils" role="wrap">
+  <?dbhtml filename="diffutils.html"?>
+
+  <sect1info condition="script">
+    <productname>diffutils</productname>
+    <productnumber>&diffutils-version;</productnumber>
+    <address>&diffutils-url;</address>
+  </sect1info>
+
+  <title>Diffutils-&diffutils-version;</title>
+
+  <indexterm zone="ch-system-diffutils">
+    <primary sortas="a-Diffutils">Diffutils</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Diffutils pakken inneholder programmer som viser forskjellene
+     mellom filer eller mapper.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&diffutils-fin-sbu;</seg>
+        <seg>&diffutils-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Diffutils</title>
+
+    <para>Forbered Diffutils for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>For å teste resultatene, utsted:</para>
+
+<screen><userinput remap="test">make check</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+  </sect2>
+
+
+  <sect2 id="contents-diffutils" role="content">
+    <title>Innhold i Diffutils</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+
+      <seglistitem>
+        <seg>cmp, diff, diff3, og sdiff</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="cmp">
+        <term><command>cmp</command></term>
+        <listitem>
+          <para>Sammenligner to filer og rapporterer om eller i hvilken byte de
+           avviker</para>
+          <indexterm zone="ch-system-diffutils cmp">
+            <primary sortas="b-cmp">cmp</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="diff">
+        <term><command>diff</command></term>
+        <listitem>
+          <para>Sammenligner to filer eller mapper og rapporterer hvilke linjer i
+           filene som er forskjellige</para>
+          <indexterm zone="ch-system-diffutils diff">
+            <primary sortas="b-diff">diff</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="diff3">
+        <term><command>diff3</command></term>
+        <listitem>
+            <para>Sammenligner tre filer linje for linje</para>
+            <indexterm zone="ch-system-diffutils diff3">
+              <primary sortas="b-diff3">diff3</primary>
+            </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="sdiff">
+        <term><command>sdiff</command></term>
+        <listitem>
+          <para>Slår sammen to filer og viser resultatene interaktivt</para>
+          <indexterm zone="ch-system-diffutils sdiff">
+            <primary sortas="b-sdiff">sdiff</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>
