@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-grub" role="wrap">
+  <?dbhtml filename="grub.html"?>
+
+  <sect1info condition="script">
+    <productname>grub</productname>
+    <productnumber>&grub-version;</productnumber>
+    <address>&grub-url;</address>
+  </sect1info>
+
+  <title>GRUB-&grub-version;</title>
+
+  <indexterm zone="ch-system-grub">
+    <primary sortas="a-Grub">GRUB</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>GRUB pakken inneholder en oppstartslaster (GRand Unified Bootloader).</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&grub-fin-sbu;</seg>
+        <seg>&grub-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av GRUB</title>
+
+    <note>
+      <para>
+        Hvis systemet ditt har UEFI støtte og du ønsker å starte LFS med UEFI,
+         kan du hoppe over denne pakken i LFS,
+         og installere GRUB med UEFI støtte (og dets avhengigheter) som følger
+        <ulink url="&blfs-book;postlfs/grub-efi.html">BLFS siden</ulink>
+        på slutten av dette kapittelet.
+      </para>
+    </note>
+
+    <para>Forbered GRUB for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr          \
+            --sysconfdir=/etc      \
+            --disable-efiemu       \
+            --disable-werror</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av de nye konfigureringsalternativene:</title>
+
+      <varlistentry>
+        <term><parameter>--disable-werror</parameter></term>
+        <listitem>
+          <para>Dette gjør at bygget kan fullføres med advarsler
+           fra nyere Flex versjoner.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--disable-efiemu</parameter></term>
+        <listitem>
+          <para>Dette alternativet minimerer det som bygges ved å deaktivere en funksjon og
+           testprogrammer som ikke er nødvendig for LFS.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Testpakken for denne pakken anbefales ikke. Mesteparten av
+     testene avhenger av pakker som ikke er tilgjengelige i det begrensete
+     LFS miljøet. For å kjøre testene uansett, kjør <command>make check</command>.</para>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install
+mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userinput></screen>
+
+  <para>Bruk av GRUB for å gjøre LFS systemet oppstartbart vil bli diskutert i
+  <xref linkend="ch-bootable-grub"/>.</para>
+
+  </sect2>
+
+  <sect2 id="contents-gRUB" role="content">
+    <title>Innhold i GRUB</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installerte mapper</segtitle>
+
+      <seglistitem>
+
+       <seg>grub-bios-setup,      grub-editenv,    grub-file,        grub-fstest,
+            grub-glue-efi,        grub-install,    grub-kbdcomp,     grub-macbless,
+            grub-menulst2cfg,     grub-mkconfig,
+                                  grub-mkimage,    grub-mklayout,    grub-mknetdir,
+            grub-mkpasswd-pbkdf2, grub-mkrelpath,  grub-mkrescue,    grub-mkstandalone,
+            grub-ofpathname,      grub-probe,      grub-reboot,      grub-render-label,
+            grub-script-check,
+            grub-set-default,     grub-sparc64-setup, og grub-syslinux2cfg</seg>
+
+        <seg>/usr/lib/grub, /etc/grub.d, /usr/share/grub, og /boot/grub (når grub-install
+         kjøres for første gang)</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="grub-bios-setup">
+        <term><command>grub-bios-setup</command></term>
+        <listitem>
+          <para>Er et hjelpeprogram for grub-install</para>
+          <indexterm zone="ch-system-grub grub-bios-setup">
+            <primary sortas="b-grub-bios-setup">grub-bios-setup</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-editenv">
+        <term><command>grub-editenv</command></term>
+        <listitem>
+          <para>Et verktøy for å redigere miljøblokken</para>
+          <indexterm zone="ch-system-grub grub-editenv">
+            <primary sortas="b-grub-editenv">grub-editenv</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-file">
+        <term><command>grub-file</command></term>
+        <listitem>
+          <para>Sjekker om FILE er av den angitte typen.</para>
+          <indexterm zone="ch-system-grub grub-file">
+            <primary sortas="b-grub-file">grub-file</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-fstest">
+        <term><command>grub-fstest</command></term>
+        <listitem>
+          <para>Verktøy for å feilsøke filsystemdriveren</para>
+          <indexterm zone="ch-system-grub grub-fstest">
+            <primary sortas="b-grub-fstest">grub-fstest</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-glue-efi">
+        <term><command>grub-glue-efi</command></term>
+        <listitem>
+          <para>Behandler ia32 og amd64 EFI bilder og limer dem
+           i henhold til Apple-format.</para>
+          <indexterm zone="ch-system-grub grub-glue-efi">
+            <primary sortas="b-grub-glue-efi">grub-glue-efi</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-install">
+        <term><command>grub-install</command></term>
+        <listitem>
+          <para>Installer GRUB på harddisken din</para>
+          <indexterm zone="ch-system-grub grub-install">
+            <primary sortas="b-grub-install">grub-install</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-kbdcomp">
+        <term><command>grub-kbdcomp</command></term>
+        <listitem>
+          <para>Skript som konverterer et xkb oppsett til et som gjenkjennes av
+           GRUB</para>
+          <indexterm zone="ch-system-grub grub-kbdcomp">
+            <primary sortas="b-grub-kbdcomp">grub-kbdcomp</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-macbless">
+        <term><command>grub-macbless</command></term>
+        <listitem>
+          <para>Velsignelse i Mac-stil på HFS eller HFS+ filer</para>
+          <indexterm zone="ch-system-grub grub-macbless">
+            <primary sortas="b-grub-macbless">grub-macbless</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-menulst2cfg">
+        <term><command>grub-menulst2cfg</command></term>
+        <listitem>
+          <para>Konverterer en GRUB Legacy <filename>menu.lst</filename>
+          til en <filename>grub.cfg</filename> for bruk med GRUB 2</para>
+          <indexterm zone="ch-system-grub grub-menulst2cfg">
+            <primary sortas="b-grub-menulst2cfg">grub-menulst2cfg</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-mkconfig">
+        <term><command>grub-mkconfig</command></term>
+        <listitem>
+          <para>Generer en grub konfigurasjonsfil</para>
+          <indexterm zone="ch-system-grub grub-mkconfig">
+            <primary sortas="b-grub-mkconfig">grub-mkconfig</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-mkimage">
+        <term><command>grub-mkimage</command></term>
+        <listitem>
+          <para>Lager et oppstartbart bilde av GRUB</para>
+          <indexterm zone="ch-system-grub grub-mkimage">
+            <primary sortas="b-grub-mkimage">grub-mkimage</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-mklayout">
+        <term><command>grub-mklayout</command></term>
+        <listitem>
+          <para>Genererer en GRUB tastaturoppsettfil</para>
+          <indexterm zone="ch-system-grub grub-mklayout">
+            <primary sortas="b-grub-mklayout">grub-mklayout</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-mknetdir">
+        <term><command>grub-mknetdir</command></term>
+        <listitem>
+          <para>Forbereder en GRUB netboot mappe</para>
+          <indexterm zone="ch-system-grub grub-mknetdir">
+            <primary sortas="b-grub-mknetdir">grub-mknetdir</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-mkpasswd-pbkdf2">
+        <term><command>grub-mkpasswd-pbkdf2</command></term>
+        <listitem>
+          <para>Genererer et kryptert PBKDF2 passord for bruk i
+           oppstartsmenyen</para>
+          <indexterm zone="ch-system-grub grub-mkpasswd-pbkdf2">
+            <primary sortas="b-grub-mkpasswd-pbkdf2">grub-mkpasswd-pbkdf2</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-mkrelpath">
+        <term><command>grub-mkrelpath</command></term>
+        <listitem>
+          <para>Gir et systembanenavn i forhold til roten</para>
+          <indexterm zone="ch-system-grub grub-mkrelpath">
+            <primary sortas="b-grub-mkrelpath">grub-mkrelpath</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-mkrescue">
+        <term><command>grub-mkrescue</command></term>
+        <listitem>
+          <para>Lager et oppstartbart bilde av GRUB som passer for en diskett eller CDROM/DVD</para>
+          <indexterm zone="ch-system-grub grub-mkrescue">
+            <primary sortas="b-grub-mkrescue">grub-mkrescue</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-mkstandalone">
+        <term><command>grub-mkstandalone</command></term>
+        <listitem>
+          <para>Genererer et frittstående bilde</para>
+          <indexterm zone="ch-system-grub grub-mkstandalone">
+            <primary sortas="b-grub-mkstandalone">grub-mkstandalone</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-ofpathname">
+        <term><command>grub-ofpathname</command></term>
+        <listitem>
+          <para>Er et hjelpeprogram som skriver ut banen til en GRUBenhet</para>
+          <indexterm zone="ch-system-grub grub-ofpathname">
+            <primary sortas="b-grub-ofpathname">grub-ofpathname</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-probe">
+        <term><command>grub-probe</command></term>
+        <listitem>
+          <para>Undersøk enhetsinformasjon for en gitt bane eller enhet</para>
+          <indexterm zone="ch-system-grub grub-probe">
+            <primary sortas="b-grub-probe">grub-probe</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-reboot">
+        <term><command>grub-reboot</command></term>
+        <listitem>
+          <para>Angir standard oppstartsoppføring for GRUB bare for neste oppstart</para>
+          <indexterm zone="ch-system-grub grub-reboot">
+            <primary sortas="b-grub-reboot">grub-reboot</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-render-label">
+        <term><command>grub-render-label</command></term>
+        <listitem>
+          <para>Gjengi Apple .disk_label for Apple Mac-er</para>
+          <indexterm zone="ch-system-grub grub-render-label">
+            <primary sortas="b-grub-render-label">grub-render-label</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-script-check">
+        <term><command>grub-script-check</command></term>
+        <listitem>
+          <para>Sjekker GRUB konfigurasjonsskriptet for syntaksfeil</para>
+          <indexterm zone="ch-system-grub grub-script-check">
+            <primary sortas="b-grub-script-check">grub-script-check</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-set-default">
+        <term><command>grub-set-default</command></term>
+        <listitem>
+          <para>Angir standard oppstartsoppføring for GRUB</para>
+          <indexterm zone="ch-system-grub grub-set-default">
+            <primary sortas="b-grub-set-default">grub-set-default</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-sparc64-setup">
+        <term><command>grub-sparc64-setup</command></term>
+        <listitem>
+          <para>Er et hjelpeprogram for grub-setup</para>
+          <indexterm zone="ch-system-grub grub-sparc64-setup">
+            <primary sortas="b-grub-sparc64-setup">grub-setup</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grub-syslinux2cfg">
+        <term><command>grub-syslinux2cfg</command></term>
+        <listitem>
+          <para>Forvandler en syslinux konfigurasjonsfil til grub.cfg format</para>
+          <indexterm zone="ch-system-grub grub-syslinux2cfg">
+            <primary sortas="b-grub-syslinux2cfg">grub-syslinux2cfg</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>
