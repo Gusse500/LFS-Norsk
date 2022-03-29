@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-introduction">
+  <?dbhtml filename="introduction.html"?>
+
+  <title>Introduksjon</title>
+
+  <para>I dette kapittelet begynner vi for alvor å bygge LFS systemet.
+  </para>
+
+  <para>Installasjonen av denne programvaren er enkel. Skjønt i mange
+   tilfeller kan installasjonsinstruksjonene gjøres kortere og mer generelle,
+   vi har valgt å gi de fullstendige instruksjonene for hver pakke for å minimere
+   mulighetene for feil. Nøkkelen til å lære hva som gjør et at et Linux system
+   virker er å vite hva hver pakke brukes til og hvorfor du (eller systemet)
+   kan trenge det.</para>
+
+  <para>Vi anbefaler ikke å bruke optimaliseringer. De kan gjøre at
+   et program kjører litt raskere, men de kan også forårsake kompilerings
+   vanskeligheter og problemer når du kjører programmet. Hvis en pakke nekter å
+   kompilere når du bruker optimalisering, prøv å kompilere den uten optimalisering og
+   se om det løser problemet. Selv om pakken kompileres ved bruk av
+   optimalisering, er det risiko for at det kan ha blitt kompilert feil fordi
+   de komplekse interaksjonene mellom koden og byggeverktøyene. Legg også merke til
+   at <option>-march</option> og <option>-mtune</option> alternativene som
+   ikke er spesifisert i boken er ikke testet. Dette kan skape problemer med
+   verktøykjedepakkene (Binutils, GCC og Glibc). De små potensielle gevinstene
+   oppnådd ved bruk av kompilatoroptimaliseringer oppveies ofte av risikoen.
+   Førstegangsbyggere av LFS oppfordres til å bygge uten tilpassete
+   optimaliseringer. Det påfølgende systemet vil fortsatt kjøre veldig raskt og være stabilt
+   samtidig.</para>
+
+  <para>Før installasjonsinstruksjonene gir hver installasjonsside
+   informasjon om pakken, inkludert en kortfattet beskrivelse av hva den
+   inneholder, omtrent hvor lang tid det vil ta å bygge, og hvor mye diskplass
+   kreves under denne byggeprosessen. Etter installasjoneninstruksene
+   , er det en liste over programmer og biblioteker (sammen med korte
+   beskrivelser) som pakken installerer.</para>
+
+  <note><para>SBU verdiene og nødvendig diskplass inkluderer testpakkedata
+   for alle gjeldende pakker i <xref linkend="chapter-building-system"/>. SBU
+   verdier har blitt beregnet ved å bruke en enkelt CPU-kjerne (-j1) for alle
+   operasjoner.</para></note>
+
+  <sect2>
+    <title>Om biblioteker</title>
+
+    <para>Generelt fraråder LFS redaktørene å bygge og installere statiske
+     biblioteker. Det opprinnelige formålet for de fleste statiske biblioteker er nå
+     foreldet i et moderne Linux system. I tillegg kan koblinger for et statiske biblioteker
+     i et program være skadelig. Hvis en oppdatering til biblioteket er nødvendig
+     for å fjerne et sikkerhetsproblem, må alle programmer som bruker det statiske biblioteket
+     kobles til det nye biblioteket. Siden bruken av statiske biblioteker
+     ikke alltid er åpenbart, de relevante programmene (og prosedyrene som trengs for å
+     gjør koblingen) er kanskje ikke engang kjent.</para>
+
+    <para>I prosedyrene i dette kapittelet fjerner eller deaktiverer vi installasjon av
+     de fleste statiske biblioteker. Vanligvis gjøres dette ved å utstede en
+    <option>--disable-static</option> alternativ til <command>configure</command>.
+    I andre tilfeller er det nødvendig med alternative midler. I noen få tilfeller, spesielt
+     glibc og gcc, forblir bruken av statiske biblioteker avgjørende for det generelle
+     pakke byggeprosess. </para>
+
+    <para>For en mer fullstendig diskusjon av biblioteker, se diskusjonen
+    <ulink url="&blfs-book;introduction/libraries.html">
+    Biblioteker: Statiske eller delte?</ulink> i BLFS boken.</para>
+
+  </sect2>
+
+</sect1>
