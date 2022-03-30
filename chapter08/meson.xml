@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-meson" role="wrap">
+  <?dbhtml filename="meson.html"?>
+
+  <sect1info condition="script">
+    <productname>meson</productname>
+    <productnumber>&meson-version;</productnumber>
+    <address>&meson-url;</address>
+  </sect1info>
+
+  <title>Meson-&meson-version;</title>
+
+  <indexterm zone="ch-system-meson">
+    <primary sortas="a-Meson">Meson</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Meson er et åpen kildekode byggesystem ment å være både ekstremt raskt
+     og så brukervennlig som mulig.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+      <seglistitem>
+        <seg>&meson-fin-sbu;</seg>
+        <seg>&meson-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <tip revision="sysv">
+      <para>Denne delen er ikke strengt nødvendig for LFS hvis det ikke brukes
+       systemd. På den annen side er meson/ninja et kraftig byggesystem,
+       som forventes å bli brukt stadig oftere. Det kreves for
+       flere pakker i <ulink url="&blfs-book;">BLFS
+      boken</ulink>.</para>
+    </tip>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Meson</title>
+<!--
+    <para>Først bruker du en oppdatering som løser et problem identifisert oppstrøms:</para>
+
+<screen><userinput remap="pre">patch -Np1 -i ../&meson-fix-patch;</userinput></screen>
+-->
+    <para>Kompiler Meson med følgende kommando:</para>
+
+<screen><userinput remap="make">python3 setup.py build</userinput></screen>
+
+    <para>Denne pakken kommer ikke med en testpakke.</para>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">python3 setup.py install --root=dest
+cp -rv dest/* /
+install -vDm644 data/shell-completions/bash/meson /usr/share/bash-completion/completions/meson
+install -vDm644 data/shell-completions/zsh/_meson /usr/share/zsh/site-functions/_meson</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av installasjonsparametrene:</title>
+
+      <varlistentry>
+        <term><parameter>--root=dest</parameter></term>
+        <listitem>
+          <para>Som standard <command>python3 setup.py install</command>
+          installerer ulike filer (som man-sider) i Python Eggs.
+           Med en spesifisert rotplassering, <command>setup.py</command> installerer
+           disse filene inn i et standard hierarki. Så hierarkiet
+           kan bare kopieres til standardplasseringen.
+        </para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+  </sect2>
+
+  <sect2 id="contents-meson" role="content">
+    <title>Innhold i Meson</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installert mappe</segtitle>
+
+      <seglistitem>
+        <seg>meson</seg>
+        <!-- Vi bruker DESTDIR installasjon her, så katalogoppsettet
+           er annerledes enn andre Python moduler i LFS
+          (Jinja2 & MarkupSafe). -->
+        <seg>/usr/lib/python&python-minor;/site-packages/meson-&meson-version;-py&python-minor;.egg-info and /usr/lib/python&python-minor;/site-packages/mesonbuild</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="meson">
+		<term><command>meson</command></term>
+        <listitem>
+          <para>Et byggesystem med høy produktivitet</para>
+          <indexterm zone="ch-system-meson meson">
+            <primary sortas="b-meson">meson</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>
+
