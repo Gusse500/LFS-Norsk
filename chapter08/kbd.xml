@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-kbd" role="wrap">
+  <?dbhtml filename="kbd.html"?>
+
+  <sect1info condition="script">
+    <productname>kbd</productname>
+    <productnumber>&kbd-version;</productnumber>
+    <address>&kbd-url;</address>
+  </sect1info>
+
+  <title>Kbd-&kbd-version;</title>
+
+  <indexterm zone="ch-system-kbd">
+    <primary sortas="a-Kbd">Kbd</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Kbd pakken inneholder nøkkeltabellfiler, konsollfonter og tastatur
+     verktøy.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&kbd-fin-sbu;</seg>
+        <seg>&kbd-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Kbd</title>
+
+    <para>Oppførselen til tilbaketastene og slettetastene er ikke konsistent
+     på tvers av nøkkelkartene i Kbd pakken. Følgende oppdatering fikser dette
+     problem for i386 keymaps:</para>
+
+<screen><userinput remap="pre">patch -Np1 -i ../&kbd-backspace-patch;</userinput></screen>
+
+    <para>Etter oppdateringen, genererer tilbaketasten tegnet med kode 127,
+     og slettetasten genererer en velkjent escape sekvens.</para>
+
+    <para>Fjern det overflødige <command>resizecons</command> programmet (det krever
+     den nedlagte svgalib for å gi videomodusfilene - for normal bruk
+    <command>setfont</command> gjør størrelsen på konsollen passende) sammen med dens
+     Manside.</para>
+
+<screen><userinput remap="pre">sed -i '/RESIZECONS_PROGS=/s/yes/no/' configure
+sed -i 's/resizecons.8 //' docs/man/man8/Makefile.in</userinput></screen>
+
+    <para>Forbered Kbd for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr --disable-vlock</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av konfigureringsalternativet:</title>
+
+      <varlistentry>
+        <term><parameter>--disable-vlock</parameter></term>
+        <listitem>
+          <para>Dette alternativet forhindrer at vlock verktøyet blir bygget fordi det
+           krever PAM biblioteket, som ikke er tilgjengelig i chroot
+           miljøet.</para>
+       </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>For å teste resultatene, utsted:</para>
+
+<screen><userinput remap="test">make check</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+    <note>
+      <para>For noen språk (f.eks. hviterussisk) gir ikke Kbd pakken
+       et nyttig nøkkelkart der standard keymap antar
+       ISO-8859-5-kodingen og CP1251-tastaturet brukes vanligvis. Brukere av
+       slike språk må laste ned fungerende keymaps separat.</para>
+    </note>
+
+    <para>Hvis ønskelig, installer dokumentasjonen:</para>
+
+<screen><userinput remap="install">mkdir -pv           /usr/share/doc/kbd-&kbd-version;
+cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-kbd" role="content">
+    <title>Innhold i Kbd</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installerte mapper</segtitle>
+
+      <seglistitem>
+        <seg>chvt, deallocvt, dumpkeys, fgconsole, getkeycodes, kbdinfo,
+        kbd_mode, kbdrate, loadkeys, loadunimap,
+        mapscrn, openvt, psfaddtable (link to psfxtable), psfgettable (link to
+        psfxtable), psfstriptable (link to psfxtable), psfxtable, <!--resizecons,-->
+        setfont, setkeycodes, setleds, setmetamode, setvtrgb,
+        showconsolefont, showkey, unicode_start, og unicode_stop</seg>
+        <seg>/usr/share/consolefonts, /usr/share/consoletrans, /usr/share/keymaps,
+        /usr/share/doc/kbd-&kbd-version;,  og /usr/share/unimaps</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="chvt">
+        <term><command>chvt</command></term>
+        <listitem>
+          <para>Endrer den virtuelle terminalen som er i forgrunnen</para>
+          <indexterm zone="ch-system-kbd chvt">
+            <primary sortas="b-chvt">chvt</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="deallocvt">
+        <term><command>deallocvt</command></term>
+        <listitem>
+          <para>Fjerner ubrukte virtuelle terminaler</para>
+          <indexterm zone="ch-system-kbd deallocvt">
+            <primary sortas="b-deallocvt">deallocvt</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="dumpkeys">
+        <term><command>dumpkeys</command></term>
+        <listitem>
+          <para>Dumper tastaturoversettelsestabellene</para>
+          <indexterm zone="ch-system-kbd dumpkeys">
+            <primary sortas="b-dumpkeys">dumpkeys</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="fgconsole">
+        <term><command>fgconsole</command></term>
+        <listitem>
+          <para>Skriver ut nummeret til den aktive virtuelle terminalen</para>
+          <indexterm zone="ch-system-kbd fgconsole">
+            <primary sortas="b-fgconsole">fgconsole</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="getkeycodes">
+        <term><command>getkeycodes</command></term>
+        <listitem>
+          <para>Skriver ut kjernens skanningskode til nøkkelkode tilordningstabellen</para>
+          <indexterm zone="ch-system-kbd getkeycodes">
+            <primary sortas="b-getkeycodes">getkeycodes</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="kbdinfo">
+        <term><command>kbdinfo</command></term>
+        <listitem>
+          <para>Får informasjon om statusen til en konsoll</para>
+          <indexterm zone="ch-system-kbd kbdinfo">
+            <primary sortas="b-kbdinfo">kbdinfo</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="kbd_mode">
+        <term><command>kbd_mode</command></term>
+        <listitem>
+          <para>Rapporterer eller stiller inn tastaturmodus</para>
+          <indexterm zone="ch-system-kbd kbd_mode">
+            <primary sortas="b-kbd_mode">kbd_mode</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="kbdrate">
+        <term><command>kbdrate</command></term>
+        <listitem>
+          <para>Stiller inn repetisjons- og forsinkelseshastigheter for tastaturet</para>
+          <indexterm zone="ch-system-kbd kbdrate">
+            <primary sortas="b-kbdrate">kbdrate</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="loadkeys">
+        <term><command>loadkeys</command></term>
+        <listitem>
+          <para>Laster tastaturoversettelsestabellene</para>
+          <indexterm zone="ch-system-kbd loadkeys">
+            <primary sortas="b-loadkeys">loadkeys</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="loadunimap">
+        <term><command>loadunimap</command></term>
+        <listitem>
+          <para>Laster kjernens unicode til font kartleggingstabellen</para>
+          <indexterm zone="ch-system-kbd loadunimap">
+            <primary sortas="b-loadunimap">loadunimap</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="mapscrn">
+        <term><command>mapscrn</command></term>
+        <listitem>
+          <para>Et utdatert program som pleide å laste en brukerdefinert utgang
+           tegnkartleggingstabell i konsolldriveren; dette er nå gjort
+           av <command>setfont</command></para>
+          <indexterm zone="ch-system-kbd mapscrn">
+            <primary sortas="b-mapscrn">mapscrn</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="openvt">
+        <term><command>openvt</command></term>
+        <listitem>
+          <para>Starter et program på en ny virtuell terminal (VT)</para>
+          <indexterm zone="ch-system-kbd openvt">
+            <primary sortas="b-openvt">openvt</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="psfaddtable">
+        <term><command>psfaddtable</command></term>
+        <listitem>
+          <para>Legger til en Unicode tegntabell til en konsollfont</para>
+          <indexterm zone="ch-system-kbd psfaddtable">
+            <primary sortas="b-psfaddtable">psfaddtable</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="psfgettable">
+        <term><command>psfgettable</command></term>
+        <listitem>
+          <para>Trekker ut den innebygde Unicode tegntabellen fra en konsoll
+           font</para>
+          <indexterm zone="ch-system-kbd psfgettable">
+            <primary sortas="b-psfgettable">psfgettable</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="psfstriptable">
+        <term><command>psfstriptable</command></term>
+        <listitem>
+          <para>Fjerner den innebygde Unicode tegntabellen fra en konsoll
+           font</para>
+          <indexterm zone="ch-system-kbd psfstriptable">
+            <primary sortas="b-psfstriptable">psfstriptable</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="psfxtable">
+        <term><command>psfxtable</command></term>
+        <listitem>
+          <para>Håndterer Unicode tegntabeller for konsollfonter</para>
+          <indexterm zone="ch-system-kbd psfxtable">
+            <primary sortas="b-psfxtable">psfxtable</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="setfont">
+        <term><command>setfont</command></term>
+        <listitem>
+          <para>Endrer den forbedrede grafikkadapteren (EGA) og videografikk
+           matrise (VGA) fonter på konsollen</para>
+          <indexterm zone="ch-system-kbd setfont">
+            <primary sortas="b-setfont">setfont</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="setkeycodes">
+        <term><command>setkeycodes</command></term>
+        <listitem>
+          <para>Laster kjernens skanningskode til nøkkelkode kartleggingstabelloppføringer; dette er
+           nyttig hvis det er uvanlige taster på tastaturet</para>
+          <indexterm zone="ch-system-kbd setkeycodes">
+            <primary sortas="b-setkeycodes">setkeycodes</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="setleds">
+        <term><command>setleds</command></term>
+        <listitem>
+          <para>Stiller inn tastaturflagg og lysdioder (LED)</para>
+          <indexterm zone="ch-system-kbd setleds">
+            <primary sortas="b-setleds">setleds</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="setmetamode">
+        <term><command>setmetamode</command></term>
+        <listitem>
+          <para>Definerer tastaturets metanøkkel håndtering</para>
+          <indexterm zone="ch-system-kbd setmetamode">
+            <primary sortas="b-setmetamode">setmetamode</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="setvtrgb">
+        <term><command>setvtrgb</command></term>
+        <listitem>
+          <para>Stiller inn konsollfargekartet i alle virtuelle terminaler</para>
+          <indexterm zone="ch-system-kbd setvtrgb">
+            <primary sortas="b-setvtrgb">setvtrgb</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="showconsolefont">
+        <term><command>showconsolefont</command></term>
+        <listitem>
+          <para>Viser gjeldende EGA/VGA konsollskjermskrift</para>
+          <indexterm zone="ch-system-kbd showconsolefont">
+            <primary sortas="b-showconsolefont">showconsolefont</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="showkey">
+        <term><command>showkey</command></term>
+        <listitem>
+          <para>Rapporterer skanningskodene, nøkkelkodene og ASCII-kodene til tastene
+           som trykkes på tastaturet</para>
+          <indexterm zone="ch-system-kbd showkey">
+            <primary sortas="b-showkey">showkey</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="unicode_start">
+        <term><command>unicode_start</command></term>
+        <listitem>
+          <para>Setter tastaturet og konsollen i UNICODE modus [Ikke bruk dette
+           programmet med mindre tastaturfilen er i ISO-8859-1-kodingen. Til
+           andre kodinger, gir dette verktøyet feil resultater.]</para>
+          <indexterm zone="ch-system-kbd unicode_start">
+            <primary sortas="b-unicode_start">unicode_start</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="unicode_stop">
+        <term><command>unicode_stop</command></term>
+        <listitem>
+          <para>Tilbakestiller tastatur og konsoll fra UNICODE modus</para>
+          <indexterm zone="ch-system-kbd unicode_stop">
+            <primary sortas="b-unicode_stop">unicode_stop</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>
