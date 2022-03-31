@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-procps" role="wrap">
+  <?dbhtml filename="procps-ng.html"?>
+
+  <sect1info condition="script">
+    <productname>procps-ng</productname>
+    <productnumber>&procps-ng-version;</productnumber>
+    <address>&procps-ng-url;</address>
+  </sect1info>
+
+  <title>Procps-ng-&procps-ng-version;</title>
+
+  <indexterm zone="ch-system-procps">
+    <primary sortas="a-Procps">Procps-ng</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Procps-ng pakken inneholder programmer for overvåking av prosesser.</para>
+
+    <!-- TODO This note will probably not be needed at the next revision. -->
+    <note>
+      <para>Denne pakken trekkes ut til mappen
+      <filename class="directory">procps-3.3.17</filename>,
+      ikke det forventede
+      <filename class="directory">procps-ng-3.3.17</filename>.</para>
+    </note>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&procps-ng-fin-sbu;</seg>
+        <seg>&procps-ng-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Procps-ng</title>
+
+    <para>Forbered procps-ng for kompilering:</para>
+
+<screen revision="sysv"><userinput remap="configure">./configure --prefix=/usr                            \
+            --docdir=/usr/share/doc/procps-ng-&procps-ng-version; \
+            --disable-static                         \
+            --disable-kill</userinput></screen>
+
+<screen revision="systemd"><userinput remap="configure">./configure --prefix=/usr                            \
+            --docdir=/usr/share/doc/procps-ng-&procps-ng-version; \
+            --disable-static                         \
+            --disable-kill                           \
+            --with-systemd</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av konfigureringsalternativet:</title>
+
+      <varlistentry>
+        <term><parameter>--disable-kill</parameter></term>
+        <listitem>
+          <para>Denne bryteren deaktiverer bygging av <command>kill</command>
+          kommandoen som vil bli installert av Util-linux pakken.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+<!--
+    <para>Testpakken trenger noen tilpassede modifikasjoner for LFS.
+     Fjern en test som mislykkes når skripting ikke bruker en tty-enhet og
+     fikse to andre.
+     For å kjøre testpakken, kjør følgende kommandoer:</para>
+
+<screen><userinput remap="test">sed -i -r 's|(pmap_initname)\\\$|\1|' testsuite/pmap.test/pmap.exp
+sed -i '/set tty/d' testsuite/pkill.test/pkill.exp
+rm testsuite/pgrep.test/pgrep.exp
+make check</userinput></screen>
+-->
+    <para> For å kjøre testpakken, kjør:</para>
+
+<screen><userinput remap="test">make check</userinput></screen>
+
+    <para>Fem tester relatert til pkill er kjent for å mislykkes på grunn av et problem
+     med tester som ikke ble oppdatert.</para>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-procps" role="content">
+    <title>Innhold i Procps-ng</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installert bibliotek</segtitle>
+      <segtitle>Installerte mapper</segtitle>
+
+      <seglistitem>
+        <seg>free, pgrep, pidof, pkill, pmap, ps, pwdx, slabtop,
+        sysctl, tload, top, uptime, vmstat, w, og watch</seg>
+        <seg>libprocps.so</seg>
+        <seg>/usr/include/proc og /usr/share/doc/procps-ng-&procps-ng-version;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="free">
+        <term><command>free</command></term>
+        <listitem>
+          <para>Rapporterer mengden ledig og brukt minne (både fysisk og
+           vekselminne) i systemet</para>
+          <indexterm zone="ch-system-procps free">
+            <primary sortas="b-free">free</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="pgrep">
+        <term><command>pgrep</command></term>
+        <listitem>
+          <para>Slår opp prosesser basert på deres navn og andre attributter</para>
+          <indexterm zone="ch-system-procps pgrep">
+            <primary sortas="b-pgrep">pgrep</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="pidof">
+        <term><command>pidof</command></term>
+        <listitem>
+          <para>Rapporterer PID-ene til de gitte programmene</para>
+          <indexterm zone="ch-system-procps pidof">
+            <primary sortas="b-pidof">pidof</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="pkill">
+        <term><command>pkill</command></term>
+        <listitem>
+          <para>Signaliserer prosesser basert på deres navn og andre attributter</para>
+          <indexterm zone="ch-system-procps pkill">
+            <primary sortas="b-pkill">pkill</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="pmap">
+        <term><command>pmap</command></term>
+        <listitem>
+          <para>Rapporterer minnekartet for den gitte prosessen</para>
+          <indexterm zone="ch-system-procps pmap">
+            <primary sortas="b-pmap">pmap</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="ps">
+        <term><command>ps</command></term>
+        <listitem>
+          <para>Viser gjeldende prosesser</para>
+          <indexterm zone="ch-system-procps ps">
+            <primary sortas="b-ps">ps</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="pwait">
+        <term><command>pwait</command></term>
+        <listitem>
+          <para>Venter til en prosess er ferdig før den utføres.</para>
+          <indexterm zone="ch-system-procps pwait">
+            <primary sortas="b-pwait">pwait</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="pwdx">
+        <term><command>pwdx</command></term>
+        <listitem>
+          <para>Rapporterer gjeldende arbeidsmappe for en prosess</para>
+          <indexterm zone="ch-system-procps pwdx">
+            <primary sortas="b-pwdx">pwdx</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="slabtop">
+        <term><command>slabtop</command></term>
+        <listitem>
+          <para>Viser detaljert kjerne platebuffer (slab cache) informasjon i sanntid</para>
+          <indexterm zone="ch-system-procps slabtop">
+            <primary sortas="b-slabtop">slabtop</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="sysctl">
+        <term><command>sysctl</command></term>
+        <listitem>
+          <para>Endrer kjerneparametere under kjøretid</para>
+          <indexterm zone="ch-system-procps sysctl">
+            <primary sortas="b-sysctl">sysctl</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="tload">
+        <term><command>tload</command></term>
+        <listitem>
+          <para>Skriver ut en graf over gjeldende systembelastningsgjennomsnitt</para>
+          <indexterm zone="ch-system-procps tload">
+            <primary sortas="b-tload">tload</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="top">
+        <term><command>top</command></term>
+        <listitem>
+          <para>Viser en liste over de mest CPU intensive prosessene; den
+           gir en kontinuerlig titt på prosessoraktivitet i sanntid</para>
+          <indexterm zone="ch-system-procps top">
+            <primary sortas="b-top">top</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="uptime">
+        <term><command>uptime</command></term>
+        <listitem>
+          <para>Rapporterer hvor lenge systemet har kjørt, hvor mange brukere det er
+           logget på, og systemets belastningsgjennomsnitt</para>
+          <indexterm zone="ch-system-procps uptime">
+            <primary sortas="b-uptime">uptime</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="vmstat">
+        <term><command>vmstat</command></term>
+        <listitem>
+          <para>Rapporterer virtuelt minnestatistikk, gir informasjon om
+           prosesser, minne, søking, blokk Input/Output (IO), feller og CPU
+           aktivitet</para>
+          <indexterm zone="ch-system-procps vmstat">
+            <primary sortas="b-vmstat">vmstat</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="w">
+        <term><command>w</command></term>
+        <listitem>
+          <para>Viser hvilke brukere som for øyeblikket er pålogget, hvor og siden
+           når</para>
+          <indexterm zone="ch-system-procps w">
+            <primary sortas="b-w">w</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="watch">
+        <term><command>watch</command></term>
+        <listitem>
+          <para>Kjører en gitt kommando gjentatte ganger, og viser den første
+           skjermen full av utdata; dette lar en bruker se utdataens
+           endring over tid</para>
+          <indexterm zone="ch-system-procps watch">
+            <primary sortas="b-watch">watch</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libprocps">
+        <term><filename class="libraryfile">libprocps</filename></term>
+        <listitem>
+          <para>Inneholder funksjonene som brukes av de fleste programmer i denne
+           pakken</para>
+          <indexterm zone="ch-system-procps libprocps">
+            <primary sortas="c-libprocps">libprocps</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>
