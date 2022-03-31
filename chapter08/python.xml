@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-Python" role="wrap">
+  <?dbhtml filename="Python.html"?>
+
+  <sect1info condition="script">
+    <productname>Python</productname>
+    <productnumber>&python-version;</productnumber>
+    <address>&python-url;</address>
+  </sect1info>
+
+  <title>Python-&python-version;</title>
+
+  <indexterm zone="ch-system-Python">
+    <primary sortas="a-Python">Python</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Python 3 pakken inneholder Python utviklingsmiljøet. Den
+     er nyttig for objektorientert programmering, skriving av skript, prototyping
+     store programmer, eller utvikle hele applikasjoner.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&python-fin-sbu;</seg>
+        <seg>&python-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Python 3</title>
+
+    <para>Forbered Python for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr        \
+            --enable-shared      \
+            --with-system-expat  \
+            --with-system-ffi    \
+            --with-ensurepip=yes \
+            --enable-optimizations</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av konfigureringsalternativene:</title>
+
+    <varlistentry>
+      <term><parameter>--with-system-expat</parameter></term>
+      <listitem>
+        <para>Denne bryteren muliggjør kobling mot systemversjonen av
+        <application>Expat</application>.</para>
+       </listitem>
+     </varlistentry>
+
+    <varlistentry>
+      <term><parameter>--with-system-ffi</parameter></term>
+      <listitem>
+        <para>Denne bryteren muliggjør kobling mot systemversjonen av
+        <application>libffi</application>.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><parameter>--with-ensurepip=yes</parameter></term>
+      <listitem>
+        <para>Denne bryteren gjør det mulig å bygge <command>pip</command> og
+        <command>setuptools</command> pakkeprogrammer.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><parameter>--enable-optimizations</parameter></term>
+      <listitem>
+        <para>Denne bryteren muliggjør stabile, men dyre, optimaliseringer.</para>
+      </listitem>
+    </varlistentry>
+
+    </variablelist>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Det anbefales ikke å kjøre testene på dette tidspunktet.
+     Tester er kjent for å henge på ubestemt tid i det delvise LFS miljøet.
+     Om ønskelig kan testene kjøres på nytt på slutten av dette kapittelet eller
+     når Python 3 er reinstallert i BLFS. For å kjøre testene uansett,
+     utsted <command>make test</command>.</para>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+    <para>Hvis ønskelig, installer den forhåndsformaterte dokumentasjonen:</para>
+
+<screen><userinput remap="install">install -v -dm755 /usr/share/doc/python-&python-version;/html
+
+tar --strip-components=1  \
+    --no-same-owner       \
+    --no-same-permissions \
+    -C /usr/share/doc/python-&python-version;/html \
+    -xvf ../python-&python-version;-docs-html.tar.bz2</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av dokumentasjons installasjons kommandoene:</title>
+
+    <varlistentry>
+      <term><option>--no-same-owner</option> og <option>--no-same-permissions</option></term>
+      <listitem>
+        <para>Sørg for at de installerte filene har riktig eierskap og
+         tillatelser. Uten disse alternativene, å bruke <application>tar</application>
+        vil installere pakkefilene med oppstrøms skaperens verdier.
+        </para>
+      </listitem>
+    </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+  <sect2 id="contents-python" role="content">
+    <title>Innhold i Python 3</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installert bibliotek</segtitle>
+      <segtitle>Installerte mapper</segtitle>
+
+      <seglistitem>
+        <seg>
+          2to3, idle3, pip3, pydoc3, python3, og python3-config
+        </seg>
+        <seg>
+          libpython&python-minor;.so og libpython3.so
+        </seg>
+        <seg>
+          /usr/include/python&python-minor;,
+          /usr/lib/python3, og
+          /usr/share/doc/python-&python-version;
+        </seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="python-2to3">
+        <term><command>2to3</command></term>
+        <listitem>
+          <para>
+            er et <application>Python</application> program som leser
+            <application>Python 2.x</application> kildekoden og bruker en
+             serie reparasjoner for å forvandle den til
+             gyldig <application>Python 3.x</application> kode
+          </para>
+          <indexterm zone="ch-system-Python">
+            <primary sortas="b-2to3">2to3</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="idle3">
+        <term><command>idle3</command></term>
+        <listitem>
+          <para>
+            er et innpakningsskript som åpner en <application>Python</application>
+            bevisst GUI tekstprogram. For at dette skriptet skal kjøre, må du ha installert
+            <application>Tk</application> før Python slik at Tkinter
+             Python modulen blir bygget
+          </para>
+          <indexterm zone="ch-system-Python">
+            <primary sortas="b-idle3">idle3</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="pip3">
+        <term><command>pip3</command></term>
+        <listitem>
+          <para>
+            Pakkeinstallasjonsprogrammet for Python. Du kan bruke pip til å installere
+             pakker fra Python Pakke Indeks og andre indekser
+          </para>
+          <indexterm zone="ch-system-Python">
+            <primary sortas="b-pip3">pip3</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="pydoc3">
+        <term><command>pydoc3</command></term>
+        <listitem>
+          <para>
+            er <application>Python</application> dokumentasjonsverktøy
+          </para>
+          <indexterm zone="ch-system-Python">
+            <primary sortas="b-pydoc3">pydoc3</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="python3">
+        <term><command>python3</command></term>
+        <listitem>
+          <para>
+            er en tolket, interaktiv, objektorientert programmerings
+             språk
+          </para>
+          <indexterm zone="ch-system-Python">
+            <primary sortas="b-python3">python3</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>
+
