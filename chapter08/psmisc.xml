@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-psmisc" role="wrap">
+  <?dbhtml filename="psmisc.html"?>
+
+  <sect1info condition="script">
+    <productname>psmisc</productname>
+    <productnumber>&psmisc-version;</productnumber>
+    <address>&psmisc-url;</address>
+  </sect1info>
+
+  <title>Psmisc-&psmisc-version;</title>
+
+  <indexterm zone="ch-system-psmisc">
+    <primary sortas="a-Psmisc">Psmisc</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Psmisc pakken inneholder programmer for å vise informasjon om
+     kjørende prosesser.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&psmisc-fin-sbu;</seg>
+        <seg>&psmisc-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Psmisc</title>
+
+    <para>Forbered Psmisc for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Denne pakken kommer ikke med en testpakke.</para>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-psmisc" role="content">
+    <title>Innhold i Psmisc</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+
+      <seglistitem>
+        <seg>fuser, killall, peekfd, prtstat, pslog, pstree, og pstree.x11 (lenker til pstree)</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="fuser">
+        <term><command>fuser</command></term>
+        <listitem>
+          <para>Rapporterer prosessIDene (PIDene) til prosesser som bruker de gitte
+           filer eller filsystemer</para>
+          <indexterm zone="ch-system-psmisc fuser">
+            <primary sortas="b-fuser">fuser</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="killall">
+        <term><command>killall</command></term>
+        <listitem>
+          <para>Dreper prosesser ved navn; den sender et signal til alle prosesser som
+           kjører noen av de gitte kommandoene</para>
+          <indexterm zone="ch-system-psmisc killall">
+            <primary sortas="b-killall">killall</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="peekfd">
+        <term><command>peekfd</command></term>
+        <listitem>
+          <para>Se på filbeskrivelser for en prosess som kjører, gitt dens
+          PID</para>
+          <indexterm zone="ch-system-psmisc peekfd">
+            <primary sortas="b-peekfd">peekfd</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="prtstat">
+        <term><command>prtstat</command></term>
+        <listitem>
+          <para>Skriver ut informasjon om en prosess</para>
+          <indexterm zone="ch-system-psmisc prtstat">
+            <primary sortas="b-prtstat">prtstat</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="pslog">
+        <term><command>pslog</command></term>
+        <listitem>
+          <para>Rapporterer gjeldende loggbane for en prosess</para>
+          <indexterm zone="ch-system-psmisc pslog">
+            <primary sortas="b-pslog">pslog</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="pstree">
+        <term><command>pstree</command></term>
+        <listitem>
+          <para>Viser kjørende prosesser som et tre</para>
+          <indexterm zone="ch-system-psmisc pstree">
+            <primary sortas="b-pstree">pstree</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="pstree.x11">
+        <term><command>pstree.x11</command></term>
+        <listitem>
+          <para>Samme som <command>pstree</command>, bortsett fra at den venter på
+           bekreftelse før den avslutter</para>
+          <indexterm zone="ch-system-psmisc pstree.x11">
+            <primary sortas="b-pstree.x11">pstree.x11</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>
