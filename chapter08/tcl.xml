@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+  <!ENTITY tdbc-ver          "1.1.3">
+  <!ENTITY itcl-ver          "4.2.2">
+]>
+
+<sect1 id="ch-system-tcl" role="wrap">
+  <?dbhtml filename="tcl.html"?>
+
+  <sect1info condition="script">
+    <productname>tcl</productname>
+    <productnumber>&tcl-version;</productnumber>
+    <address>&tcl-url;</address>
+  </sect1info>
+
+  <title>Tcl-&tcl-version;</title>
+
+  <indexterm zone="ch-system-tcl">
+    <primary sortas="a-Tcl">Tcl</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para><application>Tcl</application> pakken inneholder Tool Command Language,
+     et robust skriptspråk for generelt bruk. <application>Expect</application> pakken
+     er skrevet i <application>Tcl</application> språket.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&tcl-tmp-sbu;</seg>
+        <seg>&tcl-tmp-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Tcl</title>
+
+    <para>Denne pakken og de to neste (Expect og DejaGNU) er
+     installert for å støtte kjøring av testpakkene for binutils og GCC og andre
+     pakker. Å installere tre pakker for testformål kan virke
+     overdrevent, men det er veldig betryggende, om ikke avgjørende, å vite at
+     de viktigste verktøyene fungerer som de skal.</para>
+
+<!--    <para>Merk at Tcl pakken som brukes her er en minimal versjon som trengs
+     for å kjøre LFS testene. For hele pakken, se
+    <ulink url='&blfs-book;general/tcl.html'>BLFS Tcl procedures</ulink>.</para>-->
+
+    <para>Pakk først ut dokumentasjonen ved å gi følgende kommando:</para>
+
+<screen><userinput remap="pre">tar -xf ../tcl&tcl-version;-html.tar.gz --strip-components=1</userinput></screen>
+
+    <para>Forbered Tcl for kompilering:</para>
+
+<screen><userinput remap="configure">SRCDIR=$(pwd)
+cd unix
+./configure --prefix=/usr           \
+            --mandir=/usr/share/man \
+            $([ "$(uname -m)" = x86_64 ] &amp;&amp; echo --enable-64bit)</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av konfigureringsalternativene:</title>
+
+      <varlistentry>
+        <term><parameter>$([ "$(uname -m)" = x86_64 ] &amp;&amp; echo --enable-64bit)</parameter></term>
+        <listitem>
+          <para>construct <parameter>$(&lt;shell command&gt;)</parameter>
+          erstattes av utdataene fra shell kommandoen. Her er denne utgangen
+           tom hvis den kjøres på en 32-bits maskin, og er
+          <parameter>--enable-64bit</parameter> hvis du kjører på en 64-bits maskin.
+          </para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Bygg pakken:</para>
+
+<screen><userinput remap="make">make
+
+sed -e "s|$SRCDIR/unix|/usr/lib|" \
+    -e "s|$SRCDIR|/usr/include|"  \
+    -i tclConfig.sh
+
+sed -e "s|$SRCDIR/unix/pkgs/tdbc&tdbc-ver;|/usr/lib/tdbc&tdbc-ver;|" \
+    -e "s|$SRCDIR/pkgs/tdbc&tdbc-ver;/generic|/usr/include|"    \
+    -e "s|$SRCDIR/pkgs/tdbc&tdbc-ver;/library|/usr/lib/tcl8.6|" \
+    -e "s|$SRCDIR/pkgs/tdbc&tdbc-ver;|/usr/include|"            \
+    -i pkgs/tdbc&tdbc-ver;/tdbcConfig.sh
+
+sed -e "s|$SRCDIR/unix/pkgs/itcl&itcl-ver;|/usr/lib/itcl&itcl-ver;|" \
+    -e "s|$SRCDIR/pkgs/itcl&itcl-ver;/generic|/usr/include|"    \
+    -e "s|$SRCDIR/pkgs/itcl&itcl-ver;|/usr/include|"            \
+    -i pkgs/itcl&itcl-ver;/itclConfig.sh
+
+unset SRCDIR</userinput></screen>
+
+    <para>De ulike <quote>sed</quote> instruksjonene etter
+    <quote>make</quote> kommandoen fjerner referanser til byggemappen fra
+     konfigurasjonsfilene og erstatter dem med installasjonsmappen.
+     Dette er ikke obligatorisk for resten av LFS, men kan være nødvendig i tilfelle en
+     pakke bygget senere bruker Tcl.</para>
+
+    <para>For å teste resultatene, utsted:</para>
+
+<screen><userinput remap="test">make test</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+    <para>Gjør det installerte biblioteket skrivbart slik at feilsøkingssymboler kan
+     fjernes senere:</para>
+
+<screen><userinput remap="install">chmod -v u+w /usr/lib/libtcl&tcl-major-version;.so</userinput></screen>
+
+    <para>Installer Tcl sine deklarasjoner. Den neste pakken, Expect, krever dem.</para>
+
+<screen><userinput remap="install">make install-private-headers</userinput></screen>
+
+    <para>Lag nå en nødvendig symbolsk kobling:</para>
+
+<screen><userinput remap="install">ln -sfv tclsh&tcl-major-version; /usr/bin/tclsh</userinput></screen>
+
+    <para>Gi nytt navn til en man side som er i konflikt med en man side for Perl:</para>
+
+    <screen><userinput remap="install">mv /usr/share/man/man3/{Thread,Tcl_Thread}.3</userinput></screen>
+
+    <para>Hvis du lastet ned den valgfrie dokumentasjonen, installer den ved å utstede den
+     følgende kommandoer:</para>
+
+ <screen><userinput remap="install">mkdir -v -p /usr/share/doc/tcl-&tcl-version;
+cp -v -r  ../html/* /usr/share/doc/tcl-&tcl-version;</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-tcl" role="content">
+    <title>Innhold i Tcl</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installert bibliotek</segtitle>
+
+      <seglistitem>
+        <seg>
+          tclsh (link to tclsh&tcl-major-version;) og
+          tclsh&tcl-major-version;
+        </seg>
+        <seg>
+          libtcl&tcl-major-version;.so og
+          libtclstub&tcl-major-version;.a
+        </seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="tclsh&tcl-major-version;">
+        <term><command>tclsh&tcl-major-version;</command></term>
+        <listitem>
+          <para>Tcl kommandoskallet</para>
+          <indexterm zone="ch-system-tcl tclsh&tcl-major-version;">
+            <primary sortas="b-tclsh&tcl-major-version;">tclsh&tcl-major-version;</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="tclsh">
+        <term><command>tclsh</command></term>
+        <listitem>
+          <para>En lenke til tclsh&tcl-major-version;</para>
+          <indexterm zone="ch-system-tcl tclsh">
+            <primary sortas="b-tclsh">tclsh</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libtcl&tcl-major-version;.so">
+        <term><filename class="libraryfile">libtcl&tcl-major-version;.so</filename></term>
+        <listitem>
+          <para>Tcl biblioteket</para>
+          <indexterm zone="ch-system-tcl libtcl&tcl-major-version;.so">
+            <primary sortas="c-libtcl&tcl-major-version;.so">libtcl&tcl-major-version;.so</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libtclstub&tcl-major-version;.a">
+        <term><filename class="libraryfile">libtclstub&tcl-major-version;.a</filename></term>
+        <listitem>
+          <para>Tcl Stub biblioteket</para>
+          <indexterm zone="ch-system-tcl libtclstub&tcl-major-version;.a">
+            <primary sortas="c-libtclstub&tcl-major-version;.a">libtclstub&tcl-major-version;.a</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>
