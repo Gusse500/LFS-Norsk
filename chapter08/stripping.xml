@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-stripping">
+  <?dbhtml filename="stripping.html"?>
+
+  <title>Stripping</title>
+
+  <para>Denne delen er valgfri. Hvis den tiltenkte brukeren ikke er en
+   programmerer og ikke planlegger å gjøre
+   noen feilsøking på systemprogramvaren, kan systemstørrelsen reduseres
+   med omtrent 2 GB ved å fjerne feilsøkingssymbolene fra binærfiler og
+   biblioteker. Dette medfører ingen ulempe annet enn å ikke kunne
+   feilsøke programvaren fullstendig lenger.</para>
+
+  <para>De fleste som bruker kommandoene nevnt nedenfor,
+   opplever ikke noen vanskeligheter. Det er imidlertid lett å gjøre en skrivefeil og
+   gjør det nye systemet ubrukelig, så før du kjører
+  <command>strip</command> kommandoer, er det en god idé å lage en
+   sikkerhetskopiering av LFS systemet i gjeldende tilstand.</para>
+
+  <para>Feilsøkingssymbolene for utvalgte biblioteker er plassert
+   i separate filer. Denne feilsøkingsinformasjonen er nødvendig hvis det kjøres
+   regresjonstester som bruker <ulink
+  url='&blfs-book;/general/valgrind.html'>valgrind</ulink> eller <ulink
+  url='&blfs-book;/general/gdb.html'>gdb</ulink> senere i BLFS.
+  </para>
+
+  <para>Noter at <command>strip</command> vil overskrive binær eller bibliotek
+   filen den behandler. Dette kan krasje prosessene som bruker kode eller data fra
+   filen. Hvis prosessen som kjører <command>strip</command> selv er
+   påvirket, kan binærfilen eller biblioteket som blir strippet bli ødelagt og kan
+   gjøre systemet helt ubrukelig. For å unngå det, kopierer vi noen biblioteker
+   og binærfiler inn i <filename class="directory">/tmp</filename>, stripper dem
+   der, og installer dem tilbake med <command>install</command> kommandoen.
+  Les den relaterte oppføringen i <xref linkend="pkgmgmt-upgrade-issues"/> for
+   begrunnelsen for å bruke <command>install</command> kommandoen her.</para>
+
+  <note><para>ELF lasterens navn er ld-linux-x86-64.so.2 på 64-bits systemer
+   og ld-linux.so.2 på 32-bits systemer. Konstruksjonen nedenfor velger
+   riktig navn for gjeldende arkitektur.</para></note>
+
+<!-- også av interesse er libgfortan, libgo, libgomp, og libobjc fra GCC -->
+
+<!--<screen><userinput>save_lib="ld-2.25.so libc-2.25.so libpthread-2.25.so libthread_db-1.0.so"-->
+      <screen><userinput>save_usrlib="$(cd /usr/lib; ls ld-linux*)
+             libc.so.6
+             libthread_db.so.1
+             libquadmath.so.&libquadmath-version;
+             libstdc++.so.&libstdcpp-version;
+             libitm.so.&libitm-version;
+             libatomic.so.&libatomic-version;"
+
+cd /usr/lib
+
+for LIB in $save_usrlib; do
+    objcopy --only-keep-debug $LIB $LIB.dbg
+    cp $LIB /tmp/$LIB
+    strip --strip-unneeded /tmp/$LIB
+    objcopy --add-gnu-debuglink=$LIB.dbg /tmp/$LIB
+    install -vm755 /tmp/$LIB /usr/lib
+    rm /tmp/$LIB
+done
+
+online_usrbin="bash find strip"
+online_usrlib="libbfd-&binutils-version;.so
+               libhistory.so.&readline-soversion;
+               libncursesw.so.&ncurses-version;
+               libm.so.6
+               libreadline.so.&readline-soversion;
+               libz.so.&zlib-version;
+               $(cd /usr/lib; find libnss*.so* -type f)"
+
+for BIN in $online_usrbin; do
+    cp /usr/bin/$BIN /tmp/$BIN
+    strip --strip-unneeded /tmp/$BIN
+    install -vm755 /tmp/$BIN /usr/bin
+    rm /tmp/$BIN
+done
+
+for LIB in $online_usrlib; do
+    cp /usr/lib/$LIB /tmp/$LIB
+    strip --strip-unneeded /tmp/$LIB
+    install -vm755 /tmp/$LIB /usr/lib
+    rm /tmp/$LIB
+done
+
+for i in $(find /usr/lib -type f -name \*.so* ! -name \*dbg) \
+         $(find /usr/lib -type f -name \*.a)                 \
+         $(find /usr/{bin,sbin,libexec} -type f); do
+    case "$online_usrbin $online_usrlib $save_usrlib" in
+        *$(basename $i)* )
+            ;;
+        * ) strip --strip-unneeded $i
+            ;;
+    esac
+done
+
+unset BIN LIB save_usrlib online_usrbin online_usrlib
+</userinput></screen>
+
+  <para>Et stort antall filer vil bli rapportert som at
+   filformatet ikke er gjenkjent. Disse advarslene kan trygt ignoreres. De
+   indikerer at disse filene er skript i stedet for binære filer.</para>
+
+</sect1>
