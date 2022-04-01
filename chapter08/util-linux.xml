@@ -1,0 +1,1340 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-util-linux" role="wrap">
+  <?dbhtml filename="util-linux.html"?>
+
+  <sect1info condition="script">
+    <productname>util-linux</productname>
+    <productnumber>&util-linux-version;</productnumber>
+    <address>&util-linux-url;</address>
+  </sect1info>
+
+  <title>Util-linux-&util-linux-version;</title>
+
+  <indexterm zone="ch-system-util-linux">
+    <primary sortas="a-Util-linux">Util-linux</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Util-linux pakken inneholder diverse hjelpeprogrammer.
+     Blant dem er verktøy for håndtering av filsystemer, konsoller, partisjoner,
+     og meldinger.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&util-linux-fin-sbu;</seg>
+        <seg>&util-linux-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Util-linux</title>
+
+    <para>Forbered Util-linux for kompilering:</para>
+
+<screen revision="sysv"><userinput remap="configure">./configure ADJTIME_PATH=/var/lib/hwclock/adjtime   \
+            --bindir=/usr/bin    \
+            --libdir=/usr/lib    \
+            --sbindir=/usr/sbin  \
+            --docdir=/usr/share/doc/util-linux-&util-linux-version; \
+            --disable-chfn-chsh  \
+            --disable-login      \
+            --disable-nologin    \
+            --disable-su         \
+            --disable-setpriv    \
+            --disable-runuser    \
+            --disable-pylibmount \
+            --disable-static     \
+            --without-python     \
+            --without-systemd    \
+            --without-systemdsystemunitdir</userinput></screen>
+
+<screen revision="systemd"><userinput remap="configure">./configure ADJTIME_PATH=/var/lib/hwclock/adjtime   \
+            --bindir=/usr/bin    \
+            --libdir=/usr/lib    \
+            --sbindir=/usr/sbin  \
+            --docdir=/usr/share/doc/util-linux-&util-linux-version; \
+            --disable-chfn-chsh  \
+            --disable-login      \
+            --disable-nologin    \
+            --disable-su         \
+            --disable-setpriv    \
+            --disable-runuser    \
+            --disable-pylibmount \
+            --disable-static     \
+            --without-python</userinput></screen>
+
+    <para>Alternativene --disable og --without forhindrer advarsler om
+     bygningskomponenter som krever pakker som ikke er i LFS eller er
+     inkonsistent med programmer installert av andre pakker.</para>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Hvis ønskelig, kjør testpakken som en ikke-root bruker:</para>
+
+    <warning><para>Å kjører testpakken som
+    <systemitem class="username">root</systemitem> bruker kan være skadelig for
+     systemet ditt. For å kjøre den, må CONFIG_SCSI_DEBUG alternativet for kjernen
+     være tilgjengelig i det gjeldende systemet og må bygges som en
+     modul. Å bygge den inn i kjernen vil forhindre oppstart. For komplett
+     dekning, må andre BLFS pakker installeres. Om ønskelig kan denne testen
+     kjøres etter omstart i det fullførte LFS systemet og med å kjøre:</para>
+
+<screen role="nodump"><userinput>bash tests/run.sh --srcdir=$PWD --builddir=$PWD</userinput></screen>
+    </warning>
+
+    <note><para>Det er en test som mislykkes i chroot miljøet og
+     får testene til å henge for alltid. Problemet oppstår ikke utenfor
+     chroot miljøet.
+     For å omgå problemet, slett testen:</para>
+
+    <screen><userinput remap="test">rm tests/ts/lsns/ioctl_ns</userinput></screen>
+    </note>
+
+<screen><userinput remap="test">chown -Rv tester .
+su tester -c "make -k check"</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+<!--
+  <para>Til slutt, installer man sidene:</para>
+
+<screen><userinput remap="install">tar -xf ../util-linux-man-pages-&util-linux-version;.tar.xz - -directory /usr/share/man - -strip-components=1</userinput></screen>
+-->
+  </sect2>
+
+  <sect2 id="contents-utillinux" role="content">
+    <title>Innhold i Util-linux</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installerte biblioteker</segtitle>
+      <segtitle>Installerte mapper</segtitle>
+
+      <seglistitem>
+        <seg>addpart, agetty, blkdiscard, blkid, blkzone, blockdev, cal, cfdisk, chcpu,
+        chmem, choom, chrt, col, colcrt, colrm, column, ctrlaltdel, delpart, dmesg,
+        eject, fallocate, fdisk, fincore, findfs, findmnt, flock, fsck,
+        fsck.cramfs, fsck.minix, fsfreeze, fstrim, getopt, hexdump, hwclock,
+        i386, ionice, ipcmk, ipcrm, ipcs, irqtop, isosize, kill, last, lastb (lenker til
+        last), ldattach, linux32, linux64, logger, look, losetup, lsblk, lscpu,
+        lsipc, lsirq, lslocks, lslogins, lsmem, lsns, mcookie, mesg, mkfs, mkfs.bfs, mkfs.cramfs, mkfs.minix, mkswap,
+        more, mount, mountpoint, namei, nsenter, partx, pivot_root, prlimit,
+        readprofile, rename, renice, resizepart, rev, rfkill, rtcwake, script,
+        scriptlive, scriptreplay, setarch, setsid, setterm, sfdisk, sulogin, swaplabel,
+        swapoff (lenker til swapon), swapon, switch_root, taskset, uclampset, ul,
+        umount, uname26, unshare, utmpdump, uuidd, uuidgen, uuidparse, wall, wdctl, whereis,
+        wipefs, x86_64, og zramctl</seg>
+        <seg>libblkid.so, libfdisk.so, libmount.so,
+        libsmartcols.so, og libuuid.so</seg>
+        <seg>/usr/include/blkid,
+             /usr/include/libfdisk,
+             /usr/include/libmount,
+             /usr/include/libsmartcols,
+             /usr/include/uuid,
+             /usr/share/doc/util-linux-&util-linux-version;,
+         og /var/lib/hwclock</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="addpart">
+        <term><command>addpart</command></term>
+        <listitem>
+          <para>Informerer Linux kjernen om nye partisjoner</para>
+          <indexterm zone="ch-system-util-linux addpart">
+            <primary sortas="b-addpart">addpart</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="agetty">
+        <term><command>agetty</command></term>
+        <listitem>
+          <para>Åpner en tty port, ber om et påloggingsnavn,
+           og starter deretter <command>login</command> programmet</para>
+          <indexterm zone="ch-system-util-linux agetty">
+            <primary sortas="b-agetty">agetty</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="blkdiscard">
+        <term><command>blkdiscard</command></term>
+        <listitem>
+          <para>Forkaster sektorer på en enhet</para>
+          <indexterm zone="ch-system-util-linux blkdiscard">
+            <primary sortas="b-blkdiscard">blkdiscard</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="blkid">
+        <term><command>blkid</command></term>
+        <listitem>
+          <para>Et kommandolinjeverktøy for å finne og skrive ut blokkenhets
+           attributter</para>
+          <indexterm zone="ch-system-util-linux blkid">
+            <primary sortas="b-blkid">blkid</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="blkzone">
+        <term><command>blkzone</command></term>
+        <listitem>
+          <para>Kjører zone kommandoen på den gitte blokkenheten</para>
+          <indexterm zone="ch-system-util-linux blkzone">
+            <primary sortas="b-blkzone">blkzone</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="blockdev">
+        <term><command>blockdev</command></term>
+        <listitem>
+          <para>Lar brukere kalle blokkenhet ioctls fra kommando
+           linjen</para>
+          <indexterm zone="ch-system-util-linux blockdev">
+            <primary sortas="b-blockdev">blockdev</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="cal">
+        <term><command>cal</command></term>
+        <listitem>
+          <para>Viser en enkel kalender</para>
+          <indexterm zone="ch-system-util-linux cal">
+            <primary sortas="b-cal">cal</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="cfdisk">
+        <term><command>cfdisk</command></term>
+        <listitem>
+          <para>Manipulerer partisjonstabellen til den gitte enheten</para>
+          <indexterm zone="ch-system-util-linux cfdisk">
+            <primary sortas="b-cfdisk">cfdisk</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="chcpu">
+        <term><command>chcpu</command></term>
+        <listitem>
+          <para>Endrer tilstanden til CPUer</para>
+          <indexterm zone="ch-system-util-linux chcpu">
+            <primary sortas="b-chcpu">chcpu</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="chmem">
+        <term><command>chmem</command></term>
+        <listitem>
+          <para>Konfigurerer minne</para>
+          <indexterm zone="ch-system-util-linux chmem">
+            <primary sortas="b-chmem">chmem</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="choom">
+        <term><command>choom</command></term>
+        <listitem>
+          <para>Viser og justerer OOM-killer poeng</para>
+          <indexterm zone="ch-system-util-linux choom">
+            <primary sortas="b-choom">choom</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="chrt">
+        <term><command>chrt</command></term>
+        <listitem>
+          <para>Manipulerer sanntidsattributter til en prosess</para>
+          <indexterm zone="ch-system-util-linux chrt">
+            <primary sortas="b-chrt">chrt</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="col">
+        <term><command>col</command></term>
+        <listitem>
+          <para>Filtrerer ut omvendt linjemating</para>
+          <indexterm zone="ch-system-util-linux col">
+            <primary sortas="b-col">col</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="colcrt">
+        <term><command>colcrt</command></term>
+        <listitem>
+          <para>Filtrerer <command>nroff</command> utdata for terminaler
+           som mangler noen muligheter, for eksempel overslag og halvlinjer</para>
+          <indexterm zone="ch-system-util-linux colcrt">
+            <primary sortas="b-colcrt">colcrt</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="colrm">
+        <term><command>colrm</command></term>
+        <listitem>
+          <para>Filtrerer ut de gitte kolonnene</para>
+          <indexterm zone="ch-system-util-linux colrm">
+            <primary sortas="b-colrm">colrm</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="column">
+        <term><command>column</command></term>
+        <listitem>
+          <para>Formaterer en gitt fil i flere kolonner</para>
+          <indexterm zone="ch-system-util-linux column">
+            <primary sortas="b-column">column</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="ctrlaltdel">
+        <term><command>ctrlaltdel</command></term>
+        <listitem>
+          <para>Setter funksjonen til tastekombinasjonen Ctrl+Alt+Del til en
+           hard eller myk tilbakestilling</para>
+          <indexterm zone="ch-system-util-linux ctrlaltdel">
+            <primary sortas="b-ctrlaltdel">ctrlaltdel</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="delpart">
+        <term><command>delpart</command></term>
+        <listitem>
+          <para>Ber Linux kjernen om å fjerne en partisjon</para>
+          <indexterm zone="ch-system-util-linux delpart">
+            <primary sortas="b-delpart">delpart</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="dmesg">
+        <term><command>dmesg</command></term>
+        <listitem>
+          <para>Dumper kjerneoppstartsmeldingene</para>
+          <indexterm zone="ch-system-util-linux dmesg">
+            <primary sortas="b-dmesg">dmesg</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="eject">
+        <term><command>eject</command></term>
+        <listitem>
+          <para>Løser ut flyttbare medier</para>
+          <indexterm zone="ch-system-util-linux eject">
+            <primary sortas="b-eject">eject</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="fallocate">
+        <term><command>fallocate</command></term>
+        <listitem>
+          <para>Forhåndstildeler plass til en fil</para>
+          <indexterm zone="ch-system-util-linux fallocate">
+            <primary sortas="b-fallocate">fallocate</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="fdisk">
+        <term><command>fdisk</command></term>
+        <listitem>
+          <para>Manipulerer partisjonstabellen til den gitte enheten</para>
+          <indexterm zone="ch-system-util-linux fdisk">
+            <primary sortas="b-fdisk">fdisk</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="fincore">
+        <term><command>fincore</command></term>
+        <listitem>
+          <para>Teller sider med filinnhold i kjernen</para>
+          <indexterm zone="ch-system-util-linux fincore">
+            <primary sortas="b-fincore">fincore</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="findfs">
+        <term><command>findfs</command></term>
+        <listitem>
+          <para>Finner et filsystem etter etikett eller universell unik identifikator
+          (UUID)</para>
+          <indexterm zone="ch-system-util-linux findfs">
+            <primary sortas="b-findfs">findfs</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="findmnt">
+        <term><command>findmnt</command></term>
+        <listitem>
+          <para>Er et kommandolinjegrensesnitt til libmount biblioteket
+           for arbeid med mountinfo, fstab og mtab filer</para>
+          <indexterm zone="ch-system-util-linux findmnt">
+            <primary sortas="b-findmnt">findmnt</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="flock">
+        <term><command>flock</command></term>
+        <listitem>
+          <para>Skaffer en fillås og utfører deretter en kommando med låsen
+           holdt</para>
+          <indexterm zone="ch-system-util-linux flock">
+            <primary sortas="b-flock">flock</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="fsck">
+        <term><command>fsck</command></term>
+        <listitem>
+          <para>Brukes til å sjekke, og eventuelt reparere, filsystemer</para>
+          <indexterm zone="ch-system-util-linux fsck">
+            <primary sortas="b-fsck">fsck</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="fsck.cramfs">
+        <term><command>fsck.cramfs</command></term>
+        <listitem>
+          <para>Performs a consistency check on the Cramfs file system on the
+          given device</para>
+          <indexterm zone="ch-system-util-linux fsck.cramfs">
+            <primary sortas="b-fsck.cramfs">fsck.cramfs</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="fsck.minix">
+        <term><command>fsck.minix</command></term>
+        <listitem>
+          <para>Utfører en konsistenssjekk på Minix filsystem på
+           gitt enhet</para>
+          <indexterm zone="ch-system-util-linux fsck.minix">
+            <primary sortas="b-fsck.minix">fsck.minix</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="fsfreeze">
+        <term><command>fsfreeze</command></term>
+        <listitem>
+          <para>Er en veldig enkel innpakning rundt FIFREEZE/FITHAW ioctl
+           kjernedriveroperasjoner</para>
+          <indexterm zone="ch-system-util-linux fsfreeze">
+            <primary sortas="b-fsfreeze">fsfreeze</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="fstrim">
+        <term><command>fstrim</command></term>
+        <listitem>
+          <para>Forkaster ubrukte blokker på et montert filsystem</para>
+          <indexterm zone="ch-system-util-linux fstrim">
+            <primary sortas="b-fstrim">fstrim</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="getopt">
+        <term><command>getopt</command></term>
+        <listitem>
+          <para>Analyserer alternativer i den gitte kommandolinjen</para>
+          <indexterm zone="ch-system-util-linux getopt">
+            <primary sortas="b-getopt">getopt</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="hexdump">
+        <term><command>hexdump</command></term>
+        <listitem>
+          <para>Dumper den gitte filen i heksadesimal eller i et annen gitt
+           format</para>
+          <indexterm zone="ch-system-util-linux hexdump">
+            <primary sortas="b-hexdump">hexdump</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="hwclock">
+        <term><command>hwclock</command></term>
+        <listitem>
+          <para>Leser eller stiller inn systemets maskinvareklokke, også kalt
+           sanntidsklokken (RTC) eller grunnleggende inndata-utdata system (BIOS)
+           klokke</para>
+          <indexterm zone="ch-system-util-linux hwclock">
+            <primary sortas="b-hwclock">hwclock</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="i386">
+        <term><command>i386</command></term>
+        <listitem>
+          <para>En symbolsk lenke til setarch</para>
+          <indexterm zone="ch-system-util-linux i386">
+            <primary sortas="b-i386">i386</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="ionice">
+        <term><command>ionice</command></term>
+        <listitem>
+          <para>Henter eller setter io planleggingsklasse og prioritet for et program</para>
+          <indexterm zone="ch-system-util-linux ionice">
+            <primary sortas="b-ionice">ionice</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="ipcmk">
+        <term><command>ipcmk</command></term>
+        <listitem>
+          <para>Oppretter forskjellige IPC ressurser</para>
+          <indexterm zone="ch-system-util-linux ipcmk">
+            <primary sortas="b-ipcmk">ipcmk</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="ipcrm">
+        <term><command>ipcrm</command></term>
+        <listitem>
+          <para>Fjerner den gitte IPC ressursen (Inter-Process Communication)</para>
+          <indexterm zone="ch-system-util-linux ipcrm">
+            <primary sortas="b-ipcrm">ipcrm</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="ipcs">
+        <term><command>ipcs</command></term>
+        <listitem>
+          <para>Gir IPC statusinformasjon</para>
+          <indexterm zone="ch-system-util-linux ipcs">
+            <primary sortas="b-ipcs">ipcs</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="irqtop">
+        <term><command>irqtop</command></term>
+        <listitem>
+          <para>Viser informasjon om kjerneavbruddsteller i
+          <filename>top(1)</filename> stilvisning</para>
+          <indexterm zone="ch-system-util-linux irqtop">
+            <primary sortas="b-irqtop">irqtop</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="isosize">
+        <term><command>isosize</command></term>
+        <listitem>
+          <para>Rapporterer størrelsen på et ISO9660-filsystem</para>
+          <indexterm zone="ch-system-util-linux isosize">
+            <primary sortas="b-isosize">isosize</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="kill">
+        <term><command>kill</command></term>
+        <listitem>
+          <para>Sender signaler til prosesser</para>
+          <indexterm zone="ch-system-util-linux kill">
+            <primary sortas="b-kill">kill</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="last">
+        <term><command>last</command></term>
+        <listitem>
+          <para>Viser hvilke brukere som sist logget på (og ut), søker tilbake
+           gjennom <filename>/var/log/wtmp</filename> filen; den viser også
+           systemoppstart, systemavslutning og endringer på kjørenivå</para>
+          <indexterm zone="ch-system-util-linux last">
+            <primary sortas="b-last">last</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="lastb">
+        <term><command>lastb</command></term>
+        <listitem>
+          <para>Viser mislykkede påloggingsforsøk, som logget i
+          <filename>/var/log/btmp</filename></para>
+          <indexterm zone="ch-system-util-linux lastb">
+            <primary sortas="b-lastb">lastb</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="ldattach">
+        <term><command>ldattach</command></term>
+        <listitem>
+          <para>Fester en linjedisiplin til en seriellinje</para>
+          <indexterm zone="ch-system-util-linux ldattach">
+            <primary sortas="b-ldattach">ldattach</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="linux32">
+        <term><command>linux32</command></term>
+        <listitem>
+          <para>En symbolsk lenke til setarch</para>
+          <indexterm zone="ch-system-util-linux linux32">
+            <primary sortas="b-linux32">linux32</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="linux64">
+        <term><command>linux64</command></term>
+        <listitem>
+          <para>En symbolsk lenke til setarch</para>
+          <indexterm zone="ch-system-util-linux linux64">
+            <primary sortas="b-linux64">linux64</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="logger">
+        <term><command>logger</command></term>
+        <listitem>
+          <para>Legger inn den gitte meldingen i systemloggen</para>
+          <indexterm zone="ch-system-util-linux logger">
+            <primary sortas="b-logger">logger</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="look">
+        <term><command>look</command></term>
+        <listitem>
+          <para>Viser linjer som begynner med den gitte strengen</para>
+          <indexterm zone="ch-system-util-linux look">
+            <primary sortas="b-look">look</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="losetup">
+        <term><command>losetup</command></term>
+        <listitem>
+          <para>Setter opp og kontrollerer sløyfeenheter</para>
+          <indexterm zone="ch-system-util-linux losetup">
+            <primary sortas="b-losetup">losetup</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="lsblk">
+        <term><command>lsblk</command></term>
+        <listitem>
+          <para>Viser informasjon om alle eller utvalgte blokkenheter i
+            et trelignende format</para>
+          <indexterm zone="ch-system-util-linux lsblk">
+            <primary sortas="b-lsblk">lsblk</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="lscpu">
+        <term><command>lscpu</command></term>
+        <listitem>
+          <para>Skriver ut CPU arkitekturinformasjon</para>
+          <indexterm zone="ch-system-util-linux lscpu">
+            <primary sortas="b-lscpu">lscpu</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="lsipc">
+        <term><command>lsipc</command></term>
+        <listitem>
+          <para>Skriver ut informasjon om IPC fasiliteter som for øyeblikket brukes
+           i systemet</para>
+          <indexterm zone="ch-system-util-linux lsipc">
+            <primary sortas="b-lsipc">lsipc</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="lsirq">
+        <term><command>lsirq</command></term>
+        <listitem>
+          <para>Viser informasjon om kjerneavbruddsteller</para>
+          <indexterm zone="ch-system-util-linux lsirq">
+            <primary sortas="b-lsirq">lsirq</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="lslocks">
+        <term><command>lslocks</command></term>
+        <listitem>
+          <para>Viser lokale systemlåser</para>
+          <indexterm zone="ch-system-util-linux lslocks">
+            <primary sortas="b-lslocks">lslocks</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="lslogins">
+        <term><command>lslogins</command></term>
+        <listitem>
+          <para>Viser informasjon om brukere, grupper og systemkontoer</para>
+          <indexterm zone="ch-system-util-linux lslogins">
+            <primary sortas="b-lslogins">lslogins</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="lsmem">
+        <term><command>lsmem</command></term>
+        <listitem>
+          <para>Viser utvalg av tilgjengelig minne med deres tilkoblede
+           status</para>
+          <indexterm zone="ch-system-util-linux lsmem">
+            <primary sortas="b-lsmem">lsmem</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="lsns">
+        <term><command>lsns</command></term>
+        <listitem>
+          <para>Viser navnerom</para>
+          <indexterm zone="ch-system-util-linux lsns">
+            <primary sortas="b-lsns">lsns</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="mcookie">
+        <term><command>mcookie</command></term>
+        <listitem>
+          <para>Genererer magiske informasjonskapsler (128-bit tilfeldige heksadesimale tall) for
+          <command>xauth</command></para>
+          <indexterm zone="ch-system-util-linux mcookie">
+            <primary sortas="b-mcookie">mcookie</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="mesg">
+        <term><command>mesg</command></term>
+        <listitem>
+          <para>Styrer om andre brukere kan sende meldinger til den gjeldende
+           brukers terminal</para>
+          <indexterm zone="ch-system-util-linux mesg">
+            <primary sortas="b-mesg">mesg</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="mkfs">
+        <term><command>mkfs</command></term>
+        <listitem>
+          <para>Bygger et filsystem på en enhet (vanligvis en harddisk
+           partisjon)</para>
+          <indexterm zone="ch-system-util-linux mkfs">
+            <primary sortas="b-mkfs">mkfs</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="mkfs.bfs">
+        <term><command>mkfs.bfs</command></term>
+        <listitem>
+          <para>Oppretter et Santa Cruz Operations (SCO) bfs filsystem</para>
+          <indexterm zone="ch-system-util-linux mkfs.bfs">
+            <primary sortas="b-mkfs.bfs">mkfs.bfs</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="mkfs.cramfs">
+        <term><command>mkfs.cramfs</command></term>
+        <listitem>
+          <para>Oppretter et cramfs filsystem</para>
+          <indexterm zone="ch-system-util-linux mkfs.cramfs">
+            <primary sortas="b-mkfs.cramfs">mkfs.cramfs</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="mkfs.minix">
+        <term><command>mkfs.minix</command></term>
+        <listitem>
+          <para>Oppretter et Minix filsystem</para>
+          <indexterm zone="ch-system-util-linux mkfs.minix">
+            <primary sortas="b-mkfs.minix">mkfs.minix</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="mkswap">
+        <term><command>mkswap</command></term>
+        <listitem>
+          <para>Initialiserer den gitte enheten eller filen til å brukes som et vekselminne
+           område</para>
+          <indexterm zone="ch-system-util-linux mkswap">
+            <primary sortas="b-mkswap">mkswap</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="more">
+        <term><command>more</command></term>
+        <listitem>
+          <para>Et filter for å bla gjennom tekst et skjermbilde om gangen</para>
+          <indexterm zone="ch-system-util-linux more">
+            <primary sortas="b-more">more</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="mount">
+        <term><command>mount</command></term>
+        <listitem>
+          <para>Fester filsystemet på den gitte enheten til en spesifisert
+           mappe i filsystemtreet</para>
+          <indexterm zone="ch-system-util-linux mount">
+            <primary sortas="b-mount">mount</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="mountpoint">
+        <term><command>mountpoint</command></term>
+        <listitem>
+          <para>Sjekker om mappen er et monteringspunkt</para>
+          <indexterm zone="ch-system-util-linux mountpoint">
+            <primary sortas="b-mountpoint">mountpoint</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="namei">
+        <term><command>namei</command></term>
+        <listitem>
+          <para>Viser de symbolske koblingene i de gitte stinavnene</para>
+          <indexterm zone="ch-system-util-linux namei">
+            <primary sortas="b-namei">namei</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="nsenter">
+        <term><command>nsenter</command></term>
+        <listitem>
+          <para>Kjører et program med navnerom for andre prosesser</para>
+          <indexterm zone="ch-system-util-linux nsenter">
+            <primary sortas="b-nsenter">nsenter</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="partx">
+        <term><command>partx</command></term>
+        <listitem>
+          <para>Forteller kjernen om tilstedeværelsen og nummereringen av diskens
+           partisjoner</para>
+          <indexterm zone="ch-system-util-linux partx">
+            <primary sortas="b-partx">partx</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="pivot_root">
+        <term><command>pivot_root</command></term>
+        <listitem>
+          <para>Gjør det gitte filsystemet til det nye rotfilsystemet i
+           gjeldende prosess</para>
+          <indexterm zone="ch-system-util-linux pivot_root">
+            <primary sortas="b-pivot_root">pivot_root</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="prlimit">
+        <term><command>prlimit</command></term>
+        <listitem>
+          <para>Få og angi ressursgrenser til en prosess</para>
+          <indexterm zone="ch-system-util-linux prlimit">
+            <primary sortas="b-prlimit">prlimit</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="readprofile">
+        <term><command>readprofile</command></term>
+        <listitem>
+          <para>Leser informasjon om kjerneprofileringen</para>
+          <indexterm zone="ch-system-util-linux readprofile">
+            <primary sortas="b-readprofile">readprofile</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="rename">
+        <term><command>rename</command></term>
+        <listitem>
+          <para>Gi nytt navn til de gitte filene, erstatter en gitt streng med
+           en annen</para>
+          <indexterm zone="ch-system-util-linux rename">
+            <primary sortas="b-rename">rename</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="renice">
+        <term><command>renice</command></term>
+        <listitem>
+          <para>Endrer prioriteten til kjørende prosesser</para>
+          <indexterm zone="ch-system-util-linux renice">
+            <primary sortas="b-renice">renice</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="resizepart">
+        <term><command>resizepart</command></term>
+        <listitem>
+          <para>Ber Linux kjernen om å endre størrelsen på en partisjon</para>
+          <indexterm zone="ch-system-util-linux resizepart">
+            <primary sortas="b-resizepart">resizepart</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="rev">
+        <term><command>rev</command></term>
+        <listitem>
+          <para>Reverserer linjene til en gitt fil</para>
+          <indexterm zone="ch-system-util-linux rev">
+            <primary sortas="b-rev">rev</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="rkfill">
+        <term><command>rkfill</command></term>
+        <listitem>
+          <para>Verktøy for å aktivere og deaktivere trådløse enheter</para>
+          <indexterm zone="ch-system-util-linux rkfill">
+            <primary sortas="b-rkfill">rkfill</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="rtcwake">
+        <term><command>rtcwake</command></term>
+        <listitem>
+          <para>Brukes til å gå inn i systemets hviletilstand til et spesifisert
+           vekkingstidspunkt</para>
+          <indexterm zone="ch-system-util-linux rtcwake">
+            <primary sortas="b-rtcwake">rtcwake</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="script">
+        <term><command>script</command></term>
+        <listitem>
+          <para>Lager et typeskript av en terminaløkt</para>
+          <indexterm zone="ch-system-util-linux script">
+            <primary sortas="b-script">script</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="scriptlive">
+        <term><command>scriptlive</command></term>
+        <listitem>
+          <para>Kjøret sesjonens typeskript på nytt ved å bruke tidsinformasjon</para>
+          <indexterm zone="ch-system-util-linux scriptlive">
+            <primary sortas="b-scriptlive">scriptlive</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="scriptreplay">
+        <term><command>scriptreplay</command></term>
+        <listitem>
+          <para>Spiller av typeskript ved hjelp av tidsinformasjon</para>
+          <indexterm zone="ch-system-util-linux scriptreplay">
+            <primary sortas="b-scriptreplay">scriptreplay</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="setarch">
+        <term><command>setarch</command></term>
+        <listitem>
+          <para>Endringer rapportert arkitektur i et nytt programmiljø og
+           setter personlighetsflagg</para>
+          <indexterm zone="ch-system-util-linux setarch">
+            <primary sortas="b-setarch">setarch</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="setsid">
+        <term><command>setsid</command></term>
+        <listitem>
+          <para>Kjører det gitte programmet i en ny økt</para>
+          <indexterm zone="ch-system-util-linux setsid">
+            <primary sortas="b-setsid">setsid</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="setterm">
+        <term><command>setterm</command></term>
+        <listitem>
+          <para>Angir terminalattributter</para>
+          <indexterm zone="ch-system-util-linux setterm">
+            <primary sortas="b-setterm">setterm</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="sfdisk">
+        <term><command>sfdisk</command></term>
+        <listitem>
+          <para>En manipulator for diskpartisjonstabeller</para>
+          <indexterm zone="ch-system-util-linux sfdisk">
+            <primary sortas="b-sfdisk">sfdisk</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="sulogin">
+        <term><command>sulogin</command></term>
+        <listitem>
+          <para>Tillater <systemitem class="username">root</systemitem> å logge inn;
+          den er normalt startet av <command>init</command> når systemet går
+           i enkeltbrukermodus</para>
+          <indexterm zone="ch-system-util-linux sulogin">
+            <primary sortas="b-sulogin">sulogin</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="swaplabel">
+        <term><command>swaplabel</command></term>
+        <listitem>
+          <para>Gjør det mulig å endre vekselmonneområdets UUID og etikett</para>
+          <indexterm zone="ch-system-util-linux swaplabel">
+            <primary sortas="b-swaplabel">swaplabel</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="swapoff">
+        <term><command>swapoff</command></term>
+        <listitem>
+          <para>Deaktiverer enheter og filer for søking og bruk av vekselminne</para>
+          <indexterm zone="ch-system-util-linux swapoff">
+            <primary sortas="b-swapoff">swapoff</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="swapon">
+        <term><command>swapon</command></term>
+        <listitem>
+          <para>Aktiverer enheter og filer for søking og bruk av vekselminne og
+           viser enhetene og filene som er i bruk</para>
+          <indexterm zone="ch-system-util-linux swapon">
+            <primary sortas="b-swapon">swapon</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="switch_root">
+        <term><command>switch_root</command></term>
+        <listitem>
+          <para>Bytter til et annet filsystem som roten til monteringstreet</para>
+          <indexterm zone="ch-system-util-linux switch_root">
+            <primary sortas="b-switch_root">switch_root</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="taskset">
+        <term><command>taskset</command></term>
+        <listitem>
+          <para>Henter eller setter en prosess sin CPU tilhørighet</para>
+          <indexterm zone="ch-system-util-linux taskset">
+            <primary sortas="b-taskset">taskset</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="uclampset">
+        <term><command>uclampset</command></term>
+        <listitem>
+          <para>Manipuler bruk av clamping attributtene til
+           systemet eller en prosess</para>
+          <indexterm zone="ch-system-util-linux uclampset">
+            <primary sortas="b-uclampset">uclampset</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="ul">
+        <term><command>ul</command></term>
+        <listitem>
+          <para>Et filter for å oversette understrek til skiftesekvenser
+           som indikerer understreking for terminalen som er i bruk</para>
+          <indexterm zone="ch-system-util-linux ul">
+            <primary sortas="b-ul">ul</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="umount">
+        <term><command>umount</command></term>
+        <listitem>
+          <para>Kobler et filsystem fra systemets filtre</para>
+          <indexterm zone="ch-system-util-linux umount">
+            <primary sortas="b-umount">umount</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="uname26">
+        <term><command>uname26</command></term>
+        <listitem>
+          <para>En symbolsk lenke til setarch</para>
+          <indexterm zone="ch-system-util-linux uname26">
+            <primary sortas="b-uname26">uname26</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="unshare">
+        <term><command>unshare</command></term>
+        <listitem>
+          <para>Kjører et program med noen navnerom som ikke er delt fra overordnet</para>
+          <indexterm zone="ch-system-util-linux unshare">
+            <primary sortas="b-unshare">unshare</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="utmpdump">
+        <term><command>utmpdump</command></term>
+        <listitem>
+          <para>Viser innholdet i den gitte påloggingsfilen i et mer
+           brukervennlig format</para>
+          <indexterm zone="ch-system-util-linux utmpdump">
+            <primary sortas="b-utmpdump">utmpdump</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="uuidd">
+        <term><command>uuidd</command></term>
+        <listitem>
+          <para>En nisse som brukes av UUID biblioteket for å generere tidsbasert
+           UUID på en sikker og garantert unik måte</para>
+          <indexterm zone="ch-system-util-linux uuidd">
+            <primary sortas="b-uuidd">uuidd</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="uuidgen">
+        <term><command>uuidgen</command></term>
+        <listitem>
+          <para>Oppretter nye UUID. Hver ny UUID kan med rimelighet vurderes
+           unik blant alle UUID som er opprettet, på det lokale systemet og på andre
+           systemer, i fortiden og i fremtiden</para>
+          <indexterm zone="ch-system-util-linux uuidgen">
+            <primary sortas="b-uuidgen">uuidgen</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="uuidparse">
+        <term><command>uuidparse</command></term>
+        <listitem>
+          <para>Et verktøy for å analysere unike identifikatorer</para>
+          <indexterm zone="ch-system-util-linux uuidparse">
+            <primary sortas="b-uuidparse">uuidparse</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="wall">
+        <term><command>wall</command></term>
+        <listitem>
+          <para>Viser innholdet i en fil eller, som standard, dens standard
+           inndata, på terminalene til alle påloggede brukere</para>
+          <indexterm zone="ch-system-util-linux wall">
+            <primary sortas="b-wall">wall</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="wdctl">
+        <term><command>wdctl</command></term>
+        <listitem>
+          <para>Viser maskinvareovervåkingsstatus</para>
+          <indexterm zone="ch-system-util-linux wdctl">
+            <primary sortas="b-wdctl">wdctl</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="whereis">
+        <term><command>whereis</command></term>
+        <listitem>
+          <para>Rapporterer plasseringen av binær, kilde og man siden
+           for den gitte kommandoen</para>
+          <indexterm zone="ch-system-util-linux whereis">
+            <primary sortas="b-whereis">whereis</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="wipefs">
+        <term><command>wipefs</command></term>
+        <listitem>
+          <para>Sletter en filsystemsignatur fra en enhet</para>
+          <indexterm zone="ch-system-util-linux wipefs">
+            <primary sortas="b-wipefs">wipefs</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="x86_64">
+        <term><command>x86_64</command></term>
+        <listitem>
+          <para>En symbolsk lenke til setarch</para>
+          <indexterm zone="ch-system-util-linux x86_64">
+            <primary sortas="b-x86_64">x86_64</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="zramctl">
+        <term><command>zramctl</command></term>
+        <listitem>
+          <para>Et program for å sette opp og kontrollere zram (komprimert ram disk)
+           enheter</para>
+          <indexterm zone="ch-system-util-linux zramctl">
+            <primary sortas="b-zramctl">zramctl</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libblkid">
+        <term><filename class="libraryfile">libblkid</filename></term>
+        <listitem>
+          <para>Inneholder rutiner for enhetsidentifikasjon og symbol
+           utdrag</para>
+          <indexterm zone="ch-system-util-linux libblkid">
+            <primary sortas="c-libblkid">libblkid</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libfdisk">
+        <term><filename class="libraryfile">libfdisk</filename></term>
+        <listitem>
+          <para>Inneholder rutiner for manipulering av partisjonstabeller</para>
+          <indexterm zone="ch-system-util-linux libfdisk">
+            <primary sortas="c-libfdisk">libfdisk</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libmount">
+        <term><filename class="libraryfile">libmount</filename></term>
+        <listitem>
+          <para>Inneholder rutiner for montering og avmontering av en
+           blokkenhet</para>
+          <indexterm zone="ch-system-util-linux libmount">
+            <primary sortas="c-libmount">libmount</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libsmartcols">
+        <term><filename class="libraryfile">libsmartcols</filename></term>
+        <listitem>
+          <para>Inneholder rutiner for å hjelpe skjermutdata i tabulatorform</para>
+          <indexterm zone="ch-system-util-linux libsmartcols">
+            <primary sortas="c-libsmartcols">libsmartcols</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libuuid">
+        <term><filename class="libraryfile">libuuid</filename></term>
+        <listitem>
+          <para>Inneholder rutiner for å generere unike identifikatorer for objekter
+           som kan være tilgjengelig utenfor det lokale systemet</para>
+          <indexterm zone="ch-system-util-linux libuuid">
+            <primary sortas="c-libuuid">libuuid</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>
