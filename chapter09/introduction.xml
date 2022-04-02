@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-config-introduction" revision="sysv">
+  <?dbhtml filename="introduction.html"?>
+
+  <title>Introduksjon</title>
+
+    <para>Oppstart av et Linux system innebærer flere oppgaver. Prosessen må
+     montere både virtuelle og ekte filsystemer, initialiser enheter, aktivere vekselfilen,
+     sjekke filsystemer for integritet, montere eventuelle byttepartisjoner eller filer, sette
+     systemklokken, få opp nettverk, start alle nisser (daemons) som kreves av
+     systemet, og utføre alle andre tilpassede oppgaver brukeren trenger. Disse
+     prosessene må organiseres for å sikre at oppgavene utføres på riktig måte
+     , men samtidig utføres så raskt som mulig.</para>
+
+  <sect2 id='sysv-desc'>
+    <title>System V</title>
+
+    <para>System V er den klassiske oppstartsprosessen som har blitt brukt i Unix og
+     Unix lignende systemer som Linux siden ca 1983. Den består av et lite
+     program, <command>init</command>, som setter opp grunnleggende programmer som f.eks
+    <command>login</command> (via getty) og kjører et skript. Dette skriptet,
+     vanligvis navngitt <command>rc</command>,  kontrollerer utførelsen av et sett med
+     ekstra skript som utfører oppgavene som kreves for å initialisere
+     systemet.</para>
+
+    <para><command>init</command> programmet er kontrollert av
+    <filename>/etc/inittab</filename> filen og er organisert i kjørenivåer som
+     kan kjøres av brukeren:</para>
+
+<literallayout>0 &mdash; stopp
+1 &mdash; Enkeltbrukermodus
+2 &mdash; Flerbruker, uten nettverk
+3 &mdash; Full flerbrukermodus
+4 &mdash; Brukerdefinerbar
+5 &mdash; Full flerbrukermodus med skjermbehandler
+6 &mdash; omstart</literallayout>
+
+    <para>Vanlig standard kjørenivå er 3 eller 5.</para>
+
+    <bridgehead renderas="sect3">Fordeler</bridgehead>
+
+    <itemizedlist>
+      <listitem>
+          <para>Etablert, godt forstått system.</para>
+      </listitem>
+
+      <listitem>
+          <para>Enkelt å tilpasse.</para>
+      </listitem>
+
+    </itemizedlist>
+
+
+    <bridgehead renderas="sect3">Ulemper</bridgehead>
+
+    <itemizedlist>
+      <listitem>
+          <para>Kan være tregere å starte opp. Et middels hastighets LFS system
+           tar 8-12 sekunder der oppstartstiden måles fra
+           første kjernemelding til login ledeteksten. Nettverks
+           tilkobling er vanligvis etablert ca. 2 sekunder
+           etter påloggingsforespørselen.</para>
+      </listitem>
+
+      <listitem>
+          <para>Seriell behandling av oppstartsoppgaver. Dette er relatert til forrige
+           punkt. En forsinkelse i enhver prosess, for eksempel en filsystemsjekk, vil
+           forsinke hele oppstartsprosessen.</para>
+      </listitem>
+
+      <listitem>
+          <para>Støtter ikke direkte avanserte funksjoner som
+           kontrollgrupper (cgroups) og planlegging av rettferdig andel per bruker.</para>
+      </listitem>
+
+      <listitem>
+          <para>Å legge til skript krever manuelle, statiske sekvensbeslutninger.</para>
+      </listitem>
+
+    </itemizedlist>
+
+  </sect2>
+
+</sect1>
+
