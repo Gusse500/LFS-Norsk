@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-config-profile" revision="sysv">
+  <?dbhtml filename="profile.html"?>
+
+  <title>Oppstartsfilene til Bash skallet</title>
+
+  <indexterm zone="ch-config-profile">
+    <primary sortas="e-/etc/profile">/etc/profile</primary>
+  </indexterm>
+
+  <para>Skallprogrammet <command>/bin/bash</command> (heretter referert
+   som <quote>skallet</quote>) bruker en samling oppstartsfiler for å hjelpe
+   til å lag et miljø å kjøre i. Hver fil har en spesifikk bruk og kan påvirke
+   pålogging og interaktive miljøer annerledes. Filene i <filename
+  class="directory">/etc</filename> mappen gir globale innstillinger. Hvis en
+   tilsvarende fil finnes i hjemmemappen, kan den overstyre de globale
+   innstillingene.</para>
+
+  <para>Et interaktivt påloggingsskall startes etter en vellykket pålogging ved hjelp av
+  <command>/bin/login</command>, ved å lese <filename>/etc/passwd</filename>
+  filen. Et interaktivt ikke-påloggingsskall startet på kommandolinjen (f.eks.,
+  <prompt>[prompt]$</prompt><command>/bin/bash</command>). Et ikke-interaktiv
+   skall er vanligvis tilstede når et skallskript kjører. Det er ikke-interaktivt
+   fordi det behandler et skript og ikke venter på brukerinndata mellom
+   kommandoer.</para>
+
+  <para>For mer informasjon, se <command>info bash</command> under
+  <emphasis>Bash Startup Files and Interactive Shells</emphasis> seksjonen.</para>
+
+  <para>Filene <filename>/etc/profile</filename> og
+  <filename>~/.bash_profile</filename> leses når skallet er
+   startet som et interaktivt påloggingsskall.</para>
+
+  <para>Grunnfilen <filename>/etc/profile</filename> nedenfor setter noen
+   miljøvariabler som er nødvendige for morsmålsstøtte. Å sette
+   de riktig resulterer i:</para>
+
+  <itemizedlist>
+    <listitem>
+      <para>Utdataene fra programmer oversatt til morsmålet</para>
+    </listitem>
+    <listitem>
+      <para>Riktig klassifisering av tegn i bokstaver, sifre og andre
+       klasser. Dette er nødvendig for <command>bash</command> å akseptere ordentlig
+       ikke-ASCII tegn i kommandolinjer i ikke-engelske språk</para>
+    </listitem>
+    <listitem>
+      <para>Riktig alfabetisk sorteringsrekkefølge for landet</para>
+    </listitem>
+    <listitem>
+      <para>Passende standard papirstørrelse</para>
+    </listitem>
+    <listitem>
+      <para>Riktig formatering av penge-, tids- og datoverdier</para>
+    </listitem>
+  </itemizedlist>
+
+  <para>Erstatt <replaceable>&lt;ll&gt;</replaceable> nedenfor med koden på to bokstaver
+   for ønsket språk (f.eks., <quote>en</quote>) og
+  <replaceable>&lt;CC&gt;</replaceable> med tobokstavskoden for det aktuelle
+   land (f.eks., <quote>GB</quote>). <replaceable>&lt;charmap&gt;</replaceable> bør
+   erstattes med den kanoniske tegntabellen for din valgte lokalitet. Valgfri
+   modifikatorer som f.eks <quote>@euro</quote> kan også være tilstede.</para>
+
+  <para>Listen over alle lokaliteter som støttes av Glibc kan fås ved å kjøre
+   følgende kommando:</para>
+
+<screen role="nodump"><userinput>locale -a</userinput></screen>
+
+  <para>Tegntabeller kan ha en rekke aliaser, f.eks., <quote>ISO-8859-1</quote>
+  er også referert til som <quote>iso8859-1</quote> og <quote>iso88591</quote>.
+  Noen applikasjoner kan ikke håndtere de forskjellige synonymene riktig (f.eks. kreves
+   det at <quote>UTF-8</quote> er skrevet som <quote>UTF-8</quote>, ikke
+  <quote>utf8</quote>), så det er tryggest i de fleste
+   tilfeller for å velge det kanoniske navnet for en bestemt lokalitet. Å bestemme
+   det kanoniske navnet, kjør følgende kommando, hvor <replaceable>&lt;locale
+  name&gt;</replaceable> er utdataen gitt av <command>locale -a</command> til
+   din foretrukne lokalitet (<quote>en_GB.iso88591</quote> i vårt eksempel).</para>
+
+<screen role="nodump"><userinput>LC_ALL=<replaceable>&lt;locale name&gt;</replaceable> locale charmap</userinput></screen>
+
+  <para>For <quote>en_GB.iso88591</quote> lokaliteten, kommandoen over
+   vil skrive ut:</para>
+
+<screen><computeroutput>ISO-8859-1</computeroutput></screen>
+
+  <para>Dette resulterer i en endelig lokaleinnstilling på <quote>en_GB.ISO-8859-1</quote>.
+  Det er viktig at lokaliteten funnet ved hjelp av heuristikken ovenfor testes på forhånd
+   før det legges til Bash oppstartsfilene:</para>
+
+<screen role="nodump"><userinput>LC_ALL=&lt;locale name&gt; locale language
+LC_ALL=&lt;locale name&gt; locale charmap
+LC_ALL=&lt;locale name&gt; locale int_curr_symbol
+LC_ALL=&lt;locale name&gt; locale int_prefix</userinput></screen>
+
+  <para>Kommandoene ovenfor skal skrive ut språknavnet, tegnkoding
+   som brukes av lokaliteten, den lokale valutaen og prefikset før telefonnummeret for å ringe
+   inn i landet. Hvis noen av
+   kommandoene ovenfor mislykkes med en melding som ligner på den som vises nedenfor, betyr dette
+   at lokaliteten din enten ikke var installert i <xref linkend="ch-system-glibc"/>
+  eller ikke støttes av standardinstallasjonen av Glibc.</para>
+
+<screen><computeroutput>locale: Cannot set LC_* to default locale: No such file or directory</computeroutput></screen>
+
+  <para>Hvis dette skjer, bør du enten installere ønsket lokalitet ved å bruke
+  <command>localedef</command> kommandoen, eller vurder å velge en annen lokalitet.
+   Ytterligere instruksjoner forutsetter at det ikke er slike feilmeldinger fra
+   Glibc.</para>
+
+  <!-- FIXME: xlib eksemplet vil snart bli foreldet -->
+  <!--<para>Noen pakker utover LFS kan også mangle støtte for din valgte lokalitet. En
+   eksempel er X-biblioteket (en del av X Window System), som sender ut
+   følgende feilmelding hvis lokaliteten ikke samsvarer nøyaktig med en av tegntabell
+   navn i interne filer:</para>
+
+<screen><computeroutput>Warning: locale not supported by Xlib, locale set to C</computeroutput></screen>
+
+  <para>I flere tilfeller forventer Xlib at karakterkartet vil bli oppført i
+   store bokstaver med kanoniske bindestreker. For eksempel "ISO-8859-1" heller
+   enn "iso88591". Det er også mulig å finne en passende spesifikasjon ved å
+   fjerne charmap delen av lokalitetsspesifikasjonen. Dette kan sjekkes
+   ved å kjøre <command>locale charmap</command> kommandoen i begge lokaliteter.
+   For eksempel må man endre "de_DE.ISO-8859-15@euro" til
+   "de_DE@euro" for å få denne lokaliteten gjenkjent av Xlib.</para>
+-->
+  <para>Andre pakker kan også fungere feil (men kanskje ikke nødvendigvis
+   vise eventuelle feilmeldinger) hvis lokalenavnet ikke oppfyller deres forventninger.
+   I disse tilfellene, å undersøke hvordan andre Linux distribusjoner støtter lokaliteten din
+   kan gi noe nyttig informasjon.</para>
+
+  <para>Når de riktige lokale innstillingene er bestemt, oppretter du
+  <filename>/etc/profile</filename> filen:</para>
+
+<screen><userinput>cat &gt; /etc/profile &lt;&lt; "EOF"
+<literal># Begin /etc/profile
+
+export LANG=<replaceable>&lt;ll&gt;_&lt;CC&gt;.&lt;charmap&gt;&lt;@modifiers&gt;</replaceable>
+
+# End /etc/profile</literal>
+EOF</userinput></screen>
+
+  <para><quote>C</quote> (standard) og <quote>en_US.utf8</quote> (det anbefalte
+   for engelske brukere i USA) lokalitetene er forskjellige. <quote>C</quote>
+  bruker US-ASCII 7-biters tegnsett, og behandler byte med det høye bitsettet
+   som ugyldige tegn. Det er derfor, f.eks <command>ls</command> kommandoen
+   erstatter dem med spørsmålstegn i det lokalet. Også et forsøk på å sende
+   post med slike tegn fra Mutt eller Pine resulterer i ikke-RFC samsvars
+   meldinger som sendes (tegnsettet i den utgående posten er indikert som <quote>unknown
+  8-bit</quote>). Så du kan bruke <quote>C</quote> bare hvis du er sikker på at
+   du aldri trenger 8-bits tegn.</para>
+
+  <para>UTF-8 baserte lokaliteter støttes ikke godt av noen programmer.
+   Det pågår arbeid med å dokumentere og om mulig fikse slike problemer, se
+  <ulink url="&blfs-book;introduction/locale-issues.html"/>.</para>
+
+</sect1>
