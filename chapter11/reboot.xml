@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-finish-reboot">
+  <?dbhtml filename="reboot.html"?>
+
+  <title>Omstart av systemet</title>
+
+  <para>Nå som all programvaren er installert, er det på tide å starte datamaskinen din
+   på nytt. Du bør imidlertid være klar over et par ting. Systemet du
+   har skapt i denne boken er ganske minimal, og vil mest sannsynlig ikke ha
+   funksjonaliteten du trenger for å kunne fortsette fremover. Ved å installere
+   noen ekstra pakker fra BLFS boken mens du fortsatt er i det nåværende chroot
+   miljøet, kan du etterlate deg selv i en mye bedre posisjon til å fortsette
+   når du starter på nytt i den nye LFS installasjonen. Her er noen forslag:</para>
+
+  <itemizedlist>
+
+    <listitem><para>En tekstnettleser som f.eks <ulink
+    url='&blfs-book;basicnet/lynx.html'>Lynx</ulink>
+    lar deg enkelt vise BLFS boken i en virtuell terminal, mens du
+     bygger pakker i en annen.</para></listitem>
+
+    <listitem><para><ulink
+    url='&blfs-book;postlfs/make-ca.html'>make-ca</ulink> pakken
+     vil tillate deg å sette opp lokale pålitelige ankersertifikater, slik at
+     systemet kan bekrefte SSL-sertifikater levert av eksterne servere (for
+     eksempel et nettsted som bruker HTTPS).</para></listitem>
+
+    <listitem><para><ulink
+    url='&blfs-book;general/gpm.html'>GPM</ulink> pakken vil tillate
+     deg til å utføre kopier/lim inn handlinger i dine virtuelle
+     terminaler.</para></listitem>
+
+    <listitem revision="sysv"><para>
+    Hvis du er i en situasjon med statisk IP-konfigurasjon som
+     ikke oppfyller nettverkskravene dine, installerer en pakke
+     som for eksempel <ulink url='&blfs-book;basicnet/dhcpcd.html'>dhcpcd</ulink>
+    eller klientdelen av <ulink
+    url='&blfs-book;basicnet/dhcp.html'>dhcp</ulink> kan være
+     nyttig.</para></listitem>
+
+    <listitem><para>Installere <ulink
+    url='&blfs-book;postlfs/sudo.html'>sudo</ulink> kan være nyttig for
+     å bygge pakker som en ikke-rootbruker og enkelt installere de resulterende
+     pakker i ditt nye system.</para></listitem>
+
+    <listitem><para>Hvis du ønsker å få tilgang til det nye systemet fra et eksternt system
+     i et komfortabelt GUI-miljø, installer <ulink
+    url='&blfs-book;postlfs/openssh.html'>openssh</ulink>.</para></listitem>
+
+    <listitem><para>For å gjøre det enklere å hente filer over internett, installer
+    <ulink url='&blfs-book;basicnet/wget.html'>wget</ulink>.</para></listitem>
+
+    <listitem><para>For å koble til et trådløst tilgangspunkt for nettverk,
+     installere <ulink
+    url='&blfs-book;basicnet/wpa_supplicant.html'>wpa_supplicant</ulink>.
+    </para></listitem>
+
+    <listitem><para>Til slutt en gjennomgang av følgende konfigurasjonsfiler
+     er også passende på dette punktet.</para>
+
+      <itemizedlist>
+        <listitem><para>/etc/bashrc                  </para></listitem>
+        <listitem><para>/etc/dircolors               </para></listitem>
+        <listitem><para>/etc/fstab                   </para></listitem>
+        <listitem><para>/etc/hosts                   </para></listitem>
+        <listitem><para>/etc/inputrc                 </para></listitem>
+        <listitem><para>/etc/profile                 </para></listitem>
+        <listitem><para>/etc/resolv.conf             </para></listitem>
+        <listitem><para>/etc/vimrc                   </para></listitem>
+        <listitem><para>/root/.bash_profile          </para></listitem>
+        <listitem><para>/root/.bashrc                </para></listitem>
+        <listitem revision="sysv"><para>/etc/sysconfig/ifconfig.eth0 </para></listitem>
+      </itemizedlist>
+    </listitem>
+  </itemizedlist>
+
+  <para>Nå som vi har sagt det, la oss gå videre til å starte opp vår skinnende nye LFS
+   installasjon for første gang! Første gå ut av chroot-miljøet:</para>
+
+<screen><userinput>logout</userinput></screen>
+<!-- Vi må vise brukeren detaljene...
+  <para>Avmonter LFS filsystemhierarkiet:</para>
+
+<screen><userinput>umount -Rv $LFS</userinput></screen>
+-->
+
+  <para>Deretter avmonterer de virtuelle filsystemene:</para>
+
+<screen><userinput>umount -v $LFS/dev/pts
+umount -v $LFS/dev
+umount -v $LFS/run
+umount -v $LFS/proc
+umount -v $LFS/sys</userinput></screen>
+
+  <para>Hvis flere partisjoner ble opprettet, avmonter den andre
+   partisjoner før du demonterer den viktigste, slik som dette:</para>
+
+<screen role="nodump"><userinput>umount -v $LFS/usr
+umount -v $LFS/home
+umount -v $LFS</userinput></screen>
+
+  <para>Avmonter selve LFS filsystemet:</para>
+
+<screen role="nodump"><userinput>umount -v $LFS</userinput></screen>
+
+  <para>Start nå systemet på nytt med:</para>
+
+<screen role="nodump"><userinput>shutdown -r now</userinput></screen>
+
+  <para>Forutsatt at GRUB oppstartslasteren ble satt opp som skissert tidligere, er menyen
+   satt til å starte opp <emphasis>LFS &version;</emphasis> automatisk.</para>
+
+  <para>Når omstarten er fullført, er LFS systemet klart til bruk og
+   mer programvare kan legges til for å passe dine behov.</para>
+
+</sect1>
