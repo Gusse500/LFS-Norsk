@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="pre-foreword">
+  <?dbhtml filename="foreword.html"?>
+
+  <title>Forord</title>
+
+<para>Min reise for å lære og bedre forstå Linux begynte
+tilbake i 1998. Jeg hadde nettopp installert min første Linux-distribusjon og hadde
+raskt blitt fascinert av hele konseptet og filosofien bak
+Linux.</para>
+
+<para>Det er alltid mange måter å utføre en enkelt oppgave på. Det samme kan sies
+om Linux-distribusjoner. Svært mange har eksistert opp gjennom årene. Noen
+eksisterer fortsatt, noen har forvandlet seg til noe annet, mens andre har blitt
+henvist til våre minner. De gjør alle ting annerledes for å passe behovene til
+deres målgruppe. Fordi det eksisterer så mange forskjellige måter å oppnå det samme
+sluttmålet , begynte jeg å innse at jeg ikke lenger måtte være begrenset av noen
+gjennomføring. Før vi oppdaget Linux, stilte vi rett og slett opp med problemer i
+andre operativsystemer siden du ikke hadde noe valg. Det var hva det var, enten du
+likte det eller ikke. Med Linux begynte konseptet med valg å dukke opp. Hvis du
+ikke likte noe, du var fri, til og med oppmuntret, til å endre det.</para>
+
+<para>Jeg prøvde en rekke distribusjoner og kunne ikke bestemme meg for noen. De
+var flotte systemer i seg selv. Det var ikke et spørsmål om rett og
+feil lenger. Det var blitt et spørsmål om personlig smak. Med allle de
+valgene tilgjengelig, ble det klart at det ikke ville være en eneste
+system som ville være perfekt for meg. Så jeg satte meg for å lage min egen Linux
+system som fullt ut samsvarer med mine personlige preferanser.</para>
+
+<para>For å virkelig gjøre det til mitt eget system, bestemte jeg meg for å kompilere alt fra
+kildekode i stedet for å bruke forhåndskompilerte binære pakker. Dette
+<quote>perfekt</quote> Linux-system vil ha styrken til forskjellige
+systemer uten deres opplevde svakheter. Først var tanken snarere
+skremmende. Jeg forble forpliktet til ideen om at et slikt system kunne bli
+bygget.</para>
+
+<para>Etter å ha sortert gjennom problemer som sirkulære avhengigheter og kompileringsfeil
+, bygget jeg endelig et spesialbygd Linux-system. Det var fullt
+operativ og perfekt brukbart som alle andre Linux-systemer ute
+der på den tiden. Men det var min egen skapelse. Det var veldig tilfredsstillende å
+har satt sammen et slikt system selv. Det eneste bedre ville ha
+vært å lage hvert stykke programvare selv. Dette var det nest beste
+.</para>
+
+<para>Da jeg delte mine mål og erfaringer med andre medlemmer av Linux
+samfunnet, ble det tydelig at det var en vedvarende interesse for disse
+ideer. Det ble raskt klart at slike spesialbygde Linux-systemer
+tjener ikke bare for å møte brukerspesifikke krav, men også tjene som en
+ideell læringsmulighet for programmerere og systemadministratorer
+forbedre deres (eksisterende) Linux-ferdigheter. Ut fra denne utvidede interessen
+<emphasis>Linux From Scratch Project</emphasis> ble født.</para>
+
+<para>Denne Linux From Scratch boken er den sentrale kjernen rundt det prosjektet. Den
+gir bakgrunnen og instruksjonene som er nødvendige for deg å designe og
+bygge ditt eget system. Mens denne boken gir en mal som vil resultere
+i et korrekt fungerende system står du fritt til å endre instruksjonene til
+å passer deg selv, som delvis er en viktig del av dette prosjektet. Du
+forblir i kontroll; vi gir bare en hjelpende hånd for å komme i gang på din
+egen reise.</para>
+
+<para>Jeg håper inderlig at du vil ha en flott tid med å jobbe med din egen Linux From
+Scratch system og nyte de mange fordelene ved å ha et system som er
+virkelig din egen.</para>
+
+<literallayout>--
+Gerard Beekmans
+gerard@linuxfromscratch.org</literallayout>
+
+</sect1>
