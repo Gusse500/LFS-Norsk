@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="pre-organization">
+  <?dbhtml filename="organization.html"?>
+
+  <title>Struktur</title>
+
+  <para>Denne boken er delt inn i følgende deler.</para>
+
+  <sect2>
+    <title>Del I - Introduksjon</title>
+
+    <para>Del I forklarer noen viktige merknader om hvordan du går frem med
+     LFS installasjon. Denne delen gir også metainformasjon om
+     boken.</para>
+  </sect2>
+
+  <sect2>
+    <title>Del II - Forberedelse til bygging</title>
+
+    <para>Del II beskriver hvordan du forbereder byggeprosessen&mdash;lage
+     en partisjon, nedlasting av pakkene og kompilering av midlertidige
+     verktøy.</para>
+  </sect2>
+
+  <sect2>
+    <title>Del III - Bygging av LFS kryssverktøykjede og midlertidige verktøy</title>
+
+    <para>Del III gir instruksjoner for å bygge verktøyene
+     nødvendig for å konstruere det endelige LFS systemet.</para>
+  </sect2>
+
+  <sect2>
+    <title>Del IV - Bygge LFS systemet</title>
+
+    <para>Del IV guider leseren gjennom byggingen av LFS
+     systemet&mdash;kompilere og installere alle pakkene én etter én,
+     sette opp oppstartsskriptene og installere kjernen. Det resulterende
+     Linux-systemet er grunnlaget som annen programvare kan bygges på,
+     utvide systemet etter ønske. På slutten av denne boken er det en
+     enkel å bruke referanse som viser alle programmene, bibliotekene og
+     viktige filer som er installert.</para>
+  </sect2>
+
+  <sect2>
+    <title>Del V - Vedlegg</title>
+
+    <para>Del V gir informasjon om selve boken inkludert
+     akronymer og termer, anerkjennelser, pakkeavhengigheter,
+     en liste over LFS-oppstartsskript, lisenser for distribusjon av
+     bok, og en omfattende indeks over pakker, programmer, biblioteker,
+     og skript.</para>
+  </sect2>
+
+</sect1>
