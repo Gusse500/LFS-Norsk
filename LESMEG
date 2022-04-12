@@ -1,0 +1,10 @@
+For å konvertere på et linux system må
+tillatelsene på filene
+
+git-version.sh
+aux-file-data.sh
+make-aux-files.sh
+
+endres til 0755
+
+
