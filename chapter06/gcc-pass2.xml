@@ -118,6 +118,33 @@ ln -s ../../../libgcc/gthr-posix.h $LFS_TGT/libgcc/gthr-default.h</userinput></s
           class="directory">$LFS</filename>, og ikke på verten.</para>
         </listitem>
       </varlistentry>
+	  
+	    <varlistentry>
+        <term><parameter>--target=$LFS_TGT</parameter></term>
+        <listitem>
+			<para>Mens vi krysskompilerer GCC, er det umulig å bygge
+           målbiblioteker (<filename class="libraryfile">libgcc</filename>
+           og <filename class="libraryfile">libstdc++</filename>) med
+           kompilerte GCC-binærfiler fordi disse binærfilene ikke vil kjøre på
+           vertsdistroen. GCC-byggesystemet vil forsøke å bruke
+           C- og C++-kompilatorer på vertsdistroen som en løsning som standard.
+           Det støttes ikke å bygge GCC-målbiblioteker med en annen
+           versjon av GCC, så bruk av vertskompilatorer kan føre til feil bygging
+           . Denne parameteren sikrer å bygge bibliotekene med GCC
+           pass 1 og forhindre problemet.</para>
+		</listitem>
+      </varlistentry>
+	  
+	  <varlistentry>
+        <term><parameter>LDFLAGS_FOR_TARGET=...</parameter></term>
+        <listitem>
+			<para>Tillat <filename class="libraryfile">libstdc++</filename> å
+           bruk den delte <filename class="libraryfile">libgcc</filename> 
+           bygget i dette passet, i stedet for den statiske versjonen bygget i GCC
+           pass 1. Dette er nødvendig for å støtte C++ unntaks
+           håndtering.</para>
+		</listitem>
+      </varlistentry>
 
       <varlistentry>
         <term><parameter>--enable-initfini-array</parameter></term>
