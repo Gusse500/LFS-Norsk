@@ -197,29 +197,21 @@ rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/&gcc-version;/include-fixed/bits/</useri
      at kompilering og kobling vil fungere som forventet. Dette gjør vi ved å utføre
      noen sunnhetssjekker:</para>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="adjusting.xml"
-    xpointer="xpointer(//*[@os='a'])"/>
+    <screen><userinput>echo 'int main(){}' &gt; dummy.c
+    cc dummy.c -v -Wl,--verbose &amp;&gt; dummy.log
+    readelf -l a.out | grep ': /lib'</userinput></screen>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="adjusting.xml"
-    xpointer="xpointer(//*[@os='b'])"/>
+    <para>Det skal ikke være noen feil,
+   og utgangen av den siste kommandoen vil være (som gir rom for
+   plattformspesifikke forskjeller i det dynamiske linkernavnet):</para>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="adjusting.xml"
-    xpointer="xpointer(//*[@os='c'])"/>
+    <screen><computeroutput>[Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]</computeroutput></screen>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="adjusting.xml"
-    xpointer="xpointer(//*[@os='d'])"/>
+    <para>Forsikre deg om at det er konfigurert til å bruke de riktige startfilene:</para>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="adjusting.xml"
-    xpointer="xpointer(//*[@os='e'])"/>
+    <screen><userinput>grep -o '/usr/lib.*/crt[1in].*succeeded' dummy.log</userinput></screen>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="adjusting.xml"
-    xpointer="xpointer(//*[@os='f'])"/>
+    <para>Utdata fra den siste kommandoen skal være:</para>
 
 <screen><computeroutput>/usr/lib/gcc/x86_64-pc-linux-gnu/&gcc-version;/../../../../lib/crt1.o succeeded
 /usr/lib/gcc/x86_64-pc-linux-gnu/&gcc-version;/../../../../lib/crti.o succeeded
@@ -232,15 +224,12 @@ rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/&gcc-version;/include-fixed/bits/</useri
   <filename>crt*.o</filename> filene under
   <filename class="directory">/usr/lib</filename> mappen.</para>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="adjusting.xml"
-    xpointer="xpointer(//*[@os='g'])"/>
+    <para>Bekreft at kompilatoren søker etter riktig
+   deklarasjonsfil:</para>
 
 <screen><userinput>grep -B4 '^ /usr/include' dummy.log</userinput></screen>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="adjusting.xml"
-    xpointer="xpointer(//*[@os='h'])"/>
+    <para>Denne kommandoen skal returnere følgende utdata:</para>
 
 <screen><computeroutput>#include &lt;...&gt; search starts here:
  /usr/lib/gcc/x86_64-pc-linux-gnu/&gcc-version;/include
@@ -251,17 +240,12 @@ rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/&gcc-version;/include-fixed/bits/</useri
    <para>Igjen, mappen oppkalt etter måltripletten kan være
     annerledes enn de ovennevnte, avhengig av systemarkitekturen.</para>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="adjusting.xml"
-    xpointer="xpointer(//*[@os='i'])"/>
+    <para>Deretter bekrefter du at den nye linkeren brukes med de riktige søkebanene:</para>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="adjusting.xml"
-    xpointer="xpointer(//*[@os='j'])"/>
+    <screen><userinput>grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'</userinput></screen>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="adjusting.xml"
-    xpointer="xpointer(//*[@os='k'])"/>
+    <para>Referanser til stier som har komponenter med '-linux-gnu' bør
+   ignoreres, men ellers skal utdata fra den siste kommandoen være:</para>
 
 <screen><computeroutput>SEARCH_DIR("/usr/x86_64-pc-linux-gnu/lib64")
 SEARCH_DIR("/usr/local/lib64")
@@ -284,49 +268,32 @@ SEARCH_DIR("/usr/local/lib")
 SEARCH_DIR("/lib")
 SEARCH_DIR("/usr/lib");</computeroutput></screen>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="adjusting.xml"
-    xpointer="xpointer(//*[@os='l'])"/>
+    <para>Forsikre deg om at vi bruker riktig libc:</para>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="adjusting.xml"
-    xpointer="xpointer(//*[@os='m'])"/>
+    <screen><userinput>grep "/lib.*/libc.so.6 " dummy.log</userinput></screen>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="adjusting.xml"
-    xpointer="xpointer(//*[@os='n'])"/>
+    <para>Utdata fra den siste kommandoen skal være:</para>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="adjusting.xml"
-    xpointer="xpointer(//*[@os='o'])"/>
+    <screen><computeroutput>attempt to open /usr/lib/libc.so.6 succeeded</computeroutput></screen>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="adjusting.xml"
-    xpointer="xpointer(//*[@os='p'])"/>
+    <para>Sørg for at GCC bruker riktig dynamisk linker:</para>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="adjusting.xml"
-    xpointer="xpointer(//*[@os='q'])"/>
+    <screen><userinput>grep found dummy.log</userinput></screen>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="adjusting.xml"
-    xpointer="xpointer(//*[@os='r'])"/>
+    <para>Utgangen fra den siste kommandoen skal være (som gir rom for
+   plattformspesifikke forskjeller i dynamisk linkernavn):</para>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="adjusting.xml"
-    xpointer="xpointer(//*[@os='s'])"/>
+    <screen><computeroutput>found ld-linux-x86-64.so.2 at /usr/lib/ld-linux-x86-64.so.2</computeroutput></screen>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="adjusting.xml"
-    xpointer="xpointer(//*[@os='t'])"/>
+    <para>Hvis utdataen ikke vises som vist ovenfor eller ikke mottas
+   i det hele tatt, så er det noe alvorlig galt. Undersøk og spor trinn for
+   trinn for å finne ut hvor problemet er og rette det. <!--Det mest sannsynlige
+   grunnen er at noe gikk galt med spesifikasjonsfiljusteringen.--> Eventuelle
+   problemer må løses før du fortsetter med prosessen.</para>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="adjusting.xml"
-    xpointer="xpointer(//*[@os='u'])"/>
+    <para>Når alt fungerer som det skal, rydd opp i testfilene:</para>
 
-    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-    href="adjusting.xml"
-    xpointer="xpointer(//*[@os='v'])"/>
+    <screen><userinput>rm -v dummy.c a.out dummy.log</userinput></screen>
 
     <para>Til slutt flytter du en feilplassert fil:</para>
 

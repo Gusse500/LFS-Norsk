@@ -14,11 +14,11 @@
     <address>&gcc-url;</address>
   </sect1info>
 
-  <title>Libstdc++ from GCC-&gcc-version;, Pass 1</title>
+  <title>Libstdc++ from GCC-&gcc-version;</title>
 
   <indexterm zone="ch-tools-libstdcpp-pass1">
     <primary sortas="a-GCC">GCC</primary>
-    <secondary>tools, libstdc++ pass 1</secondary>
+    <indexterm zone="ch-tools-libstdcpp">
   </indexterm>
 
   <sect2 role="package">

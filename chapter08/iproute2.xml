@@ -61,7 +61,7 @@ rm -fv man/man8/arpd.8</userinput></screen>
 -->
     <para>Kompiler pakken:</para>
 
-<screen><userinput remap="make">make</userinput></screen>
+<screen><userinput remap="make">make NETNS_RUN_DIR=/run/netns</userinput></screen>
 
     <para>Denne pakken har ikke en fungerende testpakke.</para>
 <!-- for øyeblikket ikke nyttig, faktisk kjører ingen tester

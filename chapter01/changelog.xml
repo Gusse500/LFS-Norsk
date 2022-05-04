@@ -39,6 +39,20 @@
     <listitem revision="sysv"> eller <listitem revision="systemd"> som
      passende for oppføringen eller om nødvendig hele dagens listeelement.
     -->
+	
+	<listitem>
+      <para>2022-03-02</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Bygget libstdc++ in GCC pass 2, og fjernet den
+          separate libstdc++ pass 2.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Fjernet unødvendige
+          <parameter>--enable-64bit</parameter> for tcl.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
 
     <listitem>
       <para>01.03.2022</para>

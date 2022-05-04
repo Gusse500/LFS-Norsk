@@ -63,21 +63,22 @@ mv -v mpc-&mpc-version; mpc</userinput></screen>
   ;;
 esac</userinput></screen>
 <!--
-    <para>Løs et problem med GCC-10.1 når du bygger med en kryss
-     kompilator:</para>
+    <!-- https://gcc.gnu.org/PR100017 -->
+	<para>Fiks et problem som forårsaker feil ved krysskompilering av libstdc++:</para>
+	
+	<screen><userinput remap="pre">sed 's/gnu++17/&amp; -nostdinc++/' \
+    -i libstdc++-v3/src/c++17/Makefile.in</userinput></screen>
+	
+	<para>Overstyr byggeregelen for libgcc og libstdc++ deklarasjoner, til
+     tillat å bygge disse bibliotekene med støtte for POSIX-tråder:</para>
+	 
+	 <screen><userinput remap="pre">sed '/thread_header =/s/@.*@/gthr-posix.h/' \
+    -i libgcc/Makefile.in libstdc++-v3/include/Makefile.in</userinput></screen>
 
-<screen><userinput remap="pre">patch -Np1 -i ../&gcc-cross-patch;</userinput></screen>
--->
     <para>Opprett en egen byggemappe igjen:</para>
 
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>
-
-    <para>Lag en symbolkobling som lar libgcc bygges med brukerstøtte
-     for posix tråder:</para>
-
-<screen><userinput remap="pre">mkdir -pv $LFS_TGT/libgcc
-ln -s ../../../libgcc/gthr-posix.h $LFS_TGT/libgcc/gthr-default.h</userinput></screen>
 
     <para>Før du begynner å bygge GCC, husk å deaktivere alle miljø
      variabler som overstyrer standard optimaliseringsflagg.</para>
@@ -87,7 +88,7 @@ ln -s ../../../libgcc/gthr-posix.h $LFS_TGT/libgcc/gthr-default.h</userinput></s
 <screen><userinput remap="configure">../configure                                       \
     --build=$(../config.guess)                     \
     --host=$LFS_TGT                                \
-	--target=$LFS_TGT 							   \
+	--target=$LFS_TGT                              \
 	LDFLAGS_FOR_TARGET=-L$PWD/$LFS_TGT/libgcc      \
 	--prefix=/usr                                  \
     --with-build-sysroot=$LFS                      \
@@ -100,7 +101,6 @@ ln -s ../../../libgcc/gthr-posix.h $LFS_TGT/libgcc/gthr-default.h</userinput></s
     --disable-libquadmath                          \
     --disable-libssp                               \
     --disable-libvtv                               \
-    --disable-libstdcxx                            \
     --enable-languages=c,c++</userinput></screen>
 
     <variablelist>

@@ -63,24 +63,6 @@
 <screen><userinput remap="configure">SRCDIR=$(pwd)
 cd unix
 ./configure --prefix=/usr           \
-            --mandir=/usr/share/man \
-            $([ "$(uname -m)" = x86_64 ] &amp;&amp; echo --enable-64bit)</userinput></screen>
-
-    <variablelist>
-      <title>Betydningen av konfigureringsalternativene:</title>
-
-      <varlistentry>
-        <term><parameter>$([ "$(uname -m)" = x86_64 ] &amp;&amp; echo --enable-64bit)</parameter></term>
-        <listitem>
-          <para>construct <parameter>$(&lt;shell command&gt;)</parameter>
-          erstattes av utdataene fra shell kommandoen. Her er denne utgangen
-           tom hvis den kjøres på en 32-bits maskin, og er
-          <parameter>--enable-64bit</parameter> hvis du kjører på en 64-bits maskin.
-          </para>
-        </listitem>
-      </varlistentry>
-
-    </variablelist>
 
     <para>Bygg pakken:</para>
 
