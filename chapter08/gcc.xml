@@ -174,7 +174,7 @@ rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/&gcc-version;/include-fixed/bits/</useri
     <systemitem class="username">root</systemitem> bruker og gruppe:</para>
 
 <screen><userinput remap="install">chown -v -R root:root \
-    /usr/lib/gcc/*linux-gnu/&gcc-version;/include{,-fixed}</userinput></screen>
+    /usr/lib/gcc/$(gcc -dumpmachine)/&gcc-version;/include{,-fixed}</userinput></screen>
 
     <para>Lag en symbolkobling som kreves av <ulink
     url="https://refspecs.linuxfoundation.org/FHS_3.0/fhs/ch03s09.html">FHS</ulink>
