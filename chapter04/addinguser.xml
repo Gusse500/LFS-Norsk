@@ -85,12 +85,6 @@ case $(uname -m) in
   x86_64) chown -v lfs $LFS/lib64 ;;
 esac</userinput></screen>
 
-  <para>Hvis en egen arbeidsmappe ble opprettet som foreslått, gi
-   bruker <systemitem class="username">lfs</systemitem> eierskap til denne
-   mappen:</para>
-
-<screen><userinput>chown -v lfs $LFS/sources</userinput></screen>
-
   <note><para>I noen vertssystemer fullføres ikke følgende kommando
    riktig og suspenderer påloggingen til lfs brukeren til bakgrunnen. Hvis
    ledeteksten "lfs:~$" ikke vises umiddelbart, å skrive inn
