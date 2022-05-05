@@ -41,6 +41,10 @@
 
   <sect2 role="installation">
     <title>Installasjon av Zstd</title>
+	
+	<para>Bruk en oppdatering for å fikse noen problemer identifisert av oppstrøms:</para>
+	
+	<screen><userinput remap="pre">patch -Np1 -i ../&zstd-upstream-fixes-patch;</userinput></screen>
 
     <para>Kompiler pakken:</para>
 
