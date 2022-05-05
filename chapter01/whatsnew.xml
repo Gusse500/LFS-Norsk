@@ -11,10 +11,6 @@
 
   <title>Hva er nytt siden forrige utgivelse</title>
 
-  <para>I denne versjonen av LFS har det skjedd en større omorganisering
-   av boken ved å bruke teknikker som unngår å endre vertssystemet
-   og gir en mer rett frem byggeprosess.</para>
-
   <para>Nedenfor er en liste over pakkeoppdateringer gjort siden forrige
    utgivelse av boken.</para>
 
