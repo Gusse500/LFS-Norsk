@@ -43,10 +43,10 @@
       <para>Bash &bash-version;</para>
     </listitem>
     </listitem>-->
-   <!--<listitem>
+   <listitem>
       <para>Bc &bc-version;</para>
     </listitem>
-    </listitem>-->
+    </listitem>
    <!--<listitem>
       <para>Binutils-&binutils-version;</para>
     </listitem>
@@ -78,9 +78,9 @@
     <!--<listitem revision="sysv">
        <para>Eudev-&eudev-version;</para>
     </listitem>-->
-   <!--<listitem>
+   <listitem>
        <para>Expat-&expat-version;</para>
-    </listitem>-->
+    </listitem>
     <!--<listitem>
        <para>Expect-&expect-version;</para>
     </listitem>-->
@@ -208,9 +208,9 @@
     <!--<listitem>
       <para>Patch-&patch-version;</para>
     </listitem>-->
-    <!--<listitem>
+    <listitem>
       <para>Perl-&perl-version;</para>
-    </listitem>-->
+    </listitem>
     <!--<listitem>
       <para>Pkg-config-&pkgconfig-version;</para>
     </listitem>-->
@@ -295,9 +295,9 @@
     <title>Fjernet:</title>
     <listitem><para></para></listitem>  <!-- satisfy build -->
 
-    <!--<listitem>
-      <para>bash-5.0-upstream_fixes-1.patch</para>
-    </listitem>-->
+    <listitem>
+      <para>perl-5.34.0-upstream_fixes-1.patch</para>
+    </listitem>
 
   </itemizedlist>
 

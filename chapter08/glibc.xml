@@ -167,9 +167,15 @@ esac</userinput></screen>
       </listitem>
 
       <listitem>
-        <para><emphasis>nss/tst-nss-files-hosts-multi</emphasis>
+        <para><emphasis>nss/tst-nss-files-hosts-long</emphasis>
         testen er kjent for å mislykkes hvis systemet ikke har noen ikke-tilbakekoblings 
-		IP-adresser.</para>
+		IP-adresser.</para> <!-- PR 24816 -->
+		</listitem>
+		
+		<listitem>
+         <para><emphasis>nss/tst-nss-files-hosts-multi</emphasis>
+         testen er kjent for å mislykkes på relativt trege systemer på grunn av et internt
+         tidsavbrudd.</para>
       </listitem>
 <!--
       <listitem>
