@@ -59,7 +59,10 @@
       <segtitle>Installert katalog</segtitle>
 
       <seglistitem>
-        <seg>/usr/lib/python&python-minor;/site-packages/MarkupSafe-&markupsafe-version;-py&python-minor;.egg</seg>
+        <!-- Suffikset "-linux-<arch>" er forskjellig fra meson og jinja:
+              Denne pakken inneholder binær kode (kompilert fra C), men meson
+              og jinja inneholder bare Python-kode. -->
+         <seg>/usr/lib/python&python-minor;/site-packages/MarkupSafe-&markupsafe-version;-py&python-minor;-linux-<replaceable>&lt;arch&gt;</replaceable>.egg</seg>
       </seglistitem>
     </segmentedlist>
 

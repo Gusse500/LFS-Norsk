@@ -102,7 +102,7 @@
        du må nedgradere en pakke, ellers endrer pakken versjonen
        ordningen med bibliotekfiler plutselig.</para> </listitem>
 
-      <listitem> <para>Hvis en pakke som inneholder et delt bibliotek oppdateres,
+      <listitem><para>Hvis en pakke som inneholder et delt bibliotek oppdateres,
        og navnet på biblioteket ikke endres, men et alvorlig problem
        (spesielt en sikkerhetssårbarhet) er fikset, alle programmer som kjører
        koblet til det delte biblioteket bør startes på nytt. Følgende
@@ -120,7 +120,14 @@
          omstarte <command>sshd</command> tjeneste, deretter logg ut, logg på igjen,
          og kjør kommandoen på nytt for å bekrefte at ingenting fortsatt bruker
          de slettede bibliotekene.
-      </para></listitem>
+      </para>
+
+       <para revision='systemd'>
+         Hvis <command>systemd</command> nissen (kjører som PID 1) er
+         koblet til det oppdaterte biblioteket, kan du starte det på nytt uten å omstarte
+         ved å kjøre <command >systemctl daemon-reexec</command > som
+         <systemitem class='username'>root</systemitem> brukeren.
+	  </para></listitem>
 
       <listitem>
         <para>Hvis et binært eller et delt bibliotek overskrives, kan prosessene

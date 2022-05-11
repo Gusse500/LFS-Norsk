@@ -41,6 +41,16 @@
     -->
 	
 	<listitem>
+      <para>16.03.2022</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Oppdatert til MarkupSafe-2.1.1. Rettinger
+          <ulink url="&lfs-ticket-root;5025">#5025</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+	<listitem>
       <para>15.03.2022</para>
       <itemizedlist>
 	  <listitem>
