@@ -43,6 +43,14 @@
 	<listitem>
       <para>15.03.2022</para>
       <itemizedlist>
+	  <listitem>
+          <para>[bdubbs] - Oppdatert til openssl-3.0.2. Rettinger
+          <ulink url="&lfs-ticket-root;5024">#5024</ulink>.</para>
+        </listitem>
+	  <listitem>
+          <para>[bdubbs] - Oppdatert til meson-0.61.3. Rettinger
+          <ulink url="&lfs-ticket-root;5023">#5023</ulink>.</para>
+        </listitem>
         <listitem>
           <para>[xry111] - Oppdatert til expat-2.4.7. Rettinger
           <ulink url="&lfs-ticket-root;5019">#5019</ulink>.</para>
@@ -96,7 +104,7 @@
           <para>[xry111] - Oppdatert til MarkupSafe-2.1.0. Rettinger
           <ulink url="&lfs-ticket-root;5015">#5015</ulink>.</para>
         </listitem>
-        <listitem>
+        <listitem revision="systemd">
           <para>[xry111] - Oppdatert til dbus-1.14.0. Rettinger
           <ulink url="&lfs-ticket-root;5017">#5017</ulink>.</para>
         </listitem>
