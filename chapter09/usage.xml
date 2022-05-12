@@ -157,7 +157,7 @@ EOF</userinput></screen>
    skriptet kjøres med <parameter>stop</parameter> argumentet. Når en S-kobling
    oppstår, kjøres det riktige skriptet med
   <parameter>start</parameter> argumentet.</para>
-
+  <!-- Changed for March 24th, 2022 version of bootscripts
   <para>Det er ett unntak fra denne forklaringen. Lenker som starter
    med en <emphasis>S</emphasis> i <filename
   class="directory">rc0.d</filename> og <filename
@@ -170,7 +170,7 @@ EOF</userinput></screen>
    kjørt før noen <emphasis>S</emphasis>-prefiksskript kjøres med
    <parameter>stopp</parameter> parameter.
    </para>
-
+-->
   <para>Dette er beskrivelser av hva argumentene får skriptene til
    å gjøre:</para>
 

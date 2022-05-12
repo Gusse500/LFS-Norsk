@@ -41,6 +41,16 @@
     -->
 	
 	<listitem>
+      <para>25.03.2022</para>
+      <itemizedlist>
+        <listitem>
+          <para>[pierre] - Oppdaterte bootscripts til 20220324.  Rettinger
+          <ulink url="&lfs-ticket-root;5027">#5027</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+	<listitem>
       <para>20.03.2022</para>
       <itemizedlist>
         <listitem>
