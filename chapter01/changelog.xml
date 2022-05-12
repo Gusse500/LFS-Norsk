@@ -41,6 +41,32 @@
     -->
 	
 	<listitem>
+      <para>20.03.2022</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Oppdatert til Python-3.10.3.  Rettinger
+          <ulink url="&lfs-ticket-root;5028">#5028</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til libtool-2.4.7.  Rettinger
+          <ulink url="&lfs-ticket-root;5029">#5029</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til linux-5.16.16.  Rettinger
+          <ulink url="&lfs-ticket-root;5030">#5030</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til tzdata-2022a.  Rettinger
+          <ulink url="&lfs-ticket-root;5031">#5031</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til man-db-2.10.2.  Rettinger
+          <ulink url="&lfs-ticket-root;5032">#5032</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+	<listitem>
       <para>16.03.2022</para>
       <itemizedlist>
         <listitem>

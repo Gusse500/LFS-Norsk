@@ -48,7 +48,7 @@
 
     <para>Kompiler pakken:</para>
 
-<screen><userinput remap="make">make</userinput></screen>
+<screen><userinput remap="make">make prefix=/usr</userinput></screen>
 
     <note>
        <para>I testutdataen er det flere steder som

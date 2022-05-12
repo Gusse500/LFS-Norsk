@@ -35,11 +35,21 @@
 
 <literallayout>0: stopper datamaskinen
 1: enkeltbrukermodus
-2: flerbrukermodus uten nettverk
+2: reservert for tilpasning, ellers gjøres det det samme som 3
 3: flerbrukermodus med nettverk
 4: reservert for tilpasning, ellers gjør den det samme som 3
 5: samme som 4, den brukes vanligvis for GUI pålogging (som X sin <command>xdm</command> eller KDE sin <command>kdm</command>)
 6: starter datamaskinen på nytt</literallayout>
+
+	<notat>
+        <para>
+           Klassisk ble kjørenivå 2 ovenfor definert som
+           "flerbrukermodus uten nettverk", men dette var bare tilfelle for
+           mange år siden da flere brukere kunne logge på et system koblet via
+           serielle porter. I dagens miljø gir det ingen mening og
+           vi betegner det nå som "reservert".
+        </para>
+     </note>
 
   </sect2>
 
@@ -127,7 +137,7 @@ EOF</userinput></screen>
   <para>Det er en rekke mapper under <filename
   class="directory">/etc/rc.d</filename> som ser ut som <filename
   class="directory">rc?.d</filename> (hvor ? er nummeret på kjørenivået) og
-  <filename class="directory">rcsysinit.d</filename>, alle inneholder en rekke
+  <filename class="directory">rcS.d</filename>, alle inneholder en rekke
    symbolske lenker. Noen begynner med en <emphasis>K</emphasis>, de andre begynner med
    en <emphasis>S</emphasis>, og alle av dem har to tall etter
    forbokstaven. K betyr å stoppe (drepe) en tjeneste og S betyr å starte en
@@ -155,7 +165,11 @@ EOF</userinput></screen>
    til å starte. De vil bli kalt opp med parameteren
   <parameter>stop</parameter> for å stoppe noe. Logikken bak dette
    er at når en bruker skal starte på nytt eller stoppe systemet, ingenting
-   må startes. Systemet må bare stoppes.</para>
+   må startes, men rekkefølgen på avstengning må kontrolleres.
+   For disse kjørenivåene vil alle <emphasis>K</emphasis>-prefiksskript være
+   kjørt før noen <emphasis>S</emphasis>-prefiksskript kjøres med
+   <parameter>stopp</parameter> parameter.
+   </para>
 
   <para>Dette er beskrivelser av hva argumentene får skriptene til
    å gjøre:</para>

@@ -75,15 +75,12 @@
       </varlistentry>
 
       <varlistentry>
-        <!-- To editors: remove it when downstreams are properly
-                         fixed. -->
+        <!-- To editors: try to remove it once GJS fixed (at GNOME 43) -->
         <term><parameter>--disable-exec-static-tramp</parameter></term>
         <listitem>
           <para>Deaktiver statisk trampolinestøtte. Det er en ny sikkerhet
            funksjon i libffi, men noen BLFS pakker (spesielt
-          <application>GJS</application> og
-          <application>gobject-introspection</application>) har ikke vært
-           tilpasset det.</para>
+          <application> GJS </application>) er ikke tilpasset for det. </para>
         </listitem>
       </varlistentry>
 
