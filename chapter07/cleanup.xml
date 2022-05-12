@@ -122,7 +122,7 @@ umount $LFS/{sys,proc,run,dev}</userinput></screen>
 
     <note>
        <para>
-          Fordi sikkerhetskopieringsarkivet er komprimert, tar det relativt lang tid
+          Fordi sikkerhetskopieringsarkivet er komprimert, tar det relativt
            lang tid (over 10 minutter) selv på et rimelig raskt system.
        </para>
     </note>

@@ -2,7 +2,7 @@
 ########################################################################
 # Begin mountvirtfs
 #
-# Description : Mount proc, sysfs, and run
+# Description : Ensure proc, sysfs, run, and dev are mounted
 #
 # Authors     : Gerard Beekmans - gerard@linuxfromscratch.org
 #               DJ Lucas - dj@linuxfromscratch.org

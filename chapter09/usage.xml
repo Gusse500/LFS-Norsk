@@ -38,7 +38,7 @@
 2: reservert for tilpasning, ellers gjøres det det samme som 3
 3: flerbrukermodus med nettverk
 4: reservert for tilpasning, ellers gjør den det samme som 3
-5: samme som 4, den brukes vanligvis for GUI pålogging (som X sin <command>xdm</command> eller KDE sin <command>kdm</command>)
+5: samme som 4, den brukes vanligvis for GUI pålogging (som GNOME's <command>gdm</command> or LXDE's <command>lxdm</command>)
 6: starter datamaskinen på nytt</literallayout>
 
 	<notat>
