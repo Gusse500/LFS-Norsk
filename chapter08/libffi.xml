@@ -44,8 +44,10 @@
 
     <note>
       <para>I likhet med GMP bygges libffi med spesifikke optimaliseringer
-       til prosessoren som er i bruk. Hvis du bygger for et annet system, eksporter
-       CFLAGS og CXXFLAGS for å spesifisere en generisk konstruksjon for arkitekturen din.
+       til prosessoren som er i bruk. Hvis du bygger for et annet system, endre
+       verdien av <parameter>--with-gcc-arch=</parameter> parameteren i
+       følgende kommando til et arkitekturnavn fullt implementert av
+       CPU på det systemet.
        Hvis dette ikke gjøres, vil alle applikasjoner som lenker til libffi utløse
        ulovlige operasjonsfeil.</para>
     </note>

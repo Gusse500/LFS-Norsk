@@ -209,8 +209,10 @@
           <row>
             <entry>Indonesian (id)</entry>
             <entry>ISO-8859-1</entry>
-            <entry>Russian (ru)</entry>
-            <entry>KOI8-R</entry>
+            <entry>Greek (el)</entry>
+            <entry>ISO-8859-7</entry>
+            <!--<entry>Russian (ru)</entry>-->
+            <!--<entry>KOI8-R</entry>-->
           </row>
           <row>
             <entry>Icelandic (is)</entry>

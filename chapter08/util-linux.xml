@@ -108,6 +108,9 @@
 <screen><userinput remap="test">chown -Rv tester .
 su tester -c "make -k check"</userinput></screen>
 
+<para><emphasis>hardlink</emphasis> testene vil mislykkes hvis vertens kjerne
+     ikke har alternativet CONFIG_CRYPTO_USER_API_HASH satt.</para>
+	 
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>

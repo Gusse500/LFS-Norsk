@@ -71,14 +71,6 @@
     </varlistentry>
 
     <varlistentry>
-      <term><parameter>--with-ensurepip=yes</parameter></term>
-      <listitem>
-        <para>Denne bryteren gjør det mulig å bygge <command>pip</command> og
-        <command>setuptools</command> pakkeprogrammer.</para>
-      </listitem>
-    </varlistentry>
-
-    <varlistentry>
       <term><parameter>--enable-optimizations</parameter></term>
       <listitem>
         <para>Denne bryteren muliggjør stabile, men dyre, optimaliseringer.</para>

@@ -98,7 +98,8 @@
        oversettelsesprosjekt</para>
     </listitem>
 
-    <listitem>
+    <!--
+	<listitem>
       <para><ulink url="mailto:info@linuxfromscratch.org.ru">Anton Maisak</ulink>
       &lt;info@linuxfromscratch.org.ru&gt; &ndash; Russisk LFS
        oversettelsesprosjekt</para>
@@ -109,7 +110,7 @@
       &lt;helen@linuxfromscratch.org.ru&gt; &ndash; Russisk LFS
        oversettelsesprosjekt</para>
     </listitem>
-
+	-->
   </itemizedlist>
 
   <bridgehead renderas="sect2">Speilvedlikeholdere</bridgehead>
