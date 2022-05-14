@@ -139,8 +139,8 @@ export BUILD_BZIP2=0</userinput></screen>
 
 <screen><userinput remap="test">make test</userinput></screen>
 
-    <!--note><para>En test mislykkes på grunn av bruk av den nyeste versjonen av gdbm.
-    </para></note-->
+    note><para>Ni tester mislykkes på grunn av bruk av den nyeste versjonen av zlib.
+    </para></note
 
     <para>Installer pakken og rydd opp:</para>
 

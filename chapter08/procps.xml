@@ -25,14 +25,6 @@
 
     <para>Procps-ng pakken inneholder programmer for overvåking av prosesser.</para>
 
-    <!-- TODO This note will probably not be needed at the next revision. -->
-    <note>
-      <para>Denne pakken trekkes ut til mappen
-      <filename class="directory">procps-3.3.17</filename>,
-      ikke det forventede
-      <filename class="directory">procps-ng-3.3.17</filename>.</para>
-    </note>
-
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
       <segtitle>&diskspace;</segtitle>
@@ -111,7 +103,7 @@ make check</userinput></screen>
       <seglistitem>
         <seg>free, pgrep, pidof, pkill, pmap, ps, pwdx, slabtop,
         sysctl, tload, top, uptime, vmstat, w, og watch</seg>
-        <seg>libprocps.so</seg>
+        <seg>libproc-2.so</seg>
         <seg>/usr/include/proc og /usr/share/doc/procps-ng-&procps-ng-version;</seg>
       </seglistitem>
     </segmentedlist>
@@ -289,13 +281,13 @@ make check</userinput></screen>
         </listitem>
       </varlistentry>
 
-      <varlistentry id="libprocps">
-        <term><filename class="libraryfile">libprocps</filename></term>
+      <varlistentry id="libproc-2">
+        <term><filename class="libraryfile">libproc-2</filename></term>
         <listitem>
           <para>Inneholder funksjonene som brukes av de fleste programmer i denne
            pakken</para>
-          <indexterm zone="ch-system-procps libprocps">
-            <primary sortas="c-libprocps">libprocps</primary>
+          <indexterm zone="ch-system-procps libproc-2">
+            <primary sortas="c-libprocps">libproc-2</primary>
           </indexterm>
         </listitem>
       </varlistentry>

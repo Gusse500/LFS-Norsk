@@ -45,7 +45,12 @@
 
 <screen><userinput remap="pre">patch -Np1 -i ../systemd-&systemd-version;-upstream_fixes-1.patch</userinput></screen>
 
-    <para>Fjern to unødvendige grupper,
+    <para>Bruk nå en oppdatering for å fikse et problem med linux-kjernens deklarasjoner
+     versjon 5.17 og nyere:</para>
+
+<screen><userinput remap="pre">patch -Np1 -i ../systemd-&systemd-version;-kernel_5.17_fixes-1.patch</userinput></screen>
+
+	<para>Fjern to unødvendige grupper,
     <systemitem class="groupname">render</systemitem> og
     <systemitem class="groupname">sgx</systemitem>, fra standard udev
      regler:</para>

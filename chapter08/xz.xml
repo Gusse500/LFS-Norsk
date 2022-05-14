@@ -44,7 +44,11 @@
   <sect2 role="installation">
     <title>Installasjon av Xz</title>
 
-    <para>Forbered Xz for kompilering med:</para>
+        <para>Bruk en oppdatering for å fikse et problem i xzgrep:</para>
+
+<screen><userinput remap="pre">patch -Np1 -i ../&xz-upstream-fix-patch;</userinput></screen>
+
+	<para>Forbered Xz for kompilering med:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr    \
             --disable-static \
