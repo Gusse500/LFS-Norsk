@@ -593,6 +593,14 @@
       </listitem>
 
       <listitem>
+        <para>Wheel</para>
+
+        <para>Denne pakken inneholder Python modulen Wheel som er
+         referanseimplementering av Python wheel pakkingsstandarden.
+        </para>
+      </listitem>
+
+	  <listitem>
         <para>Vim</para>
 
         <para>Denne pakken inneholder et redigeringsprogram. Den ble valgt på grunn av sin

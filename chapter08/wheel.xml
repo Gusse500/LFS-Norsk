@@ -1,0 +1,111 @@
++<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-wheel" role="wrap">
+  <?dbhtml filename="wheel.html"?>
+
+  <sect1info condition="script">
+    <productname>wheel</productname>
+    <productnumber>&wheel-version;</productnumber>
+    <address>&wheel-url;</address>
+  </sect1info>
+
+  <title>Wheel-&wheel-version;</title>
+
+  <indexterm zone="ch-system-wheel">
+    <primary sortas="a-wheel">wheel</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Wheel er et Python bibliotek som er referanse
+     implementeringen av Python wheel pakkestandarden.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+      <seglistitem>
+        <seg>&wheel-fin-sbu;</seg>
+        <seg>&wheel-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Wheel</title>
+
+    <para>Installer wheel med følgende kommando:</para>
+
+<screen><userinput remap="install">pip3 install --no-index $PWD</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av pip3 alternativene:</title>
+
+      <varlistentry>
+        <term><command>install</command></term>
+        <listitem>
+           <para>Installer pakken</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--no-index</parameter></term>
+        <listitem>
+          <para>Hindre pip fra å hente filer fra pakkens
+           nettdepot (PyPI). Hvis pakkene er installert i riktig rekkefølge,
+           da trenger den ikke å hente noen filer med det første, men dette
+           alternativet gir en viss sikkerhet i tilfelle brukerfeil.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>$PWD</parameter></term>
+        <listitem>
+           <para>Se etter filer som skal installeres i gjeldende arbeidsmappe.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+  <sect2 id="contents-wheel" role="content">
+    <title>Innholdet i Wheel</title>
+
+    <segmentedlist>
+      <segtitle>Installert modul</segtitle>
+      <segtitle>Installert mappe</segtitle>
+
+      <seglistitem>
+        <seg>wheel.py</seg>
+        <seg>/usr/lib/python&python-minor;/site-packages/wheel</seg>
+      </seglistitem>
+    </segmentedlist>
+	<variablelist>
+      <bridgehead renderas="sect3">Kort beskrivelse</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="wheel-wheel">
+        <term><command>wheel</command></term>
+        <listitem>
+          <para>
+            er et verkt�y for � pakke ut, pakke eller konvertere wheel pakker
+          </para>
+          <indexterm zone="ch-system-wheel">
+            <primary sortas="b-wheel">wheel</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+
+  </sect2>
+
+</sect1>

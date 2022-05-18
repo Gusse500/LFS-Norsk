@@ -93,6 +93,23 @@
 
 <screen><userinput remap="install">make install</userinput></screen>
 
+<para>Flere steder bruker vi kommandoen <command>pip3</command> for å
+     installere Python 3 programmer og moduler for alle brukere som
+    <systemitem class='username'>root</systemitem>. Dette er i konflikt
+     med Python-utviklernes anbefaling om å installere pakker i en
+     virtuelt miljø eller hjemmemappen til en vanlig bruker (ved å kjøre
+    <command>pip3</command> som denne brukeren). For dette formål blir en advarsel med flere linjer
+     skrevet når du bruker <command>pip3</command> som
+     <systemitem class='username'>root</systemitem> brukeren.  Hovedgrunnen
+     for denne anbefalingen er å unngå konflikt med systemets
+     pakkebehandling (<command>dpkg</command> for eksempel), men LFS har ikke
+     et systemomfattende pakkebehandling, så dette er ikke et problem. Hvis ønsket,
+     undertrykk denne advarselen ved å kjøre følgende kommando:</para>
+
+<screen><userinput remap="install">sed -e '/def warn_if_run_as_root/a\ return' \
+     -i /usr/lib/python3.10/site-packages/pip/_internal/cli/req_command.py
+</userinput></skjerm>
+
     <para>Hvis ønskelig, installer den forhåndsformaterte dokumentasjonen:</para>
 
 <screen><userinput remap="install">install -v -dm755 /usr/share/doc/python-&python-version;/html

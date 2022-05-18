@@ -784,7 +784,16 @@
       </listitem>
     </varlistentry>
 
-    <varlistentry>
+        <varlistentry>
+      <term>Wheel (&wheel-version;) - <token>&wheel-size;</token>:</term>
+      <listitem>
+        <para>Hjemmeside: <ulink url="&wheel-home;"/></para>
+        <para>Laste ned: <ulink url="&wheel-url;"/></para>
+        <para>MD5 sum: <literal>&wheel-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+	<varlistentry>
       <term>XML::Parser (&xml-parser-version;) - <token>&xml-parser-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&xml-parser-home;"/></para>
