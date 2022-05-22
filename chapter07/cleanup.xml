@@ -156,9 +156,9 @@ tar -cJpf $HOME/lfs-temp-tools-&version;.tar.xz .</userinput></screen>
       gjenoppretting når de ikke trenger det. -->
 
     <warning><para>Følgende kommandoer er ekstremt farlige. Hvis
-     du kjører <command>rm -rf ./*</command> som root brukeren og du
+     du kjører <command>rm -rf ./*</command> som &root; brukeren og du
      ikke endret til $LFS-mappen eller <envar>LFS</envar>
-    miljøvariabelen ikke er satt for brukeren root, vil den ødelegge
+    miljøvariabelen ikke er satt for brukeren &root;, vil den ødelegge
      hele vertssystemet ditt. DU ER ADVART.</para></warning>
 
 <screen role="nodump"><computeroutput>cd $LFS

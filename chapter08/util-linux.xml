@@ -84,7 +84,7 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Hvis ønskelig, kjør testpakken som en ikke-root bruker:</para>
+    <para>Hvis ønskelig, kjør testpakken som en ikke-&root; bruker:</para>
 
     <warning><para>Å kjører testpakken som
     <systemitem class="username">root</systemitem> bruker kan være skadelig for

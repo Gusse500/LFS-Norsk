@@ -86,8 +86,8 @@ case $(uname -m) in
 esac</userinput></screen>
 
   <note><para>I noen vertssystemer fullføres ikke følgende kommando
-   riktig og suspenderer påloggingen til lfs brukeren til bakgrunnen. Hvis
-   ledeteksten "lfs:~$" ikke vises umiddelbart, å skrive inn
+   riktig og suspenderer påloggingen til lfs brukeren til bakgrunnen.
+   Hvis ledeteksten "lfs:~$" ikke vises umiddelbart, å skrive inn
   <command>fg</command> kommando vil fikse problemet.</para></note>
 
   <para>Deretter logger du på som bruker <systemitem class="username">lfs</systemitem>.

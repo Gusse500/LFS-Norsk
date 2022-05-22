@@ -46,8 +46,8 @@
 
     <listitem><para>Installere <ulink
     url='&blfs-book;postlfs/sudo.html'>sudo</ulink> kan være nyttig for
-     å bygge pakker som en ikke-rootbruker og enkelt installere de resulterende
-     pakker i ditt nye system.</para></listitem>
+     å bygge pakker som en ikke-&root; bruker og enkelt installere
+     de resulterende pakker i ditt nye system.</para></listitem>
 
     <listitem><para>Hvis du ønsker å få tilgang til det nye systemet fra et eksternt system
      i et komfortabelt GUI-miljø, installer <ulink

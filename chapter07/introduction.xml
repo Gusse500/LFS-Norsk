@@ -25,7 +25,7 @@
   <para>Før <xref linkend="ch-tools-chroot"/>, kommandoene må kjøres
    som <systemitem class="username">root</systemitem>, med
   <envar>LFS</envar> variabelsett. Etter å ha gått inn i inn chroot, alle kommandoer
-   kjøres som root, heldigvis uten tilgang til operativsystemet til datamaskinen
+   kjøres som &root;, heldigvis uten tilgang til operativsystemet til datamaskinen
    du bygde LFS på. Vær forsiktig uansett, da det er lett å ødelegge hele
    LFS system med dårlig utformede kommandoer.</para>
 

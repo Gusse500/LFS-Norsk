@@ -73,7 +73,7 @@
 
 <screen><userinput remap="test">chown -Rv tester .</userinput></screen>
 
-    <para>Testpakken til pakken er designet for å kjøres som en ikke-root
+    <para>Testpakken til pakken er designet for å kjøres som en ikke-&root;
      bruker som eier terminalen koblet til standardinngang. For å tilfredsstille
      krav, skap en ny pseudoterminal ved hjelp av
     <application>Expect</application> og kjør testene som bruker <systemitem
