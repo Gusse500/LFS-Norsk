@@ -108,8 +108,29 @@
 
 <screen><userinput remap="install">sed -e '/def warn_if_run_as_root/a\ return' \
      -i /usr/lib/python3.10/site-packages/pip/_internal/cli/req_command.py
-</userinput></skjerm>
+</userinput></screen>
 
+<important>
+      <para>
+        I LFS og BLFS bygger og installerer vi normalt Python-moduler med
+        <command>pip3</command>. Vennligst pass på at
+        <command>pip3 install</command> kommandoer i begge bøkene skal
+        kjøres som &root; brukeren med mindre det er for et virtuelt Python-miljø. Å kjøre
+        en <command>pip3-install</command> som en ikke-&root; bruker kan synes å
+        fungerer fint, men det vil føre til at den installerte modulen blir utilgjengelig av
+        andre brukere.
+      </para>
+      <para>
+        <command>pip3 install</command> vil ikke installere en allerede
+        installert modul som standard. For å bruke
+        <command>pip3 install</command> kommandoen for å oppgradere en modul (for
+        eksempel fra meson-0.61.3 til meson-0.62.0), legg til
+        <parameter>-U</parameter> til kommandolinjen. Hvis det virkelig er
+        nødvendig å nedgradere en modul eller installere den samme versjonen på nytt
+        av en eller annen grunn, legg til <parameter >--force-reinstall</parameter > til
+        kommandolinjen.
+      </para>
+    </important>
     <para>Hvis ønskelig, installer den forhåndsformaterte dokumentasjonen:</para>
 
 <screen><userinput remap="install">install -v -dm755 /usr/share/doc/python-&python-version;/html

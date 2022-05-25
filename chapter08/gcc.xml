@@ -41,6 +41,7 @@
   <sect2 role="installation">
     <title>Installasjon av GCC</title>
 
+<!--
     <para>Først må du fikse et problem som forhindrer
     <filename class="libraryfile">libasan.a</filename> å bygge denne pakken
      med Glibc-2.34 eller nyere:</para>
@@ -48,7 +49,7 @@
 <screen><userinput remap="pre">sed -e '/static.*SIGSTKSZ/d' \
     -e 's/return kAltStackSize/return SIGSTKSZ * 4/' \
     -i libsanitizer/sanitizer_common/sanitizer_posix_libcdep.cpp</userinput></screen>
-
+-->
     <para>Hvis du bygger på x86_64, endre standard katalognavn for 64-bit
      bibliotekene til <quote>lib</quote>:</para>
 
@@ -134,15 +135,6 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
 
     <!-- https://gcc.gnu.org/bugzilla/show_bug.cgi?id=101081 -->
     <para>Åtte tester relatert til analyzer er kjent for å mislykkes.</para>
-
-    <!-- https://gcc.gnu.org/bugzilla/show_bug.cgi?id=101751 -->
-    <para>En test med navnet <filename>asan_test.C</filename> er kjent for
-     mislykkes.</para>
-
-    <!-- https://gcc.gnu.org/bugzilla/show_bug.cgi?id=100117 -->
-    <para>I libstdc++ en test med navnet <filename>49745.cc</filename> er
-     kjent for å mislykkes fordi deklarasjonsavhengighetene i glibc er
-     endret.</para>
 
     <para>I libstdc++ er en numpunct test og seks tester relatert til get_time
      kjent for å mislykkes. Dette er fordi lokalitetsdefinisjonene i glibc er

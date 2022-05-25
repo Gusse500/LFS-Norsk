@@ -57,14 +57,11 @@
    coreutils is released, please check #4055 to see if the change has been
    picked up in this package -->
 
+<!--
    <para>Nå, fiks et problem med chmod returverdier:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&coreutils-chmod-patch;</userinput></screen>
 
-<!--
-<para>Løs et problem med autoconf-2.70 i en inkludert gnulib .m4 fil:</para>
-
-<screen><userinput remap="pre">echo '# deleted' > m4/std-gnu11.m4</userinput></screen>
 -->
     <para>Forbered nå Coreutils for kompilering:</para>
 

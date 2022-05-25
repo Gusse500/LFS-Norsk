@@ -41,6 +41,55 @@
     -->
 	
 	<listitem>
+      <para>01.05.2022</para>
+      <itemizedlist>
+        <listitem>
+           <para>[bdubbs] - Forandret nobody/nogroup uid/git til 65534. </para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til meson-0.62.1.  Rettinger
+          <ulink url="&lfs-ticket-root;5052">#5052</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til libpipeline-1.5.6.  Rettinger
+          <ulink url="&lfs-ticket-root;5053">#5053</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til elfutils-0.187.  Rettinger
+          <ulink url="&lfs-ticket-root;5054">#5054</ulink>.</para>
+        </listitem>
+        <listitem revision="systemd">
+          <para>[bdubbs] - Oppdatert til Jinja2-3.1.2.  Rettinger
+          <ulink url="&lfs-ticket-root;5055">#5055</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til vim-8.2.4814.  Adresserer
+          <ulink url="&lfs-ticket-root;4500">#4500</ulink>.</para>
+        </listitem>
+        <listitem revision="sysv">
+          <para>[bdubbs] - Oppdatert til sysvinit-3.03.  Rettinger
+          <ulink url="&lfs-ticket-root;5046">#5046</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-5.17.5.  Rettinger
+          <ulink url="&lfs-ticket-root;5050">#5050</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til gcc-11.3.0.  Rettinger
+          <ulink url="&lfs-ticket-root;5051">#5051</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til coreutils-9.1.  Rettinger
+          <ulink url="&lfs-ticket-root;5048">#5048</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til bc-5.2.4.  Rettinger
+          <ulink url="&lfs-ticket-root;5049">#5049</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+	<listitem>
       <para>15.03.2022</para>
       <itemizedlist>
         <listitem>
