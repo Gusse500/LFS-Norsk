@@ -116,8 +116,8 @@ mail:x:34:
 kvm:x:61:
 uuidd:x:80:
 wheel:x:97:
-nogroup:x:65534:
-users:x:999:</literal>
+users:x:999:
+nogroup:x:65534:</literal>
 EOF</userinput></screen>
 
 <screen revision="systemd"><userinput>cat &gt; /etc/group &lt;&lt; "EOF"
@@ -153,8 +153,8 @@ systemd-coredump:x:79:
 uuidd:x:80:
 systemd-oom:x:81:
 wheel:x:97:
-nogroup:x:65534:
-users:x:999:</literal>
+users:x:999:
+nogroup:x:65534:</literal>
 EOF</userinput></screen>
 
   <para>De opprettede gruppene er ikke en del av noen standard&mdash;de er grupper
@@ -165,10 +165,24 @@ EOF</userinput></screen>
   url="http://refspecs.linuxfoundation.org/lsb.shtml"/>) anbefaler bare at,
    foruten gruppen <systemitem class="groupname">root</systemitem> med en
    Gruppe ID (GID) på 0, en gruppe <systemitem class="groupname">bin</systemitem>
-  med en GID på 1 å være tilstede. Alle andre gruppenavn og GID-er kan velges
-   fritt av systemadministratoren siden velskrevne programmer ikke er avhengige
-   av GID-nummer, men bruk heller gruppens navn.</para>
+  med en GID på 1 være tilstede. GID på 5 er mye brukt for
+   <systemitem class="groupname">tty</systemitem> gruppen, og tallet 5 er
+   også brukt i <phrase revision="systemd">systemd</phrase>
+   <phrase revision="sysv"><filename>/etc/fstab</filename></phrase> for
+   <systemitem class="filesystem">devpts</systemitem> filsystemet.
+   Alle andre gruppenavn og GID-er kan velges fritt av systemets
+   administrator siden velskrevne programmer ikke er avhengige av GID-nummer,
+   men bruk heller gruppens navn.</para>
 
+  <para>ID 65534 brukes av kjernen for NFS og separat bruker
+   navneområder for ikke-tilordnede brukere (de finnes på NFS serveren eller den overordnede
+   brukernavneområde, men <quote>finnes ikke</quote> på den lokale maskinen eller i
+   det separate navnerommet). Vi tildeler
+   <systemitem class="username">nobody</systemitem> og
+   <systemitem class="groupname">nogroup</systemitem> for å unngå en
+   ikke navngitt ID. Men andre distroer kan behandle denne IDen annerledes, så alle
+   flyttbare programmer bør ikke være avhengig av denne tildelingen.</para>
+   
   <para>Noen tester i <xref linkend="chapter-building-system"/> trenger en vanlig
    bruker. Vi legger til denne brukeren her og sletter denne kontoen på slutten av det
    kapittelet.</para>

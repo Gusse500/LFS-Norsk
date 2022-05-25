@@ -44,7 +44,17 @@
       <para>01.05.2022</para>
       <itemizedlist>
         <listitem>
-           <para>[bdubbs] - Forandret nobody/nogroup uid/git til 65534. </para>
+          <para>[bdubbs] - Oppdatert til openssl-3.0.3.  Rettinger
+          <ulink url="&lfs-ticket-root;5057">#5057</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+	<listitem>
+      <para>01.05.2022</para>
+      <itemizedlist>
+        <listitem>
+           <para>[bdubbs] - Forandret nobody/nogroup uid/gid til 65534. </para>
         </listitem>
         <listitem>
           <para>[bdubbs] - Oppdatert til meson-0.62.1.  Rettinger
