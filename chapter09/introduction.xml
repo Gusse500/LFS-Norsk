@@ -35,7 +35,7 @@
 
 <literallayout>0 &mdash; stopp
 1 &mdash; Enkeltbrukermodus
-2 &mdash; Flerbruker, uten nettverk
+2 &mdash; Brukerdefinerbar
 3 &mdash; Full flerbrukermodus
 4 &mdash; Brukerdefinerbar
 5 &mdash; Full flerbrukermodus med skjermbehandler

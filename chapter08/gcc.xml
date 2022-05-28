@@ -133,12 +133,9 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
     url="&test-results;"/> og
     <ulink url="https://gcc.gnu.org/ml/gcc-testresults/"/>.</para>
 
-    <!-- https://gcc.gnu.org/bugzilla/show_bug.cgi?id=101081 -->
-    <para>Åtte tester relatert til analyzer er kjent for å mislykkes.</para>
-
-    <para>I libstdc++ er en numpunct test og seks tester relatert til get_time
-     kjent for å mislykkes. Dette er fordi lokalitetsdefinisjonene i glibc er
-     endret, men libstdc++ støtter for øyeblikket ikke disse endringene.</para>
+    <para>I g++ er det kjent at fire tester relatert til PR100400 er rapportert
+     som både XPASS og FAIL. Det er fordi testfilen for dette kjente problemet
+     ikke er godt skrevet.</para>
 
     <para>Noen få uventede feil kan ikke alltid unngås. GCC utviklerne
      er vanligvis klar over disse problemene, men har ikke løst dem ennå.

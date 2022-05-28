@@ -83,8 +83,15 @@ make check</userinput></screen>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Fem tester relatert til pkill er kjent for å mislykkes på grunn av et problem
-     med tester som ikke ble oppdatert.</para>
+    <!-- Det er fordi "gratis -v" viser "brukt" større enn "totalt", og
+          en negativ "gratis" for "Comm"-linje. Den "totale" verdien er fra
+          "CommitLimit" i /proc/meminfo, som er grensen for én prosess.
+          Men "brukt"-verdien er fra "Committed_AS" i samme fil,
+          som er den totale forpliktede virtuelle minneplassen for alle prosesser.
+          Jeg skal uansett lage en rapport til oppstrøms. -->
+     <para>En test kalt <filename>free with commit</filename>
+     kan mislykkes hvis noen applikasjoner med en tilpasset minneallokator (for
+     eksempel JVM og nettlesere) kjører på vertsdistroen.</para>
 
     <para>Installer pakken:</para>
 
