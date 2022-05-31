@@ -43,7 +43,11 @@
 	 <listitem>
       <para>29.05.2022</para>
       <itemizedlist>
-		 <listitem>
+		<listitem>
+          <para>[xry111] - Oppdatert vim-8.2.5014 (sikkerhetsfiks).
+          Addresses <ulink url="&lfs-ticket-root;4500">#4500</ulink>.</para>
+        </listitem>
+		<listitem>
           <para>[xry111] - Oppdatert til ninja-1.11.0.  Rettinger
           <ulink url="&lfs-ticket-root;5062">#5062</ulink>.</para>
         </listitem>

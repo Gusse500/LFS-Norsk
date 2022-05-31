@@ -192,6 +192,12 @@ meson --prefix=/usr                 \
 
 <screen><userinput remap="adjust">systemctl preset-all</userinput></screen>
 
+    <para>Deaktiver en tjeneste for oppgradering av binære distros. Det er ubrukelig for
+     et grunnleggende Linux-system bygget fra kilden, og det vil rapportere en feil hvis
+     den er aktivert, men ikke konfigurert:</para>
+
+<screen><userinput remap="adjust">systemctl disable systemd-sysupdate</userinput></screen>
+
 <!-- dev: 50-pid-max.conf er ikke fjernet i BLFS, så jeg kommenterte følgende ut.
            Hvis det forårsaker problemer, kan vi legge dette tilbake og også kopiere det til BLFS -->
 <!--

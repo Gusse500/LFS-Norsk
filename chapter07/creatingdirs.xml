@@ -12,12 +12,12 @@
 
   <para>Det er på tide å lage hele strukturen i LFS filsystemet.</para>
 
+  <note><para>Noen av mappene nevnt i denne delen kan
+   allerede være opprettet tidligere med eksplisitte instruksjoner eller når du installerer noen
+   pakker. De gjentas nedenfor for fullstendighet.</para></note>
+   
   <para>Lag noen mapper på rotnivå som ikke er i det begrensede settet som
      kreves i de foregående kapitlene ved å gi følgende kommando:</para>
-
-  <note><para>Noen av mappene nedenfor er allerede opprettet
-   med eksplisitte instruksjoner eller når du installerte noen pakker. De
-   gjentas nedenfor for fullstendighet.</para></note>
 
 <screen><userinput>mkdir -pv /{boot,home,mnt,opt,srv}</userinput></screen>
 

@@ -27,7 +27,18 @@
      den statiske <filename>/etc/resolv.conf</filename> filen. Begge tjenestene er
      aktivert som standard.</para>
 
-    <para>Konfigurasjonsfiler for <command>systemd-networkd</command> (og
+     <note>
+      <para>
+        Hvis du ikke vil bruke <command>systemd-networkd</command> for nettverks
+         konfigurasjon (for eksempel når systemet ikke er koblet til
+         et nettverk, eller du vil bruke et annet verktøy som NettverksBestyrer
+         for nettverkskonfigurasjonen), deaktiver en tjeneste for å forhindre en
+         feilmelding under oppstart:
+      </para>
+      <screen role='nodump'><userinput>systemctl disable systemd-networkd-wait-online</userinput></screen>
+    </note>
+
+	<para>Konfigurasjonsfiler for <command>systemd-networkd</command> (og
     <command>systemd-resolved</command>) kan plasseres i
     <filename class="directory">/usr/lib/systemd/network</filename>
     eller <filename class="directory">/etc/systemd/network</filename>. Filer i
