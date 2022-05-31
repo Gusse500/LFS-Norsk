@@ -40,6 +40,20 @@
      passende for oppføringen eller om nødvendig hele dagens listeelement.
     -->
 	
+	 <listitem>
+      <para>29.05.2022</para>
+      <itemizedlist>
+		 <listitem>
+          <para>[xry111] - Oppdatert til ninja-1.11.0.  Rettinger
+          <ulink url="&lfs-ticket-root;5062">#5062</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til systemd-251.  Rettinger
+          <ulink url="&lfs-ticket-root;5064">#5064</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
 	<listitem>
       <para>16.05.2022</para>
       <itemizedlist>
