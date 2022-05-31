@@ -81,12 +81,15 @@ make MANSUFFIX=ssl install</userinput></screen>
     <note>
       <para>
         Du bør oppdatere OpenSSL når en ny versjon som fikser sårbarheter
-         er annonsert. Utgivelsene går i serier, med en bokstav for hver utgivelse
-         etter den første utgivelsen (f.eks. 1.1.1, 1.1.1a, 1.1.1b, osv.). Fordi LFS
-         installerer kun de delte bibliotekene, er det ikke nødvendig å rekompilere pakker
-         som lenker til <filename class="libraryfile">libcrypto.so</filename> eller
+         er annonsert. Siden OpenSSL 3.0.0, OpenSSL-versjonsordningen
+         følger MAJOR.MINOR.PATCH-formatet. API/ABI-kompatibilitet
+         er garantert for samme MAJOR versjonsnummer. Fordi LFS
+         installerer kun de delte bibliotekene, er det ikke nødvendig å rekompilere
+         pakker som lenker til
+         <filename class="libraryfile">libcrypto.so</filename> eller
         <filename class="libraryfile">libssl.so</filename>
-        <emphasis>ved oppgradering i samme serie.</emphasis>
+        <emphasis>ved oppgradering til en versjon med uendret
+         MAJOR versjonsnummer</emphasis>.
       </para>
 
       <para>

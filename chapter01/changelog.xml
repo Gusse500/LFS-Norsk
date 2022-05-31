@@ -41,6 +41,20 @@
     -->
 	
 	<listitem>
+      <para>16.05.2022</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-5.17.7.  Rettinger
+          <ulink url="&lfs-ticket-root;5059">#5059</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til psmisc-23.5.  Rettinger
+          <ulink url="&lfs-ticket-root;5060">#5060</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+	<listitem>
       <para>01.05.2022</para>
       <itemizedlist>
         <listitem>

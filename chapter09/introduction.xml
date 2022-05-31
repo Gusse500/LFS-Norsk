@@ -31,7 +31,7 @@
 
     <para><command>init</command> programmet er kontrollert av
     <filename>/etc/inittab</filename> filen og er organisert i kjørenivåer som
-     kan kjøres av brukeren:</para>
+     kan kjøres av brukeren. I LFS brukes de som følgende:</para>
 
 <literallayout>0 &mdash; stopp
 1 &mdash; Enkeltbrukermodus

@@ -134,7 +134,12 @@ popd</userinput></screen>
 <screen><userinput remap="install">make DESTDIR=$LFS TIC_PATH=$(pwd)/build/progs/tic install
 echo "INPUT(-lncursesw)" > $LFS/usr/lib/libncurses.so</userinput></screen>
 
-    <variablelist>
+    <para>Fjern et unødvendig statisk bibliotek som ikke håndteres av
+	<command>configure</command>:</para>
+
+<screen><userinput remap="install">rm -v $LFS/lib/libncurses++w.a</userinput></screen>
+
+	<variablelist>
       <title>Betydningen av installasjonsalternativene:</title>
 
       <varlistentry>

@@ -129,8 +129,12 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
     <para>Kjør nå testene:</para>
 
 <screen><userinput remap="test">su tester -c "PATH=$PATH make RUN_EXPENSIVE_TESTS=yes check"</userinput></screen>
-
+	
+	<!-- test-getlogin er nå hoppet over
     <para>Test-getlogin testen er kjent for å mislykkes i LFS chroot-miljøet.</para>
+	-->
+	<!-- bør fikses ved neste utgivelse, coreutils-9.2 -->
+     <para>Testen Sort-NaN-infloop er kjent for å mislykkes med GCC-12.</para>
 
     <para>Fjern den midlertidige gruppen:</para>
 

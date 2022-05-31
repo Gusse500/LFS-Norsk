@@ -31,7 +31,7 @@
      vanligvis ikke brukt. Se <filename>init(8)</filename> for flere detaljer), og
      hver av disse tilsvarer handlingene datamaskinen skal utføre
      når den starter opp. Standard kjørenivå er 3. Her er
-     beskrivelser av de ulike kjørenivåene etter hvert som de implementeres:</para>
+     beskrivelser av de ulike kjørenivåene etter hvert som de implementeres i LFS:</para>
 
 <literallayout>0: stopper datamaskinen
 1: enkeltbrukermodus
