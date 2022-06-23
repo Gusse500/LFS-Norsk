@@ -173,8 +173,9 @@ esac</userinput></screen>
 		</listitem>
 		
 		<listitem>
-         <para><emphasis>nss/tst-nss-files-hosts-multi</emphasis>
-         testen er kjent for å mislykkes på relativt trege systemer på grunn av et internt
+         <para>Noen tester, for eksempel
+         <emphasis>nss/tst-nss-files-hosts-multi</emphasis>,
+         er kjent for å mislykkes på relativt trege systemer på grunn av et internt
          tidsavbrudd.</para>
       </listitem>
 <!--
