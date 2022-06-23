@@ -178,7 +178,17 @@ esac</userinput></screen>
          er kjent for å mislykkes på relativt trege systemer på grunn av et internt
          tidsavbrudd.</para>
       </listitem>
+
 <!--
+         https://lists.linuxfromscratch.org/sympa/arc/lfs-support/2022-06/msg00022.html
+         https://sourceware.org/pipermail/libc-alpha/2022-June/139839.html
+       -->
+       <listeelement>
+         <para>Omtrent 27 tester, for eksempel <emphasis>elf/tst-pldd</emphasis>,
+         er kjent for å mislykkes hvis kjernen støtter navneområder (se
+         <filename>namespaces(7)</filename> for detaljer), men vertsdistroen
+         har deaktivert dem via sysctl.</para>
+       </listitem>
       <listitem>
         <para><emphasis>rt/tst-cputimer{1,2,3}</emphasis> tester avhenger av
          vertssystemkjernen. Kjernene 4.14.91&ndash;4.14.96,
