@@ -173,15 +173,13 @@ cd       build</userinput></screen>
     <para>Test resultatene:</para>
 
 <screen><userinput remap="test">make -k check</userinput></screen>
-<!--
-    <para>Fire tester relatert til zlib er kjent for å mislykkes.</para>
--->
-<!--
-    <para>Syv gold tester er kjent for å mislykkes med gcc-11.1.0</para>
 
-    <para>Fire ld tester navngitt <quote>Run property ...</quote> er kjent for
-     mislykkes.</para>
- -->
+<!-- Vil bli fikset i 2.39
+          https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=01ae03b -->
+     <para>En gulltest, <filename>pr17704a_test</filename>, er kjent for
+     mislykkes hvis <parameter>CONFIG_IA32_EMULATION</parameter> er deaktivert i
+     kjernekonfigurasjon av vertssystemet.</para>
+
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make tooldir=/usr install</userinput></screen>
