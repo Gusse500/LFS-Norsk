@@ -43,7 +43,7 @@
 
     <para>Forbered Bc for kompilering:</para>
 
-<screen><userinput remap="configure">CC=gcc ./configure --prefix=/usr -G -O3</userinput></screen>
+<screen><userinput remap="configure">CC=gcc ./configure --prefix=/usr -G -O3 -r</userinput></screen>
 
     <variablelist>
       <title>Betydningen av konfigureringsalternativene:</title>
@@ -56,6 +56,14 @@
       </varlistentry>
 
       <varlistentry>
+        <term><parameter>-G</parameter></term>
+        <listitem>
+          <para>Utelat deler av testpakken som ikke vil fungere
+           uten GNU bc tilstede.</para>
+        </listitem>
+      </varlistentry>
+
+	  <varlistentry>
         <term><parameter>-O3</parameter></term>
         <listitem>
           <para>Spesifiser optimaliseringen som skal brukes.</para>
@@ -63,10 +71,10 @@
       </varlistentry>
 
       <varlistentry>
-        <term><parameter>-G</parameter></term>
+        <term><parameter>-r</parameter></term>
         <listitem>
-          <para>Utelater deler av testpakken som ikke vil fungere
-           uten GNU bc tilstede.</para>
+          <para>Aktiver bruk av <application>Readline</application> for å
+           forbedre linjeredigeringsfunksjonen til bc..</para>
         </listitem>
       </varlistentry>
     </variablelist>
