@@ -135,8 +135,11 @@ make MANSUFFIX=ssl install</userinput></screen>
         <term><command>c_rehash</command></term>
         <listitem>
           <para>
-            er et <application>Perl</application> skript som skanner alle filer i
-             en katalog og legger til symbolske lenker til hashverdiene deres
+            er et <application>Perl</application> skript som
+             skanner alle filer i en katalog og legger til symbolske lenker til deres
+             hash-verdier. Bruk av <command>c_rehash</command> vurderes
+             foreldet og bør erstattes av
+             <command>openssl rehash</command> kommandoen
           </para>
           <indexterm zone="ch-system-openssl c_rehash">
             <primary sortas="b-c_rehash">c_rehash</primary>
