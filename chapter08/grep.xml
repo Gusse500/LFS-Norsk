@@ -77,7 +77,8 @@
       <varlistentry id="egrep">
         <term><command>egrep</command></term>
         <listitem>
-          <para>Skriver ut linjer som samsvarer med et utvidet regulært uttrykk</para>
+          <para>Skriver ut linjer som samsvarer med et utvidet regulært uttrykk.
+		  Den er foreldet, bruk <command>grep -E</command> i stedet</para>
           <indexterm zone="ch-system-grep egrep">
             <primary sortas="b-egrep">egrep</primary>
           </indexterm>
@@ -87,7 +88,8 @@
       <varlistentry id="fgrep">
         <term><command>fgrep</command></term>
         <listitem>
-          <para>Skriver ut linjer som samsvarer med en liste over faste strenger</para>
+          <para>Skriver ut linjer som samsvarer med en liste over faste strenger
+		  Den er foreldet, bruk <command>grep -F</command> i stedet</para>
           <indexterm zone="ch-system-grep fgrep">
             <primary sortas="b-fgrep">fgrep</primary>
           </indexterm>
