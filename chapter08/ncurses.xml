@@ -48,6 +48,7 @@
             --with-shared           \
             --without-debug         \
             --without-normal        \
+			--with-cxx-shared       \
             --enable-pc-files       \
             --enable-widec          \
             --with-pkg-config-libdir=/usr/lib/pkgconfig</userinput></screen>
@@ -56,16 +57,33 @@
       <title>Betydningen av de nye konfigureringsalternativene:</title>
 
       <varlistentry>
-        <term><parameter>--enable-widec</parameter></term>
+        <term><parameter>--with-shared</parameter></term>
         <listitem>
-          <para>Denne bryteren gjør at biblioteker med store tegn (f.eks., <filename
-          class="libraryfile">libncursesw.so.&ncurses-version;</filename>)
-          bygges i stedet for vanlige (f.eks., <filename
-          class="libraryfile">libncurses.so.&ncurses-version;</filename>).
-          Disse brede tegnbibliotekene er brukbare i både multibyte og
-           tradisjonelle 8-biters lokaliteter, mens vanlige biblioteker fungerer som de skal
-           bare i 8-biters lokaliteter. Brede karakterer og normale biblioteker er
-           kildekompatibel, men ikke binærkompatibel.</para>
+           <para>Dette får Ncurses til å bygge og installere delte C biblioteker.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--without-normal</parameter></term>
+        <listitem>
+          <para>Dette forhindrer at Ncurses bygger og installerer statiske C
+           biblioteker.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--without-debug</parameter></term>
+        <listitem>
+          <para>Dette forhindrer at Ncurses bygger og installerer feilsøkings
+           biblioteker.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--with-cxx-shared</parameter></term>
+        <listitem>
+          <para>Dette får Ncurses til å bygge og installere delte C++ bindinger. Den
+           forhindrer også at den bygger og installerer statiske C++ bindinger.</para>
         </listitem>
       </varlistentry>
 
@@ -78,10 +96,16 @@
       </varlistentry>
 
       <varlistentry>
-        <term><parameter>--without-normal</parameter></term>
+        <term><parameter>--enable-widec</parameter></term>
         <listitem>
-          <para>Denne bryteren deaktiverer bygging og installasjon av de fleste statiske biblioteker.
-          </para>
+          <para>Denne bryteren forårsaker at biblioteker med store tegn (f.eks. <filename
+           class="libraryfile">libncursesw.so.&ncurses-version;</filename>)
+           blir bygget i stedet for vanlige (f.eks. <filename
+           class="libraryfile">libncurses.so.&ncurses-version;</filename>).
+           Disse bibliotekene med store tegn er brukbare i både multibyte og
+           tradisjonelle 8-biters lokaliteter, mens vanlige biblioteker fungerer som de skal
+           bare i 8-biters lokaliteter. Biblioteker med store tegn og normale biblioteker er
+           kildekompatibel, men ikke binærkompatibel.</para>
         </listitem>
       </varlistentry>
 
@@ -112,7 +136,7 @@
 
 <screen><userinput remap="install">make DESTDIR=$PWD/dest install
 install -vm755 dest/usr/lib/libncursesw.so.&ncurses-version; /usr/lib
-rm -v  dest/usr/lib/{libncursesw.so.&ncurses-version;,libncurses++w.a}
+rm -v  dest/usr/lib/libncursesw.so.&ncurses-version;
 cp -av dest/* /</userinput></screen>
 
     <para>Mange applikasjoner forventer fortsatt at lenkeren skal kunne finne

@@ -41,6 +41,16 @@
     -->
 	
 	 <listitem>
+      <para>29.06.2022</para>
+      <itemizedlist>
+        <listitem>
+          <para>[pierre] - Generer delte C++-bindinger for ncurses i stedet
+           å generere og deretter fjerne de statiske.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+	 <listitem>
       <para>14.162022</para>
       <itemizedlist>
         <listitem>

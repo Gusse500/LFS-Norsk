@@ -65,9 +65,10 @@ popd</userinput></screen>
             --mandir=/usr/share/man      \
             --with-manpage-format=normal \
             --with-shared                \
+			--without-normal             \
+            --with-cxx-shared            \
             --without-debug              \
             --without-ada                \
-            --without-normal             \
             --disable-stripping          \
             --enable-widec</userinput></screen>
 
@@ -80,6 +81,36 @@ popd</userinput></screen>
           <para>Dette forhindrer Ncurses fra å installere komprimerte manual
            sider, noe som kan skje hvis selve vertsdistribusjonen
            har komprimerte manual sider.</para>
+        </listitem>
+      </varlistentry>
+	  <varlistentry>
+        <term><parameter>--with-shared</parameter></term>
+        <listitem>
+          <para>Dette får Ncurses til å bygge og installere delte C biblioteker.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--without-normal</parameter></term>
+        <listitem>
+          <para>Dette forhindrer at Ncurses bygger og installerer statiske C
+           biblioteker.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--without-debug</parameter></term>
+        <listitem>
+          <para>Dette forhindrer at Ncurses bygger og installerer feilsøkings
+           biblioteker.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--with-cxx-shared</parameter></term>
+        <listitem>
+          <para>Dette får Ncurses til å bygge og installere delte C++ bindinger. Den
+           forhindrer også at den bygger og installerer statiske C++ bindinger.</para>
         </listitem>
       </varlistentry>
 
@@ -115,14 +146,6 @@ popd</userinput></screen>
         </listitem>
       </varlistentry>
 
-      <varlistentry>
-        <term><parameter>--without-normal</parameter></term>
-        <listitem>
-          <para>Denne bryteren deaktiverer bygging og installasjon av de fleste statiske biblioteker.
-          </para>
-        </listitem>
-      </varlistentry>
-
     </variablelist>
 
     <para>Kompiler pakken:</para>
@@ -133,12 +156,12 @@ popd</userinput></screen>
 
 <screen><userinput remap="install">make DESTDIR=$LFS TIC_PATH=$(pwd)/build/progs/tic install
 echo "INPUT(-lncursesw)" > $LFS/usr/lib/libncurses.so</userinput></screen>
-
+<!--
     <para>Fjern et unødvendig statisk bibliotek som ikke håndteres av
 	<command>configure</command>:</para>
 
 <screen><userinput remap="install">rm -v $LFS/lib/libncurses++w.a</userinput></screen>
-
+-->
 	<variablelist>
       <title>Betydningen av installasjonsalternativene:</title>
 
