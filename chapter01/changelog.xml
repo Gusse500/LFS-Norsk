@@ -40,6 +40,36 @@
      passende for oppføringen eller om nødvendig hele dagens listeelement.
     -->
 	
+	  <listitem>
+      <para>01.07.2022</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til vim-9.0.0006. Adresserer
+          <ulink url="&lfs-ticket-root;4500">#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til iana-etc-20220610. Adresserer
+          <ulink url="&lfs-ticket-root;5006">#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til OpenSSL-3.0.4. Fikser
+          <ulink url="&lfs-ticket-root;5076">#5076</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til kbd-2.5.1. Fikser
+          <ulink url="&lfs-ticket-root;5075">#5075</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-5.18.8. Fikser
+          <ulink url="&lfs-ticket-root;5074">#5074</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til bc-5.3.3. Fikser
+          <ulink url="&lfs-ticket-root;5073">#5073</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
 	 <listitem>
       <para>29.06.2022</para>
       <itemizedlist>
