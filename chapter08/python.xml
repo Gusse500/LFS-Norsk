@@ -126,9 +126,10 @@
         <command>pip3 install</command> kommandoen for å oppgradere en modul (for
         eksempel fra meson-0.61.3 til meson-0.62.0), legg til
         <parameter>-U</parameter> til kommandolinjen. Hvis det virkelig er
-        nødvendig å nedgradere en modul eller installere den samme versjonen på nytt
-        av en eller annen grunn, legg til <parameter >--force-reinstall</parameter > til
-        kommandolinjen.
+        nødvendig å nedgradere en modul eller 
+		installer samme versjon på nytt av en eller annen grunn, sett inn
+         <parameter>--force-reinstall --no-deps</parameter> i
+         kommandolinjen.
       </para>
     </important>
     <para>Hvis ønskelig, installer den forhåndsformaterte dokumentasjonen:</para>
