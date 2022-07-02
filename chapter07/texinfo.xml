@@ -43,11 +43,6 @@
   <sect2 role="installation">
     <title>Installasjon av Texinfo</title>
 
-    <para>Først, fiks et problem med å bygge pakken med Glibc-2.34 eller nyere:</para>
-
-<screen><userinput remap="pre">sed -e 's/__attribute_nonnull__/__nonnull/' \
-    -i gnulib/lib/malloc/dynarray-skeleton.c</userinput></screen>
-
     <para>Forbered Texinfo for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
