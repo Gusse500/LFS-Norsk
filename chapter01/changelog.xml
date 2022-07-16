@@ -41,7 +41,33 @@
     -->
 	
 	  <listitem>
-      <para>01.07.2022</para>
+      <listitem>
+      <para>15.07.2022</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til meson-0.63.0. Fikser
+          <ulink url="&lfs-ticket-root;5079">#5079</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til kmod-30. Fikser
+          <ulink url="&lfs-ticket-root;5077">#5077</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til inetutils-2.3. Fikser
+          <ulink url="&lfs-ticket-root;5081">#5081</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-5.18.11. Fikser
+          <ulink url="&lfs-ticket-root;5078">#5078</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til OpenSSL-3.0.5. Fikser
+          <ulink url="&lfs-ticket-root;5080">#5080</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+	  <para>01.07.2022</para>
       <itemizedlist>
         <listitem>
           <para>[bdubbs] - Oppdatert til vim-9.0.0006. Adresserer
