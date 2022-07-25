@@ -41,7 +41,20 @@
     -->
 	
 	  <listitem>
-      <listitem>
+      <para>24.07.2022</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-5.18.14. Fikser
+          <ulink url="&lfs-ticket-root;5082">#5082</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til libcap-2.65. Fikser
+          <ulink url="&lfs-ticket-root;5083">#5083</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+     <listitem>
       <para>15.07.2022</para>
       <itemizedlist>
         <listitem>
@@ -66,7 +79,8 @@
         </listitem>
       </itemizedlist>
     </listitem>
-
+	
+	<listitem>
 	  <para>01.07.2022</para>
       <itemizedlist>
         <listitem>
