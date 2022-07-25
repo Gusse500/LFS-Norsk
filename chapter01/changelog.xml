@@ -44,7 +44,8 @@
       <para>24.07.2022</para>
       <itemizedlist>
         <listitem>
-          <para>[bdubbs] - Oppdatert til linux-5.18.14. Fikser
+          <para>[bdubbs] - Oppdatert til linux-5.18.14. (Sikkerhetsrettinger
+           for maskiner som er berørt av RETBleed sårbarheten).Fikser
           <ulink url="&lfs-ticket-root;5082">#5082</ulink>.</para>
         </listitem>
         <listitem>
