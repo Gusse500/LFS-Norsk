@@ -41,29 +41,29 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installasjon av Kryss Binutils</title>
+    <title>Installasjon av Cross Binutils</title>
 
     <note><para>Gå tilbake og les notatene i avsnittet med tittelen <xref
-    linkend="ch-tools-generalinstructions"/> på nytt.
+    linkend="ch-tools-generalinstructions"/>.
     Å forstå notatene merket som viktig kan spare deg for mange
-     problemer senere.</para></note>
+    problemer senere.</para></note>
 
     <para>Det er viktig at Binutils er den første pakken som blir satt sammen
-     fordi både Glibc og GCC utfører ulike tester på tilgjengelige
-     linker og assembler for å bestemme hvilke av deres egne funksjoner
-     som skal aktiveres.</para>
+    fordi både Glibc og GCC utfører ulike tester på tilgjengelige
+    linker og assembler for å bestemme hvilke av deres egne funksjoner
+    som skal aktiveres.</para>
 
     <para>Binutils dokumentasjonen anbefaler å bygge Binutils
-     i en dedikert byggemappe:</para>
+    i en dedikert byggemappe:</para>
 
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>
 
     <note>
       <para>For at SBU verdiene som er oppført i resten av boken skal
-       kunne brukes, måler du tiden det tar å bygge denne pakken fra
-       konfigurasjonen, til og med den første installasjonen. For å oppnå
-       dette enkelt, pakk kommandoene inn i en <command>time</command>
+      kunne brukes, måler du tiden det tar å bygge denne pakken fra
+      konfigurasjonen, til og med den første installasjonen. For å oppnå
+      dette enkelt, pakk kommandoene inn i en <command>time</command>
       kommando som dette: <userinput>time { ../configure ... &amp;&amp; make
       &amp;&amp; make install; }</userinput>.</para>
     </note>
@@ -74,6 +74,7 @@ cd       build</userinput></screen>
              --with-sysroot=$LFS \
              --target=$LFS_TGT   \
              --disable-nls       \
+             --enable-gprofng=no \
              --disable-werror</userinput></screen>
 
     <variablelist>
@@ -112,6 +113,14 @@ cd       build</userinput></screen>
         <listitem>
           <para>Dette deaktiverer internasjonalisering ettersom i18n ikke er nødvendig for de
           midlertidige verktøyene.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--enable-gprofng=no</parameter></term>
+        <listitem>
+          <para>Dette deaktiverer bygging av gprofng som ikke er nødvendig for
+          midlertidige verktøy.</para>
         </listitem>
       </varlistentry>
 

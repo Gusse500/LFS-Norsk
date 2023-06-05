@@ -46,8 +46,8 @@
     <!-- Don't remove this until Binutils upstream updates the libtool
          copy.  On some host distros the issue doesn't show up.  -->
     <para>Binutils sender en utdatert kopi av libtool i tarballen. Det mangler
-      støtte for sysroot slik at de produserte binærfilene feilaktig kobles til
-      biblioteker fra vertsdistroen. Omgå dette problemet:</para>
+    støtte for sysroot slik at de produserte binærfilene feilaktig kobles til
+    biblioteker fra vertsdistroen. Omgå dette problemet:</para>
 
 <screen><userinput remap="pre">sed '6009s/$add_dir//' -i ltmain.sh</userinput></screen>
 
@@ -64,6 +64,7 @@ cd       build</userinput></screen>
     --host=$LFS_TGT            \
     --disable-nls              \
     --enable-shared            \
+    --enable-gprofng=no        \
     --disable-werror           \
     --enable-64-bit-bfd</userinput></screen>
 
@@ -83,7 +84,7 @@ cd       build</userinput></screen>
         <term><parameter>--enable-64-bit-bfd</parameter></term>
         <listitem>
           <para>Aktiverer 64-biters støtte (på verter med smalere ordstørrelser).
-           Kanskje ikke nødvendig på 64-bits systemer, men skader ikke.</para>
+          Kanskje ikke nødvendig på 64-bits systemer, men skader ikke.</para>
         </listitem>
       </varlistentry>
 
@@ -96,6 +97,11 @@ cd       build</userinput></screen>
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make DESTDIR=$LFS install</userinput></screen>
+
+    <para>Fjern libtool arkivfilene fordi de er skadelige for
+    krysskompilering, og fjern unødvendige statiske biblioteker:</para>
+
+<screen><userinput remap="install">rm -v $LFS/usr/lib/lib{bfd,ctf,ctf-nobfd,opcodes}.{a,la}</userinput></screen>
 
   </sect2>
 

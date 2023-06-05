@@ -11,8 +11,8 @@
   <title>Introduksjon</title>
 
   <para>Dette kapittelet diskuterer konfigurasjonsfiler og systemd tjenester.
-   Først er de generelle konfigurasjonsfilene som trengs for å sette opp nettverk
-   presentert.</para>
+  Først er de generelle konfigurasjonsfilene som trengs for å sette opp nettverk
+  presentert.</para>
 
   <itemizedlist>
      <listitem>
@@ -27,7 +27,7 @@
   </itemizedlist>
 
   <para>For det andre er problemer som påvirker riktig oppsett av enheter
-   diskutert.</para>
+  diskutert.</para>
 
   <itemizedlist>
      <listitem>
@@ -50,7 +50,7 @@
   </itemizedlist>
 
   <para>For det fjerde, en kort introduksjon til skriptene og konfigurasjons
-   filer som brukes når brukeren logger på systemet, presenteres.</para>
+  filer som brukes når brukeren logger på systemet, presenteres.</para>
 
   <itemizedlist>
      <listitem>

@@ -18,11 +18,11 @@
     <title>Grunnleggende konfigurasjon</title>
 
     <para><filename>/etc/systemd/system.conf</filename> filen inneholder et sett
-     av alternativer for å kontrollere grunnleggende systemoperasjoner. Standardfilen har alle
-     oppføringer kommentert med standardinnstillingene angitt. Denne filen er
-     hvor loggnivået kan endres, samt noen grunnleggende logginnstillinger.
-     Se <filename>systemd-system.conf(5)</filename>manualside for detaljer
-     for hvert konfigurasjonsalternativ.</para>
+    av alternativer for å kontrollere grunnleggende systemoperasjoner. Standardfilen har alle
+    oppføringer kommentert med standardinnstillingene angitt. Denne filen er
+    hvor loggnivået kan endres, samt noen grunnleggende logginnstillinger.
+    Se <filename>systemd-system.conf(5)</filename> manualside for detaljer
+    for hvert konfigurasjonsalternativ.</para>
 
   </sect2>
 
@@ -30,8 +30,8 @@
     <title>Deaktiverer skjermtømming ved oppstart</title>
 
     <para>Normal oppførsel for systemd er å tømme skjermen på
-     slutten av oppstartssekvensen. Hvis ønskelig, kan denne oppførselen
-     endres ved å kjøre følgende kommando:</para>
+    slutten av oppstartssekvensen. Hvis ønskelig, kan denne oppførselen
+    endres ved å kjøre følgende kommando:</para>
 
 <screen role="nodump"><userinput>mkdir -pv /etc/systemd/system/getty@tty1.service.d
 
@@ -50,21 +50,21 @@ EOF</userinput></screen>
     <title>Deaktivere tmpfs for /tmp</title>
 
     <para>Som standard, <filename class="directory">/tmp</filename> blir opprettet som
-     en tmpfs. Hvis dette ikke er ønsket, kan det overstyres ved å utføre
-     følgende kommando:</para>
+    en tmpfs. Hvis dette ikke er ønsket, kan det overstyres ved å utføre
+    følgende kommando:</para>
 
 <screen role="nodump"><userinput>ln -sfv /dev/null /etc/systemd/system/tmp.mount</userinput></screen>
 
     <para>Alternativt, hvis en egen partisjon for
     <filename class="directory">/tmp</filename> er ønsket, spesifiser
-     partisjonen i en <filename>/etc/fstab</filename> oppføring.</para>
+    partisjonen i en <filename>/etc/fstab</filename> oppføring.</para>
 
     <warning>
       <para>
         Ikke lag den symbolske lenken ovenfor hvis en separat partisjon brukes
-         til <filename class="directory">/tmp</filename>.  Dette vil forhindre
-         rotfilsystemet (/) fra å bli remontert r/w og gjør systemet
-         ubrukelig ved oppstart.
+        til <filename class="directory">/tmp</filename>.  Dette vil forhindre
+        rotfilsystemet (/) fra å bli remontert r/w og gjør systemet
+        ubrukelig ved oppstart.
       </para>
     </warning>
 
@@ -74,7 +74,7 @@ EOF</userinput></screen>
     <title>Konfigurere automatisk filoppretting og sletting</title>
 
     <para>Det er flere tjenester som oppretter eller sletter filer eller
-     mapper:</para>
+    mapper:</para>
 
     <itemizedlist>
       <listitem><para>systemd-tmpfiles-clean.service</para></listitem>
@@ -84,34 +84,34 @@ EOF</userinput></screen>
 
     <para>Systemplasseringen for konfigurasjonsfilene er
     <filename>/usr/lib/tmpfiles.d/*.conf</filename>. Den lokale
-     konfigurasjonsfilene er i
+    konfigurasjonsfilene er i
     <filename class="directory">/etc/tmpfiles.d</filename>. Filer i
     <filename class="directory">/etc/tmpfiles.d</filename> overstyrer
-     filer med samme navn i
+    filer med samme navn i
     <filename class="directory">/usr/lib/tmpfiles.d</filename>. Se
     <filename>tmpfiles.d(5)</filename> manualside for filformat
-     detaljer.</para>
+    detaljer.</para>
 
     <para>
       Merk at syntaksen for
       <filename>/usr/lib/tmpfiles.d/*.conf</filename> filer kan være
-       forvirrende. For eksempel standard sletting av filer i /tmp mappen
-       ligger i <filename>/usr/lib/tmpfiles.d/tmp.conf</filename> med
-       linjen:
+      forvirrende. For eksempel standard sletting av filer i /tmp mappen
+      ligger i <filename>/usr/lib/tmpfiles.d/tmp.conf</filename> med
+      linjen:
 
 <screen role="nodump">q /tmp 1777 root root 10d</screen>
 
       Typefeltet, q, diskuterer å lage et undervolum med kvoter som
-       egentlig bare er aktuelt for btrfs filsystemer. Den refererer til type v
-       som igjen refererer til type d (mappe). Dette skaper deretter den
-       spesifiserte mappen hvis den ikke er til stede og justerer tillatelsene
-       og eierskap som spesifisert. Innholdet i katalogen vil være
-       underlagt tidsbasert opprydding hvis aldersargumentet er spesifisert.
+      egentlig bare er aktuelt for btrfs filsystemer. Den refererer til type v
+      som igjen refererer til type d (mappe). Dette skaper deretter den
+      spesifiserte mappen hvis den ikke er til stede og justerer tillatelsene
+      og eierskap som spesifisert. Innholdet i katalogen vil være
+      underlagt tidsbasert opprydding hvis aldersargumentet er spesifisert.
      </para>
 
      <para>
       Hvis standardparametrene ikke er ønsket, bør filen
-       bli kopiert til <filename class="directory">/etc/tmpfiles.d</filename>
+      bli kopiert til <filename class="directory">/etc/tmpfiles.d</filename>
       og redigert etter ønske. For eksempel:
 
 <screen role="nodump"><userinput>mkdir -p /etc/tmpfiles.d
@@ -124,7 +124,7 @@ cp /usr/lib/tmpfiles.d/tmp.conf /etc/tmpfiles.d</userinput></screen>
     <title>Overstyre standard tjenesteatferd</title>
 
     <para>Parametrene til en enhet kan overstyres ved å opprette en mappe
-     og en konfigurasjonsfil i <filename
+    og en konfigurasjonsfil i <filename
     class="directory">/etc/systemd/system</filename>. For eksempel:</para>
 
 <screen role="nodump"><userinput>mkdir -pv /etc/systemd/system/foobar.service.d
@@ -136,7 +136,7 @@ RestartSec=30</literal>
 EOF</userinput></screen>
 
      <para>Se <filename>systemd.unit(5)</filename> manualside for mer
-      informasjon. Etter å ha opprettet konfigurasjonsfilen, kjør
+     informasjon. Etter å ha opprettet konfigurasjonsfilen, kjør
      <userinput>systemctl daemon-reload</userinput> og <userinput>systemctl
      restart foobar</userinput> for å aktivere endringene i en tjeneste.</para>
 
@@ -146,10 +146,10 @@ EOF</userinput></screen>
     <title>Feilsøking av oppstartssekvensen</title>
 
     <para>I stedet for vanlige skallskript som brukes i SysVinit eller BSD stil init
-     systemer, bruker systemd et enhetlig format for ulike typer oppstarts
-     filer (eller enheter). Kommandoen <command>systemctl</command> is used to
+    systemer, bruker systemd et enhetlig format for ulike typer oppstarts
+    filer (eller enheter). Kommandoen <command>systemctl</command> brukes for å
     aktivere, deaktivere, kontrollere tilstand og få status for enhetsfiler. Her
-     er noen eksempler på ofte brukte kommandoer:</para>
+    er noen eksempler på ofte brukte kommandoer:</para>
 
     <itemizedlist>
        <listitem>
@@ -163,15 +163,15 @@ EOF</userinput></screen>
        <listitem>
          <para><command>systemctl show -p Wants <replaceable>&lt;multi-user.target&gt;</replaceable></command>:
          viser alle enheter som er avhengige av flerbrukermålet. Mål er
-          spesielle enhetsfiler som er analoge med kjørenivåer under
-          SysVinit.</para>
+         spesielle enhetsfiler som er analoge med kjørenivåer under
+         SysVinit.</para>
        </listitem>
        <listitem>
          <para><command>systemctl status <replaceable>&lt;servicename.service&gt;</replaceable></command>:
          viser statusen til servicename.service. .service utvidelsen
-          kan utelates hvis det ikke finnes andre enhetsfiler med samme navn,
-          for eksempel .socket-filer (som lager en lyttekontakt som gir
-          lignende funksjonalitet som inetd/xinetd).</para>
+         kan utelates hvis det ikke finnes andre enhetsfiler med samme navn,
+         for eksempel .socket-filer (som lager en lyttekontakt som gir
+         lignende funksjonalitet som inetd/xinetd).</para>
        </listitem>
     </itemizedlist>
 
@@ -190,22 +190,22 @@ EOF</userinput></screen>
 
     <itemizedlist>
        <listitem>
-         <para><command>journalctl -r</command>: viser alt innholdet i
-          journal i omvendt kronologisk rekkefølge.</para>
+         <para><command>journalctl -r</command>: shows all contents of the
+         journal i omvendt kronologisk rekkefølge.</para>
        </listitem>
        <listitem>
          <para><command>journalctl -u <replaceable>UNIT</replaceable></command>:
          viser journalpostene knyttet til den angitte UNIT
-          filen.</para>
+         filen</para>
        </listitem>
        <listitem>
-         <para><command>journalctl -b[=ID] -r</command>: viser journal
-          oppføringer siden sist vellykkede oppstart (eller for oppstarts-ID) i omvendt
-          kronologisk rekkefølge.</para>
+         <para><command>journalctl -b[=ID] -r</command>: shows the journal
+         oppføringer siden sist vellykkede oppstart (eller for oppstarts-ID) i omvendt
+         kronologisk rekkefølge.</para>
        </listitem>
        <listitem>
-         <para><command>journalctl -f</command>: gir lignende funksjonalitet
-          som tale -f (follow).</para>
+         <para><command>journalctl -f</command>: provides functionality similar
+         som å følge -f (follow).</para>
        </listitem>
     </itemizedlist>
 
@@ -215,9 +215,9 @@ EOF</userinput></screen>
     <title>Arbeide med kjernedumper</title>
 
     <para>Kjernedumper er nyttige for å feilsøke programmer som krasjet, spesielt
-     når en nisseprosess krasjer. På systemd oppstartede systemer kjernedumping
-     håndteres av <command>systemd-coredump</command>.  Det vil
-     logge kjernedumpen i journalen og oppbevare selve kjernedumpen i
+    når en nisseprosess krasjer. På systemd oppstartede systemer kjernedumping
+    håndteres av <command>systemd-coredump</command>.  Det vil
+    logge kjernedumpen i journalen og oppbevare selve kjernedumpen i
     <filename class="directory">/var/lib/systemd/coredump</filename>.
     For å hente og behandle kjernedumper, <command>coredumpctl</command>
     verktøy er gitt. Her er noen eksempler på ofte brukte kommandoer:
@@ -226,21 +226,21 @@ EOF</userinput></screen>
     <itemizedlist>
       <listitem>
         <para><command>coredumpctl -r</command>: viser alle kjernedumper i
-         omvendt kronologisk rekkefølge.</para>
+        omvendt kronologisk rekkefølge.</para>
       </listitem>
       <listitem>
         <para><command>coredumpctl -1 info</command>: viser informasjonen
-         fra siste kjernedump.</para>
+        fra siste kjernedump.</para>
       </listitem>
       <listitem>
         <para><command>coredumpctl -1 debug</command>: laster den siste kjernedumpen
-         inn i <ulink url="&blfs-book;general/gdb.html">GDB</ulink>.
+        inn i <ulink url="&blfs-book;general/gdb.html">GDB</ulink>.
         </para>
       </listitem>
     </itemizedlist>
 
     <para>Kjernedumper kan bruke mye diskplass. Maksimal diskplass
-     brukt av kjernedumper kan begrenses ved å lage en konfigurasjonsfil i
+    brukt av kjernedumper kan begrenses ved å lage en konfigurasjonsfil i
     <filename class="directory">/etc/systemd/coredump.conf.d</filename>.
     For eksempel:</para>
 
@@ -254,38 +254,38 @@ EOF</userinput></screen>
     <para>Se <filename>systemd-coredump(8)</filename>,
     <filename>coredumpctl(1)</filename>, og
     <filename>coredump.conf.d(5)</filename> manualsidene for mer
-     informasjon.</para>
+    informasjon.</para>
   </sect2>
 
   <sect2>
     <title>Langvarige prosesser</title>
 
     <para>Fra og med systemd-230 blir alle brukerprosesser drept når en brukerøkt
-     er avsluttet, selv om nohup brukes, eller prosessen bruker
+    er avsluttet, selv om nohup brukes, eller prosessen bruker
     <function>daemon()</function> eller <function>setsid()</function> funksjoner.
     Dette er en bevisst endring fra et historisk tillatt miljø til et
-     mer restriktiv. Den nye atferden kan forårsake problemer hvis du er avhengig av
-     langvarige programmer (f.eks., <command>screen</command> eller
+    mer restriktiv. Den nye atferden kan forårsake problemer hvis du er avhengig av
+    langvarige programmer (f.eks., <command>screen</command> eller
     <command>tmux</command>) for å forbli aktiv etter avsluttet brukerøkt.
-     Det er tre måter å aktivere langvarige prosesser til å være aktiv etter at en brukerøkt
-     er avsluttet.</para>
+    Det er tre måter å aktivere langvarige prosesser til å være aktiv etter at en brukerøkt
+    er avsluttet.</para>
 
     <itemizedlist>
       <listitem>
         <para>
           <emphasis>Aktiver langvarig prosess for kun utvalgte brukere</emphasis>:
           Vanlige brukere har tillatelse til å aktivere prosessforlenging
-           med kommandoen <command>loginctl enable-linger</command> for deres
-           egen bruker. Systemadministratorer kan bruke den samme kommandoen med et
+          med kommandoen <command>loginctl enable-linger</command> for deres
+          egen bruker. Systemadministratorer kan bruke den samme kommandoen med et
           <parameter>user</parameter> argument for å aktivere for en bruker. Denne brukeren
-           kan da bruke <command>systemd-run</command> kommandoen for å starte
-           langvarige prosesser. For eksempel: <command>systemd-run --scope
+          kan da bruke <command>systemd-run</command> kommandoen for å starte
+          langvarige prosesser. For eksempel: <command>systemd-run --scope
           --user /usr/bin/screen</command>. Hvis du aktiverer forlenging for din
-           bruker, vil user@.service forbli selv etter at alle påloggingsøktene er
-           lukket, og vil automatisk starte ved systemoppstart. Dette har
-           fordelen av å eksplisitt tillate og ikke tillate prosesser å kjøre
-           etter at brukerøkten er avsluttet, men bryter bakoverkompatibiliteten
-           med verktøy som <command>nohup</command> og verktøy som bruker
+          bruker, vil user@.service forbli selv etter at alle påloggingsøktene er
+          lukket, og vil automatisk starte ved systemoppstart. Dette har
+          fordelen av å eksplisitt tillate og ikke tillate prosesser å kjøre
+          etter at brukerøkten er avsluttet, men bryter bakoverkompatibiliteten
+          med verktøy som <command>nohup</command> og verktøy som bruker
           <function>daemon()</function>.
         </para>
       </listitem>
@@ -294,18 +294,18 @@ EOF</userinput></screen>
           <emphasis>Aktiver systemomfattende langvarig prosess</emphasis>:
           Du kan angi <parameter>KillUserProcesses=no</parameter> i
           <filename>/etc/systemd/logind.conf</filename> for å muliggjøre prosessforlenging
-           globalt for alle brukere. Dette har fordelen av å gjøre det gamle
-           metoden tilgjengelig for alle brukere på bekostning av eksplisitt kontroll.
+          globalt for alle brukere. Dette har fordelen av å gjøre det gamle
+          metoden tilgjengelig for alle brukere på bekostning av eksplisitt kontroll.
         </para>
       </listitem>
       <listitem>
         <para>
           <emphasis>Deaktiver ved byggetid</emphasis>: Du kan deaktivere
-           systemforlenging som standard mens du bygger systemd ved å legge til bryteren
+          systemforlenging som standard mens du bygger systemd ved å legge til bryteren
           <parameter>-Ddefault-kill-user-processes=false</parameter> til
           <command>meson</command> kommandoen for systemd. Dette
-           deaktiverer helt systemds evne til å drepe brukerprosesser under
-           øktslutt.
+          deaktiverer helt systemds evne til å drepe brukerprosesser under
+          øktslutt.
         </para>
       </listitem>
     </itemizedlist>

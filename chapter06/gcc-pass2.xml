@@ -42,10 +42,14 @@
 
   <sect2 role="installation">
     <title>Installasjon av GCC</title>
+<!--
+    <para>Løs først et problem med den nyeste versjonen av glibc:</para>
 
+    <screen><userinput remap="pre">patch -Np1 -i ../&gcc-upstream-fixes-patch;</userinput></screen>
+-->
     <para>Som i den første versjonen av GCC, er GMP-, MPFR- og MPC-pakkene
-     nødvendig. Pakk ut tarballene og flytt dem til den nødvendige mappen
-     :</para>
+    nødvendig. Pakk ut tarballene og flytt dem til den nødvendige mappen
+    :</para>
 
 <screen><userinput remap="pre">tar -xf ../mpfr-&mpfr-version;.tar.xz
 mv -v mpfr-&mpfr-version; mpfr
@@ -55,40 +59,36 @@ tar -xf ../mpc-&mpc-version;.tar.gz
 mv -v mpc-&mpc-version; mpc</userinput></screen>
 
     <para>Hvis du bygger på x86_64, endre standard mappenavn for 64-bit
-     bibliotekene til <quote>lib</quote>:</para>
+    bibliotekene til <quote>lib</quote>:</para>
 
 <screen><userinput remap="pre">case $(uname -m) in
   x86_64)
     sed -e '/m64=/s/lib64/lib/' -i.orig gcc/config/i386/t-linux64
   ;;
 esac</userinput></screen>
-<!--
-    <para>Løs et problem med GCC-10.1 når du bygger med en kryss
-     kompilator:</para>
 
-<screen><userinput remap="pre">patch -Np1 -i ../&gcc-cross-patch;</userinput></screen>
--->
+    <para>Overstyr byggeregelen for libgcc og libstdc++ deklarasjoner, til
+    tillat å bygge disse bibliotekene med støtte for POSIX-tråder:</para>
+
+<screen><userinput remap="pre">sed '/thread_header =/s/@.*@/gthr-posix.h/' \
+    -i libgcc/Makefile.in libstdc++-v3/include/Makefile.in</userinput></screen>
+
     <para>Opprett en egen byggemappe igjen:</para>
 
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>
 
-    <para>Lag en symbolkobling som lar libgcc bygges med brukerstøtte
-     for posix tråder:</para>
-
-<screen><userinput remap="pre">mkdir -pv $LFS_TGT/libgcc
-ln -s ../../../libgcc/gthr-posix.h $LFS_TGT/libgcc/gthr-default.h</userinput></screen>
-
     <para>Før du begynner å bygge GCC, husk å deaktivere alle miljø
-     variabler som overstyrer standard optimaliseringsflagg.</para>
+    variabler som overstyrer standard optimaliseringsflagg.</para>
 
     <para>Forbered nå GCC for kompilering:</para>
 
 <screen><userinput remap="configure">../configure                                       \
     --build=$(../config.guess)                     \
     --host=$LFS_TGT                                \
+    --target=$LFS_TGT                              \
+    LDFLAGS_FOR_TARGET=-L$PWD/$LFS_TGT/libgcc      \
     --prefix=/usr                                  \
-    CC_FOR_TARGET=$LFS_TGT-gcc                     \
     --with-build-sysroot=$LFS                      \
     --enable-initfini-array                        \
     --disable-nls                                  \
@@ -99,31 +99,57 @@ ln -s ../../../libgcc/gthr-posix.h $LFS_TGT/libgcc/gthr-default.h</userinput></s
     --disable-libquadmath                          \
     --disable-libssp                               \
     --disable-libvtv                               \
-    --disable-libstdcxx                            \
     --enable-languages=c,c++</userinput></screen>
 
     <variablelist>
       <title>Betydningen av de nye konfigureringsalternativene:</title><!-- WIP -->
 
       <varlistentry>
-        <term><parameter>-with-build-sysroot=$LFS</parameter></term>
+        <term><parameter>--with-build-sysroot=$LFS</parameter></term>
         <listitem>
           <para>Normalt bruker <parameter>--host</parameter> å sørge for at
-           en krysskompilator brukes til å bygge GCC, og da vet dennne kompilatoren
-           at den må lete etter overskrifter og biblioteker i <filename
+          en krysskompilator brukes til å bygge GCC, og da vet dennne kompilatoren
+          at den må lete etter overskrifter og biblioteker i <filename
           class="directory">$LFS</filename>. Men byggesystemet til GCC bruker
-           andre verktøy som ikke er klar over denne plasseringen. Denne bryteren
-           sørger for at de finner de nødvendige filene på <filename
+          andre verktøy som ikke er klar over denne plasseringen. Denne bryteren
+          sørger for at de finner de nødvendige filene på <filename
           class="directory">$LFS</filename>, og ikke på verten.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--target=$LFS_TGT</parameter></term>
+        <listitem>
+          <para>Mens vi krysskompilerer GCC, er det umulig å bygge
+          målbiblioteker (<filename class="libraryfile">libgcc</filename>
+          og <filename class="libraryfile">libstdc++</filename>) med
+          kompilerte GCC-binærfiler fordi disse binærfilene ikke vil kjøre på
+          vertsdistroen. GCC-byggesystemet vil forsøke å bruke
+          C- og C++-kompilatorer på vertsdistroen som en løsning som standard.
+          Det støttes ikke å bygge GCC-målbiblioteker med en annen
+          versjon av GCC, så bruk av vertskompilatorer kan føre til feil bygging
+          . Denne parameteren sikrer å bygge bibliotekene med GCC
+          pass 1 og forhindre problemet.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>LDFLAGS_FOR_TARGET=...</parameter></term>
+        <listitem>
+          <para>Tillat <filename class="libraryfile">libstdc++</filename> å
+          bruke den delte <filename class="libraryfile">libgcc</filename> som ble
+          bygget i dette passet, i stedet for den statiske versjonen bygget i GCC
+          pass 1. Dette er nødvendig for å støtte C++ unntaks
+          håndtering.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--enable-initfini-array</parameter></term>
         <listitem>
-          <para>Dette alternativet aktiveres automatisk når du bygger en lokal
-           kompilator med en lokal kompilator på x86. Men her bygger vi med
-           en krysskompilator, så vi må eksplisitt angi dette alternativet.</para>
+          <para>Dette alternativet aktiveres automatisk når du bygger en innebygd
+          kompilator med en innebygd kompilator på x86. Men her bygger vi med
+          en krysskompilator, så vi må eksplisitt angi dette alternativet.</para>
         </listitem>
       </varlistentry>
 
@@ -138,11 +164,11 @@ ln -s ../../../libgcc/gthr-posix.h $LFS_TGT/libgcc/gthr-default.h</userinput></s
 <screen><userinput remap="install">make DESTDIR=$LFS install</userinput></screen>
 
     <para>Som en siste finpuss kan du lage en symbolkobling. Mange programmer og skript
-     bruker <command>cc</command> i stedet for <command>gcc</command>, som
-     brukes til å holde programmer generiske og derfor brukbare på alle typer UNIX
-     systemer der GNU C-kompilatoren ikke alltid er installert. Kjøre
+    bruker <command>cc</command> i stedet for <command>gcc</command>, som
+    brukes til å holde programmer generiske og derfor brukbare på alle typer UNIX
+    systemer der GNU C-kompilatoren ikke alltid er installert. Å kjøre
     <command>cc</command> lar systemadministratoren bestemme
-     hvilken C-kompilator som skal installeres:</para>
+    hvilken C-kompilator som skal installeres:</para>
 
 <screen><userinput remap="install">ln -sv gcc $LFS/usr/bin/cc</userinput></screen>
 

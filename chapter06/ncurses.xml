@@ -65,9 +65,10 @@ popd</userinput></screen>
             --mandir=/usr/share/man      \
             --with-manpage-format=normal \
             --with-shared                \
+            --without-normal             \
+            --with-cxx-shared            \
             --without-debug              \
             --without-ada                \
-            --without-normal             \
             --disable-stripping          \
             --enable-widec</userinput></screen>
 
@@ -78,8 +79,39 @@ popd</userinput></screen>
         <term><parameter>--with-manpage-format=normal</parameter></term>
         <listitem>
           <para>Dette forhindrer Ncurses fra å installere komprimerte manual
-           sider, noe som kan skje hvis selve vertsdistribusjonen
-           har komprimerte manual sider.</para>
+          sider, noe som kan skje hvis selve vertsdistribusjonen
+          har komprimerte manual sider.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--with-shared</parameter></term>
+        <listitem>
+          <para>Dette får Ncurses til å bygge og installere delte C biblioteker.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--without-normal</parameter></term>
+        <listitem>
+          <para>Dette forhindrer at Ncurses bygger og installerer statiske C
+          biblioteker.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--without-debug</parameter></term>
+        <listitem>
+          <para>Dette forhindrer at Ncurses bygger og installerer feilsøkings
+          biblioteker.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--with-cxx-shared</parameter></term>
+        <listitem>
+          <para>Dette får Ncurses til å bygge og installere delte C++ bindinger. Den
+          forhindrer også at den bygger og installerer statiske C++ bindinger.</para>
         </listitem>
       </varlistentry>
 
@@ -87,8 +119,8 @@ popd</userinput></screen>
         <term><parameter>--without-ada</parameter></term>
         <listitem>
           <para>Dette sikrer at Ncurses ikke bygger støtte for Ada
-           kompilator som kan være til stede på verten, men som ikke vil være tilgjengelig
-           når vi går inn i <command>chroot</command> miljøet.</para>
+          kompilator som kan være til stede på verten, men som ikke vil være tilgjengelig
+          når vi går inn i <command>chroot</command> miljøet.</para>
         </listitem>
       </varlistentry>
 
@@ -96,7 +128,7 @@ popd</userinput></screen>
         <term><parameter>--disable-stripping</parameter></term>
         <listitem>
           <para>Denne bryteren hindrer byggesystemet å strippe
-           programmene som bruker <command>strip</command> programmet fra verten.
+          programmene som bruker <command>strip</command> programmet fra verten.
           Bruk av vertsverktøy på krysskompilerte program kan forårsake feil.</para>
         </listitem>
       </varlistentry>
@@ -109,17 +141,9 @@ popd</userinput></screen>
           skal bygges i stedet for vanlige (f.eks., <filename
           class="libraryfile">libncurses.so.&ncurses-version;</filename>).
           Disse brede tegnbibliotekene er brukbare i både multibyte og
-           tradisjonelle 8-biters lokaliteter, mens vanlige biblioteker fungerer som de skal
-           bare i 8-biters lokaliteter. Brede karakterer og normale biblioteker er
-           kildekompatibel, men ikke binærkompatibel.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term><parameter>--without-normal</parameter></term>
-        <listitem>
-          <para>Denne bryteren deaktiverer bygging og installasjon av de fleste statiske biblioteker.
-          </para>
+          tradisjonelle 8-biters lokaliteter, mens vanlige biblioteker fungerer som de skal
+          bare i 8-biters lokaliteter. Brede karakterer og normale biblioteker er
+          kildekompatibel, men ikke binærkompatibel.</para>
         </listitem>
       </varlistentry>
 
@@ -133,7 +157,12 @@ popd</userinput></screen>
 
 <screen><userinput remap="install">make DESTDIR=$LFS TIC_PATH=$(pwd)/build/progs/tic install
 echo "INPUT(-lncursesw)" > $LFS/usr/lib/libncurses.so</userinput></screen>
+<!--
+    <para>Fjern et unødvendig statisk bibliotek som ikke håndteres av
+    <command>configure</command>:</para>
 
+<screen><userinput remap="install">rm -v $LFS/usr/lib/libncurses++w.a</userinput></screen>
+-->
     <variablelist>
       <title>Betydningen av installasjonsalternativene:</title>
 
@@ -142,7 +171,7 @@ echo "INPUT(-lncursesw)" > $LFS/usr/lib/libncurses.so</userinput></screen>
         <listitem>
           <para>Vi må sende stien til den nettopp bygde
           <command>tic</command> så den er i stand til å kjøre på byggemaskinen, slik at
-           terminaldatabasen kan opprettes uten feil.</para>
+          terminaldatabasen kan opprettes uten feil.</para>
         </listitem>
       </varlistentry>
 
@@ -150,8 +179,8 @@ echo "INPUT(-lncursesw)" > $LFS/usr/lib/libncurses.so</userinput></screen>
         <term><command>echo "INPUT(-lncursesw)" > $LFS/usr/lib/libncurses.so</command></term>
         <listitem>
           <para><filename>libncurses.so</filename> biblioteket trengs av
-           noen få pakker vi skal bygge snart. Vi lager denne lille linkskriptet
-           , da dette er det som gjøres i <xref
+          noen få pakker vi skal bygge snart. Vi lager denne lille linkskriptet
+          , da dette er det som gjøres i <xref
           linkend="chapter-building-system"/>.</para>
         </listitem>
       </varlistentry>

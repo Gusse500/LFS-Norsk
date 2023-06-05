@@ -11,43 +11,52 @@
   <title>Stripping</title>
 
   <para>Denne delen er valgfri. Hvis den tiltenkte brukeren ikke er en
-   programmerer og ikke planlegger å gjøre
-   noen feilsøking på systemprogramvaren, kan systemstørrelsen reduseres
-   med omtrent 2 GB ved å fjerne feilsøkingssymbolene fra binærfiler og
-   biblioteker. Dette medfører ingen ulempe annet enn å ikke kunne
-   feilsøke programvaren fullstendig lenger.</para>
+  programmerer og ikke planlegger å gjøre
+  noen feilsøking på systemprogramvaren, kan systemstørrelsen reduseres
+  med omtrent 2 GB ved å fjerne feilsøkingssymbolene og unødvendig symboltabell
+  oppføringer fra binærfiler og biblioteker. Dette medfører ingen andre ulemper
+  enn å ikke kunne
+  feilsøke programvaren fullstendig lenger.</para>
 
   <para>De fleste som bruker kommandoene nevnt nedenfor,
-   opplever ikke noen vanskeligheter. Det er imidlertid lett å gjøre en skrivefeil og
-   gjør det nye systemet ubrukelig, så før du kjører
+  opplever ikke noen vanskeligheter. Det er imidlertid lett å gjøre en skrivefeil og
+  gjør det nye systemet ubrukelig, så før du kjører
   <command>strip</command> kommandoer, er det en god idé å lage en
-   sikkerhetskopiering av LFS systemet i gjeldende tilstand.</para>
+  sikkerhetskopiering av LFS systemet i gjeldende tilstand.</para>
+
+  <para>En <command>strip</command> kommando med
+  <parameter>--strip-unneeded</parameter> alternativet fjerner alle feilsøkingssymboler
+  fra en binær eller et bibliotek. Og det fjerner alle symboltabelloppføringer
+  som ikke er nødvendig for linkeren (for statiske biblioteker) eller dynamisk linker (for
+  dynamisk koblede binære filer og delte biblioteker).</para>
 
   <para>Feilsøkingssymbolene for utvalgte biblioteker er plassert
-   i separate filer. Denne feilsøkingsinformasjonen er nødvendig hvis det kjøres
-   regresjonstester som bruker <ulink
+  i separate filer. Denne feilsøkingsinformasjonen er nødvendig hvis det kjøres
+  regresjonstester som bruker <ulink
   url='&blfs-book;/general/valgrind.html'>valgrind</ulink> eller <ulink
   url='&blfs-book;/general/gdb.html'>gdb</ulink> senere i BLFS.
   </para>
 
-  <para>Noter at <command>strip</command> vil overskrive binær eller bibliotek
-   filen den behandler. Dette kan krasje prosessene som bruker kode eller data fra
-   filen. Hvis prosessen som kjører <command>strip</command> selv er
-   påvirket, kan binærfilen eller biblioteket som blir strippet bli ødelagt og kan
-   gjøre systemet helt ubrukelig. For å unngå det, kopierer vi noen biblioteker
-   og binærfiler inn i <filename class="directory">/tmp</filename>, stripper dem
-   der, og installer dem tilbake med <command>install</command> kommandoen.
+  <para>Merk at <command>strip</command> vil overskrive binær eller bibliotek
+  filen den behandler. Dette kan krasje prosessene som bruker kode eller data fra
+  filen. Hvis prosessen som kjører <command>strip</command> selv er
+  påvirket, kan binærfilen eller biblioteket som blir strippet bli ødelagt og kan
+  gjøre systemet helt ubrukelig. For å unngå det, kopierer vi noen biblioteker
+  og binærfiler inn i <filename class="directory">/tmp</filename>, stripper dem
+  der, og installer dem tilbake med <command>install</command> kommandoen.
   Les den relaterte oppføringen i <xref linkend="pkgmgmt-upgrade-issues"/> for
-   begrunnelsen for å bruke <command>install</command> kommandoen her.</para>
+  begrunnelsen for å bruke <command>install</command> kommandoen her.</para>
 
   <note><para>ELF lasterens navn er ld-linux-x86-64.so.2 på 64-bits systemer
-   og ld-linux.so.2 på 32-bits systemer. Konstruksjonen nedenfor velger
-   riktig navn for gjeldende arkitektur.</para></note>
+  og ld-linux.so.2 på 32-bits systemer. Konstruksjonen nedenfor velger
+  riktig navn for gjeldende arkitektur, unntatt noe som slutter
+  med <quote>g</quote>, i tilfelle kommandoene nedenfor allerede har vært
+  kjør.</para></note>
 
-<!-- også av interesse er libgfortan, libgo, libgomp, og libobjc fra GCC -->
+<!-- also of interest are libgfortan, libgo, libgomp, and libobjc from GCC -->
 
 <!--<screen><userinput>save_lib="ld-2.25.so libc-2.25.so libpthread-2.25.so libthread_db-1.0.so"-->
-      <screen><userinput>save_usrlib="$(cd /usr/lib; ls ld-linux*)
+<screen><userinput>save_usrlib="$(cd /usr/lib; ls ld-linux*[^g])
              libc.so.6
              libthread_db.so.1
              libquadmath.so.&libquadmath-version;
@@ -104,7 +113,7 @@ unset BIN LIB save_usrlib online_usrbin online_usrlib
 </userinput></screen>
 
   <para>Et stort antall filer vil bli rapportert som at
-   filformatet ikke er gjenkjent. Disse advarslene kan trygt ignoreres. De
-   indikerer at disse filene er skript i stedet for binære filer.</para>
+  filformatet ikke er gjenkjent. Disse advarslene kan trygt ignoreres. De
+  indikerer at disse filene er skript i stedet for binære filer.</para>
 
 </sect1>

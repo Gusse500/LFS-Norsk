@@ -5,8 +5,8 @@
   %general-entities;
 ]>
 
-<sect1 id="ch-tools-libstdcpp-pass1" role="wrap">
-  <?dbhtml filename="gcc-libstdc++-pass1.html"?>
+<sect1 id="ch-tools-libstdcpp" role="wrap">
+  <?dbhtml filename="gcc-libstdc++.html"?>
 
   <sect1info condition="script">
     <productname>gcc-libstdc++</productname>
@@ -14,9 +14,9 @@
     <address>&gcc-url;</address>
   </sect1info>
 
-  <title>Libstdc++ from GCC-&gcc-version;, Pass 1</title>
+  <title>Libstdc++ fra GCC-&gcc-version;</title>
 
-  <indexterm zone="ch-tools-libstdcpp-pass1">
+  <indexterm zone="ch-tools-libstdcpp">
     <primary sortas="a-GCC">GCC</primary>
     <secondary>tools, libstdc++ pass 1</secondary>
   </indexterm>
@@ -25,11 +25,11 @@
     <title/>
 
     <para>Libstdc++ er standard C++-biblioteket. Det trengs
-     for å kompilere C++-kode
-     (en del av GCC er skrevet i C++), men vi måtte utsette installasjonen
-     da vi bygde <xref linkend="ch-tools-gcc-pass1"/>
-    fordi det avhenger av glibc, som ennå ikke var tilgjengelig i mål
-     mappen.
+    for å kompilere C++-kode
+    (en del av GCC er skrevet i C++), men vi måtte utsette installasjonen
+    da vi bygde <xref linkend="ch-tools-gcc-pass1"/>
+    fordi det avhenger av glibc, som ennå ikke var tilgjengelig i målmappen
+    .
     </para>
 
     <segmentedlist>
@@ -45,11 +45,11 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installation of Target Libstdc++</title>
+    <title>Installasjon av Targer Libstdc++</title>
 
     <note>
       <para><application>Libstdc++</application> er en del av GCC kildene.
-       Du bør først pakke ut GCC tarball og bytte til
+      Du bør først pakke ut GCC tarball og bytte til
       <filename>gcc-&gcc-version;</filename> mappen.</para>
     </note>
 
@@ -76,7 +76,7 @@ cd       build</userinput></screen>
         <term><parameter>--host=...</parameter></term>
         <listitem>
           <para>Spesifiserer at krysskompilatoren vi nettopp har bygget
-           skal brukes i stedet for den i
+          skal brukes i stedet for den i
           <filename>/usr/bin</filename>.</para>
         </listitem>
       </varlistentry>
@@ -85,7 +85,7 @@ cd       build</userinput></screen>
         <term><parameter>--disable-libstdcxx-pch</parameter></term>
         <listitem>
           <para>Denne bryteren forhindrer installasjon av inkluderte forhåndskompilerte
-           filer som ikke er nødvendige på dette stadiet.</para>
+          filer som ikke er nødvendige på dette stadiet.</para>
         </listitem>
       </varlistentry>
 
@@ -93,21 +93,21 @@ cd       build</userinput></screen>
         <term><parameter>--with-gxx-include-dir=/tools/$LFS_TGT/include/c++/&gcc-version;</parameter></term>
         <listitem>
           <para>Dette spesifiserer installasjonsmappen for inkluderende filer.
-           Fordi libstdc++ er standard C++-biblioteket for LFS, skal denne
-           mappen samsvare med plasseringen der C++-kompilatoren
-          (<command>$LFS_TGT-g++</command>) ville søke etter
-           standard C++ inkludererende filer. I en normal konstruksjon, sendes denne informasjonen
-           automatisk til libstdc++ <command>configure</command>
+          Fordi libstdc++ er standard C++-biblioteket for LFS, skal denne
+          mappen samsvare med plasseringen der C++-kompilatoren
+          (<command>$LFS_TGT-g++</command>) vil søke etter
+          standard C++ inkludererende filer. I en normal konstruksjon, sendes denne informasjonen
+          automatisk til libstdc++ <command>configure</command>
           alternativer fra toppnivåmappen. I vårt tilfelle, denne informasjonen
-           må gis eksplisitt.
-           C++-kompilatoren vil legge til sysroot banen
+          må gis eksplisitt.
+          C++-kompilatoren vil legge til sysroot banen
           <filename class="directory">$LFS</filename> (spesifisert bygning
-           GCC passerer 1) til inkludere filsøkebanen, så den vil faktisk
-           søke i
+          GCC passerer 1) til inkludere filsøkebanen, så den vil faktisk
+          søke i
           <filename class="directory">$LFS/tools/$LFS_TGT/include/c++/&gcc-version;</filename>.
           Kombinasjonen av <parameter>DESTDIR</parameter>
-          variabel (i <command>make install</command> kommando nedenfor)
-           og denne bryteren sørger for å installere deklarasjonene der.</para>
+          variabelen (i <command>make install</command> kommando nedenfor)
+          og denne bryteren sørger for å installere deklarasjonene der.</para>
         </listitem>
       </varlistentry>
 
@@ -120,6 +120,11 @@ cd       build</userinput></screen>
     <para>Installer biblioteket:</para>
 
 <screen><userinput remap="install">make DESTDIR=$LFS install</userinput></screen>
+
+    <para>Fjern libtool arkivfilene fordi de er skadelige for
+    krysskompilering:</para>
+
+<screen><userinput remap="install">rm -v $LFS/usr/lib/lib{stdc++,stdc++fs,supc++}.la</userinput></screen>
 
   </sect2>
 

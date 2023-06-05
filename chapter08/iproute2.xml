@@ -24,7 +24,7 @@
     <title/>
 
     <para>IPRoute2 pakken inneholder programmer for grunnleggende og avansert IPV4 basert
-     nettverk.</para>
+    nettverk.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -42,35 +42,35 @@
     <title>Installasjon av IPRoute2</title>
 
     <para><command>arpd</command> programmet inkludert i denne pakken vil ikke
-     bygges siden den er avhengig av Berkeley DB, som ikke er installert i
-     LFS. Men en mappe for <command>arpd</command> og en man side vil fortsatt
-     bli installert. Forhindre dette ved å kjøre kommandoene nedenfor.
+    bygges siden den er avhengig av Berkeley DB, som ikke er installert i
+    LFS. Men en mappe for <command>arpd</command> og en man side vil fortsatt
+    bli installert. Forhindre dette ved å kjøre kommandoene nedenfor.
     Hvis <command>arpd</command> binær er nødvendig,
-     instruksjoner for kompilering av Berkeley DB finnes i BLFS-boken på
+    instruksjoner for kompilering av Berkeley DB finnes i BLFS-boken på
     <ulink url="&blfs-book;server/db.html"/>.
     </para>
 
 <screen><userinput remap="pre">sed -i /ARPD/d Makefile
 rm -fv man/man8/arpd.8</userinput></screen>
 
-<!-- fiks upstream for 5.16.0
+<!-- fixed upstream for 5.16.0
     <para>Det er også nødvendig å deaktivere å bygge to moduler som
-     krever <ulink url="&blfs-book;postlfs/iptables.html"/>.</para>
+    krever <ulink url="&blfs-book;postlfs/iptables.html"/>.</para>
 
 <screen><userinput remap="pre">sed -i 's/.m_ipt.o//' tc/Makefile</userinput></screen>
 -->
     <para>Kompiler pakken:</para>
 
-<screen><userinput remap="make">make</userinput></screen>
+<screen><userinput remap="make">make NETNS_RUN_DIR=/run/netns</userinput></screen>
 
     <para>Denne pakken har ikke en fungerende testpakke.</para>
 <!-- for øyeblikket ikke nyttig, faktisk kjører ingen tester
     <para>Denne pakken kommer med en testpakke, men på grunn av antakelser den gjør,
-     er det ikke mulig å kjøre disse testene pålitelig fra chroot
-     miljøet. Hvis du ønsker å kjøre disse testene etter oppstart i din nye LFS
-     system, sørg for at du aktiverer <filename>/proc/config.gz</filename> støtte
-     i kjernen din (&quot;General setup&quot; -> &quot;Aktiver tilgang til
-     .config gjennom /proc/config.gz&quot; [CONFIG_IKCONFIG_PROC]), så kjør
+    er det ikke mulig å kjøre disse testene pålitelig fra chroot
+    miljøet. Hvis du ønsker å kjøre disse testene etter oppstart i din nye LFS
+    system, sørg for at du aktiverer <filename>/proc/config.gz</filename> støtte
+    i kjernen din (&quot;General setup&quot; -> &quot;Aktiver tilgang til
+    .config gjennom /proc/config.gz&quot; [CONFIG_IKCONFIG_PROC]), så kjør
     'make alltests' fra <filename class="directory">testsuite/</filename>
     undermappen.</para>-->
 
@@ -93,8 +93,8 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
       <segtitle>Installerte mapper</segtitle>
 
       <seglistitem>
-        <seg>bridge, ctstat (lenker til lnstat), genl, ifcfg, ifstat, ip, lnstat,
-        nstat, routef, routel, rtacct, rtmon, rtpr, rtstat (lenker til lnstat), ss,
+        <seg>bridge, ctstat (link to lnstat), genl, ifcfg, ifstat, ip, lnstat,
+        nstat, routef, routel, rtacct, rtmon, rtpr, rtstat (link to lnstat), ss,
         og tc</seg>
         <seg>/etc/iproute2, /usr/lib/tc, og /usr/share/doc/iproute2-&iproute2-version;
         </seg>
@@ -140,9 +140,9 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
         <term><command>ifcfg</command></term>
         <listitem>
           <para>Et skall skriptinnpakning for <command>ip</command> kommando
-           [Merk at det krever <command>arping</command> og
+          [Merk at det krever <command>arping</command> og
           <command>rdisk</command> programmer fra
-           iputils pakken som finnes på <ulink url="http://www.skbuff.net/iputils/"/>.]</para>
+          iputils pakken som finnes på <ulink url="http://www.skbuff.net/iputils/"/>.]</para>
           <indexterm zone="ch-system-iproute2 ifcfg">
             <primary sortas="b-ifcfg">ifcfg</primary>
           </indexterm>
@@ -153,7 +153,7 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
         <term><command>ifstat</command></term>
         <listitem>
           <para>Viser grensesnittstatistikken, inkludert mengden av
-           overførte og mottatte pakker via et grensesnitt</para>
+          overførte og mottatte pakker via et grensesnitt</para>
           <indexterm zone="ch-system-iproute2 ifstat">
             <primary sortas="b-ifstat">ifstat</primary>
           </indexterm>
@@ -169,29 +169,29 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
           lar brukere se på enhetens tilstand og gjøre endringer</para>
 
           <para><command>ip addr</command> lar brukere se på adresser og
-           egenskapene deres, legge til nye adresser og slette gamle</para>
+          egenskapene deres, legge til nye adresser og slette gamle</para>
 
           <para><command>ip neighbor</command> lar brukerne se på nabo
-           bindinger og deres egenskaper, legge til nye nabooppføringer og slette
-           gamle</para>
+          bindinger og deres egenskaper, legge til nye nabooppføringer og slette
+          gamle</para>
 
-          <para><command>ip rule</command> allows users to look at the routing
-          policies and change them</para>
+          <para><command>ip rule</command> lar brukerne se på rutingspolitikken
+          og endre dem</para>
 
           <para><command>ip route</command> lar brukerne se på rutingtabellen
-           og endre rutetabellregler</para>
+          og endre rutetabellregler</para>
 
           <para><command>ip tunnel</command> lar brukere se på IP
-           tunneler og deres egenskaper, og endre dem</para>
+          tunneler og deres egenskaper, og endre dem</para>
 
           <para><command>ip maddr</command> lar brukerne se på multicast
-           adresser og deres egenskaper, og endre dem</para>
+          adresser og deres egenskaper, og endre dem</para>
 
-          <para><command>ip mroute</command> allows users to set, change, or
-          delete the multicast routing</para>
+          <para><command>ip mroute</command> lar brukere angi, endre eller
+          slette multicast rutingen</para>
 
           <para><command>ip monitor</command> lar brukerne overvåke kontinuerlig
-           tilstanden til enheter, adresser og ruter</para>
+          tilstanden til enheter, adresser og ruter</para>
           <indexterm zone="ch-system-iproute2 ip">
             <primary sortas="b-ip">ip</primary>
           </indexterm>
@@ -202,7 +202,7 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
         <term><command>lnstat</command></term>
         <listitem>
           <para>Gir Linux nettverksstatistikk; det er en generalisert og mer
-           funksjonsfull erstatning for det gamle <command>rtstat</command>
+          funksjonsfull erstatning for det gamle <command>rtstat</command>
           programmet</para>
           <indexterm zone="ch-system-iproute2 lnstat">
             <primary sortas="b-lnstat">lnstat</primary>
@@ -224,7 +224,7 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
         <term><command>routef</command></term>
         <listitem>
           <para>En komponent av <command>ip route</command>. Dette er for å tømme
-           rutetabellene</para>
+          rutetabellene</para>
           <indexterm zone="ch-system-iproute2 routef">
             <primary sortas="b-routef">routef</primary>
           </indexterm>
@@ -235,7 +235,7 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
         <term><command>routel</command></term>
         <listitem>
           <para>En komponent av <command>ip route</command>. Dette er for liste
-           rutetabellene</para>
+          rutetabellene</para>
           <indexterm zone="ch-system-iproute2 routel">
             <primary sortas="b-routel">routel</primary>
           </indexterm>
@@ -267,7 +267,7 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
         <term><command>rtpr</command></term>
         <listitem>
           <para>Konverterer utdataene til <command>ip -o</command> tilbake til en
-           lesbar form</para>
+          lesbar form</para>
           <indexterm zone="ch-system-iproute2 rtpr">
             <primary sortas="b-rtpr">rtpr</primary>
           </indexterm>
@@ -287,8 +287,8 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
       <varlistentry id="ss">
         <term><command>ss</command></term>
         <listitem>
-          <para>Ligner på <command>netstat</command> kommandoen; viser aktive
-           forbindelser</para>
+          <para>Ligner på <command>netstat</command>  kommandoen; viser aktive
+          forbindelser</para>
           <indexterm zone="ch-system-iproute2 ss">
             <primary sortas="b-ss">ss</primary>
           </indexterm>
@@ -305,16 +305,16 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
           discipline</para>
 
           <para><command>tc class</command> lar brukere sette opp klasser basert
-           på køen til discipline planlegging</para>
+          på køen til discipline planlegging</para>
 
           <para><command>tc estimator</command> lar brukerne estimere
-           nettverksflyt inn i et nettverk</para>
+          nettverksflyt inn i et nettverk</para>
 
           <para><command>tc filter</command> lar brukere sette opp QOS/COS
-           pakkefiltrering</para>
+          pakkefiltrering</para>
 
           <para><command>tc policy</command> lar brukere sette opp QOS/COS
-           retningslinjer</para>
+          retningslinjer</para>
           <indexterm zone="ch-system-iproute2 ss">
             <primary sortas="b-tc">tc</primary>
           </indexterm>

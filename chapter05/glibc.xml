@@ -44,8 +44,8 @@
     <title>Installasjon av Glibc</title>
 
     <para>Først oppretter du en symbolsk lenke for LSB kompalitet. I tillegg,
-     for x86_64 oppretter du en symbolsk kompatibilitetskobling som kreves for korrekt
-     operasjon av den dynamiske biblioteklasteren:</para>
+    for x86_64 oppretter du en symbolsk kompatibilitetskobling som kreves for korrekt
+    operasjon av den dynamiske biblioteklasteren:</para>
 
 <screen><userinput remap="pre">case $(uname -m) in
     i?86)   ln -sfv ld-linux.so.2 $LFS/lib/ld-lsb.so.3
@@ -57,8 +57,8 @@ esac</userinput></screen>
 
     <note>
       <para>
-        Kommandoen ovenfor er riktig.  <command>ln</command> kommandoen har
-         noen få syntaktiske versjoner, så sørg for å sjekke
+        Kommandoen ovenfor er riktig.  The <command>ln</command> kommandoen har
+        noen få syntaktiske versjoner, så sørg for å sjekke
         <command>info coreutils ln</command> og <filename>ln(1)</filename>
         før du rapporterer det du kanskje tror er en feil.
       </para>
@@ -66,13 +66,13 @@ esac</userinput></screen>
 
     <para>Noen av Glibc-programmene bruker FHS inkompatible
     <filename class="directory">/var/db</filename> mappen for å lagre deres
-     kjøretidsdata. Bruk følgende oppdatering for å få slike programmer til å lagre sine
-     kjøretidsdata på de FHS kompatible stedene:</para>
+    kjøretidsdata. Bruk følgende oppdatering for å få slike programmer til å lagre sine
+    kjøretidsdata på de FHS kompatible stedene:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../glibc-&glibc-version;-fhs-1.patch</userinput></screen>
 
     <para>Glibc dokumentasjonen anbefaler å bygge Glibc
-     i en dedikert byggemappe:</para>
+    i en dedikert byggemappe:</para>
 
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>
@@ -100,8 +100,8 @@ cd       build</userinput></screen>
         <term><parameter>--host=$LFS_TGT, --build=$(../scripts/config.guess)</parameter></term>
         <listitem>
           <para>Den kombinerte effekten av disse bryterne er at Glibcs byggesystem
-           konfigurerer seg selv til å være krysskompilert, ved hjelp av krysskoblingen og
-           krysskompilator i <filename class="directory">$LFS/tools</filename>.</para>
+          konfigurerer seg selv til å være krysskompilert, ved hjelp av krysskoblingen og
+          krysskompilator i <filename class="directory">$LFS/tools</filename>.</para>
         </listitem>
       </varlistentry>
 
@@ -109,8 +109,8 @@ cd       build</userinput></screen>
         <term><parameter>--enable-kernel=&min-kernel;</parameter></term>
         <listitem>
           <para>Dette forteller Glibc å kompilere biblioteket med støtte
-           til &min-kernel; og senere Linux kjerner.  Løsninger for eldre
-           kjerner er ikke aktivert.</para>
+          til &min-kernel; og senere Linux kjerner.  Løsninger for eldre
+          kjerner er ikke aktivert.</para>
         </listitem>
       </varlistentry>
 
@@ -118,9 +118,9 @@ cd       build</userinput></screen>
         <term><parameter>--with-headers=$LFS/usr/include</parameter></term>
         <listitem>
           <para>Dette forteller Glibc å kompilere seg selv mot deklarasjonene
-           nylig installert i mappen $LFS/usr/include, slik at
-           den vet nøyaktig hvilke funksjoner kjernen har og kan optimalisere
-           seg selv deretter.</para>
+          nylig installert i mappen $LFS/usr/include, slik at
+          den vet nøyaktig hvilke funksjoner kjernen har og kan optimalisere
+          seg selv deretter.</para>
         </listitem>
       </varlistentry>
 
@@ -128,7 +128,7 @@ cd       build</userinput></screen>
         <term><parameter>libc_cv_slibdir=/usr/lib</parameter></term>
         <listitem>
           <para>Dette sikrer at biblioteket er installert i /usr/lib i stedet
-           for standard /lib64 på 64-bits maskiner.</para>
+          for standard /lib64 på 64-bits maskiner.</para>
         </listitem>
       </varlistentry>
 
@@ -145,25 +145,25 @@ cd       build</userinput></screen>
     </blockquote>
 
     <para>Den manglende eller inkompatible <command>msgfmt</command> programmet er
-     generelt ufarlig. Dette <command>msgfmt</command> programmet er en del av
-     Gettext pakken som vertsdistribusjonen skal gi.</para>
+    generelt ufarlig. Dette <command>msgfmt</command> programmet er en del av
+    Gettext pakken som vertsdistribusjonen skal gi.</para>
 
     <note><para>Det har vært rapporter om at denne pakken kan mislykkes når
-     bygning som et "parallell make". Hvis dette skjer, kjør make kommandoen på nytt
-     med et "-j1"-alternativ.</para></note>
+    bygning som et "parallell make". Hvis dette skjer, kjør make kommandoen på nytt
+    med et "-j1"-alternativ.</para></note>
 
-    <para>Kompiler pakken:</para>
+    <para>Compile the package:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
     <para>Installer pakken:</para>
 
     <warning><para>Hvis <envar>LFS</envar> ikke er riktig innstilt, og til tross for
-     anbefalinger, bygger du som
+    anbefalinger, bygger du som
     <systemitem class="username">root</systemitem>, neste kommando vil
-     installer den nybygde glibc til vertssystemet ditt, som mest sannsynlig
-     vil gjøre det ubrukelig. Så dobbeltsjekk at miljøet er
-     riktig innstilt før du kjører følgende kommando.</para></warning>
+    installer den nybygde glibc til vertssystemet ditt, som mest sannsynlig
+    vil gjøre det ubrukelig. Så dobbeltsjekk at miljøet er
+    riktig innstilt før du kjører følgende kommando.</para></warning>
 
 <screen><userinput remap="install">make DESTDIR=$LFS install</userinput></screen>
 
@@ -173,11 +173,11 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>DESTDIR=$LFS</parameter></term>
         <listitem>
-          <para><envar>DESTDIR</envar> make variabelen brukes av nesten alle
-           pakker for å definere plasseringen der pakken skal være
-           installert. Hvis den ikke er angitt, er den standard til roten (<filename
+          <para>The <envar>DESTDIR</envar> make variabelen brukes av nesten alle
+          pakker for å definere plasseringen der pakken skal være
+          installert. Hvis den ikke er angitt, er den standard til rot (<filename
           class="directory">/</filename>) mappen. Her spesifiserer vi at
-           pakken installeres i <filename class="directory">$LFS
+          pakken installeres i <filename class="directory">$LFS
           </filename>, som vil bli roten etter <xref linkend=
           "ch-tools-chroot"/>.</para>
         </listitem>
@@ -186,21 +186,20 @@ cd       build</userinput></screen>
     </variablelist>
 
     <para>Fiks hardkodet bane til den kjørbare lasteren i
-    <command>ldd</command> skriptet:</para>
+    <command>ldd</command> script:</para>
 
 <screen><userinput remap="install">sed '/RTLDLIST=/s@/usr@@g' -i $LFS/usr/bin/ldd</userinput></screen>
 
     <caution>
       <para>På dette tidspunktet er det viktig å stoppe og sikre at de grunnleggende
-       funksjoner (kompilering og lenker) til den nye verktøykjeden fungerer som
-       forventet. For å utføre en tilregnelighetssjekk, kjør følgende kommandoer:</para>
+      funksjoner (kompilering og lenker) til den nye verktøykjeden fungerer som
+      forventet. For å utføre en tilregnelighetssjekk, kjør følgende kommandoer:</para>
 
-<screen><userinput>echo 'int main(){}' &gt; dummy.c
-$LFS_TGT-gcc dummy.c
-readelf -l a.out | grep '/ld-linux'</userinput></screen>
+<screen><userinput>echo 'int main(){}' | gcc -xc -
+readelf -l a.out | grep ld-linux</userinput></screen>
 
       <para>Hvis alt fungerer som det skal, skal det ikke være noen feil,
-       og utdata fra den siste kommandoen vil være av formen:</para>
+      og utdata fra den siste kommandoen vil være av formen:</para>
 
 <screen><computeroutput>[Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]</computeroutput></screen>
 
@@ -208,25 +207,25 @@ readelf -l a.out | grep '/ld-linux'</userinput></screen>
       <filename>/lib/ld-linux.so.2</filename>.</para>
 
       <para>Hvis utdataen ikke vises som ovenfor eller det ikke var noen utdata i det hele tatt,
-       da er det noe galt. Undersøk og følg trinnene for å finne ut
-       hvor problemet er og korriger det. Dette problemet må løses før
-       fortsetter.</para>
+      da er det noe galt. Undersøk og følg trinnene for å finne ut
+      hvor problemet er og korriger det. Dette problemet må løses før
+      fortsetter.</para>
 
       <para>Når alt er bra, rydd opp i testfilene:</para>
 
-<screen><userinput>rm -v dummy.c a.out</userinput></screen>
+<screen><userinput>rm -v a.out</userinput></screen>
 
     </caution>
 
     <note><para>Byggepakker i neste kapittel vil fungere som en
-     ekstra sjekk at verktøykjeden er riktig bygget. Hvis noen
-     pakken, spesielt binutils-pass2 eller gcc-pass2, klarer ikke å bygge, er det
-     en indikasjon på at noe har gått galt med
-     tidligere Binutils-, GCC- eller Glibc-installasjoner.</para></note>
+    ekstra sjekk at verktøykjeden er riktig bygget. Hvis noen
+    pakken, spesielt binutils-pass2 eller gcc-pass2, klarer ikke å bygge, er det
+    en indikasjon på at noe har gått galt med
+    tidligere Binutils-, GCC- eller Glibc-installasjoner.</para></note>
 
     <para>Nå som vår kryssverktøykjede er fullført, fullfør installasjonen
-     limits.h deklarasjoner. For å gjøre det, kjør et verktøy levert av GCC
-     utviklere:</para>
+    limits.h deklarasjoner. For å gjøre det, kjør et verktøy levert av GCC
+    utviklere:</para>
 
 <screen><userinput>$LFS/tools/libexec/gcc/$LFS_TGT/&gcc-version;/install-tools/mkheaders</userinput></screen>
 

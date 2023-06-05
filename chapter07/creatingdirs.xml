@@ -12,17 +12,17 @@
 
   <para>Det er på tide å lage hele strukturen i LFS filsystemet.</para>
 
-  <para>Lag noen mapper på rotnivå som ikke er i det begrensede settet som
-     kreves i de foregående kapitlene ved å gi følgende kommando:</para>
+  <note><para>Noen av mappene nevnt i denne delen kan
+  allerede være opprettet tidligere med eksplisitte instruksjoner eller når du installerer noen
+  pakker. De gjentas nedenfor for fullstendighet.</para></note>
 
-  <note><para>Noen av mappene nedenfor er allerede opprettet
-   med eksplisitte instruksjoner eller når du installerte noen pakker. De
-   gjentas nedenfor for fullstendighet.</para></note>
+  <para>Lag noen mapper på rotnivå som ikke er i det begrensede settet som
+    kreves i de foregående kapitlene ved å gi følgende kommando:</para>
 
 <screen><userinput>mkdir -pv /{boot,home,mnt,opt,srv}</userinput></screen>
 
   <para>Lag det nødvendige settet med undermapper under rotnivået ved å
-     utstede følgende kommandoer:</para>
+    utstede følgende kommandoer:</para>
 
 <screen><userinput>mkdir -pv /etc/{opt,sysconfig}
 mkdir -pv /lib/firmware
@@ -42,31 +42,31 @@ install -dv -m 0750 /root
 install -dv -m 1777 /tmp /var/tmp</userinput></screen>
 
   <para>mapper er som standard opprettet med tillatelsesmodus 755, men
-   dette er ikke ønskelig for alle mapper. I kommandoene ovenfor, to
-   endringer gjøres&mdash;en til <systemitem
-  class="username">root</systemitem> brukerens hjemmemappe, og en annen til mappene for
-   midlertidige filer.</para>
+  dette er ikke ønskelig for alle mapper. I kommandoene ovenfor, to
+  endringer gjøres&mdash;en til <systemitem
+  class="username">root</systemitem>, brukerens hjemmemappe, og en annen til mappene for
+  midlertidige filer.</para>
 
-  <para>Den første modusendringen sikrer at ikke hvem som helst kan komme inn
-   <filename class="directory">/root</filename> mappen&mdash;det
-   samme som en vanlig bruker ville gjort med sin hjemmemappe. De
-   andre modusendring sørger for at enhver bruker kan skrive til
+  <para>Den første modusendringen sikrer at ikke hvem som helst kan komme inn i
+  <filename class="directory">/root</filename> mappen&mdash;det
+  samme som en vanlig bruker ville gjort med sin hjemmemappe. De
+  andre modusendring sørger for at enhver bruker kan skrive til
   <filename class="directory">/tmp</filename> og <filename
-  class="directory">/var/tmp</filename> mapper, men kan ikke fjernes
-   en annen brukers filer fra dem. Sistnevnte er forbudt av den såkalte
+  class="directory">/var/tmp</filename> mapper, men kan ikke fjerne
+  en annen brukers filer fra dem. Sistnevnte er forbudt av den såkalte
   <quote>låst bit (sticky bit),</quote> den høyeste biten (1) i 1777 bitmasken.</para>
 
   <sect2>
     <title>FHS Samsvarsmerknad</title>
 
-    <para>mappetreet er basert på Filsystemhierarkistandard (Filesystem Hierarchy Standard)
-     (FHS) (tilgjengelig på <ulink
+    <para>Mappetreet er basert på Filsystemhierarkistandard (Filesystem Hierarchy Standard)
+    (FHS) (tilgjengelig på <ulink
     url="https://refspecs.linuxfoundation.org/fhs.shtml"/>).  FHS spesifiserer også
-     den valgfrie tilstedeværelsen av noen mapper som f.eks <filename
+    den valgfrie tilstedeværelsen av noen mapper som f.eks <filename
     class="directory">/usr/local/games</filename> og <filename
     class="directory">/usr/share/games</filename>.  Vi skaper kun
-     mapper som trengs. Du må imidlertid gjerne lage disse
-     mappene.  </para>
+    mapper som trengs. Du må imidlertid gjerne lage disse
+    mappene.  </para>
 
   </sect2>
 

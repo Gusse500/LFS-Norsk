@@ -52,15 +52,14 @@
 <screen><userinput remap="pre">make mrproper</userinput></screen>
 
     <para>Trekk nå ut de brukersynlige kjernedeklarasjonene fra kilden.
-     Det anbefalte målet <quote>headers_install</quote> Kan ikke
-     brukes, fordi det krever <application>rsync</application>, som kanskje ikke
-     er tilgjengelig. Overskriftene plasseres først i
+    Det anbefalte make målet <quote>headers_install</quote> Kan ikke
+    brukes, fordi det krever <application>rsync</application>, som kanskje ikke
+    er tilgjengelig. Overskriftene plasseres først i
     <filename class="directory">./usr</filename>, deretter kopiert til nødvendig
-     plassering.</para>
+    plassering.</para>
 
 <screen><userinput remap="make">make headers
-find usr/include -name '.*' -delete
-rm usr/include/Makefile
+find usr/include -type f ! -name '*.h' -delete
 </userinput><userinput remap="install">cp -rv usr/include $LFS/usr</userinput></screen>
 
   </sect2>
@@ -69,7 +68,7 @@ rm usr/include/Makefile
     <title>Innhold i Linux API deklarasjoner</title>
 
     <segmentedlist>
-      <segtitle>Installerte overskrifter</segtitle>
+      <segtitle>Installerte deklarasjoner</segtitle>
       <segtitle>Installerte mapper</segtitle>
 
       <seglistitem>

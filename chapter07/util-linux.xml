@@ -43,9 +43,9 @@
 
     <para>FHS anbefaler å bruke <filename
     class="directory">/var/lib/hwclock</filename> mappen i stedet for den
-     vanlige <filename class="directory">/etc</filename> mappen som
-     plassering for <filename>adjtime</filename> filen. Opprett denne mappen
-     med:</para>
+    vanlige <filename class="directory">/etc</filename> mappen som
+    plassering for <filename>adjtime</filename> filen. Opprett denne mappen
+    med:</para>
 
 <screen><userinput remap="pre">mkdir -pv /var/lib/hwclock</userinput></screen>
 
@@ -72,10 +72,10 @@
         <term><parameter>ADJTIME_PATH=/var/lib/hwclock/adjtime</parameter></term>
         <listitem>
           <para>Dette angir plasseringen av filopptaksinformasjonen om
-           maskinvareklokken i henhold til FHS. Dette er ikke strengt tatt
-           nødvendig for dette midlertidige verktøyet, men det forhindrer at det lages en fil
-           på et annet sted, som ikke ville bli overskrevet eller fjernet
-           når du bygger den endelige util-linux pakken.</para>
+          maskinvareklokken i henhold til FHS. Dette er ikke strengt tatt
+          nødvendig for dette midlertidige verktøyet, men det forhindrer at det lages en fil
+          på et annet sted, som ikke ville bli overskrevet eller fjernet
+          når du bygger den endelige util-linux pakken.</para>
         </listitem>
       </varlistentry>
 
@@ -84,7 +84,7 @@
         <listitem>
           <para>Denne bryteren sikrer
           <filename class="extension">.so</filename> målrettes mot symbolkoblinger
-           i den delte bibliotekfilen i samme mappe
+          i den delte bibliotekfilen i samme mappe
           (<filename class="directory">/usr/lib</filename>) direkte.</para>
         </listitem>
       </varlistentry>
@@ -93,7 +93,7 @@
         <term><parameter>--disable-*</parameter></term>
         <listitem>
           <para>Disse bryterne forhindrer advarsler om bygningskomponenter
-           som krever pakker som ikke er i LFS eller ikke er installert ennå.</para>
+          som krever pakker som ikke er i LFS eller ikke er installert ennå.</para>
         </listitem>
       </varlistentry>
 

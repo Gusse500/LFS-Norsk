@@ -35,17 +35,17 @@
   </indexterm>
 
   <para>Historisk sett har Linux en liste over de monterte filsystemene i
-   filen <filename>/etc/mtab</filename>. Moderne kjerner opprettholder denne listen
-   internt og eksponerer det for brukeren via <filename
+  filen <filename>/etc/mtab</filename>. Moderne kjerner opprettholder denne listen
+  internt og eksponerer det for brukeren via <filename
   class="directory">/proc</filename> filsystemet. For å tilfredsstille verktøy som
-   forventer tilstedeværelse av <filename>/etc/mtab</filename>, opprett følgende
-   symbolske lenke:</para>
+  forventer tilstedeværelse av <filename>/etc/mtab</filename>, opprett følgende
+  symbolske lenke:</para>
 
 <screen><userinput>ln -sv /proc/self/mounts /etc/mtab</userinput></screen>
 
-  <para>Lag en grunnleggende <filename>/etc/hosts</filename> fil som blr
-   referert til i noen testsuiter, og også i en av Perls konfigurasjonsfiler
-   :</para>
+  <para>Lag en grunnleggende <filename>/etc/hosts</filename> fil som blir
+  referert til i noen testsuiter, og også i en av Perls konfigurasjonsfiler
+  :</para>
 
 <screen><userinput>cat &gt; /etc/hosts &lt;&lt; EOF
 127.0.0.1  localhost $(hostname)
@@ -53,12 +53,12 @@
 EOF</userinput></screen>
 
   <para>For at bruker <systemitem class="username">root</systemitem> skal
-   kunne logge inn og for navnet <quote>root</quote> å bli gjenkjent, det
-   må være relevante oppføringer i <filename>/etc/passwd</filename> og
+  kunne logge inn og for navnet <quote>root</quote> å bli gjenkjent, det
+  må være relevante oppføringer i <filename>/etc/passwd</filename> og
   <filename>/etc/group</filename> filene.</para>
 
   <para>Opprett <filename>/etc/passwd</filename> filen ved å kjøre følgende
-   kommando:</para>
+  kommando:</para>
 
 <screen revision="sysv"><userinput>cat &gt; /etc/passwd &lt;&lt; "EOF"
 <literal>root:x:0:0:root:/root:/bin/bash
@@ -66,7 +66,7 @@ bin:x:1:1:bin:/dev/null:/usr/bin/false
 daemon:x:6:6:Daemon User:/dev/null:/usr/bin/false
 messagebus:x:18:18:D-Bus Message Daemon User:/run/dbus:/usr/bin/false
 uuidd:x:80:80:UUID Generation Daemon User:/dev/null:/usr/bin/false
-nobody:x:99:99:Unprivileged User:/dev/null:/usr/bin/false</literal>
+nobody:x:65534:65534:Unprivileged User:/dev/null:/usr/bin/false</literal>
 EOF</userinput></screen>
 
 <screen revision="systemd"><userinput>cat &gt; /etc/passwd &lt;&lt; "EOF"
@@ -83,14 +83,14 @@ systemd-timesync:x:78:78:systemd Time Synchronization:/:/usr/bin/false
 systemd-coredump:x:79:79:systemd Core Dumper:/:/usr/bin/false
 uuidd:x:80:80:UUID Generation Daemon User:/dev/null:/usr/bin/false
 systemd-oom:x:81:81:systemd Out Of Memory Daemon:/:/usr/bin/false
-nobody:x:99:99:Unprivileged User:/dev/null:/usr/bin/false</literal>
+nobody:x:65534:65534:Unprivileged User:/dev/null:/usr/bin/false</literal>
 EOF</userinput></screen>
 
   <para>Selve passordet for <systemitem class="username">root</systemitem>
   velges senere.</para>
 
   <para>Opprett <filename>/etc/group</filename> filen ved å kjøre følgende
-   kommando:</para>
+  kommando:</para>
 
 <screen revision="sysv"><userinput>cat &gt; /etc/group &lt;&lt; "EOF"
 <literal>root:x:0:
@@ -116,8 +116,8 @@ mail:x:34:
 kvm:x:61:
 uuidd:x:80:
 wheel:x:97:
-nogroup:x:99:
-users:x:999:</literal>
+users:x:999:
+nogroup:x:65534:</literal>
 EOF</userinput></screen>
 
 <screen revision="systemd"><userinput>cat &gt; /etc/group &lt;&lt; "EOF"
@@ -153,44 +153,58 @@ systemd-coredump:x:79:
 uuidd:x:80:
 systemd-oom:x:81:
 wheel:x:97:
-nogroup:x:99:
-users:x:999:</literal>
+users:x:999:
+nogroup:x:65534:</literal>
 EOF</userinput></screen>
 
   <para>De opprettede gruppene er ikke en del av noen standard&mdash;de er grupper
-   delvis bestemt av kravene til Udev konfigurasjonen i kapittel
-   9, og delvis etter felles konvensjon brukt av en rekke eksisterende Linux
-   distribusjoner. I tillegg er noen testsuiter avhengige av spesifikke brukere eller
-   grupper. Linux Standard Base (LSB, tilgjengelig på <ulink
+  delvis bestemt av kravene til Udev konfigurasjonen i kapittel
+  9, og delvis etter felles konvensjon brukt av en rekke eksisterende Linux
+  distribusjoner. I tillegg er noen testsuiter avhengige av spesifikke brukere eller
+  grupper. Linux Standard Base (LSB, tilgjengelig på <ulink
   url="http://refspecs.linuxfoundation.org/lsb.shtml"/>) anbefaler bare at,
-   foruten gruppen <systemitem class="groupname">root</systemitem> med en
-   Gruppe ID (GID) på 0, en gruppe <systemitem class="groupname">bin</systemitem>
-  med en GID på 1 å være tilstede. Alle andre gruppenavn og GID-er kan velges
-   fritt av systemadministratoren siden velskrevne programmer ikke er avhengige
-   av GID-nummer, men bruk heller gruppens navn.</para>
+  foruten gruppen <systemitem class="groupname">root</systemitem> med en
+  Gruppe ID (GID) på 0, en gruppe <systemitem class="groupname">bin</systemitem>
+  med en GID på 1 være tilstede. GID på 5 er mye brukt for
+  <systemitem class="groupname">tty</systemitem> gruppen, og tallet 5 er
+  også brukt i <phrase revision="systemd">systemd</phrase>
+  <phrase revision="sysv"><filename>/etc/fstab</filename></phrase> for
+  <systemitem class="filesystem">devpts</systemitem> filsystemet.
+  Alle andre gruppenavn og GID-er kan velges fritt av systemets
+  administrator siden velskrevne programmer ikke er avhengige av GID-nummer,
+  men bruk heller gruppens navn.</para>
+
+  <para>ID 65534 brukes av kjernen for NFS og separat bruker
+  navneområder for ikke-tilordnede brukere (de finnes på NFS serveren eller den overordnede
+  brukernavneområde, men <quote>finnes ikke</quote> på den lokale maskinen eller i
+  det separate navnerommet). Vi tildeler
+  <systemitem class="username">nobody</systemitem> og
+  <systemitem class="groupname">nogroup</systemitem> for å unngå en
+  ikke navngitt ID. Men andre distroer kan behandle denne IDen annerledes, så alle
+  flyttbare programmer bør ikke være avhengig av denne tildelingen.</para>
 
   <para>Noen tester i <xref linkend="chapter-building-system"/> trenger en vanlig
-   bruker. Vi legger til denne brukeren her og sletter denne kontoen på slutten av det
-   kapittelet.</para>
+  bruker. Vi legger til denne brukeren her og sletter denne kontoen på slutten av det
+  kapittelet.</para>
 
 <screen><userinput>echo "tester:x:101:101::/home/tester:/bin/bash" &gt;&gt; /etc/passwd
 echo "tester:x:101:" &gt;&gt; /etc/group
 install -o tester -d /home/tester</userinput></screen>
 
   <para>For å fjerne <quote>I have no name!</quote> ledetekst, start et nytt
-   skall. Siden
+  skall. Siden
   <filename>/etc/passwd</filename> og <filename>/etc/group</filename>
   filer har blitt opprettet, vil brukernavn og gruppenavnoppløsning nå
-   virke:</para>
+  virke:</para>
 
 <screen role="nodump"><userinput>exec /usr/bin/bash --login</userinput></screen>
 
   <para><command>login</command>, <command>agetty</command>, og
   <command>init</command> programmene (og andre) bruker en rekke logg
-   filer for å registrere informasjon som hvem som var logget inn på systemet og
-   når. Disse programmene vil imidlertid ikke skrive til loggfilene hvis de
-   ikke allerede eksisterer. Initialiser loggfilene og gi dem
-   riktige tillatelser:</para>
+  filer for å registrere informasjon som hvem som var logget inn på systemet og
+  når. Disse programmene vil imidlertid ikke skrive til loggfilene hvis de
+  ikke allerede eksisterer. Initialiser loggfilene og gi dem
+  riktige tillatelser:</para>
 
 <screen><userinput>touch /var/log/{btmp,lastlog,faillog,wtmp}
 chgrp -v utmp /var/log/lastlog
@@ -198,13 +212,13 @@ chmod -v 664  /var/log/lastlog
 chmod -v 600  /var/log/btmp</userinput></screen>
 
   <para><filename>/var/log/wtmp</filename> filen registrerer alle pålogginger og
-   logger ut. <filename>/var/log/lastlog</filename> filen registrerer når hver
-   bruker sist logget på. <filename>/var/log/faillog</filename> filen registrerer
-   mislykkede påloggingsforsøk.  <filename>/var/log/btmp</filename> filen registrerer
-   de dårlige påloggingsforsøkene.</para>
+  logger ut. <filename>/var/log/lastlog</filename> filen registrerer når hver
+  bruker sist logget på. <filename>/var/log/faillog</filename> filen registrerer
+  mislykkede påloggingsforsøk. <filename>/var/log/btmp</filename> filen registrerer
+  de dårlige påloggingsforsøkene.</para>
 
   <note><para><filename>/run/utmp</filename> filen registrerer brukerne som
-   for øyeblikket er pålogget. Denne filen opprettes dynamisk i oppstart
-   skriptet.</para></note>
+  for øyeblikket er pålogget. Denne filen opprettes dynamisk i oppstart
+  skriptet.</para></note>
 
 </sect1>

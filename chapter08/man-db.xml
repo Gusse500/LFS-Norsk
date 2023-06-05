@@ -24,7 +24,7 @@
     <title/>
 
     <para>Man-DB pakken inneholder programmer for å finne og se på man
-     sider.</para>
+    sider.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -70,7 +70,7 @@
         <term><parameter>--disable-setuid</parameter></term>
         <listitem>
           <para>Dette deaktiverer å lage <command>man</command> program setuid
-           til bruker <systemitem class="username">man</systemitem>.</para>
+          til bruker <systemitem class="username">man</systemitem>.</para>
         </listitem>
       </varlistentry>
 
@@ -87,13 +87,13 @@
         <listitem>
           <para>Disse tre parameterne brukes til å angi noen standardprogrammer.
           <command>lynx</command> er en tekstbasert nettleser (se
-           BLFS for installasjonsinstruksjoner), <command>vgrind</command>
+          BLFS for installasjonsinstruksjoner), <command>vgrind</command>
           konverterer programkilder til Groff inndata, og <command>grap</command>
           er nyttig for å sette grafer i Groff dokumenter.
           <command>vgrind</command> og <command>grap</command> programmer er
-           vanligvis ikke nødvendig for å vise man sider. De er ikke en del av
-           LFS eller BLFS, men du bør kunne installere dem selv etter at du har
-           fullført LFS hvis du ønsker å gjøre det.</para>
+          vanligvis ikke nødvendig for å vise man sider. De er ikke en del av
+          LFS eller BLFS, men du bør kunne installere dem selv etter at du har
+          fullført LFS hvis du ønsker å gjøre det.</para>
         </listitem>
       </varlistentry>
 
@@ -101,7 +101,7 @@
         <term><parameter>--with-systemd...</parameter></term>
         <listitem>
           <para>Disse parameterne forhindrer installasjon av unødvendig systemd
-           mapper og filer.</para>
+          mapper og filer.</para>
         </listitem>
       </varlistentry>
 
@@ -125,10 +125,10 @@
     <title>Ikke-engelske manualsider i LFS</title>
 
     <para>Følgende tabell viser tegnsettet som Man-DB antar
-     manuelle sider installert under
+    manuelle sider installert under
     <filename class="directory">/usr/share/man/&lt;ll&gt;</filename> vil være
-     kodet med.  I tillegg til dette, bestemmer Man-DB korrekt om manualsider
-     installert i den katalogen er UTF-8-kodet.</para>
+    kodet med.  I tillegg til dette, bestemmer Man-DB korrekt om manualsider
+    installert i den katalogen er UTF-8-kodet.</para>
 
     <!-- Origin: man-db-2.5.9/lib/encodings.c -->
     <table>
@@ -144,10 +144,10 @@
 
         <thead>
           <row>
-            <entry>Language (code)</entry>
-            <entry>Encoding</entry>
-            <entry>Language (code)</entry>
-            <entry>Encoding</entry>
+            <entry>Språk (Kode)</entry>
+            <entry>Koding</entry>
+            <entry>Språk (Kode)</entry>
+            <entry>Koding</entry>
           </row>
         </thead>
 
@@ -209,8 +209,10 @@
           <row>
             <entry>Indonesian (id)</entry>
             <entry>ISO-8859-1</entry>
-            <entry>Russian (ru)</entry>
-            <entry>KOI8-R</entry>
+            <entry>Greek (el)</entry>
+            <entry>ISO-8859-7</entry>
+            <!--<entry>Russian (ru)</entry>-->
+            <!--<entry>KOI8-R</entry>-->
           </row>
           <row>
             <entry>Icelandic (is)</entry>
@@ -278,13 +280,13 @@
             <entry>Traditional Chinese (zh_TW)</entry>
             <entry>BIG5</entry>
           </row>
-          <row>
+<!--          <row>
             <entry>Greek (el)</entry>
             <entry>ISO-8859-7</entry>
             <entry></entry>
             <entry></entry>
           </row>
-
+-->
         </tbody>
 
       </tgroup>
@@ -306,7 +308,7 @@
       <segtitle>Installerte mapper</segtitle>
 
       <seglistitem>
-        <seg>accessdb, apropos (lenker til whatis), catman, lexgrog, man,
+        <seg>accessdb, apropos (link to whatis), catman, lexgrog, man,
         man-recode, mandb, manpath, og whatis</seg>
         <seg>libman.so og libmandb.so (begge i /usr/lib/man-db)</seg>
         <seg>/usr/lib/man-db, /usr/libexec/man-db,
@@ -323,7 +325,7 @@
         <term><command>accessdb</command></term>
         <listitem>
           <para>Dumper <command>whatis</command> databaseinnhold i
-           menneskelig lesbar form</para>
+          menneskelig lesbar form</para>
           <indexterm zone="ch-system-man-db accessdb">
             <primary sortas="b-accessdb">accessdb</primary>
           </indexterm>
@@ -334,8 +336,8 @@
         <term><command>apropos</command></term>
         <listitem>
           <para>Søker <command>whatis</command> database og viser
-           de korte beskrivelsene av systemkommandoer som inneholder en gitt
-           streng</para>
+          de korte beskrivelsene av systemkommandoer som inneholder en gitt
+          streng</para>
           <indexterm zone="ch-system-man-db apropos">
             <primary sortas="b-apropos">apropos</primary>
           </indexterm>
@@ -356,7 +358,7 @@
         <term><command>lexgrog</command></term>
         <listitem>
           <para>Viser én-linjes sammendragsinformasjon om en gitt
-           manualside</para>
+          manualside</para>
           <indexterm zone="ch-system-man-db lexgrog">
             <primary sortas="b-lexgrog">lexgrog</primary>
           </indexterm>
@@ -397,8 +399,8 @@
         <term><command>manpath</command></term>
         <listitem>
           <para>Viser innholdet i $MANPATH eller (hvis $MANPATH ikke er angitt)
-           en passende søkebane basert på innstillingene i man.conf og
-           brukerens miljø</para>
+          en passende søkebane basert på innstillingene i man.conf og
+          brukerens miljø</para>
           <indexterm zone="ch-system-man-db manpath">
             <primary sortas="b-manpath">manpath</primary>
           </indexterm>
@@ -409,8 +411,8 @@
         <term><command>whatis</command></term>
         <listitem>
           <para>Søker <command>whatis</command> databasen og viser
-           de korte beskrivelsene av systemkommandoer som inneholder de gitte
-           nøkkelord som et eget ord</para>
+          de korte beskrivelsene av systemkommandoer som inneholder de gitte
+          nøkkelord som et eget ord</para>
           <indexterm zone="ch-system-man-db whatis">
             <primary sortas="b-whatis">whatis</primary>
           </indexterm>

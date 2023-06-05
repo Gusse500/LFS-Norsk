@@ -43,9 +43,9 @@
     <note>
       <para>
         Hvis systemet ditt har UEFI støtte og du ønsker å starte LFS med UEFI,
-         kan du hoppe over denne pakken i LFS,
-         og installere GRUB med UEFI støtte (og dets avhengigheter) som følger
-        <ulink url="&blfs-book;postlfs/grub-efi.html">BLFS siden</ulink>
+        kan du hoppe over denne pakken i LFS,
+        og installere GRUB med UEFI støtte (og dets avhengigheter) som følger
+        <ulink url="&blfs-book;postlfs/grub-efi.html">the BLFS siden</ulink>
         på slutten av dette kapittelet.
       </para>
     </note>
@@ -64,7 +64,7 @@
         <term><parameter>--disable-werror</parameter></term>
         <listitem>
           <para>Dette gjør at bygget kan fullføres med advarsler
-           fra nyere Flex versjoner.</para>
+          fra nyere Flex versjoner.</para>
         </listitem>
       </varlistentry>
 
@@ -72,7 +72,7 @@
         <term><parameter>--disable-efiemu</parameter></term>
         <listitem>
           <para>Dette alternativet minimerer det som bygges ved å deaktivere en funksjon og
-           testprogrammer som ikke er nødvendig for LFS.</para>
+          testprogrammer som ikke er nødvendig for LFS.</para>
         </listitem>
       </varlistentry>
 
@@ -83,8 +83,8 @@
 <screen><userinput remap="make">make</userinput></screen>
 
     <para>Testpakken for denne pakken anbefales ikke. Mesteparten av
-     testene avhenger av pakker som ikke er tilgjengelige i det begrensete
-     LFS miljøet. For å kjøre testene uansett, kjør <command>make check</command>.</para>
+    testene avhenger av pakker som ikke er tilgjengelige i det begrensete
+    LFS miljøet. For å kjøre testene uansett, kjør <command>make check</command>.</para>
 
     <para>Installer pakken:</para>
 
@@ -114,8 +114,8 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
             grub-script-check,
             grub-set-default,     grub-sparc64-setup, og grub-syslinux2cfg</seg>
 
-        <seg>/usr/lib/grub, /etc/grub.d, /usr/share/grub, og /boot/grub (når grub-install
-         kjøres for første gang)</seg>
+        <seg>/usr/lib/grub, /etc/grub.d, /usr/share/grub, and /boot/grub (når grub-install
+        kjøres for første gang)</seg>
       </seglistitem>
     </segmentedlist>
 
@@ -167,8 +167,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-glue-efi">
         <term><command>grub-glue-efi</command></term>
         <listitem>
-          <para>Behandler ia32 og amd64 EFI bilder og limer dem
-           i henhold til Apple-format.</para>
+          <para>Lim 32-biters og 64-biters binære inn i Apple universal one.</para>
           <indexterm zone="ch-system-grub grub-glue-efi">
             <primary sortas="b-grub-glue-efi">grub-glue-efi</primary>
           </indexterm>
@@ -189,7 +188,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
         <term><command>grub-kbdcomp</command></term>
         <listitem>
           <para>Skript som konverterer et xkb oppsett til et som gjenkjennes av
-           GRUB</para>
+          GRUB</para>
           <indexterm zone="ch-system-grub grub-kbdcomp">
             <primary sortas="b-grub-kbdcomp">grub-kbdcomp</primary>
           </indexterm>
@@ -261,7 +260,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
         <term><command>grub-mkpasswd-pbkdf2</command></term>
         <listitem>
           <para>Genererer et kryptert PBKDF2 passord for bruk i
-           oppstartsmenyen</para>
+          oppstartsmenyen</para>
           <indexterm zone="ch-system-grub grub-mkpasswd-pbkdf2">
             <primary sortas="b-grub-mkpasswd-pbkdf2">grub-mkpasswd-pbkdf2</primary>
           </indexterm>

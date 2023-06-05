@@ -24,8 +24,8 @@
     <title/>
 
     <para>Util-linux pakken inneholder diverse hjelpeprogrammer.
-     Blant dem er verktøy for håndtering av filsystemer, konsoller, partisjoner,
-     og meldinger.</para>
+    Blant dem er verktøy for håndtering av filsystemer, konsoller, partisjoner,
+    og meldinger.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -77,36 +77,31 @@
             --without-python</userinput></screen>
 
     <para>Alternativene --disable og --without forhindrer advarsler om
-     bygningskomponenter som krever pakker som ikke er i LFS eller er
-     inkonsistent med programmer installert av andre pakker.</para>
+    bygningskomponenter som krever pakker som ikke er i LFS eller er
+    inkonsistent med programmer installert av andre pakker.</para>
 
     <para>Kompiler pakken:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Hvis ønskelig, kjør testpakken som en ikke-root bruker:</para>
+    <para>Hvis ønskelig, kjør testpakken som en ikke-&root; bruker:</para>
 
     <warning><para>Å kjører testpakken som
     <systemitem class="username">root</systemitem> bruker kan være skadelig for
-     systemet ditt. For å kjøre den, må CONFIG_SCSI_DEBUG alternativet for kjernen
-     være tilgjengelig i det gjeldende systemet og må bygges som en
-     modul. Å bygge den inn i kjernen vil forhindre oppstart. For komplett
-     dekning, må andre BLFS pakker installeres. Om ønskelig kan denne testen
-     kjøres etter omstart i det fullførte LFS systemet og med å kjøre:</para>
+    systemet ditt. For å kjøre den, må CONFIG_SCSI_DEBUG alternativet for kjernen
+    være tilgjengelig i det gjeldende systemet og må bygges som en
+    modul. Å bygge den inn i kjernen vil forhindre oppstart. For komplett
+    dekning, må andre BLFS pakker installeres. Om ønskelig kan denne testen
+    kjøres etter omstart i det fullførte LFS systemet og med å kjøre:</para>
 
 <screen role="nodump"><userinput>bash tests/run.sh --srcdir=$PWD --builddir=$PWD</userinput></screen>
     </warning>
 
-    <note><para>Det er en test som mislykkes i chroot miljøet og
-     får testene til å henge for alltid. Problemet oppstår ikke utenfor
-     chroot miljøet.
-     For å omgå problemet, slett testen:</para>
-
-    <screen><userinput remap="test">rm tests/ts/lsns/ioctl_ns</userinput></screen>
-    </note>
-
 <screen><userinput remap="test">chown -Rv tester .
 su tester -c "make -k check"</userinput></screen>
+
+    <para><emphasis>hardlink</emphasis> testene vil mislykkes hvis vertens kjerne
+    ikke har alternativet CONFIG_CRYPTO_USER_API_HASH satt.</para>
 
     <para>Installer pakken:</para>
 
@@ -124,14 +119,14 @@ su tester -c "make -k check"</userinput></screen>
     <segmentedlist>
       <segtitle>Installerte programmer</segtitle>
       <segtitle>Installerte biblioteker</segtitle>
-      <segtitle>Installerte mapper</segtitle>
+      <segtitle>Installed directories</segtitle>
 
       <seglistitem>
         <seg>addpart, agetty, blkdiscard, blkid, blkzone, blockdev, cal, cfdisk, chcpu,
         chmem, choom, chrt, col, colcrt, colrm, column, ctrlaltdel, delpart, dmesg,
         eject, fallocate, fdisk, fincore, findfs, findmnt, flock, fsck,
         fsck.cramfs, fsck.minix, fsfreeze, fstrim, getopt, hexdump, hwclock,
-        i386, ionice, ipcmk, ipcrm, ipcs, irqtop, isosize, kill, last, lastb (lenker til
+        i386, ionice, ipcmk, ipcrm, ipcs, irqtop, isosize, kill, last, lastb (link to
         last), ldattach, linux32, linux64, logger, look, losetup, lsblk, lscpu,
         lsipc, lsirq, lslocks, lslogins, lsmem, lsns, mcookie, mesg, mkfs, mkfs.bfs, mkfs.cramfs, mkfs.minix, mkswap,
         more, mount, mountpoint, namei, nsenter, partx, pivot_root, prlimit,
@@ -171,7 +166,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>agetty</command></term>
         <listitem>
           <para>Åpner en tty port, ber om et påloggingsnavn,
-           og starter deretter <command>login</command> programmet</para>
+          og starter deretter <command>login</command> programmet</para>
           <indexterm zone="ch-system-util-linux agetty">
             <primary sortas="b-agetty">agetty</primary>
           </indexterm>
@@ -192,7 +187,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>blkid</command></term>
         <listitem>
           <para>Et kommandolinjeverktøy for å finne og skrive ut blokkenhets
-           attributter</para>
+          attributter</para>
           <indexterm zone="ch-system-util-linux blkid">
             <primary sortas="b-blkid">blkid</primary>
           </indexterm>
@@ -213,7 +208,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>blockdev</command></term>
         <listitem>
           <para>Lar brukere kalle blokkenhet ioctls fra kommando
-           linjen</para>
+          linjen</para>
           <indexterm zone="ch-system-util-linux blockdev">
             <primary sortas="b-blockdev">blockdev</primary>
           </indexterm>
@@ -294,7 +289,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>colcrt</command></term>
         <listitem>
           <para>Filtrerer <command>nroff</command> utdata for terminaler
-           som mangler noen muligheter, for eksempel overslag og halvlinjer</para>
+          som mangler noen muligheter, for eksempel overslag og halvlinjer</para>
           <indexterm zone="ch-system-util-linux colcrt">
             <primary sortas="b-colcrt">colcrt</primary>
           </indexterm>
@@ -325,7 +320,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>ctrlaltdel</command></term>
         <listitem>
           <para>Setter funksjonen til tastekombinasjonen Ctrl+Alt+Del til en
-           hard eller myk tilbakestilling</para>
+          hard eller myk tilbakestilling</para>
           <indexterm zone="ch-system-util-linux ctrlaltdel">
             <primary sortas="b-ctrlaltdel">ctrlaltdel</primary>
           </indexterm>
@@ -407,7 +402,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>findmnt</command></term>
         <listitem>
           <para>Er et kommandolinjegrensesnitt til libmount biblioteket
-           for arbeid med mountinfo, fstab og mtab filer</para>
+          for arbeid med mountinfo, fstab og mtab filer</para>
           <indexterm zone="ch-system-util-linux findmnt">
             <primary sortas="b-findmnt">findmnt</primary>
           </indexterm>
@@ -418,7 +413,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>flock</command></term>
         <listitem>
           <para>Skaffer en fillås og utfører deretter en kommando med låsen
-           holdt</para>
+          holdt</para>
           <indexterm zone="ch-system-util-linux flock">
             <primary sortas="b-flock">flock</primary>
           </indexterm>
@@ -438,8 +433,8 @@ su tester -c "make -k check"</userinput></screen>
       <varlistentry id="fsck.cramfs">
         <term><command>fsck.cramfs</command></term>
         <listitem>
-          <para>Performs a consistency check on the Cramfs file system on the
-          given device</para>
+          <para>Utfører en konsistenssjekk på Cramfs filsystem på
+          gitt enhet</para>
           <indexterm zone="ch-system-util-linux fsck.cramfs">
             <primary sortas="b-fsck.cramfs">fsck.cramfs</primary>
           </indexterm>
@@ -450,7 +445,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>fsck.minix</command></term>
         <listitem>
           <para>Utfører en konsistenssjekk på Minix filsystem på
-           gitt enhet</para>
+          gitt enhet</para>
           <indexterm zone="ch-system-util-linux fsck.minix">
             <primary sortas="b-fsck.minix">fsck.minix</primary>
           </indexterm>
@@ -461,7 +456,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>fsfreeze</command></term>
         <listitem>
           <para>Er en veldig enkel innpakning rundt FIFREEZE/FITHAW ioctl
-           kjernedriveroperasjoner</para>
+          kjernedriveroperasjoner</para>
           <indexterm zone="ch-system-util-linux fsfreeze">
             <primary sortas="b-fsfreeze">fsfreeze</primary>
           </indexterm>
@@ -492,7 +487,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>hexdump</command></term>
         <listitem>
           <para>Dumper den gitte filen i heksadesimal eller i et annen gitt
-           format</para>
+          format</para>
           <indexterm zone="ch-system-util-linux hexdump">
             <primary sortas="b-hexdump">hexdump</primary>
           </indexterm>
@@ -503,8 +498,8 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>hwclock</command></term>
         <listitem>
           <para>Leser eller stiller inn systemets maskinvareklokke, også kalt
-           sanntidsklokken (RTC) eller grunnleggende inndata-utdata system (BIOS)
-           klokke</para>
+          sanntidsklokken (RTC) eller grunnleggende inndata-utdata system (BIOS)
+          klokke</para>
           <indexterm zone="ch-system-util-linux hwclock">
             <primary sortas="b-hwclock">hwclock</primary>
           </indexterm>
@@ -544,7 +539,7 @@ su tester -c "make -k check"</userinput></screen>
       <varlistentry id="ipcrm">
         <term><command>ipcrm</command></term>
         <listitem>
-          <para>Fjerner den gitte IPC ressursen (Inter-Process Communication)</para>
+          <para>Fjerner den gitte IPC (Inter-Process Communication) ressursen</para>
           <indexterm zone="ch-system-util-linux ipcrm">
             <primary sortas="b-ipcrm">ipcrm</primary>
           </indexterm>
@@ -575,7 +570,7 @@ su tester -c "make -k check"</userinput></screen>
       <varlistentry id="isosize">
         <term><command>isosize</command></term>
         <listitem>
-          <para>Rapporterer størrelsen på et ISO9660-filsystem</para>
+          <para>Rapporterer størrelsen på et ISO9660 filsystem</para>
           <indexterm zone="ch-system-util-linux isosize">
             <primary sortas="b-isosize">isosize</primary>
           </indexterm>
@@ -596,8 +591,8 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>last</command></term>
         <listitem>
           <para>Viser hvilke brukere som sist logget på (og ut), søker tilbake
-           gjennom <filename>/var/log/wtmp</filename> filen; den viser også
-           systemoppstart, systemavslutning og endringer på kjørenivå</para>
+          gjennom <filename>/var/log/wtmp</filename> filen; den viser også
+          systemoppstart, systemavslutning og endringer på kjørenivå</para>
           <indexterm zone="ch-system-util-linux last">
             <primary sortas="b-last">last</primary>
           </indexterm>
@@ -679,7 +674,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>lsblk</command></term>
         <listitem>
           <para>Viser informasjon om alle eller utvalgte blokkenheter i
-            et trelignende format</para>
+           et trelignende format</para>
           <indexterm zone="ch-system-util-linux lsblk">
             <primary sortas="b-lsblk">lsblk</primary>
           </indexterm>
@@ -700,7 +695,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>lsipc</command></term>
         <listitem>
           <para>Skriver ut informasjon om IPC fasiliteter som for øyeblikket brukes
-           i systemet</para>
+          i systemet</para>
           <indexterm zone="ch-system-util-linux lsipc">
             <primary sortas="b-lsipc">lsipc</primary>
           </indexterm>
@@ -741,7 +736,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>lsmem</command></term>
         <listitem>
           <para>Viser utvalg av tilgjengelig minne med deres tilkoblede
-           status</para>
+          status</para>
           <indexterm zone="ch-system-util-linux lsmem">
             <primary sortas="b-lsmem">lsmem</primary>
           </indexterm>
@@ -773,7 +768,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>mesg</command></term>
         <listitem>
           <para>Styrer om andre brukere kan sende meldinger til den gjeldende
-           brukers terminal</para>
+          brukers terminal</para>
           <indexterm zone="ch-system-util-linux mesg">
             <primary sortas="b-mesg">mesg</primary>
           </indexterm>
@@ -784,7 +779,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>mkfs</command></term>
         <listitem>
           <para>Bygger et filsystem på en enhet (vanligvis en harddisk
-           partisjon)</para>
+          partisjon)</para>
           <indexterm zone="ch-system-util-linux mkfs">
             <primary sortas="b-mkfs">mkfs</primary>
           </indexterm>
@@ -825,7 +820,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>mkswap</command></term>
         <listitem>
           <para>Initialiserer den gitte enheten eller filen til å brukes som et vekselminne
-           område</para>
+          område</para>
           <indexterm zone="ch-system-util-linux mkswap">
             <primary sortas="b-mkswap">mkswap</primary>
           </indexterm>
@@ -846,7 +841,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>mount</command></term>
         <listitem>
           <para>Fester filsystemet på den gitte enheten til en spesifisert
-           mappe i filsystemtreet</para>
+          mappe i filsystemtreet</para>
           <indexterm zone="ch-system-util-linux mount">
             <primary sortas="b-mount">mount</primary>
           </indexterm>
@@ -887,7 +882,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>partx</command></term>
         <listitem>
           <para>Forteller kjernen om tilstedeværelsen og nummereringen av diskens
-           partisjoner</para>
+          partisjoner</para>
           <indexterm zone="ch-system-util-linux partx">
             <primary sortas="b-partx">partx</primary>
           </indexterm>
@@ -898,7 +893,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>pivot_root</command></term>
         <listitem>
           <para>Gjør det gitte filsystemet til det nye rotfilsystemet i
-           gjeldende prosess</para>
+          gjeldende prosess</para>
           <indexterm zone="ch-system-util-linux pivot_root">
             <primary sortas="b-pivot_root">pivot_root</primary>
           </indexterm>
@@ -929,7 +924,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>rename</command></term>
         <listitem>
           <para>Gi nytt navn til de gitte filene, erstatter en gitt streng med
-           en annen</para>
+          en annen</para>
           <indexterm zone="ch-system-util-linux rename">
             <primary sortas="b-rename">rename</primary>
           </indexterm>
@@ -980,7 +975,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>rtcwake</command></term>
         <listitem>
           <para>Brukes til å gå inn i systemets hviletilstand til et spesifisert
-           vekkingstidspunkt</para>
+          vekkingstidspunkt</para>
           <indexterm zone="ch-system-util-linux rtcwake">
             <primary sortas="b-rtcwake">rtcwake</primary>
           </indexterm>
@@ -1021,7 +1016,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>setarch</command></term>
         <listitem>
           <para>Endringer rapportert arkitektur i et nytt programmiljø og
-           setter personlighetsflagg</para>
+          setter personlighetsflagg</para>
           <indexterm zone="ch-system-util-linux setarch">
             <primary sortas="b-setarch">setarch</primary>
           </indexterm>
@@ -1063,7 +1058,7 @@ su tester -c "make -k check"</userinput></screen>
         <listitem>
           <para>Tillater <systemitem class="username">root</systemitem> å logge inn;
           den er normalt startet av <command>init</command> når systemet går
-           i enkeltbrukermodus</para>
+          i enkeltbrukermodus</para>
           <indexterm zone="ch-system-util-linux sulogin">
             <primary sortas="b-sulogin">sulogin</primary>
           </indexterm>
@@ -1094,7 +1089,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>swapon</command></term>
         <listitem>
           <para>Aktiverer enheter og filer for søking og bruk av vekselminne og
-           viser enhetene og filene som er i bruk</para>
+          viser enhetene og filene som er i bruk</para>
           <indexterm zone="ch-system-util-linux swapon">
             <primary sortas="b-swapon">swapon</primary>
           </indexterm>
@@ -1125,7 +1120,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>uclampset</command></term>
         <listitem>
           <para>Manipuler bruk av clamping attributtene til
-           systemet eller en prosess</para>
+          systemet eller en prosess</para>
           <indexterm zone="ch-system-util-linux uclampset">
             <primary sortas="b-uclampset">uclampset</primary>
           </indexterm>
@@ -1136,7 +1131,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>ul</command></term>
         <listitem>
           <para>Et filter for å oversette understrek til skiftesekvenser
-           som indikerer understreking for terminalen som er i bruk</para>
+          som indikerer understreking for terminalen som er i bruk</para>
           <indexterm zone="ch-system-util-linux ul">
             <primary sortas="b-ul">ul</primary>
           </indexterm>
@@ -1177,7 +1172,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>utmpdump</command></term>
         <listitem>
           <para>Viser innholdet i den gitte påloggingsfilen i et mer
-           brukervennlig format</para>
+          brukervennlig format</para>
           <indexterm zone="ch-system-util-linux utmpdump">
             <primary sortas="b-utmpdump">utmpdump</primary>
           </indexterm>
@@ -1187,8 +1182,8 @@ su tester -c "make -k check"</userinput></screen>
       <varlistentry id="uuidd">
         <term><command>uuidd</command></term>
         <listitem>
-          <para>En nisse som brukes av UUID biblioteket for å generere tidsbasert
-           UUID på en sikker og garantert unik måte</para>
+          <para>n nisse som brukes av UUID biblioteket for å generere tidsbasert
+          UUID på en sikker og garantert unik måte</para>
           <indexterm zone="ch-system-util-linux uuidd">
             <primary sortas="b-uuidd">uuidd</primary>
           </indexterm>
@@ -1199,8 +1194,8 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>uuidgen</command></term>
         <listitem>
           <para>Oppretter nye UUID. Hver ny UUID kan med rimelighet vurderes
-           unik blant alle UUID som er opprettet, på det lokale systemet og på andre
-           systemer, i fortiden og i fremtiden</para>
+          unik blant alle UUID som er opprettet, på det lokale systemet og på andre
+          systemer, i fortiden og i fremtiden</para>
           <indexterm zone="ch-system-util-linux uuidgen">
             <primary sortas="b-uuidgen">uuidgen</primary>
           </indexterm>
@@ -1221,7 +1216,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>wall</command></term>
         <listitem>
           <para>Viser innholdet i en fil eller, som standard, dens standard
-           inndata, på terminalene til alle påloggede brukere</para>
+          inndata, på terminalene til alle påloggede brukere</para>
           <indexterm zone="ch-system-util-linux wall">
             <primary sortas="b-wall">wall</primary>
           </indexterm>
@@ -1242,7 +1237,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>whereis</command></term>
         <listitem>
           <para>Rapporterer plasseringen av binær, kilde og man siden
-           for den gitte kommandoen</para>
+          for den gitte kommandoen</para>
           <indexterm zone="ch-system-util-linux whereis">
             <primary sortas="b-whereis">whereis</primary>
           </indexterm>
@@ -1273,7 +1268,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><command>zramctl</command></term>
         <listitem>
           <para>Et program for å sette opp og kontrollere zram (komprimert ram disk)
-           enheter</para>
+          enheter</para>
           <indexterm zone="ch-system-util-linux zramctl">
             <primary sortas="b-zramctl">zramctl</primary>
           </indexterm>
@@ -1284,7 +1279,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><filename class="libraryfile">libblkid</filename></term>
         <listitem>
           <para>Inneholder rutiner for enhetsidentifikasjon og symbol
-           utdrag</para>
+          utdrag</para>
           <indexterm zone="ch-system-util-linux libblkid">
             <primary sortas="c-libblkid">libblkid</primary>
           </indexterm>
@@ -1305,7 +1300,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><filename class="libraryfile">libmount</filename></term>
         <listitem>
           <para>Inneholder rutiner for montering og avmontering av en
-           blokkenhet</para>
+          blokkenhet</para>
           <indexterm zone="ch-system-util-linux libmount">
             <primary sortas="c-libmount">libmount</primary>
           </indexterm>
@@ -1326,7 +1321,7 @@ su tester -c "make -k check"</userinput></screen>
         <term><filename class="libraryfile">libuuid</filename></term>
         <listitem>
           <para>Inneholder rutiner for å generere unike identifikatorer for objekter
-           som kan være tilgjengelig utenfor det lokale systemet</para>
+          som kan være tilgjengelig utenfor det lokale systemet</para>
           <indexterm zone="ch-system-util-linux libuuid">
             <primary sortas="c-libuuid">libuuid</primary>
           </indexterm>

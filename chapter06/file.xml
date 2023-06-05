@@ -45,8 +45,8 @@
 
     <para>
        <command>file</command> kommando på byggeverten trenger
-        å være samme versjon som den vi bygger for å
-        opprette signaturfilen. Kjør følgende kommandoer for å bygge den:
+       å være samme versjon som den vi bygger for å
+       opprette signaturfilen. Kjør følgende kommandoer for å bygge den:
     </para>
 
 <screen><userinput remap="pre">mkdir build
@@ -65,10 +65,10 @@ popd</userinput></screen>
         <term><parameter>--disable-*</parameter></term>
         <listitem>
           <para>Konfigurasjonsskriptet prøver å bruke noen pakker fra
-           vertsdistribusjonen hvis de tilsvarende bibliotekfilene finnes.
-           Det kan føre til kompileringsfeil hvis det finnes en bibliotekfil, men
-           de tilsvarende deklarasjonsfilene ikke gjør det. Disse alternativene forhindrer
-           at det brukes disse unødvendige egenskapene fra verten.</para>
+          vertsdistribusjonen hvis de tilsvarende bibliotekfilene finnes.
+          Det kan føre til kompileringsfeil hvis det finnes en bibliotekfil, men
+          de tilsvarende deklarasjonsfilene ikke gjør det. Disse alternativene forhindrer
+          at det brukes disse unødvendige egenskapene fra verten.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -78,10 +78,10 @@ popd</userinput></screen>
 <screen><userinput remap="configure">./configure --prefix=/usr --host=$LFS_TGT --build=$(./config.guess)</userinput></screen>
 
 <!-- devs: hvis du bruker - -build her, vil byggesystemet kompilere
-      signaturfilen med "file" på byggesystemet, men stopper hvis det ikke er
-      samme versjon. En mulighet ville være å bygge "file" på bygge
-      systemet først, men det er enklere å få systemet til å tro at det ikke er
-      krysskompilering, og bruk den nettopp bygde "file". -->
+     signaturfilen med "file" på byggesystemet, men stopper hvis det ikke er
+     samme versjon. En mulighet ville være å bygge "file" på bygge
+     systemet først, men det er enklere å få systemet til å tro at det ikke er
+     krysskompilering, og bruk den nettopp bygde "file". -->
     <para>Kompiler pakken:</para>
 
 <screen><userinput remap="make">make FILE_COMPILE=$(pwd)/build/src/file</userinput></screen>
@@ -89,6 +89,11 @@ popd</userinput></screen>
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make DESTDIR=$LFS install</userinput></screen>
+
+    <para>Fjern libtool arkivfilen fordi den er skadelig for
+    krysskompilering:</para>
+
+<screen><userinput remap="install">rm -v $LFS/usr/lib/libmagic.la</userinput></screen>
 
   </sect2>
 

@@ -24,9 +24,9 @@
     <title/>
 
     <para>Xz pakken inneholder programmer for komprimering og dekomprimering
-     av filer. Det gir muligheter for lzma og den nyere xz komprimerings
-     formatene. Komprimering av tekstfiler med <command>xz</command> gir en bedre
-     kompresjonsprosent enn med de tradisjonelle <command>gzip</command> eller
+    av filer. Det gir muligheter for lzma og den nyere xz komprimerings
+    formatene. Komprimering av tekstfiler med <command>xz</command> gir en bedre
+    kompresjonsprosent enn med de tradisjonelle <command>gzip</command> eller
     <command>bzip2</command> kommandoene.</para>
 
     <segmentedlist>
@@ -43,7 +43,11 @@
 
   <sect2 role="installation">
     <title>Installasjon av Xz</title>
+<!--
+    <para>Bruk en oppdatering for å fikse et problem i xzgrep:</para>
 
+<screen><userinput remap="pre">patch -Np1 -i ../&xz-upstream-fix-patch;</userinput></screen>
+-->
     <para>Forbered Xz for kompilering med:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr    \
@@ -346,7 +350,7 @@
         <term><filename class="libraryfile">liblzma</filename></term>
         <listitem>
           <para>Bibliotek som implementerer tapsfri, blokksorterende data
-           komprimering ved å bruke Lempel-Ziv-Markov kjedealgoritmen</para>
+          komprimering ved å bruke Lempel-Ziv-Markov kjedealgoritmen</para>
           <indexterm zone="ch-system-xz liblzma">
             <primary sortas="c-liblzma">liblzma</primary>
           </indexterm>

@@ -10,6 +10,21 @@
 
   <title>Alle pakker</title>
 
+  <note>
+    <para>Les <ulink url='&secadv;'>sikkerhetsrådene</ulink>
+    før du laster ned pakker for å finne ut om en nyere versjon av noen
+    pakken bør brukes for å unngå sikkerhetssårbarheter.</para>
+
+    <para>Oppstrøms kan fjerne gamle utgivelser, spesielt når disse
+    utgivelser inneholder en sikkerhetssårbarhet. Hvis én URL nedenfor ikke er
+    tilgjengelig, bør du lese sikkerhetsrådene først for å finne ut
+    om en nyere versjon (med sårbarheten fikset) skal brukes. Hvis
+    ikke, prøv å laste ned den fjernede pakken fra et speil. Selv om det er
+	mulig å laste ned en gammel utgivelse fra et speil selv om denne utgivelsen
+	har blitt fjernet på grunn av en sårbarhet, anbefales det ikke
+	bruk en utgivelse som er kjent for å være sårbar for å bygge systemet ditt.</para>
+  </note>
+
   <para>Last ned eller på annen måte skaff deg følgende pakker:</para>
 
   <variablelist role="materials">
@@ -173,15 +188,6 @@
         <para>Hjemmeside: <ulink url="&expat-home;"/></para>
         <para>Laste ned: <ulink url="&expat-url;"/></para>
         <para>MD5 sum: <literal>&expat-md5;</literal></para>
-        <note>
-          <para>Oppstrøms kan fjerne tarballs av de spesifikke utgivelsene av
-          <application>Expat</application> når disse utgivelsene inneholder en
-           sikkerhetssårbarhet. du bør referere til
-          <ulink url='&lfs-root;lfs/advisories/'>LFS sikkerhetsrådgivning</ulink>
-          for å finne ut hvilken versjon (med sikkerhetsproblemet løst) som bør
-           bli brukt. Du kan laste ned den sårbare versjonen fra et speil,
-           men det anbefales ikke.</para>
-        </note>
       </listitem>
     </varlistentry>
 
@@ -448,15 +454,15 @@
 
         <note>
           <para>Linux kjernen oppdateres relativt ofte, mange ganger pga
-           oppdagelser av sikkerhetssårbarheter. Den siste tilgjengelige
+          oppdagelser av sikkerhetssårbarheter. Den siste tilgjengelige
           <!--&linux-major-version;.&linux-minor-version;.x--> stabile kjerne
-           versjonen <!--should--> kan være
-           brukt, med mindre errata siden sier noe annet.</para>
+          versjonen <!--burde--> kan være
+          brukt, med mindre errata siden sier noe annet.</para>
 
           <para>For brukere med begrenset hastighet eller dyr båndbredde som ønsker å
-           oppdatere Linux kjernen, en grunnlinjeversjon av pakken og
-           oppdateringer kan lastes ned separat. Dette kan spare litt tid eller
-           kostnad for en påfølgende nivåoppgradering av oppdateringer i en mindre utgivelse.
+          oppdatere Linux kjernen, en grunnlinjeversjon av pakken og
+          oppdateringer kan lastes ned separat. Dette kan spare litt tid eller
+          kostnad for en påfølgende nivåoppgradering av oppdateringer i en mindre utgivelse.
           </para>
         </note>
       </listitem>
@@ -677,8 +683,8 @@
 
         <note>
           <para>Linux From Scratch teamet genererer sin egen tarball av
-           mansider som bruker systemd kilden. Dette gjøres for å unngå
-           unødvendige avhengigheter.</para>
+          mansider som bruker systemd kilden. Dette gjøres for å unngå
+          unødvendige avhengigheter.</para>
         </note>
       </listitem>
     </varlistentry>
@@ -712,7 +718,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term>Tcl Dokumentasjon (&tcl-version;) - <token>&tcl-docs-size;</token>:</term>
+      <term>Tcl Documentation (&tcl-version;) - <token>&tcl-docs-size;</token>:</term>
       <listitem>
         <para>Laste ned: <ulink url="&tcl-docs-url;"/></para>
         <para>MD5 sum: <literal>&tcl-docs-md5;</literal></para>
@@ -729,7 +735,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term>Tidssonedata (&tzdata-version;) - <token>&tzdata-size;</token>:</term>
+      <term>Time Zone Data (&tzdata-version;) - <token>&tzdata-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&tzdata-home;"/></para>
         <para>Laste ned: <ulink url="&tzdata-url;"/></para>
@@ -755,15 +761,15 @@
     </varlistentry>
 <!--
     <varlistentry>
-      <term>Util-linux man sider - <token>&util-linux-man-størrelse;</token>:</term>
+      <term>Util-linux Man Pages - <token>&util-linux-man-size;</token>:</term>
       <listitem>
         <para>Laste ned: <ulink url="&util-linux-man-url;"/></para>
         <para>MD5 sum: <literal>&util-linux-man-md5;</literal></para>
 
         <note>
           <para>Linux From Scratch teamet genererer sin egen tarball av
-           man-sider som bruker util-linux-kilden. Dette gjøres for å unngå
-           unødvendige avhengigheter.</para>
+          man-sider som bruker util-linux-kilden. Dette gjøres for å unngå
+          unødvendige avhengigheter.</para>
         </note>
       </listitem>
     </varlistentry>
@@ -776,11 +782,20 @@
         <para>MD5 sum: <literal>&vim-md5;</literal></para>
         <note>
           <para>
-            Versjonen av vim endres daglig. For å få den nyeste versjonen, gå til
+            The version of vim changes daily. To get the latest version, go to
             <ulink url="https://github.com/vim/vim/releases">
             https://github.com/vim/vim/tags</ulink>.
           </para>
         </note>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Wheel (&wheel-version;) - <token>&wheel-size;</token>:</term>
+      <listitem>
+        <para>Hjemmeside: <ulink url="&wheel-home;"/></para>
+        <para>Laste ned: <ulink url="&wheel-url;"/></para>
+        <para>MD5 sum: <literal>&wheel-md5;</literal></para>
       </listitem>
     </varlistentry>
 

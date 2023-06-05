@@ -24,8 +24,8 @@
     <title/>
 
     <para>Python 3 pakken inneholder Python utviklingsmiljøet. Den
-     er nyttig for objektorientert programmering, skriving av skript, prototyping
-     store programmer, eller utvikle hele applikasjoner.</para>
+    er nyttig for objektorientert programmering, skriving av skript, prototyping
+    store programmer, eller utvikle hele applikasjoner.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -48,7 +48,6 @@
             --enable-shared      \
             --with-system-expat  \
             --with-system-ffi    \
-            --with-ensurepip=yes \
             --enable-optimizations</userinput></screen>
 
     <variablelist>
@@ -71,14 +70,6 @@
     </varlistentry>
 
     <varlistentry>
-      <term><parameter>--with-ensurepip=yes</parameter></term>
-      <listitem>
-        <para>Denne bryteren gjør det mulig å bygge <command>pip</command> og
-        <command>setuptools</command> pakkeprogrammer.</para>
-      </listitem>
-    </varlistentry>
-
-    <varlistentry>
       <term><parameter>--enable-optimizations</parameter></term>
       <listitem>
         <para>Denne bryteren muliggjør stabile, men dyre, optimaliseringer.</para>
@@ -92,14 +83,72 @@
 <screen><userinput remap="make">make</userinput></screen>
 
     <para>Det anbefales ikke å kjøre testene på dette tidspunktet.
-     Tester er kjent for å henge på ubestemt tid i det delvise LFS miljøet.
-     Om ønskelig kan testene kjøres på nytt på slutten av dette kapittelet eller
-     når Python 3 er reinstallert i BLFS. For å kjøre testene uansett,
-     utsted <command>make test</command>.</para>
+    Tester er kjent for å henge på ubestemt tid i det delvise LFS miljøet.
+    Om ønskelig kan testene kjøres på nytt på slutten av dette kapittelet eller
+    når Python 3 er reinstallert i BLFS. For å kjøre testene uansett,
+    utsted <command>make test</command>.</para>
 
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
+
+    <para>Flere steder bruker vi kommandoen <command>pip3</command> for å
+    installere Python 3 programmer og moduler for alle brukere som
+    <systemitem class='username'>root</systemitem>. Dette er i konflikt
+    med Python-utviklernes anbefaling om å installere pakker i en
+    virtuelt miljø eller hjemmemappen til en vanlig bruker (ved å kjøre
+    <command>pip3</command> som denne brukeren). For dette formål blir en advarsel med flere linjer
+    skrevet når du bruker <command>pip3</command> som
+    <systemitem class='username'>root</systemitem> brukeren.  Hovedgrunnen
+    for denne anbefalingen er å unngå konflikt med systemets
+    pakkebehandling (<command>dpkg</command> for eksempel), men LFS har ikke
+    en systemomfattende pakkebehandling, så dette er ikke et problem. Og,
+    <command>pip3</command> vil prøve å se etter en ny versjon av
+    seg selv når den kjøres. Siden domenenavnsløsning ikke er konfigurert
+    i LFS chroot miljøet ennå, vil den ikke se etter en ny versjon
+    og gi en advarsel. Når vi starter opp LFS systemet og setter opp
+    nettverkstilkobling, vil den deretter produsere en advarsel som ber brukeren om å oppdatere den
+    fra et forhåndsbygd hjul på PyPI hvis en ny versjon er tilgjengelig. Men LFS
+    betrakter <command>pip3</command> som en del av Python 3, så den burde ikke
+    oppdateres separat, og en oppdatering fra et forhåndsbygd hjul vil avvike
+    fra vårt formål å bygge et Linux system fra kildekode. Så
+    advarsel for en ny <command>pip3</command> versjon bør ignoreres om
+    vi vil. Hvis ønskelig, undertrykk disse advarslene ved å kjøre følgende
+    kommandoer:</para>
+
+ <screen><userinput remap="install">cat &gt; /etc/pip.conf &lt;&lt; EOF
+[global]
+root-user-action = ignore
+disable-pip-version-check = true
+EOF
+</userinput></screen>
+<!--
+<screen><userinput remap="install">sed -e '/def warn_if_run_as_root/a\    return' \
+    -i /usr/lib/python3.10/site-packages/pip/_internal/cli/req_command.py
+</userinput></screen>
+-->
+    <important>
+      <para>
+        I LFS og BLFS bygger og installerer vi normalt Python-moduler med
+        <command>pip3</command> Vennligst pass på at
+        <command>pip3 install</command> kommandoer i begge bøkene skal
+        kjøres som &root; brukeren med mindre det er for et virtuelt Python-miljø. Å kjøre
+        en <command>pip3 install</command> som en ikke-&root; bruker kan synes å
+        fungerer fint, men det vil føre til at den installerte modulen blir utilgjengelig av
+        andre brukere.
+      </para>
+
+      <para>
+        <command>pip3 install</command> vil ikke installere en allerede
+        installert modul som standard. For å bruke <command>pip3 install</command>
+        kommandoen for å oppgradere en modul (for
+        eksempel fra meson-0.61.3 til meson-0.62.0), legg til <parameter>--upgrade</parameter> til 
+		kommandolinjen. Hvis det virkelig er nødvendig å nedgradere en modul eller 
+		installer samme versjon på nytt av en eller annen grunn, sett inn
+        <parameter>--force-reinstall --no-deps</parameter> i
+        kommandolinjen.
+      </para>
+    </important>
 
     <para>Hvis ønskelig, installer den forhåndsformaterte dokumentasjonen:</para>
 
@@ -112,13 +161,13 @@ tar --strip-components=1  \
     -xvf ../python-&python-version;-docs-html.tar.bz2</userinput></screen>
 
     <variablelist>
-      <title>Betydningen av dokumentasjons installasjons kommandoene:</title>
+      <title>Betydningen av dokumentasjonsinstallasjons kommandoene:</title>
 
     <varlistentry>
       <term><option>--no-same-owner</option> og <option>--no-same-permissions</option></term>
       <listitem>
         <para>Sørg for at de installerte filene har riktig eierskap og
-         tillatelser. Uten disse alternativene, å bruke <application>tar</application>
+        tillatelser. Uten disse alternativene, å bruke <application>tar</application>
         vil installere pakkefilene med oppstrøms skaperens verdier.
         </para>
       </listitem>
@@ -162,8 +211,8 @@ tar --strip-components=1  \
           <para>
             er et <application>Python</application> program som leser
             <application>Python 2.x</application> kildekoden og bruker en
-             serie reparasjoner for å forvandle den til
-             gyldig <application>Python 3.x</application> kode
+            serie reparasjoner for å forvandle den til
+            gyldig <application>Python 3.x</application> kode
           </para>
           <indexterm zone="ch-system-Python">
             <primary sortas="b-2to3">2to3</primary>
@@ -178,7 +227,7 @@ tar --strip-components=1  \
             er et innpakningsskript som åpner en <application>Python</application>
             bevisst GUI tekstprogram. For at dette skriptet skal kjøre, må du ha installert
             <application>Tk</application> før Python slik at Tkinter
-             Python modulen blir bygget
+            Python modulen blir bygget
           </para>
           <indexterm zone="ch-system-Python">
             <primary sortas="b-idle3">idle3</primary>
@@ -191,7 +240,7 @@ tar --strip-components=1  \
         <listitem>
           <para>
             Pakkeinstallasjonsprogrammet for Python. Du kan bruke pip til å installere
-             pakker fra Python Pakke Indeks og andre indekser
+            pakker fra Python Pakke Indeks og andre indekser
           </para>
           <indexterm zone="ch-system-Python">
             <primary sortas="b-pip3">pip3</primary>
@@ -215,8 +264,8 @@ tar --strip-components=1  \
         <term><command>python3</command></term>
         <listitem>
           <para>
-            er en tolket, interaktiv, objektorientert programmerings
-             språk
+            er et tolket, interaktiv, objektorientert programmerings
+            språk
           </para>
           <indexterm zone="ch-system-Python">
             <primary sortas="b-python3">python3</primary>

@@ -25,14 +25,6 @@
 
     <para>Procps-ng pakken inneholder programmer for overvåking av prosesser.</para>
 
-    <!-- TODO This note will probably not be needed at the next revision. -->
-    <note>
-      <para>Denne pakken trekkes ut til mappen
-      <filename class="directory">procps-3.3.17</filename>,
-      ikke det forventede
-      <filename class="directory">procps-ng-3.3.17</filename>.</para>
-    </note>
-
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
       <segtitle>&diskspace;</segtitle>
@@ -78,9 +70,9 @@
 <screen><userinput remap="make">make</userinput></screen>
 <!--
     <para>Testpakken trenger noen tilpassede modifikasjoner for LFS.
-     Fjern en test som mislykkes når skripting ikke bruker en tty-enhet og
-     fikse to andre.
-     For å kjøre testpakken, kjør følgende kommandoer:</para>
+    Fjern en test som mislykkes når skripting ikke bruker en tty-enhet og
+    fikse to andre.
+    For å kjøre testpakken, kjør følgende kommandoer:</para>
 
 <screen><userinput remap="test">sed -i -r 's|(pmap_initname)\\\$|\1|' testsuite/pmap.test/pmap.exp
 sed -i '/set tty/d' testsuite/pkill.test/pkill.exp
@@ -91,8 +83,15 @@ make check</userinput></screen>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>Fem tester relatert til pkill er kjent for å mislykkes på grunn av et problem
-     med tester som ikke ble oppdatert.</para>
+    <!-- It's because "free -v" shows "used" greater than "total", and
+         a negative "free" for "Comm" line.  The "total" value is from
+         "CommitLimit" in /proc/meminfo, which is the limit for one process.
+         But the "used" value is from "Committed_AS" in the same file,
+         which is the total commited virtual memory space of all processes.
+         I'll make a report to upstream anyway.  -->
+    <para>En test kalt <filename>free with commit</filename>
+    kan mislykkes hvis noen applikasjoner med en tilpasset minneallokator (for
+    eksempel JVM og nettlesere) kjører på vertsdistroen.</para>
 
     <para>Installer pakken:</para>
 
@@ -111,8 +110,8 @@ make check</userinput></screen>
       <seglistitem>
         <seg>free, pgrep, pidof, pkill, pmap, ps, pwdx, slabtop,
         sysctl, tload, top, uptime, vmstat, w, og watch</seg>
-        <seg>libprocps.so</seg>
-        <seg>/usr/include/proc og /usr/share/doc/procps-ng-&procps-ng-version;</seg>
+        <seg>libproc-2.so</seg>
+        <seg>/usr/include/procps og /usr/share/doc/procps-ng-&procps-ng-version;</seg>
       </seglistitem>
     </segmentedlist>
 
@@ -125,7 +124,7 @@ make check</userinput></screen>
         <term><command>free</command></term>
         <listitem>
           <para>Rapporterer mengden ledig og brukt minne (både fysisk og
-           vekselminne) i systemet</para>
+          vekselminne) i systemet</para>
           <indexterm zone="ch-system-procps free">
             <primary sortas="b-free">free</primary>
           </indexterm>
@@ -175,7 +174,7 @@ make check</userinput></screen>
       <varlistentry id="ps">
         <term><command>ps</command></term>
         <listitem>
-          <para>Viser gjeldende prosesser</para>
+          <para>Lister gjeldende prosesser</para>
           <indexterm zone="ch-system-procps ps">
             <primary sortas="b-ps">ps</primary>
           </indexterm>
@@ -236,7 +235,7 @@ make check</userinput></screen>
         <term><command>top</command></term>
         <listitem>
           <para>Viser en liste over de mest CPU intensive prosessene; den
-           gir en kontinuerlig titt på prosessoraktivitet i sanntid</para>
+          gir en kontinuerlig titt på prosessoraktivitet i sanntid</para>
           <indexterm zone="ch-system-procps top">
             <primary sortas="b-top">top</primary>
           </indexterm>
@@ -247,7 +246,7 @@ make check</userinput></screen>
         <term><command>uptime</command></term>
         <listitem>
           <para>Rapporterer hvor lenge systemet har kjørt, hvor mange brukere det er
-           logget på, og systemets belastningsgjennomsnitt</para>
+          logget på, og systemets belastningsgjennomsnitt</para>
           <indexterm zone="ch-system-procps uptime">
             <primary sortas="b-uptime">uptime</primary>
           </indexterm>
@@ -258,8 +257,8 @@ make check</userinput></screen>
         <term><command>vmstat</command></term>
         <listitem>
           <para>Rapporterer virtuelt minnestatistikk, gir informasjon om
-           prosesser, minne, søking, blokk Input/Output (IO), feller og CPU
-           aktivitet</para>
+          prosesser, minne, søking, blokk Input/Output (IO), feller og CPU
+          aktivitet</para>
           <indexterm zone="ch-system-procps vmstat">
             <primary sortas="b-vmstat">vmstat</primary>
           </indexterm>
@@ -270,7 +269,7 @@ make check</userinput></screen>
         <term><command>w</command></term>
         <listitem>
           <para>Viser hvilke brukere som for øyeblikket er pålogget, hvor og siden
-           når</para>
+          når</para>
           <indexterm zone="ch-system-procps w">
             <primary sortas="b-w">w</primary>
           </indexterm>
@@ -281,21 +280,21 @@ make check</userinput></screen>
         <term><command>watch</command></term>
         <listitem>
           <para>Kjører en gitt kommando gjentatte ganger, og viser den første
-           skjermen full av utdata; dette lar en bruker se utdataens
-           endring over tid</para>
+          skjermen full av utdata; dette lar en bruker se utdataens
+          endring over tid</para>
           <indexterm zone="ch-system-procps watch">
             <primary sortas="b-watch">watch</primary>
           </indexterm>
         </listitem>
       </varlistentry>
 
-      <varlistentry id="libprocps">
-        <term><filename class="libraryfile">libprocps</filename></term>
+      <varlistentry id="libproc-2">
+        <term><filename class="libraryfile">libproc-2</filename></term>
         <listitem>
           <para>Inneholder funksjonene som brukes av de fleste programmer i denne
-           pakken</para>
-          <indexterm zone="ch-system-procps libprocps">
-            <primary sortas="c-libprocps">libprocps</primary>
+          pakken</para>
+          <indexterm zone="ch-system-procps libproc-2">
+            <primary sortas="c-libproc-2">libproc-2</primary>
           </indexterm>
         </listitem>
       </varlistentry>

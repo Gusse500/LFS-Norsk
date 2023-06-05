@@ -24,7 +24,7 @@
     <title/>
 
     <para>Ncurses pakken inneholder biblioteker for terminaluavhengig
-     håndtering av karakterskjermer.</para>
+    håndtering av karakterskjermer.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -48,6 +48,7 @@
             --with-shared           \
             --without-debug         \
             --without-normal        \
+            --with-cxx-shared       \
             --enable-pc-files       \
             --enable-widec          \
             --with-pkg-config-libdir=/usr/lib/pkgconfig</userinput></screen>
@@ -56,32 +57,55 @@
       <title>Betydningen av de nye konfigureringsalternativene:</title>
 
       <varlistentry>
-        <term><parameter>--enable-widec</parameter></term>
+        <term><parameter>--with-shared</parameter></term>
         <listitem>
-          <para>Denne bryteren gjør at biblioteker med store tegn (f.eks., <filename
-          class="libraryfile">libncursesw.so.&ncurses-version;</filename>)
-          bygges i stedet for vanlige (f.eks., <filename
-          class="libraryfile">libncurses.so.&ncurses-version;</filename>).
-          Disse brede tegnbibliotekene er brukbare i både multibyte og
-           tradisjonelle 8-biters lokaliteter, mens vanlige biblioteker fungerer som de skal
-           bare i 8-biters lokaliteter. Brede karakterer og normale biblioteker er
-           kildekompatibel, men ikke binærkompatibel.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term><parameter>--enable-pc-files</parameter></term>
-        <listitem>
-          <para>Denne bryteren genererer og installerer .pc-filer for pkg-config.
-          </para>
+          <para>Dette får Ncurses til å bygge og installere delte C biblioteker.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--without-normal</parameter></term>
         <listitem>
-          <para>Denne bryteren deaktiverer bygging og installasjon av de fleste statiske biblioteker.
+          <para>Dette forhindrer at Ncurses bygger og installerer statiske C
+          biblioteker.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--without-debug</parameter></term>
+        <listitem>
+          <para>Dette forhindrer at Ncurses bygger og installerer feilsøkings
+          biblioteker.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--with-cxx-shared</parameter></term>
+        <listitem>
+          <para>Dette får Ncurses til å bygge og installere delte C++ bindinger. Den
+          forhindrer også at den bygger og installerer statiske C++ bindinger.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--enable-pc-files</parameter></term>
+        <listitem>
+          <para>Denne bryteren genererer og installerer .pc filer for pkg-config.
           </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--enable-widec</parameter></term>
+        <listitem>
+          <para>Denne bryteren forårsaker at biblioteker med store tegn (f.eks., <filename
+          class="libraryfile">libncursesw.so.&ncurses-version;</filename>)
+          blir bygget i stedet for vanlige (f.eks., <filename
+          class="libraryfile">libncurses.so.&ncurses-version;</filename>).
+          Disse bibliotekene med store tegn er brukbare i både multibyte og
+          tradisjonelle 8-biters lokaliteter, mens vanlige biblioteker fungerer som de skal
+          bare i 8-biters lokaliteter. Biblioteker med store tegn og normale biblioteker er
+          kildekompatibel, men ikke binærkompatibel.</para>
         </listitem>
       </varlistentry>
 
@@ -92,7 +116,7 @@
 <screen><userinput remap="make">make</userinput></screen>
 
     <para>Denne pakken har en testpakke, men den kan bare kjøres etter at
-     pakken er installert. Testene ligger i
+    pakken er installert. Testene ligger i
     <filename class="directory">test/</filename> mappen.  Se
     <filename>README</filename> filen i den mappen for ytterligere detaljer.
     </para>
@@ -107,17 +131,17 @@
     .  Det kan krasje skallprosessen som bruker kode og data
      fra bibliotekfilen. Installer pakken med
     <literal>DESTDIR</literal>, og bytt ut bibliotekfilen riktig med
-    <command>install</command> kommandoen.  Et ubrukelig statisk arkiv som
-     ikke håndteres av <command>configure</command> er også fjernet:</para>
+    <command>install</command> command.  Et ubrukelig statisk arkiv som
+    ikke håndteres av <command>configure</command> er også fjernet:</para>
 
 <screen><userinput remap="install">make DESTDIR=$PWD/dest install
 install -vm755 dest/usr/lib/libncursesw.so.&ncurses-version; /usr/lib
-rm -v  dest/usr/lib/{libncursesw.so.&ncurses-version;,libncurses++w.a}
+rm -v  dest/usr/lib/libncursesw.so.&ncurses-version;
 cp -av dest/* /</userinput></screen>
 
     <para>Mange applikasjoner forventer fortsatt at lenkeren skal kunne finne
-     Ncurses biblioteker med non-wide karakterer. Lur slike applikasjoner til å koble til
-     biblioteker med brede tegn ved hjelp av symbolkoblinger og lenkerskript:</para>
+    Ncurses biblioteker med non-wide karakterer. Lur slike applikasjoner til å koble til
+    biblioteker med brede tegn ved hjelp av symbolkoblinger og lenkerskript:</para>
 
 <screen><userinput remap="install">for lib in ncurses form panel menu ; do
     rm -vf                    /usr/lib/lib${lib}.so
@@ -127,7 +151,7 @@ done</userinput></screen>
 
     <para>Til slutt, sørg for at gamle programmer som ser etter
     <filename class="libraryfile">-lcurses</filename> ved byggetiden fortsatt er
-     byggbare:</para>
+    byggbare:</para>
 
 <screen><userinput remap="install">rm -vf                     /usr/lib/libcursesw.so
 echo "INPUT(-lncursesw)" &gt; /usr/lib/libcursesw.so
@@ -141,12 +165,12 @@ cp -v -R doc/* /usr/share/doc/ncurses-&ncurses-version;</userinput></screen>
     <note>
 
       <para>Instruksjonene ovenfor oppretter ikke Ncurses med non-wide tegn
-       biblioteker siden ingen pakke installert ved kompilering fra kilder ville kobles
-       mot dem under kjøring. Imidlertid den eneste kjente bare binær
-       applikasjonen som kobler mot Ncurses-biblioteker med non-wide karakterer
-       krever versjon 5. Hvis du må ha slike biblioteker på grunn av noen bare binær
-       applikasjon eller for å være kompatibel med LSB, bygg pakken på nytt med
-       følgende kommandoer:</para>
+      biblioteker siden ingen pakke installert ved kompilering fra kilder ville kobles
+      mot dem under kjøring. Imidlertid den eneste kjente bare binær
+      applikasjonen som kobler mot Ncurses-biblioteker med non-wide karakterer
+      krever versjon 5. Hvis du må ha slike biblioteker på grunn av noen bare binær
+      applikasjon eller for å være kompatibel med LSB, bygg pakken på nytt med
+      følgende kommandoer:</para>
 
 <screen role="nodump"><userinput>make distclean
 ./configure --prefix=/usr    \
@@ -171,12 +195,12 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
 
       <seglistitem>
         <seg>
-           captoinfo (lenker til tic),
+           captoinfo (link to tic),
            clear,
            infocmp,
-           infotocap (lenker til tic),
+           infotocap (link to tic),
            ncursesw6-config,
-           reset (lenker til tset),
+           reset (link to tset),
            tabs,
            tic,
            toe,
@@ -184,7 +208,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
            tset
         </seg>
         <seg>
-           libcursesw.so (symbollink og skript som lenker til libncursesw.so),
+           libcursesw.so (symlink and linker script to libncursesw.so),
            libformw.so,
            libmenuw.so,
            libncursesw.so,
@@ -276,10 +300,10 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="tic">
         <term><command>tic</command></term>
         <listitem>
-          <para>Terminfo entry-description-kompilatoren som oversetter en
-           terminfo fil fra kildeformat til det binære formatet som trengs for
-           ncurses biblioteksrutiner [En terminfo fil inneholder informasjon om
-           egenskapene til en bestemt terminal.]</para>
+          <para>Terminfo entry-description kompilatoren som oversetter en
+          terminfo fil fra kildeformat til det binære formatet som trengs for
+          ncurses biblioteksrutiner [En terminfo fil inneholder informasjon om
+          egenskapene til en bestemt terminal.]</para>
           <indexterm zone="ch-system-ncurses tic">
             <primary sortas="b-tic">tic</primary>
           </indexterm>
@@ -290,7 +314,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
         <term><command>toe</command></term>
         <listitem>
           <para>Viser alle tilgjengelige terminaltyper, med primærnavn og
-           beskrivelse for hver</para>
+          beskrivelse for hver</para>
           <indexterm zone="ch-system-ncurses toe">
             <primary sortas="b-toe">toe</primary>
           </indexterm>
@@ -301,8 +325,8 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
         <term><command>tput</command></term>
         <listitem>
           <para>Gjør verdiene til terminalavhengige funksjoner tilgjengelig for
-           skallet; den kan også brukes til å tilbakestille eller initialisere en terminal eller
-           rapporter det lange navnet</para>
+          skallet; den kan også brukes til å tilbakestille eller initialisere en terminal eller
+          rapporter det lange navnet</para>
           <indexterm zone="ch-system-ncurses tput">
             <primary sortas="b-tput">tput</primary>
           </indexterm>
@@ -333,8 +357,8 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
         <term><filename class="libraryfile">libncursesw</filename></term>
         <listitem>
           <para>Inneholder funksjoner for å vise tekst på mange komplekse måter på en
-           terminalskjerm; et godt eksempel på bruken av disse funksjonene er
-           menyen som vises under kjernens <command>make
+          terminalskjerm; et godt eksempel på bruken av disse funksjonene er
+          menyen som vises under kjernens <command>make
           menuconfig</command></para>
           <indexterm zone="ch-system-ncurses libncursesw">
             <primary sortas="c-libncursesw">libncursesw</primary>

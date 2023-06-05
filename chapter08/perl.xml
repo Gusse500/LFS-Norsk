@@ -24,7 +24,7 @@
     <title/>
 
     <para>Perl pakken inneholder den praktiske utvinnings og rapporterings
-     språket (Practical Extraction and Report Language).</para>
+    språket (Practical Extraction and Report Language).</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,25 +40,25 @@
 
   <sect2 role="installation">
     <title>Installasjon av Perl</title>
-
+<!--
     <para>Først bruker du en oppdatering som fikser et problem fremhevet av nylige
-     versjoner av gdbm:</para>
+    versjoner av gdbm:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&perl-fix-patch;</userinput></screen>
-
+-->
     <para>Denne versjonen av Perl bygger nå Compress::Raw::Zlib og
-     Compress::Raw::BZip2 moduler. Som
-     standard vil Perl bruke en intern kopi av kildene for å bygge.
-     Utfør følgende kommando slik at Perl vil bruke bibliotekene
-     installert på systemet:</para>
+    Compress::Raw::BZip2 moduler. Som
+    standard vil Perl bruke en intern kopi av kildene for å bygge.
+    Utfør følgende kommando slik at Perl vil bruke bibliotekene
+    installert på systemet:</para>
 
 <screen><userinput remap="pre">export BUILD_ZLIB=False
 export BUILD_BZIP2=0</userinput></screen>
 
     <para>For å ha full kontroll over måten Perl er satt opp på, kan du fjerne
     <quote>-des</quote> alternativer fra følgende kommando og håndplukke måten
-     denne pakken er bygget. Alternativt kan du bruke kommandoen nøyaktig som nedenfor for å
-     bruke standardinnstillingene som Perl automatisk oppdager:</para>
+    denne pakken er bygget. Alternativt kan du bruke kommandoen nøyaktig som nedenfor for å
+    bruke standardinnstillingene som Perl automatisk oppdager:</para>
 
  <screen><userinput remap="configure">sh Configure -des                                         \
              -Dprefix=/usr                                \
@@ -82,7 +82,7 @@ export BUILD_BZIP2=0</userinput></screen>
         <term><parameter>-Dvendorprefix=/usr</parameter></term>
         <listitem>
           <para>Dette sikrer at <command>perl</command> vet hvordan å
-           fortelle pakker hvor de skal installere perl modulene sine.</para>
+          fortelle pakker hvor de skal installere perl modulene sine.</para>
         </listitem>
       </varlistentry>
 
@@ -90,7 +90,7 @@ export BUILD_BZIP2=0</userinput></screen>
         <term><parameter>-Dpager="/usr/bin/less -isR"</parameter></term>
         <listitem>
           <para>Dette sikrer at <userinput>less</userinput> brukes i stedet
-           for <userinput>more</userinput>.</para>
+          for <userinput>more</userinput>.</para>
         </listitem>
       </varlistentry>
 
@@ -100,7 +100,7 @@ export BUILD_BZIP2=0</userinput></screen>
         <listitem>
           <para>Siden Groff ikke er installert ennå, <command>Configure</command>
           tror vi ikke ønsker man sider for Perl. Å utstede disse
-           parametere overstyrer denne avgjørelsen.</para>
+          parametere overstyrer denne avgjørelsen.</para>
         </listitem>
       </varlistentry>
 
@@ -122,10 +122,10 @@ export BUILD_BZIP2=0</userinput></screen>
         <term><parameter>-Dprivlib,-Darchlib,-Dsitelib,...</parameter></term>
         <listitem>
           <para>Disse innstillingene definerer hvor Perl leter etter installerte
-           moduler. LFS redaktørene valgte å legge dem i en katalogstruktur
-           basert på Major.Minor-versjonen av Perl (&perl-version-min;) hvilket
-           tillater oppgradering av Perl til nyere Patch nivåer (&perl-version;) uten
-           behovet for å installere alle modulene på nytt.</para>
+          moduler. LFS redaktørene valgte å legge dem i en katalogstruktur
+          basert på Major.Minor-versjonen av Perl (&perl-version-min;) hvilket
+          tillater oppgradering av Perl til nyere Patch nivåer (&perl-version;) uten
+          behovet for å installere alle modulene på nytt.</para>
         </listitem>
       </varlistentry>
 
@@ -138,9 +138,6 @@ export BUILD_BZIP2=0</userinput></screen>
     <para>For å teste resultatene (ca. 11 SBU), utsted:</para>
 
 <screen><userinput remap="test">make test</userinput></screen>
-
-    <!--note><para>En test mislykkes på grunn av bruk av den nyeste versjonen av gdbm.
-    </para></note-->
 
     <para>Installer pakken og rydd opp:</para>
 
@@ -159,8 +156,8 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
 
       <seglistitem>
         <seg>corelist, cpan, enc2xs, encguess, h2ph, h2xs, instmodsh,
-        json_pp, libnetcfg, perl, perl&perl-version; (hard link to perl),
-        perlbug, perldoc, perlivp, perlthanks (hard link to perlbug), piconv,
+        json_pp, libnetcfg, perl, perl&perl-version; (hard lenke til perl),
+        perlbug, perldoc, perlivp, perlthanks (hard lenke til perlbug), piconv,
         pl2pm, pod2html, pod2man, pod2text, pod2usage, podchecker, podselect,
         prove, ptar, ptardiff, ptargrep, shasum,
         splain, xsubpp, og zipdetails</seg>
@@ -199,7 +196,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
         <term><command>cpan</command></term>
         <listitem>
           <para>Samhandler med Comprehensive Perl Archive Network (CPAN)
-           fra kommandolinjen</para>
+          fra kommandolinjen</para>
           <indexterm zone="ch-system-perl cpan">
             <primary sortas="b-cpan">cpan</primary>
           </indexterm>
@@ -210,7 +207,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
         <term><command>enc2xs</command></term>
         <listitem>
           <para>Bygger en Perl utvidelse for Encode modulen fra begge
-           Unicode karaktertilordninger eller Tcl kodingsfiler</para>
+          Unicode karaktertilordninger eller Tcl kodingsfiler</para>
           <indexterm zone="ch-system-perl enc2xs">
             <primary sortas="b-enc2xs">enc2xs</primary>
           </indexterm>
@@ -231,7 +228,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
         <term><command>h2ph</command></term>
         <listitem>
           <para>Konverterer <filename class="extension">.h</filename> C deklarasjons
-           filer til <filename class="extension">.ph</filename> Perl deklarasjons
+          filer til <filename class="extension">.ph</filename> Perl deklarasjons
           filer</para>
           <indexterm zone="ch-system-perl h2ph">
             <primary sortas="b-h2ph">h2ph</primary>
@@ -254,7 +251,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
         <term><command>instmodsh</command></term>
         <listitem>
           <para>Skallskript for å undersøke installerte Perl moduler,
-           og kan lage en tarball fra en installert modul</para>
+          og kan lage en tarball fra en installert modul</para>
           <indexterm zone="ch-system-perl instmodsh">
             <primary sortas="b-instmodsh">instmodsh</primary>
           </indexterm>
@@ -275,7 +272,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
         <term><command>libnetcfg</command></term>
         <listitem>
           <para>Kan brukes til å konfigurere
-          <filename class="libraryfile">libnet</filename> Perl modul</para>
+          <filename class="libraryfile">libnet</filename> Perl modulen</para>
           <indexterm zone="ch-system-perl libnetcfg">
             <primary sortas="b-libnetcfg">libnetcfg</primary>
           </indexterm>
@@ -287,7 +284,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
         <listitem>
           <para>Kombinerer noen av de beste egenskapene til C, <command>sed</command>,
           <command>awk</command> og <command>sh</command> til et singelt
-           swiss-army språk</para>
+          swiss-army språk</para>
           <indexterm zone="ch-system-perl perl">
             <primary sortas="b-perl">perl</primary>
           </indexterm>
@@ -308,7 +305,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
         <term><command>perlbug</command></term>
         <listitem>
           <para>Brukes til å generere feilrapporter om Perl, eller modulene som kommer
-           med den, og sender dem</para>
+          med den, og sender dem</para>
           <indexterm zone="ch-system-perl perlbug">
             <primary sortas="b-perlbug">perlbug</primary>
           </indexterm>
@@ -319,7 +316,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
         <term><command>perldoc</command></term>
         <listitem>
           <para>Viser et stykke dokumentasjons i pod format som er innebygd
-           i Perl installasjonstreet eller i et Perl skript</para>
+          i Perl installasjonstreet eller i et Perl skript</para>
           <indexterm zone="ch-system-perl perldoc">
             <primary sortas="b-perldoc">perldoc</primary>
           </indexterm>
@@ -330,8 +327,8 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
         <term><command>perlivp</command></term>
         <listitem>
           <para>Perl verifiseringsprosedyre for installasjonen; det kan brukes til
-           bekrefte at Perl og dets biblioteker er installert
-           riktig</para>
+          bekrefte at Perl og dets biblioteker er installert
+          riktig</para>
           <indexterm zone="ch-system-perl perlivp">
             <primary sortas="b-perlivp">perlivp</primary>
           </indexterm>
@@ -342,7 +339,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
         <term><command>perlthanks</command></term>
         <listitem>
           <para>Brukes til å generere takkemeldinger på E-post til Perl
-           utviklere</para>
+          utviklere</para>
           <indexterm zone="ch-system-perl perlthanks">
             <primary sortas="b-perlthanks">perlthanks</primary>
           </indexterm>
@@ -468,7 +465,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
         <term><command>ptardiff</command></term>
         <listitem>
           <para>Et Perl program som sammenligner et ekstrahert arkiv med et
-           uekstrahert</para>
+          uekstrahert</para>
           <indexterm zone="ch-system-perl ptardiff">
             <primary sortas="b-ptardiff">ptardiff</primary>
           </indexterm>
@@ -479,7 +476,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
         <term><command>ptargrep</command></term>
         <listitem>
           <para>Et Perl program som bruker mønstertilpasning på innholdet
-           av filer i et tararkiv</para>
+          av filer i et tararkiv</para>
           <indexterm zone="ch-system-perl ptargrep">
             <primary sortas="b-ptargrep">ptargrep</primary>
           </indexterm>

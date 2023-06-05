@@ -24,8 +24,8 @@
     <title/>
 
     <para>Libffi-biblioteket gir et flyttbart programmeringsgrensesnitt på høyt nivå
-     til ulike kallkonvensjoner. Dette lar en programmerer kalle
-     enhver funksjon ved kjøring, spesifisert av en grensesnittbeskrivelse for et kall.</para>
+    til ulike kallkonvensjoner. Dette lar en programmerer kalle
+    enhver funksjon ved kjøring, spesifisert av en grensesnittbeskrivelse for et kall.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -44,8 +44,10 @@
 
     <note>
       <para>I likhet med GMP bygges libffi med spesifikke optimaliseringer
-       til prosessoren som er i bruk. Hvis du bygger for et annet system, eksporter
-       CFLAGS og CXXFLAGS for å spesifisere en generisk konstruksjon for arkitekturen din.
+      til prosessoren som er i bruk. Hvis du bygger for et annet system, endre
+      verdien av <parameter>--with-gcc-arch=</parameter> parameteren i
+       følgende kommando til et arkitekturnavn fullt implementert av
+       CPU på det systemet.
        Hvis dette ikke gjøres, vil alle applikasjoner som lenker til libffi utløse
        ulovlige operasjonsfeil.</para>
     </note>
@@ -64,26 +66,23 @@
         <term><parameter>--with-gcc-arch=native</parameter></term>
         <listitem>
           <para>Sørger for at GCC optimerer for det gjeldende systemet. Hvis dette
-           ikke er spesifisert, gjettes systemet og koden som genereres
-           kanskje ikke er riktig for enkelte systemer. Hvis den genererte koden
-           vil bli kopiert fra det opprinnelige systemet til et mindre kapabelt system
-           system, bruk det mindre kapable systemet som parameter. For detaljer
-           om alternative systemtyper, se <ulink
+          ikke er spesifisert, gjettes systemet og koden som genereres
+          kanskje ikke er riktig for enkelte systemer. Hvis den genererte koden
+          vil bli kopiert fra det opprinnelige systemet til et mindre kapabelt system
+          system, bruk det mindre kapable systemet som parameter. For detaljer
+          om alternative systemtyper, se <ulink
           url='https://gcc.gnu.org/onlinedocs/gcc-&gcc-version;/gcc/x86-Options.html'>
           x86 alternativene i GCC manualen</ulink>.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <!-- To editors: remove it when downstreams are properly
-                         fixed. -->
+        <!-- To editors: try to remove it once GJS fixed (at GNOME 43) -->
         <term><parameter>--disable-exec-static-tramp</parameter></term>
         <listitem>
           <para>Deaktiver statisk trampolinestøtte. Det er en ny sikkerhet
-           funksjon i libffi, men noen BLFS pakker (spesielt
-          <application>GJS</application> og
-          <application>gobject-introspection</application>) har ikke vært
-           tilpasset det.</para>
+          funksjon i libffi, men noen BLFS pakker (spesielt
+          <application>GJS</application>) er ikke tilpasset for det.</para>
         </listitem>
       </varlistentry>
 

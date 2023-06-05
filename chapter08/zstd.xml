@@ -24,8 +24,8 @@
     <title/>
 
     <para>Zstandard er en sanntidskomprimeringsalgoritme som gir høyt
-     kompresjonsforhold. Den tilbyr et veldig bredt spekter av kompresjons/hastighets
-     avveininger, samtidig som den støttes av en veldig rask dekoder.</para>
+    kompresjonsforhold. Den tilbyr et veldig bredt spekter av kompresjons/hastighets
+    avveininger, samtidig som den støttes av en veldig rask dekoder.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -42,14 +42,18 @@
   <sect2 role="installation">
     <title>Installasjon av Zstd</title>
 
+    <para>Bruk en oppdatering for å fikse noen problemer identifisert av oppstrøms:</para>
+
+<screen><userinput remap="pre">patch -Np1 -i ../&zstd-upstream-fixes-patch;</userinput></screen>
+
     <para>Kompiler pakken:</para>
 
-<screen><userinput remap="make">make</userinput></screen>
+<screen><userinput remap="make">make prefix=/usr</userinput></screen>
 
     <note>
        <para>I testutdataen er det flere steder som
-        angir 'failed'. Disse er forventet og bare 'FAIL' er en reell
-        testfeil. Det skal ikke være noen testfeil.</para>
+       angir 'failed'. Disse er forventet og bare 'FAIL' er en reell
+       testfeil. Det skal ikke være noen testfeil.</para>
     </note>
 
     <para>For å teste resultatene, utsted:</para>
@@ -124,7 +128,7 @@
         <term><filename class="libraryfile">libzstd</filename></term>
         <listitem>
           <para>Biblioteket implementerer tapsfri data
-           komprimering ved å bruke ZSTD algoritmen</para>
+          komprimering ved å bruke ZSTD algoritmen</para>
           <indexterm zone="ch-system-zstd libzstd">
             <primary sortas="c-libzstd">libzstd</primary>
           </indexterm>

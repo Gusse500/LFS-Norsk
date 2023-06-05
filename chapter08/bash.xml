@@ -55,8 +55,8 @@
         <listitem>
           <para>Dette alternativet forteller Bash å bruke <filename
           class="libraryfile">readline</filename> biblioteket som allerede er
-           installert på systemet i stedet for å bruke sin egen readline
-           versjon.</para>
+          installert på systemet i stedet for å bruke sin egen readline
+          versjon.</para>
         </listitem>
       </varlistentry>
 
@@ -67,17 +67,17 @@
 <screen><userinput remap="make">make</userinput></screen>
 
     <para>Hopp ned til <quote>Installer
-     pakken</quote> hvis du ikke kjører testpakken.</para>
+    pakken</quote> hvis du ikke kjører testpakken.</para>
 
     <para>For å forberede testene, sørg for at brukeren <systemitem class="username">tester</systemitem> kan skrive til kildetreet:</para>
 
 <screen><userinput remap="test">chown -Rv tester .</userinput></screen>
 
-    <para>Testpakken til pakken er designet for å kjøres som en ikke-root
-     bruker som eier terminalen koblet til standardinngang. For å tilfredsstille
-     krav, skap en ny pseudoterminal ved hjelp av
+    <para>Testpakken til pakken er designet for å kjøres som en ikke-&root;
+    bruker som eier terminalen koblet til standardinngang. For å tilfredsstille
+    krav, skap en ny pseudoterminal ved hjelp av
     <application>Expect</application> og kjør testene som bruker <systemitem
-    class="username">tester</systemitem>:</para>
+    class="username">tester</systemitem> user:</para>
 
 <screen><userinput remap="test">su -s /usr/bin/expect tester &lt;&lt; EOF
 set timeout -1
@@ -92,7 +92,7 @@ EOF</userinput></screen>
 <screen><userinput remap="install">make install</userinput></screen>
 
     <para>Kjør den nylig kompilerte <command>bash</command> programmet (erstatter det som
-     kjøres for øyeblikket):</para>
+    kjøres for øyeblikket):</para>
 
  <screen role="nodump"><userinput>exec /usr/bin/bash --login</userinput></screen>
 
@@ -103,10 +103,10 @@ EOF</userinput></screen>
 
     <segmentedlist>
       <segtitle>Installerte programmer</segtitle>
-      <segtitle>Installert mappe</segtitle>
+      <segtitle>Installerte mapper</segtitle>
 
       <seglistitem>
-        <seg>bash, bashbug, og sh (linker til bash)</seg>
+        <seg>bash, bashbug, og sh (link to bash)</seg>
         <seg>/usr/include/bash, /usr/lib/bash, og
         /usr/share/doc/bash-&bash-version;</seg>
       </seglistitem>
@@ -121,8 +121,8 @@ EOF</userinput></screen>
         <term><command>bash</command></term>
         <listitem>
           <para>En mye brukt kommandotolk; den utfører mange typer av
-           utvidelser og erstatninger på en gitt kommandolinje før kjøringen gjøres
-           , og dette gjør dermed denne tolken til et kraftig verktøy</para>
+          utvidelser og erstatninger på en gitt kommandolinje før kjøringen gjøres
+          , og dette gjør dermed denne tolken til et kraftig verktøy</para>
           <indexterm zone="ch-system-bash bash">
             <primary sortas="b-bash">bash</primary>
           </indexterm>
@@ -133,7 +133,7 @@ EOF</userinput></screen>
         <term><command>bashbug</command></term>
         <listitem>
           <para>Et skallskript for å hjelpe brukeren med å skrive og sende standard
-           formaterte feilrapporter vedrørende <command>bash</command></para>
+          formaterte feilrapporter vedrørende <command>bash</command></para>
           <indexterm zone="ch-system-bash bashbug">
             <primary sortas="b-bashbug">bashbug</primary>
           </indexterm>
@@ -144,10 +144,10 @@ EOF</userinput></screen>
         <term><command>sh</command></term>
         <listitem>
           <para>En symbolsk lenke til <command>bash</command> programmet; når det påkalles
-           som <command>sh</command>, <command>bash</command> prøver å etterligne
-           oppstartadferd av historiske versjoner av <command>sh</command> 
-           så nært som mulig, samtidig som den samsvarer med POSIX standarden
-           også</para>
+          som <command>sh</command>, <command>bash</command> prøver å etterligne
+          oppstartadferd av historiske versjoner av <command>sh</command>
+          så nært som mulig, samtidig som den samsvarer med POSIX standarden
+          også</para>
           <indexterm zone="ch-system-bash sh">
             <primary sortas="b-sh">sh</primary>
           </indexterm>

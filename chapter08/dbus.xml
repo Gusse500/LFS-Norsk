@@ -24,12 +24,12 @@
     <title/>
 
     <para>D-Bus er et meldingsbusssystem, en enkel måte for applikasjoner å snakke til
-     hverandre. D-Bus leverer både en systemnisse (system daemon) (for hendelser som f.eks
-     "ny maskinvareenhet lagt til" eller "skriverkø endret") og en
-     per brukerpåloggingsøkt nisse (for generelle IPC behov blant brukerens
-     applikasjoner). Dessuten er meldingsbussen bygget på toppen av et generelt en-til-en
-     rammeverk for meldingsoverføring, som kan brukes av to applikasjoner til å
-     kommunisere direkte (uten å gå gjennom meldingsbussnissen).</para>
+    hverandre. D-Bus leverer både en systemnisse (system daemon) (for hendelser som f.eks
+    "ny maskinvareenhet lagt til" eller "skriverkø endret") og en
+    per brukerpåloggingsøkt nisse (for generelle IPC behov blant brukerens
+    applikasjoner). Dessuten er meldingsbussen bygget på toppen av et generelt en-til-en
+    rammeverk for meldingsoverføring, som kan brukes av to applikasjoner til å
+    kommunisere direkte (uten å gå gjennom meldingsbussnissen).</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -46,39 +46,30 @@
   <sect2 role="installation">
     <title>Installasjon av D-Bus</title>
 
-    <para>Prepare D-Bus for compilation:</para>
+    <para>Forbered D-Bus for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr                        \
             --sysconfdir=/etc                    \
             --localstatedir=/var                 \
+            --runstatedir=/run                   \
             --disable-static                     \
             --disable-doxygen-docs               \
             --disable-xml-docs                   \
             --docdir=/usr/share/doc/dbus-&dbus-version; \
-            --with-console-auth-dir=/run/console \
-            --with-system-pid-file=/run/dbus/pid \
             --with-system-socket=/run/dbus/system_bus_socket</userinput></screen>
 
     <variablelist>
-      <title>The meaning of the configure options:</title>
-
-      <varlistentry>
-        <term><parameter>--with-console-auth-dir=/run/console</parameter></term>
-        <listitem>
-          <para>Dette spesifiserer plasseringen av ConsoleKit autorisasjons
-           mappen.</para>
-        </listitem>
-      </varlistentry>
+      <title>Betydningen av konfigureringsalternativene:</title>
 
       <varlistentry>
         <term>
-          <parameter>--with-system-pid-file=/run/dbus/pid</parameter> og
+          <parameter>--runstatedir=/run</parameter> and
           <parameter>--with-system-socket=/run/dbus/system_bus_socket</parameter>
         </term>
         <listitem>
           <para>Disse angir plasseringen av PID filen og systembusskontakten
-           til å være i <filename class="directory">/run</filename>, i stedet for
-           utdaterte <filename class="directory">/var/run</filename>.</para>
+          til å være i <filename class="directory">/run</filename>, i stedet for
+          utdaterte <filename class="directory">/var/run</filename>.</para>
         </listitem>
       </varlistentry>
 
@@ -89,15 +80,15 @@
 <screen><userinput remap="make">make</userinput></screen>
 
     <para>Denne pakken kommer med en testpakke, men den krever flere
-     pakker som ikke er inkludert i LFS. Instruksjoner for å kjøre
-     testpakken finner du i BLFS-boken på
+    pakker som ikke er inkludert i LFS. Instruksjoner for å kjøre
+    testpakken finner du i BLFS-boken på
     <ulink url="&blfs-book;general/dbus.html"/>.</para>
 
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>Lag en symbolkobling slik at D-Bus og systemd kan bruke den samme
+    <para>Lag en symbolkobling slik at D-Bus og systemd kan bruke den sam
     <filename>machine-id</filename> filen:</para>
 
 <screen><userinput remap="install">ln -sfv /etc/machine-id /var/lib/dbus</userinput></screen>
@@ -152,7 +143,7 @@
         <term><command>dbus-launch</command></term>
         <listitem>
           <para>Starter <command>dbus-daemon</command> fra et skall
-           skript</para>
+          skript</para>
           <indexterm zone="ch-system-dbus dbus-launch">
             <primary sortas="b-dbus-launch">dbus-launch</primary>
           </indexterm>
@@ -174,7 +165,7 @@
         <listitem>
           <para>Starter en øktbussforekomst av <command>dbus-daemon</command>
           fra et skallskript og starter et spesifisert program i den
-           økten</para>
+          økten</para>
           <indexterm zone="ch-system-dbus dbus-run-session">
             <primary sortas="b-dbus-run-session">dbus-run-session</primary>
           </indexterm>
@@ -228,7 +219,7 @@
         <term><filename class="libraryfile">libdbus-1</filename></term>
         <listitem>
           <para>Inneholder API funksjoner som brukes til å kommunisere med meldingsbussen
-           til D-bus</para>
+          til D-bus</para>
           <indexterm zone="ch-system-dbus libdbus-1">
             <primary sortas="c-libdbus-1">libdbus-1</primary>
           </indexterm>

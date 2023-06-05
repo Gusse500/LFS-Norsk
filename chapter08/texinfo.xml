@@ -24,7 +24,7 @@
     <title/>
 
     <para>Texinfo pakken inneholder programmer for lesing, skriving og
-     konvertere informasjonssider.</para>
+    konvertere informasjonssider.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -52,8 +52,8 @@
         <term><parameter>- -disable-static</parameter></term>
         <listitem>
           <para>I dette tilfellet vil konfigureringsskriptet på toppnivå klage på at
-           dette er et ukjent alternativ, men konfigureringsskriptet for
-           XSParagraph gjenkjenner det og bruker det til å deaktivere installering av en statisk
+          dette er et ukjent alternativ, men konfigureringsskriptet for
+          XSParagraph gjenkjenner det og bruker det til å deaktivere installering av en statisk
           <filename class="libraryfile">XSParagraph.a</filename> til <filename
           class="directory">/usr/lib/texinfo</filename>.</para>
         </listitem>
@@ -61,11 +61,6 @@
 
     </variablelist>
 -->
-
-    <para>Igjen, fiks et problem med å bygge pakken med Glibc-2.34 eller nyere:</para>
-
-<screen><userinput remap="pre">sed -e 's/__attribute_nonnull__/__nonnull/' \
-    -i gnulib/lib/malloc/dynarray-skeleton.c</userinput></screen>
 
     <para>Kompiler pakken:</para>
 
@@ -80,8 +75,8 @@
 <screen><userinput remap="install">make install</userinput></screen>
 
     <para>Installer eventuelt komponentene som hører til i en TeX
-     installasjon:</para>
-    <!-- FIXME: overskriver ikke TeX installasjonen i BLFS filer der? -->
+    installasjon:</para>
+    <!-- FIXME: doesn't the TeX installation in BLFS overwrite files there? -->
 
 <screen><userinput remap="install">make TEXMF=/usr/share/texmf install-tex</userinput></screen>
 
@@ -92,19 +87,19 @@
         <term><parameter>TEXMF=/usr/share/texmf</parameter></term>
         <listitem>
           <para><envar>TEXMF</envar> makefile variabelen holder plasseringen
-           av roten til TeX treet hvis for eksempel en TeX pakke vil bli
-           installert senere.</para>
+          av roten til TeX treet hvis for eksempel en TeX pakke vil bli
+          installert senere.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
     <para>Infodokumentasjonssystemet bruker en ren tekstfil til å holde listen over
-     menyoppføringer. Filen ligger på <filename>/usr/share/info/dir</filename>.
+    menyoppføringer. Filen ligger på <filename>/usr/share/info/dir</filename>.
     Dessverre, på grunn av sporadiske problemer i Makefiles for forskjellige pakker,
-     kan det noen ganger gå ut av synkronisering med infosidene som er installert på systemet.
-     Hvis <filename>/usr/share/info/dir</filename> filen noen gang trenger å bli
-     gjenskapt, vil følgende valgfrie kommandoer utføre oppgaven:</para>
+    kan det noen ganger gå ut av synkronisering med infosidene som er installert på systemet.
+    Hvis <filename>/usr/share/info/dir</filename> filen noen gang trenger å bli
+    gjenskapt, vil følgende valgfrie kommandoer utføre oppgaven:</para>
 
 <screen role="nodump"><userinput>pushd /usr/share/info
   rm -v dir
@@ -124,10 +119,10 @@ popd</userinput></screen>
       <segtitle>Installerte mapper</segtitle>
 
       <seglistitem>
-        <seg>info, install-info, makeinfo (link to texi2any),
+        <seg>info, install-info, makeinfo (lenker til texi2any),
         pdftexi2dvi, pod2texi, texi2any, texi2dvi, texi2pdf, og texindex</seg>
         <seg>MiscXS.so, Parsetexi.so, og XSParagraph.so
-        (all in /usr/lib/texinfo)</seg>
+        (alle i /usr/lib/texinfo)</seg>
         <seg>/usr/share/texinfo og /usr/lib/texinfo</seg>
       </seglistitem>
     </segmentedlist>
@@ -141,8 +136,8 @@ popd</userinput></screen>
         <term><command>info</command></term>
         <listitem>
           <para>Brukes til å lese informasjonssider som ligner på man sider, men
-           går ofte mye dypere enn bare å forklare alle tilgjengelige kommandoers
-           linjealternativer [For eksempel, sammenlign <command>man bison</command> og
+          går ofte mye dypere enn bare å forklare alle tilgjengelige kommandoers
+          linjealternativer [For eksempel, sammenlign <command>man bison</command> og
           <command>info bison</command>.]</para>
           <indexterm zone="ch-system-texinfo info">
             <primary sortas="b-info">info</primary>
@@ -154,7 +149,7 @@ popd</userinput></screen>
         <term><command>install-info</command></term>
         <listitem>
           <para>Brukes til å installere infosider; den oppdaterer oppføringer i
-          <command>info</command> indeksfil</para>
+          <command>info</command> index file</para>
           <indexterm zone="ch-system-texinfo install-info">
             <primary sortas="b-install-info">install-info</primary>
           </indexterm>
@@ -165,7 +160,7 @@ popd</userinput></screen>
         <term><command>makeinfo</command></term>
         <listitem>
           <para>Oversetter de gitte Texinfo kildedokumentene til
-           infosider, ren tekst eller HTML</para>
+          infosider, ren tekst eller HTML</para>
           <indexterm zone="ch-system-texinfo makeinfo">
             <primary sortas="b-makeinfo">makeinfo</primary>
           </indexterm>
@@ -176,7 +171,7 @@ popd</userinput></screen>
         <term><command>pdftexi2dvi</command></term>
         <listitem>
           <para>Brukes til å formatere det gitte Texinfo dokumentet til en
-           Flyttbart dokumentformat (PDF) fil</para>
+          flyttbart dokumentformat (PDF) fil</para>
           <indexterm zone="ch-system-texinfo pdftexi2dvi">
             <primary sortas="b-pdftexi2dvi">pdftexi2dvi</primary>
           </indexterm>
@@ -197,7 +192,7 @@ popd</userinput></screen>
         <term><command>texi2any</command></term>
         <listitem>
           <para>Oversett Texinfo kildedokumentasjon til
-           forskjellige andre formater</para>
+          forskjellige andre formater</para>
           <indexterm zone="ch-system-texinfo texi2any">
             <primary sortas="b-texiany">texi2any</primary>
           </indexterm>
@@ -208,7 +203,7 @@ popd</userinput></screen>
         <term><command>texi2dvi</command></term>
         <listitem>
           <para>Brukes til å formatere det gitte Texinfo dokumentet til en
-           enhetsuavhengig fil som kan skrives ut</para>
+          enhetsuavhengig fil som kan skrives ut</para>
           <indexterm zone="ch-system-texinfo texi2dvi">
             <primary sortas="b-texi2dvi">texi2dvi</primary>
           </indexterm>
@@ -219,7 +214,7 @@ popd</userinput></screen>
         <term><command>texi2pdf</command></term>
         <listitem>
           <para>Brukes til å formatere det gitte Texinfo dokumentet til en
-           Flyttbart dokumentformat (PDF) fil</para>
+          flyttbart dokumentformat (PDF) fil</para>
           <indexterm zone="ch-system-texinfo texi2pdf">
             <primary sortas="b-texi2pdf">texi2pdf</primary>
           </indexterm>

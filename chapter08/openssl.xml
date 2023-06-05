@@ -24,9 +24,9 @@
     <title/>
 
     <para>OpenSSL pakken inneholder administrasjonsverktøy og relaterte biblioteker
-     til kryptografi. Disse er nyttige for å tilby kryptografiske funksjoner
-     til andre pakker, for eksempel OpenSSH, e-postapplikasjoner og nettlesere
-     (for tilgang til HTTPS-nettsteder).  </para>
+    til kryptografi. Disse er nyttige for å tilby kryptografiske funksjoner
+    til andre pakker, for eksempel OpenSSH, e-postapplikasjoner og nettlesere
+    (for tilgang til HTTPS-nettsteder).  </para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -42,7 +42,13 @@
 
   <sect2 role="installation">
     <title>Installasjon av OpenSSL</title>
+<!--
+    <para>Løs først et problem med noen avanserte arkitekturer med avx512 
+    kapasitet:</para>
 
+ <screen><userinput remap="pre">sed -e '/bn_reduce.*m1/i\    factor_size /= sizeof(BN_ULONG) * 8;' \
+    -i crypto/bn/rsaz_exp_x2.c</userinput></screen>
+-->
     <para>Forbered OpenSSL for kompilering:</para>
 
 <screen><userinput remap="configure">./config --prefix=/usr         \
@@ -60,9 +66,9 @@
 <screen><userinput remap="test">make test</userinput></screen>
 
     <para>En test, 30-test_afalg.t, er kjent for å mislykkes på noen kjerne
-     konfigurasjoner (avhengig av inkonsistente verdier for
-     CONFIG_CRYPTO_USER_API*-innstillinger.) Hvis det mislykkes, kan den trygt bli
-     ignorert.</para>
+    konfigurasjoner (avhengig av inkonsistente verdier for
+    CONFIG_CRYPTO_USER_API*-innstillinger.) Hvis det mislykkes, kan den trygt bli
+    ignorert.</para>
 
     <para>Installer pakken:</para>
 
@@ -70,7 +76,7 @@
 make MANSUFFIX=ssl install</userinput></screen>
 
     <para>Legg til versjonen i dokumentasjonskatalognavnet, for å være
-     i samsvarer med andre pakker:</para>
+    i samsvarer med andre pakker:</para>
 
 <screen><userinput remap="install">mv -v /usr/share/doc/openssl /usr/share/doc/openssl-&openssl-version;</userinput></screen>
 
@@ -81,17 +87,20 @@ make MANSUFFIX=ssl install</userinput></screen>
     <note>
       <para>
         Du bør oppdatere OpenSSL når en ny versjon som fikser sårbarheter
-         er annonsert. Utgivelsene går i serier, med en bokstav for hver utgivelse
-         etter den første utgivelsen (f.eks. 1.1.1, 1.1.1a, 1.1.1b, osv.). Fordi LFS
-         installerer kun de delte bibliotekene, er det ikke nødvendig å rekompilere pakker
-         som lenker til <filename class="libraryfile">libcrypto.so</filename> eller
+        er annonsert. Siden OpenSSL 3.0.0, OpenSSL-versjonsordningen
+        følger MAJOR.MINOR.PATCH-formatet. API/ABI-kompatibilitet
+        er garantert for samme MAJOR versjonsnummer. Fordi LFS
+        installerer kun de delte bibliotekene, er det ikke nødvendig å rekompilere
+        pakker som lenker til
+        <filename class="libraryfile">libcrypto.so</filename> eller
         <filename class="libraryfile">libssl.so</filename>
-        <emphasis>ved oppgradering i samme serie.</emphasis>
+        <emphasis>ved oppgradering til en versjon med uendret
+        MAJOR versjonsnummer</emphasis>.
       </para>
 
       <para>
         Imidlertid må alle kjørende programmer koblet til disse bibliotekene stoppes
-         og startes på nytt. Les de relaterte oppføringene i
+        og startes på nytt. Les de relaterte oppføringene i
         <xref linkend='pkgmgmt-upgrade-issues'/> for detaljer.
       </para>
 
@@ -132,8 +141,11 @@ make MANSUFFIX=ssl install</userinput></screen>
         <term><command>c_rehash</command></term>
         <listitem>
           <para>
-            er et <application>Perl</application> skript som skanner alle filer i
-             en katalog og legger til symbolske lenker til hashverdiene deres
+            er et <application>Perl</application> skript som
+            skanner alle filer i en katalog og legger til symbolske lenker til deres
+            hash-verdier. Bruk av <command>c_rehash</command> vurderes
+            foreldet og bør erstattes av
+            <command>openssl rehash</command> kommandoen
           </para>
           <indexterm zone="ch-system-openssl c_rehash">
             <primary sortas="b-c_rehash">c_rehash</primary>
@@ -146,8 +158,8 @@ make MANSUFFIX=ssl install</userinput></screen>
         <listitem>
           <para>
             er et kommandolinjeverktøy for bruk av de ulike kryptografifunksjonene
-             til <application>OpenSSL</application>'s kryptobibliotek fra
-             skallet. Den kan brukes til ulike funksjoner som er dokumentert i
+            til <application>OpenSSL</application>'s kryptobibliotek fra
+            skallet. Den kan brukes til ulike funksjoner som er dokumentert i
             <command>man 1 openssl</command>
           </para>
           <indexterm zone="ch-system-openssl openssl-prog">
@@ -161,12 +173,12 @@ make MANSUFFIX=ssl install</userinput></screen>
         <listitem>
           <para>
             implementerer et bredt spekter av kryptografiske algoritmer som brukes i ulike
-             Internett-standarder. Tjenestene som tilbys av dette biblioteket brukes
-             av <application>OpenSSL</application> implementeringer av SSL,
-             TLS og S/MIME, og de har også blitt brukt til å implementere
+            Internett-standarder. Tjenestene som tilbys av dette biblioteket brukes
+            av <application>OpenSSL</application> implementeringer av SSL,
+            TLS og S/MIME, og de har også blitt brukt til å implementere
             <application>OpenSSH</application>,
             <application>OpenPGP</application>, og andre kryptografiske
-             standarder
+            standarder
           </para>
           <indexterm zone="ch-system-openssl libcrypto">
             <primary sortas="c-libcrypto">libcrypto.so</primary>
@@ -179,8 +191,8 @@ make MANSUFFIX=ssl install</userinput></screen>
         <listitem>
           <para>
             implementerer protokollen Transport Layer Security (TLS v1).
-             Det gir en rik API, dokumentasjon
-             kan bli funnet ved å kjøre <command>man 3 ssl</command>
+            Det gir en rik API, dokumentasjon
+            kan bli funnet ved å kjøre <command>man 3 ssl</command>
           </para>
           <indexterm zone="ch-system-openssl libssl">
             <primary sortas="c-libssl">libssl.so</primary>

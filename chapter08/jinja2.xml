@@ -23,7 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Jinja2 er en Pythonmodul som implementerer et enkelt pytonisk malspråk.</para>
+    <para>Jinja2 er en Pythonmodul som implementerer et enkelt pytonisk 
+	malspråk.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -39,9 +40,13 @@
   <sect2 role="installation">
     <title>Installasjon av Jinja2</title>
 
+    <para>Bygg pakken:</para>
+
+<screen><userinput remap="install">pip3 wheel -w dist --no-build-isolation --no-deps $PWD</userinput></screen>
+
     <para>Installer pakken:</para>
 
-<screen><userinput remap="install">python3 setup.py install --optimize=1</userinput></screen>
+<screen><userinput remap="install">pip3 install --no-index --no-user --find-links dist Jinja2</userinput></screen>
 
   </sect2>
 
@@ -49,10 +54,12 @@
     <title>Innhold i Jinja2</title>
 
     <segmentedlist>
-      <segtitle>Installerte mapper</segtitle>
+      <segtitle>Installerte mappe</segtitle>
 
       <seglistitem>
-        <seg>/usr/lib/python&python-minor;/site-packages/Jinja2-&jinja2-version;-py&python-minor;.egg</seg>
+         <seg>
+            /usr/lib/python&python-minor;/site-packages/Jinja2-&jinja2-version;.dist-info
+         </seg>
       </seglistitem>
     </segmentedlist>
 

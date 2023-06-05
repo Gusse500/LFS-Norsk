@@ -24,7 +24,7 @@
     <title/>
 
     <para>Binutils pakken inneholder en linker, en assembler og annet
-     verktøy for håndtering av objektfiler.</para>
+    verktøy for håndtering av objektfiler.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -42,7 +42,7 @@
     <title>Installasjon av Binutils</title>
 
     <para>Kontroller at PTY-ene fungerer som de skal inne i chroot
-     miljøet ved å utføre en enkel test:</para>
+    miljøet ved å utføre en enkel test:</para>
 
 <screen><userinput remap="test">expect -c "spawn ls"</userinput></screen>
 
@@ -51,36 +51,21 @@
 <screen><computeroutput>spawn ls</computeroutput></screen>
 
     <para>Hvis utdataene i stedet inkluderer meldingen nedenfor, er miljøet
-     ikke satt opp for riktig PTY drift. Dette problemet må løses før
-     testpakkene for Binutils og GCC kjøres:</para>
+	ikke satt opp for riktig PTY drift. Dette problemet må løses før
+    testpakkene for Binutils og GCC kjøres:</para>
 
 <screen><computeroutput>The system has no more ptys.
 Ask your system administrator to create more.</computeroutput></screen>
-
-    <para>Upstream har laget en oppdatering for å fikse et problem ved bruk av binutils
-     for å bygge noen BLFS pakker med Optimalisering av koblingstid (Link Time Optimization) (LTO)
-     aktivert. Bruk det nå:</para>
-
- <screen><userinput remap="pre">patch -Np1 -i ../&binutils-lto-patch;</userinput></screen>
-
-<!--
-    <para>En feil i byggesystemet fører til at de sendte man sidene
-     er tomme. Omgå problemet og fjern de sendte man sidene, slik at
-     man sider vil bli regenerert på riktig måte:</para>
-
-<screen><userinput remap="pre">sed -i '63d' etc/texi2pod.pl
-find -name \*.1 -delete</userinput></screen>
--->
-
+<!-- Fixed in binutils-2.39
     <para>
       Lag nå en rettelse identifisert upstream som påvirker byggingen av noen pakker:
      </para>
 
 <screen><userinput remap="pre">sed -e '/R_386_TLS_LE /i \   || (TYPE) == R_386_TLS_IE \\' \
     -i ./bfd/elfxx-x86.h</userinput></screen>
-
+-->
     <para>Binutils dokumentasjonen anbefaler å bygge Binutils
-     i en dedikert byggemappe:</para>
+    i en dedikert byggemappe:</para>
 
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>
@@ -88,6 +73,7 @@ cd       build</userinput></screen>
     <para>Forbered Binutils for kompilering:</para>
 
 <screen><userinput remap="configure">../configure --prefix=/usr       \
+             --sysconfdir=/etc   \
              --enable-gold       \
              --enable-ld=default \
              --enable-plugins    \
@@ -102,7 +88,7 @@ cd       build</userinput></screen>
         <term><parameter>--enable-gold</parameter></term>
         <listitem>
           <para>Bygg gold linken og installer den som ld.gold (ved siden av
-           standard linker).</para>
+          standard linker).</para>
         </listitem>
       </varlistentry>
 
@@ -110,7 +96,7 @@ cd       build</userinput></screen>
         <term><parameter>--enable-ld=default</parameter></term>
         <listitem>
           <para>Bygg den originale bfd linkeren og installer den som både ld (som er
-           standard linker) og ld.bfd.</para>
+          standard linker) og ld.bfd.</para>
         </listitem>
       </varlistentry>
 
@@ -125,7 +111,7 @@ cd       build</userinput></screen>
         <term><parameter>--enable-64-bit-bfd</parameter></term>
         <listitem>
            <para>Aktiverer 64 bits støtte (på verter med smalere ordstørrelser).
-            Kanskje ikke nødvendig på 64 bits systemer, men skader ikke.</para>
+           Kanskje ikke nødvendig på 64 bits systemer, men skader ikke.</para>
         </listitem>
       </varlistentry>
 
@@ -133,7 +119,7 @@ cd       build</userinput></screen>
         <term><parameter>--with-system-zlib</parameter></term>
         <listitem>
           <para>Bruk det installerte zlib biblioteket i stedet for å bygge den
-           inkluderte versjonen.</para>
+          inkluderte versjonen.</para>
         </listitem>
       </varlistentry>
 
@@ -150,16 +136,16 @@ cd       build</userinput></screen>
         <term><parameter>tooldir=/usr</parameter></term>
         <listitem>
           <para>Vanligvis er verktøykatalogen (mappen der de kjørbare filene vil
-           til slutt bli lokalisert i) satt til <filename
+          til slutt bli lokalisert i) satt til <filename
           class="directory">$(exec_prefix)/$(target_alias)</filename>. For
-           eksempel, x86_64-maskiner vil utvide det til <filename
+          eksempel, x86_64-maskiner vil utvide det til <filename
           class="directory">/usr/x86_64-pc-linux-gnu</filename>. Fordi dette er
-           et tilpasset system, er denne målspesifikke katalogen i <filename
+          et tilpasset system, er denne målspesifikke katalogen i <filename
           class="directory">/usr</filename> ikke påkrevd. <filename
           class="directory">$(exec_prefix)/$(target_alias)</filename> ville vært
-           brukt hvis systemet ble brukt til å krysskompilere (for eksempel kompilering av en
-           pakke på en Intel maskin som genererer kode som kan kjøres
-           på PowerPC maskiner).</para>
+          brukt hvis systemet ble brukt til å krysskompilere (for eksempel kompilering av en
+          pakke på en Intel maskin som genererer kode som kan kjøres
+          på PowerPC maskiner).</para>
         </listitem>
       </varlistentry>
 
@@ -167,20 +153,18 @@ cd       build</userinput></screen>
 
     <important>
       <para>Testpakken for Binutils i denne delen anses som kritisk.
-       Ikke hopp over det under noen omstendigheter.</para>
+      Ikke hopp over det under noen omstendigheter.</para>
     </important>
 
     <para>Test resultatene:</para>
 
 <screen><userinput remap="test">make -k check</userinput></screen>
-<!--
-    <para>Fire tester relatert til zlib er kjent for å mislykkes.</para>
--->
-<!--
-    <para>Syv gold tester er kjent for å mislykkes med gcc-11.1.0</para>
 
-    <para>Fire ld tester navngitt <quote>Run property ...</quote> er kjent for
-     mislykkes.</para>
+    <!-- Fixed in 2.39
+         https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=01ae03b
+    <para>En gold test, <filename>pr17704a_test</filename>, er kjent for å
+    mislykkes hvis <parameter>CONFIG_IA32_EMULATION</parameter> er deaktivert i
+    kjernekonfigurasjon av vertssystemet.</para>
  -->
     <para>Installer pakken:</para>
 
@@ -201,8 +185,8 @@ cd       build</userinput></screen>
       <segtitle>Installert mappe</segtitle>
 
       <seglistitem>
-        <seg>addr2line, ar, as, c++filt, dwp, elfedit, gprof, ld, ld.bfd, ld.gold, nm,
-        objcopy, objdump, ranlib, readelf, size, strings, og strip</seg>
+        <seg>addr2line, ar, as, c++filt, dwp, elfedit, gprof, gprofng, ld, ld.bfd, ld.gold, nm,
+        objcopy, objdump, ranlib, readelf, size, strings, 0g strip</seg>
         <seg>libbfd.so, libctf.so, libctf-nobfd.so, og libopcodes.so</seg>
         <seg>/usr/lib/ldscripts</seg>
       </seglistitem>
@@ -217,9 +201,9 @@ cd       build</userinput></screen>
         <term><command>addr2line</command></term>
         <listitem>
           <para>Oversetter programadresser til filnavn og linjenumre;
-           gitt en adresse og navnet på en kjørbar fil, bruker den feilsøkings
-           informasjonen i den kjørbare filen for å bestemme hvilken kildefil og linje
-           nummer som er knyttet til adressen</para>
+          gitt en adresse og navnet på en kjørbar fil, bruker den feilsøkings
+          informasjonen i den kjørbare filen for å bestemme hvilken kildefil og linje
+          nummer som er knyttet til adressen</para>
           <indexterm zone="ch-system-binutils addr2line">
             <primary sortas="b-addr2line">addr2line</primary>
           </indexterm>
@@ -251,7 +235,7 @@ cd       build</userinput></screen>
         <term><command>c++filt</command></term>
         <listitem>
           <para>Brukes av linkeren til å ikke ødelegge C++ og Java symboler og hindre
-           overbelastede funksjoner å krasje</para>
+          overbelastede funksjoner å krasje</para>
           <indexterm zone="ch-system-binutils c-filt">
             <primary sortas="b-c++filt">c++filt</primary>
           </indexterm>
@@ -288,12 +272,22 @@ cd       build</userinput></screen>
         </listitem>
       </varlistentry>
 
+      <varlistentry id="gprofng">
+        <term><command>gprofng</command></term>
+        <listitem>
+          <para>Samle og analyser ytelsesdata</para>
+          <indexterm zone="ch-system-binutils gprofng">
+            <primary sortas="b-gprofng">gprofng</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
       <varlistentry id="ld">
         <term><command>ld</command></term>
         <listitem>
           <para>En linker som kombinerer en rekke objekt og arkivfiler
-           inn i en enkelt fil, flytter dataene deres og rydder opp i
-           symbolreferanser</para>
+          inn i en enkelt fil, flytter dataene deres og rydder opp i
+          symbolreferanser</para>
           <indexterm zone="ch-system-binutils ld">
             <primary sortas="b-ld">ld</primary>
           </indexterm>
@@ -304,7 +298,7 @@ cd       build</userinput></screen>
         <term><command>ld.gold</command></term>
         <listitem>
           <para>En nedskalert versjon av ld som bare støtter
-           objektfil formatet elf</para>
+          objektfil formatet elf</para>
           <indexterm zone="ch-system-binutils ld.gold">
             <primary sortas="b-ld.gold">ld.gold</primary>
           </indexterm>
@@ -345,9 +339,9 @@ cd       build</userinput></screen>
         <term><command>objdump</command></term>
         <listitem>
           <para>Viser informasjon om den gitte objektfilen, med alternativer
-           kontrollerer den hvilken informasjonen som skal vises; informasjonen som
-           vises er nyttig for programmerere som jobber med kompileringens
-           verktøy</para>
+          kontrollerer den hvilken informasjonen som skal vises; informasjonen som
+          vises er nyttig for programmerere som jobber med kompileringens
+          verktøy</para>
           <indexterm zone="ch-system-binutils objdump">
             <primary sortas="b-objdump">objdump</primary>
           </indexterm>
@@ -358,8 +352,8 @@ cd       build</userinput></screen>
         <term><command>ranlib</command></term>
         <listitem>
           <para>Genererer en indeks over innholdet i et arkiv og lagrer det
-           i arkivet; indeksen viser alle symbolene som er definert av arkivmedlemmer
-           som er flyttbare objektfiler</para>
+          i arkivet; indeksen viser alle symbolene som er definert av arkivmedlemmer
+          som er flyttbare objektfiler</para>
           <indexterm zone="ch-system-binutils ranlib">
             <primary sortas="b-ranlib">ranlib</primary>
           </indexterm>
@@ -380,7 +374,7 @@ cd       build</userinput></screen>
         <term><command>size</command></term>
         <listitem>
           <para>Viser seksjonsstørrelsene og totalstørrelsen for de gitte
-           objektfilene</para>
+          objektfilene</para>
           <indexterm zone="ch-system-binutils size">
             <primary sortas="b-size">size</primary>
           </indexterm>
@@ -391,10 +385,10 @@ cd       build</userinput></screen>
         <term><command>strings</command></term>
         <listitem>
           <para>Utdata, for hver gitt fil, sekvensene av utskrivbare
-           tegn som er av minst den angitte lengden (som standard til
-           fire); for objektfiler skriver den som standard bare strengene fra
-           initialiserings- og lastingsseksjonene mens for andre typer filer, skanner den
-           hele filen</para>
+          tegn som er av minst den angitte lengden (som standard til
+          fire); for objektfiler skriver den som standard bare strengene fra
+          initialiserings- og lastingsseksjonene mens for andre typer filer, skanner den
+          hele filen</para>
           <indexterm zone="ch-system-binutils strings">
             <primary sortas="b-strings">strings</primary>
           </indexterm>
@@ -404,7 +398,7 @@ cd       build</userinput></screen>
       <varlistentry id="strip">
         <term><command>strip</command></term>
         <listitem>
-          <para>Kaster symboler fra objektfiler</para>
+          <para>Fjerner symboler fra objektfiler</para>
           <indexterm zone="ch-system-binutils strip">
             <primary sortas="b-strip">strip</primary>
           </indexterm>
@@ -444,9 +438,9 @@ cd       build</userinput></screen>
       <varlistentry id="libopcodes">
         <term><filename class="libraryfile">libopcodes</filename></term>
         <listitem>
-          <para>Et bibliotek for å håndtere opkoder&mdash; <quote>leselig
-           tekst</quote> versjoner av instruksjoner for prosessoren;
-           den brukes til å bygge verktøy som
+          <para>Et bibliotek for å håndtere opkoder&mdash;the <quote>leselig
+          tekst</quote> versjoner av instruksjoner for prosessoren;
+          den brukes til å bygge verktøy som
           <command>objdump</command></para>
           <indexterm zone="ch-system-binutils libopcodes">
             <primary sortas="c-libopcodes">libopcodes</primary>

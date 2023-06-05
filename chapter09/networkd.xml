@@ -15,65 +15,76 @@
   <secondary>configuring</secondary></indexterm>
 
   <para>Denne delen gjelder kun hvis et nettverkskort
-   skal konfigureres.</para>
+  skal konfigureres.</para>
 
   <sect2>
     <title>Konfigurasjonsfiler for nettverksgrensesnitt</title>
 
     <para>Fra og med versjon 209, sender systemd en nettverkskonfigurasjons
-     nisse (daemon) kalt <command>systemd-networkd</command> som kan brukes til
-     grunnleggende nettverkskonfigurasjon. I tillegg, siden versjon 213, DNS
-     navneoppløsning kan håndteres av <command>systemd-resolved</command> i stedet for
-     den statiske <filename>/etc/resolv.conf</filename> filen. Begge tjenestene er
-     aktivert som standard.</para>
+    nisse (daemon) kalt <command>systemd-networkd</command> som kan brukes til
+    grunnleggende nettverkskonfigurasjon. I tillegg, siden versjon 213, DNS
+    navneoppløsning kan håndteres av <command>systemd-resolved</command> i stedet for
+    den statiske <filename>/etc/resolv.conf</filename> filen. Begge tjenestene er
+    aktivert som standard.</para>
+
+    <note>
+      <para>
+        Hvis du ikke vil bruke <command>systemd-networkd</command> for nettverks
+        konfigurasjon (for eksempel når systemet ikke er koblet til
+        et nettverk, eller du vil bruke et annet verktøy som NetworkManager
+        for nettverkskonfigurasjonen), deaktiver en tjeneste for å forhindre en
+        feilmelding under oppstart:
+      </para>
+      <screen role='nodump'><userinput>systemctl disable systemd-networkd-wait-online</userinput></screen>
+    </note>
 
     <para>Konfigurasjonsfiler for <command>systemd-networkd</command> (og
     <command>systemd-resolved</command>) kan plasseres i
     <filename class="directory">/usr/lib/systemd/network</filename>
     eller <filename class="directory">/etc/systemd/network</filename>. Filer i
-    <filename class="directory">/etc/systemd/network</filename> ha en
-     høyere prioritet enn de i
+    <filename class="directory">/etc/systemd/network</filename> har en
+    høyere prioritet enn de i
     <filename class="directory">/usr/lib/systemd/network</filename>.
     Det finnes tre typer konfigurasjonsfiler:
     <filename class="extension">.link</filename>,
     <filename class="extension">.netdev</filename> og
     <filename class="extension">.network</filename> filene. For detaljert
-     beskrivelser og eksempelinnhold i disse konfigurasjonsfilene, se
-     <filename>systemd-link(5)</filename>,
+    beskrivelser og eksempelinnhold i disse konfigurasjonsfilene, se
+    <filename>systemd-link(5)</filename>,
     <filename>systemd-netdev(5)</filename> og
-    <filename>systemd-network(5)</filename> manual sidene.</para>
+    <filename>systemd-network(5)</filename> manualsider.</para>
 
     <sect3 id="systemd-network-devices">
       <title>Navngivning av nettverksenheter</title>
 
       <para>
         Udev tildeler normalt nettverkskortgrensesnittnavn basert
-         på fysiske systemegenskaper som enp2s1. Hvis du
-         ikke er sikker på hva grensesnittnavnet ditt er, du kan alltid kjøre
+        på fysiske systemegenskaper som enp2s1. Hvis du
+        ikke er sikker på hva grensesnittnavnet ditt er, du kan alltid kjøre
         <command>ip link</command> etter at du har startet opp systemet.
       </para>
 
       <note>
         <para>Grensesnittnavnene avhenger av implementeringen og
-         konfigurasjon av udev nissen som kjører på systemet. Udev
-         nissen for LFS (<command>systemd-udevd</command>, installert i
+        konfigurasjon av udev nissen som kjører på systemet. Udev
+        nissen for LFS (<command>systemd-udevd</command>, installert i
         <xref linkend="ch-system-systemd"/>) vil ikke kjøre med mindre LFS
-         systemet er startet opp. Så det er upålitelig å bestemme grensesnittetnavnet
-         som brukes i LFS systemet ved å kjøre disse kommandoene på vertens
-         distro,
+        systemet er startet opp. Så det er upålitelig å bestemme grensesnittetnavnet
+        som brukes i LFS systemet ved å kjøre disse kommandoene på vertens
+        distro,
         <emphasis>selv om du er i chroot miljøet</emphasis>.</para>
       </note>
 
       <para>
         For de fleste systemer er det kun ett nettverksgrensesnitt for
-         hver type tilkobling. For eksempel det klassiske grensesnittnavnet
-         på en kablet tilkobling er eth0. En trådløs tilkobling
-         vil vanligvis ha navnet wifi0 eller wlan0.
+        hver type tilkobling. For eksempel det klassiske grensesnittnavnet
+        på en kablet tilkobling er eth0. En trådløs tilkobling
+        vil vanligvis ha navnet wifi0 eller wlan0.
       </para>
 
       <para>
         Hvis du foretrekker å bruke de klassiske eller tilpassede nettverksgrensesnittnavnene,
-         det er tre alternative måter å gjøre det på:</para>
+        det er tre alternative måter å gjøre det på:</para>
 
       <itemizedlist>
         <listitem>
@@ -86,10 +97,10 @@
         <listitem>
           <para>
              Lag et manuelt navneskjema, for eksempel ved å gi navn til
-              grensesnitt med noe som "internet0", "dmz0" eller "lan0".
-              For å gjøre det, lag .link filer i /etc/systemd/network/ som
-              velger et eksplisitt navn eller et bedre navneskjema for ditt
-              nettverksgrensesnitt. For eksempel:
+             grensesnitt med noe som "internet0", "dmz0" eller "lan0".
+             For å gjøre det, lag .link filer i /etc/systemd/network/ som
+             velger et eksplisitt navn eller et bedre navneskjema for ditt
+             nettverksgrensesnitt. For eksempel:
           </para>
 
 <screen role="nodump"><userinput>cat &gt; /etc/systemd/network/10-ether0.link &lt;&lt; "EOF"
@@ -109,7 +120,7 @@ EOF</userinput></screen>
         <listitem>
           <para>
             I /boot/grub/grub.cfg, send alternativet net.ifnames=0 på
-             kjernens kommandolinje.
+            kjernens kommandolinje.
           </para>
         </listitem>
       </itemizedlist>
@@ -119,8 +130,8 @@ EOF</userinput></screen>
       <title>Statisk IP konfigurasjon</title>
 
       <para>Kommandoen nedenfor oppretter en grunnleggende konfigurasjonsfil for et
-       Statisk IP oppsett (bruker både systemd-networkd og
-       systemd-resolved):</para>
+      Statisk IP oppsett (bruker både systemd-networkd og
+      systemd-resolved):</para>
 <!-- jhalfs relies on the values for Name, Address, etc. If you want to change
      them, please inform the jhalfs maintainer(s). -->
 <screen><userinput>cat &gt; /etc/systemd/network/10-eth-static.network &lt;&lt; "EOF"
@@ -135,8 +146,8 @@ Domains=<replaceable>&lt;Your Domain Name&gt;</replaceable></literal>
 EOF</userinput></screen>
 
       <para>Flere DNS oppføringer kan legges til hvis du har mer enn én DNS
-       server. Ikke inkluder DNS- eller Domains-oppføringer hvis du har tenkt å bruke den
-       statiske filen <filename>/etc/resolv.conf</filename>.</para>
+      server. Ikke inkluder DNS- eller Domains-oppføringer hvis du har tenkt å bruke den
+      statiske filen <filename>/etc/resolv.conf</filename>.</para>
 
     </sect3>
 
@@ -144,7 +155,7 @@ EOF</userinput></screen>
       <title>DHCP konfigurasjon</title>
 
       <para>Kommandoen nedenfor oppretter en grunnleggende konfigurasjonsfil for et IPv4
-       DHCP oppsett:</para>
+      DHCP oppsett:</para>
 
 <screen role="nodump"><userinput>cat &gt; /etc/systemd/network/10-eth-dhcp.network &lt;&lt; "EOF"
 <literal>[Match]
@@ -169,37 +180,37 @@ EOF</userinput></screen>
     </indexterm>
 
     <para>Hvis systemet skal kobles til Internett, vil det
-     trenges noen midler for Domain Name Service (DNS) navneløsning for å
-     løse Internett domenenavn til IP adresser, og omvendt. Dette kan
-     best oppnås ved å plassere IP adressen til DNS serveren, tilgjengelig
-     fra Internett-leverandøren eller nettverksadministratoren til
+    trenges noen midler for Domain Name Service (DNS) navneløsning for å
+    løse Internett domenenavn til IP adresser, og omvendt. Dette kan
+    best oppnås ved å plassere IP adressen til DNS serveren, tilgjengelig
+    fra Internett-leverandøren eller nettverksadministratoren til
     <filename>/etc/resolv.conf</filename>.</para>
 
     <sect3 id="resolv-conf-systemd-resolved">
       <title>systemd-resolved konfigurasjon</title>
 
       <note><para>Hvis du bruker metoder som er inkompatible med systemd-resolved til å
-       konfigurere nettverksgrensesnittene dine (f.eks.: ppp, etc.), eller hvis du bruker en
-       type lokal løsning (f.eks. bind, dnsmasq, ubundet, etc.),
-       eller annen programvare som genererer en <filename>/etc/resolv.conf</filename>
+      konfigurere nettverksgrensesnittene dine (f.eks.: ppp, etc.), eller hvis du bruker en
+      type lokal løsning (f.eks. bind, dnsmasq, ubundet, etc.),
+      eller annen programvare som genererer en <filename>/etc/resolv.conf</filename>
       (eks: et <command>resolvconf</command> program annet enn det
-       levert av systemd), <command>systemd-resolved</command> service
-       skal ikke brukes.</para>
+      levert av systemd), <command>systemd-resolved</command> service
+      skal ikke brukes.</para>
 
       <para>For å deaktivere systemd-resolved, utfør følgende kommando:</para>
 
 <screen role="nodump"><userinput>systemctl disable systemd-resolved</userinput></screen></note>
 
       <para>Når du bruker <command>systemd-resolved</command> for DNS
-       konfigurasjon, oppretter den filen
+      konfigurasjon, oppretter den filen
       <filename>/run/systemd/resolve/stub-resolv.conf</filename>.
-      Og hvis <filename>/etc/resolv.conf</filename> ikke finnes, den
-       vil bli opprettet av <command>systemd-resolved</command> som en symbolkobling til
+      Og hvis <filename>/etc/resolv.conf</filename> ikke finnes, blir
+      den opprettet av <command>systemd-resolved</command> som en symbolkobling til
       <filename>/run/systemd/resolve/stub-resolv.conf</filename>. Så det er
-       unødvendig å lage en <filename>/etc/resolv.conf</filename>
+      unødvendig å lage en <filename>/etc/resolv.conf</filename>
       manuelt.</para>
-      <!--Lage en
-       symbollink inn <filename>/etc</filename> for å bruke den genererte filen:</para>
+      <!--Lag en
+      symbollenke i <filename>/etc</filename> for å bruke den genererte filen:</para>
 
 <screen><userinput>ln -sfv /run/systemd/resolve/resolv.conf /etc/resolv.conf</userinput></screen>
       At least in systemd-250, this file gets created on first bootup.
@@ -210,31 +221,31 @@ EOF</userinput></screen>
       <title>Statisk resolv.conf konfigurasjon</title>
 
       <para>Hvis en statisk <filename>/etc/resolv.conf</filename> er ønsket,
-       lag den ved å kjøre følgende kommando:</para>
+      lag den ved å kjøre følgende kommando:</para>
 
 <screen role="nodump"><userinput>cat &gt; /etc/resolv.conf &lt;&lt; "EOF"
 <literal># Begin /etc/resolv.conf
 
-domain <replaceable>&lt;Ditt domenenavn&gt;</replaceable>
-nameserver <replaceable>&lt;IP adressen til din primære navneserver&gt;</replaceable>
-nameserver <replaceable>&lt;IP adressen til din sekundære navneserver&gt;</replaceable>
+domain <replaceable>&lt;Your Domain Name&gt;</replaceable>
+nameserver <replaceable>&lt;IP address of your primary nameserver&gt;</replaceable>
+nameserver <replaceable>&lt;IP address of your secondary nameserver&gt;</replaceable>
 
 # End /etc/resolv.conf</literal>
 EOF</userinput></screen>
 
       <para><varname>domain</varname> erklæringen kan utelates
-       eller erstattet med en <varname>search</varname> erklæring. Se man siden
-       for resolv.conf for flere detaljer.</para>
+      eller erstattet med en <varname>search</varname> erklæring.  Se man siden
+      for resolv.conf for flere detaljer.</para>
 
       <para>Erstatt
-      <replaceable>&lt;IP adressen til navneserveren&gt;</replaceable>
+      <replaceable>&lt;IP address of the nameserver&gt;</replaceable>
       med IP adressen til DNS serveren som passer best for oppsettet ditt.
-       Det vil ofte være mer enn én oppføring (krever sekundær
-       server for reservefunksjon). Hvis du bare trenger eller ønsker én DNS-server,
-       fjern den andre <emphasis>nameserver</emphasis> linjen fra filen.
-       IP adressen kan også være en ruter på det lokale nettverket. Et annet alternativ
-       er å bruke Googles offentlige DNS tjeneste ved å bruke IP adressene nedenfor som
-       navneservere.</para>
+      Det vil ofte være mer enn én oppføring (krever sekundær
+      server for reservefunksjon). Hvis du bare trenger eller ønsker én DNS-server,
+      fjern den andre <emphasis>nameserver</emphasis> linjen fra filen.
+      IP adressen kan også være en ruter på det lokale nettverket. Et annet alternativ
+      er å bruke Googles offentlige DNS tjeneste ved å bruke IP adressene nedenfor som
+      navneservere.</para>
 
       <note><para>Googles offentlige IPv4 DNS adresser er
       <parameter>8.8.8.8</parameter> og <parameter>8.8.4.4</parameter>
@@ -257,13 +268,13 @@ EOF</userinput></screen>
      brukes til å etablere systemets vertsnavn.</para>
 
      <para>Opprett <filename>/etc/hostname</filename> filen og skriv inn et
-      vertsnavn ved å kjøre:</para>
+     vertsnavn ved å kjøre:</para>
 
 <screen><userinput>echo "<replaceable>&lt;lfs&gt;</replaceable>" &gt; /etc/hostname</userinput></screen>
 
      <para><replaceable>&lt;lfs&gt;</replaceable> må erstattes med
-      navnet til datamaskinen. Ikke skriv inn det fullt kvalifiserte domenenavnet
-      (FQDN) her. Den informasjonen skal i
+     navnet til datamaskinen. Ikke skriv inn det fullt kvalifiserte domenenavnet
+     (FQDN) her. Den informasjonen skal i
      <filename>/etc/hosts</filename> filen.</para>
 
   </sect2>
@@ -286,30 +297,30 @@ EOF</userinput></screen>
      </indexterm>
 
      <para>Bestem deg for et fullt kvalifisert domenenavn (FQDN) og mulige aliaser
-      til bruk i <filename>/etc/hosts</filename> filen. Hvis du bruker statisk IP
-      adresse, må du også bestemme deg for en IP adresse. Syntaksen
-      for en vertsfiloppføring er:</para>
+     til bruk i <filename>/etc/hosts</filename> filen. Hvis du bruker statisk IP
+     adresse, må du også bestemme deg for en IP adresse. Syntaksen
+     for en vertsfiloppføring er:</para>
 
-<screen><literal>IP_addresse minvert.eksempel.org aliaser</literal></screen>
+<screen><literal>IP_address myhost.example.org aliases</literal></screen>
 
      <para>Med mindre datamaskinen skal være synlig for Internett (dvs. det er
-      et registrert domene og en gyldig blokk med tildelte IP adresser&mdash;de fleste
-      brukere har ikke dette), sørg for at IP adressen er i den private
-      nettverkets IP adresseområde. Gyldige områder er:</para>
+     et registrert domene og en gyldig blokk med tildelte IP adresser&mdash;de fleste
+     brukere har ikke dette), sørg for at IP adressen er i den private
+     nettverkets IP adresseområde. Gyldige områder er:</para>
 
-<screen><literal>Privat nettverk Adresseområde      Normalt prefiks
+<screen><literal>Private Network Address Range      Normal Prefix
 10.0.0.1 - 10.255.255.254           8
 172.x.0.1 - 172.x.255.254           16
 192.168.y.1 - 192.168.y.254         24</literal></screen>
 
      <para>x kan være et hvilket som helst tall i området 16-31. y kan være et hvilket som helst tall i
-      område 0-255.</para>
+     område 0-255.</para>
 
      <para>En gyldig privat IP adresse kan være 192.168.1.1. En gyldig FQDN for
-      denne IPen kan være lfs.example.org.</para>
+     denne IPen kan være lfs.example.org.</para>
 
      <para>Selv om du ikke bruker et nettverkskort, kreves det fortsatt et gyldig FQDN.
-      Dette er nødvendig for at visse programmer, for eksempel MTAer, skal fungere ordentlig.</para>
+     Dette er nødvendig for at visse programmer, for eksempel MTAs, skal fungere ordentlig.</para>
 
 <!--
      <para>Opprett /etc/hosts filen ved å bruke følgende kommando:</para>
@@ -328,7 +339,7 @@ EOF</userinput></screen>
 -->
 
      <para>Opprett <filename>/etc/hosts</filename> filen ved å bruke følgende
-      kommando:</para>
+     kommando:</para>
 
 <screen><userinput>cat &gt; /etc/hosts &lt;&lt; "EOF"
 <literal># Begin /etc/hosts
@@ -343,18 +354,18 @@ ff02::2   ip6-allrouters
 # End /etc/hosts</literal>
 EOF</userinput></screen>
 
-     <para><replaceable>&lt;192.168.0.2&gt;</replaceable>,
+     <para>The <replaceable>&lt;192.168.0.2&gt;</replaceable>,
      <replaceable>&lt;FQDN&gt;</replaceable>, og
      <replaceable>&lt;HOSTNAME&gt;</replaceable> verdier må bli
-      endret for spesifikke bruksområder eller krav (hvis det er tildelt en IP adresse av en
-      nettverks-/systemadministrator og maskinen kobles til et
-      eksisterende nettverk). De valgfrie aliasnavnene kan utelates, og
+     endret for spesifikke bruksområder eller krav (hvis det er tildelt en IP adresse av en
+     nettverks-/systemadministrator og maskinen kobles til et
+     eksisterende nettverk). De valgfrie aliasnavnene kan utelates, og
      <replaceable>&lt;192.168.0.2&gt;</replaceable> linjen kan utelates hvis du
-      bruker en tilkobling konfigurert med DHCP eller IPv6 Autoconfiguration.</para>
+     bruker en tilkobling konfigurert med DHCP eller IPv6 Autoconfiguration.</para>
 
      <para>::1 oppføringen er IPv6 motstykket til 127.0.0.1 og representerer
-      IPv6 loopback-grensesnittet. 127.0.1.1 er en tilbakekoblingsoppføring reservert
-      spesielt for FQDN.</para>
+     IPv6 loopback-grensesnittet. 127.0.1.1 er en tilbakekoblingsoppføring reservert
+     spesielt for FQDN.</para>
 
    </sect2>
 

@@ -20,31 +20,41 @@
     <title>Hvordan fungerer System V Oppstartskriptet?</title>
 
     <para>Linux bruker en spesiell oppstartsfunksjon kalt SysVinit som er basert på
-     konseptet <emphasis>kjørenivåer</emphasis>. Det kan være ganske forskjellig fra et
-     system til et annet, så det kan ikke antas at fordi ting fungerte i en
-     spesiell Linux distribusjon, bør de fungere på samme måte i LFS også. LFS har
-     sin egen måte å gjøre ting på, men den respekterer allment aksepterte standarder.</para>
+    konseptet <emphasis>kjørenivåer</emphasis>. Det kan være ganske forskjellig fra et
+    system til et annet, så det kan ikke antas at fordi ting fungerte i en
+    spesiell Linux distribusjon, bør de fungere på samme måte i LFS også. LFS har
+    sin egen måte å gjøre ting på, men den respekterer allment aksepterte standarder.</para>
 
     <para>SysVinit (som vil bli referert til som <quote>init</quote> fra nå av)
-     fungerer ved å bruke en kjørenivåordning. Det er syv (nummerert 0 til 6) kjørenivåer
-     (faktisk er det flere kjørenivåer, men de er for spesielle tilfeller og er
-     vanligvis ikke brukt. Se <filename>init(8)</filename> for flere detaljer), og
-     hver av disse tilsvarer handlingene datamaskinen skal utføre
-     når den starter opp. Standard kjørenivå er 3. Her er
-     beskrivelser av de ulike kjørenivåene etter hvert som de implementeres:</para>
+    fungerer ved å bruke en kjørenivåordning. Det er syv (nummerert 0 til 6) kjørenivåer
+    (faktisk er det flere kjørenivåer, men de er for spesielle tilfeller og er
+    vanligvis ikke brukt. Se <filename>init(8)</filename> for flere detaljer), og
+    hver av disse tilsvarer handlingene datamaskinen skal utføre
+    når den starter opp. Standard kjørenivå er 3. Her er
+    beskrivelser av de ulike kjørenivåene etter hvert som de implementeres i LFS:</para>
 
 <literallayout>0: stopper datamaskinen
 1: enkeltbrukermodus
-2: flerbrukermodus uten nettverk
+2: reservert for tilpasning, ellers gjøres det det samme som 3
 3: flerbrukermodus med nettverk
 4: reservert for tilpasning, ellers gjør den det samme som 3
-5: samme som 4, den brukes vanligvis for GUI pålogging (som X sin <command>xdm</command> eller KDE sin <command>kdm</command>)
+5: samme som 4, den brukes vanligvis for GUI pålogging (som GNOME's <command>gdm</command> eller LXDE's <command>lxdm</command>)
 6: starter datamaskinen på nytt</literallayout>
+
+    <note>
+       <para>
+          Klassisk ble kjørenivå 2 ovenfor definert som
+          "flerbrukermodus uten nettverk", men dette var bare tilfelle for
+          mange år siden da flere brukere kunne logge på et system koblet via
+          serielle porter. I dagens miljø gir det ingen mening og
+          vi betegner det nå som "reservert".
+       </para>
+    </note>
 
   </sect2>
 
   <sect2 id="conf-sysvinit" role="configuration">
-  <title>Konfigurerer Sysvinit</title>
+  <title>Konfigurering av Sysvinit</title>
 
   <indexterm zone="conf-sysvinit">
     <primary sortas="a-Sysvinit">Sysvinit</primary>
@@ -56,7 +66,7 @@
   </indexterm>
 
   <para>Under kjerneinitialiseringen, det første programmet som kjøres
-   er enten spesifisert på kommandolinjen eller som standard
+  er enten spesifisert på kommandolinjen eller som standard
   <command>init</command>.  Dette programmet leser initialiseringsfilen
   <filename>/etc/inittab</filename>.  Opprette denne filen med:</para>
 
@@ -77,7 +87,8 @@ l6:6:wait:/etc/rc.d/init.d/rc 6
 
 ca:12345:ctrlaltdel:/sbin/shutdown -t1 -a -r now
 
-su:S016:once:/sbin/sulogin
+su:S06:once:/sbin/sulogin
+s1:1:respawn:/sbin/sulogin
 
 1:2345:respawn:/sbin/agetty --noclear tty1 9600
 2:2345:respawn:/sbin/agetty tty2 9600
@@ -99,17 +110,17 @@ EOF</userinput></screen>
    er spesifisert av initdefault verdien.</para>
 
   <para>Som en bekvemmelighet <command>rc</command> skriptet leser et bibliotek av
-   funksjoner i <filename class="directory">/lib/lsb/init-functions</filename>.
+  funksjoner i <filename class="directory">/lib/lsb/init-functions</filename>.
   Dette biblioteket leser også en valgfri konfigurasjonsfil,
   <filename>/etc/sysconfig/rc.site</filename>.  Hvilket som helst av systemets
-   konfigurasjonsfilparametere beskrevet i påfølgende avsnitt kan være
-   alternativt plassert i denne filen som tillater konsolidering av alle systemets
-   parametere i denne ene filen.</para>
+  konfigurasjonsfilparametere beskrevet i påfølgende avsnitt kan være
+  alternativt plassert i denne filen som tillater konsolidering av alle systemets
+  parametere i denne ene filen.</para>
 
   <para>Som en bekvemmelighet for feilsøking logger funksjonsskriptet også all utdata
-   til <filename>/run/var/bootlog</filename>.  Siden <filename
+  til <filename>/run/var/bootlog</filename>.  Siden <filename
   class="directory">/run</filename> mappen er en tmpfs, er denne filen ikke
-   vedvarende på tvers av oppstarter, men den er lagt til den mer permanente filen
+  vedvarende på tvers av oppstarter, men den er lagt til den mer permanente filen
   <filename>/var/log/boot.log</filename> på slutten av oppstartsprosessen.</para>
 
   <sect3 id="init-levels" >
@@ -118,46 +129,50 @@ EOF</userinput></screen>
   <para>Endring av kjørenivåer er gjort med <command>init
   <replaceable>&lt;runlevel&gt;</replaceable></command>, hvor
   <replaceable>&lt;runlevel&gt;</replaceable> er målet for kjørenivå. For eksempel for
-   å starte datamaskinen på nytt, kan en bruker utstede <command>init 6</command> kommandoen,
-   som er et alias for <command>reboot</command> kommandoen. Likeså er,
+  å starte datamaskinen på nytt, kan en bruker utstede <command>init 6</command> kommandoen,
+  som er et alias for <command>reboot</command> kommandoen. Likeså er,
   <command>init 0</command> er et alias for <command>halt</command>
   kommandoen.</para>
 
   <para>Det er en rekke mapper under <filename
   class="directory">/etc/rc.d</filename> som ser ut som <filename
   class="directory">rc?.d</filename> (hvor ? er nummeret på kjørenivået) og
-  <filename class="directory">rcsysinit.d</filename>, alle inneholder en rekke
-   symbolske lenker. Noen begynner med en <emphasis>K</emphasis>, de andre begynner med
-   en <emphasis>S</emphasis>, og alle av dem har to tall etter
-   forbokstaven. K betyr å stoppe (drepe) en tjeneste og S betyr å starte en
-   tjeneste. Tallene bestemmer rekkefølgen skriptene kjøres i, fra 00
-   til 99&mdash;jo lavere tall, desto tidligere blir det utført. Når
+  <filename class="directory">rcS.d</filename>, alle inneholder en rekke
+  symbolske lenker. Noen begynner med en <emphasis>K</emphasis>, de andre begynner med
+  en <emphasis>S</emphasis>, og alle av dem har to tall etter
+  forbokstaven. K betyr å stoppe (drepe) en tjeneste og S betyr å starte en
+  tjeneste. Tallene bestemmer rekkefølgen skriptene kjøres i, fra 00
+  til 99&mdash;jo lavere tall, desto tidligere blir det utført. Når
   <command>init</command> bytter til et annet kjørenivå, de aktuelle tjenestene
-   er enten startet eller stoppet, avhengig av valgt kjørenivå.</para>
+  er enten startet eller stoppet, avhengig av valgt kjørenivå.</para>
 
   <para>De virkelige skriptene er i <filename
   class="directory">/etc/rc.d/init.d</filename>. De gjør selve jobben, og
-   alle symbolkoblingene peker til dem. K-lenker og S-lenker peker på
-   samme skript i <filename class="directory">/etc/rc.d/init.d</filename>.
+  alle symbolkoblingene peker til dem. K-lenker og S-lenker peker på
+  samme skript i <filename class="directory">/etc/rc.d/init.d</filename>.
   Dette er fordi skriptene kan kalles med forskjellige parametere som
   <parameter>start</parameter>, <parameter>stop</parameter>,
   <parameter>restart</parameter>, <parameter>reload</parameter>, og
   <parameter>status</parameter>. Når en K-lenke oppstår, det aktuelle
-   skriptet kjøres med <parameter>stop</parameter> argumentet. Når en S-kobling
-   oppstår, kjøres det riktige skriptet med
+  skriptet kjøres med <parameter>stop</parameter> argumentet. Når en S-kobling
+  oppstår, kjøres det riktige skriptet med
   <parameter>start</parameter> argumentet.</para>
-
+<!-- Changed for March 24th, 2022 version of bootscripts
   <para>Det er ett unntak fra denne forklaringen. Lenker som starter
-   med en <emphasis>S</emphasis> i <filename
+  med en <emphasis>S</emphasis> i <filename
   class="directory">rc0.d</filename> og <filename
-  class="directory">rc6.d</filename> kataloger vil ikke få noe
-   til å starte. De vil bli kalt opp med parameteren
+  class="directory">rc6.d</filename> mapper vil ikke få noe
+  til å starte. De vil bli kalt opp med parameteren
   <parameter>stop</parameter> for å stoppe noe. Logikken bak dette
-   er at når en bruker skal starte på nytt eller stoppe systemet, ingenting
-   må startes. Systemet må bare stoppes.</para>
-
+  er at når en bruker skal starte på nytt eller stoppe systemet, ingenting
+  må startes, men rekkefølgen på avstengning må kontrolleres.
+  For disse kjørenivåene vil alle <emphasis>K</emphasis>-prefiksskript være
+  kjørt før noen <emphasis>S</emphasis>-prefiksskript kjøres med
+  <parameter>stop</parameter> parameter.
+  </para>
+-->
   <para>Dette er beskrivelser av hva argumentene får skriptene til
-   å gjøre:</para>
+  å gjøre:</para>
 
   <variablelist>
 
@@ -185,9 +200,9 @@ EOF</userinput></screen>
     <varlistentry>
       <term><parameter>reload</parameter></term>
       <listitem>
-        <para>Konfigurasjonen av tjenesten er oppdatert.
-         Dette brukes etter at konfigurasjonsfilen til en tjeneste ble endret, når
-         tjenesten ikke trenger å startes på nytt.</para>
+        <para>Konfigurasjonen av tjenesten blir oppdatert.
+        Dette brukes etter at konfigurasjonsfilen til en tjeneste ble endret, når
+        tjenesten ikke trenger å startes på nytt.</para>
       </listitem>
     </varlistentry>
 
@@ -201,8 +216,8 @@ EOF</userinput></screen>
   </variablelist>
 
   <para>Du kan gjerne endre måten oppstartsprosessen fungerer på (tross alt,
-   det er ditt eget LFSsystem). Filene gitt her er et eksempel på hvordan
-   det kan gjøres.</para>
+  det er ditt eget LFSsystem). Filene gitt her er et eksempel på hvordan
+  det kan gjøres.</para>
 
   </sect3>
   </sect2>
@@ -211,24 +226,24 @@ EOF</userinput></screen>
     <title>Udev oppstartsskripter</title>
 
       <para><filename>/etc/rc.d/init.d/udev</filename> initskriptet starter
-       <command>udevd</command>, trigger alle "coldplug"-enheter som
-       allerede er opprettet av kjernen og venter på at eventuelle regler skal fullføres.
-       Skriptet fjerner også uevent behandleren fra standarden på
+      <command>udevd</command>, trigger alle "coldplug"-enheter som
+      allerede er opprettet av kjernen og venter på at eventuelle regler skal fullføres.
+      Skriptet fjerner også uevent behandleren fra standarden på
       <filename>/sbin/hotplug </filename>.  Dette gjøres fordi kjernen ikke
-       lenger trenger å kalle en ekstern binær. I stedet vil
+      lenger trenger å kalle en ekstern binær. I stedet vil
       <command>udevd</command> lytte på en netlink socket for uevents som
-       kjernen løfter.</para>
+      kjernen løfter.</para>
 
       <para><command>/etc/rc.d/init.d/udev_retry</command> initskriptet tar
-       kontroll for å utløse hendelser på nytt for undersystemer, som reglene kan stole på,
-       for filsystemer som ikke er montert før <command>mountfs</command>
+      kontroll for å utløse hendelser på nytt for undersystemer, som reglene kan stole på,
+      for filsystemer som ikke er montert før <command>mountfs</command>
       skriptet kjøres (spesielt, <filename class="directory">/usr</filename>
       og <filename class="directory">/var</filename> kan forårsake dette).  Dette
-       skriptet kjører etter <command>mountfs</command> skriptet, så de reglene
-       (hvis de utløses på nytt) bør lykkes andre gang. De er
-       konfigurert fra <filename>/etc/sysconfig/udev_retry</filename> filen;
+      skriptet kjører etter <command>mountfs</command> skriptet, så de reglene
+      (hvis de utløses på nytt) bør lykkes andre gang. De er
+      konfigurert fra <filename>/etc/sysconfig/udev_retry</filename> filen;
       alle andre ord i denne filen enn kommentarer regnes som undersystemnavn
-       for å utløses ved nytt forsøk. For å finne delsystemet til en enhet, bruk
+      for å utløses ved nytt forsøk. For å finne delsystemet til en enhet, bruk
       <command>udevadm info --attribute-walk &lt;device&gt;</command> hvor
       &lt;device&gt; er en absolutt sti i /dev eller /sys som f.eks /dev/sr0 eller
       /sys/class/rtc.</para>
@@ -245,36 +260,36 @@ EOF</userinput></screen>
     <secondary>configuring</secondary></indexterm>
 
     <para><command>setclock</command> skriptet leser tiden fra maskinvare
-     klokken, også kjent som BIOS eller Complementary Metal Oxide Semiconductor
-     (CMOS) klokke. Hvis maskinvareklokken er satt til UTC, vil dette skriptet konvertere
-     maskinvareklokkens tid til lokal tid ved å bruke
+    klokken, også kjent som BIOS eller Complementary Metal Oxide Semiconductor
+    (CMOS) klokke. Hvis maskinvareklokken er satt til UTC, vil dette skriptet konvertere
+    maskinvareklokkens tid til lokal tid ved å bruke
     <filename>/etc/localtime</filename> filen (som forteller
     <command>hwclock</command> programmet hvilken tidssone som skal brukes). Det er ingen
-     måte å oppdage om maskinvareklokken er satt til UTC eller ikke, så dette
-     må konfigureres manuelt.</para>
+    måte å oppdage om maskinvareklokken er satt til UTC eller ikke, så dette
+    må konfigureres manuelt.</para>
 
     <para><command>setclock</command> programmet kjøres via
     <application>udev</application> når kjernen oppdager maskinvare
-     kapasiteten ved oppstart. Den kan også kjøres manuelt med stop parameteren til
-     å lagre systemtiden til CMOS-klokken.</para>
+    kapasiteten ved oppstart. Den kan også kjøres manuelt med stop parameteren til
+    å lagre systemtiden til CMOS-klokken.</para>
 
     <para>Hvis du ikke husker om maskinvareklokken er satt til UTC eller ikke,
-     finn ut ved å kjøre <userinput>hwclock --localtime --show</userinput>
+    finn ut ved å kjøre <userinput>hwclock --localtime --show</userinput>
     kommandoen. Dette vil vise hva gjeldende tid er i henhold til maskinvare
-     klokken. Hvis denne tiden samsvarer med hva klokken din sier, er maskinvareklokken
-     satt til lokal tid. Hvis utdataen fra <command>hwclock</command> ikke er lokal
-     tid, sjansen er stor for at den er satt til UTC-tid. Bekreft dette ved å legge til eller trekke fra
-     riktig antall timer for tidssonen til tiden vist av
+    klokken. Hvis denne tiden samsvarer med hva klokken din sier, er maskinvareklokken
+    satt til lokal tid. Hvis utdataen fra <command>hwclock</command> ikke er lokal
+    tid, sjansen er stor for at den er satt til UTC-tid. Bekreft dette ved å legge til eller trekke fra
+    riktig antall timer for tidssonen til tiden vist av
     <command>hwclock</command>. For eksempel, hvis du for øyeblikket er i MST
-     tidssonen, som også er kjent som GMT -0700, legg til syv timer til din lokale
-     tid.</para>
+    tidssonen, som også er kjent som GMT -0700, legg til syv timer til din lokale
+    tid.</para>
 
     <para>Endre verdien på <envar>UTC</envar> variabelen nedenfor
-     til verdien <parameter>0</parameter> (null) hvis maskinvareklokken
-     <emphasis>IKKE</emphasis> er satt til UTC-tid.</para>
+    til verdien <parameter>0</parameter> null) hvis maskinvareklokken
+    <emphasis>IKKE</emphasis> er satt til UTC-tid.</para>
 
     <para>Opprett en ny fil <filename>/etc/sysconfig/clock</filename> ved å kjøre
-     følgende:</para>
+    følgende:</para>
 
 <screen><userinput>cat &gt; /etc/sysconfig/clock &lt;&lt; "EOF"
 <literal># Begin /etc/sysconfig/clock
@@ -289,11 +304,11 @@ CLOCKPARAMS=
 EOF</userinput></screen>
 
     <para>Et godt hint som forklarer hvordan man skal håndtere tid på LFS er tilgjengelig
-     på <ulink url="&hints-root;time.txt"/>. Den forklarer problemstillinger som f.eks
-     tidssoner, UTC og <envar>TZ</envar> miljøvariabelen.</para>
+    på <ulink url="&hints-root;time.txt"/>. Den forklarer problemstillinger som f.eks
+    tidssoner, UTC og <envar>TZ</envar> miljøvariabelen.</para>
 
     <note><para>Parameterne CLOCKPARAMS og UTC kan også angis
-     i <filename>/etc/sysconfig/rc.site</filename> filen.</para></note>
+    i <filename>/etc/sysconfig/rc.site</filename> filen.</para></note>
 
   </sect2>
 
@@ -309,33 +324,33 @@ EOF</userinput></screen>
 
   <para>Denne delen diskuterer hvordan du konfigurerer <command>console</command>
   oppstartsskriptet som setter opp tastaturkartet, konsollfonten og konsollkjerneloggens
-   nivå. Hvis ikke-ASCII-tegn (f.eks. copyright-tegnet, britiske pund
-   tegn og eurosymbol) ikke vil bli brukt, og tastaturet er et amerikansk, mye
-   av denne delen kan hoppes over. Uten konfigurasjonsfilen, (eller
-   tilsvarende innstillinger i <filename>rc.site</filename>), 
+  nivå. Hvis ikke-ASCII-tegn (f.eks. copyright-tegnet, britiske pund
+  tegn og eurosymbol) ikke vil bli brukt, og tastaturet er et amerikansk, mye
+  av denne delen kan hoppes over. Uten konfigurasjonsfilen, (eller
+  tilsvarende innstillinger i <filename>rc.site</filename>), the
   <command>console</command> oppstartsskriptet vil ikke gjøre noe.</para>
 
   <para><command>console</command> skriptet leser
   <filename>/etc/sysconfig/console</filename> filen for konfigurasjons
-   informasjon. Bestem hvilket tastatur og skjermskrift som skal brukes. Diverse
-   språkspesifikke HOWTOer kan også hjelpe med dette, se <ulink
+  informasjon. Bestem hvilket tastatur og skjermskrift som skal brukes. Diverse
+  språkspesifikke HOWTOer kan også hjelpe med dette, se <ulink
   url="http://www.tldp.org/HOWTO/HOWTO-INDEX/other-lang.html"/>. Hvis du fortsatt er i
-   tvil, se i <filename class="directory">/usr/share/keymaps</filename>
+  tvil, se i <filename class="directory">/usr/share/keymaps</filename>
   og <filename class="directory">/usr/share/consolefonts</filename> mappene
   for gyldige tastaturer og skjermfonter. Les <filename>loadkeys(1)</filename> og
   <filename>setfont(8)</filename> manualsider for å finne de riktige
-   argumenter for disse programmene.</para>
+  argumenter for disse programmene.</para>
 
   <para><filename>/etc/sysconfig/console</filename> filen skal inneholde linjer
-   av formen: VARIABLE="verdi". Følgende variabler gjenkjennes:</para>
+  av formen: VARIABLE="verdi". Følgende variabler gjenkjennes:</para>
   <variablelist>
 
     <varlistentry>
       <term>LOGLEVEL</term>
       <listitem>
         <para>Denne variabelen spesifiserer loggnivået for kjernemeldinger som sendes
-         til konsollen som angitt av <command>dmesg -n</command>. Gyldige nivåer er
-         fra "1" (ingen meldinger) til "8". Standardnivået er "7".</para>
+        til konsollen som angitt av <command>dmesg -n</command>. Gyldige nivåer er
+        fra "1" (ingen meldinger) til "8". Standardnivået er "7".</para>
       </listitem>
     </varlistentry>
 
@@ -344,13 +359,13 @@ EOF</userinput></screen>
       <listitem>
         <para>Denne variabelen spesifiserer argumentene for
         <command>loadkeys</command> programmet, vanligvis navnet på tastaturet
-         å laste, f.eks., <quote>it</quote>. Hvis denne variabelen ikke er satt, vil
-         oppstartsskriptet ikke kjøre <command>loadkeys</command> programmet,
+        å laste, f.eks., <quote>it</quote>. Hvis denne variabelen ikke er satt, vil
+        oppstartsskriptet ikke kjøre <command>loadkeys</command> programmet,
         og standard kjernetastatur vil bli brukt. Merk at noen få tastaturer
-         har flere versjoner med samme navn (cz og dens varianter i
-         qwerty/ og qwertz/, es i olpc/ og qwerty/, og trf i fgGIod/ og
-         qwerty/). I disse tilfellene bør også overordnet mappe spesifisere
-         (f.eks. qwerty/es) for å sikre at det riktige tastaturet er lastet.
+        har flere versjoner med samme navn (cz og dens varianter i
+        qwerty/ og qwertz/, es i olpc/ og qwerty/, og trf i fgGIod/ og
+        qwerty/). I disse tilfellene bør også overordnet mappe spesifisere
+        (f.eks. qwerty/es) for å sikre at det riktige tastaturet er lastet.
         </para>
       </listitem>
     </varlistentry>
@@ -359,11 +374,11 @@ EOF</userinput></screen>
       <term>KEYMAP_CORRECTIONS</term>
       <listitem>
         <para>Denne (sjelden brukte) variabelen
-         spesifiserer argumentene for det andre kallet til
+        spesifiserer argumentene for det andre kallet til
         <command>loadkeys</command> programmet. Dette er nyttig hvis keymap
-         ikke helt er tilfredsstillende og en liten justering må gjøres. f.eks.
-         å inkludere eurotegnet i et tastatur som vanligvis ikke har det,
-         sett denne variabelen til <quote>euro2</quote>.</para>
+        ikke helt er tilfredsstillende og en liten justering må gjøres. f.eks.
+        å inkludere eurotegnet i et tastatur som vanligvis ikke har det,
+        sett denne variabelen til <quote>euro2</quote>.</para>
       </listitem>
     </varlistentry>
 
@@ -372,16 +387,16 @@ EOF</userinput></screen>
       <listitem>
         <para>Denne variabelen spesifiserer argumentene for
         <command>setfont</command> programmet. Vanligvis inkluderer dette
-         fontnavnet, <quote>-m</quote>, og navnet på programtegnkartet
-         som skal lastes. For eksempel for å laste inn <quote>lat1-16</quote> fonten
-         sammen med <quote>8859-1</quote> applikasjonskartet
-         (som er det passende i USA),
-        <!-- på grunn av copyright tegnet -->
+        fontnavnet, <quote>-m</quote>, og navnet på programtegnkartet
+        som skal lastes. For eksempel for å laste inn <quote>lat1-16</quote> fonten
+        sammen med <quote>8859-1</quote> applikasjonskartet
+        (som er det passende i USA),
+        <!-- because of the copyright sign -->
         sett denne variabelen til <quote>lat1-16 -m 8859-1</quote>.
         I UTF-8 modus bruker kjernen applikasjonens tegnkart for
-         konvertering av sammensatte 8-bits nøkkelkoder i keymap til UTF-8, og dermed
-         argumentet til parameteren "-m" bør settes til kodingen av
-         komponerte nøkkelkoder i nøkkelkartet.</para>
+        konvertering av sammensatte 8-bits nøkkelkoder i keymap til UTF-8, og dermed
+        argumentet til parameteren "-m" bør settes til kodingen av
+        komponerte nøkkelkoder i nøkkelkartet.</para>
 
       </listitem>
     </varlistentry>
@@ -391,8 +406,8 @@ EOF</userinput></screen>
       <listitem>
         <para>Sett denne variabelen til <quote>1</quote>, <quote>yes</quote> eller
         <quote>true</quote> for å sette
-         konsollen til UTF-8 modus. Dette er nyttig i UTF-8 baserte lokaliteter og
-         skadelig ellers.</para>
+        konsollen til UTF-8 modus. Dette er nyttig i UTF-8 baserte lokaliteter og
+        skadelig ellers.</para>
       </listitem>
     </varlistentry>
 
@@ -400,9 +415,9 @@ EOF</userinput></screen>
       <term>LEGACY_CHARSET</term>
       <listitem>
         <para>For mange tastaturoppsett er det ikke noe Unicode-tastatur i
-         Kbd pakken. <command>console</command> oppstartsskriptet vil
-         konverter et tilgjengelig nøkkelkart til UTF-8 umiddelbart hvis denne variabelen er
-         satt til kodingen av det tilgjengelige tastaturet som ikke er UTF-8.</para>
+        Kbd pakken. <command>console</command> oppstartsskriptet vil
+        konverter et tilgjengelig nøkkelkart til UTF-8 umiddelbart hvis denne variabelen er
+        satt til kodingen av det tilgjengelige tastaturet som ikke er UTF-8.</para>
       </listitem>
     </varlistentry>
 
@@ -414,7 +429,7 @@ EOF</userinput></screen>
 
     <listitem>
       <para>For et ikke-Unicode oppsett er bare KEYMAP- og FONT-variablene
-       generelt nødvendige. For eksempel for et polsk oppsett, ville man bruke:</para>
+      generelt nødvendige. For eksempel for et polsk oppsett, ville man bruke:</para>
 <screen role="nodump"><userinput>cat &gt; /etc/sysconfig/console &lt;&lt; "EOF"
 <literal># Begin /etc/sysconfig/console
 
@@ -427,8 +442,8 @@ EOF</userinput></screen>
 
     <listitem>
       <para>Som nevnt ovenfor er det noen ganger nødvendig å justere et
-       tastaturoppsett litt. Følgende eksempel legger til Euro-symbolet til
-       Tysk tastaturkart:</para>
+      tastaturoppsett litt. Følgende eksempel legger til Euro-symbolet til
+      Tysk tastaturkart:</para>
 
 <screen role="nodump"><userinput>cat &gt; /etc/sysconfig/console &lt;&lt; "EOF"
 <literal># Begin /etc/sysconfig/console
@@ -444,9 +459,9 @@ EOF</userinput></screen>
 
     <listitem>
       <para>Følgende er et Unicode-aktivert eksempel for bulgarsk, hvor en
-       UTF-8 keymap finnes:</para>
-<!-- Dette er hva som brukes av jhalfs for å lage konsollfilen: når
-      du endrer følgende, vennligst informer jhalfs vedlikeholder(e). -->
+      UTF-8 keymap finnes:</para>
+<!-- This is what is used by jhalfs for creating the console file: whenever
+     you change the following, please inform the jhalfs maintainer(s). -->
 <screen><userinput>cat &gt; /etc/sysconfig/console &lt;&lt; "EOF"
 <literal># Begin /etc/sysconfig/console
 
@@ -460,11 +475,11 @@ EOF</userinput></screen>
 
     <listitem>
       <para>På grunn av bruken av en 512-glyph LatArCyrHeb-16 font i forrige eksempel,
-       lyse farger er ikke lenger tilgjengelig på Linux konsollen med mindre
-       en rammebuffer brukes. Hvis man ønsker å ha lyse farger uten en
-       rammebuffer og kan leve uten karakterer som ikke tilhører språket hans,
-       er det fortsatt mulig å bruke en språkspesifikk font med 256 glyffer, som
-       illustrert nedenfor:</para>
+      lyse farger er ikke lenger tilgjengelig på Linux konsollen med mindre
+      en rammebuffer brukes. Hvis man ønsker å ha lyse farger uten en
+      rammebuffer og kan leve uten karakterer som ikke tilhører språket hans,
+      er det fortsatt mulig å bruke en språkspesifikk font med 256 glyffer, som
+      illustrert nedenfor:</para>
 
 <screen role="nodump"><userinput>cat &gt; /etc/sysconfig/console &lt;&lt; "EOF"
 <literal># Begin /etc/sysconfig/console
@@ -479,7 +494,7 @@ EOF</userinput></screen>
 
     <listitem>
       <para>Følgende eksempel illustrerer tastaturets autokonvertering fra
-       ISO-8859-15 til UTF-8 og aktivering av døde nøkler i Unicode-modus:</para>
+      ISO-8859-15 til UTF-8 og aktivering av døde nøkler i Unicode-modus:</para>
 
 <screen role="nodump"><userinput>cat &gt; /etc/sysconfig/console &lt;&lt; "EOF"
 <literal># Begin /etc/sysconfig/console
@@ -496,39 +511,39 @@ EOF</userinput></screen>
 
     <listitem>
       <para>Noen keymaps har døde taster (dvs. taster som ikke produserer en
-       karakter av seg selv, men legger en aksent på karakteren som er produsert
-       ved neste nøkkel) eller definer komposisjonsregler (som f.eks: <quote>press
+      karakter av seg selv, men legger en aksent på karakteren som er produsert
+      ved neste nøkkel) eller definer komposisjonsregler (som f.eks: <quote>press
       Ctrl+. A E for å hente &AElig;</quote> i standard tastaturoppsett).
       Linux-&linux-version; tolker døde taster og komposisjonsregler i
-       keymap riktig bare når kildetegnene som skal komponeres sammen
-       ikke er multibyte. Denne mangelen påvirker ikke tastaturkart for europeiske
-       språk, fordi aksenter legges til ASCII uten aksent
-       tegn, eller to ASCII-tegn er satt sammen. Imidlertid, i
-       UTF-8-modus er det et problem; f.eks. for det greske språket, hvor man
-       noen ganger trenger å sette en aksent på bokstaven <quote>alpha</quote>.
+      keymap riktig bare når kildetegnene som skal komponeres sammen
+      ikke er multibyte. Denne mangelen påvirker ikke tastaturkart for europeiske
+      språk, fordi aksenter legges til ASCII uten aksent
+      tegn, eller to ASCII-tegn er satt sammen. Imidlertid, i
+      UTF-8-modus er det et problem; f.eks. for det greske språket, hvor man
+      noen ganger trenger å sette en aksent på bokstaven <quote>alpha</quote>.
       Løsningen er enten å unngå bruk av UTF-8, eller å installere
-       X-vindussystemet som ikke har denne begrensningen i inndata
-       håndtering.</para>
+      X-vindussystemet som ikke har denne begrensningen i inndata
+      håndtering.</para>
     </listitem>
 
     <listitem>
       <para>For kinesisk, japansk, koreansk og noen andre språk, Linux
-       konsollen kan ikke konfigureres til å vise de nødvendige tegnene. Brukere
-       som trenger slike språk bør installere et X Window System, fonter som
-       dekker de nødvendige tegnområdene og den riktige inndatametoden (f.eks.
-       SCIM, støtter et bredt utvalg av språk).</para>
+      konsollen kan ikke konfigureres til å vise de nødvendige tegnene. Brukere
+      som trenger slike språk bør installere et X Window System, fonter som
+      dekker de nødvendige tegnområdene og den riktige inndatametoden (f.eks.
+      SCIM, støtter et bredt utvalg av språk).</para>
     </listitem>
 
   </itemizedlist>
 
-  <!-- Lagt til fordi folk fortsetter å legge ut konsollfilen sin med X spørsmål
-   til blfs støttelisten -->
+  <!-- Added because folks keep posting their console file with X questions
+  to blfs-support list -->
   <note>
     <para><filename>/etc/sysconfig/console</filename> filen kontroller kun
-     lokaliseringen av Linux-tekstkonsollen. Det har ingenting med innstilling å gjøre
-     riktig tastaturoppsett og terminalfonter i X Window System, med
-     ssh økter, eller med en seriell konsoll. I slike situasjoner, begrensninger
-     nevnt i de to siste listepunktene ovenfor gjelder ikke.</para>
+    lokaliseringen av Linux-tekstkonsollen. Det har ingenting med innstilling å gjøre
+    riktig tastaturoppsett og terminalfonter i X Window System, med
+    ssh økter, eller med en seriell konsoll. I slike situasjoner, begrensninger
+    nevnt i de to siste listepunktene ovenfor gjelder ikke.</para>
   </note>
 
   </sect2>
@@ -542,11 +557,11 @@ EOF</userinput></screen>
     </indexterm>
 
     <para>Noen ganger er det ønskelig å lage filer ved oppstart. For eksempel,
-     <filename class="directory">/tmp/.ICE-unix</filename> mappen
+    <filename class="directory">/tmp/.ICE-unix</filename> mappen
     er ofte nødvendig. Dette kan gjøres ved å opprette en oppføring i
     <filename>/etc/sysconfig/createfiles</filename> konfigurasjonsskriptet.
-     Formatet til denne filen er innebygd i kommentarene til standard
-     konfigurasjonsfil.</para>
+    Formatet til denne filen er innebygd i kommentarene til standard
+    konfigurasjonsfil.</para>
   </sect2>
 
   <sect2 id="ch-config-sysklogd">
@@ -558,13 +573,13 @@ EOF</userinput></screen>
     </indexterm>
 
     <para><filename>sysklogd</filename> skriptet starter
-    <command>syslogd</command> programmet som en del av System V initialisering.  
+    <command>syslogd</command> programmet som en del av System V initialisering.
     <parameter>-m 0</parameter> alternativet slår av det periodiske tidsstempelet
     <command>syslogd</command> skriver til loggfilene hvert 20. minutt som
-     standard.  Hvis du vil slå på dette periodiske tidsstempelmerket, rediger
+    standard.  Hvis du vil slå på dette periodiske tidsstempelmerket, rediger
     <filename>/etc/sysconfig/rc.site</filename> og definere variabelen
-     SYSKLOGD_PARMS til ønsket verdi. For å fjerne alle parametere,
-     sett variabelen til en nullverdi:</para>
+    SYSKLOGD_PARMS til ønsket verdi. For å fjerne alle parametere,
+    sett variabelen til en nullverdi:</para>
 
 <screen role="nodump">SYSKLOGD_PARMS=</screen>
 
@@ -573,58 +588,58 @@ EOF</userinput></screen>
   </sect2>
 
   <sect2 id="ch-config-site">
-    <title>The rc.site File</title>
+    <title>rc.site filen</title>
 
     <indexterm zone="ch-config-site">
       <primary sortas="a-rc.site">rc.site</primary>
     </indexterm>
 
     <para>Den valgfrie <filename>/etc/sysconfig/rc.site</filename> filen inneholder
-     innstillinger som angis automatisk for hvert SystemV oppstartsskript. Det kan
-     alternativt angi verdiene spesifisert i <filename>hostname</filename>,
+    innstillinger som angis automatisk for hvert SystemV oppstartsskript. Det kan
+    alternativt angi verdiene spesifisert i <filename>hostname</filename>,
     <filename>console</filename>, og <filename>clock</filename> filer i
     <filename class='directory'>/etc/sysconfig/</filename> mappen.  Hvis
-     tilknyttede variabler er til stede i begge disse separate filene og
+    tilknyttede variabler er til stede i begge disse separate filene og
     <filename>rc.site</filename>, verdiene i de skriptspesifikke filene har
-     presedens. </para>
+    presedens. </para>
 
     <para><filename>rc.site</filename> inneholder også parametere som kan
-     tilpasse andre aspekter av oppstartsprosessen. Stille inn IPROMPT variabelen
-     vil aktivere selektiv kjøring av oppstartsskript. Andre alternativer er beskrevet
-     i filkommentarene. Standardversjonen av filen er som følger:</para>
+    tilpasse andre aspekter av oppstartsprosessen. Stille inn IPROMPT variabelen
+    vil aktivere selektiv kjøring av oppstartsskript. Andre alternativer er beskrevet
+    i filkommentarene. Standardversjonen av filen er som følger:</para>
 
-    <!-- Bruk role til å fikse et pdf genereringsproblem -->
+    <!-- Use role to fix a pdf generation problem -->
     <screen role="auto">&site;</screen>
 
     <sect3>
       <title>Tilpasse oppstarts og avslutnings skriptene</title>
 
       <para>LFS oppstartsskriptene starter opp og slår av et system på en rimelig
-       effektiv måte, men det er noen få justeringer du kan gjøre i
-       rc.site filen for å forbedre hastigheten enda mer og for å justere meldinger i henhold til
-       til dine preferanser. For å gjøre dette, juster innstillingene i
-       <filename>/etc/sysconfig/rc.site</filename> filen ovenfor.</para>
+      effektiv måte, men det er noen få justeringer du kan gjøre i
+      rc.site filen for å forbedre hastigheten enda mer og for å justere meldinger i henhold til
+      til dine preferanser. For å gjøre dette, juster innstillingene i
+      the <filename>/etc/sysconfig/rc.site</filename> filen ovenfor.</para>
 
       <itemizedlist>
 
-      <listitem><para>Under oppstartsskriptet <filename>udev</filename>, det er
-       et kall til <command>udev settle</command> som krever litt tid for å
-       fullføres. Denne tiden kan være nødvendig eller ikke, avhengig av tilstedeværende enheter
-       i systemet. Hvis du bare har enkle partisjoner og et enkelt ethernet
-       kort, vil oppstartsprosessen sannsynligvis ikke trenge å vente på denne kommandoen. For å
-       hopp over det, sett variabelen OMIT_UDEV_SETTLE=y.</para></listitem>
+      <listitem><para>Under oppstartsskriptet <filename>udev</filename>, er det
+      et kall til <command>udev settle</command> som krever litt tid for å
+      fullføres. Denne tiden kan være nødvendig eller ikke, avhengig av tilstedeværende enheter
+      i systemet. Hvis du bare har enkle partisjoner og et enkelt ethernet
+      kort, vil oppstartsprosessen sannsynligvis ikke trenge å vente på denne kommandoen. For å
+      hopp over det, sett variabelen OMIT_UDEV_SETTLE=y.</para></listitem>
 
       <listitem><para>Oppstartsskriptet <filename>udev_retry</filename> kjører også
       <command>udev settle</command> som standard.  Denne kommandoen er kun nødvendig som
-       standard hvis <filename class='directory'>/var</filename> mappen er
-       separat montert. Dette er fordi klokken trenger filen
+      standard hvis <filename class='directory'>/var</filename> mappen er
+      separat montert. Dette er fordi klokken trenger filen
       <filename>/var/lib/hwclock/adjtime</filename>.  Andre tilpasninger kan
-       også må vente på at udev skal fullføres, men i mange installasjoner er det ikke
-       behov for det. Hopp over kommandoen ved å sette variabelen OMIT_UDEV_RETRY_SETTLE=y.
+      også må vente på at udev skal fullføres, men i mange installasjoner er det ikke
+      behov for det. Hopp over kommandoen ved å sette variabelen OMIT_UDEV_RETRY_SETTLE=y.
       </para></listitem>
 
       <listitem><para>Som standard er filsystemkontrollene stille. Dette kan
-       se ut til å være en forsinkelse under oppstartsprosessen. For å slå på
+      se ut til å være en forsinkelse under oppstartsprosessen. For å slå på
       <command>fsck</command> utdata, sett variabelen VERBOSE_FSCK=y.
       </para></listitem>
 
@@ -632,29 +647,29 @@ EOF</userinput></screen>
       <command>fsck</command>, helt.  For å gjøre dette, opprett enten filen
       <filename>/fastboot</filename> eller start systemet på nytt med kommandoen
       <command>/sbin/shutdown -f -r now</command>.  På den annen side kan du
-       tvinge alle filsystemer til å bli kontrollert ved å opprette
-      <filename>/forcefsck</filename> eller kjøre <command>shutdown</command> med
+      tvinge alle filsystemer til å bli kontrollert ved å opprette
+      <filename>/forcefsck</filename> or running <command>shutdown</command> med
       <parameter>-F</parameter> parameter i stedet for <parameter>-f</parameter>.
       </para>
 
-      <para>Sette variabelen FASTBOOT=y vil deaktivere <command>fsck</command>
+      <para>Å sette variabelen FASTBOOT=y vil deaktivere <command>fsck</command>
       under oppstartsprosessen til den fjernes. Dette anbefales ikke
-       på permanent basis.</para></listitem>
+      på permanent basis.</para></listitem>
 
       <listitem><para>Normalt slettes alle filene i <filename
       class='directory'>/tmp</filename> mappen ved oppstart.
-       Avhengig av antall filer eller mapper som er tilstede, kan dette føre til en
-       merkbar forsinkelse i oppstartsprosessen. For å hoppe over å fjerne disse filene, sett inn
-       variabelen SKIPTMPCLEAN=y.</para></listitem>
+      Avhengig av antall filer eller mapper som er tilstede, kan dette føre til en
+      merkbar forsinkelse i oppstartsprosessen. For å hoppe over å fjerne disse filene, sett inn
+      variabelen SKIPTMPCLEAN=y.</para></listitem>
 
       <listitem><para>Under avstengning, <command>init</command> programmet sender
-       et TERM signal til hvert program det har startet (f.eks. agetty), venter på en
-       tid (standard 3 sekunder), og sender hver prosess et KILL signal og venter
-       en gang til. Denne prosessen gjentas i <command>sendsignals</command>
+      et TERM signal til hvert program det har startet (f.eks. agetty), venter på en
+      tid (standard 3 sekunder), og sender hver prosess et KILL signal og venter
+      en gang til. Denne prosessen gjentas i <command>sendsignals</command>
       skript for alle prosesser som ikke stenges av deres egne skript. 
-       Forsinkelse for <command>init</command> kan stilles inn ved å sende en parameter. For
-       eksempel for å fjerne forsinkelsen i <command>init</command>, passerer -t0
-       parameter når du slår av eller starter på nytt (f.eks.  <command>/sbin/shutdown
+      Forsinkelse for <command>init</command> kan stilles inn ved å sende en parameter. For
+      eksempel for å fjerne forsinkelsen i <command>init</command>, bruk -t0
+      parameteren når du slår av eller starter på nytt (f.eks.  <command>/sbin/shutdown
       -t0 -r now</command>).  Forsinkelsen for  <command>sendsignals</command>
       skriptet kan hoppes over ved å sette parameteren
       KILLDELAY=0.</para></listitem>

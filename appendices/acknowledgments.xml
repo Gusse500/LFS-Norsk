@@ -5,14 +5,14 @@
   %general-entities;
 ]>
 
-<appendix id="appendixb" xreflabel="Vedlegg B">
+<appendix id="appendixb" xreflabel="Appendix B">
   <?dbhtml dir="appendices"?>
   <?dbhtml filename="acknowledgments.html"?>
 
   <title>Anerkjennelser</title>
 
   <para>Vi vil takke følgende personer og organisasjoner
-   for deres bidrag til Linux From Scratch Project.</para>
+  for deres bidrag til Linux From Scratch Project.</para>
 
   <itemizedlist>
 
@@ -25,35 +25,35 @@
     <listitem>
       <para><ulink url="mailto:bdubbs@linuxfromscratch.org">Bruce
       Dubbs</ulink> &lt;bdubbs@linuxfromscratch.org&gt; &ndash; LFS Administrerende
-       Redaktør</para>
+      Redaktør</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:jim@linuxfromscratch.org">Jim
       Gifford</ulink> &lt;jim@linuxfromscratch.org&gt; &ndash; CLFS Prosjekt
-       Medleder</para>
+      Medleder</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:pierre@linuxfromscratch.org">Pierre Labastie</ulink>
-      &lt;pierre@linuxfromscratch.org&gt; &ndash; BLFS Redaktør og ALFS Leder</para>
+      &lt;pierre@linuxfromscratch.org&gt; &ndash; BLFS redaktør og ALFS leder</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:dj@linuxfromscratch.org">DJ Lucas</ulink>
-      &lt;dj@linuxfromscratch.org&gt; &ndash; LFS og BLFS Redaktør</para>
+      &lt;dj@linuxfromscratch.org&gt; &ndash; LFS og BLFS redaktør</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:ken@linuxfromscratch.org">Ken Moffat</ulink>
-      &lt;ken@linuxfromscratch.org&gt; &ndash; BLFS Redaktør</para>
+      &lt;ken@linuxfromscratch.org&gt; &ndash; BLFS redaktør</para>
     </listitem>
 
     <listitem>
       <para>Utallige andre personer på de ulike LFS og BLFS postlistene
-       som bidro til å gjøre denne boken mulig ved å gi sine forslag, teste
-       boken, og sende inn feilrapporter, instruksjoner og deres
-       erfaringer med installasjon av ulike pakker.</para>
+      som bidro til å gjøre denne boken mulig ved å gi sine forslag, teste
+      boken, og sende inn feilrapporter, instruksjoner og deres
+      erfaringer med installasjon av ulike pakker.</para>
     </listitem>
 
   </itemizedlist>
@@ -64,52 +64,52 @@
 
     <listitem>
       <para><ulink url="mailto:macana@macana-es.com">Manuel Canales
-      Esparcia</ulink> &lt;macana@macana-es.com&gt; &ndash; Spansk
-       LFS oversettelsesprosjekt</para>
+      Esparcia</ulink> &lt;macana@macana-es.com&gt; &ndash; Spanish
+      LFS translation project</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:johan@linuxfromscratch.org">Johan
-      Lenglet</ulink> &lt;johan@linuxfromscratch.org&gt; &ndash; Fransk LFS
-       oversettelsesprosjekt frem til 2008</para>
+      Lenglet</ulink> &lt;johan@linuxfromscratch.org&gt; &ndash; French LFS
+      translation project until 2008</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:jmengual@linuxfromscratch.org">Jean-Philippe
-      Mengual </ulink> &lt;jmengual@linuxfromscratch.org&gt; &ndash; Fransk LFS
-       oversettelsesprosjekt frem til 2008-2016</para>
+      Mengual </ulink> &lt;jmengual@linuxfromscratch.org&gt; &ndash; French LFS
+      translation project 2008-2016</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:jlepiller@linuxfromscratch.org">Julien
-      Lepiller </ulink> &lt;jlepiller@linuxfromscratch.org&gt; &ndash; Fransk LFS
-       oversettelsesprosjekt 2017-nåtid</para>
+      Lepiller </ulink> &lt;jlepiller@linuxfromscratch.org&gt; &ndash; French LFS
+      translation project 2017-present</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:lizardo@linuxfromscratch.org">Anderson
       Lizardo</ulink> &lt;lizardo@linuxfromscratch.org&gt; &ndash;
-      Portugisisk LFS oversettelsesprosjekt</para>
+      Portuguese LFS translation project</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:tr@erdfunkstelle.de">Thomas
-      Reitelbach </ulink> &lt;tr@erdfunkstelle.de&gt; &ndash; Tysk LFS
-       oversettelsesprosjekt</para>
+      Reitelbach </ulink> &lt;tr@erdfunkstelle.de&gt; &ndash; German LFS
+      translation project</para>
     </listitem>
-
+<!--
     <listitem>
       <para><ulink url="mailto:info@linuxfromscratch.org.ru">Anton Maisak</ulink>
-      &lt;info@linuxfromscratch.org.ru&gt; &ndash; Russisk LFS
-       oversettelsesprosjekt</para>
+      &lt;info@linuxfromscratch.org.ru&gt; &ndash; Russian LFS
+      translation project</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:helen@linuxfromscratch.org.ru">Elena Shevcova</ulink>
-      &lt;helen@linuxfromscratch.org.ru&gt; &ndash; Russisk LFS
-       oversettelsesprosjekt</para>
+      &lt;helen@linuxfromscratch.org.ru&gt; &ndash; Russian LFS
+      translation project</para>
     </listitem>
-
+-->
   </itemizedlist>
 
   <bridgehead renderas="sect2">Speilvedlikeholdere</bridgehead>
@@ -273,26 +273,26 @@
     <listitem>
       <para><ulink url="mailto:theladyskye@linuxfromscratch.org">Christine
       Barczak</ulink> &lt;theladyskye@linuxfromscratch.org&gt; &ndash; LFS
-       Bokredaktør</para>
+      Book Editor</para>
     </listitem>
 
     <listitem>
       <para>Archaic
-      &lt;archaic@linuxfromscratch.org&gt; &ndash; LFS teknisk skribent/redaktør,
-       HLFS prosjektleder, BLFS redaktør, vedlikeholder av tips og
-       oppdateringsprosjektet</para>
+      &lt;archaic@linuxfromscratch.org&gt; &ndash; LFS Technical Writer/Editor,
+      HLFS Project Leader, BLFS Editor, Hints and Patches Project
+      Maintainer</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:matthew@linuxfromscratch.org">Matthew
       Burgess</ulink> &lt;matthew@linuxfromscratch.org&gt; &ndash;
-      LFS prosjektleder, LFS teknisk skribent/redaktør</para>
+      LFS Project Leader, LFS Technical Writer/Editor</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:nathan@linuxfromscratch.org">Nathan
       Coulson</ulink> &lt;nathan@linuxfromscratch.org&gt; &ndash;
-      LFS-Bootscripts vedlikeholder</para>
+      LFS-Bootscripts Maintainer</para>
     </listitem>
 
     <listitem>
@@ -309,18 +309,18 @@
 
     <listitem>
       <para><ulink url="mailto:jeroen@linuxfromscratch.org">Jeroen
-      Coumans</ulink> &lt;jeroen@linuxfromscratch.org&gt; &ndash; Nettsted
-       Utvikler, FAQ vedlikeholder</para>
+      Coumans</ulink> &lt;jeroen@linuxfromscratch.org&gt; &ndash; Website
+      Developer, FAQ Maintainer</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:manuel@linuxfromscratch.org">Manuel
       Canales Esparcia</ulink> &lt;manuel@linuxfromscratch.org&gt; &ndash;
-      LFS/BLFS/HLFS XML og XSL vedlikeholder</para>
+      LFS/BLFS/HLFS XML and XSL Maintainer</para>
     </listitem>
 
     <listitem>
-      <para>Alex Groenewoud &ndash; LFS teknisk skribent</para>
+      <para>Alex Groenewoud &ndash; LFS Technical Writer</para>
     </listitem>
 
     <listitem>
@@ -330,50 +330,50 @@
     <listitem>
       <para><ulink url="mailto:jhuntwork@linuxfromscratch.org">Jeremy
       Huntwork</ulink> &lt;jhuntwork@linuxfromscratch.org&gt; &ndash; LFS
-       Teknisk skribent, LFS LiveCD vedlikeholder</para>
+      Technical Writer, LFS LiveCD Maintainer</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:bryan@linuxfromscratch.org">Bryan
       Kadzban</ulink> &lt;bryan@linuxfromscratch.org&gt; &ndash; LFS
-       Teknisk forfatter</para>
+      Technical Writer</para>
     </listitem>
 
     <listitem>
       <para>Mark Hymers</para>
     </listitem>
 
-    <listitem><para>Seth W. Klein &ndash; FAQ vedlikeholder</para></listitem>
+    <listitem><para>Seth W. Klein &ndash; FAQ maintainer</para></listitem>
 
     <listitem>
       <para><ulink url="mailto:nicholas@linuxfromscratch.org">Nicholas
       Leippe</ulink> &lt;nicholas@linuxfromscratch.org&gt; &ndash; Wiki
-       vedlikeholder</para>
+      Maintainer</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:lizardo@linuxfromscratch.org">Anderson
-      Lizardo</ulink> &lt;lizardo@linuxfromscratch.org&gt; &ndash; Nettsted
-       Backend-Scripts vedlikeholder</para>
+      Lizardo</ulink> &lt;lizardo@linuxfromscratch.org&gt; &ndash; Website
+      Backend-Scripts Maintainer</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:randy@linuxfromscratch.org">Randy
       McMurchy</ulink> &lt;randy@linuxfromscratch.org&gt; &ndash; BLFS
-       Prosjektleder, LFS redaktør</para>
+      Project Leader, LFS Editor</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:dnicholson@linuxfromscratch.org">Dan
-      Nicholson</ulink> &lt;dnicholson@linuxfromscratch.org&gt; &ndash; LFS og
-       BLFS redaktør</para>
+      Nicholson</ulink> &lt;dnicholson@linuxfromscratch.org&gt; &ndash; LFS and
+      BLFS Editor</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:alexander@linuxfromscratch.org">Alexander
       E. Patrakov</ulink> &lt;alexander@linuxfromscratch.org&gt; &ndash; LFS
-       Teknisk skribent, LFS Internationalization Editor,
-       LFS Live CD vedlikeholder</para>
+      Technical Writer, LFS Internationalization Editor,
+      LFS Live CD Maintainer</para>
     </listitem>
 
     <listitem>
@@ -383,51 +383,51 @@
     <listitem>
       <para><ulink url="mailto:scot@linuxfromscratch.org">Scot Mc
       Pherson</ulink> &lt;scot@linuxfromscratch.org&gt; &ndash; LFS NNTP
-       Gateway vedlikeholder</para>
+      Gateway Maintainer</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:renodr@linuxfromscratch.org">Douglas R. Reno</ulink>
-      &lt;renodr@linuxfromscratch.org&gt; &ndash; Systemd redaktør</para>
+      &lt;renodr@linuxfromscratch.org&gt; &ndash; Systemd Editor</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:ryan@linuxfromscratch.org">Ryan
-      Oliver</ulink> &lt;ryan@linuxfromscratch.org&gt; &ndash; CLFS prosjektet
-       Medleder</para>
+      Oliver</ulink> &lt;ryan@linuxfromscratch.org&gt; &ndash; CLFS Project
+      Co-Leader</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:gschafer@zip.com.au">Greg Schafer</ulink>
-      &lt;gschafer@zip.com.au&gt; &ndash; LFS teknisk skribent og
-       Arkitekt for neste generasjons 64-biters byggemetode</para>
+      &lt;gschafer@zip.com.au&gt; &ndash; LFS Technical Writer and
+      Architect of the Next Generation 64-bit-enabling Build Method</para>
     </listitem>
 
     <listitem>
-      <para>Jesse Tie-Ten-Quee &ndash; LFS teknisk skribent</para>
+      <para>Jesse Tie-Ten-Quee &ndash; LFS Technical Writer</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:jwrober@linuxfromscratch.org">James
       Robertson</ulink> &lt;jwrober@linuxfromscratch.org&gt; &ndash; Bugzilla
-       Vedlikeholder</para>
+      Maintainer</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:tushar@linuxfromscratch.org">Tushar
-      Teredesai</ulink> &lt;tushar@linuxfromscratch.org&gt; &ndash; BLFS bok
-       Redaktør, tips og oppdateringer prosjektleder</para>
+      Teredesai</ulink> &lt;tushar@linuxfromscratch.org&gt; &ndash; BLFS Book
+      Editor, Hints and Patches Project Leader</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:jeremy@linuxfromscratch.org">Jeremy
-      Utley</ulink> &lt;jeremy@linuxfromscratch.org&gt; &ndash; LFS teknisk
-       Forfatter, Bugzilla vedlikeholder, LFS-Bootscripts vedlikeholder</para>
+      Utley</ulink> &lt;jeremy@linuxfromscratch.org&gt; &ndash; LFS Technical
+      Writer, Bugzilla Maintainer, LFS-Bootscripts Maintainer</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:zwinkles@gmail.com">Zack Winkles</ulink>
-      &lt;zwinkles@gmail.com&gt; &ndash; LFS teknisk skribent</para>
+      &lt;zwinkles@gmail.com&gt; &ndash; LFS Technical Writer</para>
     </listitem>
 
   </itemizedlist>
@@ -440,29 +440,29 @@
 
     <listitem>
       <para><ulink url="mailto:dean@vipersoft.co.uk">Dean Benson</ulink>
-      &lt;dean@vipersoft.co.uk&gt; for flere pengebidrag</para>
+      &lt;dean@vipersoft.co.uk&gt; for several monetary contributions</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:hrx@hrxnet.de">Hagen Herrschaft</ulink>
-      &lt;hrx@hrxnet.de&gt; for donering av et 2,2 GHz P4-system som nå kjører
-       under navnet Lorien</para>
+      &lt;hrx@hrxnet.de&gt; for donating a 2.2 GHz P4 system, now running
+      under the name of Lorien</para>
     </listitem>
 
     <listitem>
       <para><ulink url="http://www.seocompany.ca/">SEO Company Canada</ulink>
-      støtter åpen kildekode prosjekter og ulike Linux distribusjoner</para>
+      supports Open Source projects and different Linux distributions</para>
     </listitem>
 
     <listitem>
       <para><ulink url="http://www.vasoftware.com">VA Software</ulink> who,
       on behalf of <ulink url="http://www.linux.com">Linux.com</ulink>,
-      donerte en VA Linux 420 (tidligere StartX SP2) arbeidsstasjon</para>
+      donated a VA Linux 420 (former StartX SP2) workstation</para>
     </listitem>
 
     <listitem>
-      <para>Mark Stone for å donere Belgarath, den første linuxfromscratch.org
-       server</para>
+      <para>Mark Stone for donating Belgarath, the first linuxfromscratch.org
+      server</para>
     </listitem>
 
   </itemizedlist>

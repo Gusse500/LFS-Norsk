@@ -7,8 +7,8 @@
 <!ENTITY % rc          "IGNORE"> <!-- set to INCLUDE for rc,
                                       set to IGNORE for development or
                                        release -->
-<!ENTITY % relnum "11.1"><!-- must be given for release or rc -->
-<!ENTITY % reldate "1. Mars 2022"><!-- must ve given for release or rc -->
+<!ENTITY % relnum "11.2"><!-- must be given for release or rc -->
+<!ENTITY % reldate "1. September 2022"><!-- must ve given for release or rc -->
 <!ENTITY % crdate "1999-2022"><!-- must ve given for release or rc -->
 <!ENTITY % rcnum  ""><!-- must be given only for rc -->
 <!-- ================================================================== -->
@@ -72,6 +72,13 @@
 <!ENTITY copyrightdate   "%crdate;">
 ]]>
 
+<![ %sysv; [
+<!ENTITY wget-list       "wget-list-sysv">
+]]>
+<![ %systemd; [
+<!ENTITY wget-list       "wget-list-systemd">
+]]>
+
 <!ENTITY lfs-root        "https://www.linuxfromscratch.org/">
 <!ENTITY blfs-root       "&lfs-root;blfs/">
 <!ENTITY blfs-book       "&blfs-root;view/&short-version;/">
@@ -111,6 +118,9 @@
 <!ENTITY savannah        "https://download.savannah.gnu.org">
 <!ENTITY savannah-nongnu "https://savannah.nongnu.org">
 <!ENTITY github          "https://github.com">
+
+<!ENTITY root            "<systemitem class='username'>root</systemitem>">
+<!ENTITY lfs-user        "<systemitem class='username'>lfs</systemitem>">
 
 <!ENTITY % packages-entities SYSTEM "packages.ent">
 %packages-entities;

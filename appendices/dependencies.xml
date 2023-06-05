@@ -5,38 +5,38 @@
   %general-entities;
 ]>
 
-<appendix id="appendixc" xreflabel="Vedlegg C">
+<appendix id="appendixc" xreflabel="Appendix C">
   <?dbhtml dir="appendices"?>
   <?dbhtml filename="dependencies.html"?>
 
   <title>Avhengigheter</title>
 
   <para>Hver pakke bygget i LFS er avhengig av en eller flere andre pakker
-   for å bygges og installeres riktig. Noen pakker deltar til og med i
-   sirkulære avhengigheter, det vil si at den første pakken avhenger av den andre
-   i sin tur avhenger av den første. På grunn av disse avhengighetene er rekkefølgen som
-   pakkene bygges i LFS veldig viktig. Formålet med denne siden
-   er å dokumentere avhengighetene til hver pakke bygget i LFS.</para>
+  for å bygges og installeres riktig. Noen pakker deltar til og med i
+  sirkulære avhengigheter, det vil si at den første pakken avhenger av den andre
+  i sin tur avhenger av den første. På grunn av disse avhengighetene er rekkefølgen som
+  pakkene bygges i LFS veldig viktig. Formålet med denne siden
+  er å dokumentere avhengighetene til hver pakke bygget i LFS.</para>
 
   <para>For hver pakke som bygges er det tre, og noen ganger opptil
-   fem typer avhengigheter oppført nedenfor. Den første viser hvilke andre pakker
-   må være tilgjengelig for å kompilere og installere den aktuelle pakken.
-   Den andre viser pakkene som må være tilgjengelige når noen programmer eller
-   biblioteker fra pakken brukes under kjøring. Den tredje viser hvilke pakker,
-   i tillegg til de på den første listen, må være tilgjengelige for å kjøre
-   testpakkene. Den fjerde listen over avhengigheter er pakker som krever at
-   denne pakken bygges og installeres på den endelige plasseringen før de blir
-   bygget og installert. I de fleste tilfeller er dette fordi disse pakkene hardkoder
-   kodebaner til binærfiler i skriptene deres. Hvis ikke dette blir bygget i en bestemt rekkefølge,
-   kan det føre til at stier til /tools/bin/[binær] blir plassert inne i skript
-   installert i det endelige systemet. Dette er åpenbart ikke ønskelig.</para>
+  fem typer avhengigheter oppført nedenfor. Den første viser hvilke andre pakker
+  må være tilgjengelig for å kompilere og installere den aktuelle pakken.
+  Den andre viser pakkene som må være tilgjengelige når noen programmer eller
+  biblioteker fra pakken brukes under kjøring. Den tredje viser hvilke pakker,
+  i tillegg til de på den første listen, må være tilgjengelige for å kjøre
+  testpakkene. Den fjerde listen over avhengigheter er pakker som krever at
+  denne pakken bygges og installeres på den endelige plasseringen før de blir
+  bygget og installert. I de fleste tilfeller er dette fordi disse pakkene hardkoder
+  kodebaner til binærfiler i skriptene deres. Hvis ikke dette blir bygget i en bestemt rekkefølge,
+  kan det føre til at stier til /tools/bin/[binær] blir plassert inne i skript
+  installert i det endelige systemet. Dette er åpenbart ikke ønskelig.</para>
 
   <para>Den siste listen over avhengigheter er valgfrie pakker som ikke er
-   adressert i LFS, men kan være nyttig for brukeren. Disse pakkene kan ha
-   ekstra obligatoriske eller valgfrie avhengigheter. For disse
-   avhengigheter, er den anbefalte praksisen å installere dem etter fullføring av
-   LFS boken og gå tilbake og gjenoppbygg LFS pakken. I flere tilfeller,
-   er reinstallasjon adressert i BLFS.</para>
+  adressert i LFS, men kan være nyttig for brukeren. Disse pakkene kan ha
+  ekstra obligatoriske eller valgfrie avhengigheter. For disse
+  avhengigheter, er den anbefalte praksisen å installere dem etter fullføring av
+  LFS boken og gå tilbake og gjenoppbygg LFS pakken. I flere tilfeller,
+  er reinstallasjon adressert i BLFS.</para>
 
 <!-- Begin Acl dependency info -->
   <bridgehead renderas="sect2" id="acl-dep">Acl</bridgehead>
@@ -244,7 +244,7 @@
       <segmentedlist id="bc-depends">
         <segtitle>&dependencies;</segtitle>
         <seglistitem>
-          <seg>Bash, Binutils, Coreutils, GCC, Glibc, Grep, og Make</seg>
+          <seg>Bash, Binutils, Coreutils, GCC, Glibc, Grep, Make, og Readline</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1214,7 +1214,7 @@
       <segmentedlist id="groff-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>Ingen testpakke tilgjengelig</seg>
+          <seg>No test suite available</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1334,7 +1334,7 @@
       <segmentedlist id="iana-etc-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>Ingen testpakke tilgjengelig</seg>
+          <seg>No test suite available</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1451,7 +1451,7 @@
       <segmentedlist id="iproute2-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>Ingen testpakke tilgjengelig</seg>
+          <seg>No test suite available</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1493,7 +1493,7 @@
       <segmentedlist id="jinja2-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>Ingen testpakke tilgjengelig</seg>
+          <seg>No test suite available</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1571,7 +1571,7 @@
       <segmentedlist id="kmod-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>Ingen testpakke tilgjengelig</seg>
+          <seg>No test suite available</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1610,7 +1610,7 @@
       <segmentedlist id="less-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>Ingen testpakke tilgjengelig</seg>
+          <seg>No test suite available</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1848,7 +1848,7 @@
       <segmentedlist id="linux-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>Ingen testpakke tilgjengelig</seg>
+          <seg>No test suite available</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1889,7 +1889,7 @@
       <segmentedlist id="linux-api-headers-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>Ingen testpakke tilgjengelig</seg>
+          <seg>No test suite available</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2050,7 +2050,7 @@
       <segmentedlist id="man-pages-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>Ingen testpakke tilgjengelig</seg>
+          <seg>No test suite available</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2088,7 +2088,7 @@
       <segmentedlist id="markupsafe-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>Ingen testpakke tilgjengelig</seg>
+          <seg>No test suite available</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2126,7 +2126,7 @@
       <segmentedlist id="meson-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>Ingen testpakke tilgjengelig</seg>
+          <seg>No test suite available</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2243,7 +2243,7 @@
       <segmentedlist id="ncurses-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>Ingen testpakke tilgjengelig</seg>
+          <seg>No test suite available</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2524,7 +2524,7 @@
       <segmentedlist id="psmisc-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>Ingen testpakke tilgjengelig</seg>
+          <seg>No test suite available</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2608,14 +2608,14 @@
       <segmentedlist id="readline-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>Ingen testpakke tilgjengelig</seg>
+          <seg>No test suite available</seg>
         </seglistitem>
       </segmentedlist>
 
       <segmentedlist id="readline-before">
         <segtitle>&before;</segtitle>
         <seglistitem>
-          <seg>Bash og Gawk</seg>
+          <seg>Bash, Bc, og Gawk</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2686,7 +2686,7 @@
       <segmentedlist id="shadow-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>Ingen testpakke tilgjengelig</seg>
+          <seg>No test suite available</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2728,7 +2728,7 @@
       <segmentedlist id="sysklogd-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>Ingen testpakke tilgjengelig</seg>
+          <seg>No test suite available</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2853,7 +2853,7 @@
       <segmentedlist id="sysvinit-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>Ingen testpakke tilgjengelig</seg>
+          <seg>No test suite available</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -3075,6 +3075,44 @@
             <ulink url="&blfs-book;general/ruby.html">Ruby</ulink>, og
             <ulink url="&blfs-book;general/gpm.html">GPM</ulink>
           </seg>
+        </seglistitem>
+      </segmentedlist>
+
+<!-- Begin Wheel dependency info -->
+  <bridgehead renderas="sect2" id="wheel-dep">wheel</bridgehead>
+
+      <segmentedlist id="wheel-depends">
+        <segtitle>&dependencies;</segtitle>
+        <seglistitem>
+          <seg>Python</seg>
+        </seglistitem>
+      </segmentedlist>
+
+      <segmentedlist id="wheel-rundeps">
+        <segtitle>&runtime;</segtitle>
+        <seglistitem>
+          <seg>Python</seg>
+        </seglistitem>
+      </segmentedlist>
+
+      <segmentedlist id="wheel-testdeps">
+        <segtitle>&testsuites;</segtitle>
+        <seglistitem>
+          <seg>No test suite available</seg>
+        </seglistitem>
+      </segmentedlist>
+
+      <segmentedlist id="wheel-before">
+        <segtitle>&before;</segtitle>
+        <seglistitem>
+          <seg>Jinja2</seg>
+        </seglistitem>
+      </segmentedlist>
+
+      <segmentedlist id="wheel-optdeps">
+        <segtitle>&external;</segtitle>
+        <seglistitem>
+          <seg>Ingen</seg>
         </seglistitem>
       </segmentedlist>
 

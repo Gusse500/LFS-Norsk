@@ -24,7 +24,7 @@
     <title/>
 
     <para>MarkupSafe er en Python modul som implementerer en XML/HTML/XHTML Markup
-     sikker streng.</para>
+    sikker streng.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -42,13 +42,13 @@
 
     <para>Kompiler MarkupSafe med følgende kommando:</para>
 
-<screen><userinput remap="make">python3 setup.py build</userinput></screen>
+<screen><userinput remap="make">pip3 wheel -w dist --no-build-isolation --no-deps $PWD</userinput></screen>
 
     <para>Denne pakken kommer ikke med en testpakke.</para>
 
     <para>Installer pakken:</para>
 
-<screen><userinput remap="install">python3 setup.py install --optimize=1</userinput></screen>
+<screen><userinput remap="install">pip3 install --no-index --no-user --find-links dist Markupsafe</userinput></screen>
 
   </sect2>
 
@@ -56,10 +56,12 @@
     <title>Innhold i MarkupSafe</title>
 
     <segmentedlist>
-      <segtitle>Installert katalog</segtitle>
+      <segtitle>Installert mappe</segtitle>
 
       <seglistitem>
-        <seg>/usr/lib/python&python-minor;/site-packages/MarkupSafe-&markupsafe-version;-py&python-minor;.egg</seg>
+        <seg>
+           /usr/lib/python&python-minor;/site-packages/MarkupSafe-&markupsafe-version;.dist-info
+        </seg>
       </seglistitem>
     </segmentedlist>
 
