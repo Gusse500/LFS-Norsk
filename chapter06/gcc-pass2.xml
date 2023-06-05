@@ -144,15 +144,6 @@ cd       build</userinput></screen>
         </listitem>
       </varlistentry>
 
-      <varlistentry>
-        <term><parameter>--enable-initfini-array</parameter></term>
-        <listitem>
-          <para>Dette alternativet aktiveres automatisk når du bygger en innebygd
-          kompilator med en innebygd kompilator på x86. Men her bygger vi med
-          en krysskompilator, så vi må eksplisitt angi dette alternativet.</para>
-        </listitem>
-      </varlistentry>
-
     </variablelist>
 
     <para>Kompiler pakken:</para>
