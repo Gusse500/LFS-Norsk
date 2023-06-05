@@ -30,7 +30,7 @@
   <itemizedlist>
     <listitem>
       <para>Programvare-bygging-HOWTO
-      <ulink url="http://www.tldp.org/HOWTO/Software-Building-HOWTO.html"/></para>
+      <ulink url="https://tldp.org/HOWTO/Software-Building-HOWTO.html"/></para>
 
       <para>Dette er en omfattende veiledning for bygging og installasjon av
        <quote>generiske</quote> Unix-programvarepakker under Linux. Selv om det
@@ -40,7 +40,7 @@
 
     <listitem>
       <para>Nybegynnerveiledning for å installere fra kilden
-      <ulink url="http://moi.vonos.net/linux/beginners-installing-from-source/"/></para>
+      <ulink url="https://moi.vonos.net/linux/beginners-installing-from-source/"/></para>
 
       <para>Denne veiledningen gir en god oppsummering av grunnleggende ferdigheter og
        teknikker som trengs for å bygge programvare fra kildekode.</para>

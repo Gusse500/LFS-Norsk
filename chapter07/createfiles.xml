@@ -162,7 +162,7 @@ EOF</userinput></screen>
   9, og delvis etter felles konvensjon brukt av en rekke eksisterende Linux
   distribusjoner. I tillegg er noen testsuiter avhengige av spesifikke brukere eller
   grupper. Linux Standard Base (LSB, tilgjengelig på <ulink
-  url="http://refspecs.linuxfoundation.org/lsb.shtml"/>) anbefaler bare at,
+  url="https://refspecs.linuxfoundation.org/lsb.shtml"/>) anbefaler bare at,
   foruten gruppen <systemitem class="groupname">root</systemitem> med en
   Gruppe ID (GID) på 0, en gruppe <systemitem class="groupname">bin</systemitem>
   med en GID på 1 være tilstede. GID på 5 er mye brukt for

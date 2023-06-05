@@ -334,7 +334,7 @@ EOF</userinput></screen>
   <filename>/etc/sysconfig/console</filename> filen for konfigurasjons
   informasjon. Bestem hvilket tastatur og skjermskrift som skal brukes. Diverse
   språkspesifikke HOWTOer kan også hjelpe med dette, se <ulink
-  url="http://www.tldp.org/HOWTO/HOWTO-INDEX/other-lang.html"/>. Hvis du fortsatt er i
+  url="https://tldp.org/HOWTO/HOWTO-INDEX/other-lang.html"/>. Hvis du fortsatt er i
   tvil, se i <filename class="directory">/usr/share/keymaps</filename>
   og <filename class="directory">/usr/share/consolefonts</filename> mappene
   for gyldige tastaturer og skjermfonter. Les <filename>loadkeys(1)</filename> og

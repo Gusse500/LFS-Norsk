@@ -283,7 +283,7 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
       <para>Denne tilnærmingen brukes av de fleste pakkebehandlere som finnes i
       kommersielle distribusjoner. Eksempler på pakkeforvaltere som følger dette
       tilnærmingen er RPM (som for øvrig kreves av <ulink
-      url="http://refspecs.linuxfoundation.org/lsb.shtml">Linux
+      url="https://refspecs.linuxfoundation.org/lsb.shtml">Linux
       Standard Base Specification</ulink>),pkg-utils, Debian's apt, og
       Gentoo's Portage system.  Et hint som beskriver hvordan du adopterer denne stilen av
       pakkehåndtering for LFS systemer ligger på <ulink
@@ -296,7 +296,7 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
       arkiv. Dette systemet håndterer med vilje ikke pakkeavhengigheter
       som mer komplekse pakkeforvaltere gjør. For detaljer om Slackware
       pakkebehandling, se <ulink
-      url="http://www.slackbook.org/html/package-management.html"/>.</para>
+      url="https://www.slackbook.org/html/package-management.html"/>.</para>
     </sect3>
 
     <sect3>

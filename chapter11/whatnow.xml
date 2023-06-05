@@ -27,7 +27,7 @@
        Siden et LFS system er kompilert fra kilden, er det opp til deg å holde det
        ajour med slike rapporter. Det er flere nettressurser som sporer
        slike rapporter, hvorav noen er vist nedenfor:</para>
-
+<!-- FIXME too outdated, need a full update -->
       <itemizedlist>
 
         <listitem>
@@ -85,7 +85,7 @@
       <para>Målet med Linux dokumentasjonsprosjektet (TLDP) er å
        samarbeide om alle problemene med Linux dokumentasjon. TLDP funksjonene
        en stor samling av HOWTOer, guider og man sider. Den ligger på
-      <ulink url="http://www.tldp.org/"/>.</para>
+      <ulink url="https://.tldp.org/"/>.</para>
     </listitem>
 
   </itemizedlist>
