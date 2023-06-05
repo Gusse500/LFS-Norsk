@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-mpfr" role="wrap">
+  <?dbhtml filename="mpfr.html"?>
+
+  <sect1info condition="script">
+    <productname>mpfr</productname>
+    <productnumber>&mpfr-version;</productnumber>
+    <address>&mpfr-url;</address>
+  </sect1info>
+
+  <title>MPFR-&mpfr-version;</title>
+
+  <indexterm zone="ch-system-mpfr">
+    <primary sortas="a-MPFR">MPFR</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>MPFR-pakken inneholder matematiske funksjoner med flere presisjoner.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&mpfr-fin-sbu;</seg>
+        <seg>&mpfr-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av MPFR</title>
+
+    <para>Forbered MPFR for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr        \
+            --disable-static     \
+            --enable-thread-safe \
+            --docdir=/usr/share/doc/mpfr-&mpfr-version;</userinput></screen>
+
+    <para>Kompiler pakken og generer HTML dokumentasjonen:</para>
+
+<screen><userinput remap="make">make
+make html</userinput></screen>
+
+    <important>
+      <para>Testpakken for MPFR i denne delen anses som kritisk.
+       Ikke hopp over den under noen omstendigheter.</para>
+    </important>
+
+    <para>Test resultatene og sørg for at alle tester består:</para>
+
+<screen><userinput remap="test">make check</userinput></screen>
+
+    <para>Installer pakken og dens dokumentasjon:</para>
+
+<screen><userinput remap="install">make install
+make install-html</userinput></screen>
+
+  </sect2>
+
+
+  <sect2 id="contents-mpfr" role="content">
+    <title>Innhold i MPFR</title>
+
+    <segmentedlist>
+      <segtitle>Installerte biblioteker</segtitle>
+      <segtitle>Installert mappe</segtitle>
+
+      <seglistitem>
+        <seg>libmpfr.so</seg>
+        <seg>/usr/share/doc/mpfr-&mpfr-version;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="libmpfr">
+        <term><filename class="libraryfile">libmpfr</filename></term>
+        <listitem>
+          <para>Inneholder matematiske funksjoner med flere presisjoner</para>
+          <indexterm zone="ch-system-mpfr libmpfr">
+            <primary sortas="c-libmpfr">libmpfr</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>

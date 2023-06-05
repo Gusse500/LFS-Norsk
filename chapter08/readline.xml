@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-readline" role="wrap">
+  <?dbhtml filename="readline.html"?>
+
+  <sect1info condition="script">
+    <productname>readline</productname>
+    <productnumber>&readline-version;</productnumber>
+    <address>&readline-url;</address>
+  </sect1info>
+
+  <title>Readline-&readline-version;</title>
+
+  <indexterm zone="ch-system-readline">
+    <primary sortas="a-Readline">Readline</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Readline pakken er et sett med biblioteker som tilbyr kommandolinje
+     redigerings- og historikkfunksjoner.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&readline-fin-sbu;</seg>
+        <seg>&readline-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Readline</title>
+
+    <para>Å installere Readline på nytt vil føre til at de gamle bibliotekene flyttes til
+    &lt;libraryname&gt;.old. Selv om dette normalt ikke er et problem, i noen tilfeller
+     kan det utløse en koblingsfeil i <command>ldconfig</command>. Dette kan være
+     unngås ved å utstede følgende to seds:</para>
+
+<screen><userinput remap="pre">sed -i '/MV.*old/d' Makefile.in
+sed -i '/{OLDSUFF}/c:' support/shlib-install</userinput></screen>
+
+    <para>Forbered Readline for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr    \
+            --disable-static \
+            --with-curses    \
+            --docdir=/usr/share/doc/readline-&readline-version;</userinput></screen>
+
+     <variablelist>
+      <title>Betydningen av konfigureringsalternativet:</title>
+
+      <varlistentry>
+        <term><parameter>--with-curses</parameter></term>
+        <listitem>
+          <para>Dette alternativet forteller Readline at det kan finne termcap
+bibliotekfunksjoner i curses biblioteket, i stedet for et separat
+termcap bibliotek. Det gjør det mulig å generere en korrekt
+	       <filename>readline.pc</filename> fil.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make SHLIB_LIBS="-lncursesw"</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av make alternativet:</title>
+
+      <varlistentry>
+        <term><parameter>SHLIB_LIBS="-lncursesw"</parameter></term>
+        <listitem>
+          <para>Dette alternativet tvinger Readline til å lenke mot
+          <filename class="libraryfile">libncursesw</filename> biblioteket.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Denne pakken kommer ikke med en testpakke.</para>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make SHLIB_LIBS="-lncursesw" install</userinput></screen>
+
+    <para>Hvis ønskelig, installer dokumentasjonen:</para>
+
+<screen><userinput remap="install">install -v -m644 doc/*.{ps,pdf,html,dvi} /usr/share/doc/readline-&readline-version;</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-readline" role="content">
+    <title>Innhold i Readline</title>
+
+    <segmentedlist>
+      <segtitle>Installerte biblioteker</segtitle>
+      <segtitle>Installerte mapper</segtitle>
+
+      <seglistitem>
+        <seg>libhistory.so og libreadline.so</seg>
+        <seg>/usr/include/readline og
+        /usr/share/doc/readline-&readline-version;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="libhistory">
+        <term><filename class="libraryfile">libhistory</filename></term>
+        <listitem>
+          <para>Gir et konsistent brukergrensesnitt for tilbakekalling av linjer
+           fra historien</para>
+          <indexterm zone="ch-system-readline libhistory">
+            <primary sortas="c-libhistory">libhistory</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libreadline">
+        <term><filename class="libraryfile">libreadline</filename></term>
+        <listitem>
+          <para>Gir et sett med kommandoer for å manipulere tekst som er skrevet inn i et
+           interaktiv økt av et program</para>
+          <indexterm zone="ch-system-readline libreadline">
+            <primary sortas="c-libreadline">libreadline</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>

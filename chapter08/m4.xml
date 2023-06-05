@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-m4" role="wrap">
+  <?dbhtml filename="m4.html"?>
+
+  <sect1info condition="script">
+    <productname>m4</productname>
+    <productnumber>&m4-version;</productnumber>
+    <address>&m4-url;</address>
+  </sect1info>
+
+  <title>M4-&m4-version;</title>
+
+  <indexterm zone="ch-system-m4">
+    <primary sortas="a-M4">M4</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>M4 pakken inneholder en makroprosessor.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&m4-fin-sbu;</seg>
+        <seg>&m4-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av M4</title>
+<!--
+    <para>Først gjør du noen rettelser som kreves av glibc-2.28 og senere:</para>
+
+<screen><userinput remap="pre">sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' lib/*.c
+echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h</userinput></screen>
+-->
+    <para>Forbered M4 for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>For å teste resultatene, utsted:</para>
+
+<screen><userinput remap="test">make check</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-m4" role="content">
+    <title>Innhold i M4</title>
+
+    <segmentedlist>
+      <segtitle>Installert program</segtitle>
+
+      <seglistitem>
+        <seg>m4</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="m4">
+         <!-- Ikke fjern den ekstra plassen, det forhindrer en FOP-advarsel. -->
+        <term><command>m4 </command></term>
+        <listitem>
+          <para>Kopierer de gitte filene mens de utvider makroene som de
+           inneholder. Disse makroene er enten innebygde eller brukerdefinerte og kan
+           ta et hvilket som helst antall argumenter. Foruten å utføre makroutvidelse,
+          <command>m4</command> har innebygde funksjoner for å inkludere navngitte
+           filer, kjører Unix kommandoer, utfører heltallsaritmetikk,
+           manipulere tekst, rekursjon osv. <command>m4</command> programmet
+           kan brukes enten som en grenseflate til en kompilator eller som en makroprosessor
+           på egen hånd</para>
+          <indexterm zone="ch-system-m4 m4">
+            <primary sortas="b-m4">m4</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>

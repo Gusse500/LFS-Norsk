@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-eudev" role="wrap" revision="sysv">
+  <?dbhtml filename="eudev.html"?>
+
+  <sect1info condition="script">
+    <productname>eudev</productname>
+    <productnumber>&eudev-version;</productnumber>
+    <address>&eudev-url;</address>
+  </sect1info>
+
+  <title>Eudev-&eudev-version;</title>
+
+  <indexterm zone="ch-system-eudev">
+    <primary sortas="a-Eudev">Eudev</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Eudev pakken inneholder programmer for dynamisk oppretting av
+     enhetsnoder.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&eudev-fin-sbu;</seg>
+        <seg>&eudev-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Eudev</title>
+<!--
+    <para>Først må du fikse et testskript:</para>
+
+<screen><userinput remap="pre">sed -r -i 's|/usr(/bin/test)|\1|' test/udev-test.pl</userinput></screen>
+-->
+<!--
+    <para>Deretter fjerner du en unødvendig linje som forårsaker en byggefeil:</para>
+
+<screen><userinput remap="pre">sed -i '/keyboard_lookup_key/d' src/udev/udev-builtin-keyboard.c</userinput></screen>
+-->
+
+    <para>Forbered Eudev for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr           \
+            --bindir=/usr/sbin      \
+            --sysconfdir=/etc       \
+            --enable-manpages       \
+            --disable-static</userinput></screen>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Opprett noen kataloger som er nødvendig for tester, men
+     vil også bli brukt som en del av installasjonen:</para>
+
+<screen><userinput remap="test">mkdir -pv /usr/lib/udev/rules.d
+mkdir -pv /etc/udev/rules.d</userinput></screen>
+
+    <para>For å teste resultatene, utsted:</para>
+
+<screen><userinput remap="test">make check</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+    <para>Installer noen tilpassede regler og støttefiler som er nyttige i et LFS
+     miljø:</para>
+
+<screen><userinput remap="install">tar -xvf ../&udev-lfs-version;.tar.xz
+make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="conf-eudev" role="configuration">
+    <title>Konfigurerer Eudev</title>
+
+    <indexterm zone="conf-eudev">
+      <primary sortas="a-Eudev">Eudev</primary>
+      <secondary>configuring</secondary>
+    </indexterm>
+
+    <indexterm zone="conf-eudev">
+      <primary sortas="e-/etc/udev/hwdb.bin">/etc/udev/hwdb.bin</primary>
+    </indexterm>
+
+    <para>Informasjon om maskinvareenheter vedlikeholdes i
+    <filename class="directory">/etc/udev/hwdb.d</filename> og
+    <filename class="directory">/usr/lib/udev/hwdb.d</filename> mappene.
+    <application>Eudev</application> trenger denne informasjonen for å bli kompilert
+     inn i en binær database <filename>/etc/udev/hwdb.bin</filename>. Opprett
+     oppstarts databasen:</para>
+
+<screen><userinput>udevadm hwdb --update</userinput></screen>
+
+    <para>Denne kommandoen må kjøres hver gang maskinvareinformasjonen blir
+     oppdatert.</para>
+
+  </sect2>
+
+  <sect2 id="contents-eudev" role="content">
+    <title>Innhold i Eudev</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installerte biblioteker</segtitle>
+      <segtitle>Installerte mapper</segtitle>
+
+      <seglistitem>
+        <seg><!-- Disse er i /usr/lib/udev og skal ikke bli kalt av brukeren:
+         accelerometer, ata_id, cdrom_id, collect, mtd_probe,
+         scsi_id, v4l_id,--> udevadm og udevd</seg>
+
+        <seg>libudev.so</seg>
+
+        <seg>/etc/udev, /usr/lib/udev, og /usr/share/doc/udev-&udev-lfs-version;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+      <varlistentry id="udevadm" revision="sysv">
+        <term><command>udevadm</command></term>
+        <listitem>
+          <para>Generisk administrasjonsverktøy for udev: kontrollerer udevd nissen (daemon),
+           gir informasjon fra Udev databasen, overvåker uevents, venter på at
+           uevents fullføres, tester Udev konfigurasjonen og trigger uevents
+           for en gitt enhet</para>
+          <indexterm zone="ch-system-eudev udevadm">
+            <primary sortas="b-udevadm">udevadm</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="udevd">
+        <term><command>udevd</command></term>
+        <listitem>
+          <para>En nisse som lytter etter uevents på netlink kontakten,
+           oppretter enheter og kjører de konfigurerte eksterne programmene i
+           svar på disse hendelsene</para>
+          <indexterm zone="ch-system-eudev udevd">
+            <primary sortas="b-udevd">udevd</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libudev">
+        <term><filename class="libraryfile">libudev</filename></term>
+        <listitem>
+          <para>Et bibliotekgrensesnitt for udev enhetsinformasjon</para>
+          <indexterm zone="ch-system-eudev libudev">
+            <primary sortas="c-libudev">libudev</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="etc-udev">
+        <term><filename class="directory">/etc/udev</filename></term>
+        <listitem>
+          <para>Inneholder Udev konfigurasjonsfiler,
+           enhetstillatelser og regler for å navngi enheter</para>
+          <indexterm zone="ch-system-eudev etc-udev">
+            <primary sortas="e-/etc/udev">/etc/udev</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>

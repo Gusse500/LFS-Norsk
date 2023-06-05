@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-gmp" role="wrap">
+  <?dbhtml filename="gmp.html"?>
+
+  <sect1info condition="script">
+    <productname>gmp</productname>
+    <productnumber>&gmp-version;</productnumber>
+    <address>&gmp-url;</address>
+  </sect1info>
+
+  <title>GMP-&gmp-version;</title>
+
+  <indexterm zone="ch-system-gmp">
+    <primary sortas="a-GMP">GMP</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>GMP pakken inneholder matematikkbiblioteker. Disse har nyttige funksjoner
+     for vilkårlig presisjonsaritmetikk.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&gmp-fin-sbu;</seg>
+        <seg>&gmp-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av GMP</title>
+
+    <note>
+      <para>Hvis du bygger for 32-bit x86, men du har en CPU som er
+       i stand til å kjøre 64-bits kode <emphasis>og</emphasis> du har spesifisert
+      <envar>CFLAGS</envar> i miljøet vil konfigureringsskriptet
+       forsøk å konfigurere for 64-biter og mislykkes.
+       Unngå dette ved å påkalle configure kommandoen nedenfor med
+<screen role="nodump"><userinput><parameter>ABI=32</parameter> ./configure ...</userinput></screen></para>
+    </note>
+
+    <note>
+      <para>Standardinnstillingene til GMP produserer biblioteker optimalisert for
+       vertsprosessoren. Hvis det er ønskelig med biblioteker egnet for prosessorer mindre
+       kapable enn vertens CPU, kan generiske biblioteker bli
+       opprettet ved å kjøre følgende:
+
+<screen role="nodump"><userinput>cp -v configfsf.guess config.guess
+cp -v configfsf.sub   config.sub</userinput></screen></para>
+    </note>
+
+    <para>Forbered GMP for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr    \
+            --enable-cxx     \
+            --disable-static \
+            --docdir=/usr/share/doc/gmp-&gmp-version;</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av de nye konfigureringsalternativene:</title>
+
+      <varlistentry>
+        <term><parameter>--enable-cxx</parameter></term>
+        <listitem>
+          <para>Denne parameteren aktiverer C++ støtte</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--docdir=/usr/share/doc/gmp-&gmp-version;</parameter></term>
+        <listitem>
+          <para>Denne variabelen spesifiserer riktig sted for
+           dokumentasjon.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Kompiler pakken og generer HTML dokumentasjonen:</para>
+
+<screen><userinput remap="make">make
+make html</userinput></screen>
+
+    <important>
+      <para>Testpakken for GMP i denne delen anses som kritisk.
+       Ikke hopp over det under noen omstendigheter.</para>
+    </important>
+
+    <para>Test resultatene:</para>
+
+<screen><userinput remap="test">make check 2>&amp;1 | tee gmp-check-log</userinput></screen>
+
+    <caution><para>Koden i gmp er svært optimalisert for prosessoren hvor
+     den er bygget. Noen ganger vil koden som oppdager prosessoren feilidentifisere
+     systemets evner og det vil være feil i testene eller andre
+     applikasjoner som bruker gmp bibliotekene med meldingen "Illegal
+    instruction". I dette tilfellet bør gmp rekonfigureres med alternativet
+     --build=x86_64-pc-linux-gnu og gjenoppbygges.</para></caution>
+
+    <para>Sørg for at alle 197 testene i testpakken besto.
+     Sjekk resultatene ved å gi følgende kommando:</para>
+
+<screen><userinput remap="test">awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log</userinput></screen>
+
+    <para>Installer pakken og dens dokumentasjon:</para>
+
+<screen><userinput remap="install">make install
+make install-html</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-gmp" role="content">
+    <title>Innhold i GMP</title>
+
+    <segmentedlist>
+      <segtitle>Installerte biblioteker</segtitle>
+      <segtitle>Installert mappe</segtitle>
+
+      <seglistitem>
+        <seg>libgmp.so og libgmpxx.so</seg>
+        <seg>/usr/share/doc/gmp-&gmp-version;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="libgmp">
+        <term><filename class="libraryfile">libgmp</filename></term>
+        <listitem>
+          <para>Inneholder matematiske presisjonsfunksjoner</para>
+          <indexterm zone="ch-system-gmp libgmp">
+            <primary sortas="c-libgmp">libgmp</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libgmpxx">
+        <term><filename class="libraryfile">libgmpxx</filename></term>
+        <listitem>
+          <para>Inneholder C++ matematiske presisjonsfunksjoner</para>
+          <indexterm zone="ch-system-gmp libgmpxx">
+            <primary sortas="c-libgmpxx">libgmpxx</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+  </sect2>
+
+</sect1>

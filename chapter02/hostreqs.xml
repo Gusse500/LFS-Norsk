@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-partitioning-hostreqs" xreflabel="Systemkrav for vert">
+  <?dbhtml filename="hostreqs.html"?>
+
+  <title>Systemkrav for vert</title>
+
+    <para>Vertssystemet ditt bør ha følgende programvare med
+     minimumsversjoner angitt. Dette burde ikke være et problem for de fleste
+     moderne Linux-distribusjoner. Vær også oppmerksom på at mange distribusjoner vil
+     plassere programvaredeklarasjoner i separate pakker, ofte i form av
+    <quote>&lt;package-name&gt;-devel</quote> eller
+    <quote>&lt;package-name&gt;-dev</quote>. Pass på å installere disse hvis
+     distribusjonen din gir dem.</para>
+
+   <para>Tidligere versjoner av de oppførte programvarepakkene kan fungere, men har
+    ikke blitt testet.</para>
+
+  <itemizedlist spacing="compact">
+
+    <listitem>
+      <para><emphasis role="strong">Bash-3.2</emphasis> (/bin/sh
+      bør være en symbolsk eller hard lenke til bash)</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="strong">Binutils-2.13.1</emphasis> (Versjoner
+       større enn &binutils-version; anbefales ikke ettersom de
+       ikke har blitt testet)</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="strong">Bison-2.7</emphasis> (/usr/bin/yacc
+      bør være en lenke til bison eller et lite skript som kjører bison)</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="strong">Coreutils-6.9</emphasis></para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="strong">Diffutils-2.8.1</emphasis></para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="strong">Findutils-4.2.31</emphasis></para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="strong">Gawk-4.0.1</emphasis> (/usr/bin/awk
+      bør være en link til gawk)</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="strong">GCC-4.8</emphasis> inkludert C++
+       kompilatoren, <command>g++</command> (Versjoner større enn &gcc-version; er ikke
+       anbefalt da de ikke er testet). C og C++ standard
+       biblioteker (med deklarasjoner) må også være tilstede slik at C++ kompilatoren kan
+       bygge vertsbaserte programmer</para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="strong">Grep-2.5.1a</emphasis></para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="strong">Gzip-1.3.12</emphasis></para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="strong">Linux Kernel-&min-kernel;</emphasis></para>
+
+      <para>Grunnen til kravet om kjerneversjon er at vi spesifiserer
+       den versjonen når du bygger <application>glibc</application> i
+      <xref linkend="chapter-cross-tools"/> og
+      <xref linkend="chapter-building-system"/>,
+      etter anbefaling fra utviklerne. Det kreves også av
+       udev.</para>
+
+      <para>Hvis vertskjernen er tidligere enn &min-kernel; du må erstatte
+       kjernen med en mer oppdatert versjon. Det er to måter
+       du kan gjøre dette på. Først, se om din Linux leverandør tilbyr en &min-kernel;
+      eller senere kjernepakke. I så fall kan det være lurt å installere den. Hvis din
+       leverandøren ikke tilbyr en akseptabel kjernepakke, eller du foretrekker å la være å
+       installer den, kan du kompilere en kjerne selv. Instruksjoner for å
+       kompilere kjernen og konfigurere oppstartslasteren (forutsatt at verten
+       bruker GRUB) er lokalisert i <xref linkend="chapter-bootable"/>.</para>
+
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="strong">M4-1.4.10</emphasis></para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="strong">Make-4.0</emphasis></para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="strong">Patch-2.5.4</emphasis></para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="strong">Perl-5.8.8</emphasis></para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="strong">Python-3.4</emphasis></para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="strong">Sed-4.1.5</emphasis></para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="strong">Tar-1.22</emphasis></para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="strong">Texinfo-4.7</emphasis></para>
+    </listitem>
+
+    <listitem>
+      <para><emphasis role="strong">Xz-5.0.0</emphasis></para>
+    </listitem>
+
+  </itemizedlist>
+
+  <important>
+    <para>Merk at symbollenkene nevnt ovenfor er nødvendige for å bygge et LFS
+     system ved å bruke instruksjonene i denne boken. Symlinker som
+     peker på annen programvare (som dash, mawk osv.) kan fungere, men er ikke
+     testet eller støttet av LFS-utviklingsteamet, og kan kreve enten
+     avvik fra instruksjonene eller tilleggsoppdateringer til noen
+     pakker.</para>
+  </important>
+
+  <!-- Use an empty sect2 element to prevent a pdf warning.  -->
+  <bridgehead renderas="sect2"
+              id="version-check"
+              xreflabel="Systemkrav for vert">
+  </bridgehead>
+  <!--<title> </title>-->
+
+  <para >For å se om vertssystemet ditt har alle de riktige versjonene, og
+   muligheten til å kompilere programmer, kjør følgende:</para>
+
+<screen role="nodump"><userinput>cat &gt; version-check.sh &lt;&lt; "EOF"
+<literal>#!/bin/bash
+# Simple script to list version numbers of critical development tools
+export LC_ALL=C
+bash --version | head -n1 | cut -d" " -f2-4
+MYSH=$(readlink -f /bin/sh)
+echo "/bin/sh -&gt; $MYSH"
+echo $MYSH | grep -q bash || echo "ERROR: /bin/sh does not point to bash"
+unset MYSH
+
+echo -n "Binutils: "; ld --version | head -n1 | cut -d" " -f3-
+bison --version | head -n1
+
+if [ -h /usr/bin/yacc ]; then
+  echo "/usr/bin/yacc -> `readlink -f /usr/bin/yacc`";
+elif [ -x /usr/bin/yacc ]; then
+  echo yacc is `/usr/bin/yacc --version | head -n1`
+else
+  echo "yacc not found"
+fi
+
+echo -n "Coreutils: "; chown --version | head -n1 | cut -d")" -f2
+diff --version | head -n1
+find --version | head -n1
+gawk --version | head -n1
+
+if [ -h /usr/bin/awk ]; then
+  echo "/usr/bin/awk -&gt; `readlink -f /usr/bin/awk`";
+elif [ -x /usr/bin/awk ]; then
+  echo awk is `/usr/bin/awk --version | head -n1`
+else
+  echo "awk not found"
+fi
+
+gcc --version | head -n1
+g++ --version | head -n1
+grep --version | head -n1
+gzip --version | head -n1
+cat /proc/version
+m4 --version | head -n1
+make --version | head -n1
+patch --version | head -n1
+echo Perl `perl -V:version`
+python3 --version
+sed --version | head -n1
+tar --version | head -n1
+makeinfo --version | head -n1  # texinfo version
+xz --version | head -n1
+
+echo 'int main(){}' &gt; dummy.c &amp;&amp; g++ -o dummy dummy.c
+if [ -x dummy ]
+  then echo "g++ compilation OK";
+  else echo "g++ compilation failed"; fi
+rm -f dummy.c dummy</literal>
+EOF
+
+bash version-check.sh</userinput></screen>
+<!--
+  <para>Sjekk også for konsistens i biblioteket:</para>
+
+<screen role="nodump"><userinput>cat &gt; library-check.sh &lt;&lt; "EOF"
+<literal>#!/bin/bash
+for lib in lib{gmp,mpfr,mpc}.la; do
+  echo $lib: $(if find /usr/lib* -name $lib|
+               grep -q $lib;then :;else echo not;fi) found
+done
+unset lib</literal>
+EOF
+
+bash library-check.sh</userinput></screen>
+
+<para>Alle filene som identifiseres av dette skriptet skal være tilstede
+eller alle fraværende, men ikke bare en eller to tilstede.</para>
+-->
+
+</sect1>

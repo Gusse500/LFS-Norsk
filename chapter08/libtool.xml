@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-libtool" role="wrap">
+  <?dbhtml filename="libtool.html"?>
+
+  <sect1info condition="script">
+    <productname>libtool</productname>
+    <productnumber>&libtool-version;</productnumber>
+    <address>&libtool-url;</address>
+  </sect1info>
+
+  <title>Libtool-&libtool-version;</title>
+
+  <indexterm zone="ch-system-libtool">
+    <primary sortas="a-Libtool">Libtool</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Libtool pakken inneholder GNU generiske bibliotekstøtteskript.
+     Det omslutter kompleksiteten ved å bruke delte biblioteker i en konsistent, overførbart
+     grensesnitt.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&libtool-fin-sbu;</seg>
+        <seg>&libtool-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Libtool</title>
+
+    <para>Forbered Libtool for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+<para>For å teste resultatene<!--(ca. 11.0 SBU)-->, utsted:</para>
+
+<screen><userinput remap="test">make check</userinput></screen>
+
+    <note><para>Testtiden for libtool kan reduseres betydelig på et
+     system med flere kjerner. For å gjøre dette, legg til
+    <command>TESTSUITEFLAGS=-j&lt;N&gt;</command> til linjen over. For
+     eksempel kan bruk av -j4 redusere testtiden med over 60
+     prosent.</para></note>
+
+    <para>Fem tester er kjent for å mislykkes i LFS byggemiljøet pga
+     en sirkulær avhengighet, men alle tester består hvis de sjekkes på nytt etter
+     at automake er installert.</para>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+    <!-- dev: - -disable-static works but causes additional test failures
+              so we manually remove the static library -->
+
+    <para>Fjern et ubrukelig statisk bibliotek:</para>
+
+<screen><userinput remap="install">rm -fv /usr/lib/libltdl.a</userinput></screen>
+
+  </sect2>
+
+
+  <sect2 id="contents-libtool" role="content">
+    <title>Innhold i Libtool</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installerte biblioteker</segtitle>
+      <segtitle>Installerte mapper</segtitle>
+
+      <seglistitem>
+        <seg>libtool og libtoolize</seg>
+        <seg>libltdl.so</seg>
+        <seg>/usr/include/libltdl og /usr/share/libtool</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="libtool">
+        <term><command>libtool</command></term>
+        <listitem>
+          <para>Tilbyr generaliserte støttetjenester for bibliotekbygging</para>
+          <indexterm zone="ch-system-libtool libtool">
+            <primary sortas="b-libtool">libtool</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libtoolize">
+        <term><command>libtoolize</command></term>
+        <listitem>
+          <para>Gir en standard måte å legge til <command>libtool</command>
+          støtte til en pakke</para>
+          <indexterm zone="ch-system-libtool libtoolize">
+            <primary sortas="b-libtoolize">libtoolize</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libltdl">
+        <term><filename class="libraryfile">libltdl</filename></term>
+        <listitem>
+          <para>Skjuler de forskjellige vanskelighetene med dlopening biblioteker</para>
+          <indexterm zone="ch-system-libtool libltdl">
+            <primary sortas="c-libltdl">libltdl</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>

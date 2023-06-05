@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-tools-cleanup">
+  <?dbhtml filename="cleanup.html"?>
+
+  <title>Opprydding og lagring av det midlertidige systemet</title>
+
+  <sect2>
+    <title>Opprydding</title>
+
+    <para>Fjern først den installerte dokumentasjonen for å forhindre dem
+     fra å havne i det endelige systemet, og å spare ca 35 MB:</para>
+
+<screen><userinput>rm -rf /usr/share/{info,man,doc}/*</userinput></screen>
+
+    <para>For det andre er .la filene til libtool bare nyttige når du kobler til statiske
+     biblioteker. De er unødvendige og potensielt skadelige ved bruk av dynamiske
+     delte biblioteker, spesielt når du bruker byggesystemer som ikke er autoverktøy.
+     Mens du fortsatt er i chroot, fjern disse filene nå:</para>
+
+<screen><userinput>find /usr/{lib,libexec} -name \*.la -delete</userinput></screen>
+
+    <para>
+      Den nåværende systemstørrelsen er nå omtrent 3 GB,
+       /tools mappen er ikke lenger nødvendig. Den bruker ca
+       1 GB diskplass. Slett den nå:
+    </para>
+
+<screen><userinput>rm -rf /tools</userinput></screen>
+  </sect2>
+
+  <sect2>
+    <title>Sikkerhetskopiering</title>
+
+    <para>
+      På dette tidspunktet er de essensielle programmene og bibliotekene opprettet
+       og ditt nåværende LFS system er i god stand. Systemet ditt kan nå bli
+       sikkerhetskopiert for senere gjenbruk. Ved fatale feil i de påfølgende
+       kapitler, viser det seg ofte at å fjerne alt og starte på nytt
+       (mer forsiktig) er det beste alternativet for å gjenopprette. Dessverre, alle
+       midlertidige filer vil også bli fjernet. For å unngå å bruke ekstra tid på
+       gjøre om noe som har blitt bygget vellykket, og lage en sikkerhetskopi av
+       det nåværende LFS systemet kan vise seg å være nyttig.
+    </para>
+
+    <note><para>
+      Alle de resterende trinnene i denne delen er valgfrie. Likevel,
+       så snart du begynner å installere pakker i <xref
+      linkend="chapter-building-system"/>, vil de midlertidige filene bli
+       overskrevet. Så det kan være lurt å ta en sikkerhetskopi av
+       systemet som beskrevet nedenfor.
+    </para></note>
+
+    <para>
+      Følgende trinn utføres fra utenfor chroot
+       miljøet. Det betyr at du må forlate chroot miljøet
+       før du fortsetter. Grunnen til det er å
+       få tilgang til filsystemplasseringer utenfor chroot
+       miljøet for å lagre/lese sikkerhetskopiarkivet som ikke skal
+       plasseres innenfor
+      <filename class="directory">$LFS</filename> hierarkiet for
+       sikkerhetsmessige årsaker.
+    </para>
+
+    <para>
+       Hvis du har bestemt deg for å ta en sikkerhetskopi, forlat chroot miljøet:
+    </para>
+
+<screen role="nodump"><userinput>exit</userinput></screen>
+
+    <important>
+      <para>
+        Alle de følgende instruksjonene utføres av
+        <systemitem class="username">root</systemitem> på vertssystemet ditt.
+         Vær ekstra forsiktig med kommandoene du skal kjøre ettersom feil
+         her kan du endre vertssystemet ditt. Vær oppmerksom på at
+         miljøvariabelen <envar>LFS</envar>
+        er satt for bruker <systemitem class="username">lfs</systemitem> som standard
+         er kanskje <emphasis>ikke</emphasis> satt for
+        <systemitem class="username">root</systemitem>.
+     </para>
+     <para>
+        Når kommandoer skal utføres av <systemitem class="username">root</systemitem>,
+        sørg for at du har satt <envar>LFS</envar>.
+     </para>
+     <para>
+        Dette har vært diskutert i <xref linkend='ch-partitioning-aboutlfs'/>.
+      </para>
+    </important>
+
+    <para>Før du lager en sikkerhetskopi, avmonter de virtuelle filsystemene:</para>
+
+<screen role="nodump"><userinput>umount $LFS/dev/pts
+umount $LFS/{sys,proc,run,dev}</userinput></screen>
+
+    <para>
+      Sørg for at du har minst 1 GB ledig diskplass (kildenes tarballer
+       vil bli inkludert i sikkerhetskopiarkivet) på filsystemet som inneholder
+       mappen der du oppretter sikkerhetskopiarkivet.
+    </para>
+
+    <para>
+      Merk at instruksjonene nedenfor spesifiserer hjemmemappen til vertenssystemets
+       bruker <systemitem class="username">root</systemitem> som
+       vanligvis finnes på rotfilsystemet.
+    </para>
+
+    <para>
+      Erstatt <envar>$HOME</envar> av en mappe etter eget valg hvis du
+       ikke ønsker å ha sikkerhetskopien lagret i <systemitem
+      class="username">root</systemitem> sin hjemmemappe.
+    </para>
+
+    <para>
+      Opprett sikkerhetskopiarkivet ved å kjøre følgende kommando:
+    </para>
+
+    <note>
+       <para>
+          Fordi sikkerhetskopieringsarkivet er komprimert, tar det relativt lang tid
+           lang tid (over 10 minutter) selv på et rimelig raskt system.
+       </para>
+    </note>
+
+<screen role="nodump"><userinput>cd $LFS
+tar -cJpf $HOME/lfs-temp-tools-&version;.tar.xz .</userinput></screen>
+
+    <note>
+      <para>
+        Hvis du fortsetter til kapittel 8, ikke glem å gå inn i chroot miljøet på
+         nytt som forklart i <quote>Viktig</quote> boksen under.
+      </para>
+    </note>
+
+  </sect2>
+
+  <sect2>
+    <title>Gjenopprett</title>
+
+    <para>
+      I tilfelle noen feil har blitt gjort og du må begynne på nytt, kan du
+       bruk denne sikkerhetskopien til å gjenopprette systemet og spare litt gjenopprettingstid.
+       Siden kildene ligger under
+      <filename class="directory">$LFS</filename>, er de inkludert i
+       sikkerhetskopieringsarkivet, slik at de ikke trenger å lastes ned igjen. Etter
+       å ha sjekket at <envar>$LFS</envar> er riktig innstilt,
+       gjenopprett sikkerhetskopien ved å utføre følgende kommandoer:
+    </para>
+
+<!-- Få følgende til å se annerledes ut slik at brukerne ikke blindt kjører
+      gjenoppretting når de ikke trenger det. -->
+
+    <warning><para>Følgende kommandoer er ekstremt farlige. Hvis
+     du kjører <command>rm -rf ./*</command> som root brukeren og du
+     ikke endret til $LFS-mappen eller <envar>LFS</envar>
+    miljøvariabelen ikke er satt for brukeren root, vil den ødelegge
+     hele vertssystemet ditt. DU ER ADVART.</para></warning>
+
+<screen role="nodump"><computeroutput>cd $LFS
+rm -rf ./*
+tar -xpf $HOME/lfs-temp-tools-&version;.tar.xz</computeroutput></screen>
+
+    <para>
+       Igjen, dobbeltsjekk at miljøet er riktig konfigurert
+        og fortsett å bygge resten av systemet.
+    </para>
+
+    <important>
+      <para>
+         Hvis du forlot chroot-miljøet for å lage en sikkerhetskopi eller starte byggingen på nytt
+          ved hjelp av en gjenoppretting, husk å sjekke at det virtuelle
+          filsystemer fortsatt er montert (<command>findmnt | grep
+         $LFS</command>).  Hvis de ikke er montert, monter dem på nytt nå som
+          beskrevet i <xref linkend='ch-tools-kernfs'/> og gå inn i chroot miljøet
+          igjen (se <xref linkend='ch-tools-chroot'/>) før du fortsetter.
+       </para>
+    </important>
+
+  </sect2>
+
+</sect1>

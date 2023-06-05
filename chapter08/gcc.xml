@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-gcc" role="wrap">
+  <?dbhtml filename="gcc.html"?>
+
+  <sect1info condition="script">
+    <productname>gcc</productname>
+    <productnumber>&gcc-version;</productnumber>
+    <address>&gcc-url;</address>
+  </sect1info>
+
+  <title>GCC-&gcc-version;</title>
+
+  <indexterm zone="ch-system-gcc">
+    <primary sortas="a-GCC">GCC</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>GCC pakken inneholder GNU kompilatorsamlingen, som inkluderer
+     C og C++ kompilatorene.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&gcc-fin-sbu;</seg>
+        <seg>&gcc-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av GCC</title>
+
+    <para>Først må du fikse et problem som forhindrer
+    <filename class="libraryfile">libasan.a</filename> å bygge denne pakken
+     med Glibc-2.34 eller nyere:</para>
+
+<screen><userinput remap="pre">sed -e '/static.*SIGSTKSZ/d' \
+    -e 's/return kAltStackSize/return SIGSTKSZ * 4/' \
+    -i libsanitizer/sanitizer_common/sanitizer_posix_libcdep.cpp</userinput></screen>
+
+    <para>Hvis du bygger på x86_64, endre standard katalognavn for 64-bit
+     bibliotekene til <quote>lib</quote>:</para>
+
+<screen><userinput remap="pre">case $(uname -m) in
+  x86_64)
+    sed -e '/m64=/s/lib64/lib/' \
+        -i.orig gcc/config/i386/t-linux64
+  ;;
+esac</userinput></screen>
+
+    <para>GCC dokumentasjonen anbefaler å bygge GCC i en dedikert byggemappe:</para>
+
+<screen><userinput remap="pre">mkdir -v build
+cd       build</userinput></screen>
+
+    <para>Forbered GCC for kompilering:</para>
+
+<screen><userinput remap="configure">../configure --prefix=/usr            \
+             LD=ld                    \
+             --enable-languages=c,c++ \
+             --disable-multilib       \
+             --disable-bootstrap      \
+             --with-system-zlib</userinput></screen>
+
+    <para>Merk at for andre programmeringsspråk er det noen forutsetninger som
+     ikke er tilgjengelig ennå. Se
+    <ulink url="&blfs-book;general/gcc.html">BLFS Bokens GCC side</ulink>
+    for instruksjoner om hvordan du bygger alle GCCs støttede språk.</para>
+
+    <variablelist>
+      <title>Betydningen av de nye konfigureringsparametrene:</title>
+
+      <varlistentry>
+        <term><parameter>LD=ld</parameter></term>
+        <listitem>
+          <para>Denne parameteren gjør at konfigureringsskriptet bruker ld installert
+           av binutils bygget tidligere i dette kapittelet, i stedet for
+           den kryssbygde versjonen som ellers ville blitt brukt.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--with-system-zlib</parameter></term>
+        <listitem>
+          <para>Denne bryteren forteller GCC å koble til den systeminstallerte kopien av
+           zlib biblioteket, i stedet for sin egen interne kopi.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <important>
+      <para>I denne delen vurderes testpakken for GCC å være
+       viktig, men det tar lang tid. Førstegangsbyggere
+       oppfordres til ikke å hoppe over dette. Tiden for å kjøre testene kan bli
+       redusert betydelig ved å legge til -jx i make kommandoen nedenfor
+       hvor x er antall kjerner på systemet ditt.</para>
+    </important>
+
+   <para>Et sett med tester i GCC testpakken er kjent for å bruke opp standard
+    stabel (stack), så øk stabelstørrelsen før du kjører testene:</para>
+
+<screen><userinput remap="test">ulimit -s 32768</userinput></screen>
+
+    <para>Test resultatene som en ikke-privilegert bruker, men ikke stopp ved feil:</para>
+
+<screen><userinput remap="test">chown -Rv tester .
+su tester -c "PATH=$PATH make -k check"</userinput></screen>
+
+    <para>For å motta et sammendrag av resultatene til testpakken, kjør:</para>
+
+<screen><userinput remap="test">../contrib/test_summary</userinput></screen>
+
+    <para>For bare sammendragene, kanaliser utdataene gjennom
+    <userinput>grep -A7 Summ</userinput>.</para>
+
+    <para>Resultatene kan sammenlignes med de som ligger på <ulink
+    url="&test-results;"/> og
+    <ulink url="https://gcc.gnu.org/ml/gcc-testresults/"/>.</para>
+
+    <!-- https://gcc.gnu.org/bugzilla/show_bug.cgi?id=101081 -->
+    <para>Åtte tester relatert til analyzer er kjent for å mislykkes.</para>
+
+    <!-- https://gcc.gnu.org/bugzilla/show_bug.cgi?id=101751 -->
+    <para>En test med navnet <filename>asan_test.C</filename> er kjent for
+     mislykkes.</para>
+
+    <!-- https://gcc.gnu.org/bugzilla/show_bug.cgi?id=100117 -->
+    <para>I libstdc++ en test med navnet <filename>49745.cc</filename> er
+     kjent for å mislykkes fordi deklarasjonsavhengighetene i glibc er
+     endret.</para>
+
+    <para>I libstdc++ er en numpunct test og seks tester relatert til get_time
+     kjent for å mislykkes. Dette er fordi lokalitetsdefinisjonene i glibc er
+     endret, men libstdc++ støtter for øyeblikket ikke disse endringene.</para>
+
+    <para>Noen få uventede feil kan ikke alltid unngås. GCC utviklerne
+     er vanligvis klar over disse problemene, men har ikke løst dem ennå.
+     Med mindre testresultatene er svært forskjellige fra de på URLen ovenfor,
+     er det trygt å fortsette.</para>
+
+    <!--note><para>
+      På noen kombinasjoner av kjernekonfigurasjon og AMD-prosessorer
+       kan det være mer enn 1100 feil i gcc.target/i386/mpx
+       tester (som er designet for å teste MPX-alternativet på siste
+       Intel-prosessorer). Disse kan trygt ignoreres på AMD
+       prosessorer. Disse testene vil også mislykkes på Intel-prosessorer hvis MPX-støtte
+       er ikke aktivert i kjernen selv om den er tilstede på prosessoren.
+    </para></note-->
+
+    <!-- PR 91085, vil bli fikset i GCC 12. -->
+    <para>Installer pakken og fjern en unødvendig mappe:</para>
+
+<screen><userinput remap="install">make install
+rm -rf /usr/lib/gcc/$(gcc -dumpmachine)/&gcc-version;/include-fixed/bits/</userinput></screen>
+
+    <para>GCC byggekatalogen eies av <systemitem class="username">
+    tester</systemitem> nå og eierskapet til den installerte deklarasjonsmappen
+     (og dens innhold) vil være feil. Endre eierskapet til
+    <systemitem class="username">root</systemitem> bruker og gruppe:</para>
+
+<screen><userinput remap="install">chown -v -R root:root \
+    /usr/lib/gcc/*linux-gnu/&gcc-version;/include{,-fixed}</userinput></screen>
+
+    <para>Lag en symbolkobling som kreves av <ulink
+    url="https://refspecs.linuxfoundation.org/FHS_3.0/fhs/ch03s09.html">FHS</ulink>
+    av "historiske" grunner.</para>
+
+<screen><userinput remap="install">ln -svr /usr/bin/cpp /usr/lib</userinput></screen>
+  <!-- allerede gjort tidligere
+    <para>Mange pakker bruker navnet <command>cc</command> å kalle C
+     kompilatoren. For å tilfredsstille disse pakkene, lag en symbolkobling:</para>
+
+<screen><userinput remap="install">ln -sv gcc /usr/bin/cc</userinput></screen>
+  -->
+    <para>Legg til en kompatibilitetssymbolkobling for å aktivere byggeprogrammer med
+     optimalisering av koblingstid (LTO):</para>
+
+<screen><userinput remap="install">ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/&gcc-version;/liblto_plugin.so \
+        /usr/lib/bfd-plugins/</userinput></screen>
+
+    <para>Nå som vår endelige verktøykjede er på plass, er det viktig å sikre
+     at kompilering og kobling vil fungere som forventet. Dette gjør vi ved å utføre
+     noen sunnhetssjekker:</para>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="adjusting.xml"
+    xpointer="xpointer(//*[@os='a'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="adjusting.xml"
+    xpointer="xpointer(//*[@os='b'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="adjusting.xml"
+    xpointer="xpointer(//*[@os='c'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="adjusting.xml"
+    xpointer="xpointer(//*[@os='d'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="adjusting.xml"
+    xpointer="xpointer(//*[@os='e'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="adjusting.xml"
+    xpointer="xpointer(//*[@os='f'])"/>
+
+<screen><computeroutput>/usr/lib/gcc/x86_64-pc-linux-gnu/&gcc-version;/../../../../lib/crt1.o succeeded
+/usr/lib/gcc/x86_64-pc-linux-gnu/&gcc-version;/../../../../lib/crti.o succeeded
+/usr/lib/gcc/x86_64-pc-linux-gnu/&gcc-version;/../../../../lib/crtn.o succeeded</computeroutput></screen>
+
+  <para>Avhengig av maskinarkitekturen din, kan ovenstående avvike litt.
+   Forskjellen vil være navnet på mappen
+   etter <filename class="directory">/usr/lib/gcc</filename>. Det viktige
+   å se etter her er det at <command>gcc</command> har funnet alle tre
+  <filename>crt*.o</filename> filene under
+  <filename class="directory">/usr/lib</filename> mappen.</para>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="adjusting.xml"
+    xpointer="xpointer(//*[@os='g'])"/>
+
+<screen><userinput>grep -B4 '^ /usr/include' dummy.log</userinput></screen>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="adjusting.xml"
+    xpointer="xpointer(//*[@os='h'])"/>
+
+<screen><computeroutput>#include &lt;...&gt; search starts here:
+ /usr/lib/gcc/x86_64-pc-linux-gnu/&gcc-version;/include
+ /usr/local/include
+ /usr/lib/gcc/x86_64-pc-linux-gnu/&gcc-version;/include-fixed
+ /usr/include</computeroutput></screen>
+
+   <para>Igjen, mappen oppkalt etter måltripletten kan være
+    annerledes enn de ovennevnte, avhengig av systemarkitekturen.</para>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="adjusting.xml"
+    xpointer="xpointer(//*[@os='i'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="adjusting.xml"
+    xpointer="xpointer(//*[@os='j'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="adjusting.xml"
+    xpointer="xpointer(//*[@os='k'])"/>
+
+<screen><computeroutput>SEARCH_DIR("/usr/x86_64-pc-linux-gnu/lib64")
+SEARCH_DIR("/usr/local/lib64")
+SEARCH_DIR("/lib64")
+SEARCH_DIR("/usr/lib64")
+SEARCH_DIR("/usr/x86_64-pc-linux-gnu/lib")
+SEARCH_DIR("/usr/local/lib")
+SEARCH_DIR("/lib")
+SEARCH_DIR("/usr/lib");</computeroutput></screen>
+
+   <para>Et 32-bits system kan se noen forskjellige kataloger. For eksempel her
+    er utdata fra en i686-maskin:</para>
+
+<screen><computeroutput>SEARCH_DIR("/usr/i686-pc-linux-gnu/lib32")
+SEARCH_DIR("/usr/local/lib32")
+SEARCH_DIR("/lib32")
+SEARCH_DIR("/usr/lib32")
+SEARCH_DIR("/usr/i686-pc-linux-gnu/lib")
+SEARCH_DIR("/usr/local/lib")
+SEARCH_DIR("/lib")
+SEARCH_DIR("/usr/lib");</computeroutput></screen>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="adjusting.xml"
+    xpointer="xpointer(//*[@os='l'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="adjusting.xml"
+    xpointer="xpointer(//*[@os='m'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="adjusting.xml"
+    xpointer="xpointer(//*[@os='n'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="adjusting.xml"
+    xpointer="xpointer(//*[@os='o'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="adjusting.xml"
+    xpointer="xpointer(//*[@os='p'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="adjusting.xml"
+    xpointer="xpointer(//*[@os='q'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="adjusting.xml"
+    xpointer="xpointer(//*[@os='r'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="adjusting.xml"
+    xpointer="xpointer(//*[@os='s'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="adjusting.xml"
+    xpointer="xpointer(//*[@os='t'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="adjusting.xml"
+    xpointer="xpointer(//*[@os='u'])"/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="adjusting.xml"
+    xpointer="xpointer(//*[@os='v'])"/>
+
+    <para>Til slutt flytter du en feilplassert fil:</para>
+
+<screen><userinput remap="install">mkdir -pv /usr/share/gdb/auto-load/usr/lib
+mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-gcc" role="content">
+    <title>Innhold i GCC</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installerte biblioteker</segtitle>
+      <segtitle>Installerte mapper</segtitle>
+
+      <seglistitem>
+        <seg>c++, cc (lenker til gcc), cpp, g++, gcc,
+        gcc-ar, gcc-nm, gcc-ranlib, gcov, gcov-dump, gcov-tool,
+        og lto-dump</seg>
+
+        <seg>libasan.{a,so}, libatomic.{a,so}, libcc1.so, libgcc.a, libgcc_eh.a,
+        libgcc_s.so, libgcov.a, libgomp.{a,so}, libitm.{a,so},
+        liblsan.{a,so}, liblto_plugin.so,
+        libquadmath.{a,so}, libssp.{a,so}, libssp_nonshared.a,
+        libstdc++.{a,so}, libstdc++fs.a, libsupc++.a, libtsan.{a,so},
+        og libubsan.{a,so}</seg>
+
+        <seg>/usr/include/c++, /usr/lib/gcc, /usr/libexec/gcc, og
+        /usr/share/gcc-&gcc-version;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="c">
+        <term><command>c++</command></term>
+        <listitem>
+          <para>C++ kompilatoren</para>
+          <indexterm zone="ch-system-gcc c">
+            <primary sortas="b-c++">c++</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="cc">
+        <term><command>cc</command></term>
+        <listitem>
+          <para>C kompilatoren</para>
+          <indexterm zone="ch-system-gcc cc">
+            <primary sortas="b-cc">cc</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="cpp">
+        <term><command>cpp</command></term>
+        <listitem>
+          <para>C-forprosessoren; den brukes av kompilatoren for å utvide
+           #include, #define og lignende utsagn i kildefilene</para>
+          <indexterm zone="ch-system-gcc cpp">
+            <primary sortas="b-cpp">cpp</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="g">
+        <term><command>g++</command></term>
+        <listitem>
+          <para>C++ kompilatoren</para>
+          <indexterm zone="ch-system-gcc g">
+            <primary sortas="b-g++">g++</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="gcc">
+        <term><command>gcc</command></term>
+        <listitem>
+          <para>C kompilatoren</para>
+          <indexterm zone="ch-system-gcc gcc">
+            <primary sortas="b-gcc">gcc</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="gcc-ar">
+        <term><command>gcc-ar</command></term>
+        <listitem>
+          <para>En innpakning rundt <command>ar</command> som legger til et
+           programtillegg til kommandolinjen. Dette programmet brukes kun
+           å legge til "koblingstidsoptimalisering (LTO)" og er ikke nyttig med
+           standard byggealternativer</para>
+          <indexterm zone="ch-system-gcc gcc-ar">
+            <primary sortas="b-gcc-ar">gc-ar</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="gcc-nm">
+        <term><command>gcc-nm</command></term>
+        <listitem>
+          <para>En innpakning rundt <command>nm</command> som legger til et
+           programtillegg til kommandolinjen. Dette programmet brukes kun
+           å legge til "koblingstidsoptimalisering (LTO" og er ikke nyttig med
+           standard byggealternativer</para>
+          <indexterm zone="ch-system-gcc gcc-nm">
+            <primary sortas="b-gcc-nm">gc-nm</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="gcc-ranlib">
+        <term><command>gcc-ranlib</command></term>
+        <listitem>
+          <para>En innpakning rundt <command>ranlib</command> som legger til et
+           programtillegg til kommandolinjen. Dette programmet brukes kun
+           å legge til "koblingstidsoptimalisering (LTO" og er ikke nyttig med
+           standard byggealternativer</para>
+          <indexterm zone="ch-system-gcc gcc-ranlib">
+            <primary sortas="b-gcc-ranlib">gc-ranlib</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="gcov">
+        <term><command>gcov</command></term>
+        <listitem>
+          <para>Et dekningstestverktøy; den brukes til å analysere programmer å
+           bestemme hvor optimaliseringer vil ha størst effekt</para>
+          <indexterm zone="ch-system-gcc gcov">
+            <primary sortas="b-gcov">gcov</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="gcov-dump">
+        <term><command>gcov-dump</command></term>
+        <listitem>
+          <para>Frakoblet gcda og gcno profildumpverktøy</para>
+          <indexterm zone="ch-system-gcc gcov-dump">
+            <primary sortas="b-gcov-dump">gcov-dump</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="gcov-tool">
+        <term><command>gcov-tool</command></term>
+        <listitem>
+          <para>Frakoblet gcda profilbehandlingsverktøy</para>
+          <indexterm zone="ch-system-gcc gcov-tool">
+            <primary sortas="b-gcov-tool">gcov-tool</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="lto-dump">
+        <term><command>lto-dump</command></term>
+        <listitem>
+          <para>Verktøy for dumping av objektfiler produsert av GCC med LTO
+           aktivert</para>
+          <indexterm zone="ch-system-gcc lto-dump">
+            <primary sortas="b-lto-dump">lto-dump</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libasan">
+        <term><filename class="libraryfile">libasan</filename></term>
+        <listitem>
+          <para>Kjøretidsbiblioteket for adresserensing</para>
+          <indexterm zone="ch-system-gcc libasan">
+            <primary sortas="b-libasan">libasan</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libatomic">
+        <term><filename class="libraryfile">libatomic</filename></term>
+        <listitem>
+          <para>GCC atomic innebygde kjøretidsbibliotek</para>
+          <indexterm zone="ch-system-gcc libatomic">
+            <primary sortas="b-libatomic">libatomic</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libcc1">
+        <term><filename class="libraryfile">libcc1</filename></term>
+        <listitem>
+          <para>C forbehandlingsbiblioteket</para>
+          <indexterm zone="ch-system-gcc libcc1">
+            <primary sortas="b-libcc1">libcc1</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libgcc">
+        <term><filename class="libraryfile">libgcc</filename></term>
+        <listitem>
+          <para>Inneholder kjøretidsstøtte for <command>gcc</command></para>
+          <indexterm zone="ch-system-gcc libgcc">
+            <primary sortas="c-libgcc">libgcc</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libgcov">
+        <term><filename class="libraryfile">libgcov</filename></term>
+        <listitem>
+          <para>Dette biblioteket er koblet inn i et program når GCC blir instruert
+           om å aktivere profilering</para>
+          <indexterm zone="ch-system-gcc libgcov">
+            <primary sortas="c-libgcov">libgcov</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libgomp">
+        <term><filename class="libraryfile">libgomp</filename></term>
+        <listitem>
+          <para>GNU implementering av OpenMP API for multiplattform
+           parallellprogrammering med delt minne i C/C++ og Fortran</para>
+          <indexterm zone="ch-system-gcc libgomp">
+            <primary sortas="c-libgomp">libgomp</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libitm">
+        <term><filename class="libraryfile">libitm</filename></term>
+        <listitem>
+          <para>GNU transaksjonsminnebiblioteket</para>
+          <indexterm zone="ch-system-gcc libitm">
+            <primary sortas="c-libitm">libitm</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="liblsan">
+        <term><filename class="libraryfile">liblsan</filename></term>
+        <listitem>
+          <para>Leak Sanitizer kjøretidsbibliotek</para>
+          <indexterm zone="ch-system-gcc liblsan">
+            <primary sortas="c-liblsan">liblsan</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="liblto_plugin">
+        <term><filename class="libraryfile">liblto_plugin</filename></term>
+        <listitem>
+          <para>GCC sitt LTO programtillegg som lar binutils behandle objektfiler
+           produsert av GCC med LTO aktivert</para>
+          <indexterm zone="ch-system-gcc liblto_plugin">
+            <primary sortas="c-liblto_plugin">liblto_plugin</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libquadmath">
+        <term><filename class="libraryfile">libquadmath</filename></term>
+        <listitem>
+          <para>GCC Quad Precision Math Library API</para>
+          <indexterm zone="ch-system-gcc libquadmath">
+            <primary sortas="c-libquadmath">libquadmath</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libssp">
+        <term><filename class="libraryfile">libssp</filename></term>
+        <listitem>
+          <para>Inneholder rutiner som støtter GCCs stabelknusende beskyttelses
+           funksjonalitet</para>
+          <indexterm zone="ch-system-gcc libssp">
+            <primary sortas="c-libssp">libssp</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libstdc">
+        <term><filename class="libraryfile">libstdc++</filename></term>
+        <listitem>
+          <para>Standard C++ biblioteket</para>
+          <indexterm zone="ch-system-gcc libstdc">
+            <primary sortas="c-libstdc++">libstdc++</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libstdcfs">
+        <term><filename class="libraryfile">libstdc++fs</filename></term>
+        <listitem>
+          <para>ISO/IEC TS 18822:2015 filsystembiblioteky</para>
+          <indexterm zone="ch-system-gcc libstdcfs">
+            <primary sortas="c-libstdc++fs">libstdc++fs</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libsupc">
+        <term><filename class="libraryfile">libsupc++</filename></term>
+        <listitem>
+          <para>Gir støttende rutiner for C++
+           programmeringsspråk</para>
+          <indexterm zone="ch-system-gcc libsupc">
+            <primary sortas="c-libsupc++">libsupc++</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libtsan">
+        <term><filename class="libraryfile">libtsan</filename></term>
+        <listitem>
+          <para>Thread Sanitizer kjøretidsbibliotek</para>
+          <indexterm zone="ch-system-gcc libtsan">
+            <primary sortas="c-libtsan">libtsan</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libubsan">
+        <term><filename class="libraryfile">libubsan</filename></term>
+        <listitem>
+          <para>Undefined Behavior Sanitizer kjøretidsbibliotek</para>
+          <indexterm zone="ch-system-gcc libubsan">
+            <primary sortas="c-libubsan">libubsan</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>

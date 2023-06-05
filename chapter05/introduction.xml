@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-tools-introduction">
+  <?dbhtml filename="introduction.html"?>
+
+  <title>Introduksjon</title>
+
+  <para>Dette kapittelet viser hvordan du bygger en krysskompilator og dens tilhørende
+   verktøy. Selv om krysskompilering her er forfalsket, er prinsippene det
+   det samme som for en ekte kryssverktøykjede.</para>
+
+  <para>Programmene som er kompilert i dette kapittelet vil bli installert under
+  <filename class="directory">$LFS/tools</filename> mappe for å beholde dem
+   atskilt fra filene som er installert i de følgende kapitlene. Bibliotekene,
+   på den annen side, er installert på sin endelige plass, siden de er knyttet
+   til systemet vi ønsker å bygge.</para>
+
+</sect1>

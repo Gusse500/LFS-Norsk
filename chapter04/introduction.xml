@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-preps-introduction">
+  <?dbhtml filename="introduction.html"?>
+
+  <title>Introduksjon</title>
+
+  <para>I dette kapittelet vil vi utføre noen tilleggsoppgaver for å forberede
+   byggingen av det midlertidige systemet. Vi vil lage et sett med mapper i
+  <filename class="directory">$LFS</filename> for installasjon av
+   midlertidige verktøy, legg til en uprivilegert bruker for å redusere risikoen,
+   og skape et passende byggemiljø for den brukeren. Det vil også bli
+   forklart tidsenheten vi bruker for å måle hvor lang tid LFS pakker tar
+   å bygge, som er <quote>SBU</quote>, og gi litt informasjon om pakkenes
+   testpakker.</para>
+
+</sect1>

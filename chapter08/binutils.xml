@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-binutils" role="wrap">
+  <?dbhtml filename="binutils.html"?>
+
+  <sect1info condition="script">
+    <productname>binutils</productname>
+    <productnumber>&binutils-version;</productnumber>
+    <address>&binutils-url;</address>
+  </sect1info>
+
+  <title>Binutils-&binutils-version;</title>
+
+  <indexterm zone="ch-system-binutils">
+    <primary sortas="a-Binutils">Binutils</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Binutils pakken inneholder en linker, en assembler og annet
+     verktøy for håndtering av objektfiler.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&binutils-fin-sbu;</seg>
+        <seg>&binutils-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Binutils</title>
+
+    <para>Kontroller at PTY-ene fungerer som de skal inne i chroot
+     miljøet ved å utføre en enkel test:</para>
+
+<screen><userinput remap="test">expect -c "spawn ls"</userinput></screen>
+
+    <para>Denne kommandoen skal gi følgende utdata:</para>
+
+<screen><computeroutput>spawn ls</computeroutput></screen>
+
+    <para>Hvis utdataene i stedet inkluderer meldingen nedenfor, er miljøet
+     ikke satt opp for riktig PTY drift. Dette problemet må løses før
+     testpakkene for Binutils og GCC kjøres:</para>
+
+<screen><computeroutput>The system has no more ptys.
+Ask your system administrator to create more.</computeroutput></screen>
+
+    <para>Upstream har laget en oppdatering for å fikse et problem ved bruk av binutils
+     for å bygge noen BLFS pakker med Optimalisering av koblingstid (Link Time Optimization) (LTO)
+     aktivert. Bruk det nå:</para>
+
+ <screen><userinput remap="pre">patch -Np1 -i ../&binutils-lto-patch;</userinput></screen>
+
+<!--
+    <para>En feil i byggesystemet fører til at de sendte man sidene
+     er tomme. Omgå problemet og fjern de sendte man sidene, slik at
+     man sider vil bli regenerert på riktig måte:</para>
+
+<screen><userinput remap="pre">sed -i '63d' etc/texi2pod.pl
+find -name \*.1 -delete</userinput></screen>
+-->
+
+    <para>
+      Lag nå en rettelse identifisert upstream som påvirker byggingen av noen pakker:
+     </para>
+
+<screen><userinput remap="pre">sed -e '/R_386_TLS_LE /i \   || (TYPE) == R_386_TLS_IE \\' \
+    -i ./bfd/elfxx-x86.h</userinput></screen>
+
+    <para>Binutils dokumentasjonen anbefaler å bygge Binutils
+     i en dedikert byggemappe:</para>
+
+<screen><userinput remap="pre">mkdir -v build
+cd       build</userinput></screen>
+
+    <para>Forbered Binutils for kompilering:</para>
+
+<screen><userinput remap="configure">../configure --prefix=/usr       \
+             --enable-gold       \
+             --enable-ld=default \
+             --enable-plugins    \
+             --enable-shared     \
+             --disable-werror    \
+             --enable-64-bit-bfd \
+             --with-system-zlib</userinput></screen>
+    <variablelist>
+      <title>Betydningen av konfigureringsparametrene:</title>
+
+      <varlistentry>
+        <term><parameter>--enable-gold</parameter></term>
+        <listitem>
+          <para>Bygg gold linken og installer den som ld.gold (ved siden av
+           standard linker).</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--enable-ld=default</parameter></term>
+        <listitem>
+          <para>Bygg den originale bfd linkeren og installer den som både ld (som er
+           standard linker) og ld.bfd.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--enable-plugins</parameter></term>
+        <listitem>
+          <para>Aktiverer støtte for programtillegg for linkeren.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--enable-64-bit-bfd</parameter></term>
+        <listitem>
+           <para>Aktiverer 64 bits støtte (på verter med smalere ordstørrelser).
+            Kanskje ikke nødvendig på 64 bits systemer, men skader ikke.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--with-system-zlib</parameter></term>
+        <listitem>
+          <para>Bruk det installerte zlib biblioteket i stedet for å bygge den
+           inkluderte versjonen.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make tooldir=/usr</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av make parameteren:</title>
+
+      <varlistentry>
+        <term><parameter>tooldir=/usr</parameter></term>
+        <listitem>
+          <para>Vanligvis er verktøykatalogen (mappen der de kjørbare filene vil
+           til slutt bli lokalisert i) satt til <filename
+          class="directory">$(exec_prefix)/$(target_alias)</filename>. For
+           eksempel, x86_64-maskiner vil utvide det til <filename
+          class="directory">/usr/x86_64-pc-linux-gnu</filename>. Fordi dette er
+           et tilpasset system, er denne målspesifikke katalogen i <filename
+          class="directory">/usr</filename> ikke påkrevd. <filename
+          class="directory">$(exec_prefix)/$(target_alias)</filename> ville vært
+           brukt hvis systemet ble brukt til å krysskompilere (for eksempel kompilering av en
+           pakke på en Intel maskin som genererer kode som kan kjøres
+           på PowerPC maskiner).</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <important>
+      <para>Testpakken for Binutils i denne delen anses som kritisk.
+       Ikke hopp over det under noen omstendigheter.</para>
+    </important>
+
+    <para>Test resultatene:</para>
+
+<screen><userinput remap="test">make -k check</userinput></screen>
+<!--
+    <para>Fire tester relatert til zlib er kjent for å mislykkes.</para>
+-->
+<!--
+    <para>Syv gold tester er kjent for å mislykkes med gcc-11.1.0</para>
+
+    <para>Fire ld tester navngitt <quote>Run property ...</quote> er kjent for
+     mislykkes.</para>
+ -->
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make tooldir=/usr install</userinput></screen>
+
+    <para>Fjern ubrukelige statiske biblioteker:</para>
+
+<screen><userinput remap="install">rm -fv /usr/lib/lib{bfd,ctf,ctf-nobfd,opcodes}.a</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-binutils" role="content">
+    <title>Innhold i Binutils</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installerte biblioteker</segtitle>
+      <segtitle>Installert mappe</segtitle>
+
+      <seglistitem>
+        <seg>addr2line, ar, as, c++filt, dwp, elfedit, gprof, ld, ld.bfd, ld.gold, nm,
+        objcopy, objdump, ranlib, readelf, size, strings, og strip</seg>
+        <seg>libbfd.so, libctf.so, libctf-nobfd.so, og libopcodes.so</seg>
+        <seg>/usr/lib/ldscripts</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="addr2line">
+        <term><command>addr2line</command></term>
+        <listitem>
+          <para>Oversetter programadresser til filnavn og linjenumre;
+           gitt en adresse og navnet på en kjørbar fil, bruker den feilsøkings
+           informasjonen i den kjørbare filen for å bestemme hvilken kildefil og linje
+           nummer som er knyttet til adressen</para>
+          <indexterm zone="ch-system-binutils addr2line">
+            <primary sortas="b-addr2line">addr2line</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="ar">
+        <term><command>ar</command></term>
+        <listitem>
+          <para>Oppretter, endrer og trekker ut fra arkiver</para>
+          <indexterm zone="ch-system-binutils ar">
+            <primary sortas="b-ar">ar</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="as">
+        <term><command>as</command></term>
+        <listitem>
+          <para>En assembler som setter sammen utdataene til <command>gcc</command>
+          inn i objektfiler</para>
+          <indexterm zone="ch-system-binutils as">
+            <primary sortas="b-as">as</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="c-filt">
+        <term><command>c++filt</command></term>
+        <listitem>
+          <para>Brukes av linkeren til å ikke ødelegge C++ og Java symboler og hindre
+           overbelastede funksjoner å krasje</para>
+          <indexterm zone="ch-system-binutils c-filt">
+            <primary sortas="b-c++filt">c++filt</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="dwp">
+        <term><command>dwp</command></term>
+        <listitem>
+          <para>DWARF pakkeverktøyet</para>
+          <indexterm zone="ch-system-binutils dwp">
+            <primary sortas="dwp">dwp</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="elfedit">
+        <term><command>elfedit</command></term>
+        <listitem>
+          <para>Oppdaterer ELF deklarasjonen til ELF filer</para>
+          <indexterm zone="ch-system-binutils elfedit">
+            <primary sortas="b-elfedit">elfedit</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="gprof">
+        <term><command>gprof</command></term>
+        <listitem>
+          <para>Viser profildata for kallgrafen</para>
+          <indexterm zone="ch-system-binutils gprof">
+            <primary sortas="b-gprof">gprof</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="ld">
+        <term><command>ld</command></term>
+        <listitem>
+          <para>En linker som kombinerer en rekke objekt og arkivfiler
+           inn i en enkelt fil, flytter dataene deres og rydder opp i
+           symbolreferanser</para>
+          <indexterm zone="ch-system-binutils ld">
+            <primary sortas="b-ld">ld</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="ld.gold">
+        <term><command>ld.gold</command></term>
+        <listitem>
+          <para>En nedskalert versjon av ld som bare støtter
+           objektfil formatet elf</para>
+          <indexterm zone="ch-system-binutils ld.gold">
+            <primary sortas="b-ld.gold">ld.gold</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="ld.bfd">
+        <term><command>ld.bfd</command></term>
+        <listitem>
+          <para>Hardlenke til <command>ld</command></para>
+          <indexterm zone="ch-system-binutils ld.bfd">
+            <primary sortas="b-ld.bfd">ld.bfd</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="nm">
+        <term><command>nm</command></term>
+        <listitem>
+          <para>Viser symbolene som forekommer i en gitt objektfil</para>
+          <indexterm zone="ch-system-binutils nm">
+            <primary sortas="b-nm">nm</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="objcopy">
+        <term><command>objcopy</command></term>
+        <listitem>
+          <para>Oversetter én type objektfil til en annen</para>
+          <indexterm zone="ch-system-binutils objcopy">
+            <primary sortas="b-objcopy">objcopy</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="objdump">
+        <term><command>objdump</command></term>
+        <listitem>
+          <para>Viser informasjon om den gitte objektfilen, med alternativer
+           kontrollerer den hvilken informasjonen som skal vises; informasjonen som
+           vises er nyttig for programmerere som jobber med kompileringens
+           verktøy</para>
+          <indexterm zone="ch-system-binutils objdump">
+            <primary sortas="b-objdump">objdump</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="ranlib">
+        <term><command>ranlib</command></term>
+        <listitem>
+          <para>Genererer en indeks over innholdet i et arkiv og lagrer det
+           i arkivet; indeksen viser alle symbolene som er definert av arkivmedlemmer
+           som er flyttbare objektfiler</para>
+          <indexterm zone="ch-system-binutils ranlib">
+            <primary sortas="b-ranlib">ranlib</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="readelf">
+        <term><command>readelf</command></term>
+        <listitem>
+          <para>Viser informasjon om binærfiler av ELF typen</para>
+          <indexterm zone="ch-system-binutils readelf">
+            <primary sortas="b-readelf">readelf</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="size">
+        <term><command>size</command></term>
+        <listitem>
+          <para>Viser seksjonsstørrelsene og totalstørrelsen for de gitte
+           objektfilene</para>
+          <indexterm zone="ch-system-binutils size">
+            <primary sortas="b-size">size</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="strings">
+        <term><command>strings</command></term>
+        <listitem>
+          <para>Utdata, for hver gitt fil, sekvensene av utskrivbare
+           tegn som er av minst den angitte lengden (som standard til
+           fire); for objektfiler skriver den som standard bare strengene fra
+           initialiserings- og lastingsseksjonene mens for andre typer filer, skanner den
+           hele filen</para>
+          <indexterm zone="ch-system-binutils strings">
+            <primary sortas="b-strings">strings</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="strip">
+        <term><command>strip</command></term>
+        <listitem>
+          <para>Kaster symboler fra objektfiler</para>
+          <indexterm zone="ch-system-binutils strip">
+            <primary sortas="b-strip">strip</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libbfd">
+        <term><filename class="libraryfile">libbfd</filename></term>
+        <listitem>
+          <para>Biblioteket med binære filbeskrivelser</para>
+          <indexterm zone="ch-system-binutils libbfd">
+            <primary sortas="c-libbfd">libbfd</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libctf">
+        <term><filename class="libraryfile">libctf</filename></term>
+        <listitem>
+          <para>Compat ANSI-C Type Format støttebibliotek for feilsøking</para>
+          <indexterm zone="ch-system-binutils libctf">
+            <primary sortas="c-libctf">libctf</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libctf-nobfd">
+        <term><filename class="libraryfile">libctf-nobfd</filename></term>
+        <listitem>
+          <para>En libctf variant som ikke bruker libbfd funksjonalitet</para>
+          <indexterm zone="ch-system-binutils libctf-nobfd">
+            <primary sortas="c-libctf-nobfd">libctf-nobfd</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libopcodes">
+        <term><filename class="libraryfile">libopcodes</filename></term>
+        <listitem>
+          <para>Et bibliotek for å håndtere opkoder&mdash; <quote>leselig
+           tekst</quote> versjoner av instruksjoner for prosessoren;
+           den brukes til å bygge verktøy som
+          <command>objdump</command></para>
+          <indexterm zone="ch-system-binutils libopcodes">
+            <primary sortas="c-libopcodes">libopcodes</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>

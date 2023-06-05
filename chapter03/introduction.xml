@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-materials-introduction">
+  <?dbhtml filename="introduction.html"?>
+
+  <title>Introduksjon</title>
+
+  <para>Dette kapittelet inneholder en liste over pakker som må lastes ned
+   for å bygge et grunnleggende Linux system. De oppførte versjonsnumrene tilsvarer
+   versjoner av programvaren som er kjent for å fungere, og denne boken er basert på
+   deres bruk. Vi anbefaler på det sterkeste å ikke bruke forskjellige versjoner fordi konstruksjonens
+   kommandoer for én versjon kanskje ikke fungerer med en annen versjon, med mindre
+   annen versjon er spesifisert av en LFS errata eller sikkerhetsrådgivning.
+   De nyeste pakkeversjonene kan også ha problemer som krever
+   løsninger. Disse løsningene vil bli utviklet og stabilisert i
+   utviklingsversjon av boken.</para>
+
+  <para>For noen pakker, utgivelsens tarball og (Git eller SVN)
+   øyeblikksbilde fra depotets tarball for denne utgivelsen kan publiseres med
+   lignende filnavn. En utgivelses tarball inneholder genererte filer (for
+   eksempel, <command>configure</command> skript generert av
+  <command>autoconf</command>), i tillegg til innholdet i
+   tilsvarende øyeblikksbilde av depot. Boken bruker utgivelses tarballer
+   når det er mulig. Bruke et øyeblikksbilde av depot i stedet for en utgivelses
+   tarball spesifisert av boken vil forårsake problemer.</para>
+
+  <para>Nedlastingsplasseringer er kanskje ikke alltid tilgjengelige. Hvis en nedlastings
+   plasseringen har endret seg siden denne boken ble publisert, Google (<ulink
+  url="http://www.google.com/"/>) gir en nyttig søkemotor for
+   de fleste pakkene. Hvis dette søket ikke lykkes, prøv en
+   alternativ måte å laste ned på <ulink
+  url="&lfs-root;lfs/mirrors.html#files"/>. </para>
+
+  <para>Nedlastede pakker og oppdateringer må oppbevares et sted
+   som er praktisk tilgjengelig gjennom hele bygget. En fungerende
+   mappe er også nødvendig for å pakke ut kildene og bygge dem.
+  <filename class="directory">$LFS/sources</filename> kan brukes både
+   som et sted å oppbevare tarballene og oppdateringene og som en arbeids
+   mappe. Ved å bruke denne mappen vil de nødvendige elementene være
+   plassert på LFS partisjonen og vil være tilgjengelig under alle stadier
+   av byggeprosessen.</para>
+
+  <para>For å opprette denne mappen, utfør følgende kommando, som bruker
+  <systemitem class="username">root</systemitem>, før du starter nedlastingens
+   økten:</para>
+
+<screen role="nodump"><userinput>mkdir -v $LFS/sources</userinput></screen>
+
+  <para>Gjør denne mappen skrivbar og låst (sticky). <quote>Låst</quote>
+  betyr at selv om flere brukere har skrivetillatelse på en
+   mappe, er det bare eieren av en fil som kan slette filen i en
+   låst mappe. Følgende kommando vil aktivere skrive og
+   låste moduser:</para>
+
+<screen role="nodump"><userinput>chmod -v a+wt $LFS/sources</userinput></screen>
+
+  <para>Det er flere måter å få tak i alle nødvendige pakker og oppdateringer
+   å bygge LFS:</para>
+
+  <itemizedlist>
+    <listitem>
+      <para>Filene kan lastes ned individuelt som beskrevet i
+       neste to avsnitt.</para>
+    </listitem>
+    <listitem>
+      <para>For stabile versjoner av boken, en tarball av alle nødvendige filer
+       kan lastes ned fra et av LFS filspeilene som er oppført på
+      <ulink url="https://www.linuxfromscratch.org/mirrors.html#files"/>.</para>
+    </listitem>
+    <listitem>
+      <para>Filene kan lastes ned ved hjelp av <command>wget</command> og
+       en wget-liste som beskrevet nedenfor.</para>
+    </listitem>
+  </itemizedlist>
+
+  <para>For å laste ned alle pakkene og oppdateringene ved å bruke
+  <ulink url="../wget-list">wget-liste</ulink> som inndata til
+  <command>wget</command> kommanden, bruk:</para>
+
+<screen role="nodump"><userinput>wget --input-file=wget-list --continue --directory-prefix=$LFS/sources</userinput></screen>
+
+  <note><para>
+    <filename>wget-list</filename> filen nevnt ovenfor henter alle
+     pakker for både sysV og systemd versjonene av LFS. Det er totalt
+     fem ekstra små pakker som ikke er nødvendig for den gjeldende boken.
+    <filename>md5sums</filename> filen nevnt nedenfor er spesifikk for
+     gjeldende bok.
+  </para></note>
+
+  <para>I tillegg, fra og med LFS-7.0, er det en egen fil,
+  <ulink url="../md5sums">md5sums</ulink>, som kan brukes til å bekrefte at alle
+   de riktige pakkene er tilgjengelige før du fortsetter. Legg inn denne filen i
+  <filename class="directory">$LFS/sources</filename> og kjør:</para>
+
+<screen role="nodump"><userinput>pushd $LFS/sources
+  md5sum -c md5sums
+popd</userinput></screen>
+
+  <para>Denne sjekken kan brukes etter å ha hentet de nødvendige filene med en av de
+   metodene oppført ovenfor.</para>
+
+</sect1>

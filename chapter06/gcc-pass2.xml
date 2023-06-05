@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-tools-gcc-pass2" role="wrap" xreflabel="gcc-pass2">
+  <?dbhtml filename="gcc-pass2.html"?>
+
+  <sect1info condition="script">
+    <productname>gcc-pass2</productname>
+    <productnumber>&gcc-version;</productnumber>
+    <address>&gcc-url;</address>
+  </sect1info>
+
+  <title>GCC-&gcc-version; - Pass 2</title>
+
+  <indexterm zone="ch-tools-gcc-pass2">
+    <primary sortas="a-GCC">GCC</primary>
+    <secondary>tools, pass 2</secondary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../chapter08/gcc.xml"
+    xpointer="xpointer(/sect1/sect2[1]/para[1])"/>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&gcc-tmpp2-sbu;</seg>
+        <seg>&gcc-tmpp2-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av GCC</title>
+
+    <para>Som i den første versjonen av GCC, er GMP-, MPFR- og MPC-pakkene
+     nødvendig. Pakk ut tarballene og flytt dem til den nødvendige mappen
+     :</para>
+
+<screen><userinput remap="pre">tar -xf ../mpfr-&mpfr-version;.tar.xz
+mv -v mpfr-&mpfr-version; mpfr
+tar -xf ../gmp-&gmp-version;.tar.xz
+mv -v gmp-&gmp-version; gmp
+tar -xf ../mpc-&mpc-version;.tar.gz
+mv -v mpc-&mpc-version; mpc</userinput></screen>
+
+    <para>Hvis du bygger på x86_64, endre standard mappenavn for 64-bit
+     bibliotekene til <quote>lib</quote>:</para>
+
+<screen><userinput remap="pre">case $(uname -m) in
+  x86_64)
+    sed -e '/m64=/s/lib64/lib/' -i.orig gcc/config/i386/t-linux64
+  ;;
+esac</userinput></screen>
+<!--
+    <para>Løs et problem med GCC-10.1 når du bygger med en kryss
+     kompilator:</para>
+
+<screen><userinput remap="pre">patch -Np1 -i ../&gcc-cross-patch;</userinput></screen>
+-->
+    <para>Opprett en egen byggemappe igjen:</para>
+
+<screen><userinput remap="pre">mkdir -v build
+cd       build</userinput></screen>
+
+    <para>Lag en symbolkobling som lar libgcc bygges med brukerstøtte
+     for posix tråder:</para>
+
+<screen><userinput remap="pre">mkdir -pv $LFS_TGT/libgcc
+ln -s ../../../libgcc/gthr-posix.h $LFS_TGT/libgcc/gthr-default.h</userinput></screen>
+
+    <para>Før du begynner å bygge GCC, husk å deaktivere alle miljø
+     variabler som overstyrer standard optimaliseringsflagg.</para>
+
+    <para>Forbered nå GCC for kompilering:</para>
+
+<screen><userinput remap="configure">../configure                                       \
+    --build=$(../config.guess)                     \
+    --host=$LFS_TGT                                \
+    --prefix=/usr                                  \
+    CC_FOR_TARGET=$LFS_TGT-gcc                     \
+    --with-build-sysroot=$LFS                      \
+    --enable-initfini-array                        \
+    --disable-nls                                  \
+    --disable-multilib                             \
+    --disable-decimal-float                        \
+    --disable-libatomic                            \
+    --disable-libgomp                              \
+    --disable-libquadmath                          \
+    --disable-libssp                               \
+    --disable-libvtv                               \
+    --disable-libstdcxx                            \
+    --enable-languages=c,c++</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av de nye konfigureringsalternativene:</title><!-- WIP -->
+
+      <varlistentry>
+        <term><parameter>-with-build-sysroot=$LFS</parameter></term>
+        <listitem>
+          <para>Normalt bruker <parameter>--host</parameter> å sørge for at
+           en krysskompilator brukes til å bygge GCC, og da vet dennne kompilatoren
+           at den må lete etter overskrifter og biblioteker i <filename
+          class="directory">$LFS</filename>. Men byggesystemet til GCC bruker
+           andre verktøy som ikke er klar over denne plasseringen. Denne bryteren
+           sørger for at de finner de nødvendige filene på <filename
+          class="directory">$LFS</filename>, og ikke på verten.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--enable-initfini-array</parameter></term>
+        <listitem>
+          <para>Dette alternativet aktiveres automatisk når du bygger en lokal
+           kompilator med en lokal kompilator på x86. Men her bygger vi med
+           en krysskompilator, så vi må eksplisitt angi dette alternativet.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make DESTDIR=$LFS install</userinput></screen>
+
+    <para>Som en siste finpuss kan du lage en symbolkobling. Mange programmer og skript
+     bruker <command>cc</command> i stedet for <command>gcc</command>, som
+     brukes til å holde programmer generiske og derfor brukbare på alle typer UNIX
+     systemer der GNU C-kompilatoren ikke alltid er installert. Kjøre
+    <command>cc</command> lar systemadministratoren bestemme
+     hvilken C-kompilator som skal installeres:</para>
+
+<screen><userinput remap="install">ln -sv gcc $LFS/usr/bin/cc</userinput></screen>
+
+  </sect2>
+
+  <sect2 role="content">
+    <title/>
+
+    <para>Detaljer om denne pakken finner du i
+    <xref linkend="contents-gcc" role="."/></para>
+
+  </sect2>
+
+</sect1>

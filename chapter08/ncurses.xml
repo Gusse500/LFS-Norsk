@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-ncurses" role="wrap">
+  <?dbhtml filename="ncurses.html"?>
+
+  <sect1info condition="script">
+    <productname>ncurses</productname>
+    <productnumber>&ncurses-version;</productnumber>
+    <address>&ncurses-url;</address>
+  </sect1info>
+
+  <title>Ncurses-&ncurses-version;</title>
+
+  <indexterm zone="ch-system-ncurses">
+    <primary sortas="a-Ncurses">Ncurses</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Ncurses pakken inneholder biblioteker for terminaluavhengig
+     håndtering av karakterskjermer.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&ncurses-fin-sbu;</seg>
+        <seg>&ncurses-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Ncurses</title>
+
+    <para>Forbered Ncurses for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr           \
+            --mandir=/usr/share/man \
+            --with-shared           \
+            --without-debug         \
+            --without-normal        \
+            --enable-pc-files       \
+            --enable-widec          \
+            --with-pkg-config-libdir=/usr/lib/pkgconfig</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av de nye konfigureringsalternativene:</title>
+
+      <varlistentry>
+        <term><parameter>--enable-widec</parameter></term>
+        <listitem>
+          <para>Denne bryteren gjør at biblioteker med store tegn (f.eks., <filename
+          class="libraryfile">libncursesw.so.&ncurses-version;</filename>)
+          bygges i stedet for vanlige (f.eks., <filename
+          class="libraryfile">libncurses.so.&ncurses-version;</filename>).
+          Disse brede tegnbibliotekene er brukbare i både multibyte og
+           tradisjonelle 8-biters lokaliteter, mens vanlige biblioteker fungerer som de skal
+           bare i 8-biters lokaliteter. Brede karakterer og normale biblioteker er
+           kildekompatibel, men ikke binærkompatibel.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--enable-pc-files</parameter></term>
+        <listitem>
+          <para>Denne bryteren genererer og installerer .pc-filer for pkg-config.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--without-normal</parameter></term>
+        <listitem>
+          <para>Denne bryteren deaktiverer bygging og installasjon av de fleste statiske biblioteker.
+          </para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Denne pakken har en testpakke, men den kan bare kjøres etter at
+     pakken er installert. Testene ligger i
+    <filename class="directory">test/</filename> mappen.  Se
+    <filename>README</filename> filen i den mappen for ytterligere detaljer.
+    </para>
+
+    <!-- To editors: crash of shell process was very rare but really
+         observed.  We can't simply remove /usr/lib/libncursesw.so.6.x like 
+         how we handle libmozjs-xx.so in BLFS because bash needs it, and
+         make will spawn new shell processes during "make install".  -->
+
+    <para>Installasjonen av denne pakken vil overskrive
+    <filename class="libraryfile">libncursesw.so.&ncurses-version;</filename>
+    .  Det kan krasje skallprosessen som bruker kode og data
+     fra bibliotekfilen. Installer pakken med
+    <literal>DESTDIR</literal>, og bytt ut bibliotekfilen riktig med
+    <command>install</command> kommandoen.  Et ubrukelig statisk arkiv som
+     ikke håndteres av <command>configure</command> er også fjernet:</para>
+
+<screen><userinput remap="install">make DESTDIR=$PWD/dest install
+install -vm755 dest/usr/lib/libncursesw.so.&ncurses-version; /usr/lib
+rm -v  dest/usr/lib/{libncursesw.so.&ncurses-version;,libncurses++w.a}
+cp -av dest/* /</userinput></screen>
+
+    <para>Mange applikasjoner forventer fortsatt at lenkeren skal kunne finne
+     Ncurses biblioteker med non-wide karakterer. Lur slike applikasjoner til å koble til
+     biblioteker med brede tegn ved hjelp av symbolkoblinger og lenkerskript:</para>
+
+<screen><userinput remap="install">for lib in ncurses form panel menu ; do
+    rm -vf                    /usr/lib/lib${lib}.so
+    echo "INPUT(-l${lib}w)" &gt; /usr/lib/lib${lib}.so
+    ln -sfv ${lib}w.pc        /usr/lib/pkgconfig/${lib}.pc
+done</userinput></screen>
+
+    <para>Til slutt, sørg for at gamle programmer som ser etter
+    <filename class="libraryfile">-lcurses</filename> ved byggetiden fortsatt er
+     byggbare:</para>
+
+<screen><userinput remap="install">rm -vf                     /usr/lib/libcursesw.so
+echo "INPUT(-lncursesw)" &gt; /usr/lib/libcursesw.so
+ln -sfv libncurses.so      /usr/lib/libcurses.so</userinput></screen>
+
+    <para>Hvis ønskelig, installer Ncurses dokumentasjonen:</para>
+
+<screen><userinput remap="install">mkdir -pv      /usr/share/doc/ncurses-&ncurses-version;
+cp -v -R doc/* /usr/share/doc/ncurses-&ncurses-version;</userinput></screen>
+
+    <note>
+
+      <para>Instruksjonene ovenfor oppretter ikke Ncurses med non-wide tegn
+       biblioteker siden ingen pakke installert ved kompilering fra kilder ville kobles
+       mot dem under kjøring. Imidlertid den eneste kjente bare binær
+       applikasjonen som kobler mot Ncurses-biblioteker med non-wide karakterer
+       krever versjon 5. Hvis du må ha slike biblioteker på grunn av noen bare binær
+       applikasjon eller for å være kompatibel med LSB, bygg pakken på nytt med
+       følgende kommandoer:</para>
+
+<screen role="nodump"><userinput>make distclean
+./configure --prefix=/usr    \
+            --with-shared    \
+            --without-normal \
+            --without-debug  \
+            --without-cxx-binding \
+            --with-abi-version=5
+make sources libs
+cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
+    </note>
+
+  </sect2>
+
+  <sect2 id="contents-ncurses" role="content">
+    <title>Innhold i Ncurses</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installerte biblioteker</segtitle>
+      <segtitle>Installerte mapper</segtitle>
+
+      <seglistitem>
+        <seg>
+           captoinfo (lenker til tic),
+           clear,
+           infocmp,
+           infotocap (lenker til tic),
+           ncursesw6-config,
+           reset (lenker til tset),
+           tabs,
+           tic,
+           toe,
+           tput, og
+           tset
+        </seg>
+        <seg>
+           libcursesw.so (symbollink og skript som lenker til libncursesw.so),
+           libformw.so,
+           libmenuw.so,
+           libncursesw.so,
+           libpanelw.so, og deres non-wide karakters motstykker uten "w"
+              i biblioteknavnene.</seg>
+        <seg>
+           /usr/share/tabset,
+           /usr/share/terminfo, og
+           /usr/share/doc/ncurses-&ncurses-version;
+        </seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="captoinfo">
+        <term><command>captoinfo</command></term>
+        <listitem>
+          <para>Konverterer en termcap beskrivelse til en terminfo beskrivelse</para>
+          <indexterm zone="ch-system-ncurses captoinfo">
+            <primary sortas="b-captoinfo">captoinfo</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="clear">
+        <term><command>clear</command></term>
+        <listitem>
+          <para>Tømmer skjermen hvis mulig</para>
+          <indexterm zone="ch-system-ncurses clear">
+            <primary sortas="b-clear">clear</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="infocmp">
+        <term><command>infocmp</command></term>
+        <listitem>
+          <para>Sammenligner eller skriver ut terminfo beskrivelser</para>
+          <indexterm zone="ch-system-ncurses infocmp">
+            <primary sortas="b-infocmp">infocmp</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="infotocap">
+        <term><command>infotocap</command></term>
+        <listitem>
+          <para>Konverterer en terminfo beskrivelse til en termcap beskrivelse</para>
+          <indexterm zone="ch-system-ncurses infotocap">
+            <primary sortas="b-infotocap">infotocap</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="ncursesw6-config">
+        <term><command>ncursesw6-config</command></term>
+        <listitem>
+          <para>Gir konfigurasjonsinformasjon for ncurses</para>
+          <indexterm zone="ch-system-ncurses ncursesw6-config">
+            <primary sortas="b-ncursesw6-config">ncursesw6-config</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="reset">
+        <term><command>reset</command></term>
+        <listitem>
+          <para>Reinitialiserer en terminal til standardverdiene</para>
+          <indexterm zone="ch-system-ncurses reset">
+            <primary sortas="b-reset">reset</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="tabs">
+        <term><command>tabs</command></term>
+        <listitem>
+          <para>Fjerner og setter tabulatorstopp på en terminal</para>
+          <indexterm zone="ch-system-ncurses tabs">
+            <primary sortas="b-tabs">tabs</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="tic">
+        <term><command>tic</command></term>
+        <listitem>
+          <para>Terminfo entry-description-kompilatoren som oversetter en
+           terminfo fil fra kildeformat til det binære formatet som trengs for
+           ncurses biblioteksrutiner [En terminfo fil inneholder informasjon om
+           egenskapene til en bestemt terminal.]</para>
+          <indexterm zone="ch-system-ncurses tic">
+            <primary sortas="b-tic">tic</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="toe">
+        <term><command>toe</command></term>
+        <listitem>
+          <para>Viser alle tilgjengelige terminaltyper, med primærnavn og
+           beskrivelse for hver</para>
+          <indexterm zone="ch-system-ncurses toe">
+            <primary sortas="b-toe">toe</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="tput">
+        <term><command>tput</command></term>
+        <listitem>
+          <para>Gjør verdiene til terminalavhengige funksjoner tilgjengelig for
+           skallet; den kan også brukes til å tilbakestille eller initialisere en terminal eller
+           rapporter det lange navnet</para>
+          <indexterm zone="ch-system-ncurses tput">
+            <primary sortas="b-tput">tput</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="tset">
+        <term><command>tset</command></term>
+        <listitem>
+          <para>Kan brukes til å initialisere terminaler</para>
+          <indexterm zone="ch-system-ncurses tset">
+            <primary sortas="b-tset">tset</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libcursesw">
+        <term><filename class="libraryfile">libcursesw</filename></term>
+        <listitem>
+          <para>En lenke til <filename>libncursesw</filename></para>
+          <indexterm zone="ch-system-ncurses libcursesw">
+            <primary sortas="c-libcursesw">libcursesw</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libncursesw">
+        <term><filename class="libraryfile">libncursesw</filename></term>
+        <listitem>
+          <para>Inneholder funksjoner for å vise tekst på mange komplekse måter på en
+           terminalskjerm; et godt eksempel på bruken av disse funksjonene er
+           menyen som vises under kjernens <command>make
+          menuconfig</command></para>
+          <indexterm zone="ch-system-ncurses libncursesw">
+            <primary sortas="c-libncursesw">libncursesw</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libformw">
+        <term><filename class="libraryfile">libformw</filename></term>
+        <listitem>
+          <para>Inneholder funksjoner for å implementere skjemaer</para>
+          <indexterm zone="ch-system-ncurses libformw">
+            <primary sortas="c-libformw">libformw</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libmenuw">
+        <term><filename class="libraryfile">libmenuw</filename></term>
+        <listitem>
+          <para>Inneholder funksjoner for å implementere menyer</para>
+          <indexterm zone="ch-system-ncurses libmenuw">
+            <primary sortas="c-libmenuw">libmenuw</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libpanelw">
+        <term><filename class="libraryfile">libpanelw</filename></term>
+        <listitem>
+          <para>Inneholder funksjoner for å implementere paneler</para>
+          <indexterm zone="ch-system-ncurses libpanelw">
+            <primary sortas="c-libpanelw">libpanelw</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>

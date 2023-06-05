@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-partitioning-aboutlfs">
+  <?dbhtml filename="aboutlfs.html"?>
+
+  <title>Stille inn $LFS variabelen</title>
+
+  <para>Gjennom hele denne boken, miljøvariabelen <envar>LFS</envar> vil
+   brukes flere ganger. Du bør sørge for at denne variabelen alltid er definert
+   gjennom hele LFS byggeprosessen. Det bør settes til navnet på
+   mappen hvor du skal bygge LFS systemet ditt - vi vil bruke
+  <filename class="directory">/mnt/lfs</filename> som et eksempel, men
+   mappevalg er opp til deg. Hvis du bygger LFS på en separat
+   partisjon, vil denne mappen være monteringspunktet for partisjonen.
+   Velg en mappeplassering og sett variabelen med
+   følgende kommando:</para>
+
+<screen role="nodump"><userinput>export LFS=<replaceable>/mnt/lfs</replaceable></userinput></screen>
+
+  <para>Å ha dette variabelsettet er fordelaktig ved at kommandoer som f.eks
+  <command>mkdir -v $LFS/tools</command> kan skrives bokstavelig. Skallet
+   vil automatisk erstatte <quote>$LFS</quote> med
+  <quote>/mnt/lfs</quote> (eller hva variabelen ble satt til) når den
+   behandler kommandolinjen.</para>
+
+  <caution>
+  <para>Ikke glem å sjekke at <envar>LFS</envar> er satt når
+   du forlater og går inn i det nåværende arbeidsmiljøet igjen (for eksempel når du gjør en
+  <command>su</command> til <systemitem class="username">root</systemitem> eller
+   en annen bruker). Sjekk at <envar>LFS</envar> variabelen er satt opp
+   skikkelig med:</para>
+
+<screen role="nodump"><userinput>echo $LFS</userinput></screen>
+
+  <para>Sørg for at utdataene viser banen til LFS systemets bygge
+   plassering, som er <filename class="directory">/mnt/lfs</filename> hvis
+   gitt eksempel ble fulgt. Hvis utdaten er feil, bruk kommandoen
+   gitt tidligere på denne siden for å sette <envar>$LFS</envar> til det riktige
+   mappenavnet.</para>
+  </caution>
+
+  <note><para>En måte å sikre at <envar>LFS</envar> variabelen alltid er
+   satt er å redigere <filename>.bash_profile</filename> fil i både din
+   personlig hjemmemappe og i  <filename>/root/.bash_profile</filename> og
+   skriv inn export kommandoen ovenfor.  I tillegg, skallet spesifisert i
+  <filename>/etc/passwd</filename> fil for alle brukere som trenger
+  <envar>LFS</envar> variabelen må være bash for å sikre at
+  <filename>/root/.bash_profile</filename> filen er innlemmet som en del av
+   påloggingsprosessen.</para>
+
+  <para>En annen vurdering er metoden som brukes for å logge på
+   vertssystemet. Hvis du logger på via en grafisk skjermbehandler,
+   brukerens <filename>.bash_profile</filename> brukes vanligvis ikke når
+   en virtuell terminal startes. I dette tilfellet legger du til export kommandoen til
+   filen <filename>.bashrc</filename> for brukeren og
+  <systemitem class="username">root</systemitem>.  I tillegg,
+   noen distribusjoner har instruksjoner om å ikke kjøre <filename>.bashrc</filename>
+  instruksjoner i en ikke interaktiv bash påkallelse. Sørg for å legge til
+   export kommandoen før testen for ikke interaktiv bruk.</para>
+
+  </note>
+
+</sect1>

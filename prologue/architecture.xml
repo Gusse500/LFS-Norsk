@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="pre-architecture">
+  <?dbhtml filename="architecture.html"?>
+
+  <title>LFS målarkitekturer</title>
+
+<para>Det primære målarkitekturene til LFS er AMD/Intel x86 (32-bit)
+og x86_64 (64-bit) CPUer. På den annen side er instruksjonene i denne boken
+også kjent for å fungere, med noen modifikasjoner, med Power PC og ARM CPUer. Hovedforutsetningen for å
+bygge et system som bruker en av disse CPUene, i
+i tillegg til de på neste side, er et eksisterende Linux-system som f.eks
+tidligere LFS installasjon, Ubuntu, Red Hat/Fedora, SuSE eller annen distribusjon
+som retter seg mot arkitekturen du har. Vær også oppmerksom på at en 32-bit
+distribusjon kan installeres og brukes som et vertssystem på en 64-bit AMD/Intel
+datamaskin.</para>
+
+<para>For å bygge LFS, gevinsten ved å bygge på et 64-bitssystem
+sammenlignet med et 32-bits system er minimal.
+For eksempel, i en testbygging av LFS-9.1 på et Core i7-4790 CPU-basert system,
+ved bruk av 4 kjerner ble følgende statistikk målt:</para>
+
+<screen><computeroutput>Arkitektur Byggetid     Byggestørrelse
+32-bit       239.9 minutes  3.6 GB
+64-bit       233.2 minutes  4.4 GB</computeroutput></screen>
+
+<para>Som du kan se, på den samme maskinvaren, er 64-bits bygg bare 3% raskere
+og er 22 % større enn 32-bits bygg. Hvis du planlegger å bruke LFS som en LAMP
+server, eller en brannmur, kan en 32-bits CPU stort sett være tilstrekkelig. På den andre
+siden, trenger flere pakker i BLFS nå mer enn 4 GB RAM for å bygges
+og/eller å kjøre, slik at hvis du planlegger å bruke LFS som skrivebord, så anbefaler LFS-forfatterne
+å bygge på et 64-bitssystem.</para>
+
+<para>Standard 64-bits bygg som et resultat av LFS regnes som et
+<quote>rent</quote> 64-bits system. Det vil si at den bare støtter 64-biters kjørbare filer
+. Å bygge et <quote>flerarkitekturs</quote> system krever kompilering av mange
+applikasjoner to ganger, én gang for et 32-bitssystem og én gang for et 64-bitssystem.
+Dette støttes ikke direkte i LFS fordi det ville forstyrre
+pedagogisk mål om å gi instruksjonene som trengs for et
+enkelt grunnleggende Linux-system. Noen LFS/BLFS-redaktører opprettholder en forgrening
+av LFS for flerarkitektur, som er tilgjengelig på <ulink
+url="https://www.linuxfromscratch.org/~thomas/multilib/index.html"/>. Men det
+er et avansert tema.</para>
+
+</sect1>

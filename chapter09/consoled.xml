@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-config-console" revision="systemd">
+  <?dbhtml filename="console.html"?>
+
+  <title>Konfigurering av Linux konsollen</title>
+
+  <indexterm zone="ch-config-console">
+    <primary sortas="d-console">console</primary>
+    <secondary>configuring</secondary>
+  </indexterm>
+
+  <para>Denne delen diskuterer hvordan du konfigurerer
+  <command>systemd-vconsole-setup</command> systemtjeneste, som konfigurerer
+   den virtuelle konsollens font og konsolltastaturet.</para>
+
+  <para><command>systemd-vconsole-setup</command> tjenesten leser
+  <filename>/etc/vconsole.conf</filename> filen for konfigurasjons
+   informasjon. Bestemmer hvilket tastatur og skjermskrift som skal brukes. Diverse
+   språkspesifikke HOWTOer kan også hjelpe med dette, se <ulink
+  url="http://www.tldp.org/HOWTO/HOWTO-INDEX/other-lang.html"/>.
+  Undersøk utdataen av <command>localectl list-keymaps</command> for en liste over
+   gyldige konsolltastaturer. Se i
+  <filename class="directory">/usr/share/consolefonts</filename>
+  mappen for gyldige skjermfonter.</para>
+
+  <para><filename>/etc/vconsole.conf</filename> filen skal inneholde linjer
+   av formen: VARIABLE="verdi". Følgende variabler gjenkjennes:</para>
+
+  <variablelist>
+
+    <varlistentry>
+      <term>KEYMAP</term>
+      <listitem>
+        <para>Denne variabelen spesifiserer nøkkeltilordningstabellen for tastaturet. Hvis
+         deaktivert, er standard <literal>us</literal>.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>KEYMAP_TOGGLE</term>
+      <listitem>
+        <para>Denne variabelen kan brukes til å konfigurere et andre veksletastatur og
+         er deaktivert som standard.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>FONT</term>
+      <listitem>
+        <para>Denne variabelen spesifiserer fonten som brukes av den virtuelle
+         konsollen.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>FONT_MAP</term>
+      <listitem>
+        <para>Denne variabelen spesifiserer konsollkartet som skal brukes.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>FONT_UNIMAP</term>
+      <listitem>
+        <para>Denne variabelen spesifiserer Unicode fontkartet.</para>
+      </listitem>
+    </varlistentry>
+
+  </variablelist>
+
+  <para>Et eksempel for et tysk tastatur og konsoll er gitt nedenfor:</para>
+<!-- Dette er det som brukes av jhalfs for å lage filen vconsole.conf.
+      Når du ønsker å endre følgende, vennligst informer jhalfs
+      vedlikeholder(e). -->
+<screen><userinput>cat &gt; /etc/vconsole.conf &lt;&lt; "EOF"
+<literal>KEYMAP=de-latin1
+FONT=Lat2-Terminus16</literal>
+EOF</userinput></screen>
+
+  <para>Du kan endre KEYMAP verdi under kjøring ved å bruke
+  <command>localectl</command> verktøyet:</para>
+
+<screen role="nodump"><userinput>localectl set-keymap MAP</userinput></screen>
+
+  <note><para>Vær oppmerksom på at <command>localectl</command> kommandoen
+   ikke fungerer i chroot miljøet. Det kan bare
+   brukes etter at LFS systemet er startet opp med systemd.</para></note>
+
+  <para>Du kan også bruke <command>localectl</command> verktøyet med
+   tilsvarende parametere for å endre X11 tastaturoppsett, modell, variant
+   og alternativer:</para>
+
+<screen role="nodump"><userinput>localectl set-x11-keymap LAYOUT [MODEL] [VARIANT] [OPTIONS]</userinput></screen>
+
+  <para>For å liste opp mulige verdier for <command>localectl set-x11-keymap</command>
+  parametere, kjør <command>localectl</command> med parametere oppført nedenfor:
+  </para>
+
+  <variablelist>
+
+    <varlistentry>
+      <term>list-x11-keymap-models</term>
+      <listitem>
+        <para>Viser kjente X11 tastaturkartleggingsmodeller.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>list-x11-keymap-layouts</term>
+      <listitem>
+        <para>Viser kjente X11 tastaturkartleggingsoppsett.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>list-x11-keymap-variants</term>
+      <listitem>
+        <para>Viser kjente X11 tastaturkartvarianter.</para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>list-x11-keymap-options</term>
+      <listitem>
+        <para>Viser kjente X11 tastaturtilordningsalternativer.</para>
+      </listitem>
+    </varlistentry>
+
+  </variablelist>
+
+  <note><para>Bruk av noen av parameterne oppført ovenfor krever
+   XKeyboard-Config pakken fra BLFS.</para></note>
+
+</sect1>

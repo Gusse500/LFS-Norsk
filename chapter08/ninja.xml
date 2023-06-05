@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-ninja" role="wrap">
+  <?dbhtml filename="ninja.html"?>
+
+  <sect1info condition="script">
+    <productname>ninja</productname>
+    <productnumber>&ninja-version;</productnumber>
+    <address>&ninja-url;</address>
+  </sect1info>
+
+  <title>Ninja-&ninja-version;</title>
+
+  <indexterm zone="ch-system-ninja">
+    <primary sortas="a-Ninja">Ninja</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Ninja er et lite byggesystem med fokus på hastighet.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&ninja-fin-sbu;</seg>
+        <seg>&ninja-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <tip revision="sysv">
+      <para>Denne delen er ikke strengt nødvendig for LFS hvis den ikke brukes
+       systemd. På den annen side, ninja knyttet til meson gir
+       et kraftig byggesystemkombinasjon,
+       som forventes å bli brukt stadig oftere. Det kreves for
+       flere pakker i <ulink url="&blfs-book;">BLFS
+      boken</ulink>.</para>
+    </tip>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Ninja</title>
+
+    <para>Når den kjøres, kjører ninja normalt et maksimalt antall prosesser
+     parallelt. Som standard er dette antall kjerner på systemet
+     pluss to. I noen tilfeller kan dette overopphete en CPU eller kjøre et system
+     ut av minne. Hvis du kjører fra kommandolinjen, sender du en -jN-parameter
+     vil det begrense antall parallelle prosesser, men noen pakker
+     bygger inn utførelsen av ninja og sender ikke en -j parameter.</para>
+
+    <para>Ved å bruke <emphasis>optional</emphasis> prosedyren nedenfor lar en bruker
+     begrense antall parallelle prosesser via en miljøvariabel,
+    NINJAJOBS.  <emphasis role="bold">For eksempel</emphasis>, å sette:
+
+    <screen>export NINJAJOBS=4</screen>
+
+    vil begrense ninja til fire parallelle prosesser.</para>
+
+    <para>Hvis ønskelig, legg til muligheten til å bruke miljøvariabelen
+     NINJAJOBS ved å kjøre:</para>
+
+<screen><userinput remap="pre">sed -i '/int Guess/a \
+  int   j = 0;\
+  char* jobs = getenv( "NINJAJOBS" );\
+  if ( jobs != NULL ) j = atoi( jobs );\
+  if ( j > 0 ) return j;\
+' src/ninja.cc</userinput></screen>
+
+    <para>Bygg Ninja med:</para>
+
+<screen><userinput remap="configure">python3 configure.py --bootstrap</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av byggealternativet:</title>
+
+      <varlistentry>
+        <term><parameter>--bootstrap</parameter></term>
+        <listitem>
+          <para>Denne parameteren tvinger ninja til å gjenoppbygge seg selv for gjeldene
+           system.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>For å teste resultatene, utsted:</para>
+
+<screen><userinput remap="test">./ninja ninja_test
+./ninja_test --gtest_filter=-SubprocessTest.SetWithLots</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">install -vm755 ninja /usr/bin/
+install -vDm644 misc/bash-completion /usr/share/bash-completion/completions/ninja
+install -vDm644 misc/zsh-completion  /usr/share/zsh/site-functions/_ninja</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-ninja" role="content">
+    <title>Innhold av Ninjainja</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+
+      <seglistitem>
+        <seg>ninja</seg>
+      </seglistitem>
+    </segmentedlist>
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="ninja">
+        <term><command>ninja</command></term>
+        <listitem>
+          <para>er Ninja byggesystemet</para>
+          <indexterm zone="ch-system-ninja ninja">
+            <primary sortas="b-ninja">ninja</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>
+

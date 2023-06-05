@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-sysvinit" role="wrap" revision="sysv">
+  <?dbhtml filename="sysvinit.html"?>
+
+  <sect1info condition="script">
+    <productname>sysvinit</productname>
+    <productnumber>&sysvinit-version;</productnumber>
+    <address>&sysvinit-url;</address>
+  </sect1info>
+
+  <title>Sysvinit-&sysvinit-version;</title>
+
+  <indexterm zone="ch-system-sysvinit">
+    <primary sortas="a-Sysvinit">Sysvinit</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Sysvinit pakken inneholder programmer for å kontrollere oppstarten,
+     kjøring og avslutning av systemet.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&sysvinit-fin-sbu;</seg>
+        <seg>&sysvinit-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Sysvinit</title>
+
+<!--
+    <para>Når kjørenivåer endres (for eksempel når du stopper
+     systemet), <command>init</command> sender avslutningssignaler til de
+     prosessene som <command>init</command> selv startet og det burde
+     ikke kjøre i det nye kjørenivået. Mens du gjør dette,
+    <command>init</command> sender ut meldinger som <quote>Sending processes
+    the TERM signal</quote> som ser ut til å antyde at den sender disse
+     signaler til alle prosesser som kjører. For å unngå dette
+     feiltolkning, endre kilden slik at disse meldingene leses som
+    <quote>Sending processes configured via /etc/inittab the TERM signal</quote>
+    istedet:</para>
+
+<screen><userinput remap="pre">sed -i 's@Sending processes@&amp; configured via /etc/inittab@g' src/init.c</userinput></screen>
+
+    <para>Opprettholdte versjoner av <command>wall</command>,
+    <command>mountpoint</command>, <command>last</command>,
+    <command>mesg</command>, <command>sulogin</command>, og
+    <command>utmpdump</command> programmer ble installert tidligere av Util-linux.
+     Undertrykk installasjonen av Sysvinits versjoner av disse programmene og
+     man sidene deres:</para>
+
+<screen><userinput remap="make">sed -ri -e '/utmpdump/d'   \
+        -e '/mountpoint/d' \
+        -e '/mesg/d'       \
+        -e 's/= sulogin(\.8)?/=/' src/Makefile</userinput></screen>
+-->
+    <para>Først bruker du en oppdatering som fjerner flere programmer installert av andre
+     pakker, klargjør en melding og fikser en kompilatoradvarsel:</para>
+
+<screen><userinput remap="pre">patch -Np1 -i ../&sysvinit-consolidated-patch;</userinput></screen>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Denne pakken kommer ikke med en testpakke.</para>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-sysvinit" role="content">
+    <title>Innhold i Sysvinit</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+
+      <seglistitem>
+        <seg>bootlogd, fstab-decode, halt, init, killall5,
+        poweroff (lenke til halt), reboot (lenke til halt), runlevel,
+        shutdown, og telinit (lenke til init)</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="bootlogd">
+        <term><command>bootlogd</command></term>
+        <listitem>
+          <para>Logger oppstartsmeldinger til en loggfil</para>
+          <indexterm zone="ch-system-sysvinit bootlogd">
+            <primary sortas="b-bootlogd">bootlogd</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="fstab-decode">
+        <term><command>fstab-decode</command></term>
+        <listitem>
+          <para>Kjører en kommando med fstab kodede argumenter</para>
+          <indexterm zone="ch-system-sysvinit fstab-decode">
+            <primary sortas="b-fstab-decode">fstab-decode</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="halt-sysv">
+        <term><command>halt</command></term>
+        <listitem>
+          <para>Påkaller vanligvis <command>shutdown</command> med
+          <parameter>-h</parameter> alternativet, bortsett fra når du allerede er på kjørenivå 0,
+           så ber den kjernen om å stoppe systemet; det noterer i
+           filen <filename>/var/log/wtmp</filename> at systemet
+           stenger ned</para>
+          <indexterm zone="ch-system-sysvinit halt-sysv">
+            <primary sortas="b-halt">halt</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="init-sysv">
+        <term><command>init</command></term>
+        <listitem>
+          <para>Den første prosessen som skal startes når kjernen har initialisert
+           maskinvaren som tar over oppstartsprosessen og starter alle
+           prosesser spesifisert i konfigurasjonsfilen</para>
+          <indexterm zone="ch-system-sysvinit init-sysv">
+            <primary sortas="b-init">init</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="killall5">
+        <term><command>killall5</command></term>
+        <listitem>
+          <para>Sender et signal til alle prosesser, bortsett fra prosessene i sin egen
+           økt slik at den ikke dreper foreldreskallet</para>
+          <indexterm zone="ch-system-sysvinit killall5">
+            <primary sortas="b-killall5">killall5</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="poweroff-sysv">
+        <term><command>poweroff</command></term>
+        <listitem>
+          <para>Ber kjernen om å stoppe systemet og slå av datamaskinen
+          (se <command>halt</command>)</para>
+          <indexterm zone="ch-system-sysvinit poweroff-sysv">
+            <primary sortas="b-poweroff">poweroff</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="reboot-sysv">
+        <term><command>reboot</command></term>
+        <listitem>
+          <para>Ber kjernen om å starte systemet på nytt (se
+          <command>halt</command>)</para>
+          <indexterm zone="ch-system-sysvinit reboot-sysv">
+            <primary sortas="b-reboot">reboot</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="runlevel-sysv">
+        <term><command>runlevel</command></term>
+        <listitem>
+          <para>Rapporterer forrige og nåværende kjørenivå, som nevnt i
+           siste kjørenivå oppføring i <filename>/run/utmp</filename></para>
+          <indexterm zone="ch-system-sysvinit runlevel-sysv">
+            <primary sortas="b-runlevel">runlevel</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="shutdown-sysv">
+        <term><command>shutdown</command></term>
+        <listitem>
+          <para>Får systemet ned på en sikker måte, og signaliserer alle prosesser
+           og varsler alle påloggede brukere</para>
+          <indexterm zone="ch-system-sysvinit shutdown-sysv">
+            <primary sortas="b-shutdown">shutdown</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="telinit-sysv">
+        <term><command>telinit</command></term>
+        <listitem>
+          <para>Forteller <command>init</command> hvilket kjørenivå å bytte til</para>
+          <indexterm zone="ch-system-sysvinit telinit-sysv">
+            <primary sortas="b-telinit">telinit</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>

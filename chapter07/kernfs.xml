@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-tools-kernfs">
+  <?dbhtml filename="kernfs.html"?>
+
+  <title>Klargjøring av virtuelle kjernefilsystemer</title>
+
+  <indexterm zone="ch-tools-kernfs">
+    <primary sortas="e-/dev/">/dev/*</primary>
+  </indexterm>
+
+    <para>Ulike filsystemer eksportert av kjernen brukes til å kommunisere til
+     og fra selve kjernen. Disse filsystemene er virtuelle ved at ingen disk
+     plass brukes til dem. Innholdet i filsystemene ligger i
+     minnet.</para>
+
+    <para>Begynn med å lage mapper som filsystemene vil bli
+     montert på:</para>
+
+<screen><userinput>mkdir -pv $LFS/{dev,proc,sys,run}</userinput></screen>
+
+  <sect2>
+    <title>Opprette innledende enhetsnoder</title>
+
+    <para>Når kjernen starter opp systemet, krever det tilstedeværelse av noen få
+     enhetsnoder, spesielt <filename
+    class="devicefile">console</filename> og <filename
+    class="devicefile">null</filename> enheter. Enhetsnodene må være
+     opprettet på harddisken slik at de er tilgjengelige før kjernen
+     fyller <systemitem class="filesystem">/dev</systemitem>), og
+     i tillegg når Linux startes med
+    <parameter>init=/bin/bash</parameter>. Opprett enhetene ved å kjøre
+     følgende kommandoer:</para>
+
+<screen><userinput>mknod -m 600 $LFS/dev/console c 5 1
+mknod -m 666 $LFS/dev/null c 1 3</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="ch-tools-bindmount">
+    <title>Montering og fylling av /dev</title>
+
+      <para>Den anbefalte metoden for å fylle <filename
+      class="directory">/dev</filename> mappen med enheter er å montere et
+       virtuelt filsystem (som f.eks <systemitem
+      class="filesystem">tmpfs</systemitem>) på <filename
+      class="directory">/dev</filename> mappen, og la enhetene være
+       opprettet dynamisk på det virtuelle filsystemet etter hvert som de oppdages eller
+       gitt tilgang til. Enhetsopprettingen gjøres vanligvis under oppstartsprosessen
+       av Udev. Siden dette nye systemet ennå ikke har Udev og har ennå ikke
+       blitt startet opp, er det nødvendig å montere og fylle <filename
+      class="directory">/dev</filename> manuelt. Dette oppnås ved å binde
+       montering av vertssystemets <filename class="directory">/dev</filename>
+      mappen. Et bind mount er en spesiell type montering som lar deg
+       lage et speil av en mappe eller monteringspunkt til et annet sted. Bruk
+       følgende kommando for å oppnå dette:</para>
+
+<screen><userinput>mount -v --bind /dev $LFS/dev</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="ch-tools-kernfsmount">
+    <title>Montering av virtuelle kjernefilsystemer</title>
+
+      <para>Monter nå de gjenværende virtuelle kjernefilsystemene:</para>
+
+<screen><userinput>mount -v --bind /dev/pts $LFS/dev/pts
+mount -vt proc proc $LFS/proc
+mount -vt sysfs sysfs $LFS/sys
+mount -vt tmpfs tmpfs $LFS/run</userinput></screen>
+<!--
+    <variablelist>
+      <title>Betydningen av monteringsalternativene for devpts:</title>
+
+      <varlistentry>
+        <term><parameter>gid=5</parameter></term>
+        <listitem>
+          <para>Dette sikrer at alle devpts opprettede enhetsnoder eies av
+           gruppe ID 5. Dette er IDen vi skal bruke senere for <systemitem
+          class="groupname">tty</systemitem> gruppen.  Vi bruker gruppe-ID i stedet
+           for et navn, siden vertssystemet kan bruke en annen ID for sitt
+          <systemitem class="groupname">tty</systemitem> group.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>mode=0620</parameter></term>
+        <listitem>
+          <para>Dette sikrer at alle devpts opprettede enhetsnoder har modus 0620
+           (bruker lesbar og skrivbar, gruppeskrivbar). Sammen med
+           alternativet ovenfor, sikrer dette at devpts vil opprette enhetsnoder som
+           oppfylle kravene til grantpt(), som betyr Glibc
+          <command>pt_chown</command> hjelper binær (som ikke er installert som
+           standard) ikke er nødvendig.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+-->
+      <para>I noen vertssystemer, <filename>/dev/shm</filename> er en
+       symbolsk lenke til <filename class="directory">/run/shm</filename>.
+      /run tmpfs ble montert ovenfor, så i dette tilfellet er det bare en
+       mappe som må opprettes.</para>
+
+<screen><userinput>if [ -h $LFS/dev/shm ]; then
+  mkdir -pv $LFS/$(readlink $LFS/dev/shm)
+fi</userinput></screen>
+
+  </sect2>
+
+</sect1>

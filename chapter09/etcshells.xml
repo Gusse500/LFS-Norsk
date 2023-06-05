@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE part PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-config-shells" xreflabel="Creating the /etc/shells File">
+  <?dbhtml filename="etcshells.html"?>
+
+  <title>Opprette /etc/shells filen</title>
+
+  <indexterm zone="ch-config-shells">
+    <primary sortas="e-etc-shells">/etc/shells</primary>
+  </indexterm>
+
+  <para><filename>shells</filename> filen inneholder en liste over
+   påloggingsskall på systemet. Programmer bruker denne filen til å bestemme
+   om et skall er gyldig. For hvert skall skal det være en enkelt linje
+   tilstede, bestående av skallets bane i forhold til roten av
+   katalogstrukturen (/).</para>
+
+  <para>For eksempel konsulteres denne filen av <command>chsh</command>
+  for å avgjøre om en uprivilegert bruker kan endre påloggingsskallet for sin
+   egen konto. Hvis kommandonavnet ikke er oppført, vil brukeren bli nektet
+   evnen til å skifte skall.</para>
+
+  <para>Det er et krav for applikasjoner som f.eks
+  <application>GDM</application> som ikke fyller ut
+   ansiktsnettleseren (face browser) hvis den ikke finner <filename>/etc/shells</filename>, eller
+  FTP nisser (daemons) som tradisjonelt nekter brukere tilgang
+   med skall som ikke er inkludert i denne filen.</para>
+
+<screen role="root"><userinput>cat &gt; /etc/shells &lt;&lt; "EOF"
+<literal># Begin /etc/shells
+
+/bin/sh
+/bin/bash
+
+# End /etc/shells</literal>
+EOF</userinput></screen>
+
+</sect1>

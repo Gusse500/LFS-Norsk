@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-shadow" role="wrap">
+  <?dbhtml filename="shadow.html"?>
+
+  <sect1info condition="script">
+    <productname>shadow</productname>
+    <productnumber>&shadow-version;</productnumber>
+    <address>&shadow-url;</address>
+  </sect1info>
+
+  <title>Shadow-&shadow-version;</title>
+
+  <indexterm zone="ch-system-shadow">
+    <primary sortas="a-Shadow">Shadow</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Shadow pakken inneholder programmer for håndtering av passord på en sikker
+     måte.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&shadow-fin-sbu;</seg>
+        <seg>&shadow-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Shadow</title>
+
+    <note>
+      <para>Hvis du ønsker å håndheve bruken av sterke passord, se
+      <ulink url="&blfs-book;postlfs/cracklib.html"/> for installasjon av
+       CrackLib før du bygger Shadow. Legg så til
+      <parameter>--with-libcrack</parameter> til <command>configure</command>
+      kommandoen under.</para>
+    </note>
+
+    <para>Deaktiver installasjonen av <command>groups</command> programmet
+     og man sidene, ettersom Coreutils gir en bedre versjon. Også,
+     forhindre installasjon av man sider som allerede var installert i
+    <xref linkend="ch-system-man-pages"/>:</para>
+
+<screen><userinput remap="pre">sed -i 's/groups$(EXEEXT) //' src/Makefile.in
+find man -name Makefile.in -exec sed -i 's/groups\.1 / /'   {} \;
+find man -name Makefile.in -exec sed -i 's/getspnam\.3 / /' {} \;
+find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</userinput></screen>
+
+    <para id="shadow-login_defs">I stedet for å bruke standard
+    <emphasis>crypt</emphasis> metoden, bruk den sikrere
+    <emphasis>SHA-512</emphasis> metode for passordkryptering, som også
+     tillater passord lengre enn 8 tegn. Det er også nødvendig å endre
+     det foreldede <filename class="directory">/var/spool/mail</filename> plasseringen
+     for brukerpostbokser som Shadow bruker som standard til <filename
+    class="directory">/var/mail</filename> stedet som brukes for øyeblikket. Og,
+     kvitte seg med <filename class="directory">/bin</filename> og
+    <filename class="directory">/sbin</filename> fra <envar>PATH</envar>,
+    siden de ganske enkelt er symbolske lenker til motparten i
+    <filename class="directory">/usr</filename>.</para>
+
+    <note>
+      <para>Hvis <filename class="directory">/bin</filename> og/eller
+      <filename class="directory">/sbin</filename> foretrekkes å være
+       i <envar>PATH</envar> av en eller annen grunn, endre
+      <envar>PATH</envar> i <filename>.bashrc</filename> etter at LFS er
+       bygget.</para>
+    </note>
+
+<screen><userinput remap="pre">sed -e 's:#ENCRYPT_METHOD DES:ENCRYPT_METHOD SHA512:' \
+    -e 's:/var/spool/mail:/var/mail:'                 \
+    -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                \
+    -i etc/login.defs</userinput></screen>
+
+    <note>
+      <para>Hvis du valgte å bygge Shadow med støtte for Cracklib, kjør følgende:</para>
+
+<screen role="nodump"><userinput>sed -i 's:DICTPATH.*:DICTPATH\t/lib/cracklib/pw_dict:' etc/login.defs</userinput></screen>
+    </note>
+<!--
+    <para>Gjør en mindre endring for å lage det første gruppenummeret som genereres
+     av useradd til 1000:</para>
+
+<screen><userinput remap="pre">sed -i 's/1000/999/' etc/useradd</userinput></screen>
+-->
+<!--
+    <para>Rett opp en enkel programmeringsfeil ved å endre en fil med følgende kommando:</para>
+
+<screen><userinput remap="pre">sed -e "224s/rounds/min_rounds/" -i libmisc/salt.c</userinput></screen>
+-->
+    <para>Forbered Shadow for kompilering:</para>
+
+<screen><userinput remap="configure">touch /usr/bin/passwd
+./configure --sysconfdir=/etc \
+            --disable-static  \
+            --with-group-name-max-length=32</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av konfigureringsalternativet:</title>
+
+      <varlistentry>
+        <term><command>touch /usr/bin/passwd</command></term>
+        <listitem>
+          <para>Filen <filename>/usr/bin/passwd</filename> må
+           eksistere fordi plasseringen er hardkodet i noen programmer, og
+           hvis den ikke eksisterer, er ikke standardplasseringen riktig.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>--with-group-name-max-length=32</parameter></term>
+        <listitem>
+          <para>Maksimalt brukernavn er 32 tegn. Gjør det maksimale
+           gruppenavnet det samme.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Kompiler pakken:</para>
+
+    <screen><userinput remap="make">make</userinput></screen>
+
+    <para>Denne pakken kommer ikke med en testpakke.</para>
+
+    <para>Installer pakken:</para>
+
+    <screen><userinput remap="install">make exec_prefix=/usr install
+make -C man install-man</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="conf-shadow" role="configuration">
+    <title>Konfigurerer Shadow</title>
+
+    <indexterm zone="conf-shadow">
+      <primary sortas="a-Shadow">Shadow</primary>
+      <secondary>configuring</secondary>
+    </indexterm>
+
+    <para>Denne pakken inneholder verktøy for å legge til, endre og slette brukere og
+     grupper; angi og endre passordene deres; og utføre annen administrativ
+     oppgaver. For en fullstendig forklaring av hva <emphasis>passordskygge</emphasis>
+     betyr, se <filename>doc/HOWTO</filename> filen i den utpakkede
+     kildetreet. Hvis du bruker Shadow-støtte, husk at programmer som trenger
+     å bekrefte passord (skjermbehandlere, FTP-programmer, pop3-nisser, etc.)
+     må være Shadow-kompatibel. Det vil si at de må kunne jobbe med
+     skyggelagte passord.</para>
+
+    <para>For å aktivere skyggelagte passord, kjør følgende kommando:</para>
+
+<screen><userinput>pwconv</userinput></screen>
+
+    <para>For å aktivere skyggelagte gruppepassord, kjør:</para>
+
+<screen><userinput>grpconv</userinput></screen>
+
+    <para>Shadows standardkonfigurasjon for <command>useradd</command>
+    verktøyet har noen forbehold som trenger litt forklaring. Først standard
+     handling for <command>useradd</command> verktøyet er å lage brukeren og
+     en gruppe med samme navn som brukeren. Som standard begynner bruker-ID (UID) og
+     gruppe ID-numre (GID) med 1000. Dette betyr at hvis du ikke sender
+     parametere til <command>useradd</command>, hver bruker vil være medlem av en
+     unik gruppe på systemet. Hvis denne oppførselen er uønsket, trenger du
+     å sende enten <parameter>-g</parameter> eller <parameter>-N</parameter>
+    parameter til <command>useradd</command> eller for å endre innstillingen for
+    <parameter>USERGROUPS_ENAB</parameter> i
+    <filename>/etc/login.defs</filename>. Se <filename>useradd(8)</filename>
+    for mer informasjon.</para>
+
+    <para>For det andre, for å endre standardparametrene, filen
+    <filename>/etc/default/useradd</filename> må lages og skreddersys
+     for å passe dine spesielle behov. Lag den med:</para>
+
+<screen><userinput>mkdir -p /etc/default
+useradd -D --gid 999</userinput></screen>
+
+    <variablelist>
+      <title><filename>/etc/default/useradd</filename> Parameterforklaringer</title>
+
+      <varlistentry>
+        <term><parameter>GROUP=999</parameter></term>
+        <listitem>
+          <para>Denne parameteren setter begynnelsen på gruppenumrene som brukes i
+           <filename>/etc/group</filename> filen. Den spesielle verdien 999
+           kommer fra <parameter>--gid</parameter> parameter ovenfor. Du kan
+           endre den til alt du ønsker.
+
+          Noter at <command>useradd</command> vil aldri gjenbruke en UID eller GID.
+           Hvis nummeret som er identifisert i denne parameteren brukes, vil det bruke
+           neste ledige nummer. Merk også at hvis du ikke har en gruppe med
+           en ID lik dette nummeret på systemet ditt første gang du bruker
+          <command>useradd</command> uten <parameter>-g</parameter>
+          parameteren, du vil få en melding på terminalen som
+           sier: <computeroutput>useradd: unknown GID 999</computeroutput>,
+          selv om kontoen er riktig opprettet. Det er derfor vi har
+           opprettet gruppen <systemitem class="groupname">users</systemitem>
+          med denne gruppe-IDen i <xref linkend='ch-tools-createfiles'/>.</para>
+
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>CREATE_MAIL_SPOOL=yes</parameter></term>
+        <listitem>
+          <para>Denne parameteren gjør at <command>useradd</command> lager en
+           postboksfil for den nyopprettede brukeren. <command>useradd</command>
+          vil gjøre gruppe eierskap av denne filen til
+          <systemitem class="groupname">mail</systemitem> gruppe med 0660
+           tillatelser. Hvis du foretrekker at disse postboksfilene ikke blir
+           laget av <command>useradd</command>, utsted følgende
+           kommando:</para>
+
+<screen><userinput>sed -i '/MAIL/s/yes/no/' /etc/default/useradd</userinput></screen>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+  <sect2 role="configuration">
+    <title>Sette root passordet</title>
+
+    <para>Velg et passord for brukeren <emphasis>root</emphasis> og sett det
+     ved å kjøre:</para>
+
+<screen role="nodump"><userinput>passwd root</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-shadow" role="content">
+    <title>Innhold i Shadow</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installert mappe</segtitle>
+      <segtitle>Installerte biblioteker</segtitle>
+
+      <seglistitem>
+        <seg>chage, chfn, chgpasswd, chpasswd, chsh, expiry, faillog,
+        getsubids, gpasswd, groupadd, groupdel, groupmems, groupmod, grpck,
+        grpconv, grpunconv, lastlog, login, logoutd, newgidmap, newgrp,
+        newuidmap, newusers, nologin, passwd, pwck, pwconv, pwunconv,
+        sg (link to newgrp), su, useradd, userdel, usermod,
+        vigr (link to vipw), og vipw</seg>
+        <seg>/etc/default</seg>
+        <seg>libsubid.so</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="chage">
+        <term><command>chage</command></term>
+        <listitem>
+          <para>Brukes til å endre maksimalt antall dager mellom obligatoriske
+           passordendringer</para>
+          <indexterm zone="ch-system-shadow chage">
+            <primary sortas="b-chage">chage</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="chfn">
+        <term><command>chfn</command></term>
+        <listitem>
+          <para>Brukes til å endre en brukers fulle navn og annen informasjon</para>
+          <indexterm zone="ch-system-shadow chfn">
+            <primary sortas="b-chfn">chfn</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="chgpasswd">
+        <term><command>chgpasswd</command></term>
+        <listitem>
+          <para>Brukes til å oppdatere gruppepassord i skriptmodus</para>
+          <indexterm zone="ch-system-shadow chgpasswd">
+            <primary sortas="b-chgpasswd">chgpasswd</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="chpasswd">
+        <term><command>chpasswd</command></term>
+        <listitem>
+          <para>Brukes til å oppdatere brukerpassord i skriptmodus</para>
+          <indexterm zone="ch-system-shadow chpasswd">
+            <primary sortas="b-chpasswd">chpasswd</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="chsh">
+        <term><command>chsh</command></term>
+        <listitem>
+          <para>Brukes til å endre en brukers standard påloggingsskall</para>
+          <indexterm zone="ch-system-shadow chsh">
+            <primary sortas="b-chsh">chsh</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="expiry">
+        <term><command>expiry</command></term>
+        <listitem>
+          <para>Sjekker og håndhever gjeldende retningslinjer for passordutløp</para>
+          <indexterm zone="ch-system-shadow expiry">
+            <primary sortas="b-expiry">expiry</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="faillog">
+        <term><command>faillog</command></term>
+        <listitem>
+          <para>Brukes til å undersøke loggen over påloggingsfeil, for å sette et maksimum
+           antall feil før en konto blokkeres, eller for å tilbakestille
+           antall feil</para>
+          <indexterm zone="ch-system-shadow faillog">
+            <primary sortas="b-faillog">faillog</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="getsubids">
+        <term><command>getsubids</command></term>
+        <listitem>
+          <para>Brukes til å liste de underordnede id-områdene for en bruker</para>
+          <indexterm zone="ch-system-shadow getsubids">
+            <primary sortas="b-getsubids">getsubids</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="gpasswd">
+        <term><command>gpasswd</command></term>
+        <listitem>
+          <para>Brukes til å legge til og slette medlemmer og administratorer til
+           grupper</para>
+          <indexterm zone="ch-system-shadow gpasswd">
+            <primary sortas="b-gpasswd">gpasswd</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="groupadd">
+        <term><command>groupadd</command></term>
+        <listitem>
+          <para>Oppretter en gruppe med det gitte navnet</para>
+          <indexterm zone="ch-system-shadow groupadd">
+            <primary sortas="b-groupadd">groupadd</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="groupdel">
+        <term><command>groupdel</command></term>
+        <listitem>
+          <para>Sletter gruppen med oppgitt navn</para>
+          <indexterm zone="ch-system-shadow groupdel">
+            <primary sortas="b-groupdel">groupdel</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="groupmems">
+        <term><command>groupmems</command></term>
+        <listitem>
+          <para>Lar en bruker administrere sin egen gruppemedlemsliste
+           uten krav om superbrukerprivilegier.</para>
+          <indexterm zone="ch-system-shadow groupmems">
+            <primary sortas="b-groupmems">groupmems</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="groupmod">
+        <term><command>groupmod</command></term>
+        <listitem>
+          <para>Brukes til å endre den gitte gruppens navn eller GID</para>
+          <indexterm zone="ch-system-shadow groupmod">
+            <primary sortas="b-groupmod">groupmod</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grpck">
+        <term><command>grpck</command></term>
+        <listitem>
+          <para>Verifiserer integriteten til gruppefilene
+          <filename>/etc/group</filename> og
+          <filename>/etc/gshadow</filename></para>
+          <indexterm zone="ch-system-shadow grpck">
+            <primary sortas="b-grpck">grpck</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grpconv">
+        <term><command>grpconv</command></term>
+        <listitem>
+          <para>Oppretter eller oppdaterer skyggegruppefilen fra den normale
+           gruppefilen</para>
+          <indexterm zone="ch-system-shadow grpconv">
+            <primary sortas="b-grpconv">grpconv</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grpunconv">
+        <term><command>grpunconv</command></term>
+        <listitem>
+          <para>Oppdaterer <filename>/etc/group</filename> fra
+          <filename>/etc/gshadow</filename> og sletter deretter sistnevnte</para>
+          <indexterm zone="ch-system-shadow grpunconv">
+            <primary sortas="b-grpunconv">grpunconv</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="lastlog">
+        <term><command>lastlog</command></term>
+        <listitem>
+          <para>Rapporterer siste pålogging for alle brukere eller av en
+           gitt bruker</para>
+          <indexterm zone="ch-system-shadow lastlog">
+            <primary sortas="b-lastlog">lastlog</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="login">
+        <term><command>login</command></term>
+        <listitem>
+          <para>Brukes av systemet for å la brukere logge på</para>
+          <indexterm zone="ch-system-shadow login">
+            <primary sortas="b-login">login</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="logoutd">
+        <term><command>logoutd</command></term>
+        <listitem>
+          <para>Er en nisse som brukes til å håndheve restriksjoner på påloggingstid
+           og portene</para>
+          <indexterm zone="ch-system-shadow logoutd">
+            <primary sortas="b-logoutd">logoutd</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="newgidmap">
+        <term><command>newgidmap</command></term>
+        <listitem>
+          <para>Brukes til å angi gid-tilordning av et brukernavnområde</para>
+          <indexterm zone="ch-system-shadow newgidmap">
+            <primary sortas="b-newgidmap">newgidmap</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="newgrp">
+        <term><command>newgrp</command></term>
+        <listitem>
+          <para>Brukes til å endre gjeldende GID under en påloggingsøkt</para>
+          <indexterm zone="ch-system-shadow newgrp">
+            <primary sortas="b-newgrp">newgrp</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="newuidmap">
+        <term><command>newuidmap</command></term>
+        <listitem>
+          <para>Brukes til å angi uid-tilordning av et brukernavnområde</para>
+          <indexterm zone="ch-system-shadow newuidmap">
+            <primary sortas="b-newuidmap">newuidmap</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="newusers">
+        <term><command>newusers</command></term>
+        <listitem>
+          <para>Brukes til å opprette eller oppdatere en hel serie med
+           brukerkontoer</para>
+          <indexterm zone="ch-system-shadow newusers">
+            <primary sortas="b-newusers">newusers</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="nologin">
+        <term><command>nologin</command></term>
+        <listitem>
+          <para>Viser en melding om at en konto ikke er tilgjengelig; den er designet
+           til å brukes som standard skall for kontoer som er blitt
+           deaktivert</para>
+          <indexterm zone="ch-system-shadow nologin">
+            <primary sortas="b-nologin">nologin</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="passwd">
+        <term><command>passwd</command></term>
+        <listitem>
+          <para>Brukes til å endre passordet for en bruker- eller gruppekonto</para>
+          <indexterm zone="ch-system-shadow passwd">
+            <primary sortas="b-passwd">passwd</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="pwck">
+        <term><command>pwck</command></term>
+        <listitem>
+          <para>Verifiserer integriteten til passordfilene
+          <filename>/etc/passwd</filename> og
+          <filename>/etc/shadow</filename></para>
+          <indexterm zone="ch-system-shadow pwck">
+            <primary sortas="b-pwck">pwck</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="pwconv">
+        <term><command>pwconv</command></term>
+        <listitem>
+          <para>Oppretter eller oppdaterer skyggepassordfilen fra den normale
+           passordfilen</para>
+          <indexterm zone="ch-system-shadow pwconv">
+            <primary sortas="b-pwconv">pwconv</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="pwunconv">
+        <term><command>pwunconv</command></term>
+        <listitem>
+          <para>Oppdaterer <filename>/etc/passwd</filename> fra
+          <filename>/etc/shadow</filename> og sletter deretter sistnevnte</para>
+          <indexterm zone="ch-system-shadow pwunconv">
+            <primary sortas="b-pwunconv">pwunconv</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="sg">
+        <term><command>sg</command></term>
+        <listitem>
+          <para>Utfører en gitt kommando mens brukerens GID
+           er satt til den gitte gruppen</para>
+          <indexterm zone="ch-system-shadow sg">
+            <primary sortas="b-sg">sg</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="su">
+        <term><command>su</command></term>
+        <listitem>
+          <para>Kjører et skall med erstatningsbruker- og gruppe-IDer</para>
+          <indexterm zone="ch-system-shadow su">
+            <primary sortas="b-su">su</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="useradd">
+        <term><command>useradd</command></term>
+        <listitem>
+          <para>Oppretter en ny bruker med det gitte navnet, eller oppdaterer standard
+           informasjon om ny bruker</para>
+          <indexterm zone="ch-system-shadow useradd">
+            <primary sortas="b-useradd">useradd</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="userdel">
+        <term><command>userdel</command></term>
+        <listitem>
+          <para>Sletter den gitte brukerkontoen</para>
+          <indexterm zone="ch-system-shadow userdel">
+            <primary sortas="b-userdel">userdel</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="usermod">
+        <term><command>usermod</command></term>
+        <listitem>
+          <para>Brukes til å endre den gitte brukerens påloggingsnavn, bruker
+           identifikasjon (UID), skall, startgruppe, hjemmekatalog, etc.</para>
+          <indexterm zone="ch-system-shadow usermod">
+            <primary sortas="b-usermod">usermod</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="vigr">
+        <term><command>vigr</command></term>
+        <listitem>
+          <para>Redigerer <filename>/etc/group</filename> eller
+          <filename>/etc/gshadow</filename> filer</para>
+          <indexterm zone="ch-system-shadow vigr">
+            <primary sortas="b-vigr">vigr</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="vipw">
+        <term><command>vipw</command></term>
+        <listitem>
+          <para>Redigerer <filename>/etc/passwd</filename> eller
+          <filename>/etc/shadow</filename> filer</para>
+          <indexterm zone="ch-system-shadow vipw">
+            <primary sortas="b-vipw">vipw</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libsubid">
+        <term><filename class='libraryfile'>libsubid</filename></term>
+        <listitem>
+          <para>bibliotek for å prosessere underordnede id-områder for brukere</para>
+          <indexterm zone="ch-system-shadow libsubid">
+            <primary sortas="c-libsubid">libsubid</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>

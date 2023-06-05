@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-tools-util-linux" role="wrap">
+  <?dbhtml filename="util-linux.html"?>
+
+  <sect1info condition="script">
+    <productname>util-linux</productname>
+    <productnumber>&util-linux-version;</productnumber>
+    <address>&util-linux-url;</address>
+  </sect1info>
+
+  <title>Util-linux-&util-linux-version;</title>
+
+  <indexterm zone="ch-tools-util-linux">
+    <primary sortas="a-Util-linux">Util-linux</primary>
+    <secondary>tools</secondary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Util-linux pakken inneholder diverse hjelpeprogrammer.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&util-linux-tmp-sbu;</seg>
+        <seg>&util-linux-tmp-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Util-linux</title>
+
+    <para>FHS anbefaler å bruke <filename
+    class="directory">/var/lib/hwclock</filename> mappen i stedet for den
+     vanlige <filename class="directory">/etc</filename> mappen som
+     plassering for <filename>adjtime</filename> filen. Opprett denne mappen
+     med:</para>
+
+<screen><userinput remap="pre">mkdir -pv /var/lib/hwclock</userinput></screen>
+
+    <para>Forbered Util-linux for kompilering:</para>
+
+<screen><userinput remap="configure">./configure ADJTIME_PATH=/var/lib/hwclock/adjtime    \
+            --libdir=/usr/lib    \
+            --docdir=/usr/share/doc/util-linux-&util-linux-version; \
+            --disable-chfn-chsh  \
+            --disable-login      \
+            --disable-nologin    \
+            --disable-su         \
+            --disable-setpriv    \
+            --disable-runuser    \
+            --disable-pylibmount \
+            --disable-static     \
+            --without-python     \
+            runstatedir=/run</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av konfigureringsalternativene:</title>
+
+      <varlistentry>
+        <term><parameter>ADJTIME_PATH=/var/lib/hwclock/adjtime</parameter></term>
+        <listitem>
+          <para>Dette angir plasseringen av filopptaksinformasjonen om
+           maskinvareklokken i henhold til FHS. Dette er ikke strengt tatt
+           nødvendig for dette midlertidige verktøyet, men det forhindrer at det lages en fil
+           på et annet sted, som ikke ville bli overskrevet eller fjernet
+           når du bygger den endelige util-linux pakken.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--libdir=/usr/lib</parameter></term>
+        <listitem>
+          <para>Denne bryteren sikrer
+          <filename class="extension">.so</filename> målrettes mot symbolkoblinger
+           i den delte bibliotekfilen i samme mappe
+          (<filename class="directory">/usr/lib</filename>) direkte.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--disable-*</parameter></term>
+        <listitem>
+          <para>Disse bryterne forhindrer advarsler om bygningskomponenter
+           som krever pakker som ikke er i LFS eller ikke er installert ennå.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--without-python</parameter></term>
+        <listitem>
+          <para>Denne bryteren deaktiverer bruk av <application>Python</application>.
+          Den unngår å prøve å bygge unødvendige bindinger.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>runstatedir=/run</parameter></term>
+        <listitem>
+          <para>Denne bryteren angir plasseringen av socket som brukes av
+          <command>uuidd</command> og
+          <filename class="libraryfile">libuuid</filename> riktig.</para>
+        </listitem>
+      </varlistentry>
+
+     </variablelist>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+  </sect2>
+
+  <sect2 role="content">
+    <title/>
+
+    <para>Detaljer om denne pakken finner du i <xref linkend="contents-utillinux" role="."/></para>
+
+  </sect2>
+
+</sect1>

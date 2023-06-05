@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-acl" role="wrap">
+  <?dbhtml filename="acl.html"?>
+
+  <sect1info condition="script">
+    <productname>acl</productname>
+    <productnumber>&acl-version;</productnumber>
+    <address>&acl-url;</address>
+  </sect1info>
+
+  <title>Acl-&acl-version;</title>
+
+  <indexterm zone="ch-system-acl">
+    <primary sortas="a-Acl">Acl</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Acl pakken inneholder verktøy for å administrere tilgangskontrolllister,
+     som brukes til å definere mer finmaskede skjønnsmessige tilgangsrettigheter for
+     filer og mapper.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&acl-fin-sbu;</seg>
+        <seg>&acl-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Acl</title>
+
+    <para>Forbered Acl for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr         \
+            --disable-static      \
+            --docdir=/usr/share/doc/acl-&acl-version;</userinput></screen>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Acl testene må kjøres på et filsystem som støtter tilgangs
+     kontroller etter <application>Coreutils</application> er bygget med
+     Acl biblioteker. Hvis ønskelig, gå tilbake til denne pakken og kjør <command>make
+    check</command> etter at <application>Coreutils</application> har blitt bygget
+     senere i dette kapittelet.</para>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-acl" role="content">
+    <title>Innhold i Acl</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installert bibliotek</segtitle>
+      <segtitle>Installerte mapper</segtitle>
+
+      <seglistitem>
+        <seg>chacl, getfacl, og setfacl</seg>
+        <seg>libacl.so</seg>
+        <seg>/usr/include/acl og /usr/share/doc/acl-&acl-version;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="chacl">
+        <term><command>chacl</command></term>
+        <listitem>
+          <para>Endrer tilgangskontrolllisten til en fil
+           eller mappe</para>
+          <indexterm zone="ch-system-acl chacl">
+            <primary sortas="b-chacl">chacl</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="getfacl">
+        <term><command>getfacl</command></term>
+        <listitem>
+          <para>Henter filtilgangskontrolllister</para>
+          <indexterm zone="ch-system-acl getfacl">
+            <primary sortas="b-getfacl">getfacl</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="setfacl">
+        <term><command>setfacl</command></term>
+        <listitem>
+          <para>Angir filtilgangskontrolllister</para>
+          <indexterm zone="ch-system-acl setfacl">
+            <primary sortas="b-setfacl">setfacl</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libacl">
+        <term><filename class="libraryfile">libacl</filename></term>
+        <listitem>
+          <para>Inneholder bibliotekfunksjonene for å manipulere tilgangskontrolllister</para>
+          <indexterm zone="ch-system-acl libacl">
+            <primary sortas="c-libacl">libacl</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>

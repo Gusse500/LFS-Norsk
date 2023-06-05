@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-tools-introduction-cross">
+  <?dbhtml filename="introduction.html"?>
+
+  <title>Introduksjon</title>
+
+  <para>Dette kapittelet viser hvordan du krysskompilerer grunnleggende verktøy ved å bruke
+   den nettopp bygde kryssverktøykjeden. Disse verktøyene er installert i
+   deres endelige plassering, men kan ikke brukes ennå. Grunnleggende oppgaver er fortsatt avhengige av
+   vertens verktøy. Likevel brukes de installerte bibliotekene ved
+   koblinger.</para>
+
+  <para>Bruk av verktøyene vil være mulig i neste kapittel etter å ha gått
+   inn i <quote>chroot</quote> miljøet. Men alle pakkene som bygges i
+   nåværende kapittel må bygges før vi gjør det. Derfor kan vi ikke være
+   uavhengig av vertssystemet ennå.</para>
+
+  <para>Nok en gang, la oss huske den feilaktige innstillingen av <envar>LFS</envar>
+  sammen med å bygge som <systemitem class="username">root</systemitem>,
+  kan gjøre datamaskinen din ubrukelig.
+  Hele dette kapittelet må gjøres som bruker <systemitem
+  class="username">lfs</systemitem>, med miljøet som beskrevet i
+  <xref linkend="ch-preps-settingenviron"/>.</para>
+
+</sect1>

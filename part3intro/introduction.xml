@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-part3intro-intro">
+  <?dbhtml filename="introduction.html"?>
+
+  <title>Introduksjon</title>
+
+  <para>Denne delen er delt inn i tre stadier: først bygge en
+   krysskompilator og tilhørende biblioteker; for det andre, bruke denne kryssverktøykjeden
+   å bygge flere verktøy på en måte som isolerer dem fra vertens
+   distribusjon; for det tredje, gå inn i chroot miljøet, som forbedrer ytterligere
+   vertsisolasjon, og bygge de resterende verktøyene som trengs for å bygge det endelige
+   systemet.</para>
+
+  <important><para>Med denne delen begynner det virkelige arbeidet med å bygge et nytt
+   system. Det krever mye forsiktighet for å sikre at instruksjonene blir
+   fulgt nøyaktig slik boken viser dem. Du bør prøve å forstå
+   hva de gjør, og uansett hvor ivrig du er etter å fullføre bygget, bør du
+   avstå fra å skrive dem blindt som vist, men les heller dokumentasjon når
+   det er noe du ikke forstår. Hold også styr på skrivingen din
+   og utdata av kommandoer, ved å sende dem til en fil ved å bruke
+  <command>tee</command> verktøyet. Dette gir bedre diagnose
+   hvis noe går galt.</para></important>
+
+  <para>Den neste delen gir en teknisk introduksjon til byggeprosessen,
+   mens den følgende inneholder <emphasis role="strong">veldig
+   viktige</emphasis> generelle instruksjoner.</para>
+
+</sect1>

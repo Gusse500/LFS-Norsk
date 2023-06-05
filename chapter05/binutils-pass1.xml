@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-tools-binutils-pass1" role="wrap">
+  <?dbhtml filename="binutils-pass1.html"?>
+
+  <sect1info condition="script">
+    <productname>binutils-pass1</productname>
+    <productnumber>&binutils-version;</productnumber>
+    <address>&binutils-url;</address>
+  </sect1info>
+
+  <title>Binutils-&binutils-version; - Pass 1</title>
+
+  <indexterm zone="ch-tools-binutils-pass1">
+    <primary sortas="a-Binutils">Binutils</primary>
+    <secondary>tools, pass 1</secondary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../chapter08/binutils.xml"
+    xpointer="xpointer(/sect1/sect2[1]/para[1])"/>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&binutils-tmpp1-sbu;</seg>
+        <seg>&binutils-tmpp1-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Kryss Binutils</title>
+
+    <note><para>Gå tilbake og les notatene i avsnittet med tittelen <xref
+    linkend="ch-tools-generalinstructions"/> på nytt.
+    Å forstå notatene merket som viktig kan spare deg for mange
+     problemer senere.</para></note>
+
+    <para>Det er viktig at Binutils er den første pakken som blir satt sammen
+     fordi både Glibc og GCC utfører ulike tester på tilgjengelige
+     linker og assembler for å bestemme hvilke av deres egne funksjoner
+     som skal aktiveres.</para>
+
+    <para>Binutils dokumentasjonen anbefaler å bygge Binutils
+     i en dedikert byggemappe:</para>
+
+<screen><userinput remap="pre">mkdir -v build
+cd       build</userinput></screen>
+
+    <note>
+      <para>For at SBU verdiene som er oppført i resten av boken skal
+       kunne brukes, måler du tiden det tar å bygge denne pakken fra
+       konfigurasjonen, til og med den første installasjonen. For å oppnå
+       dette enkelt, pakk kommandoene inn i en <command>time</command>
+      kommando som dette: <userinput>time { ../configure ... &amp;&amp; make
+      &amp;&amp; make install; }</userinput>.</para>
+    </note>
+
+    <para>Forbered nå Binutils til kompilering:</para>
+
+    <screen><userinput remap="configure">../configure --prefix=$LFS/tools \
+             --with-sysroot=$LFS \
+             --target=$LFS_TGT   \
+             --disable-nls       \
+             --disable-werror</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av konfigurasjonsalternativene:</title>
+
+      <varlistentry>
+        <term><parameter>--prefix=$LFS/tools</parameter></term>
+        <listitem>
+          <para>Dette forteller konfigurasjonsskriptet å forberede for å installere
+          Binutils programmene i <filename
+          class="directory">$LFS/tools</filename> mappen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--with-sysroot=$LFS</parameter></term>
+        <listitem>
+          <para>For krysskompilering, dette forteller byggesystemet å søke i
+          $LFS etter målsystembibliotekene etter behov.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><envar>--target=$LFS_TGT</envar></term>
+        <listitem>
+          <para>Fordi maskinbeskrivelsen i variabelen <envar>LFS_TGT</envar>
+          er litt annerledes enn verdien som returneres av
+          <command>config.guess</command> skriptet, vil denne bryteren fortelle skriptet
+          <command>configure</command> om å justere Binutils byggesystem
+          for å bygge en tverrlinker.  </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--disable-nls</parameter></term>
+        <listitem>
+          <para>Dette deaktiverer internasjonalisering ettersom i18n ikke er nødvendig for de
+          midlertidige verktøyene.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--disable-werror</parameter></term>
+        <listitem>
+          <para>Dette forhindrer byggingen i å stoppe i tilfelle det
+          er advarsler fra vertens kompilator.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Fortsett med å kompilere pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+  </sect2>
+
+  <sect2 role="content">
+    <title/>
+
+    <para>Detaljer om denne pakken finner du i avsnitt
+    <xref linkend="contents-binutils" role="."/></para>
+
+  </sect2>
+
+</sect1>

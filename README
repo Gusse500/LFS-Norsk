@@ -1,0 +1,31 @@
+LFS bok README
+
+Dette dokumentet er ment å instruere brukeren om hvordan bokens XML kilde konverteres
+til andre formater (f.eks. HTML, PDF, PS og TXT). Først, hvis du ikke har
+allerede gjort det, les INSTALL filen for instruksjoner om hvordan du installerer
+den nødvendige programvaren. Hvis du allerede har fullført trinnene som er beskrevet i
+INSTALL filen, fortsett deretter å lese for eksempler på hvordan du konverterer disse filene til
+forskjellige andre formater.
+
+I alle eksemplene er det nødvendig å sette parameteren REV=systemd for å bygge
+systemd versjon av boken.
+
+XML ttil XHTML:
+-------------
+make BASEDIR=/path/to/output/location
+
+
+XML til enkelt fil XHTML (ingen oppdeling):
+------------------------------------
+make BASEDIR=/path/to/output/location nochunks
+
+XML til TXT
+----------
+Følg instruksjonene for ingen oppdeling og kjør:
+lynx -dump /path/to/nochunks >/path/to/output
+
+XML til PDF:
+-----------
+make BASEDIR=/path/to/output/location pdf
+
+

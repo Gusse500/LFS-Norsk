@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-grep" role="wrap">
+  <?dbhtml filename="grep.html"?>
+
+  <sect1info condition="script">
+    <productname>grep</productname>
+    <productnumber>&grep-version;</productnumber>
+    <address>&grep-url;</address>
+  </sect1info>
+
+  <title>Grep-&grep-version;</title>
+
+  <indexterm zone="ch-system-grep">
+    <primary sortas="a-Grep">Grep</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Grep pakken inneholder programmer for å søke gjennom innholdet i filer.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&grep-fin-sbu;</seg>
+        <seg>&grep-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Grep</title>
+
+    <para>Forbered Grep for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>For å teste resultatene, utsted:</para>
+
+<screen><userinput remap="test">make check</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-grep" role="content">
+    <title>Innhold i Grep</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+
+      <seglistitem>
+        <seg>egrep, fgrep, and grep</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="egrep">
+        <term><command>egrep</command></term>
+        <listitem>
+          <para>Skriver ut linjer som samsvarer med et utvidet regulært uttrykk</para>
+          <indexterm zone="ch-system-grep egrep">
+            <primary sortas="b-egrep">egrep</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="fgrep">
+        <term><command>fgrep</command></term>
+        <listitem>
+          <para>Skriver ut linjer som samsvarer med en liste over faste strenger</para>
+          <indexterm zone="ch-system-grep fgrep">
+            <primary sortas="b-fgrep">fgrep</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="grep">
+        <term><command>grep</command></term>
+        <listitem>
+          <para>Skriver ut linjer som samsvarer med et grunnleggende regulært uttrykk</para>
+          <indexterm zone="ch-system-grep grep">
+            <primary sortas="b-grep">grep</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>

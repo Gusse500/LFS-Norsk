@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-gettext" role="wrap">
+  <?dbhtml filename="gettext.html"?>
+
+  <sect1info condition="script">
+    <productname>gettext</productname>
+    <productnumber>&gettext-version;</productnumber>
+    <address>&gettext-url;</address>
+  </sect1info>
+
+  <title>Gettext-&gettext-version;</title>
+
+  <indexterm zone="ch-system-gettext">
+    <primary sortas="a-Gettext">Gettext</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Gettext pakken inneholder verktøy for internasjonalisering og
+     lokalisering. Disse gjør at programmer kan kompileres med NLS (Lokal Språk
+     Støtte), slik at de kan sende ut meldinger i brukerens lokale
+     språkformat.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&gettext-fin-sbu;</seg>
+        <seg>&gettext-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Gettext</title>
+
+    <para>Forbered Gettext for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/gettext-&gettext-version;</userinput></screen>
+
+    <para>Kompiler pakken:</para>
+
+<!--<screen><userinput remap="make">make BISON_LOCALEDIR=/usr/share/locale</userinput></screen>-->
+<screen><userinput remap="make">make</userinput></screen>
+<!--
+   <variablelist>
+      <title>Betydningen av make parameteren:</title>
+
+      <varlistentry>
+        <term><parameter>BISON_LOCALEDIR=/usr/share/locale</parameter></term>
+        <listitem>
+          <para>Siden bison ennå ikke er installert i /usr, configure hardkoder
+           katalogen som inneholder oversettelser for bison-programmet (
+"locale" mappen) som /tools/share/locale. Å sender denne variabelen
+            gjør det mulig å overstyre valget gjort av configure.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+-->
+    <para>For å teste resultatene (dette tar lang tid, rundt 3 SBU),
+     utsted:</para>
+
+<screen><userinput remap="test">make check</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install
+chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-gettext" role="content">
+    <title>Innhold i Gettext</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installerte biblioteker</segtitle>
+      <segtitle>Installerte mapper</segtitle>
+
+      <seglistitem>
+        <seg>autopoint, envsubst, gettext, gettext.sh,
+        gettextize, msgattrib, msgcat, msgcmp, msgcomm, msgconv, msgen,
+        msgexec, msgfilter, msgfmt, msggrep, msginit, msgmerge, msgunfmt, msguniq,
+        ngettext, recode-sr-latin, og xgettext</seg>
+        <seg>libasprintf.so, libgettextlib.so, libgettextpo.so,
+        libgettextsrc.so, libtextstyle.so, og preloadable_libintl.so</seg>
+        <seg>/usr/lib/gettext, /usr/share/doc/gettext-&gettext-version;,
+        /usr/share/gettext, og /usr/share/gettext-0.19.8</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="autopoint">
+        <term><command>autopoint</command></term>
+        <listitem>
+          <para>Kopierer standard Gettext infrastrukturfiler til en
+           kildepakke</para>
+          <indexterm zone="ch-system-gettext autopoint">
+            <primary sortas="b-autopoint">autopoint</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="envsubst">
+        <term><command>envsubst</command></term>
+        <listitem>
+          <para>Erstatter miljøvariabler i skallformatstrenger</para>
+          <indexterm zone="ch-system-gettext envsubst">
+            <primary sortas="b-envsubst">envsubst</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="gettext">
+        <term><command>gettext</command></term>
+        <listitem>
+          <para>Oversetter en melding på det opprinnelige språket til brukerens språk
+           ved å slå opp oversettelsen i en meldingskatalog</para>
+          <indexterm zone="ch-system-gettext gettext">
+            <primary sortas="b-gettext">gettext</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="gettext.sh">
+        <term><command>gettext.sh</command></term>
+        <listitem>
+          <para>Fungerer først og fremst som et skallfunksjonsbibliotek for gettext</para>
+          <indexterm zone="ch-system-gettext gettext.sh">
+            <primary sortas="b-gettext.sh">gettext.sh</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="gettextize">
+        <term><command>gettextize</command></term>
+        <listitem>
+          <para>Kopierer alle standard Gettext filer til den gitte mappens
+           toppnivå til en pakke for å begynne å internasjonalisere den</para>
+          <indexterm zone="ch-system-gettext gettextize">
+            <primary sortas="b-gettextize">gettextize</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="msgattrib">
+        <term><command>msgattrib</command></term>
+        <listitem>
+          <para>Filtrerer meldingene i en oversettelsesmappe i henhold til deres
+           attributter og manipulerer attributtene</para>
+          <indexterm zone="ch-system-gettext msgattrib">
+            <primary sortas="b-msgattrib">msgattrib</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="msgcat">
+        <term><command>msgcat</command></term>
+        <listitem>
+          <para>Sammenslår og slår sammen de gitte
+          <filename class="extension">.po</filename> filene</para>
+          <indexterm zone="ch-system-gettext msgcat">
+            <primary sortas="b-msgcat">msgcat</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="msgcmp">
+        <term><command>msgcmp</command></term>
+        <listitem>
+          <para>Sammenligner to <filename class="extension">.po</filename>
+          filer for å sjekke at begge inneholder samme sett med msgid strenger</para>
+          <indexterm zone="ch-system-gettext msgcmp">
+            <primary sortas="b-msgcmp">msgcmp</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="msgcomm">
+        <term><command>msgcomm</command></term>
+        <listitem>
+          <para>Finner meldingene som er felles for de gitte
+          <filename class="extension">.po</filename> filene</para>
+          <indexterm zone="ch-system-gettext msgcomm">
+            <primary sortas="b-msgcomm">msgcomm</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="msgconv">
+        <term><command>msgconv</command></term>
+        <listitem>
+          <para>Konverterer en oversettelseskatalog til en annet
+           tegnkoding</para>
+          <indexterm zone="ch-system-gettext msgconv">
+            <primary sortas="b-msgconv">msgconv</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="msgen">
+        <term><command>msgen</command></term>
+        <listitem>
+          <para>Oppretter en engelsk oversettelseskatalog</para>
+          <indexterm zone="ch-system-gettext msgen">
+            <primary sortas="b-msgen">msgen</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="msgexec">
+        <term><command>msgexec</command></term>
+        <listitem>
+          <para>Bruker en kommando på alle oversettelser av en
+           oversettelsesmappe</para>
+          <indexterm zone="ch-system-gettext msgexec">
+            <primary sortas="b-msgexec">msgexec</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="msgfilter">
+        <term><command>msgfilter</command></term>
+        <listitem>
+          <para>Bruker et filter på alle oversettelser av en
+           oversettelsesmappe</para>
+          <indexterm zone="ch-system-gettext msgfilter">
+            <primary sortas="b-msgfilter">msgfilter</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="msgfmt">
+        <term><command>msgfmt</command></term>
+        <listitem>
+          <para>Genererer en binær meldingskatalog fra en
+           oversettelsesmappe</para>
+          <indexterm zone="ch-system-gettext msgfmt">
+            <primary sortas="b-msgfmt">msgfmt</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="msggrep">
+        <term><command>msggrep</command></term>
+        <listitem>
+          <para>Trekker ut alle meldinger fra en oversettelseskatalog som samsvarer med et
+           gitt mønster eller tilhører noen gitte kildefiler</para>
+          <indexterm zone="ch-system-gettext msggrep">
+            <primary sortas="b-msggrep">msggrep</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="msginit">
+        <term><command>msginit</command></term>
+        <listitem>
+          <para>Oppretter en ny <filename class="extension">.po</filename> fil,
+          initialisere metainformasjonen med verdier fra brukerens
+           miljø</para>
+          <indexterm zone="ch-system-gettext msginit">
+            <primary sortas="b-msginit">msginit</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="msgmerge">
+        <term><command>msgmerge</command></term>
+        <listitem>
+          <para>Kombinerer to rå oversettelser til én enkelt fil</para>
+          <indexterm zone="ch-system-gettext msgmerge">
+            <primary sortas="b-msgmerge">msgmerge</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="msgunfmt">
+        <term><command>msgunfmt</command></term>
+        <listitem>
+          <para>Dekompilerer en binær meldingskatalog til rå
+           oversettelsestekst</para>
+          <indexterm zone="ch-system-gettext msgunfmt">
+            <primary sortas="b-msgunfmt">msgunfmt</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="msguniq">
+        <term><command>msguniq</command></term>
+        <listitem>
+          <para>Forener dupliserte oversettelser i en oversettelsesmappe</para>
+          <indexterm zone="ch-system-gettext msguniq">
+            <primary sortas="b-msguniq">msguniq</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="ngettext">
+        <term><command>ngettext</command></term>
+        <listitem>
+          <para>Viser oversettelser på morsmål av en tekstmelding hvis
+           grammatisk form avhenger av et tall</para>
+          <indexterm zone="ch-system-gettext ngettext">
+            <primary sortas="b-ngettext">ngettext</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="recode-sr-latin">
+        <term><command>recode-sr-latin</command></term>
+        <listitem>
+          <para>Omkoder serbisk tekst fra kyrillisk til latinsk skrift</para>
+          <indexterm zone="ch-system-gettext recode-sr-latin">
+            <primary sortas="b-recode-sr-latin">recode-sr-latin</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="xgettext">
+        <term><command>xgettext</command></term>
+        <listitem>
+          <para>Trekker ut de oversettbare meldingslinjene fra den gitte kildefilen
+           for å lage den første oversettelsesmalen</para>
+          <indexterm zone="ch-system-gettext xgettext">
+            <primary sortas="b-xgettext">xgettext</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libasprintf">
+        <term><filename class="libraryfile">libasprintf</filename></term>
+        <listitem>
+          <para>definerer <emphasis>autosprintf</emphasis> klassen, som gir
+           C formaterte utdatarutiner som kan brukes i C++ programmer, for bruk med
+          <emphasis>&lt;string&gt;</emphasis> strenger og
+          <emphasis>&lt;iostream&gt;</emphasis> dataflyt</para>
+          <indexterm zone="ch-system-gettext libasprintf">
+            <primary sortas="c-libasprintf">libasprintf</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libgettextlib">
+        <term><filename class="libraryfile">libgettextlib</filename></term>
+        <listitem>
+          <para>et privat bibliotek som inneholder vanlige rutiner som brukes av
+           ulike Gettext programmer; disse er ikke beregnet for generelt bruk</para>
+          <indexterm zone="ch-system-gettext libgettextlib">
+            <primary sortas="c-libgettextlib">libgettextlib</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libgettextpo">
+        <term><filename class="libraryfile">libgettextpo</filename></term>
+        <listitem>
+          <para>Brukes til å skrive spesialiserte programmer som behandler
+          <filename class="extension">.po</filename> filer; dette biblioteket
+           brukes når standardapplikasjonene som ble levert med Gettext (som f.eks
+          <command>msgcomm</command>, <command>msgcmp</command>,
+          <command>msgattrib</command>, og <command>msgen</command>) ikke
+           er tilstrekkelig</para>
+          <indexterm zone="ch-system-gettext libgettextpo">
+            <primary sortas="c-libgettextpo">libgettextpo</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libgettextsrc">
+        <term><filename class="libraryfile">libgettextsrc</filename></term>
+        <listitem>
+          <para>et privat bibliotek som inneholder vanlige rutiner som brukes av
+           ulike Gettext programmer; disse er ikke beregnet for generelt bruk</para>
+          <indexterm zone="ch-system-gettext libgettextsrc">
+            <primary sortas="c-libgettextsrc">libgettextsrc</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libtextstyle">
+        <term><filename class="libraryfile">libtextstyle</filename></term>
+        <listitem>
+          <para>Tekststilbibliotek</para>
+          <indexterm zone="ch-system-gettext libtextstyle">
+            <primary sortas="c-libtextstyle">libtextstyle</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="preloadable_libintl">
+        <term><filename class="libraryfile">preloadable_libintl</filename></term>
+        <listitem>
+          <para>Et bibliotek, ment å brukes av LD_PRELOAD som assisterer
+          <filename class="libraryfile">libintl</filename> i å logge
+           uoversatte meldinger</para>
+          <indexterm zone="ch-system-gettext preloadable_libintl">
+            <primary sortas="c-preloadable_libintl">preloadable_libintl</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+  </sect2>
+
+</sect1>

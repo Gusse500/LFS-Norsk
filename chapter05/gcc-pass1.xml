@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-tools-gcc-pass1" role="wrap" xreflabel="gcc-pass1">
+  <?dbhtml filename="gcc-pass1.html"?>
+
+  <sect1info condition="script">
+    <productname>gcc-pass1</productname>
+    <productnumber>&gcc-version;</productnumber>
+    <address>&gcc-url;</address>
+  </sect1info>
+
+  <title>GCC-&gcc-version; - Pass 1</title>
+
+  <indexterm zone="ch-tools-gcc-pass1">
+    <primary sortas="a-GCC">GCC</primary>
+    <secondary>tools, pass 1</secondary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../chapter08/gcc.xml"
+    xpointer="xpointer(/sect1/sect2[1]/para[1])"/>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&gcc-tmpp1-sbu;</seg>
+        <seg>&gcc-tmpp1-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Kryss GCC</title>
+
+    <para>GCC krever GMP-, MPFR- og MPC pakkene. Siden disse pakkene kanskje ikke
+    er inkludert i vertsdistribusjonen din, blir de bygget med
+    GCC.  Pakk ut hver pakke i GCC-kildemappen, og gi nytt navn til de
+    resulterende mappene slik at GCC byggprosedyrene automatisk
+    bruker dem:</para>
+
+    <note><para>Det er hyppige misforståelser om dette kapittelet. Prosedyrene
+    er de samme som alle andre kapitler som forklart tidligere (<xref
+    linkend='buildinstr'/>).  Pakk først ut gcc-tarballen fra kildemappen
+    og bytt deretter til den opprettede mappen.  Først da bør du
+    fortsette med instruksjonene nedenfor.</para></note>
+
+<screen><userinput remap="pre">tar -xf ../mpfr-&mpfr-version;.tar.xz
+mv -v mpfr-&mpfr-version; mpfr
+tar -xf ../gmp-&gmp-version;.tar.xz
+mv -v gmp-&gmp-version; gmp
+tar -xf ../mpc-&mpc-version;.tar.gz
+mv -v mpc-&mpc-version; mpc</userinput></screen>
+
+    <para>På x86_64-verter, sett standard mappenavn for
+    64-bits biblioteker til <quote>lib</quote>:</para>
+
+<screen><userinput remap="pre">case $(uname -m) in
+  x86_64)
+    sed -e '/m64=/s/lib64/lib/' \
+        -i.orig gcc/config/i386/t-linux64
+ ;;
+esac</userinput></screen>
+
+    <para>GCC dokumentasjonen anbefaler å bygge GCC
+    i en dedikert byggemappe:</para>
+
+<screen><userinput remap="pre">mkdir -v build
+cd       build</userinput></screen>
+
+    <para>Forbered GCC for kompilering:</para>
+
+<screen><userinput remap="configure">../configure                  \
+    --target=$LFS_TGT         \
+    --prefix=$LFS/tools       \
+    --with-glibc-version=&glibc-version; \
+    --with-sysroot=$LFS       \
+    --with-newlib             \
+    --without-headers         \
+    --enable-initfini-array   \
+    --disable-nls             \
+    --disable-shared          \
+    --disable-multilib        \
+    --disable-decimal-float   \
+    --disable-threads         \
+    --disable-libatomic       \
+    --disable-libgomp         \
+    --disable-libquadmath     \
+    --disable-libssp          \
+    --disable-libvtv          \
+    --disable-libstdcxx       \
+    --enable-languages=c,c++</userinput></screen>
+    <variablelist>
+      <title>Betydningen av konfigurasjonsalternativene:</title>
+
+      <varlistentry>
+        <term><parameter>--with-glibc-version=&glibc-version;</parameter></term>
+        <listitem>
+          <para>Dette alternativet spesifiserer versjonen av glibc som vil være
+           brukt på målet. Det er ikke relevant for vertens libc
+           distribusjon fordi alt kompilert av pass1 gcc vil kjøre i
+           chroot miljøet, som er isolert fra libc til vertens
+           distribusjon.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--with-newlib</parameter></term>
+        <listitem>
+          <para>Siden et fungerende C-bibliotek ikke er tilgjengelig ennå, sikrer dette
+          at inhibit_libc-konstanten blir definert når du bygger libgcc. Dette forhindrer
+          kompilering av kode som krever libc støtte.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--without-headers</parameter></term>
+        <listitem>
+          <para>Når du oppretter en komplett tverrkompilator, krever GCC
+          standarddeklarasjoner som er kompatible med målsystemet. For våre
+          formål vil disse deklarasjonene ikke være nødvendige. Denne bryteren hindrer
+          GCC i å lete etter dem.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--enable-initfini-array</parameter></term>
+        <listitem>
+          <para>Denne bryteren tvinger bruk av noen interne datastrukturer
+          som er nødvendige, men som ikke kan oppdages når du bygger en
+          krysskompilator.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--disable-shared</parameter></term>
+        <listitem>
+          <para>Denne bryteren tvinger GCC til å koble sine interne biblioteker
+          statisk. Vi trenger dette fordi de delte bibliotekene krever glibc,
+           som ennå ikke er installert på målsystemet.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--disable-multilib</parameter></term>
+        <listitem>
+          <para>På x86_64 støtter LFS ennå ikke en multilib-konfigurasjon.
+          Denne bryteren er ufarlig for x86.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--disable-decimal-float, --disable-threads,
+              --disable-libatomic, --disable-libgomp,
+        --disable-libquadmath, --disable-libssp, --disable-libvtv,
+        --disable-libstdcxx</parameter></term>
+        <listitem>
+          <para>Disse bryterne deaktiverer støtte for flytende desimal
+           punkter, tråd, libatomic, libgomp, libquadmath, libssp,
+           henholdsvis libvtv og C++ standardbiblioteket. Disse funksjonene
+           klarer ikke å kompilere når du bygger en tverrkompilator og er ikke
+           nødvendig for oppgaven med å krysskompilere den midlertidige libc.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--enable-languages=c,c++</parameter></term>
+        <listitem>
+          <para>Dette alternativet sikrer at bare C- og C ++ -kompilatorene blir bygget.
+          Dette er de eneste språkene som trengs nå.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Kompiler GCC ved å kjøre:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+    <screen><userinput remap="install">make install</userinput></screen>
+
+    <para>Denne versjonen av GCC har installert et par interne
+    systemoverskrifter.  Normalt vil en av dem, <filename>limits.h</filename>, i sin tur
+    inkludere den tilsvarende system <filename>limits.h</filename> systemoverskrift, i
+    dette tilfellet, <filename>$LFS/usr/include/limits.h</filename>. På tidspunktet for
+    denne byggingen av GCC eksisterer imidlertid ikke <filename>$LFS/usr/include/limits.h</filename>
+    så den interne overskriften som nettopp har blitt installert er en
+    delvis, selvstendig fil og inkluderer ikke de utvidede funksjonene til
+    systemoverskriften. Dette er tilstrekkelig for å bygge glibc, men den fullstendige
+    interne overskriften vil være nødvendig senere. Lag en fullversjon av den interne
+    overskriften ved å bruke en kommando som er identisk med det GCC-byggesystemet gjør
+    under normale omstendigheter:</para>
+
+<screen><userinput remap="install">cd ..
+cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
+  `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/install-tools/include/limits.h</userinput></screen>
+  </sect2>
+
+  <sect2 role="content">
+    <title/>
+
+    <para>Detaljer om denne pakken finner du i avsnitt
+    <xref linkend="contents-gcc" role="."/></para>
+
+  </sect2>
+
+</sect1>
