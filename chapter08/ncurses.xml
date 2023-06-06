@@ -131,8 +131,7 @@
     .  Det kan krasje skallprosessen som bruker kode og data
      fra bibliotekfilen. Installer pakken med
     <literal>DESTDIR</literal>, og bytt ut bibliotekfilen riktig med
-    <command>install</command> command.  Et ubrukelig statisk arkiv som
-    ikke håndteres av <command>configure</command> er også fjernet:</para>
+    <command>install</command> command:</para>
 
 <screen><userinput remap="install">make DESTDIR=$PWD/dest install
 install -vm755 dest/usr/lib/libncursesw.so.&ncurses-version; /usr/lib
@@ -212,6 +211,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
            libformw.so,
            libmenuw.so,
            libncursesw.so,
+		   libncurses++w.so,
            libpanelw.so, og deres non-wide karakters motstykker uten "w"
               i biblioteknavnene.</seg>
         <seg>
@@ -366,7 +366,17 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
         </listitem>
       </varlistentry>
 
-      <varlistentry id="libformw">
+      <varlistentry id="libncurses__w">
+        <term><filename class="libraryfile">libncurses++w</filename></term>
+        <listitem>
+          <para>Inneholder C++ binding for andre biblioteker i denne pakken</para>
+          <indexterm zone="ch-system-ncurses libncurses__w">
+            <primary sortas="c-libncurses++w">libncurses++w</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+	  <varlistentry id="libformw">
         <term><filename class="libraryfile">libformw</filename></term>
         <listitem>
           <para>Inneholder funksjoner for å implementere skjemaer</para>

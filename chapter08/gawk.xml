@@ -44,7 +44,11 @@
 
 <screen><userinput remap="pre">sed -i 's/extras//' Makefile.in</userinput></screen>
 
-    <para>Forbered Gawk for kompilering:</para>
+    <para>Fiks nå en programmeringsfeil identifisert oppstrøms:</para>
+
+<screen><userinput remap="pre">sed -i -i '241i UPREF(m);' interpret.h</userinput></screen>
+
+	<para>Forbered Gawk for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
 

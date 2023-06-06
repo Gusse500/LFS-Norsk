@@ -41,6 +41,48 @@
     -->
 
     <listitem>
+      <para>15.09.2022-09-15</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til file-5.43. Fikser
+          <ulink url="&lfs-ticket-root;5113">#5113</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-5.19.8. Fikser
+          <ulink url="&lfs-ticket-root;5111">#5111</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til gawk-5.2.0. Fikser
+          <ulink url="&lfs-ticket-root;5108">#5108</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til meson-0.63.2. Fikser
+          <ulink url="&lfs-ticket-root;5106">#5106</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til ninja-1.11.1. Fikser
+          <ulink url="&lfs-ticket-root;5103">#5103</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til bc-6.0.2. Fikser
+          <ulink url="&lfs-ticket-root;5102">#5102</ulink>.</para>
+        </listitem>
+        <listitem revision="sysv">
+          <para>[bdubbs] - Fikser plasseringen av udev regler i eudev.  Fikser 
+          <ulink url="&lfs-ticket-root;5100">#5112</ulink>.</para>
+        </listitem>
+        <listitem>
+           <para>[bdubbs] - Fjerner en advarsel for egrep og fgrep som
+           gjør at tester for noen pakker mislykkes.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Sletter en tom binutils man side.  Fikser 
+          <ulink url="&lfs-ticket-root;5100">#5107</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+	<listitem>
       <para>10.09.2022</para>
       <itemizedlist>
         <listitem>

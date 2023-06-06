@@ -53,7 +53,9 @@
 
 <screen><userinput remap="configure">PAGE=<replaceable>&lt;paper_size&gt;</replaceable> ./configure --prefix=/usr</userinput></screen>
 
-    <screen><userinput remap="make">make</userinput></screen>
+    <para>Kompiler pakken:</para>
+
+	<screen><userinput remap="make">make</userinput></screen>
 
     <para>Denne pakken kommer ikke med en testpakke.</para>
 
