@@ -589,7 +589,8 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
         <term><filename class="libraryfile">libssp</filename></term>
         <listitem>
           <para>Inneholder rutiner som støtter GCCs stabelknusende beskyttelses
-          funksjonalitet</para>
+          funksjonalitet  Normalt er det ubrukt fordi glibc også gir
+          disse rutinene</para>
           <indexterm zone="ch-system-gcc libssp">
             <primary sortas="c-libssp">libssp</primary>
           </indexterm>
