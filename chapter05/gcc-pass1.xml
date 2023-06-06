@@ -135,8 +135,8 @@ cd       build</userinput></screen>
       </varlistentry>
 
       <varlistentry>
-      <term><parameter>--enable-default-pie</parameter> og
-      <parameter>--enable-default-ssp</parameter></term>
+      <term><parameter>--enable-default-pie og
+      --enable-default-ssp</parameter></term>
         <listitem>
           <para>Disse bryterne lar GCC kompilere programmer med
 	  noen herdende sikkerhetsfunksjoner (mer informasjon om de
