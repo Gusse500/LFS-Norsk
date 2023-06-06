@@ -131,8 +131,7 @@
     .  Det kan krasje skallprosessen som bruker kode og data
      fra bibliotekfilen. Installer pakken med
     <literal>DESTDIR</literal>, og bytt ut bibliotekfilen riktig med
-    <command>install</command> command.  Et ubrukelig statisk arkiv som
-    ikke håndteres av <command>configure</command> er også fjernet:</para>
+    <command>install</command> command:</para>
 
 <screen><userinput remap="install">make DESTDIR=$PWD/dest install
 install -vm755 dest/usr/lib/libncursesw.so.&ncurses-version; /usr/lib
