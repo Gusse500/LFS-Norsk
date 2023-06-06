@@ -186,7 +186,7 @@ EOF</userinput></screen>
      <para>Etter at bruken av <systemitem class="username">lfs</systemitem>
      brukeren er ferdig i begynnelsen av <xref
      linkend="chapter-chroot-temporary-tools"/>, du kan gjenopprette
-	 <filename>/etc/bash.bashrc</filename> (hvis ønsket).</para>
+     <filename>/etc/bash.bashrc</filename> (hvis ønsket).</para>
 
      <para>Legg merke til at LFS Bash pakken vi vil bygge i
      <xref linkend="ch-system-bash"/> ikke er konfigurert til å laste eller kjøre

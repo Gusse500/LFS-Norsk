@@ -23,7 +23,7 @@
   <filename>/etc/vconsole.conf</filename> filen for konfigurasjons
    informasjon. Bestemmer hvilket tastatur og skjermskrift som skal brukes. Diverse
    språkspesifikke HOWTOer kan også hjelpe med dette, se <ulink
-  url="http://www.tldp.org/HOWTO/HOWTO-INDEX/other-lang.html"/>.
+  url="https://tldp.org/HOWTO/HOWTO-INDEX/other-lang.html"/>.
   Undersøk utdataen av <command>localectl list-keymaps</command> for en liste over
    gyldige konsolltastaturer. Se i
   <filename class="directory">/usr/share/consolefonts</filename>

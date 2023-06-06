@@ -63,9 +63,9 @@ sed -i '/{OLDSUFF}/c:' support/shlib-install</userinput></screen>
         <term><parameter>--with-curses</parameter></term>
         <listitem>
           <para>Dette alternativet forteller Readline at det kan finne termcap
-bibliotekfunksjoner i curses biblioteket, i stedet for et separat
-termcap bibliotek. Det gjør det mulig å generere en korrekt
-	       <filename>readline.pc</filename> fil.</para>
+          bibliotekfunksjoner i curses biblioteket, i stedet for et separat
+          termcap bibliotek. Det gjør det mulig å generere en korrekt
+          <filename>readline.pc</filename> fil.</para>
         </listitem>
       </varlistentry>
 

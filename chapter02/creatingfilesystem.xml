@@ -44,7 +44,7 @@
   <para>Andre filsystemer, inkludert FAT32, NTFS, ReiserFS, JFS og XFS er
    nyttig for spesialiserte formål. Mer informasjon om disse filsystemene
    finner du på <ulink
-  url="http://en.wikipedia.org/wiki/Comparison_of_file_systems"/>.</para>
+  url="https://en.wikipedia.org/wiki/Comparison_of_file_systems"/>.</para>
 
   <para>LFS antar at rotfilsystemet (/) er av typen ext4. Å lage
    et <systemitem class="filesystem">ext4</systemitem> filsystemet på LFS

@@ -41,6 +41,44 @@
     -->
 
     <listitem>
+      <para>10.09.2022</para>
+      <itemizedlist>
+        <listitem>
+          <para>[pierre] - Lagt til <option>--enable-default-pie</option> og
+          <option>--enable-default-ssp</option> til GCC byggingen. Begrunnelse
+          og noen rapporter på
+          <ulink url="&lfs-ticket-root;5107">#5107</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+	<listitem>
+      <para>07.09.2022</para>
+      <itemizedlist>
+        <listitem>
+           <para>[bdubbs] - Oppdatert til shadow-4.12.3. Fikser
+           <ulink url="&lfs-ticket-root;5101">#5101</ulink>.</para>
+        </listitem>
+        <listitem>
+           <para>[bdubbs] - Oppdatert til Python3-3.10.7. Fikser
+           <ulink url="&lfs-ticket-root;5109">#5109</ulink>.</para>
+        </listitem>
+        <listitem>
+           <para>[bdubbs] - Oppdatert til linux-5.19.7. Fikser
+           <ulink url="&lfs-ticket-root;5099">#5099</ulink>.</para>
+        </listitem>
+        <listitem>
+           <para>[bdubbs] - Oppdatert til less-608. Fikser
+           <ulink url="&lfs-ticket-root;5104">#5104</ulink>.</para>
+        </listitem>
+        <listitem>
+           <para>[bdubbs] - Oppdatert til grep-3.8. Fikser
+           <ulink url="&lfs-ticket-root;5105">#5105</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+	<listitem>
       <para>01.09.2022</para>
       <itemizedlist>
         <listitem>

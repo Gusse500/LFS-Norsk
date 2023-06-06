@@ -82,9 +82,9 @@
         <listitem>
           <para>Plasser alle kildene og oppdateringene i en mappe som vil være
            tilgjengelig fra chroot-miljøet som f.eks
-      	  <filename class="directory">/mnt/lfs/sources/</filename>.<!-- 
+          <filename class="directory">/mnt/lfs/sources/</filename>.<!-- 
           <emphasis>ikke</emphasis> legge kilder i
-	  <filename class="directory">/mnt/lfs/tools/</filename>. --></para>
+          <filename class="directory">/mnt/lfs/tools/</filename>. --></para>
         </listitem>
         <listitem>
           <para>Bytt til kildemappen.</para>

@@ -31,22 +31,17 @@
       <itemizedlist>
 
         <listitem>
-          <para><ulink url="http://www.cert.org/">CERT</ulink> (Computer
-          Emergency Response Team)</para>
+          <para><ulink url="&lfs-root;lfs/advisories/">LFS sikkerhetsråd</ulink></para>
 
-          <para>CERT har en E-postliste som publiserer sikkerhetsvarsler vedr
-           ulike operativsystemer og applikasjoner. Abonnementsinformasjon er
-           tilgjengelig i <ulink
-          url="http://www.us-cert.gov/cas/signup.html"/>.</para>
+          <para>Dette er en liste over sikkerhetssårbarheter oppdaget i
+          LFS-bok etter at den er utgitt.</para>
         </listitem>
 
         <listitem>
-          <para>Bugtraq</para>
+          <para><ulink url="https://seclists.org/oss-sec/">E-postliste for sikkerhet med åpen kildekode</ulink></para>
 
-          <para>Bugtraq er en fullstendig avslørende E-postliste for datasikkerhet. Den
-           publiserer nylig oppdagede sikkerhetsproblemer, og noen ganger potensielle
-           fikser for dem. Abonnementsinformasjon er tilgjengelig på <ulink
-          url="http://www.securityfocus.com/archive"/>.</para>
+          <para>Dette er en e-postliste for diskusjon av sikkerhetsfeil,
+          konsepter og praksiser i åpen kildekodefellesskapet.</para>
         </listitem>
 
       </itemizedlist>
@@ -85,7 +80,7 @@
       <para>Målet med Linux dokumentasjonsprosjektet (TLDP) er å
        samarbeide om alle problemene med Linux dokumentasjon. TLDP funksjonene
        en stor samling av HOWTOer, guider og man sider. Den ligger på
-      <ulink url="http://www.tldp.org/"/>.</para>
+      <ulink url="https://.tldp.org/"/>.</para>
     </listitem>
 
   </itemizedlist>
