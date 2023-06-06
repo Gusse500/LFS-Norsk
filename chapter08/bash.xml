@@ -88,7 +88,7 @@ exit $value
 EOF</userinput></screen>
 
     <para>Flere tester påkaller det foreldede <command>egrep</command>
-    kommando og utløs en advarsel om foreldelse. Disse advarslene
+    kommandoen og utløser advarsler. Disse advarslene
     bør ignoreres.</para>
 
 	<para>Installer pakken:</para>
