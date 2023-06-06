@@ -41,6 +41,18 @@
     -->
 
     <listitem>
+      <para>10.09.2022</para>
+      <itemizedlist>
+        <listitem>
+          <para>[pierre] - Lagt til <option>--enable-default-pie</option> og
+          <option>--enable-default-ssp</option> til GCC byggingen. Begrunnelse
+          og noen rapporter på
+          <ulink url="&lfs-ticket-root;5107">#5107</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+	<listitem>
       <para>07.09.2022</para>
       <itemizedlist>
         <listitem>
