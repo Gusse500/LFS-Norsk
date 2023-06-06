@@ -43,7 +43,7 @@
   <sect2 role="installation">
     <title>Installasjon av OpenSSL</title>
 <!--
-    <para>Løs først et problem med noen avanserte arkitekturer med avx512 
+    <para>Løs først et problem med noen avanserte arkitekturer med avx512
     kapasitet:</para>
 
  <screen><userinput remap="pre">sed -e '/bn_reduce.*m1/i\    factor_size /= sizeof(BN_ULONG) * 8;' \
