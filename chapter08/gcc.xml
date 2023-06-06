@@ -106,7 +106,8 @@ cd       build</userinput></screen>
       </varlistentry>
     </variablelist>
 
-    <note id="pie-ssp-info" xreflabel="note on PIE and SSP">
+    <note>
+      <anchor id="pie-ssp-info" xreflabel="note on PIE and SSP"/>
       <para>
         PIE (position independent executable) er en teknikk for å produsere
         binære programmer som kan lastes hvor som helst i minnet. Uten PIE,
