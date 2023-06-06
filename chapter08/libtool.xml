@@ -52,7 +52,7 @@
 
 <para>For å teste resultatene<!--(ca. 11.0 SBU)-->, utsted:</para>
 
-<screen><userinput remap="test">make check</userinput></screen>
+<screen><userinput remap="test">make -k check</userinput></screen>
 
     <note><para>Testtiden for libtool kan reduseres betydelig på et
      system med flere kjerner. For å gjøre dette, legg til
@@ -61,8 +61,9 @@
      prosent.</para></note>
 
     <para>Fem tester er kjent for å mislykkes i LFS byggemiljøet pga
-     en sirkulær avhengighet, men alle tester består hvis de sjekkes på nytt etter
-     at automake er installert.</para>
+    en sirkulær avhengighet, men disse testene består hvis de sjekkes på nytt etter
+    at automake er installert. I tillegg, med grep-3.8, to tester vil
+    utløse en advarsel for regulære uttrykk som ikke er POSIX og mislykkes.</para>
 
     <para>Installer pakken:</para>
 
