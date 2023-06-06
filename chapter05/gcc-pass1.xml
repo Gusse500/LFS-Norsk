@@ -139,11 +139,11 @@ cd       build</userinput></screen>
       --enable-default-ssp</parameter></term>
         <listitem>
           <para>Disse bryterne lar GCC kompilere programmer med
-	  noen herdende sikkerhetsfunksjoner (mer informasjon om de
-	  i <xref linkend="pie-ssp-info"/> kapittel 8). De er ikke
-	  strengt tatt nødvendig på dette stadiet, siden kompilatoren bare vil produsere
-	  midlertidige kjørbare filer. Men det er renere å ha de midlertidige
-	  pakkene så nær de endelige som mulig.
+	      noen herdende sikkerhetsfunksjoner (mer informasjon om de
+	      i <xref linkend="pie-ssp-info"/> kapittel 8) som standard. De er
+	      strengt tatt ikke nødvendig på dette stadiet, siden kompilatoren bare vil 
+		  produsere midlertidige kjørbare filer. Men det er renere å ha de 
+		  midlertidige pakkene så nær de endelige som mulig.
           </para>
         </listitem>
       </varlistentry>

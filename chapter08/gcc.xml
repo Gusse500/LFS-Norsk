@@ -109,17 +109,20 @@ cd       build</userinput></screen>
     <note id="pie-ssp-info" xreflabel="note on PIE and SSP">
       <para>
         PIE (position independent executable) er en teknikk for å produsere
-        binære programmer som kan lastes hvor som helst i minnet. Sammen
-        med en funksjon kalt ASLR (Address Space Layout Randomization),
-        gjør dette at programmer aldri har samme minneoppsett,
-        dermed beseire angrep basert på reproduserbare minnemønstre.
+        binære programmer som kan lastes hvor som helst i minnet. Uten PIE,
+        sikkerhetsfunksjonen kalt ASLR (Address Space Layout Randomization)
+        kan legges til for de delte bibliotekene, men ikke de kjørbare
+        filen. Aktivering av PIE tillater ASLR for de kjørbare filene i tillegg til
+        de delte bibliotekene, og reduserer noen angrep basert på faste
+        adresser til sensitiv kode eller data i den kjørbare filene.
       </para>
       <para>
         SSP (Stack Smashing Protection) er en teknikk for å sikre
         at parameterstabelen ikke er ødelagt. Stabelkorrupsjon kan
         for eksempel endre returadressen til en subrutine,
-        som ville tillate overføring av kontroll til et angriperprogram i stedet
-        for det originale.
+        som ville tillate overføring av kontroll til en eller annen farlig kode
+        (som eksisterer i programmet eller delte biblioteker, eller injisert av
+         en angriper på en eller annen måte) i stedet for den originale.
       </para>
     </note>
 
@@ -156,7 +159,11 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
     url="&test-results;"/> og
     <ulink url="https://gcc.gnu.org/ml/gcc-testresults/"/>.</para>
 
-    <para>I g++ er det kjent at fire tester relatert til PR100400 er rapportert
+    <para>I gcc er elleve tester i i386-testpakken kjent for å FAIL.
+    Det er fordi testfilene ikke tar hensyn til
+    <parameter>--enable-default-pie</parameter> alternativet.</para>
+
+	<para>I g++ er det kjent at fire tester relatert til PR100400 er rapportert
     som både XPASS og FAIL. Det er fordi testfilen for dette kjente problemet
     ikke er godt skrevet.</para>
 
