@@ -167,11 +167,12 @@ EOF</userinput></screen>
 
     <note>
       <para>Som standard installerer vim kun stavefiler for det engelske språket.
-       For å installere stavefiler for ditt foretrukne språk, last ned
-      <filename>*.spl</filename> og eventuelt <filename>*.sug</filename>
-      filer for ditt språk og tegnkoding fra <ulink
-        url="https://github.com/vim/vim/tree/master/runtime/spell/"/> og lagre
-      dem til <filename class='directory'>
+       For å installere stavefiler for ditt foretrukne språk, kopier
+      <filename class='extension'>.spl</filename> og eventuelt
+      <filename class='extension'>.sug</filename> filer for ditt språk
+      and character encoding from
+      <filename class='directory'>runtime/spell</filename> til mappen
+      <filename class='directory'>
         /usr/share/&vim-docdir;/spell/</filename>.</para>
 
       <para>For å bruke disse stavefilene, noen konfigurasjoner i
@@ -180,8 +181,8 @@ EOF</userinput></screen>
 <screen><literal>set spelllang=en,ru
 set spell</literal></screen>
 
-      <para>For mer informasjon, se den aktuelle README filen
-       på URLen ovenfor.</para>
+      <para>For mer informasjon, se
+      <filename>runtime/spell/README.txt</filename>.</para>
     </note>
 
   </sect2>
