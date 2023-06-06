@@ -159,8 +159,6 @@ File systems  ---&gt;
 
       <screen role="nodump">Processor type and features ---&gt;
   [*] Support x2apic [CONFIG_X86_X2APIC]
-Memory Management options  ---&gt;
-  [ ] Enable userfaultfd() system call [CONFIG_USERFAULTFD]
 Device Drivers ---&gt;
   [*] PCI Support ---&gt; [CONFIG_PCI]
     [*] Message Signaled Interrupts (MSI and MSI-X) [CONFIG_PCI_MSI]
@@ -251,16 +249,6 @@ Device Drivers ---&gt;
           panikk ved oppstart hvis x2APIC er aktivert av fastvare. Dette alternativet
           har ingen effekt, men gjør heller ingen skade hvis x2APIC er deaktivert av
           fastvare.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term><parameter>Enable userfaultfd() system call</parameter></term>
-        <listitem>
-          <para>Hvis dette alternativet er aktivert, er det et sikkerhetsproblem
-          som ikke er løst i Linux-&linux-version; som kan utnyttes.
-          Deaktiver dette alternativet for å unngå sårbarheten. Dette systemanropet
-          brukes ikke av LFS eller BLFS.</para>
         </listitem>
       </varlistentry>
 
