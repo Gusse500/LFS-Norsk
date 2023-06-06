@@ -170,8 +170,9 @@ EOF</userinput></screen>
        For å installere stavefiler for ditt foretrukne språk, last ned
       <filename>*.spl</filename> og eventuelt <filename>*.sug</filename>
       filer for ditt språk og tegnkoding fra <ulink
-      url="ftp://ftp.vim.org/pub/vim/runtime/spell/"/> og lagre dem til
-      <filename class='directory'>/usr/share/&vim-docdir;/spell/</filename>.</para>
+        url="https://github.com/vim/vim/tree/master/runtime/spell/"/> og lagre
+      dem til <filename class='directory'>
+        /usr/share/&vim-docdir;/spell/</filename>.</para>
 
       <para>For å bruke disse stavefilene, noen konfigurasjoner i
       <filename>/etc/vimrc</filename> trengs, f.eks.:</para>

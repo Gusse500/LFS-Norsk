@@ -61,9 +61,9 @@
         <term><parameter>BISON_LOCALEDIR=/usr/share/locale</parameter></term>
         <listitem>
           <para>Siden bison ennå ikke er installert i /usr, configure hardkoder
-           katalogen som inneholder oversettelser for bison-programmet (
-"locale" mappen) som /tools/share/locale. Å sender denne variabelen
-            gjør det mulig å overstyre valget gjort av configure.</para>
+          katalogen som inneholder oversettelser for bison-programmet (
+          "locale" mappen) som /tools/share/locale. Å sender denne variabelen
+          gjør det mulig å overstyre valget gjort av configure.</para>
         </listitem>
       </varlistentry>
 
