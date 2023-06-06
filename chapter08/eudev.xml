@@ -39,18 +39,13 @@
 
   <sect2 role="installation">
     <title>Installasjon av Eudev</title>
-<!--
-    <para>Først må du fikse et testskript:</para>
 
-<screen><userinput remap="pre">sed -r -i 's|/usr(/bin/test)|\1|' test/udev-test.pl</userinput></screen>
--->
-<!--
-    <para>Deretter fjerner du en unødvendig linje som forårsaker en byggefeil:</para>
 
-<screen><userinput remap="pre">sed -i '/keyboard_lookup_key/d' src/udev/udev-builtin-keyboard.c</userinput></screen>
--->
 
-    <para>Forbered Eudev for kompilering:</para>
+    <para>Først fiks plasseringen av udev regler i .pc filen:</para>
+
+<screen><userinput remap="pre">sed -i '/udevdir/a udev_dir=${udevdir}' src/udev/udev.pc.in</userinput></screen>
+	<para>Forbered Eudev for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr           \
             --bindir=/usr/sbin      \

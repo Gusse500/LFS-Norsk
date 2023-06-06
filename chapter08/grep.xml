@@ -40,7 +40,14 @@
   <sect2 role="installation">
     <title>Installasjon av Grep</title>
 
-    <para>Forbered Grep for kompilering:</para>
+    <para>
+       Fjern først en advarsel om bruk av egrep og fgrep som gjør
+       at tester på noen pakker mislykkes:
+    </para>
+
+<screen><userinput remap="pre">sed -i "s/echo/#echo/" src/egrep.sh</userinput></screen>
+
+	<para>Forbered Grep for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
 
