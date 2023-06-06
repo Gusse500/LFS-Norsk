@@ -106,7 +106,24 @@ cd       build</userinput></screen>
       </varlistentry>
     </variablelist>
 
-    <para>Kompiler pakken:</para>
+    <note id="pie-ssp-info" xreflabel="note on PIE and SSP">
+      <para>
+        PIE (position independent executable) er en teknikk for å produsere
+        binære programmer som kan lastes hvor som helst i minnet. Sammen
+        med en funksjon kalt ASLR (Address Space Layout Randomization),
+        gjør dette at programmer aldri har samme minneoppsett,
+        dermed beseire angrep basert på reproduserbare minnemønstre.
+      </para>
+      <para>
+        SSP (Stack Smashing Protection) er en teknikk for å sikre
+        at parameterstabelen ikke er ødelagt. Stabelkorrupsjon kan
+        for eksempel endre returadressen til en subrutine,
+        som ville tillate overføring av kontroll til et angriperprogram i stedet
+        for det originale.
+      </para>
+    </note>
+
+	<para>Kompiler pakken:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
