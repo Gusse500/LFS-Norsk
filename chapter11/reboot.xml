@@ -77,7 +77,7 @@
 
 	<listitem>
       <para>
-        Til slutt en gjennomgang av følgende konfigurasjonsfiler
+        En gjennomgang av følgende konfigurasjonsfiler
         er også passende på dette punktet.
       </para>
 
@@ -123,9 +123,9 @@ umount -v $LFS</userinput></screen>
 
 <screen role="nodump"><userinput>umount -v $LFS</userinput></screen>
 
-  <para>Start nå systemet på nytt med:</para>
+  <para>Start nå systemet på nytt.</para>
 
-<screen role="nodump"><userinput>shutdown -r now</userinput></screen>
+<!--<screen role="nodump"><userinput>shutdown -r now</userinput></screen>-->
 
   <para>Forutsatt at GRUB oppstartslasteren ble satt opp som skissert tidligere, er menyen
   satt til å starte opp <emphasis>LFS &version;</emphasis> automatisk.</para>

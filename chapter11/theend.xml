@@ -60,8 +60,7 @@ PRETTY_NAME="Linux From Scratch &version;"
 VERSION_CODENAME="&lt;your name here&gt;"
 EOF</userinput></screen>
 
-  <para>Sørg for å sette inn en form for tilpasning for feltene
-   'DISTRIB_CODENAME' og 'VERSION_CODENAME' for å gjøre systemet ditt
-   unikt.</para>
+  <para>Pass på å tilpasse feltene 'DISTRIB_CODENAME' og
+  'VERSION_CODENAME' for å gjøre systemet unikt ditt.</para>
 
 </sect1>

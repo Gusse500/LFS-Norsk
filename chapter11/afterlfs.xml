@@ -52,17 +52,13 @@
      </para>
 
      <para>
-        I tillegg til ovennevnte er det et sett med applikasjoner som er
-        egnet for alle systemer for systemadministrasjon. Disse applikasjonene er
-        i BLFS boken. Ikke
-        alle pakker trengs i alle miljøer. For eksempel
-        <ulink url="&blfs-book;basicnet/dhcpcd.html">dhcpcd</ulink>,
-        er ikke passende for en server og
-        <ulink url="&blfs-book;basicnet/wireless_tools.html">wireless_tools</ulink>,
-        er normalt bare
-        nyttig for et bærbart system. Hvis du ikke er sikker på om en pakke presentert
-        her er nødvendig eller ikke, kan den installeres nå eller senere om
-        behovet oppstår.
+        I tillegg til ovennevnte er det et sett med applikasjoner for systemstyring
+        for alle typer systemer. Disse applikasjonene er alle i
+        BLFS boken. Ikke alle pakker er nødvendige i alle miljøer
+        f.eks <ulink url="&blfs-book;basicnet/dhcpcd.html">dhcpcd</ulink>, er
+        normalt ikke egnet for en server og <ulink
+        url="&blfs-book;basicnet/wireless_tools.html">wireless_tools</ulink>,
+        er normalt bare nyttige for et bærbart system.
      </para>
 
   </sect2>
@@ -238,6 +234,7 @@ PATH=/bin:/usr/bin:/sbin:/usr/sbin /bin/bash - -login'</command></screen>
       <note>
         <para>
           Som en sidenotat kan bytting av virtuelle konsoller også gjøres fra
+		  en X Window forekomst med
           <keycombo>
             <keycap>Ctrl</keycap>
             <keycap>Alt</keycap>
@@ -251,7 +248,8 @@ PATH=/bin:/usr/bin:/sbin:/usr/sbin /bin/bash - -login'</command></screen>
             <keycap>Alt</keycap>
             <keycap>Fx</keycap>
           </keycombo>
-          kombinasjon, hvor <keycap>Fx</keycap> kan være <keycap>F7</keycap>.
+          kombinasjonen, hvor <keycap>Fx</keycap> vanligvis er 
+          <keycap>F1</keycap> men kan være <keycap>F7</keycap>.
         </para>
       </note>
 
