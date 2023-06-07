@@ -16,10 +16,10 @@
 
   <para>Det er også flere filer installert i /usr/lib og /usr/libexec
    mappene med filtypen .la. Disse er "libtool arkivfiler"
-   . Som allerede sagt, er de bare nyttige når du kobler til statiske
-   biblioteker. De er unødvendige når du bruker ELF dynamiske delte biblioteker, og
-   det er kjent at de kan føre til at BLFS pakker mislykkes i å bygge.
-   For å fjerne dem, kjør:</para>
+   . Som allerede sagt, på et moderne Linuxsystem, er libtool .la-filene bare
+     nyttig for libltdl. Ingen biblioteker i LFS forventes å bli lastet av
+     libltdl, og det er kjent at noen .la-filer kan forårsake at BLFS pakker
+     feiler under byggingen. Fjern disse filene nå:</para>
 
 <screen><userinput>find /usr/lib /usr/libexec -name \*.la -delete</userinput></screen>
 

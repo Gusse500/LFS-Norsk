@@ -18,10 +18,10 @@
 
 <screen><userinput>rm -rf /usr/share/{info,man,doc}/*</userinput></screen>
 
-    <para>For det andre er .la filene til libtool bare nyttige når du kobler til statiske
-    biblioteker. De er unødvendige og potensielt skadelige ved bruk av dynamiske
-    delte biblioteker, spesielt når du bruker byggesystemer som ikke er autoverktøy.
-    Mens du fortsatt er i chroot, fjern disse filene nå:</para>
+    <para>For det andre, på et moderne Linuxsystem, er libtool .la-filene bare
+    nyttig for libltdl. Ingen biblioteker i LFS forventes å bli lastet av
+    libltdl, og det er kjent at noen .la-filer kan forårsake at BLFS pakker
+    feiler under byggingen. Fjern disse filene nå:</para>
 
 <screen><userinput>find /usr/{lib,libexec} -name \*.la -delete</userinput></screen>
 
