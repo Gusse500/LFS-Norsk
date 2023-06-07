@@ -17,8 +17,8 @@
   <para>Det er også flere filer installert i /usr/lib og /usr/libexec
    mappene med filtypen .la. Disse er "libtool arkivfiler"
    . Som allerede sagt, er de bare nyttige når du kobler til statiske
-   biblioteker. De er unødvendige, og potensielt skadelige, når du bruker dynamiske
-   delte biblioteker, spesielt når du også bruker byggesystemer som ikke bruker autoverktøy.
+   biblioteker. De er unødvendige når du bruker ELF dynamiske delte biblioteker, og
+   det er kjent at de kan føre til at BLFS pakker mislykkes i å bygge.
    For å fjerne dem, kjør:</para>
 
 <screen><userinput>find /usr/lib /usr/libexec -name \*.la -delete</userinput></screen>
