@@ -115,8 +115,7 @@ umount -v $LFS/sys</userinput></screen>
   <para>Hvis flere partisjoner ble opprettet, avmonter den andre
   partisjoner før du demonterer den viktigste, slik som dette:</para>
 
-<screen role="nodump"><userinput>umount -v $LFS/usr
-umount -v $LFS/home
+<screen role="nodump"><userinput>umount -v $LFS/home
 umount -v $LFS</userinput></screen>
 
   <para>Avmonter selve LFS filsystemet:</para>
@@ -125,6 +124,9 @@ umount -v $LFS</userinput></screen>
 
   <para>Start nå systemet på nytt.</para>
 
+<!-- Commented out because we don't have a host system requirement on
+     its init, and different init system may recommend different commands
+     for reboot.  -->
 <!--<screen role="nodump"><userinput>shutdown -r now</userinput></screen>-->
 
   <para>Forutsatt at GRUB oppstartslasteren ble satt opp som skissert tidligere, er menyen
