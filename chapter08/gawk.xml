@@ -46,7 +46,7 @@
 
     <para>Fiks nå en programmeringsfeil identifisert oppstrøms:</para>
 
-<screen><userinput remap="pre">sed -i -i '241i UPREF(m);' interpret.h</userinput></screen>
+<screen><userinput remap="pre">sed -i '241i UPREF(m);' interpret.h</userinput></screen>
 
 	<para>Forbered Gawk for kompilering:</para>
 

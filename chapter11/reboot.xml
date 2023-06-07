@@ -9,17 +9,22 @@
   <?dbhtml filename="reboot.html"?>
 
   <title>Omstart av systemet</title>
+  <para>
+    Nå som all programvaren er installert, er det på tide å starte datamaskinen din
+    på nytt. Det er imidlertid fortsatt et par ting å sjekke.
+    Her er noen forslag:</para>
 
-  <para>Nå som all programvaren er installert, er det på tide å starte datamaskinen din
-  på nytt. Du bør imidlertid være klar over et par ting. Systemet du
+
+<!--
+  Systemet du
   har skapt i denne boken er ganske minimal, og vil mest sannsynlig ikke ha
   funksjonaliteten du trenger for å kunne fortsette fremover. Ved å installere
   noen ekstra pakker fra BLFS boken mens du fortsatt er i det nåværende chroot
   miljøet, kan du etterlate deg selv i en mye bedre posisjon til å fortsette
   når du starter på nytt i den nye LFS installasjonen. Her er noen forslag:</para>
-
+-->
   <itemizedlist>
-
+<!--
     <listitem><para>En tekstnettleser som f.eks <ulink
     url='&blfs-book;basicnet/lynx.html'>Lynx</ulink>
     lar deg enkelt vise BLFS boken i en virtuell terminal, mens du
@@ -60,14 +65,21 @@
     installere <ulink
     url='&blfs-book;basicnet/wpa_supplicant.html'>wpa_supplicant</ulink>.
     </para></listitem>
+-->
+    <listitem>
+      <para>
+        Installer evt <ulink
+        url='&blfs-book;postlfs/firmware.html'>firmware</ulink> som er nødvendig hvis
+        kjernedriver for maskinvaren din krever noen fastvarefiler for å fungere
+        skikkelig.
+      </para>
+    </listitem>
 
-    <listitem><para>Installer <ulink
-    url='&blfs-book;postlfs/firmware.html'>firmwares</ulink> hvis kjernendriveren
-    for maskinvaren din krever noe fastvare for å fungere ordentlig.
-    </para></listitem>
-
-    <listitem><para>Til slutt en gjennomgang av følgende konfigurasjonsfiler
-    er også passende på dette punktet.</para>
+	<listitem>
+      <para>
+        Til slutt en gjennomgang av følgende konfigurasjonsfiler
+        er også passende på dette punktet.
+      </para>
 
       <itemizedlist>
         <listitem><para>/etc/bashrc                  </para></listitem>
@@ -86,14 +98,11 @@
   </itemizedlist>
 
   <para>Nå som vi har sagt det, la oss gå videre til å starte opp vår skinnende nye LFS
-  installasjon for første gang! Første gå ut av chroot-miljøet:</para>
+  installasjon for første gang! <emphasis>Første gå ut av 
+  chroot-miljøet:</emphasis>:</para>
 
 <screen><userinput>logout</userinput></screen>
-<!-- We need to show the user the details...
-  <para>Avmonter LFS filsystemhierarkiet:</para>
-
-<screen><userinput>umount -Rv $LFS</userinput></screen>
--->
+<!-- We need to show the user the details...-->
 
   <para>Deretter avmonterer de virtuelle filsystemene:</para>
 

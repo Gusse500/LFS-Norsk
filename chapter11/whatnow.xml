@@ -8,7 +8,7 @@
 <sect1 id="ch-finish-whatnow">
   <?dbhtml filename="whatnow.html"?>
 
-  <title>Hva nå?</title>
+  <title>Tilleggsressurser</title>
 
   <para>Takk for at du leste denne LFS boken. Vi håper at du
    fant denne boken nyttig og har lært mer om systemets
@@ -38,7 +38,8 @@
         </listitem>
 
         <listitem>
-          <para><ulink url="https://seclists.org/oss-sec/">E-postliste for sikkerhet med åpen kildekode</ulink></para>
+          <para><ulink url="https://seclists.org/oss-sec/">E-postliste for sikkerhet 
+		  med åpen kildekode</ulink></para>
 
           <para>Dette er en e-postliste for diskusjon av sikkerhetsfeil,
           konsepter og praksiser i åpen kildekodefellesskapet.</para>
@@ -46,7 +47,7 @@
 
       </itemizedlist>
     </listitem>
-
+<!--
     <listitem>
       <para>Beyond Linux From Scratch</para>
 
@@ -55,7 +56,7 @@
        boken. BLFS prosjektet ligger på <ulink url="&blfs-book;"/>.
       </para>
     </listitem>
-
+-->
     <listitem>
       <para>LFS Tips</para>
 
