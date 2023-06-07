@@ -2356,7 +2356,7 @@
       <segmentedlist id="patch-rundeps">
         <segtitle>&runtime;</segtitle>
         <seglistitem>
-          <seg>Glibc og Patch</seg>
+          <seg>Glibc</seg>
         </seglistitem>
       </segmentedlist>
 
