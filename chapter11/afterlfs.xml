@@ -54,8 +54,8 @@
      <para>
         I tillegg til ovennevnte er det et sett med applikasjoner for systemstyring
         for alle typer systemer. Disse applikasjonene er alle i
-        BLFS boken. Ikke alle pakker er nødvendige i alle miljøer
-        f.eks <ulink url="&blfs-book;basicnet/dhcpcd.html">dhcpcd</ulink>, er
+        BLFS boken. Ikke alle pakker er nødvendige i alle miljøer.
+        F.eks <ulink url="&blfs-book;basicnet/dhcpcd.html">dhcpcd</ulink>, er
         normalt ikke egnet for en server og <ulink
         url="&blfs-book;basicnet/wireless_tools.html">wireless_tools</ulink>,
         er normalt bare nyttige for et bærbart system.
