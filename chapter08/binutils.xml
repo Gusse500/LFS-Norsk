@@ -160,16 +160,16 @@ cd       build</userinput></screen>
 
 <screen><userinput remap="test">make -k check</userinput></screen>
 
-<para>Tolv tester mislykkes i <command>gold</command> testpakken når
+    <para>Tolv tester mislykkes i <command>gold</command> testpakken når
     <option>--enable-default-pie</option> og
-    <option>--enable-default-ssp</option> alternativene sendes til GCC. Det
-    er også en kjent feil i <command>as</command> tester.</para>
-    <!-- Fixed in 2.39
-         https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=01ae03b
-    <para>En gold test, <filename>pr17704a_test</filename>, er kjent for å
-    mislykkes hvis <parameter>CONFIG_IA32_EMULATION</parameter> er deaktivert i
-    kjernekonfigurasjon av vertssystemet.</para>
- -->
+    <option>--enable-default-ssp</option> alternativene sendes til GCC.
+    <!-- Caused by egrep deprecation.  Note that we don't "patch" temp grep.
+         And it seems unworthy to add a sed into temp grep just for one test
+         failure.  (I don't really agree to "patch" grep in the first place,
+         anyway.) -->
+    Testen som heter <filename>ar with versioned solib</filename> er også
+    kjent for å mislykkes.</para>
+
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make tooldir=/usr install</userinput></screen>
