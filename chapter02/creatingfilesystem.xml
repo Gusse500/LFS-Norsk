@@ -12,7 +12,7 @@
 
   <para>En partisjon er bare en rekke sektorer på en diskstasjon, avgrenset med
   grenser satt i en partisjonstabell. Før operativsystemet kan bruke
-  en tom partisjon, må partisjonen formateres til å inneholde et filsystem
+  en partisjon for å lagre alle filer, må partisjonen formateres til å inneholde et filsystem
   , vanligvis bestående av en etikett, katalogblokker, datablokker og
   et indekseringsskjema for å finne en bestemt fil på forespørsel. Filsystemet
   hjelper også OS med å holde styr på ledig plass på partisjonen, reservere
