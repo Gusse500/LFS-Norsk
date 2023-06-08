@@ -46,7 +46,7 @@ EOF</userinput></screen>
 
   </sect2>
 
-  <sect2>
+  <sect2 id='systemd-no-tmpfs'>
     <title>Deaktivere tmpfs for /tmp</title>
 
     <para>Som standard, <filename class="directory">/tmp</filename> blir opprettet som

@@ -169,9 +169,18 @@
       brukes, er 5 til 10 gigabyte generelt tilstrekkelig.</para>
       </listitem>
 
-      <listitem><para>/tmp &ndash; En separat /tmp mappe er sjelden, men
-      nyttig hvis du konfigurerer en tynn klient. Denne partisjonen, hvis den brukes, vil
-      vanligvis ikke trenge å overstige et par gigabyte.</para></listitem>
+      <listitem revision='sysv'><para>/tmp &ndash; En separat /tmp mappe
+      er sjeldent, men nyttig hvis du konfigurerer en tynn klient. Denne partisjonen, hvis
+      brukt, vil vanligvis ikke trenge å overstige et par
+      gigabyte. Hvis du har nok RAM, kan du montere en
+      <systemitem class='filesystem'>tmpfs</systemitem> på /tmp å lage
+      tilgangen til midlertidige filer raskere.</para></listitem>
+
+      <listitem revision='systemd'><para>/tmp &ndash; Som standard, systemd
+      monterer en <systemitem class='filesystem'>tmpfs</systemitem> her.
+      Hvis du vil overstyre atferden, følg
+      <xref linkend='systemd-no-tmpfs'/> konfigurere LFS
+      systemet.</para></listitem>
 
       <listitem><para>/usr/src &ndash; Denne partisjonen er veldig
       nyttig for å gi en plassering for å lagre BLFS kildefiler og
