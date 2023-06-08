@@ -89,8 +89,15 @@ mount -vt tmpfs tmpfs $LFS/run</userinput></screen>
       /run tmpfs ble montert ovenfor, så i dette tilfellet er det bare en
       mappe som må opprettes.</para>
 
+<para>I andre tilfeller <filename>/dev/shm</filename> er et monteringspunkt
+      for en tmpfs. I så fall vil monteringen av /dev ovenfor bare opprette
+      /dev/shm i chroot miljøet som en mappe. I denne situasjonen
+      monterer vi eksplisitt en tmpfs,</para>
+
 <screen><userinput>if [ -h $LFS/dev/shm ]; then
   mkdir -pv $LFS/$(readlink $LFS/dev/shm)
+else
+  mount -t tmpfs -o nosuid,nodev tmpfs $LFS/dev/shm
 fi</userinput></screen>
 
   </sect2>

@@ -24,6 +24,17 @@
 <!-- Changelog template
 
     <listitem>
+      <para>20.09.2022</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Tilpass instruksjoner avhengig av
+          vertsoppsett av /dev/shm når du oppretter virtuelle filsystemer
+          for chroot.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+    
+	<listitem>
       <para>Date</para>
       <itemizedlist>
         <listitem>

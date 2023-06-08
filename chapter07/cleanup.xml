@@ -95,7 +95,8 @@
 
     <para>Før du lager en sikkerhetskopi, avmonter de virtuelle filsystemene:</para>
 
-<screen role="nodump"><userinput>umount $LFS/dev/pts
+<screen role="nodump"><userinput>[ mountpoint -q $LFS/dev/shm ] &amp;&amp; umount $LFS/dev/shm
+umount $LFS/dev/pts
 umount $LFS/{sys,proc,run,dev}</userinput></screen>
 
     <para>
