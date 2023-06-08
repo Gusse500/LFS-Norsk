@@ -117,7 +117,9 @@ General architecture-dependent options  ---&gt;
 Device Drivers  ---&gt;
   Graphics support ---&gt;
    Frame buffer Devices ---&gt;
-      [*] Support for frame buffer devices ----
+      &lt;*&gt; Support for frame buffer devices ---&gt;
+   Console display driver support ---&gt;
+      [*] Framebuffer Console support [CONFIG_FRAMEBUFFER_CONSOLE]
   Generic Driver Options  ---&gt;
    [ ] Support for uevent helper [CONFIG_UEVENT_HELPER]
    [*] Maintain a devtmpfs filesystem to mount at /dev [CONFIG_DEVTMPFS]
@@ -156,6 +158,8 @@ Device Drivers  ---&gt;
   Graphics support ---&gt;
    Frame buffer Devices ---&gt;
       &lt;*&gt; Support for frame buffer devices ---&gt;
+   Console display driver support ---&gt;
+      [*] Framebuffer Console support [CONFIG_FRAMEBUFFER_CONSOLE]
 File systems  ---&gt;
    [*] Inotify support for userspace [CONFIG_INOTIFY_USER]
        Pseudo filesystems  ---&gt;
@@ -270,6 +274,20 @@ Device Drivers ---&gt;
       </varlistentry>
 
       <varlistentry>
+        <term><parameter>Framebuffer Console support</parameter></term>
+        <listitem>
+          <para>Dette er nødvendig for å vise Linux konsollen på en ramme
+          bufferenhet. For å la kjernen skrive ut feilsøkingsmeldinger på et
+          tidlig oppstartsstadium, bør den ikke bygges som en kjernemodul
+          med mindre en initramfs vil bli brukt. Og hvis
+          <option>CONFIG_DRM</option> (Direct Rendering Manager) er aktivert,
+          er det sannsynlig <option>CONFIG_DRM_FBDEV_EMULATION</option> (Muliggjøre
+          legacy fbdev støtte for modusinnstillingsdriveren) bør være
+           aktivert også.</para>
+        </listitem>
+      </varlistentry>
+
+	  <varlistentry>
         <term><parameter>Support x2apic</parameter></term>
         <listitem>
           <para>Støtte for å kjøre avbruddskontrolleren for 64-bit x86
