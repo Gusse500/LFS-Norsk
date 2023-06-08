@@ -44,7 +44,7 @@
       <listitem>
         <para>Disse to kapitlene <emphasis>må</emphasis> gjøres som bruker
         <systemitem class="username">lfs</systemitem>.
-        En <command>su - lfs</command> må gjøres før noen oppgaver i disse
+        En <command>su - lfs</command> kommando må gjøres før noen oppgaver i disse
         kapitlene. Hvis du ikke gjør det, risikerer du å installere pakker til
         vertssystemet, og potensielt gjøre det ubrukelig.</para>
       </listitem>
@@ -77,7 +77,7 @@
       <listitem>
          <para> Når du går inn i chroot, må LFS miljøvariabelen angis
          for <systemitem class="username">root</systemitem>. LFS
-         variabelen brukes ikke i etterkant.</para>
+         variabelen brukes ikke etter at du er gått inn i chroot miljøet.</para>
       </listitem>
 
       <listitem>
