@@ -46,7 +46,7 @@
    viktige problemer du må være klar over før du begynner
    å jobbe deg gjennom <xref linkend="chapter-cross-tools"/> og utover.</para>
 
-  <para><xref linkend="chapter-cross-tools"/>,  forklarer installasjonen av
+  <para><xref linkend="chapter-cross-tools"/>  forklarer installasjonen av
    den første verktøykjeden (binutils, gcc og glibc) ved bruk av krysskompilerings
    teknikker for å isolere de nye verktøyene fra vertssystemet.</para>
 
@@ -61,7 +61,7 @@
    virke overdreven. En fullstendig teknisk forklaring på hvorfor dette gjøres er
    gitt inn <xref linkend="ch-tools-toolchaintechnotes"/>.</para>
 
-  <para>I <xref linkend="chapter-building-system"/>, Det
+  <para>I <xref linkend="chapter-building-system"/> det
    fulle LFS system blir bygget. En annen fordel gitt av chroot
    miljøet er at det lar deg fortsette å bruke vertssystemet
    mens LFS bygges. Mens du venter på at pakkesammenstillinger blir
