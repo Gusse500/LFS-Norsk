@@ -15,9 +15,9 @@
   utgivelse av boken.</para>
 
   <!--
-    Hver pakke i boken er oppført i delen "Oppgradert til:".
-    Kommenter/avkommenter etter behov. IKKE slett noen av disse linjene med mindre
-    pakken fjernes helt fra boken.
+    Every package in the book is listed in the "Upgraded to:" section.
+    Comment/uncomment as needed. DO NOT delete any of these lines unless that
+    package is removed from the book entirely.
   -->
 
   <itemizedlist>
@@ -253,6 +253,9 @@
     </listitem>-->
     <!--<listitem>
       <para>Vim-&vim-version;</para>
+    </listitem>-->
+    <!--<listitem>
+      <para>wheel-&wheel-version;</para>
     </listitem>-->
     <!--<listitem>
       <para>XML-Parser-&xml-parser-version;</para>
