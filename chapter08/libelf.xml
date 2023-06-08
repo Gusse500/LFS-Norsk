@@ -59,7 +59,7 @@
 <screen><userinput remap="test">make check</userinput></screen>
 
     <para>En test med navnet <filename>run-low_high_pc.sh</filename> er kjent å
-    feile på 32-bit x86 system.</para
+    feile på 32-bit x86 system.</para>
 
     <para>Installer kun Libelf:</para>
 
