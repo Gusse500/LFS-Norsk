@@ -15,14 +15,14 @@
     før du laster ned pakker for å finne ut om en nyere versjon av noen
     pakken bør brukes for å unngå sikkerhetssårbarheter.</para>
 
-    <para>Oppstrøms kan fjerne gamle utgivelser, spesielt når disse
+    <para>Oppstrøms kilder kan fjerne gamle utgivelser, spesielt når de
     utgivelser inneholder en sikkerhetssårbarhet. Hvis én URL nedenfor ikke er
     tilgjengelig, bør du lese sikkerhetsrådene først for å finne ut
     om en nyere versjon (med sårbarheten fikset) skal brukes. Hvis
     ikke, prøv å laste ned den fjernede pakken fra et speil. Selv om det er
     mulig å laste ned en gammel utgivelse fra et speil selv om denne utgivelsen
-    har blitt fjernet på grunn av en sårbarhet, anbefales det ikke
-    bruk en utgivelse som er kjent for å være sårbar for å bygge systemet ditt.</para>
+    har blitt fjernet på grunn av en sårbarhet, det er ikke en god idé
+    å bruk en utgivelse som er kjent for å være sårbar for å bygge systemet ditt.</para>
   </note>
 
   <para>Last ned eller på annen måte skaff deg følgende pakker:</para>
@@ -453,7 +453,7 @@
         <para>MD5 sum: <literal>&linux-md5;</literal></para>
 
         <note>
-          <para>Linux kjernen oppdateres relativt ofte, mange ganger pga
+          <para>Linux kjernen oppdateres ganske ofte, mange ganger pga
           oppdagelser av sikkerhetssårbarheter. Den siste tilgjengelige
           <!--&linux-major-version;.&linux-minor-version;.x--> stabile kjerne
           versjonen <!--burde--> kan være
