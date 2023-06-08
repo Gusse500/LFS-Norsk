@@ -94,10 +94,10 @@
 
     <para>Bruk av vekselminne er aldri bra. For mekaniske harddisker kan du generelt
     fortelle om et system veksler ved å bare lytte til diskaktivitet og
-    observere hvordan systemet reagerer på kommandoer. Med en SSD stasjon vil du ikke
+    observere hvordan systemet reagerer på kommandoer. Med en SSD vil du ikke
     kunne høre veksling, men du kan se hvor mye vekslingsplass som brukes
     ved å kjøre <command>top</command> eller <command>free</command> programmene.  Bruken av
-    en SSD stasjon for en vekselminnepartisjon bør unngås hvis mulig. Den første
+    en SSD for en vekselminnepartisjon bør unngås hvis mulig. Den første
     reaksjon på veksling bør være å se etter en urimelig kommando som f.eks
     prøver å redigere en fil på fem gigabyte. Hvis veksling normalt
     , er den beste løsningen å kjøpe mer RAM til ditt
@@ -112,7 +112,7 @@
     må være tilgjengelig for GRUB for å bruke under installasjonen av oppstarts
     lasteren. Denne partisjonen vil normalt være merket 'BIOS Boot' hvis den opprettes av
     <command>fdisk</command> eller har en kode på <emphasis>EF02</emphasis> hvis du
-    bruker <command>gdisk</command>.</para>
+    bruker <command>gdisk</command>.</para> kommandoen.
 
     <note><para>Grub Bios partisjonen må være på stasjonen som BIOS
     bruker for å starte opp systemet. Dette er ikke nødvendigvis den stasjonen som holder
@@ -179,7 +179,7 @@
       <listitem revision='systemd'><para>/tmp &ndash; Som standard, systemd
       monterer en <systemitem class='filesystem'>tmpfs</systemitem> her.
       Hvis du vil overstyre atferden, følg
-      <xref linkend='systemd-no-tmpfs'/> konfigurere LFS
+      <xref linkend='systemd-no-tmpfs'/> når du konfigurere LFS
       systemet.</para></listitem>
 
       <listitem><para>/usr/src &ndash; Denne partisjonen er veldig
@@ -190,9 +190,9 @@
 
     </itemizedlist>
 
-    <para>Enhver separat partisjon du vil ha automatisk montert ved oppstart
-    må spesifiseres i <filename>/etc/fstab</filename>. Detaljer
-    om hvordan du spesifiserer partisjoner vil bli diskutert i <xref
+    <para>Enhver separat partisjon som du ønsker automatisk montert når
+    systemet starter må spesifiseres i <filename>/etc/fstab</filename>.
+    Detaljer om hvordan du spesifiserer partisjoner vil bli diskutert i <xref
     linkend="ch-bootable-fstab"/>.  </para>
 
     </sect3>
