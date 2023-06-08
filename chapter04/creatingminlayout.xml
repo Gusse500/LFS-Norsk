@@ -10,12 +10,12 @@
 
   <title>Opprette et begrenset mappeoppsett i LFS filsystemet</title>
 
-  <para>Den første oppgaven som utføres i LFS partisjonen er å lage et begrenset
-   mappehierarki slik at programmer kompilert i <xref
+  <para>Den neste oppgaven som utføres i LFS partisjonen er å lage et begrenset
+  mappehierarki, så programmer kompilert i <xref
   linkend="chapter-temporary-tools"/> (i tillegg til glibc og libstdc++ i <xref
   linkend="chapter-cross-tools"/>) kan installeres i deres endelige
-   plassering. Dette er nødvendig for at de midlertidige programmene skal overskrives
-   når du bygger dem igjen i <xref linkend="chapter-building-system"/>.</para>
+  plassering. Vi gjør dette slik at de midlertidige programmene vil bli overskrevet når
+  de endelige versjonene bygges <xref linkend="chapter-building-system"/>.</para>
 
   <para>Opprett det nødvendige mappeoppsettet ved å kjøre følgende som
   <systemitem class="username">root</systemitem>:</para>
@@ -31,10 +31,10 @@ case $(uname -m) in
 esac</userinput></screen>
 
   <para>Programmer i <xref linkend="chapter-temporary-tools"/> vil bli kompilert
-   med en krysskompilator (mer detaljer i avsnitt <xref
-  linkend="ch-tools-toolchaintechnotes"/>). For å skille denne
-   krysskompilatoren fra de andre programmene, vil den bli installert i en spesiell
-   mappe. Opprett denne mappen med:</para>
+  med en krysskompilator (mer detaljer kan bli funnet i avsnitt <xref
+  linkend="ch-tools-toolchaintechnotes"/>). Denne krysskompilatoren vil bli installert
+  i en spesiell katalog for å skille den fra de andre programmene. Fortsatt som
+  &root;, lag den mappen med denne kommandoen:</para>
 
 <screen><userinput>mkdir -pv $LFS/tools</userinput></screen>
 
