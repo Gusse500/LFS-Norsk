@@ -164,7 +164,7 @@
       <filename class="directory">/usr</filename> partisjon.</para></listitem>
 
       <listitem><para>/opt &ndash; Denne mappen er mest nyttig for
-      BLFS der flere store pakker som Gnome eller KDE kan
+      BLFS der flere store pakker som KDE eller Texlive kan
       installeres uten å bygge inn filene i /usr hierarkiet. Hvis den
       brukes, er 5 til 10 gigabyte generelt tilstrekkelig.</para>
       </listitem>
