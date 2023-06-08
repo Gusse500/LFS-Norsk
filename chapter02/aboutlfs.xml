@@ -22,7 +22,7 @@
 
 <screen role="nodump"><userinput>export LFS=<replaceable>/mnt/lfs</replaceable></userinput></screen>
 
-  <para>Å ha dette variabelsettet er fordelaktig ved at kommandoer som f.eks
+  <para>Å ha denne variabelen satt er fordelaktig ved at kommandoer som f.eks
   <command>mkdir -v $LFS/tools</command> kan skrives bokstavelig. Skallet
   vil automatisk erstatte <quote>$LFS</quote> med
   <quote>/mnt/lfs</quote> (eller hva verdi variabelen ble satt til) når den
@@ -58,7 +58,7 @@
   brukerens <filename>.bash_profile</filename> brukes vanligvis ikke når
   en virtuell terminal startes. I dette tilfellet legger du til export kommandoen til
   filen <filename>.bashrc</filename> for brukeren og
-  <systemitem class="username">root</systemitem>.  I tillegg,
+  <systemitem class="username">root</systemitem>. I tillegg,
   noen distribusjoner bruk en "if" test, og kjører ikke de resterende <filename>.bashrc</filename>
   instruksjoner for en ikke-interaktiv bash påkallelse. Pass på å plassere
   export kommandoen foran testen for ikke interaktiv bruk.</para>
