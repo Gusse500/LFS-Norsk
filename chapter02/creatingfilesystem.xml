@@ -10,11 +10,20 @@
 
   <title>Opprette et filsystem på partisjonen</title>
 
-  <para>Nå som en tom partisjon er satt opp, kan filsystemet bli
-   opprettet. LFS kan bruke et hvilket som helst filsystem som gjenkjennes av Linux kjernen, men
-   de vanligste typene er ext3 og ext4. Valget av filsystem kan være
-   kompleks og avhenger av egenskapene til filene og størrelsen på
-   partisjonen. For eksempel:</para>
+  <para>En partisjon er bare en rekke sektorer på en diskstasjon, avgrenset med
+  grenser satt i en partisjonstabell. Før operativsystemet kan bruke
+  en tom partisjon, må partisjonen formateres til å inneholde et filsystem
+  , vanligvis bestående av en etikett, katalogblokker, datablokker og
+  et indekseringsskjema for å finne en bestemt fil på forespørsel. Filsystemet
+  hjelper også OS med å holde styr på ledig plass på partisjonen, reservere
+  nødvendige sektorer når en ny fil opprettes eller en eksisterende fil utvides,
+  og resirkuler de gratis datasegmentene som opprettes når filer slettes. Det kan
+  også gi støtte for dataredundans og for feilgjenoppretting.</para>
+  
+  <para>LFS kan bruke et hvilket som helst filsystem som gjenkjennes av Linuxkjernen, men
+  de vanligste typene er ext3 og ext4. Valget av riktig filsystem kan være
+  kompleks; det avhenger av egenskapene til filene og størrelsen på
+  partisjonen. For eksempel:</para>
 
   <variablelist>
     <varlistentry>
@@ -33,22 +42,22 @@
     </varlistentry>
     <varlistentry>
       <term>ext4</term>
-      <listitem><para>er den nyeste versjonen av ext filsystemfamilien til
-       partisjonstyper. Det gir flere nye funksjoner, inkludert
-       nano-sekunders tidsstempler, opprettelse og bruk av veldig store filer (16 TB), og
-       hastighetsforbedringer.</para>
+      <listitem><para>er den nyeste versjonen av ext-familien til
+      filsystemer. Det gir flere nye funksjoner, inkludert
+      nano-sekunders tidsstempler, opprettelse og bruk av svært store filer
+      (opptil 16 TB), og hastighetsforbedringer.</para>
       </listitem>
     </varlistentry>
   </variablelist>
 
   <para>Andre filsystemer, inkludert FAT32, NTFS, ReiserFS, JFS og XFS er
-   nyttig for spesialiserte formål. Mer informasjon om disse filsystemene
-   finner du på <ulink
+   nyttig for spesialiserte formål. Mer informasjon om disse filsystemene.
+   og mange andre finner du på <ulink
   url="https://en.wikipedia.org/wiki/Comparison_of_file_systems"/>.</para>
 
   <para>LFS antar at rotfilsystemet (/) er av typen ext4. Å lage
    et <systemitem class="filesystem">ext4</systemitem> filsystemet på LFS
-   partisjonen, kjør følgende:</para>
+   partisjonen, utsted følgende kommando:</para>
 
 <screen role="nodump"><userinput>mkfs -v -t ext4 /dev/<replaceable>&lt;xxx&gt;</replaceable></userinput></screen>
 
