@@ -23,17 +23,6 @@
 
 <!-- Changelog template
 
-    <listitem>
-      <para>20.09.2022</para>
-      <itemizedlist>
-        <listitem>
-          <para>[bdubbs] - Tilpass instruksjoner avhengig av
-          vertsoppsett av /dev/shm når du oppretter virtuelle filsystemer
-          for chroot.</para>
-        </listitem>
-      </itemizedlist>
-    </listitem>
-    
 	<listitem>
       <para>Date</para>
       <itemizedlist>
@@ -52,7 +41,28 @@
     -->
 
     <listitem>
-      <para>15.09.2022-09-15</para>
+      <para>22.09.2022</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til expat-2.4.9 (Sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;5117">#5117</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+	<listitem>
+      <para>20.09.2022</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Tilpass instruksjoner avhengig av
+          vertsoppsett av /dev/shm når du oppretter virtuelle filsystemer
+          for chroot.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+    
+    <listitem>
+      <para>15.09.2022</para>
       <itemizedlist>
         <listitem>
           <para>[bdubbs] - Oppdatert til file-5.43. Fikser
