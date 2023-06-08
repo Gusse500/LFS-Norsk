@@ -94,9 +94,9 @@
 
     <para>Bruk av vekselminne er aldri bra. For mekaniske harddisker kan du generelt
     fortelle om et system veksler ved å bare lytte til diskaktivitet og
-    observere hvordan systemet reagerer på kommandoer. For en SSD stasjon vil du ikke
+    observere hvordan systemet reagerer på kommandoer. Med en SSD stasjon vil du ikke
     kunne høre veksling, men du kan se hvor mye vekslingsplass som brukes
-    ved å bruke <command>top</command> eller <command>free</command> programmene.  Bruken av
+    ved å kjøre <command>top</command> eller <command>free</command> programmene.  Bruken av
     en SSD stasjon for en vekselminnepartisjon bør unngås hvis mulig. Den første
     reaksjon på veksling bør være å se etter en urimelig kommando som f.eks
     prøver å redigere en fil på fem gigabyte. Hvis veksling normalt
@@ -115,9 +115,9 @@
     bruker <command>gdisk</command>.</para>
 
     <note><para>Grub Bios partisjonen må være på stasjonen som BIOS
-    bruker for å starte opp systemet. Dette er ikke nødvendigvis den samme stasjonen der
-    LFS rotpartisjon er lokalisert. Disker på et system kan bruke forskjellig
-    partisjonstabelltyper. Kravet til denne partisjonen avhenger
+    bruker for å starte opp systemet. Dette er ikke nødvendigvis den stasjonen som holder
+    LFS rotpartisjon. Disker på et system kan bruke forskjellig
+    partisjonstabelltyper. Nødvendigheten av Grub Bios partisjonen avhenger
     bare på partisjonstabelltypen til oppstartsdisken.</para></note>
     </sect3>
 
@@ -133,7 +133,7 @@
       <listitem><para>/boot &ndash; Sterkt anbefalt.  Bruk denne partisjonen til å
       lagre kjerner og annen oppstartsinformasjon. For å minimere potensielle oppstarts
       problemer med større disker, gjør dette til den første fysiske partisjonen på
-      din første diskstasjon. En partisjonsstørrelse på 200 megabyte er ganske
+      din første diskstasjon. En partisjonsstørrelse på 200 megabyte er
       tilstrekkelig.</para></listitem>
 
       <listitem><para>/boot/efi &ndash; EFI systempartisjonen, som er
@@ -150,21 +150,21 @@
       <filename class="directory">/bin</filename>,
       <filename class="directory">/lib</filename>, og
       <filename class="directory">/sbin</filename> er symbolkoblinger til deres
-      motpart i <filename class="directory">/usr</filename>.
+      motparter i <filename class="directory">/usr</filename>.
       Så <filename class="directory">/usr</filename> inneholder alle binærfiler
       nødvendig for at systemet skal kjøre. For LFS en egen partisjon for
       <filename class="directory">/usr</filename> er normalt ikke nødvendig.
-      Hvis du uansett trenger det, bør du lage en partisjon som er stor nok til å
+      Hvis du lager det uansett, bør du lage en partisjon som er stor nok til å
       passe til alle programmer og biblioteker i systemet. Rotpartisjonen kan være
       veldig liten (kanskje bare én gigabyte) i denne konfigurasjonen, så det er det
       egnet for en tynn klient eller diskløs arbeidsstasjon (hvor
       <filename class="directory">/usr</filename> monteres fra en fjern
-      server). Du bør imidlertid merke deg at initramfs (ikke dekket av
-      LFS) vil være nødvendig for å starte et system med separat
+      server). Du bør imidlertid være oppmerksom på at initramfs (ikke dekket av
+      LFS) vil være nødvendig for å starte et system med en separat
       <filename class="directory">/usr</filename> partisjon.</para></listitem>
 
       <listitem><para>/opt &ndash; Denne mappen er mest nyttig for
-      BLFS der flere installasjoner av store pakker som Gnome eller KDE kan
+      BLFS der flere store pakker som Gnome eller KDE kan
       installeres uten å bygge inn filene i /usr hierarkiet. Hvis den
       brukes, er 5 til 10 gigabyte generelt tilstrekkelig.</para>
       </listitem>
@@ -182,7 +182,7 @@
     </itemizedlist>
 
     <para>Enhver separat partisjon du vil ha automatisk montert ved oppstart
-    må spesifiseres i <filename>/etc/fstab</filename>.  Detaljer
+    må spesifiseres i <filename>/etc/fstab</filename>. Detaljer
     om hvordan du spesifiserer partisjoner vil bli diskutert i <xref
     linkend="ch-bootable-fstab"/>.  </para>
 
