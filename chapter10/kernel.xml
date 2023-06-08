@@ -335,12 +335,18 @@ Device Drivers ---&gt;
     <filename class="directory">/boot</filename> mappen.</para>
 
     <caution>
-      <para>Hvis vertssystemet har en separat /boot partisjon, kopieres filene
-      nedenfor dit. Den enkleste måten å gjøre det på er å binde /boot på
-      verten (utenfor chroot) til /mnt/lfs/boot før du fortsetter. Som
-      &root; user in the <emphasis>vertssytemet</emphasis>:</para>
+      <para>Hvis du har bestemt deg for å bruke et separat &boot-dir; partisjon for
+      LFS-system (kanskje dele en &boot-dir; partisjon med vertsdistroen
+      ), filene som er kopiert nedenfor, skal gå dit. Den enkleste måten å
+      gjør det er å opprette oppføringen for &boot-dir; i &fstab; først (les
+      forrige seksjon for detaljer), utfør deretter følgende kommando
+      som &root; bruker i
+      <emphasis>chroot miljøet</emphasis>:</para>
 
-<screen role="nodump"><userinput>mount --bind /boot /mnt/lfs/boot</userinput></screen>
+<screen role="nodump"><userinput>mount /boot</userinput></screen>
+
+      <para>Stien til enhetsnoden er utelatt i kommandoen fordi
+      <command>mount</command> kan lese den fra &fstab;.</para>
     </caution>
 
     <para>Stien til kjernebildet kan variere avhengig av plattformen
