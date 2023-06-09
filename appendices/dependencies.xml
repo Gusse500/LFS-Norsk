@@ -503,7 +503,7 @@
       <segmentedlist id="dbus-testdeps" revision="systemd">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>Several packages in BLFS</seg>
+          <seg>Flere pakker i BLFS</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1220,7 +1220,7 @@
       <segmentedlist id="groff-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>Ingen testpakke tilgjengelig</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1340,7 +1340,7 @@
       <segmentedlist id="iana-etc-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>Ingen testpakke tilgjengelig</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1457,7 +1457,7 @@
       <segmentedlist id="iproute2-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>Ingen testpakke tilgjengelig</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1499,7 +1499,7 @@
       <segmentedlist id="jinja2-testdeps" revision='systemd'>
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>Ingen testpakke tilgjengelig</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1577,7 +1577,7 @@
       <segmentedlist id="kmod-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>Ingen testpakke tilgjengelig</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1617,7 +1617,7 @@
       <segmentedlist id="less-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>Ingen testpakke tilgjengelig</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1632,7 +1632,7 @@
         <segtitle>&external;</segtitle>
         <seglistitem>
           <seg>
-            <ulink url="&blfs-book;general/pcre2.html">PCRE2</ulink> or
+            <ulink url="&blfs-book;general/pcre2.html">PCRE2</ulink> eller
             <ulink url="&blfs-book;general/pcre.html">PCRE</ulink>
           </seg>
         </seglistitem>
@@ -1856,7 +1856,7 @@
       <segmentedlist id="linux-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>Ingen testpakke tilgjengelig</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1899,7 +1899,7 @@
       <segmentedlist id="linux-api-headers-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>Ingen testpakke tilgjengelig</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2061,7 +2061,7 @@
       <segmentedlist id="man-pages-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>Ingen testpakke tilgjengelig</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2099,7 +2099,7 @@
       <segmentedlist id="markupsafe-testdeps" revision='systemd'>
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>Ingen testpakke tilgjengelig</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2137,7 +2137,7 @@
       <segmentedlist id="meson-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>Ingen testpakke tilgjengelig</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2257,7 +2257,7 @@
       <segmentedlist id="ncurses-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>Ingen testpakke tilgjengelig</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2538,7 +2538,7 @@
       <segmentedlist id="psmisc-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>Ingen testpakke tilgjengelig</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2622,7 +2622,7 @@
       <segmentedlist id="readline-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>Ingen testpakke tilgjengelig</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2700,7 +2700,7 @@
       <segmentedlist id="shadow-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>Ingen testpakke tilgjengelig</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2742,7 +2742,7 @@
       <segmentedlist id="sysklogd-testdeps" revision="sysv">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>Ingen testpakke tilgjengelig</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2868,7 +2868,7 @@
       <segmentedlist id="sysvinit-testdeps" revision='sysv'>
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>Ingen testpakke tilgjengelig</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -3117,7 +3117,7 @@
       <segmentedlist id="wheel-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>No test suite available</seg>
+          <seg>Ingen testpakke tilgjengelig</seg>
         </seglistitem>
       </segmentedlist>
 
