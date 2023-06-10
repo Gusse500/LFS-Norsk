@@ -23,7 +23,7 @@
 
 <!-- Changelog template
 
-	<listitem>
+    <listitem>
       <para>Date</para>
       <itemizedlist>
         <listitem>
@@ -39,9 +39,618 @@
     <listitem revision="sysv"> or <listitem revision="systemd"> as
     appropriate for the entry or if needed the entire day's listitem.
     -->
+    <listitem>
+      <para>01.03.2023</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - LFS-11.3 utgitt.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
 
     <listitem>
-      <para>22.09.2022</para>
+      <para>19.02.2023</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Bruk en oppdatering for GRUB for et problem utløst
+           av e2fsprogs-1.47.0.  Fikser
+          <ulink url="&lfs-ticket-root;5219">#5219</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>2023-02-13</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til man-pages-6.03. Fikser
+          <ulink url="&lfs-ticket-root;5216">#5216</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>2023-02-11</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til iana-etc-20230202. Adresserer 
+          <ulink url="&lfs-ticket-root;5006">#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til zstd-1.5.4. Fikser
+          <ulink url="&lfs-ticket-root;5215">#5215</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til Python3-3.11.2. Fikser
+          <ulink url="&lfs-ticket-root;5214">#5214</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til e2fsprogs-1.47.0. Fikser
+          <ulink url="&lfs-ticket-root;5213">#5213</ulink>.</para>
+        </listitem>
+        <listitem revision="systemd">
+          <para>[bdubbs] - Oppdatert til dbus-1.14.6. Fikser
+          <ulink url="&lfs-ticket-root;5212">#5212</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.1.11. Fikser
+          <ulink url="&lfs-ticket-root;5210">#5210</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til libcap-2.67. Fikser
+          <ulink url="&lfs-ticket-root;5209">#5209</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til bc-6.2.4. Fikser
+          <ulink url="&lfs-ticket-root;5207">#5207</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>2023-02-07</para>
+      <itemizedlist>
+        <listitem>
+          <para>[renodr] - Oppdatert til OpenSSL-3.0.8 (Sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;5211">#5211</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[renodr] - Oppdatert til e2fsprogs-1.46.6 (Sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;5208">#5208</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem revision="systemd">
+      <para>2023-02-06</para>
+      <itemizedlist>
+        <listitem>
+          <para>[renodr] - Pakk inn systemd mansidene på nytt for å forhindre bortkomne
+          mansider fra å havne i /usr/share/man.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>2023-02-02</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Oppdatert til glibc-2.37.  Fikser
+          <ulink url="&lfs-ticket-root;5203">#5203</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til bc-6.2.3. Fikser
+          <ulink url="&lfs-ticket-root;5204">#5204</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til linux-6.1.9. Fikser
+          <ulink url="&lfs-ticket-root;5205">#5205</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til vim-9.0.1273. Adresserer
+          <ulink url="&lfs-ticket-root;4500">#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Fjerner
+          <option>--disable-exec-static-tramp</option> for libffi.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>2023-02-01</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til texinfo-7.0.2. Fikser
+          <ulink url="&lfs-ticket-root;5202">#5202</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.1.8. Fikser
+          <ulink url="&lfs-ticket-root;5201">#5201</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til diffutils-3.9. Fikser
+          <ulink url="&lfs-ticket-root;5199">#5199</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem revision="systemd">
+      <para>2023-01-22</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til MarkupSafe-2.1.2. Fikser
+          <ulink url="&lfs-ticket-root;5200">#5200</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>2023-01-15</para>
+      <itemizedlist>
+        <listitem>
+          <para>[thomas] - Legg til libsframe til online_usrlib i stripping.
+             libsframe.so.0.0.0 er i bruk av strip.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til iana-etc-20230109. Adresserer 
+          <ulink url="&lfs-ticket-root;5006">#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til binutils-2.40. Fikser
+          <ulink url="&lfs-ticket-root;5198">#5198</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til bc-6.2.2. Fikser
+          <ulink url="&lfs-ticket-root;5192">#5192</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.1.6. Fikser
+          <ulink url="&lfs-ticket-root;5193">#5193</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til man-db-2.11.2. Fikser
+          <ulink url="&lfs-ticket-root;5196">#5196</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til mpfr-4.2.0. Fikser
+          <ulink url="&lfs-ticket-root;5195">#5195</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til ncurses-6.4. Fikser
+          <ulink url="&lfs-ticket-root;5194">#5194</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til xz-5.4.1. Fikser
+          <ulink url="&lfs-ticket-root;5197">#5197</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>2023-01-01</para><!-- Happy New Year! -->
+      <itemizedlist>
+        <listitem>
+          <para>[thomas] - Fjerner en foreldet sed fra mpc.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>2022-12-31</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til iana-etc-20221220. Adresserer 
+          <ulink url="&lfs-ticket-root;5006">#5006</ulink>.</para>
+        </listitem>
+        <listitem revision="sysv">
+          <para>[bdubbs] - Oppdatert til sysvinit-3.06. Fikser
+          <ulink url="&lfs-ticket-root;5186">#5186</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til mpc-1.3.1. Fikser
+          <ulink url="&lfs-ticket-root;5185">#5185</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til meson-1.0.0. Fikser
+          <ulink url="&lfs-ticket-root;5190">#5190</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til man-pages-6.02. Fikser
+          <ulink url="&lfs-ticket-root;5188">#5188</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.1.1. Fikser
+          <ulink url="&lfs-ticket-root;5179">#5179</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til file-5.44. Fikser
+          <ulink url="&lfs-ticket-root;5191">#5191</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til bc-6.2.1. Fikser
+          <ulink url="&lfs-ticket-root;5189">#5189</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem revision="systemd">
+      <para>2022-12-28</para>
+      <itemizedlist>
+        <listitem>
+          <para>[renodr] - Patch systemd mot CVE-2022-4415. Fikser
+          <ulink url="&lfs-ticket-root;5187">#5187</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>2022-12-15</para>
+      <itemizedlist>
+        <listitem>
+           <para>[bdubbs] - Sørg for at en gawk hardlenke er oppdatert i
+           Kapittel 8. Fikser
+          <ulink url="&lfs-ticket-root;5180">#5180</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til iana-etc-20221209. Adresserer 
+          <ulink url="&lfs-ticket-root;5006">#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til vim-9.0.1060. Adresserer
+          <ulink url="&lfs-ticket-root;4500">#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til iproute2-6.1.0. Fikser
+          <ulink url="&lfs-ticket-root;5184">#5184</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til xz-5.4.0. Fikser
+          <ulink url="&lfs-ticket-root;5183">#5183</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til bash-5.2.15. Fikser
+          <ulink url="&lfs-ticket-root;5182">#5182</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til psmisc-23.6. Fikser
+          <ulink url="&lfs-ticket-root;5181">#5181</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til mpc-1.3.0. Fikser
+          <ulink url="&lfs-ticket-root;5178">#5178</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til python3-3.11.1. Fikser
+          <ulink url="&lfs-ticket-root;5177">#5177</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til procps-ng-4.0.2. Fikser
+          <ulink url="&lfs-ticket-root;5176">#5176</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>2022-12-01</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.0.11 (Sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;5175">#5175</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>2022-12-01</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til iana-etc-20221122. Adresserer
+          <ulink url="&lfs-ticket-root;5006">#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til xz-5.2.9. Fikser
+          <ulink url="&lfs-ticket-root;5174">#5174</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til tzdata-2022g. Fikser
+          <ulink url="&lfs-ticket-root;5172">#5172</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til texinfo-7.0.1. Fikser
+          <ulink url="&lfs-ticket-root;5173">#5173</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til tcl-8.6.13. Fikser
+          <ulink url="&lfs-ticket-root;5170">#5170</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til meson-0.64.1. Fikser
+          <ulink url="&lfs-ticket-root;5169">#5169</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.0.10. Fikser
+          <ulink url="&lfs-ticket-root;5171">#5171</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til gawk-5.2.1. Fikser
+          <ulink url="&lfs-ticket-root;5168">#5168</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>2022-11-22</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Oppdatert til linux-6.0.9. Fikser
+          <ulink url="&lfs-ticket-root;5162">#5162</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til libpipeline-1.5.7. Fikser
+          <ulink url="&lfs-ticket-root;5163">#5163</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til xz-5.2.8. Fikser
+          <ulink url="&lfs-ticket-root;5164">#5164</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til man-db-2.11.1. Fikser
+          <ulink url="&lfs-ticket-root;5166">#5166</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til mpfr-4.1.1. Fikser
+          <ulink url="&lfs-ticket-root;5167">#5167</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Slutt å deaktivere desimalfloat for midlertidig GCC,
+          så mpfr vil bli bygget med desimal float-støtte.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdater instruksjonen for hjulet for å unngå å stole på
+          utdaterte Python funksjoner.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>2022-11-10</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Fikser make-4.4 bug. Fikser
+          <ulink url="&lfs-ticket-root;5160">#5160</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til wheel-0.38.4 (Python Modul). Fikser
+          <ulink url="&lfs-ticket-root;5155">#5155</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til texinfo-7.0. Fikser
+          <ulink url="&lfs-ticket-root;5159">#5159</ulink>.</para>
+        </listitem>
+        <listitem revision="sysv">
+          <para>[bdubbs] - Oppdatert til sysvinit-3.05. Fikser
+          <ulink url="&lfs-ticket-root;5153">#5153</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til shadow-4.13. Fikser
+          <ulink url="&lfs-ticket-root;5161">#5161</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til sed-4.9. Fikser
+          <ulink url="&lfs-ticket-root;5157">#5157</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til meson-0.64.0. Fikser
+          <ulink url="&lfs-ticket-root;5156">#5156</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.0.7. Fikser
+          <ulink url="&lfs-ticket-root;5154">#5154</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til elfutils-0.188. Fikser
+          <ulink url="&lfs-ticket-root;5152">#5152</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til bc-6.1.1. Fikser
+          <ulink url="&lfs-ticket-root;5151">#5151</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til bash-5.2.9. Fikser
+          <ulink url="&lfs-ticket-root;5158">#5158</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem revision="systemd">
+      <para>2022-11-03</para>
+      <itemizedlist>
+        <listitem>
+          <para>[renodr] - Oppdatert til systemd-252. Fikser
+          <ulink url="&lfs-ticket-root;5150">#5150</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>2022-11-01</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til openssl-3.0.7 (Sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;5132">#5132</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til iana-etc-20221025. Adresserer
+          <ulink url="&lfs-ticket-root;5006">#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til tzdata-2022f. Fikser
+          <ulink url="&lfs-ticket-root;5148">#5148</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til Python3-3.11.0. Fikser
+          <ulink url="&lfs-ticket-root;5145">#5145</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til procps-ng-4.0.1. Fikser
+          <ulink url="&lfs-ticket-root;5141">#5141</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til man-pages-6.01. Fikser
+          <ulink url="&lfs-ticket-root;5140">#5140</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til man-db-2.11.0. Fikser
+          <ulink url="&lfs-ticket-root;5139">#5139</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til make-4.4. Fikser
+          <ulink url="&lfs-ticket-root;5149">#5149</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.0.6. Fikser
+          <ulink url="&lfs-ticket-root;5142">#5142</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til libffi-3.4.4. Fikser
+          <ulink url="&lfs-ticket-root;5144">#5144</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til inetutils-2.4. Fikser
+          <ulink url="&lfs-ticket-root;5147">#5147</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til expat-2.5.0. Fikser
+          <ulink url="&lfs-ticket-root;5132">#5132</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>2022-10-17</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.0.2 (Sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;5138">#5138</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>2022-10-15</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til iana-etc-20221007. Adresserer
+          <ulink url="&lfs-ticket-root;5006">#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til vim-9.0.0739. Adresserer
+          <ulink url="&lfs-ticket-root;5006">#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Lagt til oppstrøms oppdateringer til readline og bash. Fikser
+          <ulink url="&lfs-ticket-root;5135">#5131</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til zlib-1.2.13. Fikser
+          <ulink url="&lfs-ticket-root;5137">#5137</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til man-pages-6.00. Fikser
+          <ulink url="&lfs-ticket-root;5136">#5136</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til gettext-0.21.1. Fikser
+          <ulink url="&lfs-ticket-root;5130">#5130</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til iproute2-6.0.0. Fikser
+          <ulink url="&lfs-ticket-root;5127">#5127</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til meson-0.63.3. Fikser
+          <ulink url="&lfs-ticket-root;5129">#5129</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til Python-3.10.8. Fikser
+          <ulink url="&lfs-ticket-root;5133">#5133</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til xz-5.2.7. Fikser
+          <ulink url="&lfs-ticket-root;5133">#5133</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til tzdata-2022e. Fikser
+          <ulink url="&lfs-ticket-root;5119">#5134</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.0.1. Fikser
+          <ulink url="&lfs-ticket-root;5135">#5135</ulink>.</para>
+        </listitem>
+        <listitem revision="systemd">
+          <para>[bdubbs] - Oppdatert til dbus-1.14.4. Fikser
+          <ulink url="&lfs-ticket-root;5128">#5128</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>2022-10-04</para>
+      <itemizedlist>
+        <listitem>
+          <para>[renodr] - Oppdatert til Linux-5.19.13. Hvis du bruker en Intel
+          GPU på en bærbar PC, vennligst oppdater fra Linux-5.19.12 umiddelbart for
+          å forhindre skade på skjermen. Fikser
+          <ulink url="&lfs-ticket-root;5125">#5125</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>2022-10-01</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til iana-etc-20220922. Adresserer
+          <ulink url="&lfs-ticket-root;5006">#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til tzdata-2022d. Fikser
+          <ulink url="&lfs-ticket-root;5119">#5119</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til readline-8.2. Fikser
+          <ulink url="&lfs-ticket-root;5121">#5121</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-5.19.12. Fikser
+          <ulink url="&lfs-ticket-root;5115">#5115</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til libffi-3.4.3. Fikser
+          <ulink url="&lfs-ticket-root;5116">#5116</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til libcap-2.66. Fikser
+          <ulink url="&lfs-ticket-root;5120">#5120</ulink>.</para>
+        </listitem>
+        <listitem revision="systemd">
+          <para>[bdubbs] - Oppdatert til dbus-1.14.2. Fikser
+          <ulink url="&lfs-ticket-root;5123">#5123</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til bc-6.0.4. Fikser
+          <ulink url="&lfs-ticket-root;5114">#5114</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til bash-5.2. Fikser
+          <ulink url="&lfs-ticket-root;5122">#5122</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>2022-09-22</para>
       <itemizedlist>
         <listitem>
           <para>[bdubbs] - Oppdatert til expat-2.4.9 (Sikkerhetsoppdatering). Fikser
@@ -50,8 +659,8 @@
       </itemizedlist>
     </listitem>
 
-	<listitem>
-      <para>20.09.2022</para>
+    <listitem>
+      <para>2022-09-20</para>
       <itemizedlist>
         <listitem>
           <para>[bdubbs] - Tilpass instruksjoner avhengig av
@@ -60,9 +669,9 @@
         </listitem>
       </itemizedlist>
     </listitem>
-    
+
     <listitem>
-      <para>15.09.2022</para>
+      <para>2022-09-15</para>
       <itemizedlist>
         <listitem>
           <para>[bdubbs] - Oppdatert til file-5.43. Fikser
@@ -89,7 +698,7 @@
           <ulink url="&lfs-ticket-root;5102">#5102</ulink>.</para>
         </listitem>
         <listitem revision="sysv">
-          <para>[bdubbs] - Fikser plasseringen av udev regler i eudev.  Fikser 
+          <para>[bdubbs] - Fiks plasseringen av udev regler i eudev.  Fikser 
           <ulink url="&lfs-ticket-root;5112">#5112</ulink>.</para>
         </listitem>
         <listitem>
@@ -97,55 +706,55 @@
            gjør at tester for noen pakker mislykkes.</para>
         </listitem>
         <listitem>
-          <para>[bdubbs] - Sletter en tom binutils man side.  Fikser 
+          <para>[bdubbs] - Slett en tom binutils manside.  Fikser 
           <ulink url="&lfs-ticket-root;5100">#5100</ulink>.</para>
         </listitem>
       </itemizedlist>
     </listitem>
 
-	<listitem>
-      <para>10.09.2022</para>
+    <listitem>
+      <para>2022-09-10</para>
       <itemizedlist>
         <listitem>
           <para>[pierre] - Lagt til <option>--enable-default-pie</option> og
-          <option>--enable-default-ssp</option> til GCC byggingen. Begrunnelse
+          <option>--enable-default-ssp</option> til GCC-bygg. Begrunnelse
           og noen rapporter på
           <ulink url="&lfs-ticket-root;5107">#5107</ulink>.</para>
         </listitem>
       </itemizedlist>
     </listitem>
 
-	<listitem>
-      <para>07.09.2022</para>
+    <listitem>
+      <para>2022-09-07</para>
       <itemizedlist>
         <listitem>
-           <para>[bdubbs] - Oppdatert til shadow-4.12.3. Fikser
-           <ulink url="&lfs-ticket-root;5101">#5101</ulink>.</para>
+          <para>[bdubbs] - Oppdatert til shadow-4.12.3. Fikser
+          <ulink url="&lfs-ticket-root;5101">#5101</ulink>.</para>
         </listitem>
         <listitem>
-           <para>[bdubbs] - Oppdatert til Python3-3.10.7. Fikser
-           <ulink url="&lfs-ticket-root;5109">#5109</ulink>.</para>
+          <para>[bdubbs] - Oppdatert til Python3-3.10.7. Fikser
+          <ulink url="&lfs-ticket-root;5109">#5109</ulink>.</para>
         </listitem>
         <listitem>
-           <para>[bdubbs] - Oppdatert til linux-5.19.7. Fikser
-           <ulink url="&lfs-ticket-root;5099">#5099</ulink>.</para>
+          <para>[bdubbs] - Oppdatert til linux-5.19.7. Fikser
+          <ulink url="&lfs-ticket-root;5099">#5099</ulink>.</para>
         </listitem>
         <listitem>
-           <para>[bdubbs] - Oppdatert til less-608. Fikser
-           <ulink url="&lfs-ticket-root;5104">#5104</ulink>.</para>
+          <para>[bdubbs] - Oppdatert til less-608. Fikser
+          <ulink url="&lfs-ticket-root;5104">#5104</ulink>.</para>
         </listitem>
         <listitem>
-           <para>[bdubbs] - Oppdatert til grep-3.8. Fikser
-           <ulink url="&lfs-ticket-root;5105">#5105</ulink>.</para>
+          <para>[bdubbs] - Oppdatert til grep-3.8. Fikser
+          <ulink url="&lfs-ticket-root;5105">#5105</ulink>.</para>
         </listitem>
       </itemizedlist>
     </listitem>
 
-	<listitem>
-      <para>01.09.2022</para>
+    <listitem>
+      <para>2022-09-01</para>
       <itemizedlist>
         <listitem>
-          <para>[bdubbs] - LFS-11.2 utgitt.</para>
+          <para>[bdubbs] - LFS-11.2 released.</para>
         </listitem>
       </itemizedlist>
     </listitem>
