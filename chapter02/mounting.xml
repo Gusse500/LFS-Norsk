@@ -15,6 +15,11 @@
   filsystemet er montert i katalogen spesifisert av
   <envar>LFS</envar> miljøvariabel beskrevet i forrige avsnitt.
   </para>
+  
+  <para>Strengt tatt kan man ikke "montere en partisjon". Man monterer <emphasis>filsystemet
+  </emphasis> innebygd i den partisjonen. Men siden en enkelt partisjon ikke kan inneholde
+  mer enn ett filsystem, folk snakker ofte om partisjonen og
+  tilhørende filsystem som om de var ett og samme.</para>
 
   <para>Opprett monteringspunktet og monter LFS filsystemet med disse kommandoene:</para>
 
@@ -42,14 +47,14 @@ mount -v -t ext4 /dev/<replaceable>&lt;yyy&gt;</replaceable> $LFS/home</userinpu
   <option>nodev</option> alternativer). Kjør <command>mount</command> kommandoen
   uten noen parametere for å se hvilke alternativer som er satt for den monterte LFS
   partisjonen. Hvis <option>nosuid</option> og/eller <option>nodev</option> er satt,
-  partisjonene må monteres på nytt.</para>
+  må partisjonene monteres på nytt.</para>
 
   <warning><para>Instruksjonene ovenfor forutsetter at du ikke starter datamaskinen på nytt
   din gjennom hele LFS prosessen. Hvis du slår av systemet,
   må du enten montere LFS partisjonen på nytt hver gang du starter byggeprosessen på nytt
-  eller modifisere vertssystemets /&fstab; fil til å automatisk
-  monter den på nytt ved oppstart. For eksempel:
-  &fstab; file:
+  eller modifisere vertssystemets &fstab; filen til å automatisk
+  monter den på nytt når du starter på nytt. Du kan for eksempel legge til denne linjen i 
+  &fstab; filen:
 
 <screen role="nodump">/dev/<replaceable>&lt;xxx&gt;</replaceable>  /mnt/lfs ext4   defaults      1     1</screen>
 
@@ -67,7 +72,7 @@ mount -v -t ext4 /dev/<replaceable>&lt;yyy&gt;</replaceable> $LFS/home</userinpu
   <para>Erstatt <replaceable>&lt;zzz&gt;</replaceable> med navnet på
   <systemitem class="filesystem">swap</systemitem> partisjonen.</para>
 
-  <para>Nå som den nye LFS partisjonen er åpen for virksomhet, er det på tide
+  <para>Nå som den nye LFS partisjonen er klar til bruk, er det på tide
   å laste ned pakkene.</para>
 
 </sect1>

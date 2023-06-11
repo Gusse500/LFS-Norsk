@@ -5,21 +5,36 @@
   %general-entities;
 ]>
 
-<sect1 id="ch-partitioning-hostreqs" xreflabel="Systemkrav for vert">
+<sect1 id="ch-partitioning-hostreqs" xreflabel="Host System Requirements">
   <?dbhtml filename="hostreqs.html"?>
 
   <title>Systemkrav for vert</title>
 
+  <sect2>
+     <title>Maskinvare</title>
+
+     <para>LFS-redaktørene anbefaler at CPUen har minst
+     fire kjerner og at systemet har minst 8 GB minne.
+     Eldre systemer som ikke oppfyller disse kravene vil fortsatt fungere,
+     men tiden for å bygge pakker vil bli betydelig lengre
+     enn dokumentert.
+  </para>
+
+  </sect2>
+
+  <sect2>
+     <title>Programvare</title>
+
     <para>Vertssystemet ditt bør ha følgende programvare med
-     minimumsversjoner angitt. Dette burde ikke være et problem for de fleste
-     moderne Linux-distribusjoner. Vær også oppmerksom på at mange distribusjoner vil
-     plassere programvaredeklarasjoner i separate pakker, ofte i form av
+    minimumsversjoner angitt. Dette burde ikke være et problem for de fleste
+    moderne Linux-distribusjoner. Vær også oppmerksom på at mange distribusjoner vil
+    plassere programvareoverskrifter i separate pakker, ofte i form av
     <quote>&lt;package-name&gt;-devel</quote> eller
     <quote>&lt;package-name&gt;-dev</quote>. Pass på å installere disse hvis
-     distribusjonen din gir dem.</para>
+    distribusjonen din har dem.</para>
 
    <para>Tidligere versjoner av de oppførte programvarepakkene kan fungere, men har
-    ikke blitt testet.</para>
+   ikke blitt testet.</para>
 
   <itemizedlist spacing="compact">
 
@@ -30,8 +45,8 @@
 
     <listitem>
       <para><emphasis role="strong">Binutils-2.13.1</emphasis> (Versjoner
-       større enn &binutils-version; anbefales ikke ettersom de
-       ikke har blitt testet)</para>
+      større enn &binutils-version; anbefales ikke ettersom de
+      ikke har blitt testet)</para>
     </listitem>
 
     <listitem>
@@ -57,11 +72,11 @@
     </listitem>
 
     <listitem>
-      <para><emphasis role="strong">GCC-4.8</emphasis> inkludert C++
-       kompilatoren, <command>g++</command> (Versjoner større enn &gcc-version; er ikke
-       anbefalt da de ikke er testet). C og C++ standard
-       biblioteker (med deklarasjoner) må også være tilstede slik at C++ kompilatoren kan
-       bygge vertsbaserte programmer</para>
+      <para><emphasis role="strong">GCC-5.1</emphasis> inkludert C++
+      kompilatoren, <command>g++</command> (Versjoner større enn &gcc-version; er ikke
+      anbefalt da de ikke er testet). C og C++ standard
+      biblioteker (med deklarasjoner) må også være tilstede slik at C++ kompilatoren kan
+      bygge vertsbaserte programmer</para>
     </listitem>
 
     <listitem>
@@ -76,20 +91,19 @@
       <para><emphasis role="strong">Linux Kernel-&min-kernel;</emphasis></para>
 
       <para>Grunnen til kravet om kjerneversjon er at vi spesifiserer
-       den versjonen når du bygger <application>glibc</application> i
+      den versjonen når du bygger <application>glibc</application> i
       <xref linkend="chapter-cross-tools"/> og
       <xref linkend="chapter-building-system"/>,
-      etter anbefaling fra utviklerne. Det kreves også av
-       udev.</para>
+      etter anbefaling fra utviklerne.</para>
 
       <para>Hvis vertskjernen er tidligere enn &min-kernel; du må erstatte
-       kjernen med en mer oppdatert versjon. Det er to måter
-       du kan gjøre dette på. Først, se om din Linux leverandør tilbyr en &min-kernel;
+      kjernen med en mer oppdatert versjon. Det er to måter
+      du kan gjøre dette på. Først, se om din Linux leverandør tilbyr en &min-kernel;
       eller senere kjernepakke. I så fall kan det være lurt å installere den. Hvis din
-       leverandøren ikke tilbyr en akseptabel kjernepakke, eller du foretrekker å la være å
-       installer den, kan du kompilere en kjerne selv. Instruksjoner for å
-       kompilere kjernen og konfigurere oppstartslasteren (forutsatt at verten
-       bruker GRUB) er lokalisert i <xref linkend="chapter-bootable"/>.</para>
+      leverandøren ikke tilbyr en akseptabel kjernepakke, eller du foretrekker å la være å
+      installer den, kan du kompilere en kjerne selv. Instruksjoner for å
+      kompilere kjernen og konfigurere oppstartslasteren (forutsatt at verten
+      bruker GRUB) er lokalisert i <xref linkend="chapter-bootable"/>.</para>
 
     </listitem>
 
@@ -133,22 +147,22 @@
 
   <important>
     <para>Merk at symbollenkene nevnt ovenfor er nødvendige for å bygge et LFS
-     system ved å bruke instruksjonene i denne boken. Symlinker som
-     peker på annen programvare (som dash, mawk osv.) kan fungere, men er ikke
-     testet eller støttet av LFS-utviklingsteamet, og kan kreve enten
-     avvik fra instruksjonene eller tilleggsoppdateringer til noen
-     pakker.</para>
+    system ved å bruke instruksjonene i denne boken. Symlinker som
+    peker på annen programvare (som dash, mawk osv.) kan fungere, men er ikke
+    testet eller støttet av LFS-utviklingsteamet, og kan kreve enten
+    avvik fra instruksjonene eller tilleggsoppdateringer til noen
+    pakker.</para>
   </important>
 
   <!-- Use an empty sect2 element to prevent a pdf warning.  -->
   <bridgehead renderas="sect2"
               id="version-check"
-              xreflabel="Systemkrav for vert">
+              xreflabel="Host System Requirements">
   </bridgehead>
   <!--<title> </title>-->
 
   <para >For å se om vertssystemet ditt har alle de riktige versjonene, og
-   muligheten til å kompilere programmer, kjør følgende:</para>
+  muligheten til å kompilere programmer, kjør følgende:</para>
 
 <screen role="nodump"><userinput>cat &gt; version-check.sh &lt;&lt; "EOF"
 <literal>#!/bin/bash
@@ -224,5 +238,5 @@ bash library-check.sh</userinput></screen>
 <para>Alle filene som identifiseres av dette skriptet skal være tilstede
 eller alle fraværende, men ikke bare en eller to tilstede.</para>
 -->
-
+ </sect2>
 </sect1>

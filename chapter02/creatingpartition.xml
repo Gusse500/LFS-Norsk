@@ -31,8 +31,8 @@
   <systemitem class="filesystem">swap</systemitem> plass. Dette brukes av
   kjernen for å lagre sjelden brukte data og la mer minne være tilgjengelig for aktive
   prosesser. <systemitem class="filesystem">swap</systemitem> partisjon for
-   et LFS system kan være det samme som det som brukes av vertssystemet, i
-   det tilfellet er det ikke er nødvendig å opprette en annen.</para>
+  et LFS system kan være det samme som det som brukes av vertssystemet, i
+  det tilfellet er det ikke er nødvendig å opprette en annen.</para>
 
   <para>Start et diskpartisjoneringsprogram som f.eks <command>cfdisk</command>
   eller <command>fdisk</command> med et kommandolinjealternativ som navngir harddisken
@@ -47,7 +47,7 @@
   Det nye LFS systemet kan være på et programvare <ulink
   url="&blfs-book;postlfs/raid.html">RAID</ulink> matrise eller en <ulink
   url="&blfs-book;postlfs/aboutlvm.html">LVM</ulink> logisk volum.
-  Noen av disse alternativene krever imidlertid  <ulink
+  Noen av disse alternativene krever imidlertid <ulink
   url="&blfs-book;postlfs/initramfs.html">initramfs</ulink>, som er
   et avansert emne. Disse partisjoneringsmetodene anbefales ikke for
   førstegangs LFS brukere.</para></note>
@@ -55,7 +55,7 @@
   <para>Husk betegnelsen på den nye partisjonen (f.eks., <filename
   class="devicefile">sda5</filename>). Denne boken vil referere til dette som
   LFS partisjonen. Husk også betegnelsen på <systemitem
-  class="filesystem">swap</systemitem> partition. Disse navnene vil være
+  class="filesystem">swap</systemitem> partisjonen. Disse navnene vil være
   nødvendig senere for <filename>/etc/fstab</filename> filen.</para>
 
   <sect2>
@@ -96,7 +96,7 @@
     fortelle om et system veksler ved å bare lytte til diskaktivitet og
     observere hvordan systemet reagerer på kommandoer. Med en SSD vil du ikke
     kunne høre veksling, men du kan se hvor mye vekslingsplass som brukes
-    ved å kjøre <command>top</command> eller <command>free</command> programmene.  Bruken av
+    ved å kjøre <command>top</command> eller <command>free</command> programmene. Bruken av
     en SSD for en vekselminnepartisjon bør unngås hvis mulig. Den første
     reaksjon på veksling bør være å se etter en urimelig kommando som f.eks
     prøver å redigere en fil på fem gigabyte. Hvis veksling normalt
@@ -106,13 +106,13 @@
     <sect3>
     <title>Grub Bios partisjonen</title>
 
-    <para>Hvis <emphasis>oppstartsdisken</emphasis> har blitt partisjonert med en
+    <para>Hvis <emphasis>boot disk</emphasis> har blitt partisjonert med en
     GUID Partisjons Tabell (GPT), da må en liten, vanligvis 1 MB, partisjon bli
     opprettet hvis den ikke eksisterer allerede. Denne partisjonen er ikke formatert, men
     må være tilgjengelig for GRUB for å bruke under installasjonen av oppstarts
     lasteren. Denne partisjonen vil normalt være merket 'BIOS Boot' hvis den opprettes av
     <command>fdisk</command> eller har en kode på <emphasis>EF02</emphasis> hvis du
-    bruker <command>gdisk</command>.</para> kommandoen.
+    bruker <command>gdisk</command> kommandoen.</para>
 
     <note><para>Grub Bios partisjonen må være på stasjonen som BIOS
     bruker for å starte opp systemet. Dette er ikke nødvendigvis den stasjonen som holder
@@ -130,7 +130,7 @@
 
     <itemizedlist>
 
-      <listitem><para>/boot &ndash; Sterkt anbefalt.  Bruk denne partisjonen til å
+      <listitem><para>/boot &ndash; Sterkt anbefalt. Bruk denne partisjonen til å
       lagre kjerner og annen oppstartsinformasjon. For å minimere potensielle oppstarts
       problemer med større disker, gjør dette til den første fysiske partisjonen på
       din første diskstasjon. En partisjonsstørrelse på 200 megabyte er
@@ -138,11 +138,11 @@
 
       <listitem><para>/boot/efi &ndash; EFI systempartisjonen, som er
       nødvendig for å starte opp systemet med UEFI. Les
-      <ulink url="&blfs-book;postlfs/grub-setup.html">the BLFS page</ulink>
+      <ulink url="&blfs-book;postlfs/grub-setup.html">BLFS siden</ulink>
       for detaljer.</para></listitem>
 
-      <listitem><para>/home &ndash; Sterkt anbefalt.  Del hjemme
-      mappen og brukertilpasning på tvers av flere distribusjoner eller LFS
+      <listitem><para>/home &ndash; Sterkt anbefalt. Del hjemmemappen
+      og brukertilpasning på tvers av flere distribusjoner eller LFS
       bygginger. Størrelsen er vanligvis ganske stor og avhenger av tilgjengelig disk
       plass.</para></listitem>
 
@@ -191,9 +191,9 @@
     </itemizedlist>
 
     <para>Enhver separat partisjon som du ønsker automatisk montert når
-    systemet starter må spesifiseres i <filename>/etc/fstab</filename>.
+    systemet starter må spesifiseres i <filename>/etc/fstab</filename> file.
     Detaljer om hvordan du spesifiserer partisjoner vil bli diskutert i <xref
-    linkend="ch-bootable-fstab"/>.  </para>
+    linkend="ch-bootable-fstab"/>.</para>
 
     </sect3>
   </sect2>
