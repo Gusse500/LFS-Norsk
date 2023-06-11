@@ -14,36 +14,37 @@
     <title>FAQ</title>
 
     <para>Hvis du under byggingen av LFS systemet støter på noen
-     feil, har spørsmål eller tror det er en skrivefeil i boken,
-     vennligst start med å se de vanlige spørsmålene (FAQ)
-     som befinner seg på <ulink url="&faq-root;"/>.</para>
+    feil, har spørsmål eller tror det er en skrivefeil i boken,
+    vennligst start med å se de vanlige spørsmålene (FAQ)
+    som befinner seg på <ulink url="&faq-root;"/>.</para>
 
   </sect2>
 
   <sect2 id="ch-intro-maillists" xreflabel="Chapter&nbsp;1 - Mailing Lists">
     <title>E-postlister</title>
 
-    <para><uri>linuxfromscratch.org</uri> serveren er vert for en rekke E-post
-     lister brukt til utvikling av LFS prosjektet. Disse listene inkluderer
-     hovedutviklings- og støttelister, blant annet. Hvis FAQ ikke løser
-     problemet du har, vil neste trinn være å søke i E-post
-     listene på <ulink url="&lfs-root;search.html"/>.</para>
+    <para><systemitem class='domainname'>linuxfromscratch.org</systemitem>
+    serveren er vert for en rekke E-post
+    lister brukt til utvikling av LFS prosjektet. Disse listene inkluderer
+    hovedutviklings- og støttelister, blant annet. Hvis FAQ ikke løser
+    problemet du har, vil neste trinn være å søke i E-post
+    listene på <ulink url="&lfs-root;search.html"/>.</para>
 
     <para>For informasjon om de forskjellige listene, hvordan abonnere, arkiv
-     steder og tilleggsinformasjon, besøk
+    steder og tilleggsinformasjon, besøk
     <ulink url="&lfs-root;mail.html"/>.</para>
 
   </sect2>
 
-  <!-- FIKS MEG: Fjern inntil vi har vår egen nyhetsserver, JH 20060105
+  <!-- FIXME: Remove until such time as we have our own News Server, JH 20060105
 
   <sect2 id="ch-intro-newsserver">
     <title>Nyhetsserver</title>
 
     <para>E-postlistene på <uri>linuxfromscratch.org</uri> er
-     også tilgjengelig via NNTP serveren (Network News Transfer Protocol)..
+    også tilgjengelig via NNTP serveren (Network News Transfer Protocol) server.
     Alle meldinger som legges til en E-postliste blir kopiert til den tilsvarende
-     nyhetsgruppe, og omvendt.</para>
+    nyhetsgruppe, og omvendt.</para>
 
     <para>Nyhetsserveren er plassert på
     <uri>news.linuxfromscratch.org</uri>.</para>
@@ -54,19 +55,20 @@
     <title>IRC</title>
 
     <para>Flere medlemmer av LFS fellesskapet tilbyr assistanse på Internett
-     Relay Chat (IRC). Før du bruker denne støtten, sørg for at dine
-     spørsmål ikke allerede er besvart i LFS FAQ eller E-postlistenens
-     arkiv. Du finner IRC-nettverket på <uri>irc.libera.chat</uri>.
-     Støttekanalen heter #lfs-support.</para>
+    Relay Chat (IRC). Før du bruker denne støtten, sørg for at dine
+    spørsmål ikke allerede er besvart i LFS FAQ eller E-postlistenens
+    arkiv. Du finner IRC-nettverket på
+    <systemitem class='domainname'>irc.libera.chat</systemitem>.
+    Støttekanalen heter #lfs-support.</para>
 
   </sect2>
 
-  <!-- Kommentert ut til mållenken er oppdatert
+  <!-- Commentted out until the target link is updated
   <sect2 id="ch-intro-references">
-    <title>Referanser</title>
+    <title>References</title>
 
     <para>For ytterligere informasjon om pakkene, er nyttige tips
-     tilgjengelig på LFS pakkereferansesiden som ligger på <ulink
+    tilgjengelig på LFS pakkereferansesiden som ligger på <ulink
     url="https://www.linuxfromscratch.org/~matthew/LFS-references.html"/>.</para>
 
   </sect2>  -->
@@ -75,9 +77,9 @@
     <title>Speilnettsteder</title>
 
     <para>LFS prosjektet har en rekke verdensomspennende speil for å få tilgang til
-     nettstedet og laste ned de nødvendige pakkene mer praktisk. Vær så snill
-     besøk LFS nettstedet på <ulink url="&lfs-root;mirrors.html"/> for en liste
-     av nåværende speil.</para>
+    nettstedet og laste ned de nødvendige pakkene mer praktisk.
+    Besøk LFS nettstedet på <ulink url="&lfs-root;mirrors.html"/> for en liste
+    av nåværende speil.</para>
 
   </sect2>
 
