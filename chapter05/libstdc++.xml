@@ -28,8 +28,8 @@
     for å kompilere C++-kode
     (en del av GCC er skrevet i C++), men vi måtte utsette installasjonen
     da vi bygde <xref linkend="ch-tools-gcc-pass1"/>
-    fordi det avhenger av glibc, som ennå ikke var tilgjengelig i målmappen
-    .
+    fordi Libstdc++ avhenger av Glibc, som ennå ikke var tilgjengelig i
+    målmappen.
     </para>
 
     <segmentedlist>
@@ -45,7 +45,7 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installasjon av Targer Libstdc++</title>
+    <title>Installasjon av Target Libstdc++</title>
 
     <note>
       <para><application>Libstdc++</application> er en del av GCC kildene.
@@ -84,29 +84,29 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--disable-libstdcxx-pch</parameter></term>
         <listitem>
-          <para>Denne bryteren forhindrer installasjon av inkluderte forhåndskompilerte
-          filer som ikke er nødvendige på dette stadiet.</para>
+          <para>Denne bryteren forhindrer installasjon av forhåndskompilerte
+          include filer som ikke er nødvendige på dette stadiet.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--with-gxx-include-dir=/tools/$LFS_TGT/include/c++/&gcc-version;</parameter></term>
         <listitem>
-          <para>Dette spesifiserer installasjonsmappen for inkluderende filer.
+          <para>Dette spesifiserer installasjonsmappen for include filer.
           Fordi libstdc++ er standard C++-biblioteket for LFS, skal denne
           mappen samsvare med plasseringen der C++-kompilatoren
           (<command>$LFS_TGT-g++</command>) vil søke etter
-          standard C++ inkludererende filer. I en normal konstruksjon, sendes denne informasjonen
+          standard C++ include filer. I en normal konstruksjon, sendes denne informasjonen
           automatisk til libstdc++ <command>configure</command>
           alternativer fra toppnivåmappen. I vårt tilfelle, denne informasjonen
           må gis eksplisitt.
           C++-kompilatoren vil legge til sysroot banen
-          <filename class="directory">$LFS</filename> (spesifisert bygning
-          GCC passerer 1) til inkludere filsøkebanen, så den vil faktisk
+          <filename class="directory">$LFS</filename> (spesifisert når
+          GCC pass 1 ble bygget) til å inkludere filsøkebanen, så den vil faktisk
           søke i
           <filename class="directory">$LFS/tools/$LFS_TGT/include/c++/&gcc-version;</filename>.
           Kombinasjonen av <parameter>DESTDIR</parameter>
-          variabelen (i <command>make install</command> kommando nedenfor)
+          variabelen (i <command>make install</command> kommandoen nedenfor)
           og denne bryteren sørger for å installere deklarasjonene der.</para>
         </listitem>
       </varlistentry>
