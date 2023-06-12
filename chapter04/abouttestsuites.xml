@@ -13,7 +13,7 @@
   <para>De fleste pakkene gir en testpakke. Å kjøre testpakken for en
   nybygd pakke er en god idé fordi den kan gi en <quote>tilregnelighets
   sjekk</quote> som indikerer at alt er kompilert riktig. En testpakke
-  som består sitt sett med kontroller, beviser vanligvis at pakken
+  som består kontrollene sine, beviser vanligvis at pakken
   fungerer slik utvikleren har tenkt. Det gir imidlertid ingen garanti
   at pakken er helt feilfri.</para>
 
@@ -27,21 +27,21 @@
   <note>
     <para>Å kjører testpakkene i <xref linkend="chapter-cross-tools"/>
     og <xref linkend="chapter-temporary-tools"/>
-    er umulig, siden programmene er kompilert med en krysskompilator,
-    som ikke ment å kunne kjøre på byggeverten.</para>
+    er meningsløst; siden testprogrammene er kompilert med en krysskompilator,
+    kan de sannsynligvis ikke kjøre på byggeverten.</para>
   </note>
 
   <para>Et vanlig problem med å kjøre testpakkene for binutils og GCC er
-   å gå tom for pseudoterminaler (PTY). Dette kan resultere i et høyt
-   antall feilende prøver. Dette kan skje av flere grunner, men den
-   mest sannsynlig årsaken er at vertssystemet ikke har
+  å gå tom for pseudoterminaler (PTY). Dette kan resultere i et høyt
+  antall feilende prøver. Dette kan skje av flere grunner, men den
+  mest sannsynlig årsaken er at vertssystemet ikke har
   <systemitem class="filesystem">devpts</systemitem> filsystemet satt opp
-   riktig. Dette spørsmålet diskuteres mer detaljert på
+  riktig. Dette spørsmålet diskuteres mer detaljert på
   <ulink url="&lfs-root;lfs/faq.html#no-ptys"/>.</para>
 
-  <para>Noen ganger vil pakkers testpakker mislykkes, men av årsaker som
-   utviklere er klar over og har ansett som ikke kritiske. Se loggene som finnes
-   på <ulink url="&test-results;"/> for å bekrefte om disse feilene er forventet
-   eller ikke. Denne siden er gyldig for alle tester i denne boken.</para>
+  <para>Noen ganger vil testpakker til en pakke mislykkes, men av årsaker som
+  utviklere er klar over og har ansett som ikke kritiske. Se loggene som finnes
+  på <ulink url="&test-results;"/> for å bekrefte om disse feilene er forventet
+  eller ikke. Denne siden er gyldig for alle tester i denne boken.</para>
 
 </sect1>

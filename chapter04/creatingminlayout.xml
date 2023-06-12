@@ -10,14 +10,15 @@
 
   <title>Opprette et begrenset mappeoppsett i LFS filsystemet</title>
 
-  <para>Den neste oppgaven som utføres i LFS partisjonen er å lage et begrenset
-  mappehierarki, så programmer kompilert i <xref
+  <para>I denne delen begynner vi å fylle LFS filsystemet med
+  stykker som vil utgjøre det endelige Linuxsystemet. Det første trinnet er å
+  opprette et begrenset kataloghierarki, slik at programmene som kompileres i <xref
   linkend="chapter-temporary-tools"/> (i tillegg til glibc og libstdc++ i <xref
   linkend="chapter-cross-tools"/>) kan installeres i deres endelige
   plassering. Vi gjør dette slik at de midlertidige programmene vil bli overskrevet når
-  de endelige versjonene bygges <xref linkend="chapter-building-system"/>.</para>
+  de endelige versjonene bygges i <xref linkend="chapter-building-system"/>.</para>
 
-  <para>Opprett det nødvendige mappeoppsettet ved å kjøre følgende som
+  <para>Create the required directory layout by issuing the following commands as
   <systemitem class="username">root</systemitem>:</para>
 
 <screen><userinput>mkdir -pv $LFS/{etc,var} $LFS/usr/{bin,lib,sbin}
@@ -37,5 +38,17 @@ esac</userinput></screen>
   &root;, lag den mappen med denne kommandoen:</para>
 
 <screen><userinput>mkdir -pv $LFS/tools</userinput></screen>
+
+  <note>
+    <para>
+      LFS redaksjonen har bevisst besluttet å ikke bruke en
+      <filename class="directory">/usr/lib64</filename> mappe.  Flere
+      skritt tas for å være sikker på at verktøykjeden ikke vil bruke den. Hvis for noen
+      grunn denne katalogen vises (enten fordi du gjorde en feil i når
+      du fulgte instruksjonene, eller fordi du installerte en binær pakke som
+      opprettet det etter å ha fullført LFS), kan det ødelegge systemet ditt.
+      Du bør alltid være sikker på at denne katalogen ikke eksisterer.
+    </para>
+  </note>
 
 </sect1>
