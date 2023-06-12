@@ -25,7 +25,7 @@
     <title/>
 
     <para>Linux API deklarasjonene (i linux-&linux-version;.tar.xz) eksponerer
-     kjernens API for bruk av Glibc.</para>
+    kjernens API for bruk av Glibc.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -43,18 +43,18 @@
     <title>Installasjon av Linux API deklarasjoner</title>
 
     <para>Linux-kjernen må eksponere et applikasjonsprogrammeringsgrensesnitt
-     (API) som systemets C bibliotek (Glibc i LFS) kan bruke. Dette har blitt gjort
-     ved å rense ulike C deklarasjonsfiler som er i Linux
-     kjernekilde tarball.</para>
+    (Application Programming Interface(API)) som systemets C bibliotek (Glibc i LFS) kan bruke. Dette har blitt gjort
+    ved å rense ulike C deklarasjonsfiler som er i Linux
+    sin kjernekilde tarball.</para>
 
     <para>Sørg for at det ikke er noen gamle filer innebygd i pakken:</para>
 
 <screen><userinput remap="pre">make mrproper</userinput></screen>
 
     <para>Trekk nå ut de brukersynlige kjernedeklarasjonene fra kilden.
-    Det anbefalte make målet <quote>headers_install</quote> Kan ikke
+    Det anbefalte make målet <quote>headers_install</quote> kan ikke
     brukes, fordi det krever <application>rsync</application>, som kanskje ikke
-    er tilgjengelig. Overskriftene plasseres først i
+    er tilgjengelig. Deklarasjonene plasseres først i
     <filename class="directory">./usr</filename>, deretter kopiert til nødvendig
     plassering.</para>
 
