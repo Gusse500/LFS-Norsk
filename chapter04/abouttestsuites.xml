@@ -11,24 +11,24 @@
   <title>Om testpakkene</title>
 
   <para>De fleste pakkene gir en testpakke. Å kjøre testpakken for en
-   nybygd pakke er en god idé fordi den kan gi en <quote>tilregnelighets
-   sjekk</quote> som indikerer at alt er kompilert riktig. En testpakke
-   som består sitt sett med kontroller, beviser vanligvis at pakken
-   fungerer slik utvikleren har tenkt. Det gir imidlertid ingen garanti
-   at pakken er helt feilfri.</para>
+  nybygd pakke er en god idé fordi den kan gi en <quote>tilregnelighets
+  sjekk</quote> som indikerer at alt er kompilert riktig. En testpakke
+  som består sitt sett med kontroller, beviser vanligvis at pakken
+  fungerer slik utvikleren har tenkt. Det gir imidlertid ingen garanti
+  at pakken er helt feilfri.</para>
 
   <para>Noen testpakker er viktigere enn andre. For eksempel,
-   testpakkene for kjerneverktøykjedepakkene&mdash;GCC, binutils, og
+  testpakkene for kjerneverktøykjedepakkene&mdash;GCC, binutils, og
   glibc&mdash;er av største betydning på grunn av deres sentrale rolle i et
-   riktig fungerende system. Testpakkene for GCC og glibc kan
-   ta veldig lang tid å fullføre, spesielt på tregere maskinvare, men
-   anbefales på det sterkeste.</para>
+  riktig fungerende system. Testpakkene for GCC og glibc kan
+  ta veldig lang tid å fullføre, spesielt på tregere maskinvare, men
+  anbefales på det sterkeste.</para>
 
   <note>
     <para>Å kjører testpakkene i <xref linkend="chapter-cross-tools"/>
     og <xref linkend="chapter-temporary-tools"/>
     er umulig, siden programmene er kompilert med en krysskompilator,
-     som ikke ment å kunne kjøre på byggeverten.</para>
+    som ikke ment å kunne kjøre på byggeverten.</para>
   </note>
 
   <para>Et vanlig problem med å kjøre testpakkene for binutils og GCC er

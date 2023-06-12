@@ -11,8 +11,8 @@
   <title>Introduksjon</title>
 
   <para>I dette kapittelet, vertsverktøyene som trengs for å bygge LFS
-   kontrolleres og om nødvendig installeres. Deretter vil en partisjon klargjøres
-   som vert for LFS systemet. Vi lager partisjonen
-   selv, lager et filsystem på den og monter den.</para>
+  kontrolleres og om nødvendig installeres. Deretter vil en partisjon klargjøres
+  som vert for LFS systemet. Vi lager partisjonen
+  selv, lager et filsystem på den og monter den.</para>
 
 </sect1>

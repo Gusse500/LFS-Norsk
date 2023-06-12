@@ -88,9 +88,9 @@
     veksling.</para>
 
     <para>Hvis du vil bruke dvalefunksjonen (suspend-to-disk) i Linux,
-     den skriver ut innholdet i RAM til vekselminnepartisjonen før den slår av
-     maskinen. I dette tilfellet bør størrelsen på vekselminnepartisjonen være
-     minst like stor som systemets installerte RAM.</para>
+    den skriver ut innholdet i RAM til vekselminnepartisjonen før den slår av
+    maskinen. I dette tilfellet bør størrelsen på vekselminnepartisjonen være
+    minst like stor som systemets installerte RAM.</para>
 
     <para>Bruk av vekselminne er aldri bra. For mekaniske harddisker kan du generelt
     fortelle om et system veksler ved å bare lytte til diskaktivitet og
