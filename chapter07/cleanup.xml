@@ -8,10 +8,10 @@
 <sect1 id="ch-tools-cleanup">
   <?dbhtml filename="cleanup.html"?>
 
-  <title>Opprydding og lagring av det midlertidige systemet</title>
+  <title>Rydde opp og lagre det midlertidige systemet</title>
 
   <sect2>
-    <title>Opprydding</title>
+    <title>Rydde opp</title>
 
     <para>Fjern først den installerte dokumentasjonen for å forhindre dem
     fra å havne i det endelige systemet, og å spare ca 35 MB:</para>
@@ -61,10 +61,9 @@
       miljøet. Det betyr at du må forlate chroot miljøet
       før du fortsetter. Grunnen til det er å
       få tilgang til filsystemplasseringer utenfor chroot
-      miljøet for å lagre/lese sikkerhetskopiarkivet som ikke skal
+      miljøet for å lagre/lese sikkerhetskopiarkivet som ikke burde
       plasseres innenfor
-      <filename class="directory">$LFS</filename> hierarkiet for
-      sikkerhetsmessige årsaker.
+      <filename class="directory">$LFS</filename> hierarkiet.
     </para>
 
     <para>
@@ -75,12 +74,12 @@
 
     <important>
       <para>
-        Alle de følgende instruksjonene utføres av
+        Alle følgende instruksjoner utføres av
         <systemitem class="username">root</systemitem> på vertssystemet ditt.
         Vær ekstra forsiktig med kommandoene du skal kjøre ettersom feil
         her kan du endre vertssystemet ditt. Vær oppmerksom på at
         miljøvariabelen <envar>LFS</envar>
-        is set for user <systemitem class="username">lfs</systemitem> som standard
+        er satt for bruker <systemitem class="username">lfs</systemitem> som standard
         er kanskje <emphasis>ikke</emphasis> satt for
         <systemitem class="username">root</systemitem>.
      </para>
@@ -93,7 +92,7 @@
       </para>
     </important>
 
-    <para>Før du lager en sikkerhetskopi, avmonter de virtuelle filsystemene:</para>
+    <para>Før du lager en sikkerhetskopi, avmonter det virtuelle filsystemet:</para>
 
 <screen role="nodump"><userinput>mountpoint -q $LFS/dev/shm &amp;&amp; umount $LFS/dev/shm
 umount $LFS/dev/pts
@@ -106,13 +105,10 @@ umount $LFS/{sys,proc,run,dev}</userinput></screen>
     </para>
 
     <para>
-      Merk at instruksjonene nedenfor spesifiserer hjemmemappen til vertenssystemets
+      Merk at instruksjonene nedenfor spesifiserer hjemmemappen til vertssystemets
       bruker <systemitem class="username">root</systemitem> som
       vanligvis finnes på rotfilsystemet.
-    </para>
-
-    <para>
-      Erstatt <envar>$HOME</envar> av en mappe etter eget valg hvis du
+      Erstatt <envar>$HOME</envar> med en mappe etter eget valg hvis du
       ikke ønsker å ha sikkerhetskopien lagret i <systemitem
       class="username">root</systemitem> sin hjemmemappe.
     </para>
@@ -144,7 +140,7 @@ tar -cJpf $HOME/lfs-temp-tools-&version;.tar.xz .</userinput></screen>
     <title>Gjenopprett</title>
 
     <para>
-      In caI tilfelle noen feil har blitt gjort og du må begynne på nytt, kan du
+      I tilfelle noen feil har blitt gjort og du må begynne på nytt, kan du
       bruk denne sikkerhetskopien til å gjenopprette systemet og spare litt gjenopprettingstid.
       Siden kildene ligger under
       <filename class="directory">$LFS</filename>, er de inkludert i
@@ -153,12 +149,12 @@ tar -cJpf $HOME/lfs-temp-tools-&version;.tar.xz .</userinput></screen>
       gjenopprett sikkerhetskopien ved å utføre følgende kommandoer:
     </para>
 
-<!-- Få følgende til å se annerledes ut slik at brukerne ikke blindt kjører
-     gjenoppretting når de ikke trenger det. -->
+<!-- Make the following look different so users don't blindly run the
+     restore when they don't need to. -->
 
     <warning><para>Følgende kommandoer er ekstremt farlige. Hvis
     du kjører <command>rm -rf ./*</command> som &root; brukeren og du
-    ikke endret til $LFS-mappen eller <envar>LFS</envar>
+    ikke endret til $LFS mappen eller <envar>LFS</envar>
     miljøvariabelen ikke er satt for brukeren &root; vil den ødelegge
     hele vertssystemet ditt. DU ER ADVART.</para></warning>
 

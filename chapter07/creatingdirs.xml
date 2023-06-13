@@ -41,10 +41,10 @@ ln -sfv /run/lock /var/lock
 install -dv -m 0750 /root
 install -dv -m 1777 /tmp /var/tmp</userinput></screen>
 
-  <para>mapper er som standard opprettet med tillatelsesmodus 755, men
+  <para>Mapper er som standard opprettet med tillatelsesmodus 755, men
   dette er ikke ønskelig for alle mapper. I kommandoene ovenfor, to
-  endringer gjøres&mdash;en til <systemitem
-  class="username">root</systemitem>, brukerens hjemmemappe, og en annen til mappene for
+  endringer gjøres&mdash;en til hjemmemappen for brukeren <systemitem
+  class="username">root</systemitem>, og en annen til mappene for
   midlertidige filer.</para>
 
   <para>Den første modusendringen sikrer at ikke hvem som helst kan komme inn i
@@ -52,7 +52,7 @@ install -dv -m 1777 /tmp /var/tmp</userinput></screen>
   samme som en vanlig bruker ville gjort med sin hjemmemappe. De
   andre modusendring sørger for at enhver bruker kan skrive til
   <filename class="directory">/tmp</filename> og <filename
-  class="directory">/var/tmp</filename> mapper, men kan ikke fjerne
+  class="directory">/var/tmp</filename> mappene, men kan ikke fjerne
   en annen brukers filer fra dem. Sistnevnte er forbudt av den såkalte
   <quote>låst bit (sticky bit),</quote> den høyeste biten (1) i 1777 bitmasken.</para>
 
@@ -64,9 +64,20 @@ install -dv -m 1777 /tmp /var/tmp</userinput></screen>
     url="https://refspecs.linuxfoundation.org/fhs.shtml"/>).  FHS spesifiserer også
     den valgfrie tilstedeværelsen av noen mapper som f.eks <filename
     class="directory">/usr/local/games</filename> og <filename
-    class="directory">/usr/share/games</filename>.  Vi skaper kun
+    class="directory">/usr/share/games</filename>.  I LFS, oppretter vi kun
     mapper som trengs. Du må imidlertid gjerne lage disse
     mappene.  </para>
+
+  <warning>
+    <para>
+      FHS gir ikke mandat til at mappem
+      <filename class="directory">/usr/lib64</filename> skal eksistere, og LFS redaktørene
+      har bestemt seg for å ikke bruke den. For at instruksjonene i LFS og BLFS skal fungere riktig,
+      er det viktig at denne mappen ikke eksisterer. Fra tid til annen bør du
+      bekrefte at den ikke eksisterer, fordi det er enkelt å lage den
+      utilsiktet, og dette vil sannsynligvis ødelegge systemet ditt.
+    </para>
+  </warning>
 
   </sect2>
 
