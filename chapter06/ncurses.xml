@@ -78,9 +78,9 @@ popd</userinput></screen>
       <varlistentry>
         <term><parameter>--with-manpage-format=normal</parameter></term>
         <listitem>
-          <para>Dette forhindrer Ncurses fra å installere komprimerte manual
-          sider, noe som kan skje hvis selve vertsdistribusjonen
-          har komprimerte manual sider.</para>
+          <para>Dette forhindrer Ncurses fra å installere komprimerte
+          manualsider, noe som kan skje hvis selve vertsdistribusjonen
+          har komprimerte manualsider.</para>
         </listitem>
       </varlistentry>
 
@@ -102,8 +102,8 @@ popd</userinput></screen>
       <varlistentry>
         <term><parameter>--without-debug</parameter></term>
         <listitem>
-          <para>Dette forhindrer at Ncurses bygger og installerer feilsøkings
-          biblioteker.</para>
+          <para>Dette forhindrer at Ncurses bygger og installerer
+          feilsøkingsbiblioteker.</para>
         </listitem>
       </varlistentry>
 
@@ -119,7 +119,7 @@ popd</userinput></screen>
         <term><parameter>--without-ada</parameter></term>
         <listitem>
           <para>Dette sikrer at Ncurses ikke bygger støtte for Ada
-          kompilator som kan være til stede på verten, men som ikke vil være tilgjengelig
+          kompilatoren som kan være til stede på verten, men som ikke vil være tilgjengelig
           når vi går inn i <command>chroot</command> miljøet.</para>
         </listitem>
       </varlistentry>
@@ -127,16 +127,16 @@ popd</userinput></screen>
       <varlistentry>
         <term><parameter>--disable-stripping</parameter></term>
         <listitem>
-          <para>Denne bryteren hindrer byggesystemet å strippe
-          programmene som bruker <command>strip</command> programmet fra verten.
-          Bruk av vertsverktøy på krysskompilerte program kan forårsake feil.</para>
+          <para>Denne bryteren hindrer byggesystemet fra
+          å bruke <command>strip</command> programmet fra verten.
+          Bruk av vertsverktøy på krysskompilerte programmer kan forårsake feil.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--enable-widec</parameter></term>
         <listitem>
-          <para>Denne bryteren forårsaker biblioteker med store tegn (f.eks., <filename
+          <para>Denne bryteren gjør at biblioteker med brede tegn (wide-character) f.eks., <filename
           class="libraryfile">libncursesw.so.&ncurses-version;</filename>)
           skal bygges i stedet for vanlige (f.eks., <filename
           class="libraryfile">libncurses.so.&ncurses-version;</filename>).
@@ -170,7 +170,7 @@ echo "INPUT(-lncursesw)" > $LFS/usr/lib/libncurses.so</userinput></screen>
         <term><parameter>TIC_PATH=$(pwd)/build/progs/tic</parameter></term>
         <listitem>
           <para>Vi må sende stien til den nettopp bygde
-          <command>tic</command> så den er i stand til å kjøre på byggemaskinen, slik at
+          <command>tic</command> programmet som kjører på byggemaskinen, slik at
           terminaldatabasen kan opprettes uten feil.</para>
         </listitem>
       </varlistentry>
@@ -179,7 +179,7 @@ echo "INPUT(-lncursesw)" > $LFS/usr/lib/libncurses.so</userinput></screen>
         <term><command>echo "INPUT(-lncursesw)" > $LFS/usr/lib/libncurses.so</command></term>
         <listitem>
           <para><filename>libncurses.so</filename> biblioteket trengs av
-          noen få pakker vi skal bygge snart. Vi lager denne lille linkskriptet
+          noen få pakker vi skal bygge snart. Vi lager dette lille linkskriptet
           , da dette er det som gjøres i <xref
           linkend="chapter-building-system"/>.</para>
         </listitem>
