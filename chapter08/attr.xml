@@ -23,8 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Attr pakken inneholder verktøy for å administrere den utvidede
-     attributter på filsystemobjekter.</para>
+    <para>Attr pakken inneholder verktøy for å administrere utvidede
+    attributter på filsystemobjekter.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -53,8 +53,8 @@
 <screen><userinput remap="make">make</userinput></screen>
 
     <para>Testene må kjøres på et filsystem som støtter utvidete
-     attributter som filsystemene ext2, ext3 eller ext4.
-     For å teste resultatene, utsted:</para>
+    attributter som filsystemene ext2, ext3 eller ext4.
+    For å teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
@@ -73,7 +73,7 @@
       <segtitle>Installerte mapper</segtitle>
 
       <seglistitem>
-        <seg>attr, getfattr, and setfattr</seg>
+        <seg>attr, getfattr, og setfattr</seg>
         <seg>libattr.so</seg>
         <seg>/usr/include/attr og /usr/share/doc/attr-&attr-version;</seg>
       </seglistitem>
