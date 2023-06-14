@@ -23,10 +23,12 @@
   <sect2 role="package">
     <title/>
 
-    <para>Findutils pakken inneholder programmer for å finne filer. Disse programmene
-     er gitt for å rekursivt søke gjennom et katalogtre og til å
-     opprette, vedlikeholde og søke i en database (ofte raskere enn den rekursive
-     letingen, men er upålitelig hvis databasen ikke nylig har blitt oppdatert).</para>
+    <para>Findutils pakken inneholder programmer for å finne filer. Programmer
+    er tilgjengelig for å søke gjennom alle filene i et katalogtre og til
+    opprette, vedlikeholde og søke i en database (ofte raskere enn den rekursive
+    find, men upålitelig med mindre databasen nylig har blitt oppdatert).
+    Findutils leverer også <command>xargs</command> programmet, som
+    kan brukes til å kjøre en spesifisert kommando på hver fil valgt av et søk.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -63,9 +65,9 @@ esac</userinput></screen>
       <varlistentry>
         <term><parameter>--localstatedir</parameter></term>
         <listitem>
-          <para>Dette alternativet endrer plasseringen av <command>locate</command>
-          databasen til å være i <filename class="directory">/var/lib/locate</filename>,
-          som er FHS kompatibel.</para>
+          <para>Dette alternativet flytter <command>locate</command>
+          databasen til <filename class="directory">/var/lib/locate</filename>,
+          som er den FHS kompatible plasseringen.</para>
         </listitem>
       </varlistentry>
 
@@ -108,8 +110,8 @@ su tester -c "PATH=$PATH make check"</userinput></screen>
       <varlistentry id="find">
         <term><command>find</command></term>
         <listitem>
-          <para>Søker i gitte katalogtrær etter filer som samsvarer med de spesifiserte
-           kriterier</para>
+          <para>Søker i gitte mappetrær etter filer som samsvarer med de spesifiserte
+          kriterier</para>
           <indexterm zone="ch-system-findutils find">
             <primary sortas="b-find">find</primary>
           </indexterm>
@@ -120,7 +122,7 @@ su tester -c "PATH=$PATH make check"</userinput></screen>
         <term><command>locate</command></term>
         <listitem>
           <para>Søker gjennom en database med filnavn og rapporterer navnene
-           som inneholder en gitt streng eller samsvarer med et gitt mønster</para>
+          som inneholder en gitt streng eller samsvarer med et gitt mønster</para>
           <indexterm zone="ch-system-findutils locate">
             <primary sortas="b-locate">locate</primary>
           </indexterm>
@@ -131,9 +133,9 @@ su tester -c "PATH=$PATH make check"</userinput></screen>
       <term><command>updatedb</command></term>
         <listitem>
           <para>Oppdaterer <command>locate</command> databasen; den skanner
-           hele filsystemet (inkludert andre filsystemer som for øyeblikket er
-           montert, med mindre den blir bedt om å ikke gjøre det) og legger inn hvert filnavn den finner
-           i databasen</para>
+          hele filsystemet (inkludert andre filsystemer som for øyeblikket er
+          montert, med mindre den blir bedt om å ikke gjøre det) og legger inn hvert filnavn den finner
+          i databasen</para>
           <indexterm zone="ch-system-findutils updatedb">
             <primary sortas="b-updatedb">updatedb</primary>
           </indexterm>

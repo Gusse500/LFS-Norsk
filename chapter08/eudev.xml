@@ -24,7 +24,7 @@
     <title/>
 
     <para>Eudev pakken inneholder programmer for dynamisk oppretting av
-     enhetsnoder.</para>
+    enhetsnoder.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,12 +40,13 @@
   <sect2 role="installation">
     <title>Installasjon av Eudev</title>
 
-
+    
 
     <para>Først fiks plasseringen av udev regler i .pc filen:</para>
 
 <screen><userinput remap="pre">sed -i '/udevdir/a udev_dir=${udevdir}' src/udev/udev.pc.in</userinput></screen>
-	<para>Forbered Eudev for kompilering:</para>
+
+    <para>Forbered Eudev for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr           \
             --bindir=/usr/sbin      \
@@ -57,8 +58,8 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Opprett noen kataloger som er nødvendig for tester, men
-     vil også bli brukt som en del av installasjonen:</para>
+    <para>Opprett noen mapper som er nødvendig for tester, men
+    vil også bli brukt som en del av installasjonen:</para>
 
 <screen><userinput remap="test">mkdir -pv /usr/lib/udev/rules.d
 mkdir -pv /etc/udev/rules.d</userinput></screen>
@@ -72,7 +73,7 @@ mkdir -pv /etc/udev/rules.d</userinput></screen>
 <screen><userinput remap="install">make install</userinput></screen>
 
     <para>Installer noen tilpassede regler og støttefiler som er nyttige i et LFS
-     miljø:</para>
+    miljø:</para>
 
 <screen><userinput remap="install">tar -xvf ../&udev-lfs-version;.tar.xz
 make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
@@ -95,13 +96,13 @@ make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
     <filename class="directory">/etc/udev/hwdb.d</filename> og
     <filename class="directory">/usr/lib/udev/hwdb.d</filename> mappene.
     <application>Eudev</application> trenger denne informasjonen for å bli kompilert
-     inn i en binær database <filename>/etc/udev/hwdb.bin</filename>. Opprett
-     oppstarts databasen:</para>
+    inn i en binær database <filename>/etc/udev/hwdb.bin</filename>. Opprett
+    innledende database:</para>
 
 <screen><userinput>udevadm hwdb --update</userinput></screen>
 
     <para>Denne kommandoen må kjøres hver gang maskinvareinformasjonen blir
-     oppdatert.</para>
+    oppdatert.</para>
 
   </sect2>
 
@@ -132,9 +133,9 @@ make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
         <term><command>udevadm</command></term>
         <listitem>
           <para>Generisk administrasjonsverktøy for udev: kontrollerer udevd nissen (daemon),
-           gir informasjon fra Udev databasen, overvåker uevents, venter på at
-           uevents fullføres, tester Udev konfigurasjonen og trigger uevents
-           for en gitt enhet</para>
+          gir informasjon fra Udev databasen, overvåker uevents, venter på at
+          uevents fullføres, tester Udev konfigurasjonen og trigger uevents
+          for en gitt enhet</para>
           <indexterm zone="ch-system-eudev udevadm">
             <primary sortas="b-udevadm">udevadm</primary>
           </indexterm>
@@ -145,8 +146,8 @@ make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
         <term><command>udevd</command></term>
         <listitem>
           <para>En nisse som lytter etter uevents på netlink kontakten,
-           oppretter enheter og kjører de konfigurerte eksterne programmene i
-           svar på disse hendelsene</para>
+          oppretter enheter og kjører de konfigurerte eksterne programmene i
+          svar på disse hendelsene</para>
           <indexterm zone="ch-system-eudev udevd">
             <primary sortas="b-udevd">udevd</primary>
           </indexterm>
@@ -167,7 +168,7 @@ make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
         <term><filename class="directory">/etc/udev</filename></term>
         <listitem>
           <para>Inneholder Udev konfigurasjonsfiler,
-           enhetstillatelser og regler for å navngi enheter</para>
+          enhetstillatelser og regler for å navngi enheter</para>
           <indexterm zone="ch-system-eudev etc-udev">
             <primary sortas="e-/etc/udev">/etc/udev</primary>
           </indexterm>
