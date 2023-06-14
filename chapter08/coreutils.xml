@@ -23,8 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Pakken Coreutils inneholder verktøy for å vise og stille inn
-    grunnleggende systemegenskaper.</para>
+    <para>Coreutils pakken inneholder de grunnleggende hjelpeprogrammene
+    som trengs av hvert operativsystem.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -41,8 +41,8 @@
   <sect2 role="installation">
     <title>Installasjon av Coreutils</title>
 
-    <para>POSIX krever at programmer fra Coreutils gjenkjenner karakter
-    grenser riktig selv i multibyte lokaliteter. Følgende oppdateringer
+    <para>POSIX krever at programmer fra Coreutils gjenkjenner karaktergrenser
+    riktig selv i multibyte lokaliteter. Følgende oppdateringer
     fikser dette misligholdet og andre internasjonaliseringsrelaterte feil.</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&coreutils-i18n-patch;</userinput></screen>
@@ -53,9 +53,9 @@
       uten denne oppdateringen.</para>
     </note>
 
-   <!-- dette har blitt fikset i oppstrøms gnulib, når en ny versjon av
-   coreutils er utgitt, vennligst sjekk #4055 for å se om endringen har skjedd
-   hentet i denne pakken -->
+   <!-- this has been fixed in upstream gnulib, when a new version of
+   coreutils is released, please check #4055 to see if the change has been
+   picked up in this package -->
 <!--
    <para>Nå, fiks et problem med chmod returverdier:</para>
 
@@ -92,8 +92,8 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
       <varlistentry>
         <term><parameter>--enable-no-install-program=kill,uptime</parameter></term>
         <listitem>
-          <para>Hensikten med denne bryteren er å hindre Coreutils fra
-          installere binærfiler som vil bli installert av andre pakker senere.
+          <para>Hensikten med denne bryteren er å hindre Coreutils fra å
+          installere programmer som vil bli installert av andre pakker senere.
           </para>
         </listitem>
       </varlistentry>
@@ -128,11 +128,10 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
 
 <screen><userinput remap="test">su tester -c "PATH=$PATH make RUN_EXPENSIVE_TESTS=yes check"</userinput></screen>
 
-<!-- test-getlogin er nå hoppet over
-    <para>Test-getlogin testen er kjent for å mislykkes i LFS chroot-miljøet.</para>
--->
-<!-- bør fikses ved neste utgivelse, coreutils-9.2 -->
-    <para>Testen Sort-NaN-infloop er kjent for å mislykkes med GCC-12.</para>
+<!-- Sometimes skipped, but if not it may fail.
+     Please DO NOT remove or comment out this unless we can fully
+     understand it!  -->
+    <para>test-getlogin testen kan mislykkes i LFS chroot miljøet.</para>
 
     <para>Fjern den midlertidige gruppen:</para>
 
@@ -182,7 +181,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="lbracket">
         <term><command>[</command></term>
         <listitem>
-          <para>Er faktisk en kommando, /usr/bin/[, det er et synonym
+          <para>Er faktisk en kommando, /usr/bin/[; det er et synonym
           for <command>test</command> kommandoen</para>
           <indexterm zone="ch-system-coreutils lbracket">
             <primary sortas="b-111">[</primary>
@@ -245,7 +244,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="cat">
         <term><command>cat</command></term>
         <listitem>
-          <para>Slår sammen filer til standard utdata</para>
+          <para>Slår sammen filer til standard utgang</para>
           <indexterm zone="ch-system-coreutils cat">
             <primary sortas="b-cat">cat</primary>
           </indexterm>
@@ -299,7 +298,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
         <term><command>chroot</command></term>
         <listitem>
           <para>Kjører en kommando med den angitte mappen som
-          <filename class="directory">/</filename> mappe</para>
+          <filename class="directory">/</filename> mappen</para>
           <indexterm zone="ch-system-coreutils chroot">
             <primary sortas="b-chroot">chroot</primary>
           </indexterm>
@@ -364,8 +363,8 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="date">
         <term><command>date</command></term>
         <listitem>
-          <para>Viser gjeldende tid i det gitte formatet, eller stiller inn
-          systemdato</para>
+          <para>Viser gjeldende dato og klokkeslett i det gitte formatet, eller stiller inn
+          systemdato og klokkeslett</para>
           <indexterm zone="ch-system-coreutils date">
             <primary sortas="b-date">date</primary>
           </indexterm>
@@ -398,7 +397,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="dir">
         <term><command>dir</command></term>
         <listitem>
-          <para>Viser innholdet i hver gitt katalog (det samme som
+          <para>Viser innholdet i hver gitt mappe (det samme som
           <command>ls</command> kommandoen)</para>
           <indexterm zone="ch-system-coreutils dir">
             <primary sortas="b-dir">dir</primary>
@@ -410,7 +409,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
         <term><command>dircolors</command></term>
         <listitem>
           <para>Skriver ut kommandoer for å angi <envar>LS_COLOR</envar>
-          miljøvariabel for å endre fargeskjemaet som brukes av
+          miljøvariabelen for å endre fargeskjemaet som brukes av
           <command>ls</command></para>
           <indexterm zone="ch-system-coreutils dircolors">
             <primary sortas="b-dircolors">dircolors</primary>
@@ -421,7 +420,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="dirname">
         <term><command>dirname</command></term>
         <listitem>
-          <para>Fjerner ikke-mappesuffikset fra et filnavn</para>
+          <para>Trekker ut katalogdelen(e) av gitte navn</para>
           <indexterm zone="ch-system-coreutils dirname">
             <primary sortas="b-dirname">dirname</primary>
           </indexterm>
@@ -483,7 +482,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="factor">
         <term><command>factor</command></term>
         <listitem>
-          <para>Skriver ut primfaktorene til alle spesifiserte heltall</para>
+          <para>Skriver ut primfaktorene til de spesifiserte heltallene</para>
           <indexterm zone="ch-system-coreutils factor">
             <primary sortas="b-factor">factor</primary>
           </indexterm>
@@ -588,7 +587,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="link">
         <term><command>link</command></term>
         <listitem>
-          <para>Oppretter en hard lenke med det gitte navnet til en fil</para>
+          <para>Oppretter en hard lenke (med det gitte navnet) til en fil</para>
           <indexterm zone="ch-system-coreutils link">
             <primary sortas="b-link">link</primary>
           </indexterm>
@@ -690,7 +689,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="nice">
         <term><command>nice</command></term>
         <listitem>
-          <para>Kjører et program med endret skjemaprioritet</para>
+          <para>Kjører et program med endret planleggingsprioritet</para>
           <indexterm zone="ch-system-coreutils nice">
             <primary sortas="b-nice">nice</primary>
           </indexterm>
@@ -742,7 +741,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="od">
         <term><command>od</command></term>
         <listitem>
-          <para>Dumper filer i oktale og andre formater</para>
+          <para>Dumper filer i oktal og andre formater</para>
           <indexterm zone="ch-system-coreutils od">
             <primary sortas="b-od">od</primary>
           </indexterm>
@@ -826,7 +825,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="pwd">
         <term><command>pwd</command></term>
         <listitem>
-          <para>Rapporterer navnet på gjeldende arbeidskatalog</para>
+          <para>Rapporterer navnet på gjeldende arbeidsmappe</para>
           <indexterm zone="ch-system-coreutils pwd">
             <primary sortas="b-pwd">pwd</primary>
           </indexterm>
@@ -897,7 +896,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="sha1sum">
         <term><command>sha1sum</command></term>
         <listitem>
-          <para>Skriver ut eller sjekker 160-bits Secure Hash Algorithm 1 (SHA1)
+          <para>Skriver ut eller kontrollerer 160-bits Secure Hash Algorithm 1 (SHA1)
           sjekksummer</para>
           <indexterm zone="ch-system-coreutils sha1sum">
             <primary sortas="b-sha1sum">sha1sum</primary>
@@ -1104,8 +1103,8 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="touch">
         <term><command>touch</command></term>
         <listitem>
-          <para>Endrer filtidsstempler, angir tilgang og endrings
-          tider for de gitte filene til gjeldende tid; filer som ikke eksisterer
+          <para>Endrer filtidsstempler, angir tilgang og endringstider
+          for de gitte filene til gjeldende tid; filer som ikke eksisterer
           opprettes med null lengde</para>
           <indexterm zone="ch-system-coreutils touch">
             <primary sortas="b-touch">touch</primary>
@@ -1149,7 +1148,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
         <term><command>tsort</command></term>
         <listitem>
           <para>Utfører en topologisk sortering; den skriver en fullstendig ordnet liste
-          i henhold til delbestillingen i en gitt fil</para>
+          i henhold til den delvise rekkefølgen i en gitt fil</para>
           <indexterm zone="ch-system-coreutils tsort">
             <primary sortas="b-tsort">tsort</primary>
           </indexterm>
@@ -1262,7 +1261,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="yes">
         <term><command>yes</command></term>
         <listitem>
-          <para>Skriver ut <quote>y</quote> gjentatte ganger eller en gitt streng til
+          <para>Skriver ut <quote>y</quote>, gjentatte ganger eller en gitt streng til
           den drepes</para>
           <indexterm zone="ch-system-coreutils yes">
             <primary sortas="b-yes">yes</primary>
