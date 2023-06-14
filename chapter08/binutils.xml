@@ -41,12 +41,12 @@
   <sect2 role="installation">
     <title>Installasjon av Binutils</title>
 
-    <para>Kontroller at PTY-ene fungerer som de skal inne i chroot
+    <para>Kontroller at PTYene fungerer som de skal inne i chroot
     miljøet ved å utføre en enkel test:</para>
 
 <screen><userinput remap="test">expect -c "spawn ls"</userinput></screen>
 
-    <para>Denne kommandoen skal gi følgende utdata:</para>
+    <para>Denne kommandoen burde gi følgende utdata:</para>
 
 <screen><computeroutput>spawn ls</computeroutput></screen>
 
@@ -58,7 +58,7 @@
 Ask your system administrator to create more.</computeroutput></screen>
 <!-- Fixed in binutils-2.39
     <para>
-      Lag nå en rettelse identifisert upstream som påvirker byggingen av noen pakker:
+      Lag nå en rettelse identifisert oppstrøms som påvirker byggingen av noen pakker:
      </para>
 
 <screen><userinput remap="pre">sed -e '/R_386_TLS_LE /i \   || (TYPE) == R_386_TLS_IE \\' \
@@ -87,7 +87,7 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--enable-gold</parameter></term>
         <listitem>
-          <para>Bygg gold linken og installer den som ld.gold (ved siden av
+          <para>Bygg gold linkeren og installer den som ld.gold (ved siden av
           standard linker).</para>
         </listitem>
       </varlistentry>
@@ -135,8 +135,8 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>tooldir=/usr</parameter></term>
         <listitem>
-          <para>Vanligvis er verktøykatalogen (mappen der de kjørbare filene vil
-          til slutt bli lokalisert i) satt til <filename
+          <para>Vanligvis er verktøymappen (mappen der de kjørbare filene
+          til slutt vil bli lokalisert i) satt til <filename
           class="directory">$(exec_prefix)/$(target_alias)</filename>. For
           eksempel, x86_64-maskiner vil utvide det til <filename
           class="directory">/usr/x86_64-pc-linux-gnu</filename>. Fordi dette er
@@ -160,24 +160,22 @@ cd       build</userinput></screen>
 
 <screen><userinput remap="test">make -k check</userinput></screen>
 
-    <para>Tolv tester mislykkes i <command>gold</command> testpakken når
+    <para>For en liste over mislykkede tester, kjør:</para>
+
+<screen><userinput remap="test">grep '^FAIL:' $(find -name '*.log')</userinput></screen>
+
+    <para>Tolv tester mislykkes i gold testpakken når
     <option>--enable-default-pie</option> og
-    <option>--enable-default-ssp</option> alternativene sendes til GCC.
-    <!-- Caused by egrep deprecation.  Note that we don't "patch" temp grep.
-         And it seems unworthy to add a sed into temp grep just for one test
-         failure.  (I don't really agree to "patch" grep in the first place,
-         anyway.) -->
-    Testen som heter <filename>ar with versioned solib</filename> er også
-    kjent for å mislykkes.</para>
+    <option>--enable-default-ssp</option> alternativene sendes til GCC.</para>
 
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make tooldir=/usr install</userinput></screen>
 
-    <para>Fjern ubrukelige statiske biblioteker og tom man side:</para>
+    <para>Fjern ubrukelige statiske biblioteker og tom manside:</para>
 
-<screen><userinput remap="install">rm -fv /usr/lib/lib{bfd,ctf,ctf-nobfd,opcodes}.a
-rm -fv /usr/share/man/man1/gprofng.1</userinput></screen>
+<screen><userinput remap="install">rm -fv /usr/lib/lib{bfd,ctf,ctf-nobfd,sframe,opcodes}.a
+rm -fv /usr/share/man/man1/{gprofng,gp-*}.1</userinput></screen>
 
   </sect2>
 
@@ -191,8 +189,8 @@ rm -fv /usr/share/man/man1/gprofng.1</userinput></screen>
 
       <seglistitem>
         <seg>addr2line, ar, as, c++filt, dwp, elfedit, gprof, gprofng, ld, ld.bfd, ld.gold, nm,
-        objcopy, objdump, ranlib, readelf, size, strings, 0g strip</seg>
-        <seg>libbfd.so, libctf.so, libctf-nobfd.so, og libopcodes.so</seg>
+        objcopy, objdump, ranlib, readelf, size, strings, og strip</seg>
+        <seg>libbfd.so, libctf.so, libctf-nobfd.so, libopcodes.so, og libsframe.so</seg>
         <seg>/usr/lib/ldscripts</seg>
       </seglistitem>
     </segmentedlist>
@@ -206,9 +204,9 @@ rm -fv /usr/share/man/man1/gprofng.1</userinput></screen>
         <term><command>addr2line</command></term>
         <listitem>
           <para>Oversetter programadresser til filnavn og linjenumre;
-          gitt en adresse og navnet på en kjørbar fil, bruker den feilsøkings
-          informasjonen i den kjørbare filen for å bestemme hvilken kildefil og linje
-          nummer som er knyttet til adressen</para>
+          gitt en adresse og navnet på en kjørbar fil, bruker den feilsøkingsinformasjonen
+          i den kjørbare filen for å bestemme hvilken kildefil og linjenummer
+          som er knyttet til adressen</para>
           <indexterm zone="ch-system-binutils addr2line">
             <primary sortas="b-addr2line">addr2line</primary>
           </indexterm>
@@ -239,7 +237,7 @@ rm -fv /usr/share/man/man1/gprofng.1</userinput></screen>
       <varlistentry id="c-filt">
         <term><command>c++filt</command></term>
         <listitem>
-          <para>Brukes av linkeren til å ikke ødelegge C++ og Java symboler og hindre
+          <para>Brukes av linkeren til å dekode C++ og Java symboler og hindre
           overbelastede funksjoner å krasje</para>
           <indexterm zone="ch-system-binutils c-filt">
             <primary sortas="b-c++filt">c++filt</primary>
@@ -280,7 +278,7 @@ rm -fv /usr/share/man/man1/gprofng.1</userinput></screen>
       <varlistentry id="gprofng">
         <term><command>gprofng</command></term>
         <listitem>
-          <para>Samle og analyser ytelsesdata</para>
+          <para>Samler og analyser ytelsesdata</para>
           <indexterm zone="ch-system-binutils gprofng">
             <primary sortas="b-gprofng">gprofng</primary>
           </indexterm>
@@ -323,7 +321,7 @@ rm -fv /usr/share/man/man1/gprofng.1</userinput></screen>
       <varlistentry id="nm">
         <term><command>nm</command></term>
         <listitem>
-          <para>Viser symbolene som forekommer i en gitt objektfil</para>
+          <para>Lister symbolene som forekommer i en gitt objektfil</para>
           <indexterm zone="ch-system-binutils nm">
             <primary sortas="b-nm">nm</primary>
           </indexterm>
@@ -443,12 +441,23 @@ rm -fv /usr/share/man/man1/gprofng.1</userinput></screen>
       <varlistentry id="libopcodes">
         <term><filename class="libraryfile">libopcodes</filename></term>
         <listitem>
-          <para>Et bibliotek for å håndtere opkoder&mdash;the <quote>leselig
+          <para>Et bibliotek for å håndtere opkoder&mdash;<quote>leselig
           tekst</quote> versjoner av instruksjoner for prosessoren;
           den brukes til å bygge verktøy som
           <command>objdump</command></para>
           <indexterm zone="ch-system-binutils libopcodes">
             <primary sortas="c-libopcodes">libopcodes</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libsframe">
+        <term><filename class="libraryfile">libsframe</filename></term>
+        <listitem>
+           <para>Et bibliotek for å støtte tilbakesporing på nettet ved hjelp av en
+           enkel avvikling</para>
+          <indexterm zone="ch-system-binutils libsframe">
+            <primary sortas="c-libsframe">libsframe</primary>
           </indexterm>
         </listitem>
       </varlistentry>
