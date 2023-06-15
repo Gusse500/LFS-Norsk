@@ -24,7 +24,7 @@
     <title/>
 
     <para>Groff pakken inneholder programmer for prosessering og formatering
-     av tekst.</para>
+    av tekst.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -41,21 +41,21 @@
   <sect2 role="installation">
     <title>Installasjon av Groff</title>
 
-    <para>Groff forventer miljøvariabelen <envar>PAGE</envar> å
-     inneholde standard papirstørrelse. For brukere i USA,
+    <para>Groff forventer at miljøvariabelen <envar>PAGE</envar>
+    inneholder standard papirstørrelse. For brukere i USA,
     <parameter>PAGE=letter</parameter> er passende. Andre steder,
     <parameter>PAGE=A4</parameter> kan være mer egnet. Mens standard
-     papirstørrelsen konfigureres under kompilering, kan den overstyres senere
-     ved å sende enten <quote>A4</quote> eller <quote>letter</quote> til
+    papirstørrelsen konfigureres under kompilering, kan den overstyres senere
+    ved å sende enten <quote>A4</quote> eller <quote>letter</quote> til
     <filename>/etc/papersize</filename> filen.</para>
 
     <para>Forbered Groff for kompilering:</para>
 
 <screen><userinput remap="configure">PAGE=<replaceable>&lt;paper_size&gt;</replaceable> ./configure --prefix=/usr</userinput></screen>
 
-    <para>Kompiler pakken:</para>
+    <para>Bygg pakken:</para>
 
-	<screen><userinput remap="make">make</userinput></screen>
+<screen><userinput remap="make">make</userinput></screen>
 
     <para>Denne pakken kommer ikke med en testpakke.</para>
 
@@ -94,7 +94,7 @@
         <term><command>addftinfo</command></term>
         <listitem>
           <para>Leser en troff fontfil og legger til noen ekstra fontmetrikk
-           informasjon som brukes av <command>groff</command> systemet</para>
+          informasjon som brukes av <command>groff</command> systemet</para>
           <indexterm zone="ch-system-groff addftinfo">
             <primary sortas="b-addftinfo">addftinfo</primary>
           </indexterm>
@@ -115,7 +115,7 @@
       <varlistentry id="chem">
         <term><command>chem</command></term>
         <listitem>
-          <para>Groff forprosessor for å lage kjemiske strukturdiagrammer</para>
+          <para>Groff forbehandler for å lage kjemiske strukturdiagrammer</para>
           <indexterm zone="ch-system-groff chem">
             <primary sortas="b-chem">chem</primary>
           </indexterm>
@@ -126,7 +126,7 @@
         <term><command>eqn</command></term>
         <listitem>
           <para>Kompilerer beskrivelser av ligninger innebygd i troff
-           inndata filer i kommandoer som forstås av
+          inndatafiler i kommandoer som forstås av
           <command>troff</command></para>
           <indexterm zone="ch-system-groff eqn">
             <primary sortas="b-eqn">eqn</primary>
@@ -158,7 +158,7 @@
         <term><command>glilypond</command></term>
         <listitem>
           <para>Forvandler noter skrevet på lilypond språket til
-           groff språket</para>
+          groff språket</para>
           <indexterm zone="ch-system-groff glilypond">
             <primary sortas="b-glilypond">glilypond</primary>
           </indexterm>
@@ -168,8 +168,8 @@
       <varlistentry id="gperl">
         <term><command>gperl</command></term>
         <listitem>
-          <para>Forprosessor for groff, tillater tillegg av perl kode
-           inn i groff filer</para>
+          <para>Forbehandler for groff, tillater tillegg av perl kode
+          inn i groff filer</para>
           <indexterm zone="ch-system-groff gperl">
             <primary sortas="b-gperl">gperl</primary>
           </indexterm>
@@ -179,8 +179,8 @@
       <varlistentry id="gpinyin">
         <term><command>gpinyin</command></term>
         <listitem>
-          <para>Forbehandler for groff, tillater tillegg av kinesisk
-           Europeisk lignende språk pinyin til groff filer.</para>
+          <para>Forbehandler for groff, tillater innsetting av Pinyin
+          (Mandarin-kinesisk stavet med det romerske alfabetet) til groff filer.</para>
           <indexterm zone="ch-system-groff gpinyin">
             <primary sortas="b-gpinyin">gpinyin</primary>
           </indexterm>
@@ -190,7 +190,8 @@
       <varlistentry id="grap2graph">
         <term><command>grap2graph</command></term>
         <listitem>
-          <para>Konverterer et grafdiagram til et beskåret punktgrafikkbilde</para>
+          <para>Konverterer et grapdiagram til et beskåret punktgrafikkbilde
+          (grap er et gammelt Unix-programmeringsspråk for å lage diagrammer)</para>
           <indexterm zone="ch-system-groff grap2graph">
             <primary sortas="b-grap2graph">grap2graph</primary>
           </indexterm>
@@ -210,8 +211,8 @@
       <varlistentry id="grodvi">
         <term><command>grodvi</command></term>
         <listitem>
-          <para>En driver for <command>groff</command> som produserer TeX dvi
-           format</para>
+          <para>En driver for <command>groff</command> som produserer utdatafiler med
+          TeX dvi formatet</para>
           <indexterm zone="ch-system-groff grodvi">
             <primary sortas="b-grodvi">grodvi</primary>
           </indexterm>
@@ -221,9 +222,9 @@
       <varlistentry id="groff">
         <term><command>groff</command></term>
         <listitem>
-          <para>En frontend til groff dokumentformateringssystem; normalt,
-           kjøres <command>troff</command> program og en post-prosessor
-           passende for den valgte enheten</para>
+          <para>En grenseflate til groff dokumentformateringssystemet; normalt,
+          kjøres <command>troff</command> programmet og en etterbehandler
+          passende for den valgte enheten</para>
           <indexterm zone="ch-system-groff groff">
             <primary sortas="b-groff">groff</primary>
           </indexterm>
@@ -233,7 +234,7 @@
       <varlistentry id="groffer">
         <term><command>groffer</command></term>
         <listitem>
-          <para>Viser groff filer og man sider på X og tty terminaler</para>
+          <para>Viser groff filer og mansider på X og tty terminaler</para>
           <indexterm zone="ch-system-groff groffer">
             <primary sortas="b-groffer">groffer</primary>
           </indexterm>
@@ -243,12 +244,12 @@
       <varlistentry id="grog">
         <term><command>grog</command></term>
         <listitem>
-          <para>Leser filer og gjetter hvilke av <command>groff</command>
-          alternativer <option>-e</option>, <option>-man</option>, <option>-me</option>,
+          <para>Leser filer og gjetter hvilket av <command>groff</command>
+          alternativene <option>-e</option>, <option>-man</option>, <option>-me</option>,
           <option>-mm</option>, <option>-ms</option>, <option>-p</option>,
           <option>-s</option>, og <option>-t</option> kreves for å skrive ut
-           filer, og rapporterer <command>groff</command> kommandoen inkludert disse
-           alternativene</para>
+          filer, og rapporterer <command>groff</command> kommandoen inkludert de
+          alternativene</para>
           <indexterm zone="ch-system-groff grog">
             <primary sortas="b-grog">grog</primary>
           </indexterm>
@@ -259,7 +260,7 @@
         <term><command>grolbp</command></term>
         <listitem>
           <para>Er en <command>groff</command> driver for Canon CAPSL skrivere
-           (laserskrivere i LBP-4 og LBP-8 serien)</para>
+          (laserskrivere i LBP-4 og LBP-8 serien)</para>
           <indexterm zone="ch-system-groff grolbp">
             <primary sortas="b-grolbp">grolbp</primary>
           </indexterm>
@@ -270,7 +271,7 @@
         <term><command>grolj4</command></term>
         <listitem>
           <para>Er en driver for <command>groff</command> som produserer utdata
-           i PCL5 formatet som passer for en HP LaserJet 4 skriver</para>
+          i PCL5 formatet som passer for en HP LaserJet 4 skriver</para>
           <indexterm zone="ch-system-groff grolj4">
             <primary sortas="b-grolj4">grolj4</primary>
           </indexterm>
@@ -280,7 +281,7 @@
       <varlistentry id="gropdf">
         <term><command>gropdf</command></term>
         <listitem>
-          <para>Oversetter utdataene for GNU <command>troff</command> til
+          <para>Oversetter utdataene fra GNU <command>troff</command> til
           PDF</para>
           <indexterm zone="ch-system-groff gropdf">
             <primary sortas="b-gropdf">gropdf</primary>
@@ -291,7 +292,7 @@
       <varlistentry id="grops">
         <term><command>grops</command></term>
         <listitem>
-          <para>Oversetter utdataene for GNU <command>troff</command> til
+          <para>Oversetter utdataene fra GNU <command>troff</command> til
           PostScript</para>
           <indexterm zone="ch-system-groff grops">
             <primary sortas="b-grops">grops</primary>
@@ -302,8 +303,8 @@
       <varlistentry id="grotty">
         <term><command>grotty</command></term>
         <listitem>
-          <para>Oversetter utdataene for GNU <command>troff</command> inn i
-           en form som passer for skrivemaskinlignende enheter</para>
+          <para>Oversetter utdataene fra GNU <command>troff</command> inn i
+          en form som passer for skrivemaskinlignende enheter</para>
           <indexterm zone="ch-system-groff grotty">
             <primary sortas="b-grotty">grotty</primary>
           </indexterm>
@@ -325,7 +326,7 @@
         <term><command>indxbib</command></term>
         <listitem>
           <para>Oppretter en invertert indeks for de bibliografiske databasene med en
-           spesifisert fil for bruk med <command>refer</command>,
+          spesifisert fil for bruk med <command>refer</command>,
           <command>lookbib</command>, og <command>lkbib</command></para>
           <indexterm zone="ch-system-groff indxbib">
             <primary sortas="b-indxbib">indxbib</primary>
@@ -337,7 +338,7 @@
         <term><command>lkbib</command></term>
         <listitem>
           <para>Søker i bibliografiske databaser etter referanser som inneholder
-           spesifiserte nøkler og rapporterer eventuelle referanser som er funnet</para>
+          spesifiserte nøkler og rapporterer eventuelle referanser som er funnet</para>
           <indexterm zone="ch-system-groff lkbib">
             <primary sortas="b-lkbib">lkbib</primary>
           </indexterm>
@@ -348,11 +349,11 @@
         <term><command>lookbib</command></term>
         <listitem>
           <para>Skriver ut en melding om standardfeil (med mindre standardinndata).
-           ikke er en terminal), leser en linje som inneholder et sett med nøkkelord fra
-           standard inndata, søker i de bibliografiske databasene i en spesifisert fil
-           for referanser som inneholder disse nøkkelordene, skriver da ut eventuelle referanser som er funnet
-           på standardutgangen, og gjentar denne prosessen til slutten av
-           inndataen</para>
+          ikke er en terminal), leser en linje som inneholder et sett med nøkkelord fra
+          standard inndata, søker i de bibliografiske databasene i en spesifisert fil
+          for referanser som inneholder disse nøkkelordene, skriver da ut eventuelle referanser som er funnet
+          på standardutgangen, og gjentar denne prosessen til slutten av
+          inndataen</para>
           <indexterm zone="ch-system-groff lookbib">
             <primary sortas="b-lookbib">lookbib</primary>
           </indexterm>
@@ -362,7 +363,7 @@
       <varlistentry id="mmroff">
         <term><command>mmroff</command></term>
         <listitem>
-          <para>En enkel forprosessor for <command>groff</command></para>
+          <para>En enkel forbehandler for <command>groff</command></para>
           <indexterm zone="ch-system-groff mmroff">
             <primary sortas="b-mmroff">mmroff</primary>
           </indexterm>
@@ -372,8 +373,8 @@
       <varlistentry id="neqn">
         <term><command>neqn</command></term>
         <listitem>
-          <para>Formaterer utdata ligninger for amerikansk standardkode for informasjon
-           utveksling (ASCII)</para>
+          <para>Formaterer ligninger for amerikansk standardkode for informasjon
+           utveksling (ASCII) utdata</para>
           <indexterm zone="ch-system-groff neqn">
             <primary sortas="b-neqn">neqn</primary>
           </indexterm>
@@ -384,7 +385,7 @@
         <term><command>nroff</command></term>
         <listitem>
           <para>Et skript som emulerer <command>nroff</command> kommandoen
-           ved hjelp av <command>groff</command></para>
+          ved hjelp av <command>groff</command></para>
           <indexterm zone="ch-system-groff nroff">
             <primary sortas="b-nroff">nroff</primary>
           </indexterm>
@@ -395,7 +396,7 @@
         <term><command>pdfmom</command></term>
         <listitem>
           <para>Er en innpakning rundt groff som letter produksjonen av PDF
-           dokumenter fra filer formatert med mom makroene.</para>
+          dokumenter fra filer formatert med mom makroene.</para>
           <indexterm zone="ch-system-groff pdfmom">
             <primary sortas="b-pdfmom">pdfmom</primary>
           </indexterm>
@@ -427,7 +428,7 @@
         <term><command>pic</command></term>
         <listitem>
           <para>Kompilerer beskrivelser av bilder innebygd i troff eller
-           TeX inndatafiler til kommandoer som forstås av TeX eller
+          TeX inndatafiler til kommandoer som forstås av TeX eller
           <command>troff</command></para>
           <indexterm zone="ch-system-groff pic">
             <primary sortas="b-pic">pic</primary>
@@ -448,7 +449,7 @@
       <varlistentry id="post-grohtml">
         <term><command>post-grohtml</command></term>
         <listitem>
-          <para>Oversetter utdataene til GNU <command>troff</command> til
+          <para>Oversetter utdataene fra GNU <command>troff</command> til
           HTML</para>
           <indexterm zone="ch-system-groff post-grohtml">
             <primary sortas="b-post-grohtml">post-grohtml</primary>
@@ -470,7 +471,7 @@
       <varlistentry id="pre-grohtml">
         <term><command>pre-grohtml </command></term>
         <listitem>
-          <para>Oversetter utdataene til GNU <command>troff</command> til
+          <para>Oversetter utdataene fra GNU <command>troff</command> til
           HTML</para>
           <indexterm zone="ch-system-groff pre-grohtml">
             <primary sortas="b-pre-grohtml">pre-grohtml</primary>
@@ -482,10 +483,10 @@
         <term><command>refer</command></term>
         <listitem>
           <para>Kopierer innholdet i en fil til standardutgang, unntatt
-           de som går mellom <emphasis>.[</emphasis> og <emphasis>.]</emphasis>
-          tolkes som referanser, og linjer mellom <emphasis>.R1</emphasis>
-          og <emphasis>.R2</emphasis> tolkes som kommandoer for hvordan
-           referanser skal behandles</para>
+          linjene mellom <emphasis>.[</emphasis> og <emphasis>.]</emphasis>
+          som tolkes som referanser, og linjer mellom <emphasis>.R1</emphasis>
+          og <emphasis>.R2</emphasis> som tolkes som kommandoer for hvordan
+          referanser skal behandles</para>
           <indexterm zone="ch-system-groff refer">
             <primary sortas="b-refer">refer</primary>
           </indexterm>
@@ -515,7 +516,7 @@
       <varlistentry id="roff2pdf">
         <term><command>roff2pdf</command></term>
         <listitem>
-          <para>Transformerer Roff filer til PDFer</para>
+          <para>Transformerer Roff filer til PDF filer</para>
           <indexterm zone="ch-system-groff roff2pdf">
             <primary sortas="b-roff2pdf">roff2pdf</primary>
           </indexterm>
@@ -535,7 +536,7 @@
       <varlistentry id="roff2text">
         <term><command>roff2text</command></term>
         <listitem>
-          <para>Transformerer Roff filer til text filer</para>
+          <para>Transformerer Roff filer til tekst filer</para>
           <indexterm zone="ch-system-groff roff2text">
             <primary sortas="b-roff2text">roff2text</primary>
           </indexterm>
@@ -556,8 +557,8 @@
         <term><command>soelim</command></term>
         <listitem>
           <para>Leser filer og erstatter linjer i formatet <emphasis>.so
-          filer</emphasis> av innholdet i nevnte
-          <emphasis>filer</emphasis></para>
+          file</emphasis> av innholdet i nevnte
+          <emphasis>file</emphasis></para>
           <indexterm zone="ch-system-groff soelim">
             <primary sortas="b-soelim">soelim</primary>
           </indexterm>
@@ -568,7 +569,7 @@
         <term><command>tbl</command></term>
         <listitem>
           <para>Kompilerer beskrivelser av tabeller innebygd i troff inndata
-           filer til kommandoer som forstås av
+          filer til kommandoer som forstås av
           <command>troff</command></para>
           <indexterm zone="ch-system-groff tbl">
             <primary sortas="b-tbl">tbl</primary>
@@ -591,9 +592,9 @@
         <term><command>troff</command></term>
         <listitem>
           <para>Er veldig kompatibel med Unix <command>troff</command>; den
-           bør vanligvis startes ved hjelp av <command>groff</command> kommandoen,
-          som også vil kjøre pre- og post-prosessorer i
-           riktig rekkefølge og med passende alternativer</para>
+          bør vanligvis startes ved hjelp av <command>groff</command> kommandoen,
+          som også vil kjøre forbehandler og etterbehandler i
+          riktig rekkefølge og med passende alternativer</para>
           <indexterm zone="ch-system-groff troff">
             <primary sortas="b-troff">troff</primary>
           </indexterm>
