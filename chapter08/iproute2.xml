@@ -24,7 +24,7 @@
     <title/>
 
     <para>IPRoute2 pakken inneholder programmer for grunnleggende og avansert IPV4 basert
-    nettverk.</para>
+    nettverksbygging.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -43,11 +43,11 @@
 
     <para><command>arpd</command> programmet inkludert i denne pakken vil ikke
     bygges siden den er avhengig av Berkeley DB, som ikke er installert i
-    LFS. Men en mappe for <command>arpd</command> og en man side vil fortsatt
+    LFS. Men en mappe og en manside for <command>arpd</command> vil fortsatt
     bli installert. Forhindre dette ved å kjøre kommandoene nedenfor.
-    Hvis <command>arpd</command> binær er nødvendig,
-    instruksjoner for kompilering av Berkeley DB finnes i BLFS-boken på
-    <ulink url="&blfs-book;server/db.html"/>.
+    (Hvis <command>arpd</command> programmet er nødvendig,
+    instruksjoner for kompilering av Berkeley DB finnes i BLFS boken på
+    <ulink url="&blfs-book;server/db.html"/>.)
     </para>
 
 <screen><userinput remap="pre">sed -i /ARPD/d Makefile
@@ -64,7 +64,7 @@ rm -fv man/man8/arpd.8</userinput></screen>
 <screen><userinput remap="make">make NETNS_RUN_DIR=/run/netns</userinput></screen>
 
     <para>Denne pakken har ikke en fungerende testpakke.</para>
-<!-- for øyeblikket ikke nyttig, faktisk kjører ingen tester
+<!-- currently not useful, no tests actually run
     <para>Denne pakken kommer med en testpakke, men på grunn av antakelser den gjør,
     er det ikke mulig å kjøre disse testene pålitelig fra chroot
     miljøet. Hvis du ønsker å kjøre disse testene etter oppstart i din nye LFS
@@ -93,8 +93,8 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
       <segtitle>Installerte mapper</segtitle>
 
       <seglistitem>
-        <seg>bridge, ctstat (link to lnstat), genl, ifcfg, ifstat, ip, lnstat,
-        nstat, routef, routel, rtacct, rtmon, rtpr, rtstat (link to lnstat), ss,
+        <seg>bridge, ctstat (lenker til lnstat), genl, ifstat, ip, lnstat,
+        nstat, routel, rtacct, rtmon, rtpr, rtstat (lenker til lnstat), ss,
         og tc</seg>
         <seg>/etc/iproute2, /usr/lib/tc, og /usr/share/doc/iproute2-&iproute2-version;
         </seg>
@@ -136,19 +136,6 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
         </listitem>
       </varlistentry>
 
-      <varlistentry id="ifcfg">
-        <term><command>ifcfg</command></term>
-        <listitem>
-          <para>Et skall skriptinnpakning for <command>ip</command> kommando
-          [Merk at det krever <command>arping</command> og
-          <command>rdisk</command> programmer fra
-          iputils pakken som finnes på <ulink url="http://www.skbuff.net/iputils/"/>.]</para>
-          <indexterm zone="ch-system-iproute2 ifcfg">
-            <primary sortas="b-ifcfg">ifcfg</primary>
-          </indexterm>
-        </listitem>
-      </varlistentry>
-
       <varlistentry id="ifstat">
         <term><command>ifstat</command></term>
         <listitem>
@@ -171,11 +158,11 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
           <para><command>ip addr</command> lar brukere se på adresser og
           egenskapene deres, legge til nye adresser og slette gamle</para>
 
-          <para><command>ip neighbor</command> lar brukerne se på nabo
-          bindinger og deres egenskaper, legge til nye nabooppføringer og slette
+          <para><command>ip neighbor</command> lar brukerne se på
+          nabobindinger og deres egenskaper, legge til nye nabooppføringer og slette
           gamle</para>
 
-          <para><command>ip rule</command> lar brukerne se på rutingspolitikken
+          <para><command>ip rule</command> lar brukerne se på rutingsreglene
           og endre dem</para>
 
           <para><command>ip route</command> lar brukerne se på rutingtabellen
@@ -220,21 +207,10 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
         </listitem>
       </varlistentry>
 
-      <varlistentry id="routef">
-        <term><command>routef</command></term>
-        <listitem>
-          <para>En komponent av <command>ip route</command>. Dette er for å tømme
-          rutetabellene</para>
-          <indexterm zone="ch-system-iproute2 routef">
-            <primary sortas="b-routef">routef</primary>
-          </indexterm>
-        </listitem>
-      </varlistentry>
-
       <varlistentry id="routel">
         <term><command>routel</command></term>
         <listitem>
-          <para>En komponent av <command>ip route</command>. Dette er for liste
+          <para>En komponent av <command>ip route</command>, for å liste
           rutetabellene</para>
           <indexterm zone="ch-system-iproute2 routel">
             <primary sortas="b-routel">routel</primary>
@@ -266,7 +242,7 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
       <varlistentry id="rtpr">
         <term><command>rtpr</command></term>
         <listitem>
-          <para>Konverterer utdataene til <command>ip -o</command> tilbake til en
+          <para>Konverterer utdataene til <command>ip -o</command> til en
           lesbar form</para>
           <indexterm zone="ch-system-iproute2 rtpr">
             <primary sortas="b-rtpr">rtpr</primary>
@@ -287,7 +263,7 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
       <varlistentry id="ss">
         <term><command>ss</command></term>
         <listitem>
-          <para>Ligner på <command>netstat</command>  kommandoen; viser aktive
+          <para>Ligner på <command>netstat</command> kommandoen; viser aktive
           forbindelser</para>
           <indexterm zone="ch-system-iproute2 ss">
             <primary sortas="b-ss">ss</primary>
@@ -298,23 +274,21 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
       <varlistentry id="tc">
         <term><command>tc</command></term>
         <listitem>
-          <para>Trafikkkontrollerende kjørbar; dette er for Quality Of Service
+          <para>Trafikkkontroll for Quality Of Service
           (QOS) og Class Of Service (COS) implementeringer</para>
 
-          <para><command>tc qdisc</command> lar brukere sette opp køen
-          discipline</para>
+          <para><command>tc qdisc</command> lar brukere sette opp
+          kødisiplinen</para>
 
           <para><command>tc class</command> lar brukere sette opp klasser basert
-          på køen til discipline planlegging</para>
-
-          <para><command>tc estimator</command> lar brukerne estimere
-          nettverksflyt inn i et nettverk</para>
+          på køen til kødisiplinplanleggingen</para>
 
           <para><command>tc filter</command> lar brukere sette opp QOS/COS
           pakkefiltrering</para>
-
-          <para><command>tc policy</command> lar brukere sette opp QOS/COS
-          retningslinjer</para>
+        
+          <para><command>tc monitor</command> kan brukes til å se endringer
+          gjort til trafikkkontroll i kjernen.</para>
+          
           <indexterm zone="ch-system-iproute2 ss">
             <primary sortas="b-tc">tc</primary>
           </indexterm>
