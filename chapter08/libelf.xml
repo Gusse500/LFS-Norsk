@@ -24,7 +24,7 @@
     <title/>
 
     <para>Libelf er et bibliotek for håndtering av ELF (kjørbare og linkbare formater)
-     filer.</para>
+    filer.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -42,7 +42,7 @@
     <title>Installasjon av Libelf</title>
 
       <para>Libelf er en del av elfutils-&elfutils-version; pakken. Bruk
-       elfutils-&elfutils-version;.tar.bz2 som kilde tarball.</para>
+      elfutils-&elfutils-version;.tar.bz2 filen som kildetarball.</para>
 
     <para>Forbered Libelf for kompilering:</para>
 
@@ -58,8 +58,9 @@
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>En test med navnet <filename>run-low_high_pc.sh</filename> er kjent å
-    feile på 32-bit x86 system.</para>
+    <!-- https://sourceware.org/bugzilla/show_bug.cgi?id=30047 -->
+    <para>Testen som heter <filename>run-native-test.sh</filename> er kjent for
+    å feile.</para>
 
     <para>Installer kun Libelf:</para>
 

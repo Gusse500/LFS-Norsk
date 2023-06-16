@@ -23,10 +23,10 @@
   <sect2 role="package">
     <title/>
 
-    <para>Libcap pakken implementerer brukerromsgrensesnittene til POSIX
-     1003.1e funksjoner tilgjengelig i Linux kjerner. Disse egenskapene er en
-     partisjonering av det allmektige root privilegiet i et sett med distinkte
-     privilegier.</para>
+    <para>Libcap pakken implementerer brukergrensesnittet til POSIX
+    1003.1e funksjoner tilgjengelig i Linux kjerner. Disse egenskapene er en
+    partisjonering av det allmektige root privilegiet i et sett med distinkte
+    privilegier.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -57,10 +57,10 @@
       <varlistentry>
         <term><parameter>lib=lib</parameter></term>
         <listitem>
-          <para>Denne parameteren setter bibliotekkatalogen til
-          <filename>/usr/lib</filename> heller enn
+          <para>Denne parameteren setter bibliotekmappen til
+          <filename>/usr/lib</filename> i stedet for
           <filename>/usr/lib64</filename> på x86_64. Det har ingen effekt på
-           x86.</para>
+          x86.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -96,7 +96,7 @@
       <varlistentry id="capsh">
         <term><command>capsh</command></term>
         <listitem>
-          <para>En skallinnpakning for å utforske og begrense kapasitetsstøtte</para>
+          <para>En skallinnpakning for å utforske og begrense funksjonsstøtte</para>
           <indexterm zone="ch-system-libcap capsh">
             <primary sortas="b-capsh">capsh</primary>
           </indexterm>
@@ -116,7 +116,7 @@
       <varlistentry id="getpcaps">
         <term><command>getpcaps</command></term>
         <listitem>
-          <para>Viser mulighetene for den forespurte prosessen(e)</para>
+          <para>Viser egenskapene til de forespurte prosessen(e)</para>
           <indexterm zone="ch-system-libcap getpcaps">
             <primary sortas="b-getpcaps">getpcaps</primary>
           </indexterm>
@@ -126,7 +126,7 @@
       <varlistentry id="setcap">
         <term><command>setcap</command></term>
         <listitem>
-          <para>Angir filkapasiteter</para>
+          <para>Angir filfunksjoner</para>
           <indexterm zone="ch-system-libcap setcap">
             <primary sortas="b-setcap">setcap</primary>
           </indexterm>
@@ -137,7 +137,7 @@
         <term><filename class="libraryfile">libcap</filename></term>
         <listitem>
           <para>Inneholder bibliotekfunksjonene for å manipulere POSIX 1003.1e
-           kapasiteter</para>
+          funksjoner</para>
           <indexterm zone="ch-system-libcap libcap">
             <primary sortas="c-libcap">libcap</primary>
           </indexterm>
@@ -148,7 +148,7 @@
         <term><filename class="libraryfile">libpsx</filename></term>
         <listitem>
           <para>Inneholder funksjoner for å støtte POSIX semantikk for syscalls
-           knyttet til pthread biblioteket</para>
+          knyttet til pthread biblioteket</para>
           <indexterm zone="ch-system-libcap libpsx">
             <primary sortas="c-libpsx">libpsx</primary>
           </indexterm>
