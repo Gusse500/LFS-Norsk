@@ -23,7 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>MPFR-pakken inneholder matematiske funksjoner med flere presisjoner.</para>
+    <para>MPFR pakken inneholder matematiske funksjoner med flere
+    presisjoner.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,6 +41,20 @@
   <sect2 role="installation">
     <title>Installasjon av MPFR</title>
 
+    <!-- https://sympa.inria.fr/sympa/arc/mpfr/2023-01/msg00002.html
+         https://gitlab.inria.fr/mpfr/mpfr/-/commit/5172494c
+
+         Note that it's a different issue from Glibc #30068 we've fixed in
+         chapter08/glibc.xml with a sed.  Normally we just document the
+         test failure, but in this case the particular subtest also serves
+         as an additional guard against Glibc #30068.  So we apply the
+         upstream fix here.   -->
+    <para>Rett opp en testsak basert på en feil med gamle Glibc utgivelser:</para>
+
+<screen><userinput remap="pre">sed -e 's/+01,234,567/+1,234,567 /' \
+    -e 's/13.10Pd/13Pd/'            \
+    -i tests/tsprintf.c</userinput></screen>
+
     <para>Forbered MPFR for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr        \
@@ -54,10 +69,10 @@ make html</userinput></screen>
 
     <important>
       <para>Testpakken for MPFR i denne delen anses som kritisk.
-       Ikke hopp over den under noen omstendigheter.</para>
+      Ikke hopp over den under noen omstendigheter.</para>
     </important>
 
-    <para>Test resultatene og sørg for at alle tester består:</para>
+    <para>Test resultatene og sørg for at alle 197 testene består:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
