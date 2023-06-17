@@ -23,8 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Man-DB pakken inneholder programmer for å finne og se på man
-    sider.</para>
+    <para>Man-DB pakken inneholder programmer for å finne og se på
+    mansider.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -77,7 +77,7 @@
       <varlistentry>
         <term><parameter>--enable-cache-owner=bin</parameter></term>
         <listitem>
-          <para>Dette gjør at de systemomfattende hurtigbufferfilene eies av brukeren
+          <para>Dette endrer eierskapet til de systemomfattende hurtigbufferfilene til brukeren
           <systemitem class="username">bin</systemitem>.</para>
         </listitem>
       </varlistentry>
@@ -91,7 +91,7 @@
           konverterer programkilder til Groff inndata, og <command>grap</command>
           er nyttig for å sette grafer i Groff dokumenter.
           <command>vgrind</command> og <command>grap</command> programmer er
-          vanligvis ikke nødvendig for å vise man sider. De er ikke en del av
+          vanligvis ikke nødvendig for å vise mansider. De er ikke en del av
           LFS eller BLFS, men du bør kunne installere dem selv etter at du har
           fullført LFS hvis du ønsker å gjøre det.</para>
         </listitem>
@@ -153,135 +153,135 @@
 
         <tbody>
           <row>
-            <entry>Danish (da)</entry>
+            <entry>Dansk (da)</entry>
             <entry>ISO-8859-1</entry>
-            <entry>Croatian (hr)</entry>
+            <entry>Kroatisk (hr)</entry>
             <entry>ISO-8859-2</entry>
           </row>
           <row>
-            <entry>German (de)</entry>
+            <entry>Tysk (de)</entry>
             <entry>ISO-8859-1</entry>
-            <entry>Hungarian (hu)</entry>
+            <entry>Ungarsk (hu)</entry>
             <entry>ISO-8859-2</entry>
           </row>
           <row>
-            <entry>English (en)</entry>
+            <entry>Engelsk (en)</entry>
             <entry>ISO-8859-1</entry>
-            <entry>Japanese (ja)</entry>
+            <entry>Japansk (ja)</entry>
             <entry>EUC-JP</entry>
           </row>
           <row>
-            <entry>Spanish (es)</entry>
+            <entry>Spansk (es)</entry>
             <entry>ISO-8859-1</entry>
-            <entry>Korean (ko)</entry>
+            <entry>Koreansk (ko)</entry>
             <entry>EUC-KR</entry>
           </row>
           <row>
-            <entry>Estonian (et)</entry>
+            <entry>Estisk (et)</entry>
             <entry>ISO-8859-1</entry>
-            <entry>Lithuanian (lt)</entry>
+            <entry>Litauisk (lt)</entry>
             <entry>ISO-8859-13</entry>
           </row>
           <row>
-            <entry>Finnish (fi)</entry>
+            <entry>Finsk (fi)</entry>
             <entry>ISO-8859-1</entry>
-            <entry>Latvian (lv)</entry>
+            <entry>Latvisk (lv)</entry>
             <entry>ISO-8859-13</entry>
           </row>
           <row>
-            <entry>French (fr)</entry>
+            <entry>Fransk (fr)</entry>
             <entry>ISO-8859-1</entry>
-            <entry>Macedonian (mk)</entry>
+            <entry>Makedonsk (mk)</entry>
             <entry>ISO-8859-5</entry>
           </row>
           <row>
-            <entry>Irish (ga)</entry>
+            <entry>Irsk (ga)</entry>
             <entry>ISO-8859-1</entry>
-            <entry>Polish (pl)</entry>
+            <entry>Polsk (pl)</entry>
             <entry>ISO-8859-2</entry>
           </row>
           <row>
-            <entry>Galician (gl)</entry>
+            <entry>Galisisk (gl)</entry>
             <entry>ISO-8859-1</entry>
-            <entry>Romanian (ro)</entry>
+            <entry>Rumensk (ro)</entry>
             <entry>ISO-8859-2</entry>
           </row>
           <row>
-            <entry>Indonesian (id)</entry>
+            <entry>Indonesisk (id)</entry>
             <entry>ISO-8859-1</entry>
-            <entry>Greek (el)</entry>
+            <entry>Gresk (el)</entry>
             <entry>ISO-8859-7</entry>
-            <!--<entry>Russian (ru)</entry>-->
+            <!--<entry>Russisk (ru)</entry>-->
             <!--<entry>KOI8-R</entry>-->
           </row>
           <row>
-            <entry>Icelandic (is)</entry>
+            <entry>Islandsk (is)</entry>
             <entry>ISO-8859-1</entry>
-            <entry>Slovak (sk)</entry>
+            <entry>Slovakisk (sk)</entry>
             <entry>ISO-8859-2</entry>
           </row>
           <row>
-            <entry>Italian (it)</entry>
+            <entry>Italiensk (it)</entry>
             <entry>ISO-8859-1</entry>
-            <entry>Slovenian (sl)</entry>
+            <entry>Slovensk (sl)</entry>
             <entry>ISO-8859-2</entry>
           </row>
           <row>
-            <entry>Norwegian Bokmal (nb)</entry>
+            <entry>Norsk Bokmål (nb)</entry>
             <entry>ISO-8859-1</entry>
-            <entry>Serbian Latin (sr@latin)</entry>
+            <entry>Serbisk Latin (sr@latin)</entry>
             <entry>ISO-8859-2</entry>
           </row>
           <row>
-            <entry>Dutch (nl)</entry>
+            <entry>Nederlandsk (nl)</entry>
             <entry>ISO-8859-1</entry>
-            <entry>Serbian (sr)</entry>
+            <entry>Serbisk (sr)</entry>
             <entry>ISO-8859-5</entry>
           </row>
           <row>
-            <entry>Norwegian Nynorsk (nn)</entry>
+            <entry>Norsk Nynorsk (nn)</entry>
             <entry>ISO-8859-1</entry>
-            <entry>Turkish (tr)</entry>
+            <entry>Tyrkisk (tr)</entry>
             <entry>ISO-8859-9</entry>
           </row>
           <row>
-            <entry>Norwegian (no)</entry>
+            <entry>Norsk (no)</entry>
             <entry>ISO-8859-1</entry>
-            <entry>Ukrainian (uk)</entry>
+            <entry>Ukrainsk (uk)</entry>
             <entry>KOI8-U</entry>
           </row>
           <row>
-            <entry>Portuguese (pt)</entry>
+            <entry>Portugisisk (pt)</entry>
             <entry>ISO-8859-1</entry>
-            <entry>Vietnamese (vi)</entry>
+            <entry>Vietnamesisk (vi)</entry>
             <entry>TCVN5712-1</entry>
           </row>
           <row>
-            <entry>Swedish (sv)</entry>
+            <entry>Svensk (sv)</entry>
             <entry>ISO-8859-1</entry>
-            <entry>Simplified Chinese (zh_CN)</entry>
+            <entry>Forenklet Kinesisk (zh_CN)</entry>
             <entry>GBK</entry>
           </row>
           <row>
-            <entry>Belarusian (be)</entry>
+            <entry>Hviterussisk (be)</entry>
             <entry>CP1251</entry>
-            <entry>Simplified Chinese, Singapore (zh_SG)</entry>
+            <entry>Forenklet Kinesisk, Singapore (zh_SG)</entry>
             <entry>GBK</entry>
           </row>
           <row>
-            <entry>Bulgarian (bg)</entry>
+            <entry>Bulgarsk (bg)</entry>
             <entry>CP1251</entry>
-            <entry>Traditional Chinese, Hong Kong (zh_HK)</entry>
+            <entry>Tradisjonell Kinesisk, Hong Kong (zh_HK)</entry>
             <entry>BIG5HKSCS</entry>
           </row>
           <row>
-            <entry>Czech (cs)</entry>
+            <entry>tsjekkisk (cs)</entry>
             <entry>ISO-8859-2</entry>
-            <entry>Traditional Chinese (zh_TW)</entry>
+            <entry>Tradisjonell Kinesisk (zh_TW)</entry>
             <entry>BIG5</entry>
           </row>
 <!--          <row>
-            <entry>Greek (el)</entry>
+            <entry>Gresk (el)</entry>
             <entry>ISO-8859-7</entry>
             <entry></entry>
             <entry></entry>
@@ -308,7 +308,7 @@
       <segtitle>Installerte mapper</segtitle>
 
       <seglistitem>
-        <seg>accessdb, apropos (link to whatis), catman, lexgrog, man,
+        <seg>accessdb, apropos (lenker til whatis), catman, lexgrog, man,
         man-recode, mandb, manpath, og whatis</seg>
         <seg>libman.so og libmandb.so (begge i /usr/lib/man-db)</seg>
         <seg>/usr/lib/man-db, /usr/libexec/man-db,
@@ -335,7 +335,7 @@
       <varlistentry id="apropos">
         <term><command>apropos</command></term>
         <listitem>
-          <para>Søker <command>whatis</command> database og viser
+          <para>Søker <command>whatis</command> databasen og viser
           de korte beskrivelsene av systemkommandoer som inneholder en gitt
           streng</para>
           <indexterm zone="ch-system-man-db apropos">
@@ -412,7 +412,7 @@
         <listitem>
           <para>Søker <command>whatis</command> databasen og viser
           de korte beskrivelsene av systemkommandoer som inneholder de gitte
-          nøkkelord som et eget ord</para>
+          nøkkelord som et separat ord</para>
           <indexterm zone="ch-system-man-db whatis">
             <primary sortas="b-whatis">whatis</primary>
           </indexterm>

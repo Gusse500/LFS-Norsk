@@ -24,8 +24,8 @@
     <title/>
 
     <para>Libtool pakken inneholder GNU generiske bibliotekstøtteskript.
-     Det omslutter kompleksiteten ved å bruke delte biblioteker i en konsistent, overførbart
-     grensesnitt.</para>
+    Det omslutter kompleksiteten ved å bruke delte biblioteker i en konsistent, overførbart
+    grensesnitt.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -55,15 +55,15 @@
 <screen><userinput remap="test">make -k check</userinput></screen>
 
     <note><para>Testtiden for libtool kan reduseres betydelig på et
-     system med flere kjerner. For å gjøre dette, legg til
+    system med flere kjerner. For å gjøre dette, legg til
     <command>TESTSUITEFLAGS=-j&lt;N&gt;</command> til linjen over. For
-     eksempel kan bruk av -j4 redusere testtiden med over 60
-     prosent.</para></note>
+    eksempel kan bruk av -j4 redusere testtiden med over 60
+    prosent.</para></note>
 
     <para>Fem tester er kjent for å mislykkes i LFS byggemiljøet pga
     en sirkulær avhengighet, men disse testene består hvis de sjekkes på nytt etter
-    at automake er installert. I tillegg, med grep-3.8, to tester vil
-    utløse en advarsel for regulære uttrykk som ikke er POSIX og mislykkes.</para>
+    at automake er installert.  I tillegg, med grep-3.8, vil to tester
+    utløse en advarsel for ikke-POSIX regulære uttrykk og mislykkes.</para>
 
     <para>Installer pakken:</para>
 
@@ -123,7 +123,7 @@
       <varlistentry id="libltdl">
         <term><filename class="libraryfile">libltdl</filename></term>
         <listitem>
-          <para>Skjuler de forskjellige vanskelighetene med dlopening biblioteker</para>
+          <para>Skjuler de ulike vanskelighetene med å åpne dynamisk lastede biblioteker</para>
           <indexterm zone="ch-system-libtool libltdl">
             <primary sortas="c-libltdl">libltdl</primary>
           </indexterm>

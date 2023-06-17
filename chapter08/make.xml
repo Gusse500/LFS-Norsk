@@ -24,7 +24,7 @@
     <title/>
 
     <para>Make pakken inneholder et program for å kontrollere genereringen av
-     kjørbare filer og andre ikke-kildefiler av en pakke fra kildefiler.</para>
+    kjørbare filer og andre ikke-kildefiler av en pakke fra kildefiler.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,11 +40,13 @@
 
   <sect2 role="installation">
     <title>Installasjon av Make</title>
-<!--
-    <para>Igjen, omgå en feil forårsaket av glibc-2.27 og senere:</para>
 
-<screen><userinput remap="pre">sed -i '211,217 d; 219,229 d; 232 d' glob/glob.c</userinput></screen>
--->
+    <para>Først, fiks noen problemer identifisert oppstrøms:</para>
+
+<screen><userinput remap="pre">sed -e '/ifdef SIGPIPE/,+2 d' \
+    -e '/undef  FATAL_SIG/i FATAL_SIG (SIGPIPE);' \
+    -i src/main.c</userinput></screen>
+
     <para>Forbered Make for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
@@ -84,7 +86,7 @@
         <term><command>make</command></term>
         <listitem>
           <para>Avgjør automatisk hvilke deler av en pakke som må
-           bli (re)kompilert og utsteder deretter de relevante kommandoene</para>
+          bli (re)kompilert og utsteder deretter de relevante kommandoene</para>
           <indexterm zone="ch-system-make make">
             <primary sortas="b-make">make</primary>
           </indexterm>
