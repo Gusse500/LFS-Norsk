@@ -24,7 +24,7 @@
     <title/>
 
     <para>Readline pakken er et sett med biblioteker som tilbyr kommandolinje
-     redigerings- og historikkfunksjoner.</para>
+    redigerings- og historikkfunksjoner.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -43,11 +43,15 @@
 
     <para>Å installere Readline på nytt vil føre til at de gamle bibliotekene flyttes til
     &lt;libraryname&gt;.old. Selv om dette normalt ikke er et problem, i noen tilfeller
-     kan det utløse en koblingsfeil i <command>ldconfig</command>. Dette kan være
-     unngås ved å utstede følgende to seds:</para>
+    kan det utløse en koblingsfeil i <command>ldconfig</command>. Dette kan
+    unngås ved å utstede følgende to seds:</para>
 
 <screen><userinput remap="pre">sed -i '/MV.*old/d' Makefile.in
 sed -i '/{OLDSUFF}/c:' support/shlib-install</userinput></screen>
+
+    <para>Løs nå et problem identifisert oppstrøms:</para>
+
+<screen><userinput remap="pre">patch -Np1 -i ../&readline-fixes-patch;</userinput></screen>
 
     <para>Forbered Readline for kompilering:</para>
 
@@ -123,7 +127,7 @@ sed -i '/{OLDSUFF}/c:' support/shlib-install</userinput></screen>
         <term><filename class="libraryfile">libhistory</filename></term>
         <listitem>
           <para>Gir et konsistent brukergrensesnitt for tilbakekalling av linjer
-           fra historien</para>
+          fra historien</para>
           <indexterm zone="ch-system-readline libhistory">
             <primary sortas="c-libhistory">libhistory</primary>
           </indexterm>
@@ -134,7 +138,7 @@ sed -i '/{OLDSUFF}/c:' support/shlib-install</userinput></screen>
         <term><filename class="libraryfile">libreadline</filename></term>
         <listitem>
           <para>Gir et sett med kommandoer for å manipulere tekst som er skrevet inn i et
-           interaktiv økt av et program</para>
+          interaktiv økt av et program</para>
           <indexterm zone="ch-system-readline libreadline">
             <primary sortas="c-libreadline">libreadline</primary>
           </indexterm>
