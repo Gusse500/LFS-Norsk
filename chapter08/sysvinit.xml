@@ -24,7 +24,7 @@
     <title/>
 
     <para>Sysvinit pakken inneholder programmer for å kontrollere oppstarten,
-     kjøring og avslutning av systemet.</para>
+    kjøring og avslutning av systemet.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -43,13 +43,13 @@
 
 <!--
     <para>Når kjørenivåer endres (for eksempel når du stopper
-     systemet), <command>init</command> sender avslutningssignaler til de
-     prosessene som <command>init</command> selv startet og det burde
-     ikke kjøre i det nye kjørenivået. Mens du gjør dette,
+    systemet), <command>init</command> sender avslutningssignaler til de
+    prosessene som <command>init</command> selv startet og ikke burde
+    kjøre i det nye kjørenivået. Mens du gjør dette,
     <command>init</command> sender ut meldinger som <quote>Sending processes
     the TERM signal</quote> som ser ut til å antyde at den sender disse
-     signaler til alle prosesser som kjører. For å unngå dette
-     feiltolkning, endre kilden slik at disse meldingene leses som
+    signaler til alle prosesser som kjører. For å unngå dette
+    feiltolkning, endre kilden slik at disse meldingene leses som
     <quote>Sending processes configured via /etc/inittab the TERM signal</quote>
     istedet:</para>
 
@@ -59,8 +59,8 @@
     <command>mountpoint</command>, <command>last</command>,
     <command>mesg</command>, <command>sulogin</command>, og
     <command>utmpdump</command> programmer ble installert tidligere av Util-linux.
-     Undertrykk installasjonen av Sysvinits versjoner av disse programmene og
-     man sidene deres:</para>
+    Undertrykk installasjonen av Sysvinits versjoner av disse programmene og
+    mansidene deres:</para>
 
 <screen><userinput remap="make">sed -ri -e '/utmpdump/d'   \
         -e '/mountpoint/d' \
@@ -68,7 +68,7 @@
         -e 's/= sulogin(\.8)?/=/' src/Makefile</userinput></screen>
 -->
     <para>Først bruker du en oppdatering som fjerner flere programmer installert av andre
-     pakker, klargjør en melding og fikser en kompilatoradvarsel:</para>
+    pakker, klargjør en melding og fikser en kompilatoradvarsel:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&sysvinit-consolidated-patch;</userinput></screen>
 
@@ -92,8 +92,8 @@
 
       <seglistitem>
         <seg>bootlogd, fstab-decode, halt, init, killall5,
-        poweroff (lenke til halt), reboot (lenke til halt), runlevel,
-        shutdown, og telinit (lenke til init)</seg>
+        poweroff (lenker til halt), reboot (lenker til halt), runlevel,
+        shutdown, og telinit (lenker til init)</seg>
       </seglistitem>
     </segmentedlist>
 
@@ -126,10 +126,10 @@
         <term><command>halt</command></term>
         <listitem>
           <para>Påkaller vanligvis <command>shutdown</command> med
-          <parameter>-h</parameter> alternativet, bortsett fra når du allerede er på kjørenivå 0,
-           så ber den kjernen om å stoppe systemet; det noterer i
-           filen <filename>/var/log/wtmp</filename> at systemet
-           stenger ned</para>
+          <parameter>-h</parameter> alternativet, men når du allerede er på kjørenivå 0,
+          så ber den kjernen om å stoppe systemet; det noterer i
+          filen <filename>/var/log/wtmp</filename> at systemet
+          stenger ned</para>
           <indexterm zone="ch-system-sysvinit halt-sysv">
             <primary sortas="b-halt">halt</primary>
           </indexterm>
@@ -140,8 +140,8 @@
         <term><command>init</command></term>
         <listitem>
           <para>Den første prosessen som skal startes når kjernen har initialisert
-           maskinvaren som tar over oppstartsprosessen og starter alle
-           prosesser spesifisert i konfigurasjonsfilen</para>
+          maskinvaren; den tar over oppstartsprosessen og starter alle
+          prosesser spesifisert i konfigurasjonsfilen</para>
           <indexterm zone="ch-system-sysvinit init-sysv">
             <primary sortas="b-init">init</primary>
           </indexterm>
@@ -152,7 +152,7 @@
         <term><command>killall5</command></term>
         <listitem>
           <para>Sender et signal til alle prosesser, bortsett fra prosessene i sin egen
-           økt slik at den ikke dreper foreldreskallet</para>
+          økt; den vil ikke drepe foreldreskallet</para>
           <indexterm zone="ch-system-sysvinit killall5">
             <primary sortas="b-killall5">killall5</primary>
           </indexterm>
@@ -185,7 +185,7 @@
         <term><command>runlevel</command></term>
         <listitem>
           <para>Rapporterer forrige og nåværende kjørenivå, som nevnt i
-           siste kjørenivå oppføring i <filename>/run/utmp</filename></para>
+          siste kjørenivå oppføring i <filename>/run/utmp</filename></para>
           <indexterm zone="ch-system-sysvinit runlevel-sysv">
             <primary sortas="b-runlevel">runlevel</primary>
           </indexterm>
@@ -195,8 +195,8 @@
       <varlistentry id="shutdown-sysv">
         <term><command>shutdown</command></term>
         <listitem>
-          <para>Får systemet ned på en sikker måte, og signaliserer alle prosesser
-           og varsler alle påloggede brukere</para>
+          <para>Bringer systemet ned på en sikker måte, og signaliserer alle prosesser
+          og varsler alle påloggede brukere</para>
           <indexterm zone="ch-system-sysvinit shutdown-sysv">
             <primary sortas="b-shutdown">shutdown</primary>
           </indexterm>

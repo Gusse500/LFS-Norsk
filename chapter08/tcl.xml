@@ -3,8 +3,8 @@
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
   %general-entities;
-  <!ENTITY tdbc-ver          "1.1.3">
-  <!ENTITY itcl-ver          "4.2.2">
+  <!ENTITY tdbc-ver          "1.1.5">
+  <!ENTITY itcl-ver          "4.2.3">
 ]>
 
 <sect1 id="ch-system-tcl" role="wrap">
@@ -27,7 +27,7 @@
 
     <para><application>Tcl</application> pakken inneholder Tool Command Language,
     et robust skriptspråk for generelt bruk. <application>Expect</application> pakken
-    er skrevet i <application>Tcl</application> språket.</para>
+    er skrevet i <application>Tcl</application> (uttales "tickle").</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -49,14 +49,6 @@
     pakker. Å installere tre pakker for testformål kan virke
     overdrevent, men det er veldig betryggende, om ikke avgjørende, å vite at
     de viktigste verktøyene fungerer som de skal.</para>
-
-<!--    <para>Merk at Tcl pakken som brukes her er en minimal versjon som trengs
-     for å kjøre LFS testene. For hele pakken, se
-    <ulink url='&blfs-book;general/tcl.html'>BLFS Tcl procedures</ulink>.</para>-->
-
-    <para>Pakk først ut dokumentasjonen ved å gi følgende kommando:</para>
-
-<screen><userinput remap="pre">tar -xf ../tcl&tcl-version;-html.tar.gz --strip-components=1</userinput></screen>
 
     <para>Forbered Tcl for kompilering:</para>
 
@@ -113,15 +105,17 @@ unset SRCDIR</userinput></screen>
 
 <screen><userinput remap="install">ln -sfv tclsh&tcl-major-version; /usr/bin/tclsh</userinput></screen>
 
-    <para>Gi nytt navn til en man side som er i konflikt med en man side for Perl:</para>
+    <para>Gi nytt navn til en manside som er i konflikt med en manside for Perl:</para>
 
     <screen><userinput remap="install">mv /usr/share/man/man3/{Thread,Tcl_Thread}.3</userinput></screen>
 
-    <para>Hvis du lastet ned den valgfrie dokumentasjonen, installer den ved å kjøre
+    <para>Eventuelt kan du installere dokumentasjonen ved å utstede
     følgende kommandoer:</para>
 
- <screen><userinput remap="install">mkdir -v -p /usr/share/doc/tcl-&tcl-version;
-cp -v -r  ../html/* /usr/share/doc/tcl-&tcl-version;</userinput></screen>
+<screen><userinput remap="install">cd ..
+tar -xf ../tcl&tcl-version;-html.tar.gz --strip-components=1
+mkdir -v -p /usr/share/doc/tcl-&tcl-version;
+cp -v -r  ./html/* /usr/share/doc/tcl-&tcl-version;</userinput></screen>
 
   </sect2>
 
@@ -134,7 +128,7 @@ cp -v -r  ../html/* /usr/share/doc/tcl-&tcl-version;</userinput></screen>
 
       <seglistitem>
         <seg>
-          tclsh (link to tclsh&tcl-major-version;) og
+          tclsh (lenker til tclsh&tcl-major-version;) og
           tclsh&tcl-major-version;
         </seg>
         <seg>
