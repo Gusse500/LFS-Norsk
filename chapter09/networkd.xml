@@ -29,8 +29,8 @@
 
     <note>
       <para>
-        Hvis du ikke vil bruke <command>systemd-networkd</command> for nettverks
-        konfigurasjon (for eksempel når systemet ikke er koblet til
+        Hvis du ikke vil bruke <command>systemd-networkd</command> for
+        nettverkskonfigurasjon (for eksempel når systemet ikke er koblet til
         et nettverk, eller du vil bruke et annet verktøy som NetworkManager
         for nettverkskonfigurasjonen), deaktiver en tjeneste for å forhindre en
         feilmelding under oppstart:
@@ -60,7 +60,7 @@
       <para>
         Udev tildeler normalt nettverkskortgrensesnittnavn basert
         på fysiske systemegenskaper som enp2s1. Hvis du
-        ikke er sikker på hva grensesnittnavnet ditt er, du kan alltid kjøre
+        ikke er sikker på hva grensesnittnavnet ditt er, kan du alltid kjøre
         <command>ip link</command> etter at du har startet opp systemet.
       </para>
 
@@ -69,9 +69,9 @@
         konfigurasjon av udev nissen som kjører på systemet. Udev
         nissen for LFS (<command>systemd-udevd</command>, installert i
         <xref linkend="ch-system-systemd"/>) vil ikke kjøre med mindre LFS
-        systemet er startet opp. Så det er upålitelig å bestemme grensesnittetnavnet
+        systemet er startet opp. Så det er upålitelig å bestemme grensesnittnavnet
         som brukes i LFS systemet ved å kjøre disse kommandoene på vertens
-        distro,
+        distribusjon,
         <emphasis>selv om du er i chroot miljøet</emphasis>.</para>
       </note>
 
@@ -113,7 +113,7 @@ Name=ether0</literal>
 EOF</userinput></screen>
 
           <para>
-             Se man siden systemd.link(5) for mer informasjon.
+             Se mansiden systemd.link(5) for mer informasjon.
           </para>
         </listitem>
 
@@ -147,7 +147,7 @@ EOF</userinput></screen>
 
       <para>Flere DNS oppføringer kan legges til hvis du har mer enn én DNS
       server. Ikke inkluder DNS- eller Domains-oppføringer hvis du har tenkt å bruke den
-      statiske filen <filename>/etc/resolv.conf</filename>.</para>
+      statiske filen <filename>/etc/resolv.conf</filename> file.</para>
 
     </sect3>
 
@@ -164,7 +164,7 @@ Name=&lt;network-device-name&gt;
 [Network]
 DHCP=ipv4
 
-[DHCP]
+[DHCPv4]
 UseDomains=true</literal>
 EOF</userinput></screen>
 
@@ -180,7 +180,7 @@ EOF</userinput></screen>
     </indexterm>
 
     <para>Hvis systemet skal kobles til Internett, vil det
-    trenges noen midler for Domain Name Service (DNS) navneløsning for å
+    trenge noen form for Domain Name Service (DNS) navneløsning for å
     løse Internett domenenavn til IP adresser, og omvendt. Dette kan
     best oppnås ved å plassere IP adressen til DNS serveren, tilgjengelig
     fra Internett-leverandøren eller nettverksadministratoren til
@@ -195,7 +195,7 @@ EOF</userinput></screen>
       eller annen programvare som genererer en <filename>/etc/resolv.conf</filename>
       (eks: et <command>resolvconf</command> program annet enn det
       levert av systemd), <command>systemd-resolved</command> service
-      skal ikke brukes.</para>
+      bør ikke brukes.</para>
 
       <para>For å deaktivere systemd-resolved, utfør følgende kommando:</para>
 
@@ -221,7 +221,7 @@ EOF</userinput></screen>
       <title>Statisk resolv.conf konfigurasjon</title>
 
       <para>Hvis en statisk <filename>/etc/resolv.conf</filename> er ønsket,
-      lag den ved å kjøre følgende kommando:</para>
+      opprett den ved å kjøre følgende kommando:</para>
 
 <screen role="nodump"><userinput>cat &gt; /etc/resolv.conf &lt;&lt; "EOF"
 <literal># Begin /etc/resolv.conf
@@ -234,7 +234,7 @@ nameserver <replaceable>&lt;IP address of your secondary nameserver&gt;</replace
 EOF</userinput></screen>
 
       <para><varname>domain</varname> erklæringen kan utelates
-      eller erstattet med en <varname>search</varname> erklæring.  Se man siden
+      eller erstattet med en <varname>search</varname> erklæring.  Se mansiden
       for resolv.conf for flere detaljer.</para>
 
       <para>Erstatt
@@ -247,7 +247,7 @@ EOF</userinput></screen>
       er å bruke Googles offentlige DNS tjeneste ved å bruke IP adressene nedenfor som
       navneservere.</para>
 
-      <note><para>Googles offentlige IPv4 DNS adresser er
+      <note><para>Google sine offentlige IPv4 DNS adresser er
       <parameter>8.8.8.8</parameter> og <parameter>8.8.4.4</parameter>
       for IPv4, og <parameter>2001:4860:4860::8888</parameter> og
       <parameter>2001:4860:4860::8844</parameter> for IPv6.</para></note>
@@ -354,7 +354,7 @@ ff02::2   ip6-allrouters
 # End /etc/hosts</literal>
 EOF</userinput></screen>
 
-     <para>The <replaceable>&lt;192.168.0.2&gt;</replaceable>,
+     <para><replaceable>&lt;192.168.0.2&gt;</replaceable>,
      <replaceable>&lt;FQDN&gt;</replaceable>, og
      <replaceable>&lt;HOSTNAME&gt;</replaceable> verdier må bli
      endret for spesifikke bruksområder eller krav (hvis det er tildelt en IP adresse av en
@@ -364,7 +364,7 @@ EOF</userinput></screen>
      bruker en tilkobling konfigurert med DHCP eller IPv6 Autoconfiguration.</para>
 
      <para>::1 oppføringen er IPv6 motstykket til 127.0.0.1 og representerer
-     IPv6 loopback-grensesnittet. 127.0.1.1 er en tilbakekoblingsoppføring reservert
+     IPv6 grensesnittet for tilbakesløyfe (loopback). 127.0.1.1 er en tilbakesløyfeoppføring reservert
      spesielt for FQDN.</para>
 
    </sect2>
