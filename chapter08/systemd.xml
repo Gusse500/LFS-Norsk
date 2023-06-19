@@ -40,9 +40,11 @@
   <sect2 role="installation">
     <title>Installasjon av systemd</title>
 
-    <para>Først, fiks et problem introdusert av glibc-2.36.</para>
+
+    <para>Først, fiks et sikkerhetsproblem i systemd-coredump:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&systemd-upstream-patch;</userinput></screen>
+
 
     <para>Fjern to unødvendige grupper,
     <systemitem class="groupname">render</systemitem> og
@@ -113,9 +115,9 @@ meson --prefix=/usr                 \
         <term><parameter>-Dldconfig=false</parameter></term>
         <listitem>
           <para>Denne bryteren forhindrer installasjon av en systemd enhet som kjører
-          <command>ldconfig</command> ved oppstart, som ikke er nyttig for
-          kildedistribusjoner som LFS og gjør oppstartstiden lengre. Fjern det
-          hvis den beskrevne funksjonen er ønsket.</para>
+          <command>ldconfig</command> at boot; this is not useful for source
+          distributions such as LFS, and makes the boot time longer. Fjern
+          dette alternativet for å aktivere kjøring av <command>ldconfig</command> ved oppstart.</para>
         </listitem>
       </varlistentry>
 
@@ -142,7 +144,7 @@ meson --prefix=/usr                 \
       <varlistentry>
         <term><parameter>-D{userdb,homed}=false</parameter></term>
         <listitem>
-          <para>Fjern to nisser som har avhengigheter som ikke passer
+          <para>Fjerner to nisser som har avhengigheter som ikke passer
           omfanget av LFS.</para>
         </listitem>
       </varlistentry>
@@ -150,8 +152,8 @@ meson --prefix=/usr                 \
       <varlistentry>
         <term><parameter>-Dman=false</parameter></term>
         <listitem>
-          <para>Forhindre generering av man sider for å unngå ekstra
-          avhengigheter. Vi vil installere forhåndsgenererte man sider for systemd
+          <para>Forhindre generering av mansider for å unngå ekstra
+          avhengigheter. Vi vil installere forhåndsgenererte mansider for systemd
           fra en tarball senere.</para>
         </listitem>
       </varlistentry>
@@ -181,7 +183,7 @@ meson --prefix=/usr                 \
 
 <screen><userinput remap="install">ninja install</userinput></screen>
 
-    <para>Installer man sidene:</para>
+    <para>Installer mansidene:</para>
 
     <!-- Please make sure systemd man pages tarball has a common leading
          component in the path.  -->
@@ -196,11 +198,11 @@ meson --prefix=/usr                 \
 
 <screen><userinput remap="adjust">systemctl preset-all</userinput></screen>
 
-    <para>Deaktiver en tjeneste for oppgradering av binære distros. Det er ubrukelig for
-    et grunnleggende Linux-system bygget fra kilden, og det vil rapportere en feil hvis
+    <para>Deaktiver en tjeneste for oppgradering av binære distribusjoner. Det er ubrukelig for
+    et grunnleggende Linuxsystem bygget fra kilden, og det vil rapportere en feil hvis
     den er aktivert, men ikke konfigurert:</para>
 
-<screen><userinput remap="adjust">systemctl disable systemd-sysupdate</userinput></screen>
+<screen><userinput remap="adjust">systemctl disable systemd-sysupdate{,-reboot}</userinput></screen>
 
 <!-- dev: 50-pid-max.conf is not removed in BLFS, so I commented the following out.
           If it causes any trouble, we can add this back and also copy it into BLFS -->
@@ -283,7 +285,7 @@ meson --prefix=/usr                 \
         <listitem>
           <para>Starter vanligvis <command>shutdown</command> med
           <parameter>-h</parameter> alternativet, bortsett fra når du allerede er på kjørenivå 0,
-          så ber den kjernen om å stoppe systemet; det noterer i
+          når den ber kjernen om å stoppe systemet; noterer den i
           filen <filename>/var/log/wtmp</filename> at systemet blir
           slått av</para>
           <indexterm zone="ch-system-systemd halt">
@@ -307,8 +309,8 @@ meson --prefix=/usr                 \
         <term><command>init</command></term>
         <listitem>
           <para>Er den første prosessen som startes når kjernen har initialisert
-          maskinvaren som tar over oppstartsprosessen og starter alle
-          prosesser i henhold til konfigurasjonsfilene. I dette tilfellet starter den
+          maskinvaren; <command>init</command> tar over oppstartsprosessen og starter alle
+          prosesser i henhold til sine konfigurasjonsfiler. I dette tilfellet starter den
           systemd</para>
           <indexterm zone="ch-system-systemd init">
             <primary sortas="b-init">init</primary>
@@ -351,8 +353,8 @@ meson --prefix=/usr                 \
       <varlistentry id="loginctl">
         <term><command>loginctl</command></term>
         <listitem>
-          <para>Brukes til å selvransake og kontrollere tilstanden til systemd påloggings
-          behandleren</para>
+          <para>Brukes til å selvransake og kontrollere tilstanden til systemd
+          påloggingsbehandler</para>
           <indexterm zone="ch-system-systemd loginctl">
             <primary sortas="b-loginctl">loginctl</primary>
           </indexterm>
@@ -374,7 +376,7 @@ meson --prefix=/usr                 \
         <term><command>networkctl</command></term>
         <listitem>
           <para>Brukes til å selvransake og konfigurere nettverkets
-          koblinger konfigurert av systemd networkd</para>
+          koblinger konfigurert av systemd-networkd</para>
           <indexterm zone="ch-system-systemd networkctl">
             <primary sortas="b-networkctl">networkctl</primary>
           </indexterm>
@@ -461,7 +463,7 @@ meson --prefix=/usr                 \
       <varlistentry id="shutdown">
         <term><command>shutdown</command></term>
         <listitem>
-          <para>Får systemet ned på en trygg og sikker måte, signaliserer
+          <para>Bringer systemet ned på en trygg og sikker måte, signaliserer
           alle prosesser og varsle alle påloggede brukere</para>
           <indexterm zone="ch-system-systemd shutdown">
             <primary sortas="b-shutdown">shutdown</primary>
@@ -483,8 +485,8 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-analyze">
         <term><command>systemd-analyze</command></term>
         <listitem>
-          <para>Brukes til å bestemme systemoppstartsytelsen til gjeldende
-          boot, samt identifisere plagsomme systemd enheter</para>
+          <para>Brukes til å analysere systemoppstartsytelse,
+          samt identifisere plagsomme systemenheter</para>
           <indexterm zone="ch-system-systemd systemd-analyze">
             <primary sortas="b-systemd-analyze">systemd-analyze</primary>
           </indexterm>
@@ -494,7 +496,7 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-ask-password">
         <term><command>systemd-ask-password</command></term>
         <listitem>
-          <para>Brukes til å spørre et systempassord eller passordfrase fra brukeren,
+          <para>Brukes til å spørre om et systempassord eller passordfrase fra brukeren,
           ved å bruke en spørsmålsmelding spesifisert på kommandolinjen</para>
           <indexterm zone="ch-system-systemd systemd-ask-password">
             <primary sortas="b-systemd-ask-password">systemd-ask-password</primary>
@@ -517,8 +519,8 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-cgls">
         <term><command>systemd-cgls</command></term>
         <listitem>
-          <para>Viser rekursivt innholdet i den valgte Linux kontrollens
-          gruppehierarki i et tre</para>
+          <para>Viser rekursivt innholdet i den valgte Linux
+          kontrollgruppens hierarki i et tre</para>
           <indexterm zone="ch-system-systemd systemd-cgls">
             <primary sortas="b-systemd-cgls">systemd-cgls</primary>
           </indexterm>
@@ -551,7 +553,7 @@ meson --prefix=/usr                 \
         <listitem>
           <para>Brukes til å identifisere og sammenligne konfigurasjonsfiler i
           <filename class="directory">/etc</filename> som overstyrer standard
-          motparter i <filename class="directory">/usr</filename></para>
+          i <filename class="directory">/usr</filename></para>
           <indexterm zone="ch-system-systemd systemd-delta">
             <primary sortas="b-systemd-delta">systemd-delta</primary>
           </indexterm>
@@ -582,8 +584,8 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-escape">
         <term><command>systemd-escape</command></term>
         <listitem>
-          <para>Brukes til å verne strenger for inkludering i systemd enhets
-          navn</para>
+          <para>Brukes til escape strenger for inkludering i systemd
+          enhetsnavn</para>
           <indexterm zone="ch-system-systemd systemd-escape">
             <primary sortas="b-systemd-escape">systemd-escape</primary>
           </indexterm>
@@ -603,7 +605,7 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-id128">
         <term><command>systemd-id128</command></term>
         <listitem>
-          <para>Genererer og skriver ut id128 strenger</para>
+          <para>Genererer og skriver ut id128 (UUID) strenger</para>
           <indexterm zone="ch-system-systemd systemd-id128">
             <primary sortas="b-systemd-id128">systemd-id128</primary>
           </indexterm>
@@ -658,7 +660,7 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-nspawn">
         <term><command>systemd-nspawn</command></term>
         <listitem>
-          <para>Brukes til å kjøre en kommando eller OS i et lett navneområde
+          <para>Brukes til å kjøre en kommando eller OS i en lett navneområde
           container</para>
           <indexterm zone="ch-system-systemd systemd-nspawn">
             <primary sortas="b-systemd-nspawn">systemd-nspawn</primary>
@@ -669,7 +671,7 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-path">
         <term><command>systemd-path</command></term>
         <listitem>
-          <para>Brukes til å spørre system- og brukerstier</para>
+          <para>Is used to query system and user paths</para>
           <indexterm zone="ch-system-systemd systemd-path">
             <primary sortas="b-systemd-path">systemd-path</primary>
           </indexterm>
@@ -702,7 +704,7 @@ meson --prefix=/usr                 \
         <term><command>systemd-run</command></term>
         <listitem>
           <para>Brukes til å opprette og starte en forbigående .service eller en .scope
-          enhet og kjør den angitte kommandoen i den. Dette er nyttig for
+          enhet og kjøre den angitte kommandoen i den. Dette er nyttig for
           validering av systemenheter</para>
           <indexterm zone="ch-system-systemd systemd-run">
             <primary sortas="b-systemd-run">systemd-run</primary>
@@ -747,7 +749,7 @@ meson --prefix=/usr                 \
       <varlistentry id="systemd-umount">
         <term><command>systemd-umount</command></term>
         <listitem>
-          <para>Demonterer monteringspunkter</para>
+          <para>Avmonterer monteringspunkter</para>
           <indexterm zone="ch-system-systemd systemd-umount">
             <primary sortas="b-systemd-umount">systemd-umount</primary>
           </indexterm>
