@@ -42,10 +42,6 @@
   <sect2 role="installation">
     <title>Installasjon av Zstd</title>
 
-    <para>Bruk en oppdatering for å fikse noen problemer identifisert av oppstrøms:</para>
-
-<screen><userinput remap="pre">patch -Np1 -i ../&zstd-upstream-fixes-patch;</userinput></screen>
-
     <para>Kompiler pakken:</para>
 
 <screen><userinput remap="make">make prefix=/usr</userinput></screen>
@@ -127,8 +123,8 @@
       <varlistentry id="libzstd">
         <term><filename class="libraryfile">libzstd</filename></term>
         <listitem>
-          <para>Biblioteket implementerer tapsfri data
-          komprimering ved å bruke ZSTD algoritmen</para>
+          <para>Biblioteket implementerer tapsfri
+          datakomprimering ved å bruke ZSTD algoritmen</para>
           <indexterm zone="ch-system-zstd libzstd">
             <primary sortas="c-libzstd">libzstd</primary>
           </indexterm>
