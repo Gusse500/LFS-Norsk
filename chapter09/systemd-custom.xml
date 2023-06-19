@@ -22,7 +22,7 @@
     oppføringer kommentert med standardinnstillingene angitt. Denne filen er
     hvor loggnivået kan endres, samt noen grunnleggende logginnstillinger.
     Se <filename>systemd-system.conf(5)</filename> manualside for detaljer
-    for hvert konfigurasjonsalternativ.</para>
+    om hvert konfigurasjonsalternativ.</para>
 
   </sect2>
 
@@ -162,13 +162,13 @@ EOF</userinput></screen>
        </listitem>
        <listitem>
          <para><command>systemctl show -p Wants <replaceable>&lt;multi-user.target&gt;</replaceable></command>:
-         viser alle enheter som er avhengige av flerbrukermålet. Mål er
+         viser alle enheter som er avhengige av flerbrukermålet. Targets er
          spesielle enhetsfiler som er analoge med kjørenivåer under
          SysVinit.</para>
        </listitem>
        <listitem>
          <para><command>systemctl status <replaceable>&lt;servicename.service&gt;</replaceable></command>:
-         viser statusen til servicename.service. .service utvidelsen
+         viser statusen til servicename service. .service utvidelsen
          kan utelates hvis det ikke finnes andre enhetsfiler med samme navn,
          for eksempel .socket-filer (som lager en lyttekontakt som gir
          lignende funksjonalitet som inetd/xinetd).</para>
@@ -181,22 +181,22 @@ EOF</userinput></screen>
     <title>Arbeide med Systemd Journal</title>
 
     <para>Logging på et system oppstartet med systemd håndteres med
-     systemd-journald (som standard), i stedet for en typisk unix syslog nisse (daemon).
-     Du kan også legge til en normal syslog nisse og la begge operere side ved siden av
-     hverandre om ønskelig. Systemd-journald programmet lagrer journaloppføringer i et
-     binært format i stedet for en ren tekstloggfil. Å bistå med å
-     analysere filen, kommandoen <command>journalctl</command> er gitt.
-     Her er noen eksempler på ofte brukte kommandoer:</para>
+    systemd-journald (som standard), i stedet for en typisk unix syslog nisse (daemon).
+    Du kan også legge til en normal syslog nisse og la begge operere side ved siden av
+    hverandre om ønskelig. Systemd-journald programmet lagrer journaloppføringer i et
+    binært format i stedet for en ren tekstloggfil. Å bistå med å
+    analysere filen, kommandoen <command>journalctl</command> er gitt.
+    Her er noen eksempler på ofte brukte kommandoer:</para>
 
     <itemizedlist>
        <listitem>
-         <para><command>journalctl -r</command>: shows all contents of the
+         <para><command>journalctl -r</command>: viser alt innholdet i
          journal i omvendt kronologisk rekkefølge.</para>
        </listitem>
        <listitem>
          <para><command>journalctl -u <replaceable>UNIT</replaceable></command>:
          viser journalpostene knyttet til den angitte UNIT
-         filen</para>
+         filen.</para>
        </listitem>
        <listitem>
          <para><command>journalctl -b[=ID] -r</command>: shows the journal
@@ -204,8 +204,8 @@ EOF</userinput></screen>
          kronologisk rekkefølge.</para>
        </listitem>
        <listitem>
-         <para><command>journalctl -f</command>: provides functionality similar
-         som å følge -f (follow).</para>
+         <para><command>journalctl -f</command>: gir lignende funksjonalitet
+         som tail -f (follow).</para>
        </listitem>
     </itemizedlist>
 

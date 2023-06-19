@@ -17,7 +17,7 @@ $regex[ 'intltool' ] = "/^.*Latest version is (\d[\d\.]+\d).*$/";
 $regex[ 'less'     ] = "/^.*current released version is less-(\d+).*$/";
 $regex[ 'mpfr'     ] = "/^mpfr-([\d\.]+)\.tar.*$/";
 $regex[ 'Python'   ] = "/^.*Latest Python 3.*Python (3[\d\.]+\d).*$/";
-$regex[ 'systemd'  ] = "/^.*v([\d]+)$/";
+$regex[ 'systemd'  ] = "/^.*systemd v([\d]+)$/";
 //$regex[ 'sysvinit' ] = "/^.*sysvinit-([\d\.]+)dsf\.tar.*$/";
 $regex[ 'tzdata'   ] = "/^.*tzdata([\d]+[a-z]).*$/";
 $regex[ 'xz'       ] = "/^.*xz-([\d\.]*\d).*$/";
@@ -139,6 +139,7 @@ if ( $package == "procps-ng"  ) $dirpath = "https://gitlab.com/procps-ng/procps/
 if ( $package == "psmisc"     ) $dirpath = "https://gitlab.com/psmisc/psmisc/-/tags";
 if ( $package == "Python"     ) $dirpath = "https://www.python.org/downloads/source/";
 if ( $package == "shadow"     ) $dirpath = "https://github.com/shadow-maint/shadow/releases";
+if ( $package == "sysvinit"   ) $dirpath = "https://github.com/slicer69/sysvinit/releases";
 if ( $package == "MarkupSafe" ) $dirpath = "https://pypi.python.org/pypi/MarkupSafe/";
 if ( $package == "Jinja"      ) $dirpath = "https://pypi.python.org/pypi/Jinja2/";
 if ( $package == "systemd"    ) $dirpath = "https://github.com/systemd/systemd/releases";
@@ -273,6 +274,9 @@ if ( $package == "zstd"       ) $dirpath = "https://github.com/facebook/zstd/rel
      return find_max( $lines, "/^\s+\d\./", "/^\s+([\d\.]+)$/" );
 
   if ( $package == "shadow" )
+     return find_max( $lines, "/^\s+\d\./", "/^\s+([\d\.]+)$/" );
+
+  if ( $package == "sysvinit" )
      return find_max( $lines, "/^\s+\d\./", "/^\s+([\d\.]+)$/" );
 
   if ( $package == "XML-Parser" )

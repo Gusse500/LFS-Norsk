@@ -147,7 +147,7 @@ profile-html:
 	@echo "Generating profiled XML for XHTML..."
 	$(Q)xsltproc --nonet                              \
                 --stringparam profile.condition html \
-               --output $(RENDERTMP)/lfs-html.xml   \
+                --output $(RENDERTMP)/lfs-html.xml   \
                 stylesheets/lfs-xsl/profile.xsl      \
                 $(RENDERTMP)/lfs-full.xml
 
@@ -204,10 +204,10 @@ dump-commands: validate
 
 	$(Q)xsltproc --output $(DUMPDIR)/          \
                 stylesheets/dump-commands.xsl \
-                $(RENDERTMP)/lfs-html.xml
+                $(RENDERTMP)/lfs-full.xml
 	@echo "Dumping book commands complete in $(DUMPDIR)"
 
-all: book nochunks pdf # dump-commands
+all: book nochunks pdf dump-commands
 
 .PHONY : all book dump-commands nochunks pdf profile-html tmpdir validate md5sums wget-list version
 

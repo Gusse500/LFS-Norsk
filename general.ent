@@ -7,8 +7,8 @@
 <!ENTITY % rc          "IGNORE"> <!-- set to INCLUDE for rc,
                                       set to IGNORE for development or
                                        release -->
-<!ENTITY % relnum "11.2"><!-- must be given for release or rc -->
-<!ENTITY % reldate "1. September 2022"><!-- must ve given for release or rc -->
+<!ENTITY % relnum "11.3"><!-- must be given for release or rc -->
+<!ENTITY % reldate "1. Mars 2023"><!-- must ve given for release or rc -->
 <!ENTITY % crdate "1999-2022"><!-- must ve given for release or rc -->
 <!ENTITY % rcnum  ""><!-- must be given only for rc -->
 <!-- ================================================================== -->
