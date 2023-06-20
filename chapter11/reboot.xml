@@ -75,7 +75,7 @@
       </para>
     </listitem>
 
-	<listitem>
+    <listitem>
       <para>
         En gjennomgang av følgende konfigurasjonsfiler
         er også passende på dette punktet.
@@ -98,15 +98,16 @@
   </itemizedlist>
 
   <para>Nå som vi har sagt det, la oss gå videre til å starte opp vår skinnende nye LFS
-  installasjon for første gang! <emphasis>Første gå ut av 
-  chroot-miljøet:</emphasis>:</para>
+  installasjon for første gang! <emphasis>Først gå ut av 
+  chroot-miljøet</emphasis>:</para>
 
 <screen><userinput>logout</userinput></screen>
 <!-- We need to show the user the details...-->
 
-  <para>Deretter avmonterer de virtuelle filsystemene:</para>
+  <para>Deretter avmontere de virtuelle filsystemene:</para>
 
 <screen><userinput>umount -v $LFS/dev/pts
+mountpoint -q $LFS/dev/shm &amp;&amp; umount $LFS/dev/shm
 umount -v $LFS/dev
 umount -v $LFS/run
 umount -v $LFS/proc
@@ -122,7 +123,7 @@ umount -v $LFS</userinput></screen>
 
 <screen role="nodump"><userinput>umount -v $LFS</userinput></screen>
 
-  <para>Start nå systemet på nytt.</para>
+  <para>Nå, start nå systemet på nytt.</para>
 
 <!-- Commented out because we don't have a host system requirement on
      its init, and different init system may recommend different commands

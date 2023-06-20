@@ -23,23 +23,23 @@
   </indexterm>
 
   <para>Bra gjort! Det nye LFS systemet er installert! Vi ønsker deg mye
-   suksess med ditt skinnende nye spesialbygde Linux-system.</para>
+  suksess med ditt skinnende nye spesialbygde Linux-system.</para>
 
-  <para>Det kan være lurt å lage en
+  <para>Det kan være lurt å opprette en
   <filename>/etc/lfs-release</filename> fil. Ved å ha denne filen, er det veldig
-   lett for deg (og for oss hvis du trenger å be om hjelp på et tidspunkt) å finne
-   ut hvilken LFS versjon som er installert på systemet. Opprett denne filen med
-   å kjøre:</para>
+  lett for deg (og for oss hvis du trenger å be om hjelp på et tidspunkt) å finne
+  ut hvilken LFS versjon som er installert på systemet. Opprett denne filen med
+  å kjøre:</para>
 
 <screen><userinput>echo &version; &gt; /etc/lfs-release</userinput></screen>
 
   <para>To filer som beskriver det installerte systemet kan brukes av pakker som
-   kan installeres på systemet senere, enten i binær form eller ved å bygge
-   dem.</para>
+  kan installeres på systemet senere, enten i binær form eller ved å bygge
+  dem.</para>
 
   <para>Den første viser statusen til ditt
-   nytt system med hensyn til Linux Standards Base (LSB). For å lage
-   denne filen, kjør:</para>
+  nye system med hensyn til Linux Standards Base (LSB). For å lage
+  denne filen, kjør:</para>
 
 <screen><userinput>cat &gt; /etc/lsb-release &lt;&lt; "EOF"
 DISTRIB_ID="Linux From Scratch"
@@ -49,8 +49,8 @@ DISTRIB_DESCRIPTION="Linux From Scratch"
 EOF</userinput></screen>
 
   <para>Den andre inneholder omtrent samme informasjon, og brukes
-   av systemd og noen grafiske skrivebordsmiljøer. For å lage
-   denne filen, kjør:</para>
+  av systemd og noen grafiske skrivebordsmiljøer. For å lage
+  denne filen, kjør:</para>
 
 <screen><userinput>cat &gt; /etc/os-release &lt;&lt; "EOF"
 NAME="Linux From Scratch"
