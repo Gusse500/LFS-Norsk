@@ -45,7 +45,7 @@
     i kjernekildetreet for alternative metoder til måten denne boken
     konfigurerer kjernen på.</para>
 
-    <para>Forbered deg på kompilering ved å kjøre følgende kommando:</para>
+    <para>Forbered for kompilering ved å kjøre følgende kommando:</para>
 
 <screen><userinput remap="pre">make mrproper</userinput></screen>
 
@@ -169,7 +169,7 @@ File systems  ---&gt;
       system. Hvis du bruker menuconfig, aktiver dem i rekkefølgen
       <parameter>CONFIG_PCI_MSI</parameter> først, deretter
       <parameter>CONFIG_IRQ_REMAP</parameter>, til sist
-      <parameter>CONFIG_X86_X2APIC</parameter> fordi kun et alternativ
+      <parameter>CONFIG_X86_X2APIC</parameter> fordi et alternativ kun
       vises etter at avhengighetene er valgt.</para>
 
       <screen role="nodump">Processor type and features ---&gt;
@@ -203,7 +203,7 @@ Device Drivers ---&gt;
     <variablelist>
       <title>Begrunnelsen for de ovennevnte konfigurasjonselementene:</title>
 
-       <varlistentry>
+      <varlistentry>
         <term><parameter>Randomize the address of the kernel image (KASLR)</parameter></term>
         <listitem>
           <para>Aktiver ASLR for kjernebilde for å redusere noen angrep basert
@@ -211,7 +211,7 @@ Device Drivers ---&gt;
         </listitem>
       </varlistentry>
 
-	  <varlistentry>
+      <varlistentry>
         <term>
           <parameter>
             Compile the kernel with warnings as errors
@@ -232,7 +232,7 @@ Device Drivers ---&gt;
         </term>
         <listitem>
           <para>Dette vil kreve <command>cpio</command> for å bygge kjernen.
-          <command>cpio</command> is not installed by LFS.</para>
+          <command>cpio</command> er ikke installert av LFS.</para>
         </listitem>
       </varlistentry>
 
@@ -246,7 +246,7 @@ Device Drivers ---&gt;
         </listitem>
       </varlistentry>
 
-	  <varlistentry>
+      <varlistentry>
         <term><parameter>Support for uevent helper</parameter></term>
         <listitem>
           <para>Å ha dette alternativet satt kan forstyrre enhetens
@@ -281,13 +281,13 @@ Device Drivers ---&gt;
           tidlig oppstartsstadium, bør den ikke bygges som en kjernemodul
           med mindre en initramfs vil bli brukt. Og hvis
           <option>CONFIG_DRM</option> (Direct Rendering Manager) er aktivert,
-          er det sannsynlig <option>CONFIG_DRM_FBDEV_EMULATION</option> (Muliggjøre
-          legacy fbdev støtte for modusinnstillingsdriveren) bør være
-           aktivert også.</para>
+          er det sannsynlig at <option>CONFIG_DRM_FBDEV_EMULATION</option> (Enable
+          legacy fbdev support for your modesetting driver) bør være
+          aktivert også.</para>
         </listitem>
       </varlistentry>
 
-	  <varlistentry>
+      <varlistentry>
         <term><parameter>Support x2apic</parameter></term>
         <listitem>
           <para>Støtte for å kjøre avbruddskontrolleren for 64-bit x86
@@ -341,7 +341,7 @@ Device Drivers ---&gt;
       gjør det er å opprette oppføringen for &boot-dir; i &fstab; først (les
       forrige seksjon for detaljer), utfør deretter følgende kommando
       som &root; bruker i
-      <emphasis>chroot miljøet</emphasis>:</para>
+      <emphasis>chroot environment</emphasis>:</para>
 
 <screen role="nodump"><userinput>mount /boot</userinput></screen>
 
@@ -380,7 +380,7 @@ cp -r Documentation/* /usr/share/doc/linux-&linux-version;</userinput></screen>
 
     <para>Det er viktig å merke seg at filene i kjernekildens
     mappen ikke eies av <emphasis>root</emphasis>. Når en
-    pakke pakkes ut som bruker <emphasis>root</emphasis> som vi gjorde
+    pakke pakkes ut som bruker <emphasis>root</emphasis> (som vi gjorde
     inne i chroot), filene har bruker- og gruppe-IDer for hva som helst
     de var på pakkerens datamaskin. Dette er vanligvis ikke et problem
     for enhver pakke som skal installeres fordi kildetreet blir
@@ -398,7 +398,7 @@ cp -r Documentation/* /usr/share/doc/linux-&linux-version;</userinput></screen>
 
       <para>Hvis kjernekildetreet skal beholdes, kjør
       <command>chown -R 0:0</command> på <filename
-      class="directory">linux-&linux-version;</filename> mappen å forsikre seg om
+      class="directory">linux-&linux-version;</filename> mappen å sikre
       at alle filer eies av brukeren <emphasis>root</emphasis>.</para>
     </note>
 
