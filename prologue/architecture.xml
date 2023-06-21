@@ -10,7 +10,7 @@
 
   <title>LFS målarkitekturer</title>
 
-<para>Det primære målarkitekturene til LFS er AMD/Intel x86 (32-bit)
+<para>Den primære målarkitekturene til LFS er AMD/Intel x86 (32-bit)
 og x86_64 (64-bit) CPUer. På den annen side er instruksjonene i denne boken
 også kjent for å fungere, med noen modifikasjoner, med Power PC og ARM CPUer. Hovedforutsetningen for å
 bygge et system som bruker en av disse CPUene, i
@@ -20,20 +20,20 @@ som retter seg mot arkitekturen du har. Vær også oppmerksom på at en 32-bit
 distribusjon kan installeres og brukes som et vertssystem på en 64-bit AMD/Intel
 datamaskin.</para>
 
-<para>For å bygge LFS, gevinsten ved å bygge på et 64-bitssystem
+<para>Gevinsten ved å bygge på et 64-bitssystem
 sammenlignet med et 32-bits system er minimal.
 For eksempel, i en testbygging av LFS-9.1 på et Core i7-4790 CPU-basert system,
 ved bruk av 4 kjerner ble følgende statistikk målt:</para>
 
 <screen><computeroutput>Arkitektur Byggetid     Byggestørrelse
-32-bit       239.9 minutes  3.6 GB
-64-bit       233.2 minutes  4.4 GB</computeroutput></screen>
+32-bit       239.9 minutter  3.6 GB
+64-bit       233.2 minutter  4.4 GB</computeroutput></screen>
 
 <para>Som du kan se, på den samme maskinvaren, er 64-bits bygg bare 3% raskere
 og er 22 % større enn 32-bits bygg. Hvis du planlegger å bruke LFS som en LAMP
 server, eller en brannmur, kan en 32-bits CPU stort sett være tilstrekkelig. På den andre
 siden, trenger flere pakker i BLFS nå mer enn 4 GB RAM for å bygges
-og/eller å kjøre, slik at hvis du planlegger å bruke LFS som skrivebord, så anbefaler LFS-forfatterne
+og/eller å kjøre, slik at hvis du planlegger å bruke LFS som skrivebord, så anbefaler LFS forfatterne
 å bygge på et 64-bitssystem.</para>
 
 <para>Standard 64-bits bygg som et resultat av LFS regnes som et

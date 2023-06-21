@@ -11,7 +11,7 @@
   <title>Publikum</title>
 
 <para>Det er mange grunner til at du ønsker å lese denne boken. Et av
-spørsmålene mange spørrer seg er, <quote>hvorfor gå gjennom alt bryet med å manuelt
+spørsmålene mange spør er, <quote>hvorfor gå gjennom alt bryet med å manuelt
 bygge et Linux system fra bunnen av når du bare kan laste ned og installere
 en eksisterende?</quote></para>
 
@@ -23,8 +23,8 @@ muligheten til å tilpasse et Linux system for å passe dine egne unike behov.</pa
 
 <para>En annen viktig fordel med LFS er at den lar deg ha mer kontroll
 over systemet uten å stole på andres Linux implementering. Med
-LFS, du er i førersetet og dikterer alle aspekter av
-systemet.</para>
+LFS, du er i førersetet. <emphasis>Du</emphasis> dikterer alle aspekter av
+systemet ditt.</para>
 
 <para>LFS lar deg lage svært kompakte Linux systemer. Ved installasjon av
 vanlige distribusjoner, blir du ofte tvunget til å installere svært mange

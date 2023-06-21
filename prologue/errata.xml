@@ -11,20 +11,22 @@
   <title>Errata og sikkerhetsråd</title>
 
   <para>Programvaren som brukes til å lage et LFS system blir kontinuerlig oppdatert
-   og forbedret. Sikkerhetsadvarsler og feilrettinger kan bli tilgjengelige etter at
-   LFS boken er utgitt. For å sjekke om pakkeversjonene eller
-   instruksjonene i denne utgaven av LFS trenger eventuelle modifikasjoner for å imøtekomme
-   sikkerhetssårbarheter eller andre feilrettinger, vennligst besøk
+  og forbedret. Sikkerhetsadvarsler og feilrettinger kan bli tilgjengelige etter at
+  LFS boken er utgitt. For å sjekke om pakkeversjonene eller
+  instruksjonene i denne utgaven av LFS trenger eventuelle modifikasjoner&mdash;å reparere
+  sikkerhetssårbarheter eller for å fikse andre feil&mdash;besøk
   <ulink url="&errata;"/>
-  før du fortsetter med byggingen. Du bør merke noen
-   endringer som vises, og bruke dem på den relevante delen av boken mens du
-   bygger LFS systemetet.</para>
+  før du fortsetter med byggingen. Du bør merke deg
+  endringer som vises, og bruke dem på den relevante delen av boken mens du
+  bygger LFS systemetet.</para>
 
   <para>I tillegg opprettholder Linux From Scratch redaktørene en liste over 
-   sikkerhetssårbarheter oppdaget etter at en bok ble utgitt. For å sjekke om det
-   er noen aktive sikkerhetssårbarheter, vennligst besøk
-  <ulink url="&secadv;"/> før du fortsetter med byggingen. Du bør merke deg
-   eventuelle råd og utfør trinnene for å fikse eventuelle sikkerhetssårbarheter mens
-   du bygger LFS systemet.</para>
+  sikkerhetssårbarheter oppdaget <emphasis>etter</emphasis> at en bok ble utgitt. For å lese listen, besøk
+  <ulink url="&secadv;"/> før du fortsetter med byggingen. Du bør anvende
+  endringene foreslått av rådene til de relevante delene av
+  boken mens du bygger LFS-systemet. Og hvis du vil bruke LFS-systemet som
+  et ekte skrivebord eller serversystem, bør du fortsette å konsultere
+  råd og fikse eventuelle sikkerhetssårbarheter, selv når LFS-systemet
+  er ferdig bygget.</para>
 
 </sect1>
