@@ -11,12 +11,12 @@
   <title>Tilleggsressurser</title>
 
   <para>Takk for at du leste denne LFS boken. Vi håper at du
-   fant denne boken nyttig og har lært mer om systemets
-   opprettelsesprosess.</para>
+  fant denne boken nyttig og har lært mer om systemets
+  opprettelsesprosess.</para>
 
   <para>Nå som LFS systemet er installert, lurer du kanskje på
   <quote>Hva nå?</quote> For å svare på det spørsmålet har vi satt sammen en
-   liste over ressurser for deg.</para>
+  liste over ressurser for deg.</para>
 
   <itemizedlist>
 
@@ -24,9 +24,9 @@
       <para>Vedlikehold</para>
 
       <para>Feil og sikkerhetsmeldinger rapporteres regelmessig for all programvare.
-       Siden et LFS system er kompilert fra kilden, er det opp til deg å holde det
-       ajour med slike rapporter. Det er flere nettressurser som sporer
-       slike rapporter, hvorav noen er vist nedenfor:</para>
+      Siden et LFS system er kompilert fra kilden, er det opp til deg å holde det
+      ajour med slike rapporter. Det er flere nettressurser som sporer
+      slike rapporter, hvorav noen er vist nedenfor:</para>
 
       <itemizedlist>
 
@@ -52,8 +52,8 @@
       <para>Beyond Linux From Scratch</para>
 
       <para>Boken Beyond Linux From Scratch dekker installasjons
-       prosedyrer for et bredt spekter av programvare utenfor omfanget av LFS
-       boken. BLFS prosjektet ligger på <ulink url="&blfs-book;"/>.
+      prosedyrer for et bredt spekter av programvare utenfor omfanget av LFS
+      boken. BLFS prosjektet ligger på <ulink url="&blfs-book;"/>.
       </para>
     </listitem>
 -->
@@ -61,27 +61,27 @@
       <para>LFS Tips</para>
 
       <para>LFS tipsene er en samling pedagogiske dokumenter
-       sendt inn av frivillige i LFS miljøet. Hintene er tilgjengelige
-       på <ulink url="&hints-root;"/>.</para>
+      sendt inn av frivillige i LFS miljøet. Hintene er tilgjengelige
+      på <ulink url="&hints-root;"/>.</para>
     </listitem>
 
     <listitem>
       <para>E-postlister</para>
 
       <para>Det er flere LFS E-postlister du kan abonnere på hvis du
-       har behov for hjelp, ønsker å holde deg oppdatert med den siste utviklingen,
+      ar behov for hjelp, ønsker å holde deg oppdatert med den siste utviklingen,
        ønsker å bidra til prosjektet, med mer. Se <xref
       linkend="ch-intro-maillists"/> for mer
-       informasjon.</para>
+      informasjon.</para>
     </listitem>
 
     <listitem>
       <para>Linux dokumentasjonsprosjektet</para>
 
       <para>Målet med Linux dokumentasjonsprosjektet (TLDP) er å
-       samarbeide om alle problemene med Linux dokumentasjon. TLDP funksjonene
-       en stor samling av HOWTOer, guider og man sider. Den ligger på
-      <ulink url="https://.tldp.org/"/>.</para>
+      samarbeide om alle problemene med Linux dokumentasjon. TLDP funksjonene
+      en stor samling av HOWTOer, guider og mansider. Den ligger på
+      <ulink url="https://tldp.org/"/>.</para>
     </listitem>
 
   </itemizedlist>

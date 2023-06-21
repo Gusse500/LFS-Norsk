@@ -23,9 +23,14 @@
   <sect2 role="package">
     <title/>
 
-    <para>Libffi-biblioteket gir et flyttbart programmeringsgrensesnitt på høyt nivå
-    til ulike kallkonvensjoner. Dette lar en programmerer kalle
-    enhver funksjon ved kjøring, spesifisert av en grensesnittbeskrivelse for et kall.</para>
+    <para>Libffi-biblioteket gir en portabel høynivå programmerings
+    grensesnitt til ulike kallkonvensjoner. Dette lar en programmerer kalle
+    enhver funksjon ved kjøretid, spesifisert av et kallgrensesnittbeskrivelse.</para>
+  
+    <para>FFI står for Foreign Function Interface. En FFI tillater et program skrevet
+    på ett språk å kalle et program skrevet på et annet språk. Nærmere bestemt,
+    Libffi kan gi en bro mellom en tolk som Perl, eller Python, og
+    delte biblioteksunderrutiner skrevet i C eller C++.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -46,18 +51,18 @@
       <para>I likhet med GMP bygges libffi med spesifikke optimaliseringer
       til prosessoren som er i bruk. Hvis du bygger for et annet system, endre
       verdien av <parameter>--with-gcc-arch=</parameter> parameteren i
-       følgende kommando til et arkitekturnavn fullt implementert av
-       CPU på det systemet.
-       Hvis dette ikke gjøres, vil alle applikasjoner som lenker til libffi utløse
-       ulovlige operasjonsfeil.</para>
+      følgende kommando til et arkitekturnavn fullt implementert av
+      CPU på det systemet.
+      Hvis dette ikke gjøres, vil alle applikasjoner som lenker til
+      <filename class='libraryfile'>libffi</filename> utløse
+      ulovlige operasjonsfeil (Illegal Operation Errors).</para>
     </note>
 
     <para>Forbered libffi for kompilering:</para>
 
     <screen><userinput remap="configure">./configure --prefix=/usr          \
             --disable-static       \
-            --with-gcc-arch=native \
-            --disable-exec-static-tramp</userinput></screen>
+            --with-gcc-arch=native</userinput></screen>
 
     <variablelist>
       <title>Betydningen av konfigureringsalternativet:</title>
@@ -66,26 +71,15 @@
         <term><parameter>--with-gcc-arch=native</parameter></term>
         <listitem>
           <para>Sørger for at GCC optimerer for det gjeldende systemet. Hvis dette
-          ikke er spesifisert, gjettes systemet og koden som genereres
-          kanskje ikke er riktig for enkelte systemer. Hvis den genererte koden
-          vil bli kopiert fra det opprinnelige systemet til et mindre kapabelt system
+          ikke er spesifisert, gjettes systemet og koden som genereres er
+          kanskje ikke riktig. Hvis den genererte koden
+          vil bli kopiert fra det opprinnelige systemet til et mindre kapabelt
           system, bruk det mindre kapable systemet som parameter. For detaljer
           om alternative systemtyper, se <ulink
           url='https://gcc.gnu.org/onlinedocs/gcc-&gcc-version;/gcc/x86-Options.html'>
           x86 alternativene i GCC manualen</ulink>.</para>
         </listitem>
       </varlistentry>
-
-      <varlistentry>
-        <!-- To editors: try to remove it once GJS fixed (at GNOME 43) -->
-        <term><parameter>--disable-exec-static-tramp</parameter></term>
-        <listitem>
-          <para>Deaktiver statisk trampolinestøtte. Det er en ny sikkerhet
-          funksjon i libffi, men noen BLFS pakker (spesielt
-          <application>GJS</application>) er ikke tilpasset for det.</para>
-        </listitem>
-      </varlistentry>
-
     </variablelist>
 
     <para>Kompiler pakken:</para>
@@ -121,7 +115,7 @@
       <varlistentry id="libffi">
         <term><filename class="libraryfile">libffi</filename></term>
         <listitem>
-          <para>inneholder API funksjonene for fremmede funksjonsgrensesnitt</para>
+          <para>Inneholder API funksjonene for fremmede funksjonsgrensesnitt</para>
           <indexterm zone="ch-system-libffi">
             <primary sortas="c-libffi">libffi</primary>
           </indexterm>

@@ -11,40 +11,40 @@
 
   <title>Generelle kompileringsinstruksjoner</title>
 
-  <para>Ved bygging av pakker er det flere forutsetninger som er gjort innenfor
-   instruksjonene:</para>
+  <para>Her er noen ting du bør vite om å bygge hver pakke:</para>
 
   <itemizedlist>
 
   <listitem>
-    <para>Flere av pakkene oppdateres før kompilering, men kun når
-     oppdateringen er nødvendig for å omgå et problem. En oppdatering er ofte nødvendig i
-     både dette og de følgende kapitlene, men noen ganger på bare ett sted.
-     Vær derfor ikke bekymret hvis instruksjoner for en nedlastet oppdatering vises
-     å være savnet. Advarselsmeldinger om <emphasis>offset</emphasis> eller
+    <para>Flere pakker oppdateres før kompilering, men bare når
+    oppdateringen er nødvendig for å omgå et problem. En oppdatering er ofte nødvendig i
+    både gjeldende og følgende kapitler, men noen ganger, når den samme pakken
+    er bygget mer enn én gang, er ikke lappen nødvendig med en gang.
+    Vær derfor ikke bekymret hvis instruksjoner for en nedlastet oppdatering vises
+    å være savnet. Advarselsmeldinger om <emphasis>offset</emphasis> eller
     <emphasis>fuzz</emphasis> kan også oppstå ved en oppdatering.
-     Ikke bekymre deg for disse advarslene, siden oppdateringen fortsatt var vellykket
-     anvendt.</para>
+    Ikke bekymre deg for disse advarslene, siden oppdateringen fortsatt var vellykket
+    anvendt.</para>
   </listitem>
 
   <listitem>
-    <para>Under kompileringen av de fleste pakkene vil det være flere
-     advarsler som ruller forbi på skjermen. Disse er normale og kan trygt bli
-     ignorert. Disse advarslene er slik de vises&mdash;advarsler om
-     utdatert, men ikke ugyldig, bruk av C- eller C++-syntaksen. C-standardene endres
-     ganske ofte, og noen pakker bruker fortsatt den eldre standarden. Dette er ikke et
-     problem, men gir en advarsel.</para>
+    <para>Under kompileringen av de fleste pakkene, noen
+    advarsler vil rulle forbi på skjermen. Disse er normale og kan trygt bli
+    ignorert. Disse advarslene handler vanligvis om
+    utdatert, men ikke ugyldig, bruk av C- eller C++-syntaksen. C-standardene endres
+    ganske ofte, og noen pakker er ennå ikke oppdatert. Dette er ikke et
+    alvorlig problem, men det fører til at advarslene vises.</para>
   </listitem>
 
   <listitem>
     <para>Sjekk en siste gang at <envar>LFS</envar> miljøvariabelen
-     er riktig satt opp:</para>
+    er riktig satt opp:</para>
 
 <screen role="nodump"><userinput>echo $LFS</userinput></screen>
 
     <para>Sørg for at utdataen viser banen til LFS partisjonens monterings
-     punkt, som er <filename class="directory">/mnt/lfs</filename>, ved bruken av vårt
-     eksempel.</para>
+    punkt, som er <filename class="directory">/mnt/lfs</filename>, ved bruken av vårt
+    eksempel.</para>
   </listitem>
 
   <listitem>
@@ -55,64 +55,63 @@
 
       <para>Byggeinstruksjonene forutsetter at <xref
       linkend='ch-partitioning-hostreqs'/>, inkludert symbolske lenker, har
-       blitt riktig innstilt:</para>
+      blitt riktig innstilt:</para>
 
       <itemizedlist role='important'>
 
         <listitem override='bullet'><para><command>bash</command> er skallet
-         i bruk.</para></listitem>
+        i bruk.</para></listitem>
 
         <listitem override='bullet'><para><command>sh</command> er en symbolsk
-         lenke til <command>bash</command>.</para></listitem>
+        lenke til <command>bash</command>.</para></listitem>
 
         <listitem override='bullet'><para><command>/usr/bin/awk</command> er en
-         symbolsk lenke til <command>gawk</command>.</para></listitem>
+        symbolsk lenke til <command>gawk</command>.</para></listitem>
 
         <listitem override='bullet'><para><command>/usr/bin/yacc</command> er en
-         symbolsk lenke til <command>bison</command> eller et lite skript som
-         starter bison.</para></listitem>
+        symbolsk lenke til <command>bison</command>, eller et lite skript som
+        starter bison.</para></listitem>
 
       </itemizedlist>
     </important>
 
     <important>
-      <para>Å understreke byggeprosessen på nytt:</para>
+      <para>Her er en oversikt over byggeprosessen.</para>
 
       <orderedlist numeration="arabic" spacing="compact">
         <listitem>
           <para>Plasser alle kildene og oppdateringene i en mappe som vil være
-           tilgjengelig fra chroot-miljøet som f.eks
-          <filename class="directory">/mnt/lfs/sources/</filename>.<!-- 
-          <emphasis>ikke</emphasis> legge kilder i
+          tilgjengelig fra chroot-miljøet som f.eks
+          <filename class="directory">/mnt/lfs/sources/</filename>.<!--
+          <emphasis>ikke</emphasis> legg kilder i
           <filename class="directory">/mnt/lfs/tools/</filename>. --></para>
         </listitem>
         <listitem>
-          <para>Bytt til kildemappen.</para>
+          <para>Bytt til <filename class="directory">/mnt/lfs/sources/</filename> mappen.</para>
         </listitem>
         <listitem id='buildinstr' xreflabel='Package build instructions'>
           <para>For hver pakke:</para>
           <orderedlist numeration="loweralpha" spacing="compact">
             <listitem>
-              <para>Bruk <command>tar</command> programmet, til å pakke ut pakken
-               som skal bygges. I <xref linkend="chapter-cross-tools"/> og
+              <para>Bruk <command>tar</command> programmet, pakke ut pakken
+              som skal bygges. I <xref linkend="chapter-cross-tools"/> og
               <xref linkend="chapter-temporary-tools"/>, sikre at du er
-               <emphasis>lfs</emphasis> brukeren når du pakker ut pakken.</para>
-              <para>Alle metoder for å få bygget kildekodetreet
-               på sin plass, bortsett fra å trekke ut pakkens tarball, er ikke
-               støttet. Spesielt ved å bruke <command>cp -R</command> for å kopiere
-               kildekodetre til et annet sted kan ødelegge koblinger og
-               tidsstempler i kildetreet og forårsake at byggingen
-               feiler.</para>
+              <emphasis>lfs</emphasis> brukeren når du pakker ut pakken.</para>
+            <para>Ikke bruk noen metode bortsett fra <command>tar</command> kommandoen
+              for å trekke ut kildekoden. Spesielt ved å bruke <command>cp -R</command>
+              kommandoen for å kopiere
+              kildekodetre et annet sted kan ødelegge lenker og
+              tidsstempler i kildetreet, og føre til at byggingen mislykkes.</para>
             </listitem>
             <listitem>
               <para>Bytt til mappen som ble opprettet da pakken ble
-               pakket ut.</para>
+              pakket ut.</para>
             </listitem>
             <listitem>
               <para>Følg bokens instruksjoner for å bygge pakken.</para>
             </listitem>
             <listitem>
-              <para>Bytt tilbake til kildemappen.</para>
+              <para>Bytt tilbake til kildemappen når byggingen er ferdig.</para>
             </listitem>
             <listitem>
               <para>Slett den utpakkede kildemappen med mindre du blir bedt om noe annet.</para>

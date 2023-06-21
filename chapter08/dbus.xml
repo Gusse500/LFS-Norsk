@@ -55,7 +55,7 @@
             --disable-static                     \
             --disable-doxygen-docs               \
             --disable-xml-docs                   \
-            --docdir=/usr/share/doc/dbus-&dbus-version; \
+            --docdir=/usr/share/doc/dbus-&dbus-version;  \
             --with-system-socket=/run/dbus/system_bus_socket</userinput></screen>
 
     <variablelist>
@@ -63,12 +63,12 @@
 
       <varlistentry>
         <term>
-          <parameter>--runstatedir=/run</parameter> and
+          <parameter>--runstatedir=/run</parameter> og
           <parameter>--with-system-socket=/run/dbus/system_bus_socket</parameter>
         </term>
         <listitem>
-          <para>Disse angir plasseringen av PID filen og systembusskontakten
-          til å være i <filename class="directory">/run</filename>, i stedet for
+          <para>Disse gjør at PIDfilen og systembusskontakten
+          vil være i <filename class="directory">/run</filename>, i stedet for
           utdaterte <filename class="directory">/var/run</filename>.</para>
         </listitem>
       </varlistentry>
@@ -88,7 +88,7 @@
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>Lag en symbolkobling slik at D-Bus og systemd kan bruke den sam
+    <para>Lag en symbolkobling slik at D-Bus og systemd kan bruke den samme
     <filename>machine-id</filename> filen:</para>
 
 <screen><userinput remap="install">ln -sfv /etc/machine-id /var/lib/dbus</userinput></screen>
@@ -142,8 +142,8 @@
       <varlistentry id="dbus-launch">
         <term><command>dbus-launch</command></term>
         <listitem>
-          <para>Starter <command>dbus-daemon</command> fra et skall
-          skript</para>
+          <para>Starter <command>dbus-daemon</command> fra et
+          skallskript</para>
           <indexterm zone="ch-system-dbus dbus-launch">
             <primary sortas="b-dbus-launch">dbus-launch</primary>
           </indexterm>

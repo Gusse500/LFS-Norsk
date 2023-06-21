@@ -17,16 +17,16 @@
   den kjørende kjernen), kan brukes til byggingen.</para>
 
   <para>For riktig drift av det isolerte miljøet, noe kommunikasjon
-  med den kjørende kjernen må være etablert. Dette gjøres gjennom det
+  med den kjørende kjernen må være etablert. Dette gjøres gjennom de
   såkalte <emphasis>Virtuelle kjernefilsystemer (Virtual Kernel File Systems)</emphasis>, som må være
   montert når du går inn i chroot miljøet. Det kan være lurt å sjekke
-  at de er montert ved å kjøre <command>findmnt</command>.</para>
+  at de er montert ved å kjøre <command>findmnt</command> kommandoen.</para>
 
-  <para>Før <xref linkend="ch-tools-chroot"/>, kommandoene må kjøres
+  <para>Until <xref linkend="ch-tools-chroot"/>, kommandoene må kjøres
   som <systemitem class="username">root</systemitem>, med
-  <envar>LFS</envar> variabelsett. Etter å ha gått inn i inn chroot, alle kommandoer
+  <envar>LFS</envar> variabelen satt. Etter å ha gått inn i inn chroot, alle kommandoer
   kjøres som &root;, heldigvis uten tilgang til operativsystemet til datamaskinen
   du bygde LFS på. Vær forsiktig uansett, da det er lett å ødelegge hele
-  LFS system med dårlig utformede kommandoer.</para>
+  LFS system med dårlige kommandoer.</para>
 
 </sect1>

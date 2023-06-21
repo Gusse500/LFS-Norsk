@@ -11,19 +11,19 @@
   <title>Forutsetninger</title>
 
   <para>Å bygge et LFS system er ikke en enkel oppgave. Det krever en viss
-   nivå av eksisterende kunnskap om Unix systemadministrasjon for å løse
-   problemer og utfør kommandoene som er oppført riktig. Spesielt som en
-   absolutt minimum, bør du allerede ha muligheten til å bruke
-   kommandolinje (skall) for å kopiere eller flytte filer og mapper, liste mapper
-   og filinnhold, og endre gjeldende mappe. Det forventes også at
-   du har rimelig kunnskap om bruk og installasjon av Linux
-   programvare.</para>
+  nivå av eksisterende kunnskap om Unix systemadministrasjon for å løse
+  problemer og utfør kommandoene som er oppført riktig. Spesielt som en
+  absolutt minimum, bør du allerede ha muligheten til å bruke
+  kommandolinjen (skaller) for å kopiere eller flytte filer og mapper, liste mapper
+  og filinnhold, og endre gjeldende mappe. Det forventes også at
+  du har rimelig kunnskap om bruk og installasjon av Linux
+  programvare.</para>
 
   <para>Fordi LFS boka antar <emphasis>i det minste</emphasis> dette grunnleggende
-   ferdighetsnivået, er det usannsynlig at de ulike LFS støtteforaene vil kunne
-   gi deg mye hjelp på disse områdene. Du vil finne at dine
-   spørsmål angående slik grunnleggende kunnskap vil sannsynligvis forbli ubesvart eller du
-   vil ganske enkelt bli henvist til LFS essensielle forhåndsleseliste.</para>
+  ferdighetsnivået, er det usannsynlig at de ulike LFS støtteforaene vil kunne
+  gi deg mye hjelp på disse områdene. Du vil finne at dine
+  spørsmål angående slik grunnleggende kunnskap vil sannsynligvis forbli ubesvart (eller du
+  vil ganske enkelt bli henvist til LFS essensielle forhåndsleseliste).</para>
 
   <para>Før du bygger et LFS system, anbefaler vi å lese følgende:</para>
 
@@ -33,9 +33,9 @@
       <ulink url="https://tldp.org/HOWTO/Software-Building-HOWTO.html"/></para>
 
       <para>Dette er en omfattende veiledning for bygging og installasjon av
-       <quote>generiske</quote> Unix-programvarepakker under Linux. Selv om det
-       ble skrevet for en tid siden, gir den fortsatt en god oppsummering av
-       grunnleggende teknikker som trengs for å bygge og installere programvare.</para>
+      <quote>generiske</quote> Unix-programvarepakker under Linux. Selv om det
+      ble skrevet for en tid siden, gir den fortsatt en god oppsummering av
+      grunnleggende teknikker som trengs for å bygge og installere programvare.</para>
     </listitem>
 
     <listitem>
@@ -43,7 +43,7 @@
       <ulink url="https://moi.vonos.net/linux/beginners-installing-from-source/"/></para>
 
       <para>Denne veiledningen gir en god oppsummering av grunnleggende ferdigheter og
-       teknikker som trengs for å bygge programvare fra kildekode.</para>
+      teknikker som trengs for å bygge programvare fra kildekode.</para>
     </listitem>
 <!--
     <listitem>
@@ -51,9 +51,9 @@
       <ulink url="&hints-root;essential_prereading.txt"/></para>
 
       <para>Dette er et LFS-tips skrevet spesielt for brukere som er nye til Linux.
-       Den inneholder en liste over lenker til utmerkede informasjonskilder om en
-       bredt spekter av emner. Alle som prøver å installere LFS bør ha en
-       forståelse av mange av emnene i dette hintet.</para>
+      Den inneholder en liste over lenker til utmerkede informasjonskilder om en
+      bredt spekter av emner. Alle som prøver å installere LFS bør ha en
+      forståelse av mange av emnene i dette hintet.</para>
     </listitem>
 -->
   </itemizedlist>

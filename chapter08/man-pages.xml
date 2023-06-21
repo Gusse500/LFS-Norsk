@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Man-pages pakken inneholder over 2200 Man-sider.</para>
+    <para>Man-pages pakken inneholder over 2400 mansider..</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -38,22 +38,22 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installasjon av Man-sider</title>
+    <title>Installasjon av Man-pages</title>
 
-    <para>Installer Man-sider ved å kjøre:</para>
+    <para>Installer Man-pages ved å kjøre:</para>
 
 <screen><userinput remap="install">make prefix=/usr install</userinput></screen>
 
   </sect2>
 
   <sect2 id="contents-manpages" role="content">
-    <title>Innhold i Man-sider</title>
+    <title>Innhold i Man-pages</title>
 
     <segmentedlist>
       <segtitle>Installerte filer</segtitle>
 
       <seglistitem>
-        <seg>ulike Man-sider</seg>
+        <seg>ulike mansider</seg>
       </seglistitem>
     </segmentedlist>
 
@@ -66,7 +66,7 @@
         <term><filename>man pages</filename></term>
         <listitem>
           <para>Beskriver C programmeringsspråksfunksjoner, viktig
-           enhetsfiler og betydelige konfigurasjonsfiler</para>
+          enhetsfiler og betydelige konfigurasjonsfiler</para>
           <indexterm zone="ch-system-man-pages man-pages">
             <primary sortas="e-man-pages">man pages</primary>
           </indexterm>

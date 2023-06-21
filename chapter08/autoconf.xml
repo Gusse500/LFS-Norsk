@@ -24,7 +24,7 @@
     <title/>
 
     <para>Autoconf pakken inneholder programmer for å produsere skallskript som
-     automatisk kan konfigurere kildekoden.</para>
+    automatisk kan konfigurere kildekoden.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,12 +40,13 @@
 
   <sect2 role="installation">
     <title>Installasjon av Autoconf</title>
-<!--
-    <para>Først, bruk en oppdatering løser flere problemer som oppstår med den siste
-     perl-, libtool- og bash versjonene.</para>
 
-<screen><userinput remap="pre">patch -Np1 -i ../&autoconf-fixes-patch;</userinput></screen>
--->
+    <para>Først, fiks flere problemer med testene forårsaket av bash-5.2 og senere:</para>
+
+    <screen><userinput remap="pre">sed -e 's/SECONDS|/&amp;SHLVL|/'               \
+    -e '/BASH_ARGV=/a\        /^SHLVL=/ d' \
+    -i.orig tests/local.at</userinput></screen>
+
     <para>Forbered Autoconf for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
@@ -57,20 +58,20 @@
     <para>For å teste resultatene, utsted:</para>
 <!--
     <para>Testpakken er for øyeblikket ødelagt av bash-5 og libtool-2.4.3.
-     For å kjøre testene uansett, utsted:</para>
+    For å kjøre testene uansett, utsted:</para>
  -->
 <screen><userinput remap="test">make check</userinput></screen>
 <!--
     <para>Dette tar lang tid, ca &autoconf-fin-sbu-tests; SBU. I tillegg,
-     flere tester hoppes over som bruker Automake. For full testdekning,
-     Autoconf kan testes på nytt etter at Automake er installert. I tillegg,
-     to tester mislykkes på grunn av endringer i libtool-2.4.3 og senere.</para>
+    flere tester hoppes over som bruker Automake. For full testdekning,
+    Autoconf kan testes på nytt etter at Automake er installert. I tillegg,
+    to tester mislykkes på grunn av endringer i libtool-2.4.3 og senere.</para>
 -->
     <note><para>Testtiden for autoconf kan reduseres betydelig på en
-     system med flere kjerner. For å gjøre dette, legg til
+    system med flere kjerner. For å gjøre dette, legg til
     <command>TESTSUITEFLAGS=-j&lt;N&gt;</command> til linjen over. For
-     eksempel ved å bruke -j4 kan testtiden reduseres med over 60
-     prosent.</para></note>
+    eksempel ved å bruke -j4 kan testtiden reduseres med over 60
+    prosent.</para></note>
 
     <para>Installer pakken:</para>
 
@@ -101,9 +102,9 @@
         <term><command>autoconf</command></term>
         <listitem>
           <para>Produserer skallskript som automatisk konfigurerer programvares
-           kildekodepakker for å tilpasse seg mange typer Unix-lignende systemer;
-           konfigurasjonsskriptene den produserer er uavhengige&mdash; å kjøre
-           de krever ikke <command>autoconf</command> programmet</para>
+          kildekodepakker for å tilpasse seg mange typer Unix-lignende systemer;
+          konfigurasjonsskriptene den produserer er uavhengige&mdash;å kjøre
+          de krever ikke <command>autoconf</command> programmet</para>
           <indexterm zone="ch-system-autoconf autoconf">
             <primary sortas="b-autoconf">autoconf</primary>
           </indexterm>
@@ -138,7 +139,7 @@
           <command>autoheader</command>, <command>aclocal</command>,
           <command>automake</command>, <command>gettextize</command>, og
           <command>libtoolize</command> i riktig rekkefølge for å spare tid
-           når det gjøres endringer i <command>autoconf</command> og
+          når det gjøres endringer i <command>autoconf</command> og
           <command>automake</command> malfiler</para>
           <indexterm zone="ch-system-autoconf autoreconf">
             <primary sortas="b-autoreconf">autoreconf</primary>
@@ -149,12 +150,12 @@
       <varlistentry id="autoscan">
         <term><command>autoscan</command> </term>
         <listitem>
-          <para>Hjelper med å lage en <filename>configure.in</filename> fil for en
-           programvarepakke; den undersøker kildefilene i et mappetreet,
-           søker etter vanlige problemer med portabilitet, og oppretter en
+          <para>Hjelper med å lage en <filename>configure.in</filename> ffil for en
+          programvarepakke; den undersøker kildefilene i et mappetre,
+          søker etter vanlige problemer med portabilitet, og oppretter en
           <filename>configure.scan</filename> fil som fungerer som en
-           innledende <filename>configure.in</filename> fil for en
-           pakke</para>
+          innledende <filename>configure.in</filename> fil for en
+          pakke</para>
           <indexterm zone="ch-system-autoconf autoscan">
             <primary sortas="b-autoscan">autoscan</primary>
           </indexterm>
@@ -165,8 +166,8 @@
         <term><command>autoupdate</command></term>
         <listitem>
           <para>Endrer en <filename>configure.in</filename> fil som fortsatt
-           anroper <command>autoconf</command> makroer ved deres gamle navn for å bruke
-           gjeldende makronavn</para>
+          anroper <command>autoconf</command> makroer ved deres gamle navn til å bruke
+          gjeldende makronavn</para>
           <indexterm zone="ch-system-autoconf autoupdate">
             <primary sortas="b-autoupdate">autoupdate</primary>
           </indexterm>
@@ -177,11 +178,11 @@
         <term><command>ifnames</command> </term>
         <listitem>
           <para>Hjelper når det skrives <filename>configure.in</filename> filer
-           for en programvarepakke; den skriver ut identifikatorene som pakken
-           bruker i C forbehandler betingelser [Hvis en pakke allerede er satt
-           for å ha en viss portabilitet, kan dette programmet hjelpe med å finne ut hva
+          for en programvarepakke; den skriver ut identifikatorene som pakken
+          bruker i C forbehandler betingelser [Hvis en pakke allerede er satt
+          for å ha en viss portabilitet, kan dette programmet hjelpe med å finne ut hva
           <command>configure</command> må sjekke etter. Den kan også fylle ut
-           hull i en <filename>configure.in</filename> fil generert av
+          hull i en <filename>configure.in</filename> fil generert av
           <command>autoscan</command>.]</para>
           <indexterm zone="ch-system-autoconf ifnames">
             <primary sortas="b-ifnames">ifnames</primary>

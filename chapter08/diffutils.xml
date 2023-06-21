@@ -24,7 +24,7 @@
     <title/>
 
     <para>Diffutils pakken inneholder programmer som viser forskjellene
-     mellom filer eller mapper.</para>
+    mellom filer eller mapper.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -79,8 +79,7 @@
       <varlistentry id="cmp">
         <term><command>cmp</command></term>
         <listitem>
-          <para>Sammenligner to filer og rapporterer om eller i hvilken byte de
-           avviker</para>
+          <para>Sammenligner to filer og rapporterer eventuelle forskjeller byte for byte</para>
           <indexterm zone="ch-system-diffutils cmp">
             <primary sortas="b-cmp">cmp</primary>
           </indexterm>
@@ -91,7 +90,7 @@
         <term><command>diff</command></term>
         <listitem>
           <para>Sammenligner to filer eller mapper og rapporterer hvilke linjer i
-           filene som er forskjellige</para>
+          filene som er forskjellige</para>
           <indexterm zone="ch-system-diffutils diff">
             <primary sortas="b-diff">diff</primary>
           </indexterm>

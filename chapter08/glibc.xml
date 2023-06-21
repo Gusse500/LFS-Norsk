@@ -43,18 +43,22 @@
   <sect2 role="installation">
     <title>Installation of Glibc</title>
 
-<!-- tatt i bruk i 2.35 (commit b805aebd42364fe696e417808a700fdb9800c9e8)
-    <para>Først, fiks et sikkerhetsproblem identifisert oppstrøms:</para>
-
-    <screen><userinput remap="pre">sed -e '/NOTIFY_REMOVED)/s/)/ \&amp;\&amp; data.attr != NULL)/' \
-    -i sysdeps/unix/sysv/linux/mq_notify.c</userinput></screen>
--->
     <para>Noen av Glibc programmene bruker ikke-FHS kompatible
     <filename class="directory">/var/db</filename> mappen til å lagre
     kjøretidsdataene i. Bruk følgende oppdatering for å forsikre om at slike programmer
-    lagrer kjøretidsdataene deres på de FHS-kompatible stedene:</para>
+    lagrer kjøretidsdataene deres på de FHS kompatible stedene:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&glibc-fhs-patch;</userinput></screen>
+
+    <!-- https://sourceware.org/bugzilla/show_bug.cgi?id=30068
+         Upstream fix also added a test case and renamed "prec" to
+         "prec_inc".  We'll test this with MPFR test suite so we don't
+         need the test here, and the renaming does not affect program
+         behavior.  -->
+    <para>Fiks et sikkerhetsproblem identifisert oppstrøms:</para>
+
+<screen><userinput remap="pre">sed '/width -=/s/workend - string/number_length/' \
+    -i stdio-common/vfprintf-process-arg.c</userinput></screen>
 
     <para>Glibc dokumentasjonen anbefaler å bygge Glibc
     i en dedikert byggemappe:</para>
@@ -151,7 +155,7 @@ esac</userinput></screen>
 
     <para>Du kan se noen testfeil. Glibc testpakken er
     noe avhengig av vertssystemet. Noen få feil ut av
-    over 4200 tester kan generelt ignoreres. Dette er en liste over
+    over 5000 tester kan generelt ignoreres. Dette er en liste over
     de vanligste problemene som er sett for nyere versjoner av LFS:</para>
 
     <itemizedlist>
@@ -166,15 +170,9 @@ esac</userinput></screen>
         er kjent for å mislykkes i LFS chroot miljøet.</para>
       </listitem>
 
-      <listitem>
-        <para><emphasis>nss/tst-nss-files-hosts-long</emphasis>
-        testen er kjent for å mislykkes hvis systemet ikke har noen ikke-tilbakekoblings 
-		IP-adresser.</para> <!-- PR 24816 -->
-      </listitem>
-
       <!-- https://sourceware.org/pipermail/libc-alpha/2022-August/141567.html -->
       <listitem>
-        <para>The <emphasis>stdlib/tst-arc4random-thread</emphasis>
+        <para><emphasis>stdlib/tst-arc4random-thread</emphasis>
         testen er kjent for å mislykkes hvis vertskjernen er relativt gammel.</para>
       </listitem>
 
@@ -187,10 +185,10 @@ esac</userinput></screen>
 
 <!--
       <listitem>
-        <para>The <emphasis>rt/tst-cputimer{1,2,3}</emphasis> tester avhenger av
+        <para>The <emphasis>rt/tst-cputimer{1,2,3}</emphasis> testene avhenger av
         vertssystemkjernen. Kjernene 4.14.91&ndash;4.14.96,
         4.19.13&ndash;4.19.18, og 4.20.0&ndash;4.20.5 er kjent for
-        at disse testene mislykkes.
+        å forårsake at disse testene mislykkes.
         </para>
       </listitem>
 
@@ -208,7 +206,7 @@ esac</userinput></screen>
 
 <screen><userinput remap="install">touch /etc/ld.so.conf</userinput></screen>
 
-    <para>Fiks Makefilen til å hoppe over en unødvendig fornuftssjekk
+    <para>Fiks Makefilen til å hoppe over en unødvendig sunnhetssjekk
     som svikter i LFS delmiljøet:
     </para>
 
@@ -218,7 +216,7 @@ esac</userinput></screen>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>Fiks hardkodet bane til den kjørbare lasteren i
+    <para>Fiks en hardkodet bane til den kjørbare lasteren i
     <command>ldd</command> skriptet:</para>
 
 <screen><userinput remap="install">sed '/RTLDLIST=/s@/usr@@g' -i /usr/bin/ldd</userinput></screen>
@@ -235,10 +233,10 @@ mkdir -pv /var/cache/nscd</userinput></screen>
     <screen revision="systemd"><userinput remap="install">install -v -Dm644 ../nscd/nscd.tmpfiles /usr/lib/tmpfiles.d/nscd.conf
 install -v -Dm644 ../nscd/nscd.service /usr/lib/systemd/system/nscd.service</userinput></screen>
 
-    <para>Installer deretter lokalitetene som kan få systemet til å svare i en
-    annet språk. Ingen av lokalitetene er påkrevd, men hvis noen av dem
-    mangler, vil testpakkene til fremtidige pakker hoppe over viktig
-    tester.</para>
+    <para>Installer deretter lokalitetene som kan få systemet til å svare i et
+    annet språk. Ingen av disse stedene er påkrevd, men hvis noen av dem
+    mangler, vil testpakkene til noen pakker hoppe over viktige
+    testsaker.</para>
 
     <para>Individuelle lokaliteter kan installeres ved å bruke
     <command>localedef</command> programmet. For eksempel den andre
@@ -316,7 +314,7 @@ localedef -i ja_JP -f SHIFT_JIS ja_JP.SJIS 2> /dev/null || true</userinput></scr
   </sect2>
 
   <sect2 id="conf-glibc" role="configuration">
-    <title>Konfigurerer Glibc</title>
+    <title>Konfigurere Glibc</title>
 
     <indexterm zone="conf-glibc">
       <primary sortas="e-/etc/nsswitch.conf">/etc/nsswitch.conf</primary>
@@ -357,7 +355,7 @@ EOF</userinput></screen>
     </sect3>
 
     <sect3>
-    <title>Legger til tidssonedata</title>
+    <title>Legge til tidssonedata</title>
 
     <para>Installer og sett opp tidssonedataene med følgende:</para>
 <screen><userinput>tar -xf ../../tzdata&tzdata-version;.tar.gz
@@ -422,7 +420,7 @@ unset ZONEINFO</userinput></screen>
 <screen role="nodump"><userinput>tzselect</userinput></screen>
 
     <para>Etter å ha svart på noen spørsmål om lokaliteten, vil skriptet
-    skrive ut navnet på tidssonen (f.eks.
+    skrive ut navnet på tidssonen (f.eks.,
     <emphasis>America/Edmonton</emphasis>). Det er også noen andre mulige
     tidssoner oppført i <filename
     class='directory'>/usr/share/zoneinfo</filename> som for eksempel
@@ -435,7 +433,7 @@ unset ZONEINFO</userinput></screen>
 <screen><userinput>ln -sfv /usr/share/zoneinfo/<replaceable>&lt;xxx&gt;</replaceable> /etc/localtime</userinput></screen>
 
     <para>Erstatt <replaceable>&lt;xxx&gt;</replaceable> med navnet på
-    den valgte tidssonen (f.eks. Canada/Eastern).</para>
+    den valgte tidssonen (f.eks. Europe/Oslo).</para>
 
   </sect3>
 
@@ -495,7 +493,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <seglistitem>
         <seg>gencat, getconf, getent, iconv, iconvconfig, ldconfig,
         ldd, lddlibc4,
-        ld.so (symlink to ld-linux-x86-64.so.2 or ld-linux.so.2),
+        ld.so (symlenke til ld-linux-x86-64.so.2 or ld-linux.so.2),
         locale, localedef, makedb, mtrace, nscd,
         pcprofiledump, pldd, sln, sotruss, sprof, tzselect, xtrace,
         zdump, og zic</seg>
@@ -622,7 +620,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="localedef">
         <term><command>localedef</command></term>
         <listitem>
-          <para>Kompilerer lokalitets spesifikasjoner</para>
+          <para>Kompilerer lokalitetsspesifikasjoner</para>
           <indexterm zone="ch-system-glibc localedef">
             <primary sortas="b-localedef">localedef</primary>
           </indexterm>
@@ -653,8 +651,8 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="nscd">
         <term><command>nscd</command></term>
         <listitem>
-          <para>En nisse (daemon) som gir et hurtiglager for de vanligste navne
-          tjenesteforespørsler</para>
+          <para>En nisse (daemon) som gir et hurtiglager for de vanligste
+          navnetjenesteforespørsler</para>
           <indexterm zone="ch-system-glibc nscd">
             <primary sortas="b-nscd">nscd</primary>
           </indexterm>
@@ -684,7 +682,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="sln">
         <term><command>sln</command></term>
         <listitem>
-          <para>En statisk koblet <command>ln</command> programm</para>
+          <para>En statisk koblet <command>ln</command> program</para>
           <indexterm zone="ch-system-glibc sln">
             <primary sortas="b-sln">sln</primary>
           </indexterm>

@@ -39,12 +39,12 @@
   <title>Oppstarts og sysconfig skriptversjon-&lfs-bootscripts-version;</title>
 
   <para>Skriptene i dette vedlegget er oppført etter mappene der de er
-   normalt er. Rekkefølgen er <filename
+  normalt er. Rekkefølgen er <filename
   class='directory'>/etc/rc.d/init.d</filename>, <filename
   class='directory'>/etc/sysconfig</filename>, <filename
   class='directory'>/etc/sysconfig/network-devices</filename>, og <filename
   class='directory'>/etc/sysconfig/network-devices/services</filename>.  Innenfor
-   hver seksjon vises filene i den rekkefølgen de vanligvis kalles.
+  hver seksjon vises filene i den rekkefølgen de vanligvis kalles.
   </para>
 
   <sect1 id="rc" role="wrap">

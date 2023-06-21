@@ -50,11 +50,11 @@
     -i libsanitizer/sanitizer_common/sanitizer_posix_libcdep.cpp</userinput></screen>
 -->
 <!--
-    <para>Løs først et problem med den nyeste versjonen av glibc:</para>
+    <para>Først fiks et problem med den nyeste versjonen av glibc:</para>
 
     <screen><userinput remap="pre">patch -Np1 -i ../&gcc-upstream-fixes-patch;</userinput></screen>
 -->
-    <para>Hvis du bygger på x86_64, endre standard katalognavn for 64-bit
+    <para>Hvis du bygger på x86_64, endre standard mappenavn for 64-bit
     bibliotekene til <quote>lib</quote>:</para>
 
 <screen><userinput remap="pre">case $(uname -m) in
@@ -80,8 +80,8 @@ cd       build</userinput></screen>
              --disable-bootstrap      \
              --with-system-zlib</userinput></screen>
 
-    <para>Merk at for andre programmeringsspråk er det noen forutsetninger som
-    ikke er tilgjengelig ennå. Se
+    <para>GCC støtter syv forskjellige dataspråk, men
+    forutsetningene for de fleste av dem er ikke installert ennå. Se
     <ulink url="&blfs-book;general/gcc.html">BLFS Bokens GCC side</ulink>
     for instruksjoner om hvordan du bygger alle GCCs støttede språk.</para>
 
@@ -123,11 +123,11 @@ cd       build</userinput></screen>
         for eksempel endre returadressen til en subrutine,
         som ville tillate overføring av kontroll til en eller annen farlig kode
         (som eksisterer i programmet eller delte biblioteker, eller injisert av
-         en angriper på en eller annen måte) i stedet for den originale.
+        en angriper på en eller annen måte) i stedet for den originale.
       </para>
     </note>
 
-	<para>Kompiler pakken:</para>
+    <para>Kompiler pakken:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
@@ -135,12 +135,12 @@ cd       build</userinput></screen>
       <para>I denne delen vurderes testpakken for GCC å være
       viktig, men det tar lang tid. Førstegangsbyggere
       oppfordres til ikke å hoppe over dette. Tiden for å kjøre testene kan bli
-      redusert betydelig ved å legge til -jx i make kommandoen nedenfor
+      redusert betydelig ved å legge til -jx til <command>make -k check</command> kommandoen nedenfor
       hvor x er antall kjerner på systemet ditt.</para>
     </important>
 
    <para>Et sett med tester i GCC testpakken er kjent for å bruke opp standard
-    stabel (stack), så øk stabelstørrelsen før du kjører testene:</para>
+   stabel (stack), så øk stabelstørrelsen før du kjører testene:</para>
 
 <screen><userinput remap="test">ulimit -s 32768</userinput></screen>
 
@@ -149,24 +149,24 @@ cd       build</userinput></screen>
 <screen><userinput remap="test">chown -Rv tester .
 su tester -c "PATH=$PATH make -k check"</userinput></screen>
 
-    <para>To receive a summary of the test suite results, run:</para>
+    <para>For å trekke ut et sammendrag av resultatene for testpakken, kjør:</para>
 
 <screen><userinput remap="test">../contrib/test_summary</userinput></screen>
 
-    <para>For bare sammendragene, kanaliser utdataene gjennom
+    <para>For å filtrere ut bare sammendragene, kanaliser utdataene gjennom
     <userinput>grep -A7 Summ</userinput>.</para>
 
     <para>Resultatene kan sammenlignes med de som ligger på <ulink
     url="&test-results;"/> og
     <ulink url="https://gcc.gnu.org/ml/gcc-testresults/"/>.</para>
 
-    <para>I gcc er elleve tester i i386-testpakken kjent for å FAIL.
+    <para>I gcc er elleve tester i i386-testpakken kjent for å FEILE.
     Det er fordi testfilene ikke tar hensyn til
     <parameter>--enable-default-pie</parameter> alternativet.</para>
 
-	<para>I g++ er det kjent at fire tester relatert til PR100400 er rapportert
-    som både XPASS og FAIL. Det er fordi testfilen for dette kjente problemet
-    ikke er godt skrevet.</para>
+    <para>Fire tester relatert til PR100400 kan rapporteres
+    som både XPASS og FAIL når du tester g++-kompilatoren; testfilen
+    er ikke godt skrevet.</para>
 
     <para>Noen få uventede feil kan ikke alltid unngås. GCC utviklerne
     er vanligvis klar over disse problemene, men har ikke løst dem ennå.
@@ -186,7 +186,7 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>GCC byggekatalogen eies av <systemitem class="username">
+    <para>GCC byggemappen eies av <systemitem class="username">
     tester</systemitem> nå og eierskapet til den installerte deklarasjonsmappen
     (og dens innhold) vil være feil. Endre eierskapet til
     <systemitem class="username">root</systemitem> bruker og gruppe:</para>
@@ -206,7 +206,7 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
 <screen><userinput remap="install">ln -sv gcc /usr/bin/cc</userinput></screen>
   -->
     <para>Legg til en kompatibilitetssymbolkobling for å aktivere byggeprogrammer med
-    optimalisering av koblingstid (LTO):</para>
+    optimalisering av koblingstid (LTO (Link Time Optimization)):</para>
 
 <screen><userinput remap="install">ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/&gcc-version;/liblto_plugin.so \
         /usr/lib/bfd-plugins/</userinput></screen>
@@ -219,17 +219,17 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
 cc dummy.c -v -Wl,--verbose &amp;&gt; dummy.log
 readelf -l a.out | grep ': /lib'</userinput></screen>
 
-  <para>Det skal ikke være noen feil,
-  og utgangen av den siste kommandoen vil være (som gir rom for
+  <para>Det bør ikke være noen feil,
+  og utdataen av den siste kommandoen vil være (som gir rom for
   plattformspesifikke forskjeller i det dynamiske linkernavnet):</para>
 
 <screen><computeroutput>[Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]</computeroutput></screen>
 
-  <para>Forsikre deg om at det er konfigurert til å bruke de riktige startfilene:</para>
+  <para>Sørg nå for at vi er konfigurert til å bruke de riktige startfilene:</para>
 
 <screen><userinput>grep -E -o '/usr/lib.*/S?crt[1in].*succeeded' dummy.log</userinput></screen>
 
-  <para>Utdata fra den siste kommandoen skal være:</para>
+  <para>Utdata fra den siste kommandoen bør være:</para>
 
 <screen><computeroutput>/usr/lib/gcc/x86_64-pc-linux-gnu/&gcc-version;/../../../../lib/Scrt1.o succeeded
 /usr/lib/gcc/x86_64-pc-linux-gnu/&gcc-version;/../../../../lib/crti.o succeeded
@@ -242,12 +242,12 @@ readelf -l a.out | grep ': /lib'</userinput></screen>
   <filename>crt*.o</filename> filene under
   <filename class="directory">/usr/lib</filename> mappen.</para>
 
-  <para>Bekreft at kompilatoren søker etter riktig
-  deklarasjonsfil:</para>
+  <para>Bekreft at kompilatoren søker etter riktige
+  deklarasjonsfiler:</para>
 
 <screen><userinput>grep -B4 '^ /usr/include' dummy.log</userinput></screen>
 
-  <para>Denne kommandoen skal returnere følgende utdata:</para>
+  <para>Denne kommandoen bør returnere følgende utdata:</para>
 
 <screen><computeroutput>#include &lt;...&gt; search starts here:
  /usr/lib/gcc/x86_64-pc-linux-gnu/&gcc-version;/include
@@ -263,7 +263,7 @@ readelf -l a.out | grep ': /lib'</userinput></screen>
 <screen><userinput>grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'</userinput></screen>
 
   <para>Referanser til stier som har komponenter med '-linux-gnu' bør
-  ignoreres, men ellers skal utdata fra den siste kommandoen være:</para>
+  ignoreres, men ellers bør utdata fra den siste kommandoen være:</para>
 
 <screen><computeroutput>SEARCH_DIR("/usr/x86_64-pc-linux-gnu/lib64")
 SEARCH_DIR("/usr/local/lib64")
@@ -274,7 +274,7 @@ SEARCH_DIR("/usr/local/lib")
 SEARCH_DIR("/lib")
 SEARCH_DIR("/usr/lib");</computeroutput></screen>
 
-   <para>Et 32-bits system kan se noen forskjellige kataloger. For eksempel her
+   <para>Et 32-bits system kan se noen forskjellige mapper. For eksempel her
    er utdata fra en i686-maskin:</para>
 
 <screen><computeroutput>SEARCH_DIR("/usr/i686-pc-linux-gnu/lib32")
@@ -286,11 +286,11 @@ SEARCH_DIR("/usr/local/lib")
 SEARCH_DIR("/lib")
 SEARCH_DIR("/usr/lib");</computeroutput></screen>
 
-  <para>Forsikre deg om at vi bruker riktig libc:</para>
+  <para>Neste forsikre deg om at vi bruker riktig libc:</para>
 
 <screen><userinput>grep "/lib.*/libc.so.6 " dummy.log</userinput></screen>
 
-  <para>Utdata fra den siste kommandoen skal være:</para>
+  <para>Utdata fra den siste kommandoen bør være:</para>
 
 <screen><computeroutput>attempt to open /usr/lib/libc.so.6 succeeded</computeroutput></screen>
 
@@ -298,7 +298,7 @@ SEARCH_DIR("/usr/lib");</computeroutput></screen>
 
 <screen><userinput>grep found dummy.log</userinput></screen>
 
-  <para>Utgangen fra den siste kommandoen skal være (som gir rom for
+  <para>Utdataen fra den siste kommandoen bør være (som gir rom for
   plattformspesifikke forskjeller i dynamisk linkernavn):</para>
 
 <screen><computeroutput>found ld-linux-x86-64.so.2 at /usr/lib/ld-linux-x86-64.so.2</computeroutput></screen>
@@ -405,8 +405,8 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
         <term><command>gcc-ar</command></term>
         <listitem>
           <para>En innpakning rundt <command>ar</command> som legger til et
-          programtillegg til kommandolinjen. Dette programmet brukes kun
-          å legge til "koblingstidsoptimalisering (LTO "link time optimization")" og er ikke nyttig med
+          programtillegg til kommandolinjen. Dette programmet brukes kun for
+          å legge til "koblingstidsoptimalisering (link time optimization)" og er ikke nyttig med
           standard byggealternativer</para>
           <indexterm zone="ch-system-gcc gcc-ar">
             <primary sortas="b-gcc-ar">gc-ar</primary>
@@ -419,7 +419,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
         <listitem>
           <para>En innpakning rundt <command>nm</command> som legger til et
           programtillegg til kommandolinjen. Dette programmet brukes kun
-          å legge til "koblingstidsoptimalisering (LTO "link time optimization")" og er ikke nyttig med
+          for å legge til "koblingstidsoptimalisering (link time optimization)" og er ikke nyttig med
           standard byggealternativer</para>
           <indexterm zone="ch-system-gcc gcc-nm">
             <primary sortas="b-gcc-nm">gc-nm</primary>
@@ -430,9 +430,9 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="gcc-ranlib">
         <term><command>gcc-ranlib</command></term>
         <listitem>
-          <para>En innpakning rundt <command>ranlib</command>  som legger til et
+          <para>En innpakning rundt <command>ranlib</command> som legger til et
           programtillegg til kommandolinjen. Dette programmet brukes kun
-          å legge til "koblingstidsoptimalisering (LTO "link time optimization")" og er ikke nyttig med
+          for å legge til "koblingstidsoptimalisering (link time optimization)" og er ikke nyttig med
           standard byggealternativer</para>
           <indexterm zone="ch-system-gcc gcc-ranlib">
             <primary sortas="b-gcc-ranlib">gc-ranlib</primary>
@@ -526,7 +526,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
         <term><filename class="libraryfile">libgcov</filename></term>
         <listitem>
           <para>Dette biblioteket er koblet inn i et program når GCC blir instruert
-           om å aktivere profilering</para>
+          om å aktivere profilering</para>
           <indexterm zone="ch-system-gcc libgcov">
             <primary sortas="c-libgcov">libgcov</primary>
           </indexterm>
@@ -589,7 +589,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
         <term><filename class="libraryfile">libssp</filename></term>
         <listitem>
           <para>Inneholder rutiner som støtter GCCs stabelknusende beskyttelses
-          funksjonalitet  Normalt er det ubrukt fordi glibc også gir
+          funksjonalitet.  Normalt er det ubrukt fordi glibc også gir
           disse rutinene</para>
           <indexterm zone="ch-system-gcc libssp">
             <primary sortas="c-libssp">libssp</primary>

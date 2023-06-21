@@ -45,9 +45,9 @@
 
     <para>Forbered Bash for kompilering:</para>
 
-<screen><userinput remap="configure">./configure --prefix=/usr                   \
-            --build=$(support/config.guess) \
-            --host=$LFS_TGT                 \
+<screen><userinput remap="configure">./configure --prefix=/usr                      \
+            --build=$(sh support/config.guess) \
+            --host=$LFS_TGT                    \
             --without-bash-malloc</userinput></screen>
 
     <variablelist>
@@ -56,11 +56,11 @@
       <varlistentry>
         <term><parameter>--without-bash-malloc</parameter></term>
         <listitem>
-          <para>Dette alternativet slår av bruken av Bash minnetildelings funksjon
+          <para>Dette alternativet slår av bruken av Bash minnetildelingsfunksjon
           (<function>malloc</function>) som er kjent for å forårsake
-           segmenteringsfeil. Ved å slå av dette alternativet vil Bash bruke
-           <function>malloc</function> funksjonen fra Glibc som er
-           mer stabil.</para>
+          segmenteringsfeil. Ved å slå av dette alternativet vil Bash bruke
+          <function>malloc</function> funksjonen fra Glibc som er
+          mer stabil.</para>
         </listitem>
       </varlistentry>
 
@@ -75,7 +75,7 @@
 <screen><userinput remap="install">make DESTDIR=$LFS install</userinput></screen>
 
     <para>Lag en lenke for programmene som bruker <command>sh</command> til
-     et skall:</para>
+    et skall:</para>
 
 <screen><userinput remap="install">ln -sv bash $LFS/bin/sh</userinput></screen>
 

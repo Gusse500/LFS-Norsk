@@ -45,7 +45,7 @@
     i kjernekildetreet for alternative metoder til måten denne boken
     konfigurerer kjernen på.</para>
 
-    <para>Forbered deg på kompilering ved å kjøre følgende kommando:</para>
+    <para>Forbered for kompilering ved å kjøre følgende kommando:</para>
 
 <screen><userinput remap="pre">make mrproper</userinput></screen>
 
@@ -117,7 +117,9 @@ General architecture-dependent options  ---&gt;
 Device Drivers  ---&gt;
   Graphics support ---&gt;
    Frame buffer Devices ---&gt;
-      [*] Support for frame buffer devices ----
+      &lt;*&gt; Support for frame buffer devices ---&gt;
+   Console display driver support ---&gt;
+      [*] Framebuffer Console support [CONFIG_FRAMEBUFFER_CONSOLE]
   Generic Driver Options  ---&gt;
    [ ] Support for uevent helper [CONFIG_UEVENT_HELPER]
    [*] Maintain a devtmpfs filesystem to mount at /dev [CONFIG_DEVTMPFS]
@@ -156,6 +158,8 @@ Device Drivers  ---&gt;
   Graphics support ---&gt;
    Frame buffer Devices ---&gt;
       &lt;*&gt; Support for frame buffer devices ---&gt;
+   Console display driver support ---&gt;
+      [*] Framebuffer Console support [CONFIG_FRAMEBUFFER_CONSOLE]
 File systems  ---&gt;
    [*] Inotify support for userspace [CONFIG_INOTIFY_USER]
        Pseudo filesystems  ---&gt;
@@ -165,7 +169,7 @@ File systems  ---&gt;
       system. Hvis du bruker menuconfig, aktiver dem i rekkefølgen
       <parameter>CONFIG_PCI_MSI</parameter> først, deretter
       <parameter>CONFIG_IRQ_REMAP</parameter>, til sist
-      <parameter>CONFIG_X86_X2APIC</parameter> fordi kun et alternativ
+      <parameter>CONFIG_X86_X2APIC</parameter> fordi et alternativ kun
       vises etter at avhengighetene er valgt.</para>
 
       <screen role="nodump">Processor type and features ---&gt;
@@ -199,7 +203,7 @@ Device Drivers ---&gt;
     <variablelist>
       <title>Begrunnelsen for de ovennevnte konfigurasjonselementene:</title>
 
-       <varlistentry>
+      <varlistentry>
         <term><parameter>Randomize the address of the kernel image (KASLR)</parameter></term>
         <listitem>
           <para>Aktiver ASLR for kjernebilde for å redusere noen angrep basert
@@ -207,7 +211,7 @@ Device Drivers ---&gt;
         </listitem>
       </varlistentry>
 
-	  <varlistentry>
+      <varlistentry>
         <term>
           <parameter>
             Compile the kernel with warnings as errors
@@ -228,7 +232,7 @@ Device Drivers ---&gt;
         </term>
         <listitem>
           <para>Dette vil kreve <command>cpio</command> for å bygge kjernen.
-          <command>cpio</command> is not installed by LFS.</para>
+          <command>cpio</command> er ikke installert av LFS.</para>
         </listitem>
       </varlistentry>
 
@@ -242,7 +246,7 @@ Device Drivers ---&gt;
         </listitem>
       </varlistentry>
 
-	  <varlistentry>
+      <varlistentry>
         <term><parameter>Support for uevent helper</parameter></term>
         <listitem>
           <para>Å ha dette alternativet satt kan forstyrre enhetens
@@ -266,6 +270,20 @@ Device Drivers ---&gt;
           <para>Dette vil montere kjernevisningen til enhetene på /dev
           ved bytte til rotfilsystem rett før start av
           init.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>Framebuffer Console support</parameter></term>
+        <listitem>
+          <para>Dette er nødvendig for å vise Linux konsollen på en ramme
+          bufferenhet. For å la kjernen skrive ut feilsøkingsmeldinger på et
+          tidlig oppstartsstadium, bør den ikke bygges som en kjernemodul
+          med mindre en initramfs vil bli brukt. Og hvis
+          <option>CONFIG_DRM</option> (Direct Rendering Manager) er aktivert,
+          er det sannsynlig at <option>CONFIG_DRM_FBDEV_EMULATION</option> (Enable
+          legacy fbdev support for your modesetting driver) bør være
+          aktivert også.</para>
         </listitem>
       </varlistentry>
 
@@ -317,12 +335,18 @@ Device Drivers ---&gt;
     <filename class="directory">/boot</filename> mappen.</para>
 
     <caution>
-      <para>Hvis vertssystemet har en separat /boot partisjon, kopieres filene
-      nedenfor dit. Den enkleste måten å gjøre det på er å binde /boot på
-      verten (utenfor chroot) til /mnt/lfs/boot før du fortsetter. Som
-      &root; user in the <emphasis>vertssytemet</emphasis>:</para>
+      <para>Hvis du har bestemt deg for å bruke et separat &boot-dir; partisjon for
+      LFS-system (kanskje dele en &boot-dir; partisjon med vertsdistroen
+      ), filene som er kopiert nedenfor, skal gå dit. Den enkleste måten å
+      gjør det er å opprette oppføringen for &boot-dir; i &fstab; først (les
+      forrige seksjon for detaljer), utfør deretter følgende kommando
+      som &root; bruker i
+      <emphasis>chroot environment</emphasis>:</para>
 
-<screen role="nodump"><userinput>mount --bind /boot /mnt/lfs/boot</userinput></screen>
+<screen role="nodump"><userinput>mount /boot</userinput></screen>
+
+      <para>Stien til enhetsnoden er utelatt i kommandoen fordi
+      <command>mount</command> kan lese den fra &fstab;.</para>
     </caution>
 
     <para>Stien til kjernebildet kan variere avhengig av plattformen
@@ -356,7 +380,7 @@ cp -r Documentation/* /usr/share/doc/linux-&linux-version;</userinput></screen>
 
     <para>Det er viktig å merke seg at filene i kjernekildens
     mappen ikke eies av <emphasis>root</emphasis>. Når en
-    pakke pakkes ut som bruker <emphasis>root</emphasis> som vi gjorde
+    pakke pakkes ut som bruker <emphasis>root</emphasis> (som vi gjorde
     inne i chroot), filene har bruker- og gruppe-IDer for hva som helst
     de var på pakkerens datamaskin. Dette er vanligvis ikke et problem
     for enhver pakke som skal installeres fordi kildetreet blir
@@ -374,7 +398,7 @@ cp -r Documentation/* /usr/share/doc/linux-&linux-version;</userinput></screen>
 
       <para>Hvis kjernekildetreet skal beholdes, kjør
       <command>chown -R 0:0</command> på <filename
-      class="directory">linux-&linux-version;</filename> mappen å forsikre seg om
+      class="directory">linux-&linux-version;</filename> mappen å sikre
       at alle filer eies av brukeren <emphasis>root</emphasis>.</para>
     </note>
 

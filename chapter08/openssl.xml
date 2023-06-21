@@ -65,9 +65,9 @@
 
 <screen><userinput remap="test">make test</userinput></screen>
 
-    <para>En test, 30-test_afalg.t, er kjent for å mislykkes på noen kjerne
-    konfigurasjoner (avhengig av inkonsistente verdier for
-    CONFIG_CRYPTO_USER_API*-innstillinger.) Hvis det mislykkes, kan den trygt bli
+    <para>En test, 30-test_afalg.t, er kjent for å mislykkes på noen
+    kjernekonfigurasjoner (avhengig av inkonsistente verdier for
+    CONFIG_CRYPTO_USER_API*-innstillinger.) Hvis den mislykkes, kan den trygt bli
     ignorert.</para>
 
     <para>Installer pakken:</para>
@@ -158,7 +158,7 @@ make MANSUFFIX=ssl install</userinput></screen>
         <listitem>
           <para>
             er et kommandolinjeverktøy for bruk av de ulike kryptografifunksjonene
-            til <application>OpenSSL</application>'s kryptobibliotek fra
+            til <application>OpenSSL</application> sitt kryptobibliotek fra
             skallet. Den kan brukes til ulike funksjoner som er dokumentert i
             <command>man 1 openssl</command>
           </para>
@@ -173,7 +173,7 @@ make MANSUFFIX=ssl install</userinput></screen>
         <listitem>
           <para>
             implementerer et bredt spekter av kryptografiske algoritmer som brukes i ulike
-            Internett-standarder. Tjenestene som tilbys av dette biblioteket brukes
+            Internettstandarder. Tjenestene som tilbys av dette biblioteket brukes
             av <application>OpenSSL</application> implementeringer av SSL,
             TLS og S/MIME, og de har også blitt brukt til å implementere
             <application>OpenSSH</application>,
@@ -192,7 +192,7 @@ make MANSUFFIX=ssl install</userinput></screen>
           <para>
             implementerer protokollen Transport Layer Security (TLS v1).
             Det gir en rik API, dokumentasjon
-            kan bli funnet ved å kjøre <command>man 3 ssl</command>
+            kan bli funnet ved å kjøre <command>man 7 ssl</command>
           </para>
           <indexterm zone="ch-system-openssl libssl">
             <primary sortas="c-libssl">libssl.so</primary>

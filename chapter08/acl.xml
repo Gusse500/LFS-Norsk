@@ -24,8 +24,8 @@
     <title/>
 
     <para>Acl pakken inneholder verktøy for å administrere tilgangskontrolllister,
-     som brukes til å definere mer finmaskede skjønnsmessige tilgangsrettigheter for
-     filer og mapper.</para>
+    som brukes til å definere mer finmaskede skjønnsmessige tilgangsrettigheter for
+    filer og mapper.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -52,11 +52,11 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Acl testene må kjøres på et filsystem som støtter tilgangs
-     kontroller etter <application>Coreutils</application> er bygget med
-     Acl biblioteker. Hvis ønskelig, gå tilbake til denne pakken og kjør <command>make
-    check</command> etter at <application>Coreutils</application> har blitt bygget
-     senere i dette kapittelet.</para>
+    <para>Acl testene må kjøres på et filsystem som støtter tilgangskontroller
+    , men ikke før <application>Coreutils</application> pakken er bygget,
+    ved å bruke <application>Acl</application> biblioteker. Hvis ønskelig, gå tilbake til denne pakken
+    og kjør <command>make check</command> etter at <application>Coreutils</application>
+    pakken er bygget.</para>
 
     <para>Installer pakken:</para>
 
@@ -88,7 +88,7 @@
         <term><command>chacl</command></term>
         <listitem>
           <para>Endrer tilgangskontrolllisten til en fil
-           eller mappe</para>
+          eller mappe</para>
           <indexterm zone="ch-system-acl chacl">
             <primary sortas="b-chacl">chacl</primary>
           </indexterm>

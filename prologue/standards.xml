@@ -14,7 +14,7 @@
     <title/> -->
 
      <para>Strukturen til LFS følger Linux standarder så tett som
-      mulig. De primære standardene er:</para>
+     mulig. De primære standardene er:</para>
 
     <itemizedlist>
       <listitem>
@@ -24,37 +24,38 @@
       <listitem>
         <para><ulink
         url="https://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html">
-        Standard for filsystemhierarki (FHS) Version 3.0</ulink></para>
+        Standard for filsystemhierarki (FHS) Versjon 3.0</ulink></para>
 
       </listitem>
       <listitem>
         <para><ulink url="https://refspecs.linuxfoundation.org/lsb.shtml">Linux
-        Standard base (LSB) Version 5.0 (2015)</ulink></para>
+        Standard base (LSB) Versjon 5.0 (2015)</ulink></para>
 
         <para>LSB har fire separate standarder: Kjerne, Skrivebord,
-         Kjøretidsspråk og bildebehandling. I tillegg til generiske krav
-         er det også arkitekturspesifikke krav. Det er også to
-         områder for prøvebruk: Gtk3 og grafikk. LFS forsøker å tilpasse seg
-         arkitekturer omtalt i forrige avsnitt.</para>
+        Kjøretidsspråk og bildebehandling. I tillegg til generiske krav
+        er det også arkitekturspesifikke krav. Det er også to
+        områder for prøvebruk: Gtk3 og grafikk.  LFS forsøker å samsvare med LSB
+        spesifikasjoner for IA32 (32-bit x86) eller AMD64 (x86_64)
+        arkitekturer omtalt i forrige avsnitt.</para>
 
         <note><para>Mange mennesker er ikke enige i kravene til LSB.
-         Hovedformålet med å definere det er å sikre at proprietær programvare
-         vil kunne installeres og kjøres riktig på et kompatibelt system.
-         Siden LFS er kildebasert, har brukeren full kontroll over hvilke
-         pakker som er ønsket og mange velger å ikke installere noen pakker som
-         er spesifisert av LSB.</para></note>
+        Hovedformålet med å definere det er å sikre at proprietær programvare
+        vil kunne installeres og kjøres riktig på et kompatibelt system.
+        Siden LFS er kildebasert, har brukeren full kontroll over hvilke
+        pakker som er ønsket og mange velger å ikke installere noen pakker som
+        er spesifisert av LSB.</para></note>
 
       </listitem>
     </itemizedlist>
 
     <para>Å opprette et komplett LFS system som er i stand til å bestå LSB
-     sertifiseringstester er mulig, men ikke uten mange tilleggspakker
-     som er utenfor omfanget av LFS. Disse tilleggspakkene har
-     installasjonsinstruksjoner i BLFS. </para>
+    sertifiseringstester er mulig, men ikke uten mange tilleggspakker
+    som er utenfor omfanget av LFS. Disse tilleggspakkene har
+    installasjonsinstruksjoner i BLFS. </para>
 
     <variablelist>
-      <bridgehead renderas="sect3">Pakker levert av LFS som
-           tilfredsstiller LSB kravene</bridgehead>
+      <bridgehead renderas="sect3">Pakker levert av LFS som trengs
+           for å tilfredsstille LSB kravene</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
@@ -70,7 +71,7 @@
       <varlistentry>
         <term><emphasis>LSB Skrivebord:</emphasis></term>
         <listitem>
-          <para>None</para>
+          <para>Ingen</para>
         </listitem>
       </varlistentry>
 
@@ -84,22 +85,22 @@
       <varlistentry>
         <term><emphasis>LSB Bildebehandling:</emphasis></term>
         <listitem>
-          <para>None</para>
+          <para>Ingen</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><emphasis>LSB Gtk3 og LSB Grafikk (Prøvebruk):</emphasis></term>
         <listitem>
-          <para>None</para>
+          <para>Ingen</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
     <variablelist>
-      <bridgehead renderas="sect3">Pakker levert av BLFS som
-           tilfredsstiller LSB kravene</bridgehead>
+      <bridgehead renderas="sect3">Pakker levert av BLFS som trengs
+           for å tilfredsstille LSB kravene</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
@@ -146,14 +147,14 @@
 
     <variablelist>
       <bridgehead renderas="sect3">Pakker som ikke er levert av LFS eller BLFS
-       nødvendige for å tilfredsstille LSB kravene</bridgehead>
+      nødvendige for å tilfredsstille LSB kravene</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
       <varlistentry>
         <term><emphasis>LSB Kjerne:</emphasis></term>
         <listitem>
-          <para>None</para>
+          <para>Ingen</para>
         </listitem>
       </varlistentry>
 
@@ -167,21 +168,21 @@
       <varlistentry>
         <term><emphasis>LSB Kjøretidsspråk:</emphasis></term>
         <listitem>
-          <para>None</para>
+          <para>Ingen</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><emphasis>LSB Bildebehandling:</emphasis></term>
         <listitem>
-          <para>None</para>
+          <para>Ingen</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><emphasis>LSB Gtk3 and LSB Grafikk (Prøvebruk):</emphasis></term>
         <listitem>
-          <para>None</para>
+          <para>Ingen</para>
         </listitem>
       </varlistentry>
 

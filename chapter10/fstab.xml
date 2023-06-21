@@ -15,9 +15,9 @@
   </indexterm>
 
   <para><filename>/etc/fstab</filename> filen brukes av noen programmer til
-   bestemme hvor filsystemer skal monteres som standard, i hvilken rekkefølge, og
-   hvilke som må kontrolleres (for integritetsfeil) før montering. Lag en ny
-   filsystemtabell som denne:</para>
+  bestemme hvor filsystemer skal monteres som standard, i hvilken rekkefølge, og
+  hvilke som må kontrolleres (for integritetsfeil) før montering. Lag en ny
+  filsystemtabell som denne:</para>
 
 <screen revision="sysv"><userinput>cat &gt; /etc/fstab &lt;&lt; "EOF"
 <literal># Begin /etc/fstab
@@ -32,6 +32,7 @@ sysfs          /sys         sysfs    nosuid,noexec,nodev 0     0
 devpts         /dev/pts     devpts   gid=5,mode=620      0     0
 tmpfs          /run         tmpfs    defaults            0     0
 devtmpfs       /dev         devtmpfs mode=0755,nosuid    0     0
+tmpfs          /dev/shm     tmpfs    nosuid,nodev        0     0
 
 # End /etc/fstab</literal>
 EOF</userinput></screen>
@@ -54,24 +55,24 @@ EOF</userinput></screen>
   class="partition">sda2</filename>, <filename
   class="partition">sda5</filename>, og <systemitem
   class="filesystem">ext4</systemitem>. For detaljer om de seks
-   feltene i denne filen, se <command>man 5 fstab</command>.</para>
+  feltene i denne filen, se <command>man 5 fstab</command>.</para>
 
   <para>Filsystemer med MS-DOS eller Windows opprinnelse (dvs. vfat, ntfs, smbfs,
-   cifs, iso9660, udf) trenger et spesielt alternativ, utf8, for ikke-ASCII
-   tegn i filnavn som skal tolkes riktig. For ikke-UTF-8-lokaliteter,
-   verdien av <option>iocharset</option> bør settes til å være det samme som
-   tegnsettet for lokaliteten, justert på en slik måte at kjernen
-   forstår det. Dette fungerer hvis den relevante tegnsettdefinisjonen (funnet
-   under Filsystemer -&gt; Støtte for morsmål ved konfigurering av kjernen)
-   har blitt kompilert inn i kjernen eller bygget som en modul. Imidlertid, hvis
-   tegnsettet til lokaliteten er UTF-8, det tilsvarende alternativet
+  cifs, iso9660, udf) trenger et spesielt alternativ, utf8, for ikke-ASCII
+  tegn i filnavn som skal tolkes riktig. For ikke-UTF-8-lokaliteter,
+  verdien av <option>iocharset</option> bør settes til å være det samme som
+  tegnsettet for lokaliteten, justert på en slik måte at kjernen
+  forstår det. Dette fungerer hvis den relevante tegnsettdefinisjonen (funnet
+  under File systems -&gt; Native Language Support ved konfigurering av kjernen)
+  har blitt kompilert inn i kjernen eller bygget som en modul. Imidlertid, hvis
+  tegnsettet til lokaliteten er UTF-8, det tilsvarende alternativet
   <option>iocharset=utf8</option> ville gjøre at filsystemet skille mellom store og små bokstaver. For å
-   fikse dette, bruk spesialalternativet <option>utf8</option> i stedet for
-  <option>iocharset=utf8</option>, for UTF-8 lokaliteter. 
+  fikse dette, bruk spesialalternativet <option>utf8</option> i stedet for
+  <option>iocharset=utf8</option>, for UTF-8 lokaliteter.
   <quote>codepage</quote> alternativet er også nødvendig for vfat- og smbfs-filsystemer.
-   Det bør settes til tegnsettnummeret som brukes under MS-DOS i ditt land.
-   For eksempel, for å montere USB-flash-stasjoner, ville en ru_RU.KOI8-R bruker
-   trenge følgende i alternativdelen av monteringslinjen i
+  Det bør settes til tegnsettnummeret som brukes under MS-DOS i ditt land.
+  For eksempel, for å montere USB-flash-stasjoner, ville en ru_RU.KOI8-R bruker
+  trenge følgende i alternativdelen av monteringslinjen i
   <filename>/etc/fstab</filename>:</para>
 
 <screen><literal>noauto,user,quiet,showexec,codepage=866,iocharset=koi8r</literal></screen>
@@ -81,10 +82,10 @@ EOF</userinput></screen>
 <screen><literal>noauto,user,quiet,showexec,codepage=866,utf8</literal></screen>
 
   <para>Merk at å bruke <option>iocharset</option> er standard for
-  <literal>iso8859-1</literal> (så filsystemet skiller mellom store og små bokstaver)
-   , og <option>utf8</option> alternativet forteller
-   kjernen å konvertere filnavnene ved hjelp av UTF-8 slik at de kan være
-   tolket i UTF-8 lokaliteten.</para>
+  <literal>iso8859-1</literal> ((så filsystemet skiller mellom store og små bokstaver)
+  , og <option>utf8</option> alternativet forteller
+  kjernen å konvertere filnavnene ved hjelp av UTF-8 slik at de kan være
+  tolket i UTF-8 lokaliteten.</para>
 
   <!--note>
     <para>I det siste tilfellet sender kjernen følgende melding:</para>
@@ -93,25 +94,25 @@ EOF</userinput></screen>
     filesystem will be case sensitive!</computeroutput></screen>
 
     <para>Denne negative anbefalingen bør ignoreres, siden alle andre verdier
-     av <quote>iocharset</quote> alternativet resulterer i feil visning av filnavn i
-     UTF-8 lokaliteter.</para>
+    av <quote>iocharset</quote> alternativet resulterer i feil visning av filnavn i
+    UTF-8 lokaliteter.</para>
   </note-->
 
   <para>Det er også mulig å spesifisere standard kodesett og iocharset verdier for
-   noen filsystemer under kjernekonfigurasjon. De relevante parameterne
-   er navngitt
-  <quote>Standard NLS alternativ</quote> (<option>CONFIG_NLS_DEFAULT)</option>,
-  <quote>Standard eksternt NLS alternativ</quote> (<option>CONFIG_SMB_NLS_DEFAULT</option>),
-  <quote>Standard kodeside for FAT</quote> (<option>CONFIG_FAT_DEFAULT_CODEPAGE</option>), and
-  <quote>Standard iocharset for FAT</quote> (<option>CONFIG_FAT_DEFAULT_IOCHARSET</option>).
+  noen filsystemer under kjernekonfigurasjon. De relevante parameterne
+  er navngitt
+  <quote>Default NLS Option</quote> (<option>CONFIG_NLS_DEFAULT)</option>,
+  <quote>Default Remote NLS Option</quote> (<option>CONFIG_SMB_NLS_DEFAULT</option>),
+  <quote>Default codepage for FAT</quote> (<option>CONFIG_FAT_DEFAULT_CODEPAGE</option>), and
+  <quote>Default iocharset for FAT</quote> (<option>CONFIG_FAT_DEFAULT_IOCHARSET</option>).
   Det er ingen måte å spesifisere disse innstillingene for
-   ntfs filsystem på kjernekompileringstidspunktet.</para>
+  ntfs filsystem på kjernekompileringstidspunktet.</para>
 
   <para>Det er mulig å gjøre ext3 filsystemet pålitelig på tvers av strømfeil
    for enkelte harddisktyper. For å gjøre dette, legg til
   <option>barrier=1</option> monteringsalternativet til den aktuelle oppføringen i
   <filename>/etc/fstab</filename>.  For å sjekke om diskstasjonen støtter
-   dette alternativet, kjør
+  dette alternativet, kjør
   <ulink url="&blfs-book;general/hdparm.html">hdparm</ulink>
   på den aktuelle diskstasjonen. For eksempel hvis:</para>
 

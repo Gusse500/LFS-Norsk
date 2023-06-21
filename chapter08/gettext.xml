@@ -24,9 +24,9 @@
     <title/>
 
     <para>Gettext pakken inneholder verktøy for internasjonalisering og
-     lokalisering. Disse gjør at programmer kan kompileres med NLS (Lokal Språk
-     Støtte), slik at de kan sende ut meldinger i brukerens lokale
-     språkformat.</para>
+    lokalisering. Disse gjør at programmer kan kompileres med NLS (Lokal Språk
+    Støtte), slik at de kan sende ut meldinger i brukerens lokale
+    språkformat.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -70,7 +70,7 @@
     </variablelist>
 -->
     <para>For å teste resultatene (dette tar lang tid, rundt 3 SBU),
-     utsted:</para>
+    utsted:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
@@ -110,7 +110,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
         <term><command>autopoint</command></term>
         <listitem>
           <para>Kopierer standard Gettext infrastrukturfiler til en
-           kildepakke</para>
+          kildepakke</para>
           <indexterm zone="ch-system-gettext autopoint">
             <primary sortas="b-autopoint">autopoint</primary>
           </indexterm>
@@ -131,7 +131,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
         <term><command>gettext</command></term>
         <listitem>
           <para>Oversetter en melding på det opprinnelige språket til brukerens språk
-           ved å slå opp oversettelsen i en meldingskatalog</para>
+          ved å slå opp oversettelsen i en meldingskatalog</para>
           <indexterm zone="ch-system-gettext gettext">
             <primary sortas="b-gettext">gettext</primary>
           </indexterm>
@@ -152,7 +152,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
         <term><command>gettextize</command></term>
         <listitem>
           <para>Kopierer alle standard Gettext filer til den gitte mappens
-           toppnivå til en pakke for å begynne å internasjonalisere den</para>
+          toppnivå til en pakke for å begynne å internasjonalisere den</para>
           <indexterm zone="ch-system-gettext gettextize">
             <primary sortas="b-gettextize">gettextize</primary>
           </indexterm>
@@ -163,7 +163,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
         <term><command>msgattrib</command></term>
         <listitem>
           <para>Filtrerer meldingene i en oversettelsesmappe i henhold til deres
-           attributter og manipulerer attributtene</para>
+          attributter og manipulerer attributtene</para>
           <indexterm zone="ch-system-gettext msgattrib">
             <primary sortas="b-msgattrib">msgattrib</primary>
           </indexterm>
@@ -207,7 +207,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
         <term><command>msgconv</command></term>
         <listitem>
           <para>Konverterer en oversettelseskatalog til en annet
-           tegnkoding</para>
+          tegnkoding</para>
           <indexterm zone="ch-system-gettext msgconv">
             <primary sortas="b-msgconv">msgconv</primary>
           </indexterm>
@@ -228,7 +228,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
         <term><command>msgexec</command></term>
         <listitem>
           <para>Bruker en kommando på alle oversettelser av en
-           oversettelsesmappe</para>
+          oversettelsesmappe</para>
           <indexterm zone="ch-system-gettext msgexec">
             <primary sortas="b-msgexec">msgexec</primary>
           </indexterm>
@@ -239,7 +239,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
         <term><command>msgfilter</command></term>
         <listitem>
           <para>Bruker et filter på alle oversettelser av en
-           oversettelsesmappe</para>
+          oversettelsesmappe</para>
           <indexterm zone="ch-system-gettext msgfilter">
             <primary sortas="b-msgfilter">msgfilter</primary>
           </indexterm>
@@ -250,7 +250,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
         <term><command>msgfmt</command></term>
         <listitem>
           <para>Genererer en binær meldingskatalog fra en
-           oversettelsesmappe</para>
+          oversettelsesmappe</para>
           <indexterm zone="ch-system-gettext msgfmt">
             <primary sortas="b-msgfmt">msgfmt</primary>
           </indexterm>
@@ -261,7 +261,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
         <term><command>msggrep</command></term>
         <listitem>
           <para>Trekker ut alle meldinger fra en oversettelseskatalog som samsvarer med et
-           gitt mønster eller tilhører noen gitte kildefiler</para>
+          gitt mønster eller tilhører noen gitte kildefiler</para>
           <indexterm zone="ch-system-gettext msggrep">
             <primary sortas="b-msggrep">msggrep</primary>
           </indexterm>
@@ -273,7 +273,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
         <listitem>
           <para>Oppretter en ny <filename class="extension">.po</filename> fil,
           initialisere metainformasjonen med verdier fra brukerens
-           miljø</para>
+          miljø</para>
           <indexterm zone="ch-system-gettext msginit">
             <primary sortas="b-msginit">msginit</primary>
           </indexterm>
@@ -294,7 +294,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
         <term><command>msgunfmt</command></term>
         <listitem>
           <para>Dekompilerer en binær meldingskatalog til rå
-           oversettelsestekst</para>
+          oversettelsestekst</para>
           <indexterm zone="ch-system-gettext msgunfmt">
             <primary sortas="b-msgunfmt">msgunfmt</primary>
           </indexterm>
@@ -315,7 +315,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
         <term><command>ngettext</command></term>
         <listitem>
           <para>Viser oversettelser på morsmål av en tekstmelding hvis
-           grammatisk form avhenger av et tall</para>
+          grammatisk form avhenger av et tall</para>
           <indexterm zone="ch-system-gettext ngettext">
             <primary sortas="b-ngettext">ngettext</primary>
           </indexterm>
@@ -336,7 +336,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
         <term><command>xgettext</command></term>
         <listitem>
           <para>Trekker ut de oversettbare meldingslinjene fra den gitte kildefilen
-           for å lage den første oversettelsesmalen</para>
+          for å lage den første oversettelsesmalen</para>
           <indexterm zone="ch-system-gettext xgettext">
             <primary sortas="b-xgettext">xgettext</primary>
           </indexterm>
@@ -346,8 +346,8 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="libasprintf">
         <term><filename class="libraryfile">libasprintf</filename></term>
         <listitem>
-          <para>definerer <emphasis>autosprintf</emphasis> klassen, som gir
-           C formaterte utdatarutiner som kan brukes i C++ programmer, for bruk med
+          <para>Definerer <emphasis>autosprintf</emphasis> klassen, som gir
+          C formaterte utdatarutiner som kan brukes i C++ programmer, for bruk med
           <emphasis>&lt;string&gt;</emphasis> strenger og
           <emphasis>&lt;iostream&gt;</emphasis> dataflyt</para>
           <indexterm zone="ch-system-gettext libasprintf">
@@ -359,8 +359,8 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="libgettextlib">
         <term><filename class="libraryfile">libgettextlib</filename></term>
         <listitem>
-          <para>et privat bibliotek som inneholder vanlige rutiner som brukes av
-           ulike Gettext programmer; disse er ikke beregnet for generelt bruk</para>
+          <para>Inneholder vanlige rutiner som brukes av
+          ulike Gettext programmer; disse er ikke beregnet for generelt bruk</para>
           <indexterm zone="ch-system-gettext libgettextlib">
             <primary sortas="c-libgettextlib">libgettextlib</primary>
           </indexterm>
@@ -372,10 +372,10 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
         <listitem>
           <para>Brukes til å skrive spesialiserte programmer som behandler
           <filename class="extension">.po</filename> filer; dette biblioteket
-           brukes når standardapplikasjonene som ble levert med Gettext (som f.eks
+          brukes når standardapplikasjonene som ble levert med Gettext (som f.eks
           <command>msgcomm</command>, <command>msgcmp</command>,
           <command>msgattrib</command>, og <command>msgen</command>) ikke
-           er tilstrekkelig</para>
+          er tilstrekkelig</para>
           <indexterm zone="ch-system-gettext libgettextpo">
             <primary sortas="c-libgettextpo">libgettextpo</primary>
           </indexterm>
@@ -385,8 +385,8 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="libgettextsrc">
         <term><filename class="libraryfile">libgettextsrc</filename></term>
         <listitem>
-          <para>et privat bibliotek som inneholder vanlige rutiner som brukes av
-           ulike Gettext programmer; disse er ikke beregnet for generelt bruk</para>
+          <para>Gir vanlige rutiner som brukes av
+          ulike Gettext programmer; disse er ikke beregnet for generelt bruk</para>
           <indexterm zone="ch-system-gettext libgettextsrc">
             <primary sortas="c-libgettextsrc">libgettextsrc</primary>
           </indexterm>
@@ -408,7 +408,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
         <listitem>
           <para>Et bibliotek, ment å brukes av LD_PRELOAD som assisterer
           <filename class="libraryfile">libintl</filename> i å logge
-           uoversatte meldinger</para>
+          uoversatte meldinger</para>
           <indexterm zone="ch-system-gettext preloadable_libintl">
             <primary sortas="c-preloadable_libintl">preloadable_libintl</primary>
           </indexterm>

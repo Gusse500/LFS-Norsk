@@ -23,8 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Kbd pakken inneholder nøkkeltabellfiler, konsollfonter og tastatur
-     verktøy.</para>
+    <para>Kbd pakken inneholder tastaturfiler, konsollfonter og
+    tastaturverktøy.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -42,18 +42,18 @@
     <title>Installasjon av Kbd</title>
 
     <para>Oppførselen til tilbaketastene og slettetastene er ikke konsistent
-     på tvers av nøkkelkartene i Kbd pakken. Følgende oppdatering fikser dette
-     problem for i386 keymaps:</para>
+    på tvers av tastaturoppsettene i Kbd pakken. Følgende oppdatering fikser dette
+    problemet for i386 tastaturoppsett:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&kbd-backspace-patch;</userinput></screen>
 
     <para>Etter oppdateringen, genererer tilbaketasten tegnet med kode 127,
-     og slettetasten genererer en velkjent escape sekvens.</para>
+    og slettetasten genererer en velkjent escape sekvens.</para>
 
     <para>Fjern det overflødige <command>resizecons</command> programmet (det krever
-     den nedlagte svgalib for å gi videomodusfilene - for normal bruk
+    den nedlagte svgalib for å gi videomodusfilene - for normal bruk
     <command>setfont</command> gjør størrelsen på konsollen passende) sammen med dens
-     Manside.</para>
+    manside.</para>
 
 <screen><userinput remap="pre">sed -i '/RESIZECONS_PROGS=/s/yes/no/' configure
 sed -i 's/resizecons.8 //' docs/man/man8/Makefile.in</userinput></screen>
@@ -69,8 +69,8 @@ sed -i 's/resizecons.8 //' docs/man/man8/Makefile.in</userinput></screen>
         <term><parameter>--disable-vlock</parameter></term>
         <listitem>
           <para>Dette alternativet forhindrer at vlock verktøyet blir bygget fordi det
-           krever PAM biblioteket, som ikke er tilgjengelig i chroot
-           miljøet.</para>
+          krever PAM biblioteket, som ikke er tilgjengelig i chroot
+          miljøet.</para>
        </listitem>
       </varlistentry>
 
@@ -90,9 +90,9 @@ sed -i 's/resizecons.8 //' docs/man/man8/Makefile.in</userinput></screen>
 
     <note>
       <para>For noen språk (f.eks. hviterussisk) gir ikke Kbd pakken
-       et nyttig nøkkelkart der standard keymap antar
-       ISO-8859-5-kodingen og CP1251-tastaturet brukes vanligvis. Brukere av
-       slike språk må laste ned fungerende keymaps separat.</para>
+      et nyttig tastaturoppsett hvor beholdningen <quote>av</quote> tastaturoppsettene antar en
+      ISO-8859-5-koding og CP1251 tastaturet vanligvis brukes. Brukere av
+      slike språk må laste ned et fungerende tastaturoppsett separat.</para>
     </note>
 
     <para>Hvis ønskelig, installer dokumentasjonen:</para>
@@ -112,8 +112,8 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <seglistitem>
         <seg>chvt, deallocvt, dumpkeys, fgconsole, getkeycodes, kbdinfo,
         kbd_mode, kbdrate, loadkeys, loadunimap,
-        mapscrn, openvt, psfaddtable (link to psfxtable), psfgettable (link to
-        psfxtable), psfstriptable (link to psfxtable), psfxtable, <!--resizecons,-->
+        mapscrn, openvt, psfaddtable (lenker til psfxtable), psfgettable (link to
+        psfxtable), psfstriptable (lenker til psfxtable), psfxtable, <!--resizecons,-->
         setfont, setkeycodes, setleds, setmetamode, setvtrgb,
         showconsolefont, showkey, unicode_start, og unicode_stop</seg>
         <seg>/usr/share/consolefonts, /usr/share/consoletrans, /usr/share/keymaps,
@@ -169,7 +169,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="getkeycodes">
         <term><command>getkeycodes</command></term>
         <listitem>
-          <para>Skriver ut kjernens skanningskode til nøkkelkode tilordningstabellen</para>
+          <para>Skriver ut kjernens skanningskode til tastaturkode ( scancode-to-keycode) tilordningstabell</para>
           <indexterm zone="ch-system-kbd getkeycodes">
             <primary sortas="b-getkeycodes">getkeycodes</primary>
           </indexterm>
@@ -219,7 +219,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="loadunimap">
         <term><command>loadunimap</command></term>
         <listitem>
-          <para>Laster kjernens unicode til font kartleggingstabellen</para>
+          <para>Laster kjernens unicode til font (unicode-to-font) kartleggingstabell</para>
           <indexterm zone="ch-system-kbd loadunimap">
             <primary sortas="b-loadunimap">loadunimap</primary>
           </indexterm>
@@ -229,9 +229,9 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="mapscrn">
         <term><command>mapscrn</command></term>
         <listitem>
-          <para>Et utdatert program som pleide å laste en brukerdefinert utgang
-           tegnkartleggingstabell i konsolldriveren; dette er nå gjort
-           av <command>setfont</command></para>
+          <para>Et utdatert program som pleide å laste en brukerdefinert utdata
+          tegnkartleggingstabell i konsolldriveren; dette er nå gjort
+          av <command>setfont</command></para>
           <indexterm zone="ch-system-kbd mapscrn">
             <primary sortas="b-mapscrn">mapscrn</primary>
           </indexterm>
@@ -261,8 +261,8 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="psfgettable">
         <term><command>psfgettable</command></term>
         <listitem>
-          <para>Trekker ut den innebygde Unicode tegntabellen fra en konsoll
-           font</para>
+          <para>Trekker ut den innebygde Unicode tegntabellen fra en
+          konsollfont</para>
           <indexterm zone="ch-system-kbd psfgettable">
             <primary sortas="b-psfgettable">psfgettable</primary>
           </indexterm>
@@ -272,8 +272,8 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="psfstriptable">
         <term><command>psfstriptable</command></term>
         <listitem>
-          <para>Fjerner den innebygde Unicode tegntabellen fra en konsoll
-           font</para>
+          <para>Fjerner den innebygde Unicode tegntabellen fra en
+          konsollfont</para>
           <indexterm zone="ch-system-kbd psfstriptable">
             <primary sortas="b-psfstriptable">psfstriptable</primary>
           </indexterm>
@@ -293,8 +293,8 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="setfont">
         <term><command>setfont</command></term>
         <listitem>
-          <para>Endrer den forbedrede grafikkadapteren (EGA) og videografikk
-           matrise (VGA) fonter på konsollen</para>
+          <para>Endrer fonter for forbedrede grafikkadapteren (EGA) og videografikk
+          matrise (VGA) på konsollen</para>
           <indexterm zone="ch-system-kbd setfont">
             <primary sortas="b-setfont">setfont</primary>
           </indexterm>
@@ -304,8 +304,8 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="setkeycodes">
         <term><command>setkeycodes</command></term>
         <listitem>
-          <para>Laster kjernens skanningskode til nøkkelkode kartleggingstabelloppføringer; dette er
-           nyttig hvis det er uvanlige taster på tastaturet</para>
+          <para>Laster kjernens skanningskode til tastaturkode (scancode-to-keycode) kartleggingstabelloppføringer; dette er
+          nyttig hvis det er uvanlige taster på tastaturet</para>
           <indexterm zone="ch-system-kbd setkeycodes">
             <primary sortas="b-setkeycodes">setkeycodes</primary>
           </indexterm>
@@ -325,7 +325,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="setmetamode">
         <term><command>setmetamode</command></term>
         <listitem>
-          <para>Definerer tastaturets metanøkkel håndtering</para>
+          <para>Definerer tastaturets metatasthåndtering</para>
           <indexterm zone="ch-system-kbd setmetamode">
             <primary sortas="b-setmetamode">setmetamode</primary>
           </indexterm>
@@ -345,7 +345,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="showconsolefont">
         <term><command>showconsolefont</command></term>
         <listitem>
-          <para>Viser gjeldende EGA/VGA konsollskjermskrift</para>
+          <para>Viser gjeldende EGA/VGA konsollskjermfont</para>
           <indexterm zone="ch-system-kbd showconsolefont">
             <primary sortas="b-showconsolefont">showconsolefont</primary>
           </indexterm>
@@ -356,7 +356,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
         <term><command>showkey</command></term>
         <listitem>
           <para>Rapporterer skanningskodene, nøkkelkodene og ASCII-kodene til tastene
-           som trykkes på tastaturet</para>
+          som trykkes på tastaturet</para>
           <indexterm zone="ch-system-kbd showkey">
             <primary sortas="b-showkey">showkey</primary>
           </indexterm>
@@ -367,8 +367,8 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
         <term><command>unicode_start</command></term>
         <listitem>
           <para>Setter tastaturet og konsollen i UNICODE modus [Ikke bruk dette
-           programmet med mindre tastaturfilen er i ISO-8859-1-kodingen. Til
-           andre kodinger, gir dette verktøyet feil resultater.]</para>
+          programmet med mindre tastaturfilen er i ISO-8859-1-kodingen. Til
+          andre kodinger, gir dette verktøyet feil resultater.]</para>
           <indexterm zone="ch-system-kbd unicode_start">
             <primary sortas="b-unicode_start">unicode_start</primary>
           </indexterm>

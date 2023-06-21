@@ -13,7 +13,7 @@
   <title>Udev konfigurasjonsregler</title>
 
   <para>Reglene i dette vedlegget er listet opp for enkelhets skyld. Installasjon
-   gjøres normalt via instruksjoner i <xref linkend='ch-system-eudev'/>.  </para>
+  gjøres normalt via instruksjoner i <xref linkend='ch-system-eudev'/>.  </para>
 
   <sect1 id="lfsrules" role="wrap">
     <title>55-lfs.rules</title>

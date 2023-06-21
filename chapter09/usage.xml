@@ -19,11 +19,15 @@
   <sect2>
     <title>Hvordan fungerer System V Oppstartskriptet?</title>
 
-    <para>Linux bruker en spesiell oppstartsfunksjon kalt SysVinit som er basert på
-    konseptet <emphasis>kjørenivåer</emphasis>. Det kan være ganske forskjellig fra et
+    <para>Denne versjonen av LFS bruker en spesiell oppstartsfunksjon kalt SysVinit, basert på en
+    serie av <emphasis>kjørenivåer</emphasis>. Det kan være ganske forskjellig fra et
     system til et annet, så det kan ikke antas at fordi ting fungerte i en
     spesiell Linux distribusjon, bør de fungere på samme måte i LFS også. LFS har
     sin egen måte å gjøre ting på, men den respekterer allment aksepterte standarder.</para>
+  
+    <para>Det er en alternativ oppstartsprosedyre kalt <command>systemd</command>. Vi vil
+    ikke diskuter den oppstartsprosessen mer her. For en detaljert beskrivelse besøk
+    <ulink url="https://www.linux.com/training-tutorials/understanding-and-using-systemd/"/>.</para>
 
     <para>SysVinit (som vil bli referert til som <quote>init</quote> fra nå av)
     fungerer ved å bruke en kjørenivåordning. Det er syv (nummerert 0 til 6) kjørenivåer
@@ -38,7 +42,7 @@
 2: reservert for tilpasning, ellers gjøres det det samme som 3
 3: flerbrukermodus med nettverk
 4: reservert for tilpasning, ellers gjør den det samme som 3
-5: samme som 4, den brukes vanligvis for GUI pålogging (som GNOME's <command>gdm</command> eller LXDE's <command>lxdm</command>)
+5: samme som 4, den brukes vanligvis for GUI pålogging (som GNOME sin <command>gdm</command> eller LXDE sin <command>lxdm</command>)
 6: starter datamaskinen på nytt</literallayout>
 
     <note>
@@ -54,7 +58,7 @@
   </sect2>
 
   <sect2 id="conf-sysvinit" role="configuration">
-  <title>Konfigurering av Sysvinit</title>
+  <title>Konfigurere Sysvinit</title>
 
   <indexterm zone="conf-sysvinit">
     <primary sortas="a-Sysvinit">Sysvinit</primary>
@@ -66,7 +70,7 @@
   </indexterm>
 
   <para>Under kjerneinitialiseringen, det første programmet som kjøres
-  er enten spesifisert på kommandolinjen eller som standard
+  (hvis ikke overstyrt på kommandolinjen) er
   <command>init</command>.  Dette programmet leser initialiseringsfilen
   <filename>/etc/inittab</filename>.  Opprette denne filen med:</para>
 
@@ -100,14 +104,14 @@ s1:1:respawn:/sbin/sulogin
 # End /etc/inittab</literal>
 EOF</userinput></screen>
 
-  <para>En forklaring av denne initialiseringsfilen er på man siden for
-  <emphasis>inittab</emphasis>.  For LFS er nøkkelkommandoen som kjøres
-  <command>rc</command>. Initialiseringsfilen ovenfor vil instruere
+  <para>En forklaring av denne initialiseringsfilen er på mansiden for
+  <emphasis>inittab</emphasis>.  I LFS, nøkkelkommandoen er
+  <command>rc</command>. Initialiseringsfilen ovenfor instruerer
   <command>rc</command> å kjøre alle skriptene som starter med en S i
   <filename class="directory">/etc/rc.d/rcS.d</filename> mappen
   etterfulgt av alle skriptene som begynner med en S i <filename
   class="directory">/etc/rc.d/rc?.d</filename> mappen hvor spørsmålstegnet
-   er spesifisert av initdefault verdien.</para>
+  er spesifisert av initdefault verdien.</para>
 
   <para>Som en bekvemmelighet <command>rc</command> skriptet leser et bibliotek av
   funksjoner i <filename class="directory">/lib/lsb/init-functions</filename>.
@@ -120,7 +124,7 @@ EOF</userinput></screen>
   <para>Som en bekvemmelighet for feilsøking logger funksjonsskriptet også all utdata
   til <filename>/run/var/bootlog</filename>.  Siden <filename
   class="directory">/run</filename> mappen er en tmpfs, er denne filen ikke
-  vedvarende på tvers av oppstarter, men den er lagt til den mer permanente filen
+  vedvarende på tvers av oppstarter; men den er lagt til den mer permanente filen
   <filename>/var/log/boot.log</filename> på slutten av oppstartsprosessen.</para>
 
   <sect3 id="init-levels" >
@@ -128,17 +132,17 @@ EOF</userinput></screen>
 
   <para>Endring av kjørenivåer er gjort med <command>init
   <replaceable>&lt;runlevel&gt;</replaceable></command>, hvor
-  <replaceable>&lt;runlevel&gt;</replaceable> er målet for kjørenivå. For eksempel for
+  <replaceable>&lt;runlevel&gt;</replaceable> ier målet for kjørenivå. For eksempel for
   å starte datamaskinen på nytt, kan en bruker utstede <command>init 6</command> kommandoen,
   som er et alias for <command>reboot</command> kommandoen. Likeså er,
-  <command>init 0</command> er et alias for <command>halt</command>
+  <command>init 0</command> et alias for <command>halt</command>
   kommandoen.</para>
 
   <para>Det er en rekke mapper under <filename
   class="directory">/etc/rc.d</filename> som ser ut som <filename
   class="directory">rc?.d</filename> (hvor ? er nummeret på kjørenivået) og
   <filename class="directory">rcS.d</filename>, alle inneholder en rekke
-  symbolske lenker. Noen begynner med en <emphasis>K</emphasis>, de andre begynner med
+  symbolske lenker. Noen begynner med en <emphasis>K</emphasis>; de andre begynner med
   en <emphasis>S</emphasis>, og alle av dem har to tall etter
   forbokstaven. K betyr å stoppe (drepe) en tjeneste og S betyr å starte en
   tjeneste. Tallene bestemmer rekkefølgen skriptene kjøres i, fra 00
@@ -209,7 +213,7 @@ EOF</userinput></screen>
     <varlistentry>
       <term><parameter>status</parameter></term>
       <listitem>
-        <para>Forteller om tjenesten kjører og med hvilke PID-er.</para>
+        <para>Forteller om tjenesten kjører og med hvilken PID.</para>
       </listitem>
     </varlistentry>
 
@@ -235,11 +239,11 @@ EOF</userinput></screen>
       kjernen løfter.</para>
 
       <para><command>/etc/rc.d/init.d/udev_retry</command> initskriptet tar
-      kontroll for å utløse hendelser på nytt for undersystemer, som reglene kan stole på,
-      for filsystemer som ikke er montert før <command>mountfs</command>
+      kontroll for å utløse hendelser på nytt for undersystemer som reglene kan avhenge av
+      filsystemer som ikke er montert før <command>mountfs</command>
       skriptet kjøres (spesielt, <filename class="directory">/usr</filename>
-      og <filename class="directory">/var</filename> kan forårsake dette).  Dette
-      skriptet kjører etter <command>mountfs</command> skriptet, så de reglene
+      og <filename class="directory">/var</filename> kan forårsake dette).  Disse
+      skriptene kjører etter <command>mountfs</command> skriptet, så de reglene
       (hvis de utløses på nytt) bør lykkes andre gang. De er
       konfigurert fra <filename>/etc/sysconfig/udev_retry</filename> filen;
       alle andre ord i denne filen enn kommentarer regnes som undersystemnavn
@@ -259,8 +263,8 @@ EOF</userinput></screen>
       <primary sortas="d-setclock">setclock</primary>
     <secondary>configuring</secondary></indexterm>
 
-    <para><command>setclock</command> skriptet leser tiden fra maskinvare
-    klokken, også kjent som BIOS eller Complementary Metal Oxide Semiconductor
+    <para><command>setclock</command> skriptet leser tiden fra maskinvareklokken
+    , også kjent som BIOS eller Complementary Metal Oxide Semiconductor
     (CMOS) klokke. Hvis maskinvareklokken er satt til UTC, vil dette skriptet konvertere
     maskinvareklokkens tid til lokal tid ved å bruke
     <filename>/etc/localtime</filename> filen (som forteller
@@ -285,7 +289,7 @@ EOF</userinput></screen>
     tid.</para>
 
     <para>Endre verdien på <envar>UTC</envar> variabelen nedenfor
-    til verdien <parameter>0</parameter> null) hvis maskinvareklokken
+    til verdien <parameter>0</parameter> (null) hvis maskinvareklokken
     <emphasis>IKKE</emphasis> er satt til UTC-tid.</para>
 
     <para>Opprett en ny fil <filename>/etc/sysconfig/clock</filename> ved å kjøre
@@ -325,10 +329,10 @@ EOF</userinput></screen>
   <para>Denne delen diskuterer hvordan du konfigurerer <command>console</command>
   oppstartsskriptet som setter opp tastaturkartet, konsollfonten og konsollkjerneloggens
   nivå. Hvis ikke-ASCII-tegn (f.eks. copyright-tegnet, britiske pund
-  tegn og eurosymbol) ikke vil bli brukt, og tastaturet er et amerikansk, mye
-  av denne delen kan hoppes over. Uten konfigurasjonsfilen, (eller
-  tilsvarende innstillinger i <filename>rc.site</filename>), the
-  <command>console</command> oppstartsskriptet vil ikke gjøre noe.</para>
+  tegn og eurosymbol) ikke vil bli brukt, og tastaturet er et amerikansk, kan mye
+  av denne delen hoppes over. Uten konfigurasjonsfilen, (eller
+  tilsvarende innstillinger i <filename>rc.site</filename>), 
+  <command>console</command> vil ikke oppstartsskriptet gjøre noe.</para>
 
   <para><command>console</command> skriptet leser
   <filename>/etc/sysconfig/console</filename> filen for konfigurasjons
@@ -364,7 +368,7 @@ EOF</userinput></screen>
         og standard kjernetastatur vil bli brukt. Merk at noen få tastaturer
         har flere versjoner med samme navn (cz og dens varianter i
         qwerty/ og qwertz/, es i olpc/ og qwerty/, og trf i fgGIod/ og
-        qwerty/). I disse tilfellene bør også overordnet mappe spesifisere
+        qwerty/). I disse tilfellene bør også overordnet mappe spesifiseres
         (f.eks. qwerty/es) for å sikre at det riktige tastaturet er lastet.
         </para>
       </listitem>
@@ -396,7 +400,7 @@ EOF</userinput></screen>
         I UTF-8 modus bruker kjernen applikasjonens tegnkart for
         konvertering av sammensatte 8-bits nøkkelkoder i keymap til UTF-8, og dermed
         argumentet til parameteren "-m" bør settes til kodingen av
-        komponerte nøkkelkoder i nøkkelkartet.</para>
+        komponerte tastaturkoder i tastaturkartet.</para>
 
       </listitem>
     </varlistentry>
@@ -404,7 +408,7 @@ EOF</userinput></screen>
     <varlistentry>
       <term>UNICODE</term>
       <listitem>
-        <para>Sett denne variabelen til <quote>1</quote>, <quote>yes</quote> eller
+        <para>Sett denne variabelen til <quote>1</quote>, <quote>yes</quote>, eller
         <quote>true</quote> for å sette
         konsollen til UTF-8 modus. Dette er nyttig i UTF-8 baserte lokaliteter og
         skadelig ellers.</para>
@@ -416,7 +420,7 @@ EOF</userinput></screen>
       <listitem>
         <para>For mange tastaturoppsett er det ikke noe Unicode-tastatur i
         Kbd pakken. <command>console</command> oppstartsskriptet vil
-        konverter et tilgjengelig nøkkelkart til UTF-8 umiddelbart hvis denne variabelen er
+        konverter et tilgjengelig tastaturkartet til UTF-8 umiddelbart hvis denne variabelen er
         satt til kodingen av det tilgjengelige tastaturet som ikke er UTF-8.</para>
       </listitem>
     </varlistentry>
@@ -493,7 +497,7 @@ EOF</userinput></screen>
     </listitem>
 
     <listitem>
-      <para>Følgende eksempel illustrerer tastaturets autokonvertering fra
+      <para>Følgende eksempel illustrerer keymap sin autokonvertering fra
       ISO-8859-15 til UTF-8 og aktivering av døde nøkler i Unicode-modus:</para>
 
 <screen role="nodump"><userinput>cat &gt; /etc/sysconfig/console &lt;&lt; "EOF"
@@ -510,7 +514,7 @@ EOF</userinput></screen>
     </listitem>
 
     <listitem>
-      <para>Noen keymaps har døde taster (dvs. taster som ikke produserer en
+      <para>Noen tastaturmapper har døde taster (dvs. taster som ikke produserer en
       karakter av seg selv, men legger en aksent på karakteren som er produsert
       ved neste nøkkel) eller definer komposisjonsregler (som f.eks: <quote>press
       Ctrl+. A E for å hente &AElig;</quote> i standard tastaturoppsett).
@@ -618,7 +622,7 @@ EOF</userinput></screen>
       effektiv måte, men det er noen få justeringer du kan gjøre i
       rc.site filen for å forbedre hastigheten enda mer og for å justere meldinger i henhold til
       til dine preferanser. For å gjøre dette, juster innstillingene i
-      the <filename>/etc/sysconfig/rc.site</filename> filen ovenfor.</para>
+      <filename>/etc/sysconfig/rc.site</filename> filen ovenfor.</para>
 
       <itemizedlist>
 
@@ -633,7 +637,7 @@ EOF</userinput></screen>
       <command>udev settle</command> som standard.  Denne kommandoen er kun nødvendig som
       standard hvis <filename class='directory'>/var</filename> mappen er
       separat montert. Dette er fordi klokken trenger filen
-      <filename>/var/lib/hwclock/adjtime</filename>.  Andre tilpasninger kan
+      <filename>/var/lib/hwclock/adjtime</filename>. Andre tilpasninger kan
       også må vente på at udev skal fullføres, men i mange installasjoner er det ikke
       behov for det. Hopp over kommandoen ved å sette variabelen OMIT_UDEV_RETRY_SETTLE=y.
       </para></listitem>
@@ -648,7 +652,7 @@ EOF</userinput></screen>
       <filename>/fastboot</filename> eller start systemet på nytt med kommandoen
       <command>/sbin/shutdown -f -r now</command>.  På den annen side kan du
       tvinge alle filsystemer til å bli kontrollert ved å opprette
-      <filename>/forcefsck</filename> or running <command>shutdown</command> med
+      <filename>/forcefsck</filename> eller kjøre <command>shutdown</command> med
       <parameter>-F</parameter> parameter i stedet for <parameter>-f</parameter>.
       </para>
 

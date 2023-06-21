@@ -10,11 +10,12 @@
 
   <title>Pakkehåndtering</title>
 
-  <para>Pakkebehandling er et ofte etterspurt tillegg til LFS boken. En
+  <para>Pakkebehandling er et ofte etterspurt tillegg til LFS-boken. En
   pakkebehandler lar deg spore installasjonen av filer som gjør det enkelt å
-  fjerne og oppgradere pakker. I tillegg til binær- og biblioteksfilene, en
-  pakkebehandler vil håndtere installasjonen av konfigurasjonsfiler. Før
-  du begynner å lure på, NEI&mdash;denne delen vil ikke snakke om eller anbefale
+  fjerne og oppgradere pakker. En god pakkebehandler vil også håndtere
+  konfigurasjonsfiler spesielt for å beholde brukerkonfigurasjonen når
+  pakken installeres på nytt eller oppgraderes. Før
+  du begynner å lure, NEI&mdash;denne delen vil ikke snakke om eller anbefale
   noen spesiell pakkebehandler. Det den gir er en oppsummering av de fleste
   populære teknikker og hvordan de fungerer. Den perfekte pakkebehandleren for deg vil kanskje
   være blant disse teknikkene eller kan være en kombinasjon av to eller flere av disse
@@ -27,7 +28,7 @@
   <itemizedlist>
     <listitem>
       <para>Å håndtere pakkehåndtering fjerner fokus fra målene
-      til disse bøkene&mdash;som lærer hvordan et Linux system er bygget.</para>
+      til disse bøkene&mdash;å lære hvordan et Linux system er bygget.</para>
     </listitem>
 
     <listitem>
@@ -38,14 +39,14 @@
   </itemizedlist>
 
   <para>Det er skrevet noen tips om emnet pakkehåndtering. Besøk
-  the <ulink url="&hints-root;">Hints Project</ulink> og se om en av dem
+  <ulink url="&hints-root;">Hints Project</ulink> og se om en av dem
   passer ditt behov.</para>
 
   <sect2 id='pkgmgmt-upgrade-issues'>
     <title>Oppgraderingsproblemer</title>
 
     <para>En Pakkehåndterer gjør det enkelt å oppgradere til nyere versjoner når de
-    er utgitt. Generelt kan instruksjonene i LFS- og BLFS-bøkene
+    blir utgitt. Generelt kan instruksjonene i LFS- og BLFS-bøkene
     brukes til å oppgradere til nyere versjoner. Her er noen punkter du bør
     være oppmerksom på når du oppgraderer pakker, spesielt på et kjørende system.</para>
 
@@ -94,13 +95,13 @@
       <filename class='libraryfile'>libfoo.so.1.24</filename>),
       bør du fjerne bibliotekfilen fra den tidligere installerte versjonen
       (<filename class='libraryfile'>libfoo.so.1.25</filename> i dette tilfellet).
-      Eller, et <command>ldconfig</command> kjører (av deg selv ved å bruke en kommando
-      linje, eller ved installasjon av en pakke) vil tilbakestille symbolkoblingen
+      Ellers, et <command>ldconfig</command> kommando (påkalt av deg selv fra kommandolinjen
+      , eller ved installasjon av en pakke) vil tilbakestille symbolkoblingen
       <filename class='libraryfile'>libfoo.so.1</filename> til å peke på
       den gamle bibliotekfilen fordi den ser ut til å ha en <quote>nyere</quote>
-      versjon, ettersom versjonsnummeret er større. Denne situasjonen kan skje hvis
-      du må nedgradere en pakke, ellers endrer pakken versjonen
-      ordningen med bibliotekfiler plutselig.</para> </listitem>
+      versjon, ettersom versjonsnummeret er større.  Denne situasjonen kan oppstå hvis
+      du må nedgradere en pakke, eller hvis forfatterne endrer versjonsskjema
+      for bibliotekfiler.</para> </listitem>
 
       <listitem><para>Hvis en pakke som inneholder et delt bibliotek oppdateres,
       og navnet på biblioteket ikke endres, men et alvorlig problem
@@ -126,7 +127,7 @@
         Hvis <command>systemd</command> nissen (kjører som PID 1) er
         koblet til det oppdaterte biblioteket, kan du starte det på nytt uten å omstarte
         ved å kjøre <command>systemctl daemon-reexec</command> som
-        <systemitem class='username'>root</systemitem> brukeren.
+        <systemitem class='username'>root</systemitem> bruker.
       </para></listitem>
 
       <listitem>
@@ -135,13 +136,13 @@
         riktige måten å oppdatere et binært eller et delt bibliotek uten å forårsake
         at prosessen krasjer er å fjerne den først, og deretter installere den nye
         versjonen. <command>install</command> kommandoen
-        levert av <application>Coreutils</application> har allerede
+        levert av <application>coreutils</application> har allerede
         implementert dette og de fleste pakker bruker det til å installere binærfiler og
         biblioteker. Dette betyr at du ikke vil bli plaget av dette problemet mesteparten av tiden.
         Imidlertid er installasjonsprosessen for noen pakker (spesielt Mozilla JS
         i BLFS) bare å overskrive filen hvis den eksisterer og forårsaker et krasj, så
         det er tryggere å lagre arbeidet ditt og lukke unødvendige kjørende prosesser
-        før du oppdaterer en pakke.</para>
+        før du oppdaterer en pakke.</para> <!-- binary is an adjective, not a noun. -->
       </listitem>
     </itemizedlist>
 
@@ -151,8 +152,8 @@
     <title>Pakkehåndteringsteknikker</title>
 
     <para>Følgende er noen vanlige pakkehåndteringsteknikker. Før du
-    ta en avgjørelse om en pakkeforvalter, gjør litt research på de forskjellige
-    teknikker, spesielt ulempene ved den spesielle ordningen.</para>
+    ta en avgjørelse om en pakkeforvalter, gjør litt undersøkelser på de forskjellige
+    teknikkene, spesielt ulempene ved den spesielle ordningen.</para>
 
     <sect3>
       <title>Alt er i hodet mitt!</title>
@@ -166,15 +167,15 @@
     </sect3>
 
     <sect3>
-      <title>Installer i separate kataloger</title>
+      <title>Installer i separate mapper</title>
 
       <para>Dette er en forenklet pakkehåndtering som ikke trenger noe ekstra
       pakke for å administrere installasjonene. Hver pakke er installert i en
-      egen katalog. For eksempel er pakke foo-1.1 installert i
+      egen mappe. For eksempel pakke foo-1.1 er installert i
       <filename class='directory'>/usr/pkg/foo-1.1</filename>
       og en symbolkobling er laget fra <filename>/usr/pkg/foo</filename> til
-      <filename class='directory'>/usr/pkg/foo-1.1</filename>. Ved installasjon
-      av en ny versjon foo-1.2, installeres den i
+      <filename class='directory'>/usr/pkg/foo-1.1</filename>. Når
+      en ny versjon foo-1.2 kommer, blir den installert i
       <filename class='directory'>/usr/pkg/foo-1.2</filename> og den forrige
       symbolkoblingen erstattes av en symbolkobling til den nye versjonen.</para>
 
@@ -190,21 +191,21 @@
       <title>Symlink Style Package Management</title>
 
       <para>Dette er en variant av den tidligere pakkehåndteringsteknikken.
-      Hver pakke er installert på samme måte som den forrige ordningen. Men i stedet for
-      å gjøre symbolkoblingen, er hver fil symlinked inn i
+      Hver pakke er installert som i forrige skjema. Men i stedet for
+      å lage symbolkoblingen via et generisk pakkenavn, er hver fil symlinket til
       <filename class='directory'>/usr</filename> hierarkiet. Dette fjerner
       behovet for å utvide miljøvariablene. Selv om symbolkoblingene kan være
       opprettet av brukeren for å automatisere opprettelsen, har mange pakkeforvaltere
       blitt skrevet ved hjelp av denne tilnærmingen. Noen av de populære inkluderer Stow,
       Epkg, Graft og Depot.</para>
 
-      <para>Installasjonen må forfalskes, slik at pakken tror det
+      <para>Installasjonen må forfalskes, slik at pakken tror
       den er installert i <filename class="directory">/usr</filename> skjønt i
       virkeligheten er den installert i
       <filename class="directory">/usr/pkg</filename> hierarkiet. Installering på
       denne måten er vanligvis ikke en triviell oppgave. Tenk for eksempel på at du
-      installerer en pakke libfoo-1.1. Følgende instruksjoner kan
-      ikke installere pakken riktig:</para>
+      installerer en pakke libfoo-1.1. Følgende instruksjoner kan gjøre at pakken
+      ikke installeres riktig:</para>
 
 <screen role="nodump"><userinput>./configure --prefix=/usr/pkg/libfoo/1.1
 make
@@ -258,7 +259,7 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
       å peke på et bibliotek som skal forhåndslastes før installasjonen. Under
       installasjonen, sporer dette biblioteket pakkene som blir installert og
       fester seg til ulike kjørbare filer som f.eks <command>cp</command>,
-      <command>install</command>, <command>mv</command> og sporing av systemets
+      <command>install</command>, <command>mv</command> g sporing av systemets
       anrop som endrer filsystemet. For å få denne tilnærmingen til å virke, alle
       kjørbare filer må være dynamisk koblet uten suid- eller sgid-biten.
       Forhåndsinnlasting av biblioteket kan forårsake noen uønskede bivirkninger under
@@ -284,7 +285,7 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
       kommersielle distribusjoner. Eksempler på pakkeforvaltere som følger dette
       tilnærmingen er RPM (som for øvrig kreves av <ulink
       url="https://refspecs.linuxfoundation.org/lsb.shtml">Linux
-      Standard Base Specification</ulink>),pkg-utils, Debian's apt, og
+      Standard Base Specification</ulink>), pkg-utils, Debian's apt, og
       Gentoo's Portage system.  Et hint som beskriver hvordan du adopterer denne stilen av
       pakkehåndtering for LFS systemer ligger på <ulink
       url="&hints-root;fakeroot.txt"/>.</para>
@@ -292,7 +293,7 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
       <para>Oppretting av pakkefiler som inkluderer avhengighetsinformasjon er
       kompleks og er utenfor omfanget av LFS.</para>
 
-      <para>Slackware bruker et <command>tar</command>  basert system for pakke
+      <para>Slackware bruker et <command>tar</command> basert system for pakke
       arkiv. Dette systemet håndterer med vilje ikke pakkeavhengigheter
       som mer komplekse pakkeforvaltere gjør. For detaljer om Slackware
       pakkebehandling, se <ulink
@@ -321,7 +322,8 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
     avhenger av plasseringen til filene på et disksystem. Kloning av et LFS bygg til
     en annen datamaskin med samme arkitektur som basissystemet er like
     enkelt som å bruke <command>tar</command> på LFS partisjonen som inneholder
-    rotkatalogen (ca. 250 MB ukomprimert for en standard LFS bygg), kopiere
+    rotkatalogen (ca. 900MB ukomprimert for en standard LFS bygg), kopiere
+    <!-- D. Bryant created LFS 11.2 in October 2022; 900MB is (roughly) the size of his rsync archive. -->
     den filen via nettverksoverføring eller CD-ROM til det nye systemet og utvide
     den. Fra det tidspunktet må noen få konfigurasjonsfiler endres.
     Konfigurasjonsfiler som kanskje må oppdateres inkluderer:
@@ -343,8 +345,8 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
     </para>
 
     <para>En tilpasset kjerne må kanskje bygges for det nye systemet avhengig av
-    forskjeller i systemmaskinvare og den originale kjerne
-    konfigurasjonen.</para>
+    forskjeller i systemmaskinvare og den originale
+    kjernekonfigurasjonen.</para>
 
     <note><para>Det har vært noen rapporter om problemer ved kopiering mellom
     lignende, men ikke identiske arkitekturer. For eksempel instruksjonssettet

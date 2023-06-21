@@ -8,45 +8,44 @@
 <sect1 id="ch-system-aboutdebug">
   <?dbhtml filename="aboutdebug.html"?>
 
-  <title>Om feilsøking av symboler</title>
+  <title>Om feilsøkingssymboler</title>
 
   <para>De fleste programmer og biblioteker er som standard kompilert med
-   feilsøkingssymboler inkludert (med <command>gcc</command>'s
+  feilsøkingssymboler inkludert (med <command>gcc</command> sitt
   <parameter>-g</parameter> alternativ). Dette betyr at når du feilsøker et
-   program eller bibliotek som ble kompilert med feilsøkingsinformasjon,
-   kan feilsøkeren ikke bare gi minneadresser, men også
-   navnene på rutinene og variablene.</para>
+  program eller bibliotek som ble kompilert med feilsøkingsinformasjon,
+  kan feilsøkeren ikke bare gi minneadresser, men også
+  navnene på rutinene og variablene.</para>
 
-  <para>Inkludering av disse feilsøkingssymbolene forstørrer imidlertid et
-   program eller bibliotek betydelig. Følgende er et eksempel på
+  <para>Inkludering av disse feilsøkingssymbolene gjør imidlertid et
+  program eller et bibliotek betydelig større. Følgende er et eksempel på
    hvor mye plass disse symbolene opptar:</para>
 
   <itemizedlist>
     <listitem>
-      <para>A <command>bash</command> binær med feilsøkingssymboler:
+      <para><command>bash</command> binær med feilsøkingssymboler:
       1200 KB</para>
     </listitem>
     <listitem>
-      <para>A <command>bash</command> binær uten feilsøkingssymboler:
-      480 KB</para>
+      <para><command>bash</command> binær uten feilsøkingssymboler:
+      480 KB (60% mindre)</para>
     </listitem>
     <listitem>
-      <para>Glibc og GCC files (<filename class="directory">/lib</filename>
-      og <filename class="directory">/usr/lib</filename>) med feilsøkings
-       symboler: 87 MB</para>
+      <para>Glibc og GCC filer (<filename class="directory">/lib</filename>
+      og <filename class="directory">/usr/lib</filename>) med
+      feilsøkingssymboler: 87 MB</para>
     </listitem>
     <listitem>
-      <para>Glibc og GCC filer uten feilsøkingssymboler: 16 MB</para>
+      <para>Glibc og GCC filer uten feilsøkingssymboler: 16 MB (82% mindre)</para>
     </listitem>
   </itemizedlist>
 
-  <para>Størrelser kan variere avhengig av hvilken kompilator og C-bibliotek som ble brukt,
-   men når man sammenligner programmer med og uten feilsøkingssymboler
-   vil forskjellen vanligvis være en faktor mellom to og fem.</para>
-
-  <para>Fordi de fleste brukere aldri vil bruke en debugger på systemprogramvaren,
-   mye diskplass kan gjenvinnes ved å fjerne disse symbolene. Den neste
-   delen viser hvordan du fjerner alle feilsøkingssymboler fra programmene og
-   bibliotekene.</para>
+  <para>Størrelser vil variere avhengig av hvilken kompilator og C-bibliotek som ble brukt,
+  men et program som har blitt strippet for feilsøkingssymboler er vanligvis mellom
+  50 % til 80 % mindre enn dens ustrippede motpart.
+  Fordi de fleste brukere aldri vil bruke en feilsøker på systemprogramvaren,
+  kan mye diskplass gjenvinnes ved å fjerne disse symbolene. Den neste
+  delen viser hvordan du fjerner alle feilsøkingssymboler fra programmene og
+  bibliotekene.</para>
 
 </sect1>

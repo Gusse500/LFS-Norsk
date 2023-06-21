@@ -44,9 +44,10 @@
     <title>Installasjon av File</title>
 
     <para>
-       <command>file</command> kommando på byggeverten trenger
-       å være samme versjon som den vi bygger for å
-       opprette signaturfilen. Kjør følgende kommandoer for å bygge den:
+       <command>file</command> kommandoen på byggevertens må
+       være samme versjon som den vi bygger for å
+       opprette signaturfilen. Kjør følgende kommandoer for å lage en
+       midlertidig kopi av <command>file</command> kommandoen:
     </para>
 
 <screen><userinput remap="pre">mkdir build
@@ -77,11 +78,11 @@ popd</userinput></screen>
 
 <screen><userinput remap="configure">./configure --prefix=/usr --host=$LFS_TGT --build=$(./config.guess)</userinput></screen>
 
-<!-- devs: hvis du bruker - -build her, vil byggesystemet kompilere
-     signaturfilen med "file" på byggesystemet, men stopper hvis det ikke er
-     samme versjon. En mulighet ville være å bygge "file" på bygge
-     systemet først, men det er enklere å få systemet til å tro at det ikke er
-     krysskompilering, og bruk den nettopp bygde "file". -->
+<!-- devs: if using - -build here, the build system wants to compile
+     the signature file with "file" on the build system, but stops if it is not
+     the same version. One possibility would be to build "file" on the build
+     system first, but it is simpler to have the system think it is not
+     cross-compiling, and use the just built "file". -->
     <para>Kompiler pakken:</para>
 
 <screen><userinput remap="make">make FILE_COMPILE=$(pwd)/build/src/file</userinput></screen>

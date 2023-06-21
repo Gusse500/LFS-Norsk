@@ -98,9 +98,9 @@ export BUILD_BZIP2=0</userinput></screen>
         <term><parameter>-Dman1dir=/usr/share/man/man1
         -Dman3dir=/usr/share/man/man3</parameter></term>
         <listitem>
-          <para>Siden Groff ikke er installert ennå, <command>Configure</command>
-          tror vi ikke ønsker man sider for Perl. Å utstede disse
-          parametere overstyrer denne avgjørelsen.</para>
+          <para>Siden Groff ikke er installert ennå, vil ikke <command>Configure</command>
+          opprette mansider for Perl.  Disse
+          parameterene overstyrer denne oppførselen.</para>
         </listitem>
       </varlistentry>
 
@@ -124,8 +124,9 @@ export BUILD_BZIP2=0</userinput></screen>
           <para>Disse innstillingene definerer hvor Perl leter etter installerte
           moduler. LFS redaktørene valgte å legge dem i en katalogstruktur
           basert på Major.Minor-versjonen av Perl (&perl-version-min;) hvilket
-          tillater oppgradering av Perl til nyere Patch nivåer (&perl-version;) uten
-          behovet for å installere alle modulene på nytt.</para>
+          tillater oppgradering av Perl til nyere Patch nivåer (Patchnivået er
+          den siste punktseparerte delen i den fullstendige versjonenstrengen som
+          &perl-version;) uten å installere alle modulene på nytt.</para>
         </listitem>
       </varlistentry>
 

@@ -42,6 +42,12 @@
   <sect2 role="installation">
     <title>Installasjon av Make</title>
 
+    <para>Først, fiks et problem identifisert oppstrøms:</para>
+
+<screen><userinput remap="pre">sed -e '/ifdef SIGPIPE/,+2 d' \
+    -e '/undef  FATAL_SIG/i FATAL_SIG (SIGPIPE);' \
+    -i src/main.c</userinput></screen>
+
     <para>Forbered Make for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr   \
@@ -56,8 +62,8 @@
         <term><parameter>--without-guile</parameter></term>
         <listitem>
           <para>Selv om vi krysskompilerer, prøver configure å bruke
-           guile fra byggeverten hvis den finner det. Dette gjør at kompileringen
-           mislykkes, så denne bryteren forhindrer bruk av den.</para>
+          guile fra byggeverten hvis den finner det. Dette gjør at kompileringen
+          mislykkes, så denne bryteren forhindrer bruk av den.</para>
         </listitem>
       </varlistentry>
     </variablelist>

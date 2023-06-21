@@ -24,10 +24,10 @@
     <title/>
 
     <para>GDBM pakken inneholder GNU Database Manager. Det er et bibliotek
-     av databasefunksjoner som bruker utvidbar hashing og fungerer lignende som
-     standard UNIX dbm. Biblioteket gir primitiver for lagring av nøkkel/data
-     par, søker og henter dataene etter nøkkelen og sletter en nøkkel
-     sammen med sine data. </para>
+    av databasefunksjoner som bruker utvidbar hashing og fungerer lignende som
+    standard UNIX dbm. Biblioteket gir primitiver for lagring av nøkkel/data
+    par, søker og henter dataene etter nøkkelen og sletter en nøkkel
+    sammen med sine data. </para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -61,8 +61,8 @@
         <term><envar>--enable-libgdbm-compat</envar></term>
         <listitem>
           <para>Denne bryteren gjør det mulig å bygge libgdbm kompatibilitetsbiblioteket.
-           Noen pakker utenfor LFS kan kreve det eldre DBM
-           rutiner gir.</para>
+          Noen pakker utenfor LFS kan kreve eldre DBM
+          rutiner det gir.</para>
         </listitem>
       </varlistentry>
     </variablelist>

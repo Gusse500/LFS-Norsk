@@ -24,7 +24,7 @@
     <title/>
 
     <para>Shadow pakken inneholder programmer for håndtering av passord på en sikker
-     måte.</para>
+    måte.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -44,14 +44,14 @@
     <note>
       <para>Hvis du ønsker å håndheve bruken av sterke passord, se
       <ulink url="&blfs-book;postlfs/cracklib.html"/> for installasjon av
-       CrackLib før du bygger Shadow. Legg så til
+      CrackLib før du bygger Shadow. Legg så til
       <parameter>--with-libcrack</parameter> til <command>configure</command>
       kommandoen under.</para>
     </note>
 
     <para>Deaktiver installasjonen av <command>groups</command> programmet
-     og man sidene, ettersom Coreutils gir en bedre versjon. Også,
-     forhindre installasjon av man sider som allerede var installert i
+    og mansidene, ettersom Coreutils gir en bedre versjon. Også,
+    forhindre installasjon av mansider som allerede var installert i
     <xref linkend="ch-system-man-pages"/>:</para>
 
 <screen><userinput remap="pre">sed -i 's/groups$(EXEEXT) //' src/Makefile.in
@@ -61,25 +61,28 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</userinput></s
 
     <para id="shadow-login_defs">I stedet for å bruke standard
     <emphasis>crypt</emphasis> metoden, bruk den sikrere
-    <emphasis>SHA-512</emphasis> metode for passordkryptering, som også
-     tillater passord lengre enn 8 tegn. Det er også nødvendig å endre
-     det foreldede <filename class="directory">/var/spool/mail</filename> plasseringen
-     for brukerpostbokser som Shadow bruker som standard til <filename
+    <emphasis>SHA-512</emphasis> metoden for passordkryptering, som også
+    tillater passord lengre enn 8 tegn. I tillegg, angi antall
+    avrundinger til 500 000 i stedet for standard 5000, som er altfor lavt til å
+    forhindre brute force passordangrep. Det er også nødvendig å endre
+    det foreldede <filename class="directory">/var/spool/mail</filename> plasseringen
+    for brukerpostbokser som Shadow bruker som standard til <filename
     class="directory">/var/mail</filename> stedet som brukes for øyeblikket. Og,
-     kvitte seg med <filename class="directory">/bin</filename> og
+    fjerne <filename class="directory">/bin</filename> og
     <filename class="directory">/sbin</filename> fra <envar>PATH</envar>,
     siden de ganske enkelt er symbolske lenker til motparten i
     <filename class="directory">/usr</filename>.</para>
 
     <note>
-      <para>Hvis <filename class="directory">/bin</filename> og/eller
-      <filename class="directory">/sbin</filename> foretrekkes å være
-       i <envar>PATH</envar> av en eller annen grunn, endre
+      <para>Hvis du ønsker å inkludere <filename class="directory">/bin</filename>
+      og/eller <filename class="directory">/sbin</filename> i <envar>PATH</envar>
+      av en eller annen grunn, endre
       <envar>PATH</envar> i <filename>.bashrc</filename> etter at LFS er
-       bygget.</para>
+      bygget.</para>
     </note>
 
 <screen><userinput remap="pre">sed -e 's:#ENCRYPT_METHOD DES:ENCRYPT_METHOD SHA512:' \
+    -e 's@#\(SHA_CRYPT_..._ROUNDS 5000\)@\100@'       \
     -e 's:/var/spool/mail:/var/mail:'                 \
     -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                \
     -i etc/login.defs</userinput></screen>
@@ -91,7 +94,7 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</userinput></s
     </note>
 <!--
     <para>Gjør en mindre endring for å lage det første gruppenummeret som genereres
-     av useradd til 1000:</para>
+    av useradd til 1000:</para>
 
 <screen><userinput remap="pre">sed -i 's/1000/999/' etc/useradd</userinput></screen>
 -->
@@ -114,15 +117,16 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</userinput></s
         <term><command>touch /usr/bin/passwd</command></term>
         <listitem>
           <para>Filen <filename>/usr/bin/passwd</filename> må
-           eksistere fordi plasseringen er hardkodet i noen programmer, og
-           hvis den ikke eksisterer, er ikke standardplasseringen riktig.</para>
+          eksistere fordi plasseringen er hardkodet i noen programmer;
+          hvis den ikke eksisterer allerede, vil installasjonsskriptet
+          lage den på feil sted.</para>
         </listitem>
       </varlistentry>
       <varlistentry>
         <term><parameter>--with-group-name-max-length=32</parameter></term>
         <listitem>
-          <para>Maksimalt brukernavn er 32 tegn. Gjør det maksimale
-           gruppenavnet det samme.</para>
+          <para>Det lengste tillatte brukernavnet er 32 tegn. Gjør det maksimale
+          lengden på et gruppenavn til det samme.</para>
         </listitem>
       </varlistentry>
 
@@ -150,13 +154,13 @@ make -C man install-man</userinput></screen>
     </indexterm>
 
     <para>Denne pakken inneholder verktøy for å legge til, endre og slette brukere og
-     grupper; angi og endre passordene deres; og utføre annen administrativ
-     oppgaver. For en fullstendig forklaring av hva <emphasis>passordskygge</emphasis>
-     betyr, se <filename>doc/HOWTO</filename> filen i den utpakkede
-     kildetreet. Hvis du bruker Shadow-støtte, husk at programmer som trenger
-     å bekrefte passord (skjermbehandlere, FTP-programmer, pop3-nisser, etc.)
-     må være Shadow-kompatibel. Det vil si at de må kunne jobbe med
-     skyggelagte passord.</para>
+    grupper; angi og endre passordene deres; og utføre annen administrativ
+    oppgaver. For en fullstendig forklaring av hva <emphasis>passordskygging</emphasis>
+    betyr, se <filename>doc/HOWTO</filename> filen i den utpakkede
+    kildetreet. Hvis du bruker Shadowstøtte, husk at programmer som trenger
+    å bekrefte passord (skjermbehandlere, FTP-programmer, pop3-nisser, etc.)
+    må være Shadowkompatibel. Det vil si at de må kunne jobbe med
+    skyggelagte passord.</para>
 
     <para>For å aktivere skyggelagte passord, kjør følgende kommando:</para>
 
@@ -167,45 +171,45 @@ make -C man install-man</userinput></screen>
 <screen><userinput>grpconv</userinput></screen>
 
     <para>Shadows standardkonfigurasjon for <command>useradd</command>
-    verktøyet har noen forbehold som trenger litt forklaring. Først standard
-     handling for <command>useradd</command> verktøyet er å lage brukeren og
-     en gruppe med samme navn som brukeren. Som standard begynner bruker-ID (UID) og
-     gruppe ID-numre (GID) med 1000. Dette betyr at hvis du ikke sender
-     parametere til <command>useradd</command>, hver bruker vil være medlem av en
-     unik gruppe på systemet. Hvis denne oppførselen er uønsket, trenger du
-     å sende enten <parameter>-g</parameter> eller <parameter>-N</parameter>
-    parameter til <command>useradd</command> eller for å endre innstillingen for
+    verktøyet trenger litt forklaring. Først standard
+    handling for <command>useradd</command> verktøyet er å lage brukeren og
+    en gruppe med samme navn som brukeren. Som standard begynner bruker-ID (UID) og
+    gruppe ID-numre (GID) med 1000. Dette betyr at hvis du ikke sender
+    parametere til <command>useradd</command>, hver bruker vil være medlem av en
+    unik gruppe på systemet. Hvis denne oppførselen er uønsket, trenger du
+    å sende enten <parameter>-g</parameter> eller <parameter>-N</parameter>
+    parameter til <command>useradd</command>, eller endre innstillingen for
     <parameter>USERGROUPS_ENAB</parameter> i
     <filename>/etc/login.defs</filename>. Se <filename>useradd(8)</filename>
     for mer informasjon.</para>
 
     <para>For det andre, for å endre standardparametrene, filen
     <filename>/etc/default/useradd</filename> må lages og skreddersys
-     for å passe dine spesielle behov. Lag den med:</para>
+    for å passe dine spesielle behov. Lag den med:</para>
 
 <screen><userinput>mkdir -p /etc/default
 useradd -D --gid 999</userinput></screen>
 
     <variablelist>
-      <title><filename>/etc/default/useradd</filename> Parameterforklaringer</title>
+      <title><filename>/etc/default/useradd</filename> parameterforklaringer</title>
 
       <varlistentry>
         <term><parameter>GROUP=999</parameter></term>
         <listitem>
           <para>Denne parameteren setter begynnelsen på gruppenumrene som brukes i
-           <filename>/etc/group</filename> filen. Den spesielle verdien 999
-           kommer fra <parameter>--gid</parameter> parameter ovenfor. Du kan
-           endre den til alt du ønsker.
+          <filename>/etc/group</filename> filen. Den spesielle verdien 999
+          kommer fra <parameter>--gid</parameter> parameteren ovenfor. Du kan
+          endre den til alt du ønsker.
 
-          Noter at <command>useradd</command> vil aldri gjenbruke en UID eller GID.
-           Hvis nummeret som er identifisert i denne parameteren brukes, vil det bruke
-           neste ledige nummer. Merk også at hvis du ikke har en gruppe med
-           en ID lik dette nummeret på systemet ditt første gang du bruker
+          Merk at <command>useradd</command> vil aldri gjenbruke en UID eller GID.
+          Hvis nummeret som er identifisert i denne parameteren brukes, vil den bruke
+          neste ledige nummer. Merk også at hvis du ikke har en gruppe med
+          en ID lik dette nummeret på systemet ditt første gang du bruker
           <command>useradd</command> uten <parameter>-g</parameter>
-          parameteren, du vil få en melding på terminalen som
-           sier: <computeroutput>useradd: unknown GID 999</computeroutput>,
+          parameteren, vil en feilmelding bli generert&mdash;<computeroutput>useradd:
+          unknown GID 999</computeroutput>,
           selv om kontoen er riktig opprettet. Det er derfor vi har
-           opprettet gruppen <systemitem class="groupname">users</systemitem>
+          opprettet gruppen <systemitem class="groupname">users</systemitem>
           med denne gruppe-IDen i <xref linkend='ch-tools-createfiles'/>.</para>
 
         </listitem>
@@ -214,12 +218,11 @@ useradd -D --gid 999</userinput></screen>
         <term><parameter>CREATE_MAIL_SPOOL=yes</parameter></term>
         <listitem>
           <para>Denne parameteren gjør at <command>useradd</command> lager en
-           postboksfil for den nyopprettede brukeren. <command>useradd</command>
+          postboksfil for den nyopprettede brukeren. <command>useradd</command>
           vil gjøre gruppe eierskap av denne filen til
           <systemitem class="groupname">mail</systemitem> gruppe med 0660
-           tillatelser. Hvis du foretrekker at disse postboksfilene ikke blir
-           laget av <command>useradd</command>, utsted følgende
-           kommando:</para>
+          tillatelser. Hvis du ikke vil opprette disse filene,
+          gi følgende kommando:</para>
 
 <screen><userinput>sed -i '/MAIL/s/yes/no/' /etc/default/useradd</userinput></screen>
         </listitem>
@@ -233,7 +236,7 @@ useradd -D --gid 999</userinput></screen>
     <title>Sette root passordet</title>
 
     <para>Velg et passord for brukeren <emphasis>root</emphasis> og sett det
-     ved å kjøre:</para>
+    ved å kjøre:</para>
 
 <screen role="nodump"><userinput>passwd root</userinput></screen>
 
@@ -244,7 +247,7 @@ useradd -D --gid 999</userinput></screen>
 
     <segmentedlist>
       <segtitle>Installerte programmer</segtitle>
-      <segtitle>Installert mappe</segtitle>
+      <segtitle>Installerte mapper</segtitle>
       <segtitle>Installerte biblioteker</segtitle>
 
       <seglistitem>
@@ -252,9 +255,9 @@ useradd -D --gid 999</userinput></screen>
         getsubids, gpasswd, groupadd, groupdel, groupmems, groupmod, grpck,
         grpconv, grpunconv, lastlog, login, logoutd, newgidmap, newgrp,
         newuidmap, newusers, nologin, passwd, pwck, pwconv, pwunconv,
-        sg (link to newgrp), su, useradd, userdel, usermod,
-        vigr (link to vipw), og vipw</seg>
-        <seg>/etc/default</seg>
+        sg (lenker til newgrp), su, useradd, userdel, usermod,
+        vigr (lenker til vipw), og vipw</seg>
+      <seg>/etc/default og /usr/include/shadow</seg>
         <seg>libsubid.so</seg>
       </seglistitem>
     </segmentedlist>
@@ -268,7 +271,7 @@ useradd -D --gid 999</userinput></screen>
         <term><command>chage</command></term>
         <listitem>
           <para>Brukes til å endre maksimalt antall dager mellom obligatoriske
-           passordendringer</para>
+          passordendringer</para>
           <indexterm zone="ch-system-shadow chage">
             <primary sortas="b-chage">chage</primary>
           </indexterm>
@@ -329,8 +332,8 @@ useradd -D --gid 999</userinput></screen>
         <term><command>faillog</command></term>
         <listitem>
           <para>Brukes til å undersøke loggen over påloggingsfeil, for å sette et maksimum
-           antall feil før en konto blokkeres, eller for å tilbakestille
-           antall feil</para>
+          antall feil før en konto blokkeres, eller for å tilbakestille
+          antall feil</para>
           <indexterm zone="ch-system-shadow faillog">
             <primary sortas="b-faillog">faillog</primary>
           </indexterm>
@@ -351,7 +354,7 @@ useradd -D --gid 999</userinput></screen>
         <term><command>gpasswd</command></term>
         <listitem>
           <para>Brukes til å legge til og slette medlemmer og administratorer til
-           grupper</para>
+          grupper</para>
           <indexterm zone="ch-system-shadow gpasswd">
             <primary sortas="b-gpasswd">gpasswd</primary>
           </indexterm>
@@ -382,7 +385,7 @@ useradd -D --gid 999</userinput></screen>
         <term><command>groupmems</command></term>
         <listitem>
           <para>Lar en bruker administrere sin egen gruppemedlemsliste
-           uten krav om superbrukerprivilegier.</para>
+          uten krav om superbrukerprivilegier.</para>
           <indexterm zone="ch-system-shadow groupmems">
             <primary sortas="b-groupmems">groupmems</primary>
           </indexterm>
@@ -415,7 +418,7 @@ useradd -D --gid 999</userinput></screen>
         <term><command>grpconv</command></term>
         <listitem>
           <para>Oppretter eller oppdaterer skyggegruppefilen fra den normale
-           gruppefilen</para>
+          gruppefilen</para>
           <indexterm zone="ch-system-shadow grpconv">
             <primary sortas="b-grpconv">grpconv</primary>
           </indexterm>
@@ -437,7 +440,7 @@ useradd -D --gid 999</userinput></screen>
         <term><command>lastlog</command></term>
         <listitem>
           <para>Rapporterer siste pålogging for alle brukere eller av en
-           gitt bruker</para>
+          gitt bruker</para>
           <indexterm zone="ch-system-shadow lastlog">
             <primary sortas="b-lastlog">lastlog</primary>
           </indexterm>
@@ -458,7 +461,7 @@ useradd -D --gid 999</userinput></screen>
         <term><command>logoutd</command></term>
         <listitem>
           <para>Er en nisse som brukes til å håndheve restriksjoner på påloggingstid
-           og portene</para>
+          og portene</para>
           <indexterm zone="ch-system-shadow logoutd">
             <primary sortas="b-logoutd">logoutd</primary>
           </indexterm>
@@ -499,7 +502,7 @@ useradd -D --gid 999</userinput></screen>
         <term><command>newusers</command></term>
         <listitem>
           <para>Brukes til å opprette eller oppdatere en hel serie med
-           brukerkontoer</para>
+          brukerkontoer</para>
           <indexterm zone="ch-system-shadow newusers">
             <primary sortas="b-newusers">newusers</primary>
           </indexterm>
@@ -509,9 +512,8 @@ useradd -D --gid 999</userinput></screen>
       <varlistentry id="nologin">
         <term><command>nologin</command></term>
         <listitem>
-          <para>Viser en melding om at en konto ikke er tilgjengelig; den er designet
-           til å brukes som standard skall for kontoer som er blitt
-           deaktivert</para>
+          <para>Viser en melding som sier at en konto ikke er tilgjengelig; den er designet
+          til å brukes som standard skall for deaktiverte kontoer</para>
           <indexterm zone="ch-system-shadow nologin">
             <primary sortas="b-nologin">nologin</primary>
           </indexterm>
@@ -544,7 +546,7 @@ useradd -D --gid 999</userinput></screen>
         <term><command>pwconv</command></term>
         <listitem>
           <para>Oppretter eller oppdaterer skyggepassordfilen fra den normale
-           passordfilen</para>
+          passordfilen</para>
           <indexterm zone="ch-system-shadow pwconv">
             <primary sortas="b-pwconv">pwconv</primary>
           </indexterm>
@@ -566,7 +568,7 @@ useradd -D --gid 999</userinput></screen>
         <term><command>sg</command></term>
         <listitem>
           <para>Utfører en gitt kommando mens brukerens GID
-           er satt til den gitte gruppen</para>
+          er satt til den gitte gruppen</para>
           <indexterm zone="ch-system-shadow sg">
             <primary sortas="b-sg">sg</primary>
           </indexterm>
@@ -587,7 +589,7 @@ useradd -D --gid 999</userinput></screen>
         <term><command>useradd</command></term>
         <listitem>
           <para>Oppretter en ny bruker med det gitte navnet, eller oppdaterer standard
-           informasjon om ny bruker</para>
+          informasjon om ny bruker</para>
           <indexterm zone="ch-system-shadow useradd">
             <primary sortas="b-useradd">useradd</primary>
           </indexterm>
@@ -608,7 +610,7 @@ useradd -D --gid 999</userinput></screen>
         <term><command>usermod</command></term>
         <listitem>
           <para>Brukes til å endre den gitte brukerens påloggingsnavn, bruker
-           identifikasjon (UID), skall, startgruppe, hjemmekatalog, etc.</para>
+          identifikasjon (UID), skall, startgruppe, hjemmekatalog, etc.</para>
           <indexterm zone="ch-system-shadow usermod">
             <primary sortas="b-usermod">usermod</primary>
           </indexterm>
@@ -619,7 +621,7 @@ useradd -D --gid 999</userinput></screen>
         <term><command>vigr</command></term>
         <listitem>
           <para>Redigerer <filename>/etc/group</filename> eller
-          <filename>/etc/gshadow</filename> filer</para>
+          <filename>/etc/gshadow</filename> filene</para>
           <indexterm zone="ch-system-shadow vigr">
             <primary sortas="b-vigr">vigr</primary>
           </indexterm>
@@ -630,7 +632,7 @@ useradd -D --gid 999</userinput></screen>
         <term><command>vipw</command></term>
         <listitem>
           <para>Redigerer <filename>/etc/passwd</filename> eller
-          <filename>/etc/shadow</filename> filer</para>
+          <filename>/etc/shadow</filename> filene</para>
           <indexterm zone="ch-system-shadow vipw">
             <primary sortas="b-vipw">vipw</primary>
           </indexterm>

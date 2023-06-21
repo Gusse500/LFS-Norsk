@@ -11,7 +11,7 @@
   <title>Komme i gang etter LFS</title>
 
   <sect2>
-  <title>Bestemmer hva du skal gjøre videre</title>
+  <title>Bestemme hva du skal gjøre videre</title>
 
      <para>
        Nå som LFS er fullført og du har et oppstartbart system, hva gjør du?
@@ -42,33 +42,29 @@
         basert på et grunnleggende
         <ulink url="&blfs-book;x/installing.html">grafisk miljø</ulink>
         og flere grafisk baserte applikasjoner som f.eks
-        <ulink url="&blfs-book;xsoft/firefox.html">Firefox web browser</ulink>,
-        <ulink url="&blfs-book;xsoft/thunderbird.html">Thunderbird email client</ulink>,
+        <ulink url="&blfs-book;xsoft/firefox.html">Firefox nettleser</ulink>,
+        <ulink url="&blfs-book;xsoft/thunderbird.html">Thunderbird e-postklient</ulink>,
         eller
-        <ulink url="&blfs-book;xsoft/libreoffice.html">LibreOffice office suite</ulink>.
+        <ulink url="&blfs-book;xsoft/libreoffice.html">LibreOffice kontorpakke</ulink>.
         Disse applikasjonene krever mange (flere hundre avhengig av
         ønskede funksjoner) flere pakker med støtteapplikasjoner og
         biblioteker.
      </para>
 
      <para>
-        I tillegg til ovennevnte er det et sett med applikasjoner som er
-        egnet for alle systemer for systemadministrasjon. Disse applikasjonene er
-        i BLFS boken. Ikke
-        alle pakker trengs i alle miljøer. For eksempel
-        <ulink url="&blfs-book;basicnet/dhcpcd.html">dhcpcd</ulink>,
-        er ikke passende for en server og
-        <ulink url="&blfs-book;basicnet/wireless_tools.html">wireless_tools</ulink>,
-        er normalt bare
-        nyttig for et bærbart system. Hvis du ikke er sikker på om en pakke presentert
-        her er nødvendig eller ikke, kan den installeres nå eller senere om
-        behovet oppstår.
+        I tillegg til ovennevnte er det et sett med applikasjoner for systemstyring
+        for alle typer systemer. Disse applikasjonene er alle i
+        BLFS boken. Ikke alle pakker er nødvendige i alle miljøer.
+        F.eks <ulink url="&blfs-book;basicnet/dhcpcd.html">dhcpcd</ulink>, er
+        normalt ikke egnet for en server og <ulink
+        url="&blfs-book;basicnet/wireless_tools.html">trådløse verktøy</ulink>,
+        er normalt bare nyttige for et bærbart system. 
      </para>
 
   </sect2>
 
   <sect2>
-  <title>Arbeid i et grunnleggende LFS miljø</title>
+  <title>Arbeide i et grunnleggende LFS miljø</title>
 
     <para>
       Når du starter opp i LFS, har du alle interne verktøy for å bygge
@@ -77,21 +73,21 @@
     </para>
 
   <sect3>
-  <title>Arbeid fra LFS verten i chroot</title>
+  <title>Arbeide fra LFS verten i chroot</title>
 
     <para>
       Denne metoden gir et komplett grafisk miljø hvor fulle
       funksjoner for nettleser og kopier/lim inn er tilgjengelige. Denne metoden
       lar deg laste ned applikasjoner som vertens versjon av wget for å laste ned
       pakkekilder til et sted som er tilgjengelig når du arbeider i chroot
-       miljø.
+      miljøet.
     </para>
 
     <para>
        For å kunne bygge pakker på riktig måte i chroot, må du også
        huske å montere de virtuelle filsystemene hvis de ikke allerede er
        montert. En måte å gjøre dette på er å lage et skript på
-       <emphasis role="bold">HOST</emphasis> systemet:
+       <emphasis role="bold">VERTS</emphasis> systemet:
     </para>
 
 <screen><command>cat &gt; ~/mount-virt.sh &lt;&lt; "EOF"
@@ -133,7 +129,12 @@ mounttype dev/pts devpts devpts -o gid=5,mode=620
 mounttype proc    proc   proc
 mounttype sys     sysfs  sysfs
 mounttype run     tmpfs  run
-mkdir $LFS/run/shm
+if [ -h $LFS/dev/shm ]; then
+  mkdir -pv $LFS/$(readlink $LFS/dev/shm)
+else
+  mounttype dev/shm tmpfs tmpfs -o nosuid,nodev
+fi 
+
 #mountbind usr/src
 #mountbind boot
 #mountbind home
@@ -156,7 +157,7 @@ EOF</command></screen>
         pakkefiler. Denne plasseringen er vilkårlig. Det kan være i en vanlig
         brukers hjemmekatalog som ~/sources eller på en global plassering som
         /usr/src. Vår anbefaling er å ikke blande BLFS kilder og LFS kilder
-        i (fra chroot-miljøet) /sources. I alle fall pakkene
+        i (fra chroot-miljøet) /sources. I alle fall, pakkene
         må være tilgjengelig inne i chroot-miljøet.
     </para>
 
@@ -167,7 +168,7 @@ EOF</command></screen>
     </para>
 
 <screen><command>alias lfs='sudo /usr/sbin/chroot /mnt/lfs /usr/bin/env -i HOME=/root TERM="$TERM" PS1="\u:\w\\\\$ "
-PATH=/bin:/usr/bin:/sbin:/usr/sbin /bin/bash - -login'</command></screen>
+PATH=/bin:/usr/bin:/sbin:/usr/sbin /bin/bash --login'</command></screen>
 
      <para>
        Dette aliaset er litt vanskelig på grunn av sitering og nivåer av
@@ -178,7 +179,7 @@ PATH=/bin:/usr/bin:/sbin:/usr/sbin /bin/bash - -login'</command></screen>
   </sect3>
 
   <sect3>
-  <title>Arbeid eksternt via ssh</title>
+  <title>Arbeide eksternt via ssh</title>
 
     <para>
        Denne metoden gir også et fullstendig grafisk miljø, men først
@@ -195,27 +196,27 @@ PATH=/bin:/usr/bin:/sbin:/usr/sbin /bin/bash - -login'</command></screen>
   </sect3>
 
   <sect3>
-  <title>Arbeid fra LFS kommandolinjen</title>
+  <title>Arbeide fra LFS kommandolinjen</title>
 
     <para>
        Denne metoden krever installasjon av
         <ulink url="&blfs-book;general/libtasn1.html">libtasn1</ulink>,
         <ulink url="&blfs-book;postlfs/p11-kit.html">p11-kit</ulink>,
-		<ulink url="&blfs-book;postlfs/make-ca.html">make-ca</ulink>,
+        <ulink url="&blfs-book;postlfs/make-ca.html">make-ca</ulink>,
         <ulink url="&blfs-book;basicnet/wget.html">wget</ulink>,
         <ulink url="&blfs-book;general/gpm.html">gpm</ulink>, og
         <ulink url="&blfs-book;basicnet/links.html">links</ulink>
-		(eller <ulink url="&blfs-book;basicnet/lynx.html">lynx</ulink>)
+        (eller <ulink url="&blfs-book;basicnet/lynx.html">lynx</ulink>)
        i chroot og deretter omstart i det nye LFS systemet. På dette
        punktet har standardsystemet seks virtuelle konsoller. Veksling mellom
        konsoller er like enkelt som å bruke
-	   <keycombo>
+       <keycombo>
          <keycap>Alt</keycap>
          <keycap>Fx</keycap>
        </keycombo>
        tastekombinasjoner hvor <keycap>Fx</keycap> er
        mellom <keycap>F1</keycap> og <keycap>F6</keycap>.
-       Eller
+       Kombinasjonene
        <keycombo>
          <keycap>Alt</keycap>
          <keycap function='left'/>
@@ -225,7 +226,7 @@ PATH=/bin:/usr/bin:/sbin:/usr/sbin /bin/bash - -login'</command></screen>
          <keycap>Alt</keycap>
          <keycap function='right'/>
        </keycombo>
-       kombinasjonene vil også endre konsollen.
+       vil også endre konsollen.
      </para>
 
      <para>
@@ -238,6 +239,7 @@ PATH=/bin:/usr/bin:/sbin:/usr/sbin /bin/bash - -login'</command></screen>
       <note>
         <para>
           Som en sidenotat kan bytting av virtuelle konsoller også gjøres fra
+		  en X Window forekomst med
           <keycombo>
             <keycap>Ctrl</keycap>
             <keycap>Alt</keycap>
@@ -251,7 +253,8 @@ PATH=/bin:/usr/bin:/sbin:/usr/sbin /bin/bash - -login'</command></screen>
             <keycap>Alt</keycap>
             <keycap>Fx</keycap>
           </keycombo>
-          kombinasjon, hvor <keycap>Fx</keycap> kan være <keycap>F7</keycap>.
+          kombinasjonen, hvor <keycap>Fx</keycap> vanligvis er 
+          <keycap>F1</keycap> men kan være <keycap>F7</keycap>.
         </para>
       </note>
 

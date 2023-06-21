@@ -25,7 +25,8 @@
 
     <para>Python 3 pakken inneholder Python utviklingsmiljøet. Den
     er nyttig for objektorientert programmering, skriving av skript, prototyping
-    store programmer, eller utvikle hele applikasjoner.</para>
+    av store programmer, eller utvikle hele applikasjoner. Python er et tolket
+    dataspråk.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -65,14 +66,18 @@
       <term><parameter>--with-system-ffi</parameter></term>
       <listitem>
         <para>Denne bryteren muliggjør kobling mot systemversjonen av
-        <application>libffi</application>.</para>
+        <filename class='libraryfile'>libffi.so</filename>.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
       <term><parameter>--enable-optimizations</parameter></term>
       <listitem>
-        <para>Denne bryteren muliggjør stabile, men dyre, optimaliseringer.</para>
+        <para>Denne bryteren muliggjør omfattende, men tidkrevende, optimaliseringstrinn
+        Tolken bygges to ganger; tester utført på det første
+        bygget brukes til å forbedre den optimaliserte endelige versjonen.</para>
+        <!-- This description was drawn from the README.rst file
+        in the Python-3.11.0 package. -->
       </listitem>
     </varlistentry>
 
@@ -92,34 +97,39 @@
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>Flere steder bruker vi kommandoen <command>pip3</command> for å
-    installere Python 3 programmer og moduler for alle brukere som
-    <systemitem class='username'>root</systemitem>. Dette er i konflikt
-    med Python-utviklernes anbefaling om å installere pakker i en
-    virtuelt miljø eller hjemmemappen til en vanlig bruker (ved å kjøre
-    <command>pip3</command> som denne brukeren). For dette formål blir en advarsel med flere linjer
-    skrevet når du bruker <command>pip3</command> som
-    <systemitem class='username'>root</systemitem> brukeren.  Hovedgrunnen
-    for denne anbefalingen er å unngå konflikt med systemets
-    pakkebehandling (<command>dpkg</command> for eksempel), men LFS har ikke
-    en systemomfattende pakkebehandling, så dette er ikke et problem. Og,
-    <command>pip3</command> vil prøve å se etter en ny versjon av
-    seg selv når den kjøres. Siden domenenavnsløsning ikke er konfigurert
-    i LFS chroot miljøet ennå, vil den ikke se etter en ny versjon
-    og gi en advarsel. Når vi starter opp LFS systemet og setter opp
-    nettverkstilkobling, vil den deretter produsere en advarsel som ber brukeren om å oppdatere den
-    fra et forhåndsbygd hjul på PyPI hvis en ny versjon er tilgjengelig. Men LFS
-    betrakter <command>pip3</command> som en del av Python 3, så den burde ikke
-    oppdateres separat, og en oppdatering fra et forhåndsbygd hjul vil avvike
-    fra vårt formål å bygge et Linux system fra kildekode. Så
-    advarsel for en ny <command>pip3</command> versjon bør ignoreres om
-    vi vil. Hvis ønskelig, undertrykk disse advarslene ved å kjøre følgende
-    kommandoer:</para>
+    <para>Vi bruker <command>pip3</command> kommandoen til
+    å installer Python 3 programmer og moduler for alle brukere som
+    <systemitem class='username'>root</systemitem> flere steder i denne boken.
+    Dette er i konflikt med Python utviklernes anbefaling: å installere pakker i et
+    virtuelt miljø, eller inn i hjemmemappen til en vanlig bruker (ved å kjøre
+    <command>pip3</command> som denne brukeren). En advarsel med flere linjer
+    utløses når <command>pip3</command> er utstedt av
+    <systemitem class='username'>root</systemitem> brukeren.</para>
+    
+    <para>Hovedgrunnen
+    for anbefalingen er å unngå konflikter med systemets
+    pakkeansvarlig (<command>dpkg</command>, for eksempel). LFS har ikke
+    en systemomfattende pakkebehandling, så dette er ikke et problem. Også,
+    <command>pip3</command> vil se etter en ny versjon av
+    seg selv når den kjøres. Siden domenenavnoppløsning ikke er konfigurert ennå
+    i LFS chroot miljøet, <command>pip3</command> kan ikke sjekke
+    for en ny versjon av seg selv, og vil
+    produsere en advarsel. </para>
+  
+    <para>Etter at vi har startet opp LFS systemet og satt opp en nettverkstilkobling,
+    en annen advarsel vil bli gitt, og ber brukeren om å oppdatere <command>pip3</command>
+    fra et forhåndsbygd wheel på PyPI (når en ny versjon er tilgjengelig). Men LFS
+    vurderer <command>pip3</command> å være en del av Python 3, så det burde det ikke
+    oppdateres separat. Dessuten vil en oppdatering fra et forhåndsbygd wheel avvike
+    fra vårt mål: å bygge et Linuxsystem fra kildekoden. Så
+    advarsel om en ny versjon av <command>pip3</command> bør ignoreres om
+    vi vil. Hvis du ønsker det, kan du undertrykke alle disse advarslene ved å kjøre følgende
+    kommando, som oppretter en konfigurasjonsfil:</para>
 
- <screen><userinput remap="install">cat &gt; /etc/pip.conf &lt;&lt; EOF
-[global]
+<screen><userinput remap="install">cat &gt; /etc/pip.conf &lt;&lt; EOF
+<literal>[global]
 root-user-action = ignore
-disable-pip-version-check = true
+disable-pip-version-check = true</literal>
 EOF
 </userinput></screen>
 <!--
@@ -129,23 +139,23 @@ EOF
 -->
     <important>
       <para>
-        I LFS og BLFS bygger og installerer vi normalt Python-moduler med
-        <command>pip3</command> Vennligst pass på at
-        <command>pip3 install</command> kommandoer i begge bøkene skal
-        kjøres som &root; brukeren med mindre det er for et virtuelt Python-miljø. Å kjøre
-        en <command>pip3 install</command> som en ikke-&root; bruker kan synes å
+        I LFS og BLFS bygger og installerer vi normalt Pythonmoduler med
+        <command>pip3</command> kommandoen.  Vennligst pass på at
+        <command>pip3 install</command> kommandoer i begge bøkene
+        kjøres som &root; brukeren med mindre det er for et virtuelt Python-miljø.
+        Å kjøre en <command>pip3 install</command> som en ikke-&root; bruker kan synes å
         fungerer fint, men det vil føre til at den installerte modulen blir utilgjengelig av
         andre brukere.
       </para>
 
       <para>
         <command>pip3 install</command> vil ikke installere en allerede
-        installert modul som standard. For å bruke <command>pip3 install</command>
-        kommandoen for å oppgradere en modul (for
-        eksempel fra meson-0.61.3 til meson-0.62.0), legg til <parameter>--upgrade</parameter> til 
-		kommandolinjen. Hvis det virkelig er nødvendig å nedgradere en modul eller 
-		installer samme versjon på nytt av en eller annen grunn, sett inn
-        <parameter>--force-reinstall --no-deps</parameter> i
+        installert modul som standard. Når du bruker <command>pip3 install</command>
+        kommandoen for å oppgradere en modul (for eksempel fra meson-0.61.3 til
+        meson-0.62.0), sett inn alternativet <parameter>--upgrade</parameter> inn i
+        kommandolinjen. Hvis det virkelig er nødvendig å nedgradere en modul, eller
+        installer samme versjon på nytt av en eller annen grunn, sett inn
+        <parameter>--force-reinstall --no-deps</parameter> inn i
         kommandolinjen.
       </para>
     </important>
@@ -164,10 +174,10 @@ tar --strip-components=1  \
       <title>Betydningen av dokumentasjonsinstallasjons kommandoene:</title>
 
     <varlistentry>
-      <term><option>--no-same-owner</option> og <option>--no-same-permissions</option></term>
+      <term><option>--no-same-owner</option> and <option>--no-same-permissions</option></term>
       <listitem>
-        <para>Sørg for at de installerte filene har riktig eierskap og
-        tillatelser. Uten disse alternativene, å bruke <application>tar</application>
+        <para>Sørger for at de installerte filene har riktig eierskap og
+        tillatelser. Uten disse alternativene,, <application>tar</application>
         vil installere pakkefilene med oppstrøms skaperens verdier.
         </para>
       </listitem>
@@ -190,7 +200,7 @@ tar --strip-components=1  \
           2to3, idle3, pip3, pydoc3, python3, og python3-config
         </seg>
         <seg>
-          libpython&python-minor;.so og libpython3.so
+          libpython&python-minor;.so and libpython3.so
         </seg>
         <seg>
           /usr/include/python&python-minor;,
@@ -227,7 +237,7 @@ tar --strip-components=1  \
             er et innpakningsskript som åpner en <application>Python</application>
             bevisst GUI tekstprogram. For at dette skriptet skal kjøre, må du ha installert
             <application>Tk</application> før Python slik at Tkinter
-            Python modulen blir bygget
+            Python modulen blir bygget.
           </para>
           <indexterm zone="ch-system-Python">
             <primary sortas="b-idle3">idle3</primary>
@@ -264,8 +274,8 @@ tar --strip-components=1  \
         <term><command>python3</command></term>
         <listitem>
           <para>
-            er et tolket, interaktiv, objektorientert programmerings
-            språk
+            er tolken for Python, et tolket, interaktiv,
+            objektorientert programmeringsspråk
           </para>
           <indexterm zone="ch-system-Python">
             <primary sortas="b-python3">python3</primary>

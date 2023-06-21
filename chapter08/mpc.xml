@@ -24,8 +24,8 @@
     <title/>
 
     <para>MPC pakken inneholder et bibliotek for aritmetikk av komplekse
-     tall med vilkårlig høy presisjon og korrekt avrunding av
-     resultatet.</para>
+    tall med vilkårlig høy presisjon og korrekt avrunding av
+    resultatet.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>

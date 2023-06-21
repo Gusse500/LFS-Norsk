@@ -15,14 +15,14 @@
     før du laster ned pakker for å finne ut om en nyere versjon av noen
     pakken bør brukes for å unngå sikkerhetssårbarheter.</para>
 
-    <para>Oppstrøms kan fjerne gamle utgivelser, spesielt når disse
+    <para>Oppstrøms kilder kan fjerne gamle utgivelser, spesielt når de
     utgivelser inneholder en sikkerhetssårbarhet. Hvis én URL nedenfor ikke er
     tilgjengelig, bør du lese sikkerhetsrådene først for å finne ut
     om en nyere versjon (med sårbarheten fikset) skal brukes. Hvis
     ikke, prøv å laste ned den fjernede pakken fra et speil. Selv om det er
     mulig å laste ned en gammel utgivelse fra et speil selv om denne utgivelsen
-    har blitt fjernet på grunn av en sårbarhet, anbefales det ikke
-    bruk en utgivelse som er kjent for å være sårbar for å bygge systemet ditt.</para>
+    har blitt fjernet på grunn av en sårbarhet, det er ikke en god idé
+    å bruk en utgivelse som er kjent for å være sårbar for å bygge systemet ditt.</para>
   </note>
 
   <para>Last ned eller på annen måte skaff deg følgende pakker:</para>
@@ -33,7 +33,7 @@
       <term>Acl (&acl-version;) - <token>&acl-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&acl-home;"/></para>
-        <para>Laste ned: <ulink url="&acl-url;"/></para>
+        <para>Nedlasting: <ulink url="&acl-url;"/></para>
         <para>MD5 sum: <literal>&acl-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -42,7 +42,7 @@
       <term>Attr (&attr-version;) - <token>&attr-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&attr-home;"/></para>
-        <para>Laste ned: <ulink url="&attr-url;"/></para>
+        <para>Nedlasting: <ulink url="&attr-url;"/></para>
         <para>MD5 sum: <literal>&attr-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -51,7 +51,7 @@
       <term>Autoconf (&autoconf-version;) - <token>&autoconf-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&autoconf-home;"/></para>
-        <para>Laste ned: <ulink url="&autoconf-url;"/></para>
+        <para>Nedlasting: <ulink url="&autoconf-url;"/></para>
         <para>MD5 sum: <literal>&autoconf-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -60,7 +60,7 @@
       <term>Automake (&automake-version;) - <token>&automake-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&automake-home;"/></para>
-        <para>Laste ned: <ulink url="&automake-url;"/></para>
+        <para>Nedlasting: <ulink url="&automake-url;"/></para>
         <para>MD5 sum: <literal>&automake-md5;</literal></para>
         <para>SHA256 sum: <literal>&automake-sha256;</literal></para>
       </listitem>
@@ -70,7 +70,7 @@
       <term>Bash (&bash-version;) - <token>&bash-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&bash-home;"/></para>
-        <para>Laste ned: <ulink url="&bash-url;"/></para>
+        <para>Nedlasting: <ulink url="&bash-url;"/></para>
         <para>MD5 sum: <literal>&bash-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -79,7 +79,7 @@
       <term>Bc (&bc-version;) - <token>&bc-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&bc-home;"/></para>
-        <para>Laste ned: <ulink url="&bc-url;"/></para>
+        <para>Nedlasting: <ulink url="&bc-url;"/></para>
         <para>MD5 sum: <literal>&bc-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -88,7 +88,7 @@
       <term>Binutils (&binutils-version;) - <token>&binutils-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&binutils-home;"/></para>
-        <para>Laste ned: <ulink url="&binutils-url;"/></para>
+        <para>Nedlasting: <ulink url="&binutils-url;"/></para>
         <para>MD5 sum: <literal>&binutils-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -97,7 +97,7 @@
       <term>Bison (&bison-version;) - <token>&bison-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&bison-home;"/></para>
-        <para>Laste ned: <ulink url="&bison-url;"/></para>
+        <para>Nedlasting: <ulink url="&bison-url;"/></para>
         <para>MD5 sum: <literal>&bison-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -106,7 +106,7 @@
       <term>Bzip2 (&bzip2-version;) - <token>&bzip2-size;</token>:</term>
       <listitem>
         <!--<para>Hjemmeside: <ulink url="&bzip2-home;"/></para>-->
-        <para>Laste ned: <ulink url="&bzip2-url;"/></para>
+        <para>Nedlasting: <ulink url="&bzip2-url;"/></para>
         <para>MD5 sum: <literal>&bzip2-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -115,7 +115,7 @@
       <term>Check (&check-version;) - <token>&check-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&check-home;"/></para>
-        <para>Laste ned: <ulink url="&check-url;"/></para>
+        <para>Nedlasting: <ulink url="&check-url;"/></para>
         <para>MD5 sum: <literal>&check-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -124,7 +124,7 @@
       <term>Coreutils (&coreutils-version;) - <token>&coreutils-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&coreutils-home;"/></para>
-        <para>Laste ned: <ulink url="&coreutils-url;"/></para>
+        <para>Nedlasting: <ulink url="&coreutils-url;"/></para>
         <para>MD5 sum: <literal>&coreutils-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -133,7 +133,7 @@
       <term>D-Bus (&dbus-version;) - <token>&dbus-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&dbus-home;"/></para>
-        <para>Laste ned: <ulink url="&dbus-url;"/></para>
+        <para>Nedlasting: <ulink url="&dbus-url;"/></para>
         <para>MD5 sum: <literal>&dbus-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -142,7 +142,7 @@
       <term>DejaGNU (&dejagnu-version;) - <token>&dejagnu-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&dejagnu-home;"/></para>
-        <para>Laste ned: <ulink url="&dejagnu-url;"/></para>
+        <para>Nedlasting: <ulink url="&dejagnu-url;"/></para>
         <para>MD5 sum: <literal>&dejagnu-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -151,7 +151,7 @@
       <term>Diffutils (&diffutils-version;) - <token>&diffutils-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&diffutils-home;"/></para>
-        <para>Laste ned: <ulink url="&diffutils-url;"/></para>
+        <para>Nedlasting: <ulink url="&diffutils-url;"/></para>
         <para>MD5 sum: <literal>&diffutils-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -160,7 +160,7 @@
       <term>E2fsprogs (&e2fsprogs-version;) - <token>&e2fsprogs-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&e2fsprogs-home;"/></para>
-        <para>Laste ned: <ulink url="&e2fsprogs-url;"/></para>
+        <para>Nedlasting: <ulink url="&e2fsprogs-url;"/></para>
         <para>MD5 sum: <literal>&e2fsprogs-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -169,7 +169,7 @@
       <term>Elfutils (&elfutils-version;) - <token>&elfutils-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&elfutils-home;"/></para>
-        <para>Laste ned: <ulink url="&elfutils-url;"/></para>
+        <para>Nedlasting: <ulink url="&elfutils-url;"/></para>
         <para>MD5 sum: <literal>&elfutils-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -177,7 +177,7 @@
     <varlistentry revision="sysv">
       <term>Eudev (&eudev-version;) - <token>&eudev-size;</token>:</term>
       <listitem>
-        <para>Laste ned: <ulink url="&eudev-url;"/></para>
+        <para>Nedlasting: <ulink url="&eudev-url;"/></para>
         <para>MD5 sum: <literal>&eudev-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -186,7 +186,7 @@
       <term>Expat (&expat-version;) - <token>&expat-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&expat-home;"/></para>
-        <para>Laste ned: <ulink url="&expat-url;"/></para>
+        <para>Nedlasting: <ulink url="&expat-url;"/></para>
         <para>MD5 sum: <literal>&expat-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -195,7 +195,7 @@
       <term>Expect (&expect-version;) - <token>&expect-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&expect-home;"/></para>
-        <para>Laste ned: <ulink url="&expect-url;"/></para>
+        <para>Nedlasting: <ulink url="&expect-url;"/></para>
         <para>MD5 sum: <literal>&expect-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -204,7 +204,7 @@
       <term>File (&file-version;) - <token>&file-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&file-home;"/></para>
-        <para>Laste ned: <ulink url="&file-url;"/></para>
+        <para>Nedlasting: <ulink url="&file-url;"/></para>
         <para>MD5 sum: <literal>&file-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -213,7 +213,7 @@
       <term>Findutils (&findutils-version;) - <token>&findutils-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&findutils-home;"/></para>
-        <para>Laste ned: <ulink url="&findutils-url;"/></para>
+        <para>Nedlasting: <ulink url="&findutils-url;"/></para>
         <para>MD5 sum: <literal>&findutils-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -222,7 +222,7 @@
       <term>Flex (&flex-version;) - <token>&flex-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&flex-home;"/></para>
-        <para>Laste ned: <ulink url="&flex-url;"/></para>
+        <para>Nedlasting: <ulink url="&flex-url;"/></para>
         <para>MD5 sum: <literal>&flex-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -231,7 +231,7 @@
       <term>Gawk (&gawk-version;) - <token>&gawk-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&gawk-home;"/></para>
-        <para>Laste ned: <ulink url="&gawk-url;"/></para>
+        <para>Nedlasting: <ulink url="&gawk-url;"/></para>
         <para>MD5 sum: <literal>&gawk-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -240,7 +240,7 @@
       <term>GCC (&gcc-version;) - <token>&gcc-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&gcc-home;"/></para>
-        <para>Laste ned: <ulink url="&gcc-url;"/></para>
+        <para>Nedlasting: <ulink url="&gcc-url;"/></para>
         <para>MD5 sum: <literal>&gcc-md5;</literal></para>
         <para>SHA256 sum: <literal>&gcc-sha256;</literal></para>
       </listitem>
@@ -250,7 +250,7 @@
       <term>GDBM (&gdbm-version;) - <token>&gdbm-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&gdbm-home;"/></para>
-        <para>Laste ned: <ulink url="&gdbm-url;"/></para>
+        <para>Nedlasting: <ulink url="&gdbm-url;"/></para>
         <para>MD5 sum: <literal>&gdbm-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -259,7 +259,7 @@
       <term>Gettext (&gettext-version;) - <token>&gettext-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&gettext-home;"/></para>
-        <para>Laste ned: <ulink url="&gettext-url;"/></para>
+        <para>Nedlasting: <ulink url="&gettext-url;"/></para>
         <para>MD5 sum: <literal>&gettext-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -268,8 +268,22 @@
       <term>Glibc (&glibc-version;) - <token>&glibc-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&glibc-home;"/></para>
-        <para>Laste ned: <ulink url="&glibc-url;"/></para>
+        <para>Nedlasting: <ulink url="&glibc-url;"/></para>
         <para>MD5 sum: <literal>&glibc-md5;</literal></para>
+
+        <note>
+          <para>
+            Glibc utviklerne opprettholder en
+            <ulink url='https://sourceware.org/git/?p=glibc.git;a=shortlog;h=refs/heads/release/&glibc-version;/master'>Git
+            branch</ulink> som inneholder oppdateringer som anses verdig
+            Glibc-&glibc-version; men utviklet seg dessverre etter
+            Glibc-&glibc-version; utgivelsen.  LFS redaksjonen vil utstede en
+            sikkerhetsrådgivning hvis noen sikkerhetsfiks legges til i grenen,
+            men ingen handlinger vil bli utført for andre oppdateringer som legges til. Du
+            kan gjennomgå oppdateringene selv og inkludere noen oppdateringer hvis
+            du anser dem som viktige.
+          </para>
+        </note>
       </listitem>
     </varlistentry>
 
@@ -277,7 +291,7 @@
       <term>GMP (&gmp-version;) - <token>&gmp-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&gmp-home;"/></para>
-        <para>Laste ned: <ulink url="&gmp-url;"/></para>
+        <para>Nedlasting: <ulink url="&gmp-url;"/></para>
         <para>MD5 sum: <literal>&gmp-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -286,7 +300,7 @@
       <term>Gperf (&gperf-version;) - <token>&gperf-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&gperf-home;"/></para>
-        <para>Laste ned: <ulink url="&gperf-url;"/></para>
+        <para>Nedlasting: <ulink url="&gperf-url;"/></para>
         <para>MD5 sum: <literal>&gperf-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -295,7 +309,7 @@
       <term>Grep (&grep-version;) - <token>&grep-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&grep-home;"/></para>
-        <para>Laste ned: <ulink url="&grep-url;"/></para>
+        <para>Nedlasting: <ulink url="&grep-url;"/></para>
         <para>MD5 sum: <literal>&grep-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -304,7 +318,7 @@
       <term>Groff (&groff-version;) - <token>&groff-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&groff-home;"/></para>
-        <para>Laste ned: <ulink url="&groff-url;"/></para>
+        <para>Nedlasting: <ulink url="&groff-url;"/></para>
         <para>MD5 sum: <literal>&groff-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -313,7 +327,7 @@
       <term>GRUB (&grub-version;) - <token>&grub-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&grub-home;"/></para>
-        <para>Laste ned: <ulink url="&grub-url;"/></para>
+        <para>Nedlasting: <ulink url="&grub-url;"/></para>
         <para>MD5 sum: <literal>&grub-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -322,7 +336,7 @@
       <term>Gzip (&gzip-version;) - <token>&gzip-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&gzip-home;"/></para>
-        <para>Laste ned: <ulink url="&gzip-url;"/></para>
+        <para>Nedlasting: <ulink url="&gzip-url;"/></para>
         <para>MD5 sum: <literal>&gzip-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -331,7 +345,7 @@
       <term>Iana-Etc (&iana-etc-version;) - <token>&iana-etc-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&iana-etc-home;"/></para>
-        <para>Laste ned: <ulink url="&iana-etc-url;"/></para>
+        <para>Nedlasting: <ulink url="&iana-etc-url;"/></para>
         <para>MD5 sum: <literal>&iana-etc-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -340,7 +354,7 @@
       <term>Inetutils (&inetutils-version;) - <token>&inetutils-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&inetutils-home;"/></para>
-        <para>Laste ned: <ulink url="&inetutils-url;"/></para>
+        <para>Nedlasting: <ulink url="&inetutils-url;"/></para>
         <para>MD5 sum: <literal>&inetutils-md5;</literal></para>
         <para>SHA256 sum: <literal>&inetutils-sha256;</literal></para>
       </listitem>
@@ -350,7 +364,7 @@
       <term>Intltool (&intltool-version;) - <token>&intltool-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&intltool-home;"/></para>
-        <para>Laste ned: <ulink url="&intltool-url;"/></para>
+        <para>Nedlasting: <ulink url="&intltool-url;"/></para>
         <para>MD5 sum: <literal>&intltool-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -359,7 +373,7 @@
       <term>IPRoute2 (&iproute2-version;) - <token>&iproute2-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&iproute2-home;"/></para>
-        <para>Laste ned: <ulink url="&iproute2-url;"/></para>
+        <para>Nedlasting: <ulink url="&iproute2-url;"/></para>
         <para>MD5 sum: <literal>&iproute2-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -368,7 +382,7 @@
       <term>Jinja2 (&jinja2-version;) - <token>&jinja2-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&jinja2-home;"/></para>
-        <para>Laste ned: <ulink url="&jinja2-url;"/></para>
+        <para>Nedlasting: <ulink url="&jinja2-url;"/></para>
         <para>MD5 sum: <literal>&jinja2-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -377,7 +391,7 @@
       <term>Kbd (&kbd-version;) - <token>&kbd-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&kbd-home;"/></para>
-        <para>Laste ned: <ulink url="&kbd-url;"/></para>
+        <para>Nedlasting: <ulink url="&kbd-url;"/></para>
         <para>MD5 sum: <literal>&kbd-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -386,7 +400,7 @@
       <term>Kmod (&kmod-version;) - <token>&kmod-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&kmod-home;"/></para>
-        <para>Laste ned: <ulink url="&kmod-url;"/></para>
+        <para>Nedlasting: <ulink url="&kmod-url;"/></para>
         <para>MD5 sum: <literal>&kmod-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -395,7 +409,7 @@
       <term>Less (&less-version;) - <token>&less-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&less-home;"/></para>
-        <para>Laste ned: <ulink url="&less-url;"/></para>
+        <para>Nedlasting: <ulink url="&less-url;"/></para>
         <para>MD5 sum: <literal>&less-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -404,7 +418,7 @@
       <term>LFS-Bootscripts (&lfs-bootscripts-version;) - <token>&lfs-bootscripts-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&lfs-bootscripts-home;"/></para>
-        <para>Laste ned: <ulink url="&lfs-bootscripts-url;"/></para>
+        <para>Nedlasting: <ulink url="&lfs-bootscripts-url;"/></para>
         <para>MD5 sum: <literal>&lfs-bootscripts-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -413,7 +427,7 @@
       <term>Libcap (&libcap-version;) - <token>&libcap-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&libcap-home;"/></para>
-        <para>Laste ned: <ulink url="&libcap-url;"/></para>
+        <para>Nedlasting: <ulink url="&libcap-url;"/></para>
         <para>MD5 sum: <literal>&libcap-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -422,7 +436,7 @@
       <term>Libffi (&libffi-version;) - <token>&libffi-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&libffi-home;"/></para>
-        <para>Laste ned: <ulink url="&libffi-url;"/></para>
+        <para>Nedlasting: <ulink url="&libffi-url;"/></para>
         <para>MD5 sum: <literal>&libffi-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -431,7 +445,7 @@
       <term>Libpipeline (&libpipeline-version;) - <token>&libpipeline-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&libpipeline-home;"/></para>
-        <para>Laste ned: <ulink url="&libpipeline-url;"/></para>
+        <para>Nedlasting: <ulink url="&libpipeline-url;"/></para>
         <para>MD5 sum: <literal>&libpipeline-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -440,7 +454,7 @@
       <term>Libtool (&libtool-version;) - <token>&libtool-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&libtool-home;"/></para>
-        <para>Laste ned: <ulink url="&libtool-url;"/></para>
+        <para>Nedlasting: <ulink url="&libtool-url;"/></para>
         <para>MD5 sum: <literal>&libtool-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -449,14 +463,14 @@
       <term>Linux (&linux-version;) - <token>&linux-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&linux-home;"/></para>
-        <para>Laste ned: <ulink url="&linux-url;"/></para>
+        <para>Nedlasting: <ulink url="&linux-url;"/></para>
         <para>MD5 sum: <literal>&linux-md5;</literal></para>
 
         <note>
-          <para>Linux kjernen oppdateres relativt ofte, mange ganger pga
+          <para>Linux kjernen oppdateres ganske ofte, mange ganger pga
           oppdagelser av sikkerhetssårbarheter. Den siste tilgjengelige
-          <!--&linux-major-version;.&linux-minor-version;.x--> stabile kjerne
-          versjonen <!--burde--> kan være
+          <!--&linux-major-version;.&linux-minor-version;.x--> stabile
+          kjerneversjonen <!--burde--> kan bli
           brukt, med mindre errata siden sier noe annet.</para>
 
           <para>For brukere med begrenset hastighet eller dyr båndbredde som ønsker å
@@ -472,7 +486,7 @@
       <term>M4 (&m4-version;) - <token>&m4-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&m4-home;"/></para>
-        <para>Laste ned: <ulink url="&m4-url;"/></para>
+        <para>Nedlasting: <ulink url="&m4-url;"/></para>
         <para>MD5 sum: <literal>&m4-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -481,7 +495,7 @@
       <term>Make (&make-version;) - <token>&make-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&make-home;"/></para>
-        <para>Laste ned: <ulink url="&make-url;"/></para>
+        <para>Nedlasting: <ulink url="&make-url;"/></para>
         <para>MD5 sum: <literal>&make-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -490,7 +504,7 @@
       <term>Man-DB (&man-db-version;) - <token>&man-db-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&man-db-home;"/></para>
-        <para>Laste ned: <ulink url="&man-db-url;"/></para>
+        <para>Nedlasting: <ulink url="&man-db-url;"/></para>
         <para>MD5 sum: <literal>&man-db-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -499,7 +513,7 @@
       <term>Man-pages (&man-pages-version;) - <token>&man-pages-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&man-pages-home;"/></para>
-        <para>Laste ned: <ulink url="&man-pages-url;"/></para>
+        <para>Nedlasting: <ulink url="&man-pages-url;"/></para>
         <para>MD5 sum: <literal>&man-pages-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -508,7 +522,7 @@
       <term>MarkupSafe (&markupsafe-version;) - <token>&markupsafe-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&markupsafe-home;"/></para>
-        <para>Laste ned: <ulink url="&markupsafe-url;"/></para>
+        <para>Nedlasting: <ulink url="&markupsafe-url;"/></para>
         <para>MD5 sum: <literal>&markupsafe-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -517,7 +531,7 @@
       <term>Meson (&meson-version;) - <token>&meson-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&meson-home;"/></para>
-        <para>Laste ned: <ulink url="&meson-url;"/></para>
+        <para>Nedlasting: <ulink url="&meson-url;"/></para>
         <para>MD5 sum: <literal>&meson-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -526,7 +540,7 @@
       <term>MPC (&mpc-version;) - <token>&mpc-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&mpc-home;"/></para>
-        <para>Laste ned: <ulink url="&mpc-url;"/></para>
+        <para>Nedlasting: <ulink url="&mpc-url;"/></para>
         <para>MD5 sum: <literal>&mpc-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -535,7 +549,7 @@
       <term>MPFR (&mpfr-version;) - <token>&mpfr-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&mpfr-home;"/></para>
-        <para>Laste ned: <ulink url="&mpfr-url;"/></para>
+        <para>Nedlasting: <ulink url="&mpfr-url;"/></para>
         <para>MD5 sum: <literal>&mpfr-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -544,7 +558,7 @@
       <term>Ncurses (&ncurses-version;) - <token>&ncurses-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&ncurses-home;"/></para>
-        <para>Laste ned: <ulink url="&ncurses-url;"/></para>
+        <para>Nedlasting: <ulink url="&ncurses-url;"/></para>
         <para>MD5 sum: <literal>&ncurses-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -553,7 +567,7 @@
       <term>Ninja (&ninja-version;) - <token>&ninja-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&ninja-home;"/></para>
-        <para>Laste ned: <ulink url="&ninja-url;"/></para>
+        <para>Nedlasting: <ulink url="&ninja-url;"/></para>
         <para>MD5 sum: <literal>&ninja-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -562,7 +576,7 @@
       <term>OpenSSL (&openssl-version;) - <token>&openssl-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&openssl-home;"/></para>
-        <para>Laste ned: <ulink url="&openssl-url;"/></para>
+        <para>Nedlasting: <ulink url="&openssl-url;"/></para>
         <para>MD5 sum: <literal>&openssl-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -571,7 +585,7 @@
       <term>Patch (&patch-version;) - <token>&patch-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&patch-home;"/></para>
-        <para>Laste ned: <ulink url="&patch-url;"/></para>
+        <para>Nedlasting: <ulink url="&patch-url;"/></para>
         <para>MD5 sum: <literal>&patch-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -580,7 +594,7 @@
       <term>Perl (&perl-version;) - <token>&perl-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&perl-home;"/></para>
-        <para>Laste ned: <ulink url="&perl-url;"/></para>
+        <para>Nedlasting: <ulink url="&perl-url;"/></para>
         <para>MD5 sum: <literal>&perl-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -589,7 +603,7 @@
       <term>Pkg-config (&pkgconfig-version;) - <token>&pkgconfig-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&pkgconfig-home;"/></para>
-        <para>Laste ned: <ulink url="&pkgconfig-url;"/></para>
+        <para>Nedlasting: <ulink url="&pkgconfig-url;"/></para>
         <para>MD5 sum: <literal>&pkgconfig-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -598,7 +612,7 @@
       <term>Procps (&procps-ng-version;) - <token>&procps-ng-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&procps-ng-home;"/></para>
-        <para>Laste ned: <ulink url="&procps-ng-url;"/></para>
+        <para>Nedlasting: <ulink url="&procps-ng-url;"/></para>
         <para>MD5 sum: <literal>&procps-ng-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -607,7 +621,7 @@
       <term>Psmisc (&psmisc-version;) - <token>&psmisc-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&psmisc-home;"/></para>
-        <para>Laste ned: <ulink url="&psmisc-url;"/></para>
+        <para>Nedlasting: <ulink url="&psmisc-url;"/></para>
         <para>MD5 sum: <literal>&psmisc-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -616,7 +630,7 @@
       <term>Python (&python-version;) - <token>&python-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&python-home;"/></para>
-        <para>Laste ned: <ulink url="&python-url;"/></para>
+        <para>Nedlasting: <ulink url="&python-url;"/></para>
         <para>MD5 sum: <literal>&python-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -624,7 +638,7 @@
     <varlistentry>
       <term>Python Documentation (&python-version;) - <token>&python-docs-size;</token>:</term>
       <listitem>
-        <para>Laste ned: <ulink url="&python-docs-url;"/></para>
+        <para>Nedlasting: <ulink url="&python-docs-url;"/></para>
         <para>MD5 sum: <literal>&python-docs-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -633,7 +647,7 @@
       <term>Readline (&readline-version;) - <token>&readline-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&readline-home;"/></para>
-        <para>Laste ned: <ulink url="&readline-url;"/></para>
+        <para>Nedlasting: <ulink url="&readline-url;"/></para>
         <para>MD5 sum: <literal>&readline-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -642,7 +656,7 @@
       <term>Sed (&sed-version;) - <token>&sed-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&sed-home;"/></para>
-        <para>Laste ned: <ulink url="&sed-url;"/></para>
+        <para>Nedlasting: <ulink url="&sed-url;"/></para>
         <para>MD5 sum: <literal>&sed-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -651,7 +665,7 @@
       <term>Shadow (&shadow-version;) - <token>&shadow-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&shadow-home;"/></para>
-        <para>Laste ned: <ulink url="&shadow-url;"/></para>
+        <para>Nedlasting: <ulink url="&shadow-url;"/></para>
         <para>MD5 sum: <literal>&shadow-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -660,7 +674,7 @@
       <term>Sysklogd (&sysklogd-version;) - <token>&sysklogd-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&sysklogd-home;"/></para>
-        <para>Laste ned: <ulink url="&sysklogd-url;"/></para>
+        <para>Nedlasting: <ulink url="&sysklogd-url;"/></para>
         <para>MD5 sum: <literal>&sysklogd-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -669,7 +683,7 @@
       <term>Systemd (&systemd-version;) - <token>&systemd-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&systemd-home;"/></para>
-        <para>Laste ned: <ulink url="&systemd-url;"/></para>
+        <para>Nedlasting: <ulink url="&systemd-url;"/></para>
         <para>MD5 sum: <literal>&systemd-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -678,7 +692,7 @@
       <term>Systemd Man Pages(&systemd-version;) - <token>&systemd-man-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&systemd-home;"/></para>
-        <para>Laste ned: <ulink url="&systemd-man-url;"/></para>
+        <para>Nedlasting: <ulink url="&systemd-man-url;"/></para>
         <para>MD5 sum: <literal>&systemd-man-md5;</literal></para>
 
         <note>
@@ -694,7 +708,7 @@
       <term>Sysvinit (&sysvinit-version;) - <token>&sysvinit-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&sysvinit-home;"/></para>
-        <para>Laste ned: <ulink url="&sysvinit-url;"/></para>
+        <para>Nedlasting: <ulink url="&sysvinit-url;"/></para>
         <para>MD5 sum: <literal>&sysvinit-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -703,7 +717,7 @@
       <term>Tar (&tar-version;) - <token>&tar-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&tar-home;"/></para>
-        <para>Laste ned: <ulink url="&tar-url;"/></para>
+        <para>Nedlasting: <ulink url="&tar-url;"/></para>
         <para>MD5 sum: <literal>&tar-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -712,7 +726,7 @@
       <term>Tcl (&tcl-version;) - <token>&tcl-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&tcl-home;"/></para>
-        <para>Laste ned: <ulink url="&tcl-url;"/></para>
+        <para>Nedlasting: <ulink url="&tcl-url;"/></para>
         <para>MD5 sum: <literal>&tcl-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -720,7 +734,7 @@
     <varlistentry>
       <term>Tcl Documentation (&tcl-version;) - <token>&tcl-docs-size;</token>:</term>
       <listitem>
-        <para>Laste ned: <ulink url="&tcl-docs-url;"/></para>
+        <para>Nedlasting: <ulink url="&tcl-docs-url;"/></para>
         <para>MD5 sum: <literal>&tcl-docs-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -729,7 +743,7 @@
       <term>Texinfo (&texinfo-version;) - <token>&texinfo-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&texinfo-home;"/></para>
-        <para>Laste ned: <ulink url="&texinfo-url;"/></para>
+        <para>Nedlasting: <ulink url="&texinfo-url;"/></para>
         <para>MD5 sum: <literal>&texinfo-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -738,7 +752,7 @@
       <term>Time Zone Data (&tzdata-version;) - <token>&tzdata-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&tzdata-home;"/></para>
-        <para>Laste ned: <ulink url="&tzdata-url;"/></para>
+        <para>Nedlasting: <ulink url="&tzdata-url;"/></para>
         <para>MD5 sum: <literal>&tzdata-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -746,7 +760,7 @@
     <varlistentry revision="sysv">
       <term>Udev-lfs Tarball (&udev-lfs-version;) - <token>&udev-lfs-size;</token>:</term>
       <listitem>
-        <para>Laste ned: <ulink url="&udev-lfs-url;"/></para>
+        <para>Nedlasting: <ulink url="&udev-lfs-url;"/></para>
         <para>MD5 sum: <literal>&udev-lfs-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -755,7 +769,7 @@
       <term>Util-linux (&util-linux-version;) - <token>&util-linux-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&util-linux-home;"/></para>
-        <para>Laste ned: <ulink url="&util-linux-url;"/></para>
+        <para>Nedlasting: <ulink url="&util-linux-url;"/></para>
         <para>MD5 sum: <literal>&util-linux-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -763,7 +777,7 @@
     <varlistentry>
       <term>Util-linux Man Pages - <token>&util-linux-man-size;</token>:</term>
       <listitem>
-        <para>Laste ned: <ulink url="&util-linux-man-url;"/></para>
+        <para>Nedlasting: <ulink url="&util-linux-man-url;"/></para>
         <para>MD5 sum: <literal>&util-linux-man-md5;</literal></para>
 
         <note>
@@ -778,11 +792,11 @@
       <term>Vim (&vim-version;) - <token>&vim-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&vim-home;"/></para>
-        <para>Laste ned: <ulink url="&vim-url;"/></para>
+        <para>Nedlasting: <ulink url="&vim-url;"/></para>
         <para>MD5 sum: <literal>&vim-md5;</literal></para>
         <note>
           <para>
-            The version of vim changes daily. To get the latest version, go to
+            Versjonen av vim endres daglig. For å få den nyeste versjonen, gå til
             <ulink url="https://github.com/vim/vim/releases">
             https://github.com/vim/vim/tags</ulink>.
           </para>
@@ -794,7 +808,7 @@
       <term>Wheel (&wheel-version;) - <token>&wheel-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&wheel-home;"/></para>
-        <para>Laste ned: <ulink url="&wheel-url;"/></para>
+        <para>Nedlasting: <ulink url="&wheel-url;"/></para>
         <para>MD5 sum: <literal>&wheel-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -803,7 +817,7 @@
       <term>XML::Parser (&xml-parser-version;) - <token>&xml-parser-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&xml-parser-home;"/></para>
-        <para>Laste ned: <ulink url="&xml-parser-url;"/></para>
+        <para>Nedlasting: <ulink url="&xml-parser-url;"/></para>
         <para>MD5 sum: <literal>&xml-parser-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -812,7 +826,7 @@
       <term>Xz Utils (&xz-version;) - <token>&xz-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&xz-home;"/></para>
-        <para>Laste ned: <ulink url="&xz-url;"/></para>
+        <para>Nedlasting: <ulink url="&xz-url;"/></para>
         <para>MD5 sum: <literal>&xz-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -821,7 +835,7 @@
       <term>Zlib (&zlib-version;) - <token>&zlib-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&zlib-home;"/></para>
-        <para>Laste ned: <ulink url="&zlib-url;"/></para>
+        <para>Nedlasting: <ulink url="&zlib-url;"/></para>
         <para>MD5 sum: <literal>&zlib-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -830,7 +844,7 @@
       <term>Zstd (&zstd-version;) - <token>&zstd-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&zstd-home;"/></para>
-        <para>Laste ned: <ulink url="&zstd-url;"/></para>
+        <para>Nedlasting: <ulink url="&zstd-url;"/></para>
         <para>MD5 sum: <literal>&zstd-md5;</literal></para>
       </listitem>
     </varlistentry>

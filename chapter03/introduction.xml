@@ -51,7 +51,7 @@
 
 <screen role="nodump"><userinput>mkdir -v $LFS/sources</userinput></screen>
 
-  <para>Gjør denne mappen skrivbar og låst (sticky). <quote>Låst</quote>
+  <para>Gjør denne mappen skrivbar og låst (sticky). <quote>Sticky</quote>
   betyr at selv om flere brukere har skrivetillatelse på en
   mappe, er det bare eieren av en fil som kan slette filen i en
   låst mappe. Følgende kommando vil aktivere skrive og
@@ -60,7 +60,7 @@
 <screen role="nodump"><userinput>chmod -v a+wt $LFS/sources</userinput></screen>
 
   <para>Det er flere måter å få tak i alle nødvendige pakker og oppdateringer
-  å bygge LFS:</para>
+  for å bygge LFS:</para>
 
   <itemizedlist>
     <listitem>
@@ -80,12 +80,12 @@
 
   <para>For å laste ned alle pakkene og oppdateringene ved å bruke
   <ulink url="../&wget-list;">&wget-list;</ulink>
-  som en inngang til kommandoen <command>wget</command> bruk:</para>
+  som en inngang til kommandoen <command>wget</command> ,bruk:</para>
 
 <screen role="nodump"><userinput>wget --input-file=&wget-list; --continue --directory-prefix=$LFS/sources</userinput></screen>
 <!--
   <note><para>
-    <filename>wget-list</filename> filen nevnt ovenfor henter alle
+    The <filename>wget-list</filename> filen nevnt ovenfor henter alle
     pakker for både sysV og systemd versjonene av LFS. Det er totalt
     fem ekstra små pakker som ikke er nødvendig for den gjeldende boken.
     <filename>md5sums</filename> filen nevnt nedenfor er spesifikk for
@@ -103,5 +103,15 @@ popd</userinput></screen>
 
   <para>Denne sjekken kan brukes etter å ha hentet de nødvendige filene med en av de
   metodene oppført ovenfor.</para>
+
+  <para>Hvis pakkene og oppdateringene er lastet ned som ikke-&root; bruker,
+  vil disse filene eies av brukeren. Filsystemet registrerer
+  eier ved hjelp av UID, og UID til en vanlig bruker i vertsdistroen er
+  ikke tildelt i LFS. Så filene vil bli eid av en ikke navngitt UID
+  i det endelige LFS-systemet. Hvis du ikke vil tilordne samme UID for brukeren din
+  i LFS-systemet, endre eierne av disse filene til &root; nå for å
+  unngå dette problemet:</para>
+
+<screen role="nodump"><userinput>chown root:root $LFS/sources/*</userinput></screen>
 
 </sect1>

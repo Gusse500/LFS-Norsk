@@ -535,7 +535,7 @@ div.navfooter ul li.next a{
   div.navfooter ul li{
     width: 120px;
   }
- 
+
   div.navheader ul li.prev p,
   div.navheader ul li.next p,
   div.navfooter ul li.prev p,
@@ -582,7 +582,7 @@ div.navfooter ul li.next a{
     background:      url(../images/chevron-left.png) no-repeat center 5vh;
     background-size: 25px 25px;
   }
- 
+
   div.navheader ul li.next,
   div.navfooter ul li.next {
     position: fixed;
@@ -592,7 +592,7 @@ div.navfooter ul li.next a{
     padding:  0px;
     margin:   0px;
   }
- 
+
   div.navheader ul li.next a,
   div.navfooter ul li.next a {
     display:         block;
@@ -602,10 +602,10 @@ div.navfooter ul li.next a{
     background:      url(../images/chevron-right.png) no-repeat center 5vh;
     background-size: 25px 25px;
   }
- 
+
   div.navheader ul li.home,
   div.navheader ul li.up,
-  div.navfooter ul li.home, 
+  div.navfooter ul li.home,
   div.navfooter ul li.up {
     position: fixed;
     padding:  0px;
@@ -624,7 +624,7 @@ div.navfooter ul li.next a{
   div.navfooter ul li.up{
     top:10vh;
   }
- 
+
   div.navheader ul li.home a,
   div.navfooter ul li.home a{
     display:         block;
@@ -656,7 +656,7 @@ div.navfooter ul li.next a{
   {
     display: none;
   }
- 
+
   div.navheader ul li.prev,
   div.navfooter ul li.prev {
     max-width:   120px;
@@ -667,7 +667,7 @@ div.navfooter ul li.next a{
     margin-left: 10px;
     font-size:   90%;
   }
- 
+
   div.navheader ul li.next,
   div.navfooter ul li.next {
     max-width:   120px;
@@ -679,12 +679,12 @@ div.navfooter ul li.next a{
     margin-left: 10px;
     font-size:   90%;
   }
- 
+
   div.navheader ul li.prev a,
   div.navfooter ul li.prev a {
     background-size: 20px 20px;
   }
- 
+
   div.navheader ul li.next a,
   div.navfooter ul li.next a{
     display:         block;
@@ -693,7 +693,7 @@ div.navfooter ul li.next a{
     background-size: 20px 20px;
     text-align:      left;
   }
- 
+
   div.navheader ul li.home,
   div.navheader ul li.up,
   div.navfooter ul li.home,
@@ -706,20 +706,20 @@ div.navfooter ul li.next a{
     color:       #dbddec;
     font-size:   90%;
   }
- 
+
   div.navheader ul li.home,
   div.navfooter ul li.home{
     top: 35vmin;
   }
- 
+
   div.navheader ul li.up,
   div.navfooter ul li.up{
     top: 10vmin;
   }
- 
+
   div.navheader ul li.home a,
   div.navfooter ul li.home a,
-  div.navheader ul li.up a, 
+  div.navheader ul li.up a,
   div.navfooter ul li.up a{
     padding: 10px 5px  10px 35px;
   }
@@ -734,7 +734,7 @@ div.navfooter ul li.next a{
   div.navfooter ul li.next p {
     display: none;
   }
- 
+
   div.navheader ul li.prev,
   div.navfooter ul li.prev {
     position: fixed;
@@ -744,7 +744,7 @@ div.navfooter ul li.next a{
     padding:  0px;
     margin:   0px;
   }
- 
+
   div.navheader ul li.prev a,
   div.navfooter ul li.prev a{
     display:         block;
@@ -757,7 +757,7 @@ div.navfooter ul li.next a{
     background-size: 6vmin 6vmin;
     overflow:        hidden;
   }
- 
+
   div.navheader ul li.next,
   div.navfooter ul li.next {
     position: fixed;
@@ -767,7 +767,7 @@ div.navfooter ul li.next a{
     padding:  0px;
     margin:   0px;
   }
- 
+
   div.navheader ul li.next a,
   div.navfooter ul li.next a{
     display:         block;
@@ -780,7 +780,7 @@ div.navfooter ul li.next a{
     background-size: 6vmin 6vmin;
     overflow:        hidden;
   }
- 
+
   div.navheader ul li.home,
   div.navheader ul li.up,
   div.navfooter ul li.home,
@@ -792,17 +792,17 @@ div.navfooter ul li.next a{
     color:    #dbddec;
     left:     0px;
   }
- 
+
   div.navheader ul li.home,
   div.navfooter ul li.home{
     top: 40vmin;
   }
- 
+
   div.navheader ul li.up,
   div.navfooter ul li.up{
     top: 20vmin;
   }
- 
+
   div.navheader ul li.home a,
   div.navfooter ul li.home a{
     display:         block;
@@ -814,7 +814,7 @@ div.navfooter ul li.next a{
     background-size: 6vmin 6vmin;
     overflow:        hidden;
   }
- 
+
   div.navheader ul li.up a,
   div.navfooter ul li.up a{
     display:         block;
@@ -911,13 +911,13 @@ li.chapter h4 a {
     width:       100%;
     margin-left: 1em;
   }
- 
+
   .item + .indexref {
     display:      inline-block;
     padding-left: 0px;
     margin-left:  1em;
   }
-  
+
   .secitem + .indexref {
     display:      inline-block;
     padding-left: 0px;

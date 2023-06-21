@@ -11,12 +11,12 @@
   <title>Gå inn i Chroot miljøet</title>
 
   <para>Nå som alle pakkene som kreves for å bygge resten av
-   nødvendige verktøy er på systemet, er det på tide å gå inn i chroot miljøet for å
-   fullføre installasjonen av de gjenværende midlertidige verktøyene. Dette miljøet vil
-   også brukes for å installere det endelige systemet. Som bruker <systemitem
+  nødvendige verktøy er på systemet, er det på tide å gå inn i chroot miljøet for å
+  fullføre installasjonen av de gjenværende midlertidige verktøyene. Dette miljøet vil
+  også brukes for å installere det endelige systemet. Som bruker <systemitem
   class="username">root</systemitem>, kjør følgende kommando for å gå inn i
-   miljøet som for øyeblikket er befolket med bare midlertidige
-   verktøy:</para>
+  miljøet som for øyeblikket er befolket med bare midlertidige
+  verktøy:</para>
 
 <screen role="nodump"><userinput>chroot "$LFS" /usr/bin/env -i   \
     HOME=/root                  \
@@ -27,37 +27,38 @@
 
   <para><parameter>-i</parameter> alternativet gitt til <command>env</command>
   kommandoen vil slette alle variabler i chroot miljøet. Etter det, bare
-   <envar>HOME</envar>, <envar>TERM</envar>, <envar>PS1</envar>, og
+  <envar>HOME</envar>, <envar>TERM</envar>, <envar>PS1</envar>, og
   <envar>PATH</envar> variablene settes på nytt.
-  <parameter>TERM=$TERM</parameter> konstruksjonen vil sette <envar>TERM</envar>
+  <parameter>TERM=$TERM</parameter> konstruksjonen setter <envar>TERM</envar>
   variabelen inne i chroot til samme verdi som utenfor chroot. Denne variabelen er
-   nødvendig for programmer som <command>vim</command> og <command>less</command>
-  å fungere skikkelig.  Hvis andre variabler ønskes, som f.eks
+  nødvendig for programmer som <command>vim</command> og <command>less</command>
+  kan fungere skikkelig.  Hvis andre variabler ønskes, som f.eks
   <envar>CFLAGS</envar> eller <envar>CXXFLAGS</envar>, dette er et bra sted å sette
-   dem igjen.</para>
+  dem.</para>
 
   <para>Fra dette tidspunktet er det ikke nødvendig å bruke
   <envar>LFS</envar> variabelen lenger fordi alt arbeid vil være begrenset
-   til LFS filsystemet. Dette er fordi Bash skallet blir fortalt at for
-  <filename class="directory">$LFS</filename> er roten nå
-  (<filename class="directory">/</filename>) mappen.</para>
+  til LFS filsystemet. <command>chroot</command> kommandoen kjører
+  Bash skallet med rot
+  (<filename class="directory">/</filename>) mappen satt til
+  <filename class='directory'>$LFS</filename>.</para>
 
-  <para>Legg merke til at <filename class="directory">/tools/bin</filename> ikke er
-   i <envar>PATH</envar>. Dette betyr at kryssverktøykjeden ikke lenger vil være det
-   som brukes i chroot miljøet.</para>
+  <para>Merk at <filename class="directory">/tools/bin</filename> ikke er
+  i <envar>PATH</envar>. Dette betyr at kryssverktøykjeden ikke lenger vil bli
+  brukt.</para>
 
-  <para>Merk at ledeteksten til <command>bash</command> vil si
+  <para>Merk at <command>bash</command> ledeteksten vil si
   <computeroutput>I have no name!</computeroutput> Dette er normalt fordi
   <filename>/etc/passwd</filename> filen ikke er opprettet ennå.</para>
 
   <note>
     <para>Det er viktig at alle kommandoene gjennom resten av dette
-     kapittel og de følgende kapitlene kjøres fra chroot
-     miljøet. Hvis du forlater dette miljøet av en eller annen grunn (omstart for
-     eksempel), sørg for at de virtuelle kjernefilsystemene er montert som
-     forklart i <xref linkend="ch-tools-bindmount"/> og <xref
+    kapittel og de følgende kapitlene kjøres fra chroot
+    miljøet. Hvis du forlater dette miljøet av en eller annen grunn (omstart for
+    eksempel), sørg for at de virtuelle kjernefilsystemene er montert som
+    forklart i <xref linkend="ch-tools-bindmount"/> og <xref
     linkend="ch-tools-kernfsmount"/> og gå inn i chroot igjen før du fortsetter
-     med installasjonen.</para>
+    med installasjonen.</para>
   </note>
 
 </sect1>

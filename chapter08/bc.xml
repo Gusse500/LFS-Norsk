@@ -59,7 +59,7 @@
         <term><parameter>-G</parameter></term>
         <listitem>
           <para>Utelat deler av testpakken som ikke vil fungere
-          uten GNU bc tilstede.</para>
+          før bc programmet er installert.</para>
         </listitem>
       </varlistentry>
 

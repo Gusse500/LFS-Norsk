@@ -42,15 +42,15 @@
 
     <para>Forbered procps-ng for kompilering:</para>
 
-<screen revision="sysv"><userinput remap="configure">./configure --prefix=/usr                            \
+<screen revision="sysv"><userinput remap="configure">./configure --prefix=/usr                           \
             --docdir=/usr/share/doc/procps-ng-&procps-ng-version; \
-            --disable-static                         \
+            --disable-static                        \
             --disable-kill</userinput></screen>
 
-<screen revision="systemd"><userinput remap="configure">./configure --prefix=/usr                            \
+<screen revision="systemd"><userinput remap="configure">./configure --prefix=/usr                           \
             --docdir=/usr/share/doc/procps-ng-&procps-ng-version; \
-            --disable-static                         \
-            --disable-kill                           \
+            --disable-static                        \
+            --disable-kill                          \
             --with-systemd</userinput></screen>
 
     <variablelist>
@@ -181,7 +181,7 @@ make check</userinput></screen>
         </listitem>
       </varlistentry>
 
-      <varlistentry id="pwait">
+      <!-- <varlistentry id="pwait">
         <term><command>pwait</command></term>
         <listitem>
           <para>Venter til en prosess er ferdig før den utføres.</para>
@@ -189,7 +189,8 @@ make check</userinput></screen>
             <primary sortas="b-pwait">pwait</primary>
           </indexterm>
         </listitem>
-      </varlistentry>
+      </varlistentry> This program no longer exists; 
+      it's already been removed from the Installed programs list. -->
 
       <varlistentry id="pwdx">
         <term><command>pwdx</command></term>

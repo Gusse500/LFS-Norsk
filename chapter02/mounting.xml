@@ -10,24 +10,28 @@
 
   <title>Montering av den nye partisjonen</title>
 
-  <para>Nå som et filsystem er opprettet, må partisjonen gjøres
-   tilgjengelig. For å gjøre dette, må partisjonen være
-   montert på et valgt monteringspunkt. For formålet med denne boken er det
-   antatt at filsystemet er montert under mappen spesifisert av
-  <envar>LFS</envar> miljøvariabel som beskrevet i forrige avsnitt.
+  <para>Nå som et filsystem er opprettet, må partisjonen
+  monteres slik at vertssystemet kan få tilgang til det. Denne boken forutsetter at
+  filsystemet er montert i katalogen spesifisert av
+  <envar>LFS</envar> miljøvariabel beskrevet i forrige avsnitt.
   </para>
+  
+  <para>Strengt tatt kan man ikke "montere en partisjon". Man monterer <emphasis>filsystemet
+  </emphasis> innebygd i den partisjonen. Men siden en enkelt partisjon ikke kan inneholde
+  mer enn ett filsystem, folk snakker ofte om partisjonen og
+  tilhørende filsystem som om de var ett og samme.</para>
 
-  <para>Opprett monteringspunktet og monter LFS filsystemet ved å kjøre:</para>
+  <para>Opprett monteringspunktet og monter LFS filsystemet med disse kommandoene:</para>
 
 <screen role="nodump"><userinput>mkdir -pv $LFS
 mount -v -t ext4 /dev/<replaceable>&lt;xxx&gt;</replaceable> $LFS</userinput></screen>
 
-  <para>Erstatt <replaceable>&lt;xxx&gt;</replaceable> med betegnelsen for LFS
-   partisjon.</para>
+  <para>Erstatt <replaceable>&lt;xxx&gt;</replaceable> med navnet for LFS
+  partisjon.</para>
 
-  <para>Hvis du bruker flere partisjoner for LFS (f.eks. en for <filename
-  class="directory">/</filename> og en annen for <filename
-  class="directory">/home</filename>), monter dem med:</para>
+  <para>Hvis du bruker flere partisjoner for LFS (f.eks. en for
+  <filename class="directory">/</filename> og en annen for <filename
+  class="directory">/home</filename>), monter dem som dette:</para>
 
 <screen role="nodump"><userinput>mkdir -pv $LFS
 mount -v -t ext4 /dev/<replaceable>&lt;xxx&gt;</replaceable> $LFS
@@ -36,20 +40,21 @@ mount -v -t ext4 /dev/<replaceable>&lt;yyy&gt;</replaceable> $LFS/home</userinpu
 
   <para>Erstatt <replaceable>&lt;xxx&gt;</replaceable> og
   <replaceable>&lt;yyy&gt;</replaceable> med riktige partisjons
-   navn.</para>
+  navn.</para>
 
   <para>Sørg for at de nye partisjonene ikke er montert med tillatelser som er
-   for restriktiv (som f.eks <option>nosuid</option> eller
+  for restriktiv (som f.eks <option>nosuid</option> eller
   <option>nodev</option> alternativer). Kjør <command>mount</command> kommandoen
-   uten noen parametere for å se hvilke alternativer som er satt for den monterte LFS
-   partisjonen. Hvis <option>nosuid</option> og/eller <option>nodev</option> er satt,
-   partisjonene må monteres på nytt.</para>
+  uten noen parametere for å se hvilke alternativer som er satt for den monterte LFS
+  partisjonen. Hvis <option>nosuid</option> og/eller <option>nodev</option> er satt,
+  må partisjonene monteres på nytt.</para>
 
   <warning><para>Instruksjonene ovenfor forutsetter at du ikke starter datamaskinen på nytt
-   din gjennom hele LFS prosessen. Hvis du slår av systemet,
-   enten må du montere LFS partisjonen på nytt hver gang du starter byggeprosessen på nytt
-   eller modifisere vertssystemets /etc/fstab-fil til å automatisk
-   monter den på nytt ved oppstart. For eksempel:
+  din gjennom hele LFS prosessen. Hvis du slår av systemet,
+  må du enten montere LFS partisjonen på nytt hver gang du starter byggeprosessen på nytt
+  eller modifisere vertssystemets &fstab; filen til å automatisk
+  monter den på nytt når du starter på nytt. Du kan for eksempel legge til denne linjen i 
+  &fstab; filen:
 
 <screen role="nodump">/dev/<replaceable>&lt;xxx&gt;</replaceable>  /mnt/lfs ext4   defaults      1     1</screen>
 
@@ -60,15 +65,15 @@ mount -v -t ext4 /dev/<replaceable>&lt;yyy&gt;</replaceable> $LFS/home</userinpu
 
   <para>Hvis du bruker en <systemitem
   class="filesystem">swap</systemitem> partisjon, sørg for at den er aktivert, 
-   bruk <command>swapon</command> kommandoen:</para>
+  bruk <command>swapon</command> kommandoen:</para>
 
 <screen role="nodump"><userinput>/sbin/swapon -v /dev/<replaceable>&lt;zzz&gt;</replaceable></userinput></screen>
 
   <para>Erstatt <replaceable>&lt;zzz&gt;</replaceable> med navnet på
   <systemitem class="filesystem">swap</systemitem> partisjonen.</para>
 
-  <para>Nå som det er etablert et sted å jobbe, er det på tide å
-   laste ned pakkene.</para>
+  <para>Nå som den nye LFS partisjonen er klar til bruk, er det på tide
+  å laste ned pakkene.</para>
 
 </sect1>
 

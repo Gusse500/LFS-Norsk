@@ -38,7 +38,7 @@
   filen <filename>/etc/mtab</filename>. Moderne kjerner opprettholder denne listen
   internt og eksponerer det for brukeren via <filename
   class="directory">/proc</filename> filsystemet. For å tilfredsstille verktøy som
-  forventer tilstedeværelse av <filename>/etc/mtab</filename>, opprett følgende
+  forventer å finne <filename>/etc/mtab</filename>, opprett følgende
   symbolske lenke:</para>
 
 <screen><userinput>ln -sv /proc/self/mounts /etc/mtab</userinput></screen>
@@ -87,7 +87,7 @@ nobody:x:65534:65534:Unprivileged User:/dev/null:/usr/bin/false</literal>
 EOF</userinput></screen>
 
   <para>Selve passordet for <systemitem class="username">root</systemitem>
-  velges senere.</para>
+  settes senere.</para>
 
   <para>Opprett <filename>/etc/group</filename> filen ved å kjøre følgende
   kommando:</para>
@@ -174,8 +174,8 @@ EOF</userinput></screen>
   administrator siden velskrevne programmer ikke er avhengige av GID-nummer,
   men bruk heller gruppens navn.</para>
 
-  <para>ID 65534 brukes av kjernen for NFS og separat bruker
-  navneområder for ikke-tilordnede brukere (de finnes på NFS serveren eller den overordnede
+  <para>ID 65534 brukes av kjernen for NFS og separat brukernavneområder
+  for ikke-tilordnede brukere (de finnes på NFS serveren eller den overordnede
   brukernavneområde, men <quote>finnes ikke</quote> på den lokale maskinen eller i
   det separate navnerommet). Vi tildeler
   <systemitem class="username">nobody</systemitem> og
@@ -200,8 +200,8 @@ install -o tester -d /home/tester</userinput></screen>
 <screen role="nodump"><userinput>exec /usr/bin/bash --login</userinput></screen>
 
   <para><command>login</command>, <command>agetty</command>, og
-  <command>init</command> programmene (og andre) bruker en rekke logg
-  filer for å registrere informasjon som hvem som var logget inn på systemet og
+  <command>init</command> programmene (og andre) bruker en rekke loggfiler
+  for å registrere informasjon som hvem som var logget inn på systemet og
   når. Disse programmene vil imidlertid ikke skrive til loggfilene hvis de
   ikke allerede eksisterer. Initialiser loggfilene og gi dem
   riktige tillatelser:</para>
@@ -212,13 +212,13 @@ chmod -v 664  /var/log/lastlog
 chmod -v 600  /var/log/btmp</userinput></screen>
 
   <para><filename>/var/log/wtmp</filename> filen registrerer alle pålogginger og
-  logger ut. <filename>/var/log/lastlog</filename> filen registrerer når hver
+  utlogginger. <filename>/var/log/lastlog</filename> filen registrerer når hver
   bruker sist logget på. <filename>/var/log/faillog</filename> filen registrerer
   mislykkede påloggingsforsøk. <filename>/var/log/btmp</filename> filen registrerer
   de dårlige påloggingsforsøkene.</para>
 
   <note><para><filename>/run/utmp</filename> filen registrerer brukerne som
-  for øyeblikket er pålogget. Denne filen opprettes dynamisk i oppstart
-  skriptet.</para></note>
+  for øyeblikket er pålogget. Denne filen opprettes dynamisk i
+  oppstartsskriptet.</para></note>
 
 </sect1>

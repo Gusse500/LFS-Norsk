@@ -15,102 +15,103 @@
     <title>Nettverksenheter</title>
 
     <para>Udev, som standard, navngir nettverksenheter i henhold til fastvare/BIOS
-     data eller fysiske egenskaper som buss, spor eller MAC-adresse.
-     Formålet med denne navnekonvensjonen er å sikre at nettverksenheter er
-     navngitt konsekvent og ikke basert på tiden nettverkskortet var
-     oppdaget. For eksempel på en datamaskin som har to nettverkskort laget av
-     Intel og Realtek, nettverkskortet produsert av Intel kan bli eth0
-     og Realtek-kortet blir eth1. I noen tilfeller, etter en omstart kan kortene
-     bli omnummerert omvendt.</para>
+    data eller fysiske egenskaper som buss, spor eller MAC-adresse.
+    Formålet med denne navnekonvensjonen er å sikre at nettverksenheter er
+    navngitt konsekvent og ikke basert på tiden nettverkskortet var
+    oppdaget.  I eldre versjoner av Linux&mdash;på en datamaskin med to
+    nettverkskort laget av Intel og Realtek, for eksempel&mdash;
+    nettverkskort produsert av Intel kan ha blitt eth0
+    mens Realtek-kortet ble eth1. Etter en omstart, er kortene
+    noen ganger omnummerert den andre veien rundt.</para>
 
     <para>I det nye navneskjemaet ville typiske nettverksenhetsnavn da
-     være noe sånt som enp5s0 eller wlp3s0. Hvis denne navnekonvensjonen ikke er
-     ønsket, kan det tradisjonelle navneskjemaet eller et tilpasset oppsett være
-     implementert.</para>
+    være noe sånt som enp5s0 eller wlp3s0. Hvis denne navnekonvensjonen ikke er
+    ønsket, kan det tradisjonelle navneskjemaet eller et tilpasset oppsett være
+    implementert.</para>
 
     <sect3>
       <title>Deaktivering av vedvarende navngivning på kjernekommandolinjen</title>
 
       <para>Det tradisjonelle navneskjemaet som bruker eth0, eth1, osv. kan bli
-       gjenopprettet ved å legge til <userinput>net.ifnames=0</userinput> på
-       kjernens kommandolinje. Dette er mest passende for systemene
-       som bare har én Ethernet-enhet av samme type. Bærbare datamaskiner
-       har ofte flere ethernet-tilkoblinger som heter eth0 og
-       wlan0 og er også kandidater for denne metoden. Kommandolinjen
-       sendes i GRUB-konfigurasjonsfilen.
-       Se <xref linkend="grub-cfg"/>.</para>
+      gjenopprettet ved å legge til <userinput>net.ifnames=0</userinput> på
+      kjernens kommandolinje. Dette er mest passende for systemene
+      som bare har én Ethernet-enhet av samme type. Bærbare datamaskiner
+      har ofte flere ethernet-tilkoblinger som heter eth0 og
+      wlan0 og er også kandidater for denne metoden. Kommandolinjen
+      sendes i GRUB-konfigurasjonsfilen.
+      Se <xref linkend="grub-cfg"/>.</para>
     </sect3>
 
     <sect3>
       <title>Opprette tilpassede Udev regler</title>
 
       <para>Navneskjemaet kan tilpasses ved å lage tilpassete udev
-       regler. Et skript er inkludert som genererer de første reglene.
-       Generer disse reglene ved å kjøre:</para>
+      regler. Et skript er inkludert som genererer de første reglene.
+      Generer disse reglene ved å kjøre:</para>
 
 <screen role="install"><userinput>bash /usr/lib/udev/init-net-rules.sh</userinput></screen>
 
       <para> Nå, inspiser
       <filename>/etc/udev/rules.d/70-persistent-net.rules</filename> filen, for å
-       finne ut hvilket navn som ble tildelt hvilken nettverksenhet:</para>
+      finne ut hvilket navn som ble tildelt hvilken nettverksenhet:</para>
 
 <screen role="nodump"><userinput>cat /etc/udev/rules.d/70-persistent-net.rules</userinput></screen>
 
       <note><para>I noen tilfeller som når MAC-adresser har blitt tildelt
-       et nettverkskort manuelt eller i et virtuelt miljø som Qemu eller Xen,
-       nettverksregelfilen kan bli generert fordi adresser
-       ikke er konsekvent tildelt. I disse tilfellene kan denne metoden ikke
-       bli brukt.</para></note>
+      et nettverkskort manuelt eller i et virtuelt miljø som Qemu eller Xen,
+      blir kanskje ikke nettverksregelfilen generert fordi adresser
+      ikke er konsekvent tildelt. I disse tilfellene kan denne metoden ikke
+      bli brukes.</para></note>
 
       <para>Filen begynner med en kommentarblokk etterfulgt av to linjer for hver
-       NIC. Den første linjen for hvert NIC er en kommentert beskrivelse som viser dens
-       maskinvare-IDer (f.eks. PCI leverandøren og enhets IDene, hvis det er et PCI-kort),
-       sammen med driveren i parentes, hvis driveren kan bli funnet. Ingen
-       maskinvare-IDer eller drivere brukes til å bestemme hvilket navn som skal gis
-       grensesnittet; denne informasjonen er kun for referanse. Den andre linjen er
-       udev regelen som samsvarer med dens NIC og faktisk tildeler det et navn.</para>
+      NIC. Den første linjen for hvert NIC er en kommentert beskrivelse som viser dens
+      maskinvare-IDer (f.eks. PCI leverandøren og enhets IDene, hvis det er et PCI-kort),
+      sammen med driveren i parentes, hvis driveren kan bli funnet. Ingen
+      maskinvare-IDer eller drivere brukes til å bestemme hvilket navn som skal gis
+      grensesnittet; denne informasjonen er kun for referanse. Den andre linjen er
+      udev regelen som samsvarer med dens NIC og faktisk tildeler det et navn.</para>
 
       <para>Alle udev regler består av flere nøkler, atskilt med komma og
-       valgfritt mellomrom. Denne regelens nøkler og en forklaring av hver av dem
-       er som følger:</para>
+      valgfritt mellomrom. Denne regelens nøkler og en forklaring av hver av dem
+      er som følger:</para>
 
       <itemizedlist>
         <listitem>
           <para><literal>SUBSYSTEM=="net"</literal> - Dette forteller udev å ignorere
-           enheter som ikke er nettverkskort.</para>
+          enheter som ikke er nettverkskort.</para>
         </listitem>
         <listitem>
           <para><literal>ACTION=="add"</literal> - Dette forteller udev å ignorere denne
-           regelen for en hendelse som ikke er en add ("remove" og "change" hendelser
-           , men trenger ikke å endre navn på nettverksgrensesnitt).</para>
+          regelen for en hendelse som ikke er en add ("remove" og "change" hendelser
+          , men trenger ikke å endre navn på nettverksgrensesnittene).</para>
         </listitem>
         <listitem>
           <para><literal>DRIVERS=="?*"</literal> - Dette eksisterer slik at udev vil
-           ignorer VLAN- eller et bro undergrensesnitt (fordi disse undergrensesnittene
-           ikke har drivere). Disse undergrensesnittene hoppes over på grunn av navnet
-           som ville bli tildelt ville kollidere med deres overordnede enheter.</para>
+          ignorer VLAN- eller et bro undergrensesnitt (fordi disse undergrensesnittene
+          ikke har drivere). Disse undergrensesnittene hoppes over på grunn av navnet
+          som ville bli tildelt ville kollidere med deres overordnede enheter.</para>
         </listitem>
         <listitem>
           <para><literal>ATTR{address}</literal> - Verdien av denne nøkkelen er
-           NICs MAC adresse.</para>
+          NIC sin MAC adresse.</para>
         </listitem>
         <listitem>
           <para><literal>ATTR{type}=="1"</literal> - Dette sikrer at regelen
-           kun samsvarer med det primære grensesnittet for enkelte trådløse drivere
-           som skaper flere virtuelle grensesnitt. De sekundære grensesnittene er
-           hoppet over av samme grunn som VLAN og bro undergrensesnitt er
-           hoppet over: ellers ville det vært en navnekollisjon.</para>
+          kun samsvarer med det primære grensesnittet for enkelte trådløse drivere
+          som skaper flere virtuelle grensesnitt. De sekundære grensesnittene er
+          hoppet over av samme grunn som VLAN og bro undergrensesnitt er
+          hoppet over: ellers ville det vært en navnekollisjon.</para>
         </listitem>
         <listitem>
           <para><literal>NAME</literal> - Verdien av denne nøkkelen er navnet som
-           udev vil tilordne til dette grensesnittet.</para>
+          udev vil tilordne til dette grensesnittet.</para>
         </listitem>
       </itemizedlist>
 
       <para>Verdien av <literal>NAME</literal> er den viktige delen. Forsikre deg om
-       at du vet hvilket navn som har blitt tildelt hvert av nettverkskortene dine tidligere
-       før du fortsetter, og sørg for å bruke <literal>NAME</literal> verdien når
-       du opprette konfigurasjonsfilene nedenfor.</para>
+      at du vet hvilket navn som har blitt tildelt hvert av nettverkskortene dine før
+      du fortsetter, og sørg for å bruke <literal>NAME</literal> verdien når
+      du opprette konfigurasjonsfilene nedenfor.</para>
 
     </sect3>
 
@@ -121,63 +122,63 @@
     <title>CD-ROM symbolkoblinger</title>
 
     <para>Noe programvare som du kanskje vil installere senere (f.eks. diverse
-     mediespillere) forventer <filename class="symlink">/dev/cdrom</filename>
+    mediespillere) forventer <filename class="symlink">/dev/cdrom</filename>
     og <filename class="symlink">/dev/dvd</filename> symbolkoblinger eksisterer, og
-     å peke på en CD-ROM- eller DVD-ROM-enhet. Dessuten kan det være praktisk å sette
-     referanser til disse symbolkoblingene i <filename>/etc/fstab</filename>. Udev
-     kommer med et skript som vil generere regelfiler for å lage disse symbolkoblingene
-     for deg, avhengig av egenskapene til hver enhet, men du må
-     bestemme hvilken av to operasjonsmoduser du ønsker at skriptet skal bruke.</para>
+    å peke på en CD-ROM- eller DVD-ROM-enhet. Dessuten kan det være praktisk å sette
+    referanser til disse symbolkoblingene i <filename>/etc/fstab</filename>. Udev
+    kommer med et skript som vil generere regelfiler for å lage disse symbolkoblingene
+    for deg, avhengig av egenskapene til hver enhet, men du må
+    bestemme hvilken av to operasjonsmoduser du ønsker at skriptet skal bruke.</para>
 
     <para>For det første kan skriptet operere i <quote>by-path</quote> modus (brukes som
-     standard for USB- og FireWire-enheter), der reglene den oppretter avhenger av
-     den fysiske banen til CD- eller DVD-enheten. For det andre kan den operere i
+    standard for USB- og FireWire-enheter), der reglene den oppretter avhenger av
+    den fysiske banen til CD- eller DVD-enheten. For det andre kan den operere i
     <quote>by-id</quote> modus (standard for IDE- og SCSI-enheter), de
-     reglene den oppretter avhenger av identifikasjonsstrenger som er lagret på selve CD eller DVD
-     enheten. Banen bestemmes av udevs <command>path_id</command>
+    reglene den oppretter avhenger av identifikasjonsstrenger som er lagret på selve CD eller DVD
+    enheten. Banen bestemmes av udev sitt <command>path_id</command>
     skript, og identifikasjonsstrengene leses fra maskinvaren av
     <command>ata_id</command> eller <command>scsi_id</command> programmene, avhengig av
      hvilken type enhet du har.</para>
 
     <para>Det er fordeler med hver tilnærming; riktig tilnærming til bruk
-     vil avhenge av hva slags enhetsendringer som kan skje. Hvis du forventer at
-     fysisk vei til enheten (det vil si portene og/eller sporene som den kobler til
-     ) endres, for eksempel fordi du planlegger å flytte stasjonen til en
-     annen IDE-port eller en annen USB-kontakt, så bør du bruke
-    <quote>by-id</quote> modus. På den annen side, hvis du forventer at enhetens
-     identifikasjon endres, for eksempel fordi det kan dø, og du vil
-     erstatte den med en annen enhet med de samme egenskapene og som
-     er koblet til de samme kontaktene, bør du bruke
+    vil avhenge av hva slags enhetsendringer som kan skje. Hvis du forventer at
+    fysisk vei til enheten (det vil si portene og/eller sporene som den kobler til
+    ) endres, for eksempel fordi du planlegger å flytte stasjonen til en
+    annen IDE-port eller en annen USB-kontakt, så bør du bruke
+    <quote>by-id</quote>modus. På den annen side, hvis du forventer at enhetens
+    identifikasjon endres, for eksempel fordi det kan dø, og du vil
+    erstatte den med en annen enhet med de samme egenskapene og som
+    er koblet til de samme kontaktene, bør du bruke
     <quote>by-path</quote> modus.</para>
 
-    <para>Hvis en av endringene er mulig med stasjonen din, velg en
-     modus basert på typen endring du forventer skal skje oftest.</para>
+    <para>Hvis begge endringene er mulig med stasjonen din, velg en
+    modus basert på typen endring du forventer skal skje oftest.</para>
 
-<!-- Hvis du bruker by-id modus, vil symbolkoblingene overleve selv overgangen
-      til libata for IDE-stasjoner, men det er ikke for denne boken. -->
+<!-- If you use by-id mode, the symlinks will survive even the transition
+     to libata for IDE drives, but that is not for the book. -->
 
     <important><para>Eksterne enheter (for eksempel en USB-tilkoblet CD-stasjon)
-     bør ikke vedvarende bruke by-path, fordi hver gang enheten kobles til
-     en ny ekstern port, vil dens fysiske bane endres. Alle
-     eksternt tilkoblede enheter vil ha dette problemet hvis du skriver udev-regler
-     som gjenkjenner dem på deres fysiske sti; problemet er ikke begrenset til CD
-     og DVD-stasjoner.</para></important>
+    bør ikke vedvarende bruke by-path, fordi hver gang enheten kobles til
+    en ny ekstern port, vil dens fysiske bane endres. Alle
+    eksternt tilkoblede enheter vil ha dette problemet hvis du skriver udev-regler
+    som gjenkjenner dem på deres fysiske sti; problemet er ikke begrenset til CD
+    og DVD-stasjoner.</para></important>
 
     <para>Hvis du ønsker å se verdiene som udev-skriptene vil bruke,
-     for den aktuelle CD-ROM-enheten, finn den tilsvarende katalogen under
+    for den aktuelle CD-ROM-enheten, finn den tilsvarende mappen under
     <filename class="directory">/sys</filename> (f.eks. kan dette være
     <filename class="directory">/sys/block/hdd</filename>) og
-     kjør en kommando som ligner på følgende:</para>
+    kjør en kommando som ligner på følgende:</para>
 
 <screen role="nodump"><userinput>udevadm test /sys/block/hdd</userinput></screen>
 
     <para>Se på linjene som inneholder utdata fra forskjellige *_id programmer.
     <quote>by-id</quote> modus vil bruke ID_SERIAL verdien hvis den finnes og
-     ikke er tom, ellers vil den bruke en kombinasjon av ID_MODEL og
-     ID_REVISJON. <quote>by-path</quote> modus vil bruke ID_PATH verdien.</para>
+    ikke er tom, ellers vil den bruke en kombinasjon av ID_MODEL og
+    ID_REVISJON. <quote>by-path</quote> modus vil bruke ID_PATH verdien.</para>
 
     <para>Hvis standardmodusen ikke passer for din situasjon, så kan
-     følgende modifikasjoner gjøres på
+    følgende modifikasjoner gjøres på
     <filename>/etc/udev/rules.d/83-cdrom-symlinks.rules</filename> filen,
     som følgende (hvor <replaceable>mode</replaceable> er en av
     <quote>by-id</quote> eller <quote>by-path</quote>):</para>
@@ -186,18 +187,18 @@
     -i /etc/udev/rules.d/83-cdrom-symlinks.rules</userinput></screen>
 
     <para>Merk at det ikke er nødvendig å lage regelfilene eller symbolkoblingene
-     på dette tidspunktet fordi du har bind-montert vertens
+    på dette tidspunktet fordi du har bind-montert vertens
     <filename class="directory">/dev</filename> mappe inn i LFS systemet
-     og vi antar at symbolkoblingene finnes på verten. Reglene og symbolkoblingene vil
-     opprettes første gang du starter opp LFS systemet.</para>
+    og vi antar at symbolkoblingene finnes på verten. Reglene og symbolkoblingene vil
+    opprettes første gang du starter opp LFS systemet.</para>
 
     <para>Men hvis du har flere CD-ROM-enheter, kan symbolkoblingene
-     generert på det tidspunktet peke på andre enheter enn de peker på
-     hos verten din fordi enheter ikke oppdages i en forutsigbar rekkefølge. Den
-     første tildelingen opprettet når du starter opp LFS systemet vil være stabile, så
-     dette er bare et problem hvis du trenger symbolkoblingene på begge systemene til å peke på
-     samme enhet. Hvis du trenger det, inspiser (og muligens rediger) den
-     genererte <filename>/etc/udev/rules.d/70-persistent-cd.rules</filename>
+    generert på det tidspunktet peke på andre enheter enn de peker på
+    hos verten din fordi enheter ikke oppdages i en forutsigbar rekkefølge. Den
+    første tildelingen opprettet når du starter opp LFS systemet vil være stabile, så
+    dette er bare et problem hvis du trenger symbolkoblingene på begge systemene til å peke på
+    samme enhet. Hvis du trenger det, inspiser (og muligens rediger) den
+    genererte <filename>/etc/udev/rules.d/70-persistent-cd.rules</filename>
     filen etter oppstart, for å sikre at de tilordnede symbolkoblingene samsvarer med det du trenger.</para>
 
   </sect2>
@@ -206,29 +207,29 @@
 
     <title>Håndtere dupliserte enheter</title>
 
-    <para>Som forklart i <xref linkend="ch-config-udev"/>, rekkefølgen i
-     hvilke enheter med samme funksjon vises i
+    <para>Som forklart i <xref linkend="ch-config-udev"/>, rekkefølgen som
+    hvilke enheter med samme funksjon vises i
     <filename class="directory">/dev</filename> er i hovedsak tilfeldig.
     Hvis du for eksempel har et USB-webkamera og en TV-tuner, noen ganger
     <filename>/dev/video0</filename> refererer til kameraet og
     <filename>/dev/video1</filename> refererer til tuneren, og noen ganger
-     etter en omstart endres rekkefølgen.
+    etter en omstart endres rekkefølgen.
     For alle klasser av maskinvare unntatt lydkort og nettverkskort kan dette
-     fikses ved å lage udev-regler for egendefinerte vedvarende symbolkoblinger.
-     Tilfellet med nettverkskort dekkes separat i
+    fikses ved å lage udev-regler for egendefinerte vedvarende symbolkoblinger.
+    Tilfellet med nettverkskort dekkes separat i
     <xref linkend="ch-config-network"/>, og lydkortkonfigurasjon kan
-     finnes i <ulink url="&blfs-book;postlfs/devices.html">BLFS</ulink>.</para>
+    finnes i <ulink url="&blfs-book;postlfs/devices.html">BLFS</ulink>.</para>
 
     <para>For hver av enhetene dine som sannsynligvis vil ha dette problemet
-     (selv om problemet ikke eksisterer i din nåværende Linux distribusjon),
-     finn den tilhørende mappen under
+    (selv om problemet ikke eksisterer i din nåværende Linux distribusjon),
+    finn den tilhørende mappen under
     <filename class="directory">/sys/class</filename> eller
     <filename class="directory">/sys/block</filename>.
     For videoenheter kan dette være
     <filename
     class="directory">/sys/class/video4linux/video<replaceable>X</replaceable></filename>.
     Finn ut attributtene som identifiserer enheten unikt (vanligvis fungerer,
-     leverandør- og produkt-IDer og/eller serienumre):</para>
+    leverandør- og produkt-IDer og/eller serienumre):</para>
 
 <screen role="nodump"><userinput>udevadm info -a -p /sys/class/video4linux/video0</userinput></screen>
 
@@ -244,10 +245,10 @@ EOF</userinput></screen>
 
     <para>Resultatet er at <filename>/dev/video0</filename> og
     <filename>/dev/video1</filename> enheter refererer fortsatt tilfeldig til tuneren
-     og webkameraet (og bør derfor aldri brukes direkte), men det finnes
-     symbolkoblinger <filename>/dev/tvtuner</filename> og
+    og webkameraet (og bør derfor aldri brukes direkte), men det finnes
+    symbolkoblinger <filename>/dev/tvtuner</filename> og
     <filename>/dev/webcam</filename> som alltid peker på den rette
-     enheten.</para>
+    enheten.</para>
 
  </sect2>
 

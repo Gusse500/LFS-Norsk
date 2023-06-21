@@ -47,7 +47,7 @@
 
 <screen><userinput remap="pre">sed -i "s/echo/#echo/" src/egrep.sh</userinput></screen>
 
-	<para>Forbered Grep for kompilering:</para>
+    <para>Forbered Grep for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>
 
