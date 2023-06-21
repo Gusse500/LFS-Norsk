@@ -10,13 +10,13 @@
 
   <title>Begrunnelse for pakker i boken</title>
 
-    <para>Som nevnt tidligere er målet med LFS å bygge en komplett og brukbar
-    system på fundamentnivå. Dette inkluderer alle pakker som trengs for å replikere
-    seg selv samtidig som det gir en relativt minimal base å tilpasse for
-    et mer komplett system basert på brukerens valg. Dette
-    betyr ikke at LFS er det minste systemet som er mulig å bygge. Flere viktige pakker
-    er inkludert som ikke er strengt påkrevd. Listene nedenfor dokumenterer
-    begrunnelsen for hver pakke i boken.</para>
+    <para>Målet med LFS er å bygge en komplett og brukbart
+    system på fundamentnivå&mdash;inkludert alle pakkene som trengs for å replikere
+    seg selv&mdash;og gir en relativt minimal base for å tilpasse
+    et mer komplett system basert på brukerens valg. Dette betyr ikke
+    at LFS er det minste systemet som er mulig. Flere viktige pakker
+    er inkludert som strengt tatt ikke er påkrevd. Listen nedenfor dokumenterer
+    grunner til at hver pakke i boken er inkludert.</para>
 
     <itemizedlist>
 
@@ -43,7 +43,7 @@
         <para>Denne pakken inneholder programmer for å produsere skallskript som
         automatisk kan konfigurere kildekoden fra en utviklermal
         . Det er ofte nødvendig for å gjenoppbygge en pakke etter oppdateringer
-        til byggeprosedyrene.</para>
+        til byggeprosedyrene</para>
       </listitem>
 
       <listitem>
@@ -75,7 +75,7 @@
 
         <para>Denne pakken inneholder en linker, en assembler og annet
         verktøy for håndtering av objektfiler. Programmene i denne pakken er
-        nødvendig for å kompilere de fleste pakkene i et LFS system og videre.</para>
+        nødvendig for å kompilere de fleste pakkene i et LFS system.</para>
       </listitem>
 
       <listitem>
@@ -111,7 +111,7 @@
         <para>D-Bus</para>
 
         <para>Denne pakken inneholder programmer for å implementere et meldingsbusssystem,
-        som er en enkel måte for programmer å snakke med hverandre på.
+        som er en enkel måte for applikasjoner å snakke med hverandre på.
         </para>
       </listitem>
 
@@ -196,7 +196,7 @@
         <para>GCC</para>
 
         <para>Denne pakken er Gnu Kompilatorsamlingen. Den inneholder
-        C og C++ kompilatorer samt flere andre som ikke er bygget av LFS.
+        C og C++ kompilatorer samt flere andre som ikke bygges av LFS.
         </para>
       </listitem>
 
@@ -232,7 +232,9 @@
         <para>Gperf</para>
 
         <para>Denne pakken inneholder et program som genererer en perfekt hash
-        funksjon fra et nøkkelsett. Det kreves for Eudev.</para>
+        funksjon fra et nøkkelsett. Den kreves av
+        <phrase revision='sysv'>Eudev</phrase>
+        <phrase revision='systemd'>Systemd</phrase>.</para>
       </listitem>
 
       <listitem>
@@ -246,14 +248,14 @@
         <para>Groff</para>
 
         <para>Denne pakken inneholder programmer for behandling og formatering av tekst.
-        En viktig funksjon av disse programmene er å formatere man sider.</para>
+        En viktig funksjon av disse programmene er å formatere mansider.</para>
       </listitem>
 
       <listitem>
         <para>GRUB</para>
 
         <para>Denne pakken er Grand Unified Boot Loader. Det er en
-        av flere tilgjengelige oppstartslastere, men er den mest fleksible.
+        av flere tilgjengelige oppstartslastere, men er den mest fleksible
         </para>
       </listitem>
 
@@ -261,8 +263,8 @@
         <para>Gzip</para>
 
         <para>Denne pakken inneholder programmer for komprimering og
-        dekomprimere av filer. Det er nødvendig for å dekomprimere mange pakker i LFS
-        og utover.</para>
+        dekomprimere av filer. Det er nødvendig for å dekomprimere mange pakker
+        i LFS.</para>
       </listitem>
 
       <listitem>
@@ -290,21 +292,21 @@
         <para>IProute2</para>
 
         <para>Denne pakken inneholder programmer for grunnleggende og avansert IPv4 og
-        IPv6 nettverk. Det ble valgt fremfor det andre felles nettverks
-        verktøypakke (net-tools) for sine IPv6-funksjoner.  </para>
+        IPv6 nettverk. Det ble valgt fremfor det andre vanlige nettverks
+        verktøypakken (net-tools) for sine IPv6-funksjoner.  </para>
       </listitem>
 
       <listitem revision="systemd">
         <para>Jinja2</para>
 
         <para>Denne pakken er en Python modul for å lage tekstmaler.
-        Det kreves for å bygge Systemd.</para>
+        Den kreves for å bygge Systemd.</para>
       </listitem>
 
       <listitem>
         <para>Kbd</para>
 
-        <para>Denne pakken inneholder nøkkeltabellfiler, tastaturverktøy
+        <para>Denne pakken inneholder tastaturtabellfiler, tastaturverktøy
         for ikke-amerikanske tastaturer, og en rekke konsollfonter.</para>
       </listitem>
 
@@ -319,8 +321,8 @@
         <para>Less</para>
 
         <para>Denne pakken inneholder en veldig fin tekstfilviser som
-        lar deg rulle opp eller ned når du viser en fil. Den brukes også av
-        Man-DB for visning av man sider.</para>
+        lar deg rulle opp eller ned når du viser en fil.
+        Mange pakker bruker den til å søke på utdataene.</para>
       </listitem>
 
       <listitem>
@@ -358,7 +360,7 @@
         <para>Libpipeline</para>
 
         <para>Libpipeline pakken inneholder et bibliotek for å manipulere
-        kommandokøer av delprosesser på en fleksibel og praktisk måte. Det
+        kommandokøer av delprosesser på en fleksibel og praktisk måte. Den
         kreves av Man-DB pakken.</para>
       </listitem>
 
@@ -367,7 +369,7 @@
 
         <para>Denne pakken inneholder GNU generiske bibliotekstøtte
         skript. Det omslutter kompleksiteten ved å bruke delte biblioteker i en
-        konsekvent, bærbart grensesnitt. Det trengs av testpakker
+        konsekvent, flyttbart grensesnitt. Det trengs av testpakker
         i andre LFS pakker.</para>
       </listitem>
 
@@ -402,7 +404,7 @@
       <listitem>
         <para>Man-DB</para>
 
-        <para>Denne pakken inneholder programmer for å finne og vise man sider.
+        <para>Denne pakken inneholder programmer for å finne og vise mansider.
         Det ble valgt i stedet for <application>man</application> pakken
         på grunn av overlegne internasjonaliseringsevner. Det leverer
         man programmet.</para>
@@ -412,7 +414,7 @@
         <para>Man-pages</para>
 
         <para>Denne pakken inneholder det faktiske innholdet i det grunnleggende
-        Linux man sider.</para>
+        Linux mansider.</para>
       </listitem>
 
       <listitem>
@@ -436,7 +438,7 @@
       <listitem>
         <para>MPFR</para>
 
-        <para>Denne pakken inneholder funksjoner for multiple presisjons
+        <para>Denne pakken inneholder funksjoner for multipresisjons
         aritmetikk. Det kreves av GCC.</para>
       </listitem>
 
@@ -471,7 +473,7 @@
         <para>Patch</para>
 
         <para>Denne pakken inneholder et program for å endre eller lage filer ved
-        å bruke en <emphasis>patch</emphasis> fil vanligvis opprettet
+        å bruke en <emphasis>oppdaterings (patch)</emphasis> fil vanligvis opprettet
         av <application>diff</application> programmet.  Det trengs av
         byggeprosedyren for flere LFS pakker.</para>
       </listitem>
@@ -487,7 +489,7 @@
       <listitem>
         <para>Pkg-config</para>
 
-        <para>Denne pakken gir et program som returnerer metadata om en
+        <para>Denne pakken gir et program som returnerer metadata om et
         installert bibliotek eller pakke.</para>
       </listitem>
 
@@ -557,7 +559,7 @@
       <listitem revision="sysv">
         <para>Sysvinit</para>
 
-        <para>Denne pakken inneholder <application>init</application>
+        <para>Denne pakken gir <application>init</application>
         programmet, som er overordnet for alle andre prosesser på et Linux
         system. </para>
       </listitem>
@@ -572,7 +574,7 @@
       <listitem>
         <para>Tcl</para>
 
-        <para>Denne pakken inneholder Verktøykommandospråk som brukes
+        <para>Denne pakken inneholder Verktøykommandospråk (Tool Command Language) som brukes
         i mange testpakker i LFS pakker.</para>
       </listitem>
 
@@ -593,20 +595,20 @@
       </listitem>
 
       <listitem>
+        <para>Vim</para>
+
+        <para>Denne pakken inneholder et redigeringsprogram. Den ble valgt på grunn av sin
+        kompatibilitet med det klassiske vi redigeringsprogrammet og dens enorme antall kraftige
+        kapasiteter.. Et redigeringsprogram er et veldig personlig valg for
+        mange brukere og andre redigeringsprogram kan brukes om ønskelig.</para>
+      </listitem>
+      
+      <listitem>
         <para>Wheel</para>
 
         <para>Denne pakken inneholder Python modulen Wheel som er
         referanseimplementering av Python wheel pakkingsstandarden.
         </para>
-      </listitem>
-
-      <listitem>
-        <para>Vim</para>
-
-        <para>Denne pakken inneholder et redigeringsprogram. Den ble valgt på grunn av sin
-        kompatibilitet med det klassiske vi  redigeringsprogrammet og dens enorme antall kraftige
-        kapasiteter.. Et redigeringsprogram er et veldig personlig valg for
-        mange brukere og andre redigeringsprogram kan brukes om ønskelig.</para>
       </listitem>
 
       <listitem>
@@ -634,7 +636,7 @@
         <para>Zstd</para>
 
         <para>Denne pakken inneholder komprimerings- og dekompresjonsrutiner
-        som brukes av noen programmer. Det gir høyt kompresjonsforhold og en svært
+        som brukes av noen programmer. Det gir høyt kompresjonsforhold og et svært
         bredt utvalg av kompresjon/hastighets avveininger.</para>
       </listitem>
 
