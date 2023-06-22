@@ -43,7 +43,7 @@
      sette opp oppstartsskriptene og installere kjernen. Det resulterende
      Linux-systemet er grunnlaget som annen programvare kan bygges på,
      utvide systemet etter ønske. På slutten av denne boken er det en
-     enkel å bruke referanse som viser alle programmene, bibliotekene og
+     enkel referanse som viser alle programmene, bibliotekene og
      viktige filer som er installert.</para>
   </sect2>
 
@@ -52,8 +52,8 @@
 
     <para>Del V gir informasjon om selve boken inkludert
      akronymer og termer, anerkjennelser, pakkeavhengigheter,
-     en liste over LFS-oppstartsskript, lisenser for distribusjon av
-     bok, og en omfattende indeks over pakker, programmer, biblioteker,
+     en liste over LFS oppstartsskript, lisenser for distribusjon av
+     boken, og en omfattende indeks over pakker, programmer, biblioteker,
      og skript.</para>
   </sect2>
 
