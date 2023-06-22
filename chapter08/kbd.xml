@@ -112,7 +112,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <seglistitem>
         <seg>chvt, deallocvt, dumpkeys, fgconsole, getkeycodes, kbdinfo,
         kbd_mode, kbdrate, loadkeys, loadunimap,
-        mapscrn, openvt, psfaddtable (lenker til psfxtable), psfgettable (link to
+        mapscrn, openvt, psfaddtable (lenker til psfxtable), psfgettable (lenker til
         psfxtable), psfstriptable (lenker til psfxtable), psfxtable, <!--resizecons,-->
         setfont, setkeycodes, setleds, setmetamode, setvtrgb,
         showconsolefont, showkey, unicode_start, og unicode_stop</seg>
@@ -355,7 +355,7 @@ cp -R -v docs/doc/* /usr/share/doc/kbd-&kbd-version;</userinput></screen>
       <varlistentry id="showkey">
         <term><command>showkey</command></term>
         <listitem>
-          <para>Rapporterer skanningskodene, nøkkelkodene og ASCII-kodene til tastene
+          <para>Rapporterer skanningskodene, tastekodene og ASCII-kodene til tastene
           som trykkes på tastaturet</para>
           <indexterm zone="ch-system-kbd showkey">
             <primary sortas="b-showkey">showkey</primary>

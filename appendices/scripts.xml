@@ -50,7 +50,7 @@
   <sect1 id="rc" role="wrap">
     <title>/etc/rc.d/init.d/rc</title>
 
-    <para>Er det <systemitem>rc</systemitem> første skriptet som kalles av
+    <para><systemitem>rc</systemitem> er det første skriptet som kalles av
     <application>init</application> og starter oppstartsprosessen.</para>
 
     <screen>&rc;</screen>

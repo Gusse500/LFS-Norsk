@@ -56,8 +56,8 @@
       <screen><userinput remap='pre'>unset {C,CPP,CXX,LD}FLAGS</userinput></screen>
 
       <para>Ikke prøv å <quote>optimalisere</quote> denne pakken med tilpassete
-      kompileringsflagg. Denne pakken er en oppstartslaster. De lavnivå
-      operasjonene i kildekoden kan bli brutt av
+      kompileringsflagg. Denne pakken er en oppstartslaster. Da kan lavnivå
+      operasjonene i kildekoden bli brutt av
       aggressiv optimalisering.</para>
     </warning>
 

@@ -165,7 +165,7 @@ EOF</userinput></screen>
   url="https://refspecs.linuxfoundation.org/lsb.shtml"/>) anbefaler bare at,
   foruten gruppen <systemitem class="groupname">root</systemitem> med en
   Gruppe ID (GID) på 0, en gruppe <systemitem class="groupname">bin</systemitem>
-  med en GID på 1 være tilstede. GID på 5 er mye brukt for
+  med en GID på 1 å være tilstede. GID på 5 er mye brukt for
   <systemitem class="groupname">tty</systemitem> gruppen, og tallet 5 er
   også brukt i <phrase revision="systemd">systemd</phrase>
   <phrase revision="sysv"><filename>/etc/fstab</filename></phrase> for

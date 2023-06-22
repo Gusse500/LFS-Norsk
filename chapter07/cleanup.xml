@@ -44,7 +44,7 @@
       kapitler, viser det seg ofte at å fjerne alt og starte på nytt
       (mer forsiktig) er det beste alternativet for å gjenopprette. Dessverre, alle
       midlertidige filer vil også bli fjernet. For å unngå å bruke ekstra tid på
-      gjøre om noe som har blitt bygget vellykket, og lage en sikkerhetskopi av
+      gjøre om noe som har blitt bygget vellykket, det og lage en sikkerhetskopi av
       det nåværende LFS systemet kan vise seg å være nyttig.
     </para>
 
@@ -77,7 +77,7 @@
         Alle følgende instruksjoner utføres av
         <systemitem class="username">root</systemitem> på vertssystemet ditt.
         Vær ekstra forsiktig med kommandoene du skal kjøre ettersom feil
-        her kan du endre vertssystemet ditt. Vær oppmerksom på at
+        her kan endre vertssystemet ditt. Vær oppmerksom på at
         miljøvariabelen <envar>LFS</envar>
         er satt for bruker <systemitem class="username">lfs</systemitem> som standard
         er kanskje <emphasis>ikke</emphasis> satt for

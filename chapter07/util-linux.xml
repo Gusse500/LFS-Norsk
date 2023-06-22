@@ -82,10 +82,10 @@
       <varlistentry>
         <term><parameter>--libdir=/usr/lib</parameter></term>
         <listitem>
-          <para>Denne bryteren sikrer
-          <filename class="extension">.so</filename> målrettes mot symbolkoblinger
+          <para>Denne bryteren sikrer at
+          <filename class="extension">.so</filename> målrettes direkte mot symbolkoblinger
           i den delte bibliotekfilen i samme mappe
-          (<filename class="directory">/usr/lib</filename>) direkte.</para>
+          (<filename class="directory">/usr/lib</filename>).</para>
         </listitem>
       </varlistentry>
 

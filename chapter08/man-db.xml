@@ -357,7 +357,7 @@
       <varlistentry id="lexgrog">
         <term><command>lexgrog</command></term>
         <listitem>
-          <para>Viser én-linjes sammendragsinformasjon om en gitt
+          <para>Viser en-linjes sammendragsinformasjon om en gitt
           manualside</para>
           <indexterm zone="ch-system-man-db lexgrog">
             <primary sortas="b-lexgrog">lexgrog</primary>

@@ -11,8 +11,8 @@
   <title>Om testpakkene</title>
 
   <para>De fleste pakkene gir en testpakke. Å kjøre testpakken for en
-  nybygd pakke er en god idé fordi den kan gi en <quote>tilregnelighets
-  sjekk</quote> som indikerer at alt er kompilert riktig. En testpakke
+  nybygd pakke er en god idé fordi den kan gi en <quote>tilregnelighetssjekk
+  </quote> som indikerer at alt er kompilert riktig. En testpakke
   som består kontrollene sine, beviser vanligvis at pakken
   fungerer slik utvikleren har tenkt. Det gir imidlertid ingen garanti
   at pakken er helt feilfri.</para>

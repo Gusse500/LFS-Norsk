@@ -14,7 +14,7 @@
     <address>&gcc-url;</address>
   </sect1info>
 
-  <title>Libstdc++ from GCC-&gcc-version;, Pass 2</title>
+  <title>Libstdc++ fra GCC-&gcc-version;, Pass 2</title>
 
   <indexterm zone="ch-tools-libstdcpp-pass2">
     <primary sortas="a-GCC">GCC</primary>
@@ -25,10 +25,10 @@
     <title/>
 
     <para>Ved bygging av <xref linkend="ch-tools-gcc-pass2"/> måtte vi utsette
-     installasjonen av C++ standardbiblioteket fordi ingen passende kompilator
-     var tilgjengelig for å kompilere den. Vi kunne ikke bruke den innebygde kompilatoren
-     fordi det er en innebygd kompilator og ikke bør brukes utenfor
-     chroot og risikere å forurense bibliotekene med enkelte vertskomponenter.</para>
+    installasjonen av C++ standardbiblioteket fordi ingen passende kompilator
+    var tilgjengelig for å kompilere den. Vi kunne ikke bruke den innebygde kompilatoren
+    fordi det er en innebygd kompilator og ikke bør brukes utenfor
+    chroot og risikere å forurense bibliotekene med enkelte vertskomponenter.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -47,7 +47,7 @@
 
     <note>
       <para><application>Libstdc++</application> er en del av GCC kildene.
-       Du bør først pakke ut GCC tarballen og bytte til
+      Du bør først pakke ut GCC tarballen og bytte til
       <filename>gcc-&gcc-version;</filename> mappen.</para>
     </note>
 
@@ -77,7 +77,7 @@ cd       build</userinput></screen>
         <term><parameter>CXXFLAGS="-g -O2 -D_GNU_SOURCE"</parameter></term>
         <listitem>
           <para>Disse flaggene sendes av Makefile på øverste nivå når det bygges
-           en komplett versjon av GCC.</para>
+          en komplett versjon av GCC.</para>
         </listitem>
       </varlistentry>
 
@@ -85,8 +85,8 @@ cd       build</userinput></screen>
         <term><parameter>--host=$(uname -m)-lfs-linux-gnu</parameter></term>
         <listitem>
           <para>Vi må etterligne hva som ville skje hvis denne pakken ble bygget
-           som en del av et komplett kompilatorbygg. Denne bryteren vil bli sendt til
-           configure av GCCs byggemaskineri.</para>
+          som en del av et komplett kompilatorbygg. Denne bryteren vil bli sendt til
+          configure av GCCs byggemaskineri.</para>
         </listitem>
       </varlistentry>
 
@@ -94,7 +94,7 @@ cd       build</userinput></screen>
         <term><parameter>--disable-libstdcxx-pch</parameter></term>
         <listitem>
           <para>Denne bryteren forhindrer installasjon av forhåndskompilerte
-           inkluderte filer som ikke er nødvendige på dette stadiet.</para>
+          inkluderte filer som ikke er nødvendige på dette stadiet.</para>
         </listitem>
       </varlistentry>
 

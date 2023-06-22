@@ -11,12 +11,12 @@
   <title>Justering av verktøykjeden</title>
 
   <para>Nå som de endelige C bibliotekene er installert, er det på tide å justere
-   verktøykjeden slik at den vil koble sammen evt
-   nylige kompilerte programmer mot disse nye bibliotekene.</para>
+  verktøykjeden slik at den vil koble sammen evt.
+  nylige kompilerte programmer mot disse nye bibliotekene.</para>
 
   <para>Først må du sikkerhetskopiere <filename class="directory">/tools</filename> linker,
-   og erstatte den med den justerte linkeren vi laget i kapittel 5. Vi skal også lage
-   en lenke til motparten i
+  og erstatte den med den justerte linkeren vi laget i kapittel 5. Vi skal også lage
+  en lenke til motparten i
   <filename class="directory">/tools/$(uname -m)-pc-linux-gnu/bin</filename>:</para>
 
 <screen><userinput>mv -v /tools/bin/{ld,ld-old}
@@ -25,11 +25,11 @@ mv -v /tools/bin/{ld-new,ld}
 ln -sv /tools/bin/ld /tools/$(uname -m)-pc-linux-gnu/bin/ld</userinput></screen>
 
   <para>den neste kommandoen endrer GCC spesifikasjonsfilen for å oppnå tre mål:
-   først pek GCC til den nye dynamiske linkeren. Bare med å slette alle forekomster av
+  først pek GCC til den nye dynamiske linkeren. Bare med å slette alle forekomster av
   <quote>/tools</quote> bør gi oss den riktige veien til den dynamiske
-   linkeren.For det andre, la GCC få vite hvor den finner Glibc startfilene. Tredje,
-   legg til mapper /usr/include på slutten av standardsøkebanen, sånn
-   at deklarasjonsfiler lagt til i kapittel 6 blir funnet.
+  linkeren.For det andre, la GCC få vite hvor den finner Glibc startfilene. Tredje,
+  legg til mapper /usr/include på slutten av standardsøkebanen, sånn
+  at deklarasjonsfiler lagt til i kapittel 6 blir funnet.
   En <command>sed</command> kommandoen oppnår dette:</para>
 
 <screen><userinput>gcc -dumpspecs | sed -e 's@/tools@@g'                   \
@@ -38,25 +38,25 @@ ln -sv /tools/bin/ld /tools/$(uname -m)-pc-linux-gnu/bin/ld</userinput></screen>
     `dirname $(gcc --print-libgcc-file-name)`/specs</userinput></screen>
 
   <para>Det er en god idé å visuelt inspisere spesifikasjonsfilen for å bekrefte at
-   den tiltenkte endringen faktisk ble gjort.</para>
+  den tiltenkte endringen faktisk ble gjort.</para>
 
   <para>Det er viktig på dette punktet å sikre at de grunnleggende
-   funksjonene (kompilering og kobling) til den justerte verktøykjeden fungerer
-   som forventet. For å gjøre dette, utfør følgende helsekontroller:</para>
+  funksjonene (kompilering og kobling) til den justerte verktøykjeden fungerer
+  som forventet. For å gjøre dette, utfør følgende helsekontroller:</para>
 
 <screen os="a"><userinput>echo 'int main(){}' &gt; dummy.c
 cc dummy.c -v -Wl,--verbose &amp;&gt; dummy.log
 readelf -l a.out | grep ': /lib'</userinput></screen>
 
   <para os="b">Det skal ikke være noen feil,
-   og utdataen av den siste kommandoen vil være (som gir rom for
-   plattformspesifikke forskjeller i det dynamiske linkernavnet):</para>
+  og utdataen av den siste kommandoen vil være (som gir rom for
+  plattformspesifikke forskjeller i det dynamiske linkernavnet):</para>
 
 <screen os="c"><computeroutput>[Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]</computeroutput></screen>
 
   <para>Merk at på 64-bits systemer <filename class="directory">/lib</filename> er
-   plasseringen av vår dynamiske linker, men nås via en symbolsk lenke
-   i /lib64.</para>
+  plasseringen av vår dynamiske linker, men nås via en symbolsk lenke
+  i /lib64.</para>
 
   <note><para>På 32-bits systemer skal fortolkeren være
    /lib/ld-linux.so.2.</para></note>
@@ -71,8 +71,8 @@ readelf -l a.out | grep ': /lib'</userinput></screen>
 /usr/lib/../lib/crti.o succeeded
 /usr/lib/../lib/crtn.o succeeded</computeroutput></screen>
 
-  <para os="g">Kontroller at kompilatoren søker etter riktige deklarasjons
-   filer:</para>
+  <para os="g">Kontroller at kompilatoren søker etter riktige
+  deklarasjonsfiler:</para>
 
 <screen><userinput>grep -B4 '^ /usr/include' dummy.log</userinput></screen>
 
@@ -91,7 +91,7 @@ readelf -l a.out | grep ': /lib'</userinput></screen>
 <screen os="j"><userinput>grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'</userinput></screen>
 
   <para os="k">Referanser til stier som har komponenter med '-linux-gnu' bør
-   ignoreres, men ellers skal utdataene fra den siste kommandoen være:</para>
+  ignoreres, men ellers skal utdataene fra den siste kommandoen være:</para>
 
 <screen><computeroutput>SEARCH_DIR("/usr/lib")
 SEARCH_DIR("/lib")</computeroutput></screen>
@@ -109,15 +109,15 @@ SEARCH_DIR("/lib")</computeroutput></screen>
 <screen os="q"><userinput>grep found dummy.log</userinput></screen>
 
   <para os="r">Utdataene fra den siste kommandoen skal være (tillater
-   plattformspesifikke forskjeller i dynamisk linkernavn):</para>
+  plattformspesifikke forskjeller i dynamisk linkernavn):</para>
 
 <screen os="s"><computeroutput>found ld-linux-x86-64.so.2 at /usr/lib/ld-linux-x86-64.so.2</computeroutput></screen>
 
   <para os="t">Hvis utdataene ikke vises som vist ovenfor eller ikke mottas
-   i det hele tatt, så er det noe alvorlig galt. Undersøk og gå gjennom
-   trinn for trinn, for å finne ut hvor problemet er og rette det. <!--Den mest sannsynlige
-   årsaken er at noe gikk galt med spesifikasjonsfiljusteringen.--> Alle
-   problemer må løses før du fortsetter med prosessen.</para>
+  i det hele tatt, så er det noe alvorlig galt. Undersøk og gå gjennom
+  trinn for trinn, for å finne ut hvor problemet er og rette det. <!--Den mest sannsynlige
+  årsaken er at noe gikk galt med spesifikasjonsfiljusteringen.--> Alle
+  problemer må løses før du fortsetter med prosessen.</para>
 
   <para os="u">Når alt fungerer som det skal, rydd opp i testfilene:</para>
 

@@ -23,8 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Kmod pakken inneholder biblioteker og verktøy for lasting av kjerne
-     moduler</para>
+    <para>Kmod pakken inneholder biblioteker og verktøy for lasting av
+    kjernemoduler</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -59,7 +59,7 @@
         </term>
         <listitem>
           <para>Dette alternativet gjør det mulig for Kmod å håndtere PKCS7 signaturer for
-           kjernemoduler.</para>
+          kjernemoduler.</para>
         </listitem>
       </varlistentry>
 
@@ -80,13 +80,13 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Testpakken til denne pakken krever rå kjerneoverskrifter
-     (ikke de <quote>sanitiserte</quote> kjernehodene installert tidligere),
-     som er utenfor rammen av LFS.</para>
+    <para>Testpakken til denne pakken krever rå kjernedeklarasjoner
+    (ikke de <quote>sanitiserte</quote> kjernedeklarasonene installert tidligere),
+    som er utenfor rammen av LFS.</para>
 
     <para>Installer pakken og lag symbolkoblinger for
-     kompatibilitet med Module-Init-Tools (pakken som tidligere håndterte
-     Linux kjernemoduler):</para>
+    kompatibilitet med Module-Init-Tools (pakken som tidligere håndterte
+    Linux kjernemoduler):</para>
 
 <screen><userinput remap="install">make install
 
@@ -122,9 +122,9 @@ ln -sfv kmod /usr/bin/lsmod</userinput></screen>
         <term><command>depmod</command></term>
         <listitem>
           <para>Oppretter en avhengighetsfil basert på symbolene den finner i
-           eksisterende sett med moduler; denne avhengighetsfilen brukes av
+          eksisterende sett med moduler; denne avhengighetsfilen brukes av
           <command>modprobe</command> for automatisk å laste de nødvendige
-           moduler</para>
+          modulene</para>
           <indexterm zone="ch-system-kmod depmod">
             <primary sortas="b-depmod">depmod</primary>
           </indexterm>
@@ -165,7 +165,7 @@ ln -sfv kmod /usr/bin/lsmod</userinput></screen>
         <term><command>modinfo</command></term>
         <listitem>
           <para>Undersøker en objektfil assosiert med en kjernemodul og
-           viser all informasjon den kan hente</para>
+          viser all informasjon den kan hente</para>
           <indexterm zone="ch-system-kmod modinfo">
             <primary sortas="b-modinfo">modinfo</primary>
           </indexterm>
@@ -197,7 +197,7 @@ ln -sfv kmod /usr/bin/lsmod</userinput></screen>
         <term><filename class="libraryfile">libkmod</filename></term>
         <listitem>
           <para>Dette biblioteket brukes av andre programmer til å laste inn og laste ut
-            kjernemoduler</para>
+           kjernemoduler</para>
           <indexterm zone="ch-system-kmod">
             <primary sortas="c-libkmod">libkmod</primary>
           </indexterm>

@@ -24,7 +24,7 @@
     <title/>
 
     <para>Intltool er et internasjonaliseringsverktøy som brukes til å trekke ut
-     oversettbare strenger fra kildefiler.</para>
+    oversettbare strenger fra kildefiler.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -46,8 +46,8 @@
 <screen><userinput remap="pre">sed -i 's:\\\${:\\\$\\{:' intltool-update.in</userinput></screen>
 
     <note><para>Det regulære uttrykket ovenfor ser uvanlig ut på grunn av alle
-     skråstreker. Det den gjør er å legge til et skråstrek før høyre krøllparentes
-     i sekvensen '\${' som resulterer i '\$\{'.</para></note>
+    skråstreker. Det den gjør er å legge til et skråstrek før høyre krøllparentes
+    i sekvensen '\${' som resulterer i '\$\{'.</para></note>
 
     <para>Forbered Intltool for kompilering:</para>
 

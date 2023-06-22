@@ -24,7 +24,7 @@
     <title/>
 
     <para>Expat pakken inneholder et dataflytorientert C bibliotek for å
-     analysere XML.</para>
+    analysere XML.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -89,7 +89,7 @@
         <term><command>xmlwf </command></term>
         <listitem>
           <para>Er et ikke-validerende verktøy for å sjekke om
-           XML dokumenter er godt utformet</para>
+          XML dokumenter er godt utformet</para>
           <indexterm zone="ch-system-expat xmlwf">
             <primary sortas="b-xmlwf">xmlwf</primary>
           </indexterm>

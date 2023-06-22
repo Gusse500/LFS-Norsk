@@ -5,15 +5,15 @@
   %general-entities;
 ]>
 
-<sect1 id="ch-partitioning-hostreqs" xreflabel="Host System Requirements">
+<sect1 id="ch-partitioning-hostreqs" xreflabel="Systemkrav for verten">
   <?dbhtml filename="hostreqs.html"?>
 
-  <title>Systemkrav for vert</title>
+  <title>Systemkrav for verten</title>
 
   <sect2>
      <title>Maskinvare</title>
 
-     <para>LFS-redaktørene anbefaler at CPUen har minst
+     <para>LFS redaktørene anbefaler at CPUen har minst
      fire kjerner og at systemet har minst 8 GB minne.
      Eldre systemer som ikke oppfyller disse kravene vil fortsatt fungere,
      men tiden for å bygge pakker vil bli betydelig lengre
@@ -27,10 +27,10 @@
 
     <para>Vertssystemet ditt bør ha følgende programvare med
     minimumsversjoner angitt. Dette burde ikke være et problem for de fleste
-    moderne Linux-distribusjoner. Vær også oppmerksom på at mange distribusjoner vil
-    plassere programvareoverskrifter i separate pakker, ofte i form av
-    <quote>&lt;package-name&gt;-devel</quote> eller
-    <quote>&lt;package-name&gt;-dev</quote>. Pass på å installere disse hvis
+    moderne Linuxdistribusjoner. Vær også oppmerksom på at mange distribusjoner vil
+    plassere programvaredeklarasjoner i separate pakker, ofte i form av
+    <quote>&lt;pakke-navn&gt;-devel</quote> eller
+    <quote>&lt;pakke-navn&gt;-dev</quote>. Pass på å installere disse hvis
     distribusjonen din har dem.</para>
 
    <para>Tidligere versjoner av de oppførte programvarepakkene kan fungere, men har
@@ -149,7 +149,7 @@
     <para>Merk at symbollenkene nevnt ovenfor er nødvendige for å bygge et LFS
     system ved å bruke instruksjonene i denne boken. Symlinker som
     peker på annen programvare (som dash, mawk osv.) kan fungere, men er ikke
-    testet eller støttet av LFS-utviklingsteamet, og kan kreve enten
+    testet eller støttet av LFS utviklingsteamet, og kan kreve enten
     avvik fra instruksjonene eller tilleggsoppdateringer til noen
     pakker.</para>
   </important>

@@ -22,7 +22,7 @@
   montert når du går inn i chroot miljøet. Det kan være lurt å sjekke
   at de er montert ved å kjøre <command>findmnt</command> kommandoen.</para>
 
-  <para>Until <xref linkend="ch-tools-chroot"/>, kommandoene må kjøres
+  <para>Inntil <xref linkend="ch-tools-chroot"/>, må kommandoene kjøres
   som <systemitem class="username">root</systemitem>, med
   <envar>LFS</envar> variabelen satt. Etter å ha gått inn i inn chroot, alle kommandoer
   kjøres som &root;, heldigvis uten tilgang til operativsystemet til datamaskinen

@@ -87,7 +87,7 @@ echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h</userinput></screen>
           inneholder. Disse makroene er enten innebygde eller brukerdefinerte og kan
           ta et hvilket som helst antall argumenter. Foruten å utføre makroutvidelse,
           <command>m4</command> har innebygde funksjoner for å inkludere navngitte
-          filer, kjører Unix kommandoer, utfører heltallsaritmetikk,
+          filer, kjører Unix kommandoer, utføre heltallsaritmetikk,
           manipulere tekst, rekursjon osv. <command>m4</command> programmet
           kan brukes enten som en grenseflate til en kompilator eller som en makroprosessor
           på egen hånd</para>

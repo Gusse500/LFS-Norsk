@@ -90,7 +90,7 @@
         <term><command>less</command></term>
         <listitem>
           <para>En filviser eller søker; den viser innholdet i det gitte
-           fil, lar brukeren rulle, finne strenger og hoppe til merker</para>
+          fil, lar brukeren rulle, finne strenger og hoppe til merker</para>
           <indexterm zone="ch-system-less less">
             <primary sortas="b-less">less</primary>
           </indexterm>

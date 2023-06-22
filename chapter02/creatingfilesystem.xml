@@ -17,7 +17,7 @@
   et indekseringsskjema for å finne en bestemt fil på forespørsel. Filsystemet
   hjelper også OS med å holde styr på ledig plass på partisjonen, reservere
   nødvendige sektorer når en ny fil opprettes eller en eksisterende fil utvides,
-  og resirkuler de gratis datasegmentene som opprettes når filer slettes. Det kan
+  og resirkuler de ledige datasegmentene som opprettes når filer slettes. Det kan
   også gi støtte for dataredundans og for feilgjenoppretting.</para>
   
   <para>LFS kan bruke et hvilket som helst filsystem som gjenkjennes av Linuxkjernen, men

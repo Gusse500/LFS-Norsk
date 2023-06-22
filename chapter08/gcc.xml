@@ -115,7 +115,7 @@ cd       build</userinput></screen>
         kan legges til for de delte bibliotekene, men ikke de kjørbare
         filen. Aktivering av PIE tillater ASLR for de kjørbare filene i tillegg til
         de delte bibliotekene, og reduserer noen angrep basert på faste
-        adresser til sensitiv kode eller data i den kjørbare filene.
+        adresser til sensitiv kode eller data i de kjørbare filene.
       </para>
       <para>
         SSP (Stack Smashing Protection) er en teknikk for å sikre
@@ -373,7 +373,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="cpp">
         <term><command>cpp</command></term>
         <listitem>
-          <para>C-forprosessoren; den brukes av kompilatoren for å utvide
+          <para>C forprosessoren; den brukes av kompilatoren for å utvide
           #include, #define og lignende utsagn i kildefilene</para>
           <indexterm zone="ch-system-gcc cpp">
             <primary sortas="b-cpp">cpp</primary>
@@ -588,8 +588,8 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="libssp">
         <term><filename class="libraryfile">libssp</filename></term>
         <listitem>
-          <para>Inneholder rutiner som støtter GCCs stabelknusende beskyttelses
-          funksjonalitet.  Normalt er det ubrukt fordi glibc også gir
+          <para>Inneholder rutiner som støtter GCCs stabelknusende
+          beskyttelsesfunksjonalitet.  Normalt er det ubrukt fordi glibc også gir
           disse rutinene</para>
           <indexterm zone="ch-system-gcc libssp">
             <primary sortas="c-libssp">libssp</primary>

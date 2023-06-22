@@ -49,8 +49,8 @@
 <screen><userinput remap="make">make</userinput></screen>
 
     <para>Testene er kjent for å mislykkes hvis de kjører flere
-     samtidige tester (-j alternativ større enn 1). Å teste
-     resultatene, utsted:</para>
+    samtidige tester (-j alternativ større enn 1). Å teste
+    resultatene, utsted:</para>
 
 <screen><userinput remap="test">make -j1 check</userinput></screen>
 

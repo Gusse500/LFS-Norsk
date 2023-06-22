@@ -14,7 +14,7 @@
   for å bygge et grunnleggende Linux system. De oppførte versjonsnumrene tilsvarer
   versjoner av programvaren som er kjent for å fungere, og denne boken er basert på
   deres bruk. Vi anbefaler på det sterkeste å ikke bruke forskjellige versjoner fordi konstruksjonens
-  kommandoer for én versjon kanskje ikke fungerer med en annen versjon, med mindre
+  kommandoer for en versjon kanskje ikke fungerer med en annen versjon, med mindre
   annen versjon er spesifisert av en LFS errata eller sikkerhetsrådgivning.
   De nyeste pakkeversjonene kan også ha problemer som krever
   løsninger. Disse løsningene vil bli utviklet og stabilisert i
@@ -29,8 +29,8 @@
   når det er mulig. Bruke et øyeblikksbilde av depot i stedet for en utgivelses
   tarball spesifisert av boken vil forårsake problemer.</para>
 
-  <para>Nedlastingsplasseringer er kanskje ikke alltid tilgjengelige. Hvis en nedlastings
-  plasseringen har endret seg siden denne boken ble publisert, Google (<ulink
+  <para>Nedlastingsplasseringer er kanskje ikke alltid tilgjengelige. Hvis en
+  nedlastingsplasseringen har endret seg siden denne boken ble publisert, Google (<ulink
   url="https://www.google.com/"/>) gir en nyttig søkemotor for
   de fleste pakkene. Hvis dette søket ikke lykkes, prøv en
   alternativ måte å laste ned på <ulink
@@ -40,8 +40,8 @@
   som er praktisk tilgjengelig gjennom hele bygget. En fungerende
   mappe er også nødvendig for å pakke ut kildene og bygge dem.
   <filename class="directory">$LFS/sources</filename> kan brukes både
-  som et sted å oppbevare tarballene og oppdateringene og som en arbeids
-  mappe. Ved å bruke denne mappen vil de nødvendige elementene være
+  som et sted å oppbevare tarballene og oppdateringene og som en
+  arbeidsmappe. Ved å bruke denne mappen vil de nødvendige elementene være
   plassert på LFS partisjonen og vil være tilgjengelig under alle stadier
   av byggeprosessen.</para>
 
@@ -74,7 +74,7 @@
     </listitem>
     <listitem>
       <para>Filene kan lastes ned ved hjelp av <command>wget</command> og
-      en wget-liste som beskrevet nedenfor.</para>
+      en wgetliste som beskrevet nedenfor.</para>
     </listitem>
   </itemizedlist>
 
@@ -92,7 +92,7 @@
     gjeldende bok.
   </para></note>
 -->
-  <para>I tillegg, fra og med LFS-7.0, er det en egen fil,
+  <para>I tillegg, fra og med LFS 7.0, er det en egen fil,
   <ulink url="../md5sums">md5sums</ulink>, som kan brukes til å bekrefte at alle
   de riktige pakkene er tilgjengelige før du fortsetter. Legg inn denne filen i
   <filename class="directory">$LFS/sources</filename> og kjør:</para>
@@ -108,8 +108,8 @@ popd</userinput></screen>
   vil disse filene eies av brukeren. Filsystemet registrerer
   eier ved hjelp av UID, og UID til en vanlig bruker i vertsdistroen er
   ikke tildelt i LFS. Så filene vil bli eid av en ikke navngitt UID
-  i det endelige LFS-systemet. Hvis du ikke vil tilordne samme UID for brukeren din
-  i LFS-systemet, endre eierne av disse filene til &root; nå for å
+  i det endelige LFS systemet. Hvis du ikke vil tilordne samme UID for brukeren din
+  i LFS systemet, endre eierne av disse filene til &root; nå for å
   unngå dette problemet:</para>
 
 <screen role="nodump"><userinput>chown root:root $LFS/sources/*</userinput></screen>
