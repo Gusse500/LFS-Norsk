@@ -10,9 +10,9 @@
 
   <title>Stille inn $LFS variabelen</title>
 
-  <para>Gjennom hele denne boken, miljøvariabelen <envar>LFS</envar> vil
+  <para>Gjennom hele denne boken, vil miljøvariabelen <envar>LFS</envar>
   brukes flere ganger. Du bør sørge for at denne variabelen alltid er definert
-  gjennom hele LFS byggeprosessen. Det bør settes til navnet på
+  gjennom hele LFS byggeprosessen. Den bør settes til navnet på
   mappen hvor du skal bygge LFS systemet ditt - vi vil bruke
   <filename class="directory">/mnt/lfs</filename> som et eksempel, men du kan
   velg et hvilket som helst mappenavn du ønsker. Hvis du bygger LFS på en separat
@@ -25,7 +25,7 @@
   <para>Å ha denne variabelen satt er fordelaktig ved at kommandoer som f.eks
   <command>mkdir -v $LFS/tools</command> kan skrives bokstavelig. Skallet
   vil automatisk erstatte <quote>$LFS</quote> med
-  <quote>/mnt/lfs</quote> (eller hva verdi variabelen ble satt til) når den
+  <quote>/mnt/lfs</quote> (eller hvilken verdi variabelen ble satt til) når den
   behandler kommandolinjen.</para>
 
   <caution>
@@ -37,8 +37,8 @@
 
 <screen role="nodump"><userinput>echo $LFS</userinput></screen>
 
-  <para>Sørg for at utdataene viser banen til LFS systemets bygge
-  plassering, som er <filename class="directory">/mnt/lfs</filename> hvis
+  <para>Sørg for at utdataene viser banen til LFS systemets
+  byggeplassering, som er <filename class="directory">/mnt/lfs</filename> hvis
   gitt eksempel ble fulgt. Hvis utdaten er feil, bruk kommandoen
   gitt tidligere på denne siden for å sette <envar>$LFS</envar> til det riktige
   mappenavnet.</para>

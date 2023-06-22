@@ -11,8 +11,8 @@
   <title>Endringslogg</title>
 
   <para>Dette er versjon &version; av Linux From Scratch-boken, datert
-  &releasedate;. Hvis denne boken er mer enn seks måneder gammel, en nyere og bedre
-  versjonen er sannsynligvis allerede tilgjengelig. For å finne ut, vennligst sjekk et av
+  &releasedate;. Hvis denne boken er mer enn seks måneder gammel, er en nyere og bedre
+  versjonen sannsynligvis allerede tilgjengelig. For å finne ut, vennligst sjekk et av
   speilene via <ulink url="&lfs-root;mirrors.html"/>.</para>
 
   <para>Nedenfor er en liste over endringer som er gjort siden forrige utgivelse av
@@ -403,11 +403,11 @@
           <ulink url="&lfs-ticket-root;5167">#5167</ulink>.</para>
         </listitem>
         <listitem>
-          <para>[xry111] - Slutt å deaktivere desimalfloat for midlertidig GCC,
-          så mpfr vil bli bygget med desimal float-støtte.</para>
+          <para>[xry111] - Slutt å deaktivere desimalfly for midlertidig GCC,
+          så mpfr vil bli bygget med støtte for desimalflyt.</para>
         </listitem>
         <listitem>
-          <para>[xry111] - Oppdater instruksjonen for hjulet for å unngå å stole på
+          <para>[xry111] - Oppdater instruksjonen for wheel for å unngå å stole på
           utdaterte Python funksjoner.</para>
         </listitem>
       </itemizedlist>
@@ -717,7 +717,7 @@
       <itemizedlist>
         <listitem>
           <para>[pierre] - Lagt til <option>--enable-default-pie</option> og
-          <option>--enable-default-ssp</option> til GCC-bygg. Begrunnelse
+          <option>--enable-default-ssp</option> til byggingen av GCC. Begrunnelse
           og noen rapporter på
           <ulink url="&lfs-ticket-root;5107">#5107</ulink>.</para>
         </listitem>
@@ -754,7 +754,7 @@
       <para>2022-09-01</para>
       <itemizedlist>
         <listitem>
-          <para>[bdubbs] - LFS-11.2 released.</para>
+          <para>[bdubbs] - LFS-11.2 utgitt.</para>
         </listitem>
       </itemizedlist>
     </listitem>
