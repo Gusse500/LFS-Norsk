@@ -31,9 +31,9 @@
   <envar>PATH</envar> variablene settes på nytt.
   <parameter>TERM=$TERM</parameter> konstruksjonen setter <envar>TERM</envar>
   variabelen inne i chroot til samme verdi som utenfor chroot. Denne variabelen er
-  nødvendig for programmer som <command>vim</command> og <command>less</command>
+  nødvendig for at programmer som <command>vim</command> og <command>less</command>
   kan fungere skikkelig.  Hvis andre variabler ønskes, som f.eks
-  <envar>CFLAGS</envar> eller <envar>CXXFLAGS</envar>, dette er et bra sted å sette
+  <envar>CFLAGS</envar> eller <envar>CXXFLAGS</envar>, er dette et bra sted å sette
   dem.</para>
 
   <para>Fra dette tidspunktet er det ikke nødvendig å bruke

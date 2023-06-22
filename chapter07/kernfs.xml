@@ -34,9 +34,9 @@
       filsystemet på
       <filename class="directory">/dev</filename> mappen; kjernen
       oppretter enhetsnoder på det virtuelle filsystemet under oppstartsprosessen,
-      eller når en enhet først oppdages eller åpnes. Udev-nissen kan
+      eller når en enhet først oppdages eller åpnes. Udev nissen kan
       endre eierskapet eller tillatelsene til enhetsnodene opprettet av
-      kjernen, og lage nye enhetsnoder eller symbolkoblinger for å lette arbeidet med
+      kjernen, og lage nye enhetsnoder eller symbolkoblinger for å lette arbeidet til
       distro vedlikeholdere og systemadministratorer. (Se
       <xref linkend='ch-config-udev-device-node-creation'/> for detaljer.)
       Hvis vertskjernen støtter &devtmpfs;, kan vi enkelt montere en

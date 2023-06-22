@@ -61,8 +61,8 @@
         <term><parameter>-des</parameter></term>
         <listitem>
           <para>Dette er en kombinasjon av tre alternativer: -d bruker standardinnstillinger for
-           alle elementer; -e sikrer gjennomføring av alle oppgaver; -s sender ikke ut
-           ikke-essensielle utdata.</para>
+          alle elementer; -e sikrer gjennomføring av alle oppgaver; -s sender ikke ut
+          ikke-essensiell utdata.</para>
         </listitem>
       </varlistentry>
 

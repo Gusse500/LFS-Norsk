@@ -47,7 +47,7 @@
 
     <screen><userinput remap="pre">patch -Np1 -i ../&gcc-upstream-fixes-patch;</userinput></screen>
 -->
-    <para>Som i den første versjonen av GCC, er GMP-, MPFR- og MPC-pakkene
+    <para>Som i den første versjonen av GCC, er GMP, MPFR og MPC pakkene
     nødvendig. Pakk ut tarballene og flytt dem til den nødvendige mappen:</para>
 
 <screen><userinput remap="pre">tar -xf ../mpfr-&mpfr-version;.tar.xz
@@ -122,10 +122,10 @@ cd       build</userinput></screen>
           <para>Vi krysskompilerer GCC, så det er umulig å bygge
           målbibliotekene (<filename class="libraryfile">libgcc</filename>
           og <filename class="libraryfile">libstdc++</filename>) med
-          tidligere kompilerte GCC-binærfiler&mdash;disse binærfilene vil ikke kjøre på
-          verten. GCC-byggesystemet vil forsøke å bruke vertens
-          C og C++ kompilatorer som en løsning som standard.
-          Å bygge GCC-målbibliotekene med en annen
+          tidligere kompilerte GCC binærfiler&mdash;disse binærfilene vil ikke kjøre på
+          verten. GCC byggesystemet vil forsøke å bruke vertens
+          C og C++ kompilatorer som en standard løsning.
+          Å bygge GCC målbibliotekene med en annen
           versjonen av GCC støttes ikke, så bruk av vertens kompilatorer kan føre til
           at byggingen mislykkes. Denne parameteren sikrer at bibliotekene bygges av GCC
           pass 1.</para>
@@ -138,8 +138,8 @@ cd       build</userinput></screen>
           <para>Tillat <filename class="libraryfile">libstdc++</filename> å
           bruke den delte <filename class="libraryfile">libgcc</filename> som ble
           bygget i dette passet, i stedet for den statiske versjonen bygget i GCC
-          pass 1. Dette er nødvendig for å støtte C++ unntaks
-          håndtering.</para>
+          pass 1. Dette er nødvendig for å støtte C++
+          unntakshåndtering.</para>
         </listitem>
       </varlistentry>
 
@@ -156,9 +156,9 @@ cd       build</userinput></screen>
     <para>Som en siste finpuss kan du lage en symbolkobling. Mange programmer og skript
     bruker <command>cc</command> i stedet for <command>gcc</command>, som
     brukes til å holde programmer generiske og derfor brukbare på alle typer UNIX
-    systemer der GNU C-kompilatoren ikke alltid er installert. Å kjøre
+    systemer der GNU C kompilatoren ikke alltid er installert. Å kjøre
     <command>cc</command> lar systemadministratoren bestemme
-    hvilken C-kompilator som skal installeres:</para>
+    hvilken C kompilator som skal installeres:</para>
 
 <screen><userinput remap="install">ln -sv gcc $LFS/usr/bin/cc</userinput></screen>
 

@@ -43,10 +43,10 @@
   <sect2 role="installation">
     <title>Installasjon av Cross GCC</title>
 
-    <para>GCC krever GMP-, MPFR- og MPC pakkene. Siden disse pakkene kanskje ikke
+    <para>GCC krever GMP, MPFR og MPC pakkene. Siden disse pakkene kanskje ikke
     er inkludert i vertsdistribusjonen din, blir de bygget med
-    GCC.  Pakk ut hver pakke i GCC-kildemappen, og gi nytt navn til de
-    resulterende mappene slik at GCC byggprosedyrene automatisk
+    GCC.  Pakk ut hver pakke i GCC kildemappen, og gi nytt navn til de
+    resulterende mappene slik at GCC byggeprosedyrene automatisk
     bruker dem:</para>
 
     <note><para>Det er hyppige misforståelser om dette kapittelet. Prosedyrene
@@ -117,8 +117,8 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--with-newlib</parameter></term>
         <listitem>
-          <para>Siden et fungerende C-bibliotek ikke er tilgjengelig ennå, sikrer dette
-          at inhibit_libc-konstanten blir definert når du bygger libgcc. Dette forhindrer
+          <para>Siden et fungerende C bibliotek ikke er tilgjengelig ennå, sikrer dette
+          at inhibit_libc konstanten blir definert når du bygger libgcc. Dette forhindrer
           kompilering av kode som krever libc støtte.</para>
         </listitem>
       </varlistentry>
@@ -181,7 +181,7 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--enable-languages=c,c++</parameter></term>
         <listitem>
-          <para>Dette alternativet sikrer at bare C- og C ++ -kompilatorene blir bygget.
+          <para>Dette alternativet sikrer at bare C og C ++ kompilatorene blir bygget.
           Dette er de eneste språkene som trengs nå.</para>
         </listitem>
       </varlistentry>
@@ -197,7 +197,7 @@ cd       build</userinput></screen>
     <screen><userinput remap="install">make install</userinput></screen>
 
     <para>Dette bygget av GCC har installert et par interne
-    systemoverskrifter.  Normalt vil en av dem, <filename>limits.h</filename>, i sin tur
+    systemdeklarasjoner.  Normalt vil en av dem, <filename>limits.h</filename>, i sin tur
     inkludere den tilsvarende system <filename>limits.h</filename> systemdeklarasjonen, i
     dette tilfellet, <filename>$LFS/usr/include/limits.h</filename>. På tidspunktet for
     denne byggingen av GCC eksisterer imidlertid ikke <filename>$LFS/usr/include/limits.h</filename>
@@ -205,7 +205,7 @@ cd       build</userinput></screen>
     delvis, selvstendig fil og inkluderer ikke de utvidede funksjonene til
     systemdeklarasjonen. Dette er tilstrekkelig for å bygge glibc, men den fullstendige
     interne deklarasjonen vil være nødvendig senere. Lag en fullversjon av den interne
-    deklarasjonen ved å bruke en kommando som er identisk med det GCC-byggesystemet gjør
+    deklarasjonen ved å bruke en kommando som er identisk med det GCC byggesystemet gjør
     under normale omstendigheter:</para>
 
     <note>
