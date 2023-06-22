@@ -24,7 +24,7 @@
     <title/>
 
     <para>Libpipeline pakken inneholder et bibliotek for å manipulere kanaler
-     av delprosesser på en fleksibel og praktisk måte.</para>
+    av delprosesser på en fleksibel og praktisk måte.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -79,7 +79,7 @@
         <term><filename class="libraryfile">libpipeline</filename></term>
         <listitem>
           <para>Dette biblioteket brukes til å trygt konstruere kanaler mellom
-           delprosesser</para>
+          delprosesser</para>
           <indexterm zone="ch-system-libpipeline">
             <primary sortas="c-libpipeline">libpipeline</primary>
           </indexterm>
