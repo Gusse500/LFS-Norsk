@@ -568,8 +568,8 @@
       <varlistentry id="tbl">
         <term><command>tbl</command></term>
         <listitem>
-          <para>Kompilerer beskrivelser av tabeller innebygd i troff inndata
-          filer til kommandoer som forstås av
+          <para>Kompilerer beskrivelser av tabeller innebygd i troff
+          inndatafiler til kommandoer som forstås av
           <command>troff</command></para>
           <indexterm zone="ch-system-groff tbl">
             <primary sortas="b-tbl">tbl</primary>

@@ -24,13 +24,13 @@
     <title/>
 
     <para><application>Expect</application> pakken inneholder verktøy for å
-     automatisere, via skriptede dialoger, interaktive applikasjoner som f.eks
+    automatisere, via skriptede dialoger, interaktive applikasjoner som f.eks
     <command>telnet</command>, <command>ftp</command>,
     <command>passwd</command>, <command>fsck</command>,
     <command>rlogin</command>, og <command>tip</command>.
     <application>Expect</application> er også nyttig for å teste disse samme
-     applikasjoner i tillegg til å lette alle slags oppgaver som er uoverkommelige
-     vanskelig med noe annet. <application>DejaGnu</application>
+    applikasjoner i tillegg til å lette alle slags oppgaver som er uoverkommelige
+    vanskelig med noe annet. <application>DejaGnu</application>
     rammeverket er skrevet i <application>Expect</application>.</para>
 
     <segmentedlist>
@@ -72,7 +72,7 @@
         <term><parameter>--with-tclinclude=/usr/include</parameter></term>
         <listitem>
           <para>Dette forteller Expect eksplisitt hvor du finner Tcls interne
-           deklarasjoner.</para>
+          deklarasjoner.</para>
         </listitem>
       </varlistentry>
 
@@ -114,7 +114,7 @@ ln -svf expect&expect-version;/libexpect&expect-version;.so /usr/lib</userinput>
       <varlistentry id="expect">
         <term><command>expect</command></term>
         <listitem>
-          <para>Kommuniserer med andre interaktive programmer iht
+          <para>Kommuniserer med andre interaktive programmer iht.
            til et skript</para>
           <indexterm zone="ch-system-expect expect">
             <primary sortas="b-expect">expect</primary>
@@ -126,7 +126,7 @@ ln -svf expect&expect-version;/libexpect&expect-version;.so /usr/lib</userinput>
         <term><filename class="libraryfile">libexpect-&expect-version;.so</filename></term>
         <listitem>
           <para>Inneholder funksjoner som gjør at Expect kan brukes som en Tcl
-           utvidelse eller brukes direkte fra C eller C++ (uten Tcl)</para>
+          utvidelse eller brukes direkte fra C eller C++ (uten Tcl)</para>
           <indexterm zone="ch-system-expect libexpect">
             <primary sortas="c-libexpect-&expect-version;">libexpect-&expect-version;</primary>
           </indexterm>

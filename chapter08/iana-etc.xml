@@ -24,7 +24,7 @@
     <title/>
 
     <para>Iana-Etc pakken leverer data for nettverkstjenester og
-     protokoller.</para>
+    protokoller.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -67,7 +67,7 @@
         <term><filename>/etc/protocols</filename></term>
         <listitem>
           <para>Beskriver de ulike DARPA Internettprotokollene som er
-           tilgjengelig fra TCP/IP undersystemet</para>
+          tilgjengelig fra TCP/IP undersystemet</para>
           <indexterm zone="ch-system-iana-etc">
             <primary sortas="e-/etc/protocols">/etc/protocols</primary>
           </indexterm>
@@ -78,8 +78,8 @@
         <term><filename>/etc/services</filename></term>
         <listitem>
           <para>Gir en tilordning mellom vennlige tekstnavn for
-           internetttjenester, og deres underliggende tildelte portnumre og
-           protokolltyper</para>
+          internetttjenester, og deres underliggende tildelte portnumre og
+          protokolltyper</para>
           <indexterm zone="ch-system-iana-etc">
             <primary sortas="e-/etc/services">/etc/services</primary>
           </indexterm>

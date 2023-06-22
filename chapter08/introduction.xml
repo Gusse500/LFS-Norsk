@@ -21,12 +21,12 @@
   kan trenge det.</para>
 
   <para>Vi anbefaler ikke å bruke optimaliseringer. De kan gjøre at
-  et program kjører litt raskere, men de kan også forårsake kompilerings
-  vanskeligheter og problemer når du kjører programmet. Hvis en pakke nekter å
+  et program kjører litt raskere, men de kan også forårsake kompileringsvanskeligheter
+  og problemer når du kjører programmet. Hvis en pakke nekter å
   kompilere når du bruker optimalisering, prøv å kompilere den uten optimalisering og
   se om det løser problemet. Selv om pakken kompileres ved bruk av
   optimalisering, er det risiko for at det kan ha blitt kompilert feil fordi
-  de komplekse interaksjonene mellom koden og byggeverktøyene. Legg også merke til
+  det er komplekse interaksjoner mellom koden og byggeverktøyene. Legg også merke til
   at <option>-march</option> og <option>-mtune</option> alternativene som
   ikke er spesifisert i boken er ikke testet. Dette kan skape problemer med
   verktøykjedepakkene (Binutils, GCC og Glibc). De små potensielle gevinstene
@@ -60,7 +60,7 @@
 
     <para>Generelt fraråder LFS redaktørene å bygge og installere statiske
     biblioteker. De fleste statiske biblioteker er gjort
-    foreldet i et moderne Linux-system. I tillegg å koble et statisk bibliotek
+    foreldet i et moderne Linuxsystem. I tillegg å koble et statisk bibliotek
     inn i et program kan være skadelig. Hvis en oppdatering til biblioteket er nødvendig
     for å fjerne et sikkerhetsproblem, må hvert program som bruker det statiske biblioteket
     kobles sammen med det nye biblioteket. Siden bruken av statiske biblioteker
