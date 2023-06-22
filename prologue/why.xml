@@ -12,7 +12,7 @@
 
     <para>Målet med LFS er å bygge en komplett og brukbart
     system på fundamentnivå&mdash;inkludert alle pakkene som trengs for å replikere
-    seg selv&mdash;og gir en relativt minimal base for å tilpasse
+    seg selv&mdash;og gi en relativt minimal base for å tilpasse
     et mer komplett system basert på brukerens valg. Dette betyr ikke
     at LFS er det minste systemet som er mulig. Flere viktige pakker
     er inkludert som strengt tatt ikke er påkrevd. Listen nedenfor dokumenterer
@@ -41,8 +41,8 @@
         <para>Autoconf</para>
 
         <para>Denne pakken inneholder programmer for å produsere skallskript som
-        automatisk kan konfigurere kildekoden fra en utviklermal
-        . Det er ofte nødvendig for å gjenoppbygge en pakke etter oppdateringer
+        automatisk kan konfigurere kildekoden fra en utviklermal.
+        Det er ofte nødvendig for å gjenoppbygge en pakke etter oppdateringer
         til byggeprosedyrene</para>
       </listitem>
 
@@ -180,7 +180,7 @@
 
         <para>Denne pakken inneholder et verktøy for å generere programmer som
         gjenkjenne mønstre i tekst. Det er GNU versjonen av lex
-        (leksikalsk analysator) programmet. Det kreves for å bygge flere
+        (lexical analyzer) programmet. Det kreves for å bygge flere
         LFS pakker.</para>
       </listitem>
 
@@ -203,7 +203,7 @@
       <listitem>
         <para>GDBM</para>
 
-        <para>Denne pakken inneholder GNU Database behandlings biblioteket. Den
+        <para>Denne pakken inneholder GNU biblioteket for databasebehandling. Den
         brukes av en annen LFS pakke, Man-DB.</para>
       </listitem>
 
@@ -231,8 +231,8 @@
       <listitem>
         <para>Gperf</para>
 
-        <para>Denne pakken inneholder et program som genererer en perfekt hash
-        funksjon fra et nøkkelsett. Den kreves av
+        <para>Denne pakken inneholder et program som genererer en perfekt
+        hashfunksjon fra et nøkkelsett. Den kreves av
         <phrase revision='sysv'>Eudev</phrase>
         <phrase revision='systemd'>Systemd</phrase>.</para>
       </listitem>
@@ -292,8 +292,8 @@
         <para>IProute2</para>
 
         <para>Denne pakken inneholder programmer for grunnleggende og avansert IPv4 og
-        IPv6 nettverk. Det ble valgt fremfor det andre vanlige nettverks
-        verktøypakken (net-tools) for sine IPv6-funksjoner.  </para>
+        IPv6 nettverk. Det ble valgt fremfor den andre vanlige
+        verktøypakken for nettverk (net-tools) for sine IPv6-funksjoner.  </para>
       </listitem>
 
       <listitem revision="systemd">
@@ -346,7 +346,7 @@
       <listitem>
         <para>Libffi</para>
 
-        <para>Denne pakken implementerer et grensesnitt for overførbart programmering på høyt nivå
+        <para>Denne pakken implementerer et grensesnitt for overførbar programmering på høyt nivå
         til ulike kallkonvensjoner. Noen programmer vet kanskje ikke
         på sammenstillingstidspunktet hvilke argumenter som skal overføres til en
         funksjon. For eksempel kan en tolk bli fortalt under kjøringen om
@@ -367,8 +367,8 @@
       <listitem>
         <para>Libtool</para>
 
-        <para>Denne pakken inneholder GNU generiske bibliotekstøtte
-        skript. Det omslutter kompleksiteten ved å bruke delte biblioteker i en
+        <para>Denne pakken inneholder GNU skriptet for generisk bibliotekstøtte.
+        Det omslutter kompleksiteten ved å bruke delte biblioteker i en
         konsekvent, flyttbart grensesnitt. Det trengs av testpakker
         i andre LFS pakker.</para>
       </listitem>
@@ -413,8 +413,8 @@
       <listitem>
         <para>Man-pages</para>
 
-        <para>Denne pakken inneholder det faktiske innholdet i det grunnleggende
-        Linux mansider.</para>
+        <para>Denne pakken inneholder det faktiske innholdet i grunnleggende
+        mansider for Linux.</para>
       </listitem>
 
       <listitem>
@@ -422,8 +422,8 @@
 
         <para>Denne pakken inneholder et programvareverktøy for å automatisere byggingen
         av programvare. Hovedmålet for Meson er å minimere tiden
-        som programvareutviklere må bruke på å konfigurere bygge
-        systemet. Det kreves for å bygge Systemd, så vel som mange BLFS
+        som programvareutviklere må bruke på å konfigurere
+        byggesystemet. Det kreves for å bygge Systemd, så vel som mange BLFS
         pakker.</para>
 
       </listitem>
@@ -446,8 +446,8 @@
         <para>Ninja</para>
 
         <para>Denne pakken inneholder et lite byggesystem med fokus på hastighet.
-        Den er designet for å ha inndatafilene generert på høyere nivå av et bygge
-        system, og å kjøre bygget så raskt som mulig.
+        Den er designet for å ha inndatafilene generert på høyere nivå av et
+        byggesystem, og å kjøre bygget så raskt som mulig.
         Denne pakken kreves av Meson.</para>
 
       </listitem>
@@ -466,14 +466,14 @@
 
         <para>Denne pakken inneholder administrasjonsverktøy og biblioteker knyttet til
         kryptografi. Disse er nyttige for å gi kryptografiske funksjoner til
-        andre pakker, inkludert Linux kjernen.</para>
+        andre pakker, inkludert Linuxkjernen.</para>
       </listitem>
 
       <listitem>
         <para>Patch</para>
 
         <para>Denne pakken inneholder et program for å endre eller lage filer ved
-        å bruke en <emphasis>oppdaterings (patch)</emphasis> fil vanligvis opprettet
+        å bruke en <emphasis>oppdateringsfil (patch)</emphasis> vanligvis opprettet
         av <application>diff</application> programmet.  Det trengs av
         byggeprosedyren for flere LFS pakker.</para>
       </listitem>
@@ -505,8 +505,8 @@
         <para>Psmisc</para>
 
         <para>Denne pakken inneholder programmer for å vise informasjon
-        om prosesser som kjører. Disse programmene er nyttige for system
-        administrasjon.</para>
+        om prosesser som kjører. Disse programmene er nyttige for
+        systemadministrasjon.</para>
       </listitem>
 
       <listitem>
@@ -581,9 +581,9 @@
       <listitem>
         <para>Texinfo</para>
 
-        <para>Denne pakken inneholder programmer for lesing, skriving og
-        konvertere informasjonssider. Den brukes i installasjons
-        prosedyrer for mange LFS pakker.</para>
+        <para>Denne pakken inneholder programmer for å lese, skrive til og
+        konvertere informasjonssider. Den brukes i installasjonsprosedyrer
+        for mange LFS pakker.</para>
       </listitem>
 
       <listitem>
@@ -598,8 +598,8 @@
         <para>Vim</para>
 
         <para>Denne pakken inneholder et redigeringsprogram. Den ble valgt på grunn av sin
-        kompatibilitet med det klassiske vi redigeringsprogrammet og dens enorme antall kraftige
-        kapasiteter.. Et redigeringsprogram er et veldig personlig valg for
+        kompatibilitet med det klassiske vi redigeringsprogrammet og dens enormt antall kraftige
+        kapasiteter. Et redigeringsprogram er et veldig personlig valg for
         mange brukere og andre redigeringsprogram kan brukes om ønskelig.</para>
       </listitem>
       
