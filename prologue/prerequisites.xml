@@ -12,9 +12,9 @@
 
   <para>Å bygge et LFS system er ikke en enkel oppgave. Det krever en viss
   nivå av eksisterende kunnskap om Unix systemadministrasjon for å løse
-  problemer og utfør kommandoene som er oppført riktig. Spesielt som en
-  absolutt minimum, bør du allerede ha muligheten til å bruke
-  kommandolinjen (skaller) for å kopiere eller flytte filer og mapper, liste mapper
+  problemer og riktig utføre kommandoene som er oppført. Spesielt som et
+  absolutt minimum, bør du allerede vite hvordan du bruker
+  kommandolinjen (skallet) for å kopiere eller flytte filer og mapper, liste mapper
   og filinnhold, og endre gjeldende mappe. Det forventes også at
   du har rimelig kunnskap om bruk og installasjon av Linux
   programvare.</para>
@@ -22,7 +22,7 @@
   <para>Fordi LFS boka antar <emphasis>i det minste</emphasis> dette grunnleggende
   ferdighetsnivået, er det usannsynlig at de ulike LFS støtteforaene vil kunne
   gi deg mye hjelp på disse områdene. Du vil finne at dine
-  spørsmål angående slik grunnleggende kunnskap vil sannsynligvis forbli ubesvart (eller du
+  spørsmål angående slik grunnleggende kunnskap sannsynligvis vil forbli ubesvart (eller du
   vil ganske enkelt bli henvist til LFS essensielle forhåndsleseliste).</para>
 
   <para>Før du bygger et LFS system, anbefaler vi å lese følgende:</para>

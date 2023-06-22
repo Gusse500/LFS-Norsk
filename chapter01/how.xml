@@ -10,28 +10,28 @@
 
   <title>Hvordan bygge et LFS-system</title>
 
-  <para>LFS-systemet vil bli bygget ved å bruke en allerede installert
+  <para>LFS systemet vil bli bygget ved Ã¥ bruke en allerede installert
   Linuxdistribusjon (som Debian, OpenMandriva, Fedora eller openSUSE). Dette
   eksisterende Linuxsystemet (verten) vil bli brukt som utgangspunkt for
-  å gi nødvendige programmer, inkludert en kompilator, linker og skall,
-  for byggingen av det nye systemet. Velg <quote>development</quote> alternativet
-  under distribusjonsinstallasjonen for å kunne få tilgang til disse
-  verktøyene.</para>
+  Ã¥ gi nÃ¸dvendige programmer, inkludert en kompilator, linker og skall,
+  for Ã¥ bygge det nye systemet. Velg <quote>development</quote> alternativet
+  under distribusjonsinstallasjonen for Ã¥ kunne fÃ¥ tilgang til disse
+  verktÃ¸yene.</para>
 
-  <para>Som et alternativ til å installere en separat distribusjon på din
-  maskinen, ønsker du kanskje å bruke <!-- the Linux From Scratch LiveCD or --> en LiveCD fra en
+  <para>Som et alternativ til Ã¥ installere en separat distribusjon pÃ¥ din
+  maskinen, Ã¸nsker du kanskje Ã¥ bruke <!-- the Linux From Scratch LiveCD or --> en LiveCD fra en
   kommersiell distribusjon. <!-- LFS LiveCD fungerer godt som vertssystem,
-  gir alle verktøyene du trenger for å lykkes med å følge instruksjonene i
-  denne boken. LiveCD-versjonen ligger bak den nåværende boken, men er fortsatt nyttig
-  som vert for å bygge den nåværende boken.  <quote>-nosrc</quote> eller
+  gir alle verktÃ¸yene du trenger for Ã¥ lykkes med Ã¥ fÃ¸lge instruksjonene i
+  denne boken. LiveCD-versjonen ligger bak den nÃ¥vÃ¦rende boken, men er fortsatt nyttig
+  som vert for Ã¥ bygge den nÃ¥vÃ¦rende boken.  <quote>-nosrc</quote> eller
   <quote>-min</quote> utgaver av LiveCD er de mest passende for
-  bygge et nåværende LFS-system. For mer informasjon om LFS LiveCD eller
-  for å laste ned en kopi, besøk <ulink url="&livecd-root;"/>. --></para>
+  bygge et nÃ¥vÃ¦rende LFS-system. For mer informasjon om LFS LiveCD eller
+  for Ã¥ laste ned en kopi, besÃ¸k <ulink url="&livecd-root;"/>. --></para>
 
   <!--
   <note>
-    <para>LFS LiveCD fungerer kanskje ikke på nyere maskinvarekonfigurasjoner,
-    unnlater å starte opp eller unnlater å oppdage enkelte enheter, for eksempel noen SATA
+    <para>LFS LiveCD fungerer kanskje ikke pÃ¥ nyere maskinvarekonfigurasjoner,
+    unnlater Ã¥ starte opp eller unnlater Ã¥ oppdage enkelte enheter, for eksempel noen SATA
     harddisker.</para>
   </note> -->
 
@@ -39,44 +39,44 @@
   lage en ny Linuxpartisjon og et nytt filsystem. Dette er stedet
   hvor det nye LFS systemet skal kompileres og installeres. <xref
   linkend="chapter-getting-materials"/> forklarer hvilke pakker og
-  oppdateringer som må lastes ned for å bygge et LFS system og hvordan lagre
-  dem på det nye filsystemet. <xref linkend="chapter-final-preps"/>
-  diskuterer oppsettet av et hensiktsmessig arbeidsmiljø. Vennligst les
-  <xref linkend="chapter-final-preps"/> nøye som forklarer flere
-  viktige problemer du må være klar over før du begynner
-  å jobbe deg gjennom <xref linkend="chapter-cross-tools"/> og utover.</para>
+  oppdateringer som mÃ¥ lastes ned for Ã¥ bygge et LFS system og hvordan lagre
+  dem pÃ¥ det nye filsystemet. <xref linkend="chapter-final-preps"/>
+  diskuterer oppsettet av et hensiktsmessig arbeidsmiljÃ¸. Vennligst les
+  <xref linkend="chapter-final-preps"/> nÃ¸ye som forklarer flere
+  viktige problemer du mÃ¥ vÃ¦re klar over fÃ¸r du begynner
+  Ã¥ jobbe deg gjennom <xref linkend="chapter-cross-tools"/> og utover.</para>
 
   <para><xref linkend="chapter-cross-tools"/>  forklarer installasjonen av
-  den første verktøykjeden (binutils, gcc og glibc) ved bruk av
-  krysskompileringsteknikker for å isolere de nye verktøyene fra vertssystemet.</para>
+  den fÃ¸rste verktÃ¸ykjeden (binutils, gcc og glibc) ved bruk av
+  krysskompileringsteknikker for Ã¥ isolere de nye verktÃ¸yene fra vertssystemet.</para>
 
   <para><xref linkend="chapter-temporary-tools"/> viser hvordan du
-  krysskompiler grunnleggende verktøy ved å bruke den nettopp bygde kryssverktøykjeden.</para>
+  krysskompiler grunnleggende verktÃ¸y ved Ã¥ bruke den nettopp bygde kryssverktÃ¸ykjeden.</para>
 
-  <para><xref linkend="chapter-chroot-temporary-tools"/> går deretter inn en
-  "chroot" miljø, der vi bruker de nye verktøyene til å bygge
-  resten av verktøyene som trengs for å lage LFS systemet.</para>
+  <para><xref linkend="chapter-chroot-temporary-tools"/> gÃ¥r deretter inn en
+  "chroot" miljÃ¸, der vi bruker de nye verktÃ¸yene til Ã¥ bygge
+  resten av verktÃ¸yene som trengs for Ã¥ lage LFS systemet.</para>
 
-  <para>Denne innsatsen for å isolere det nye systemet fra vertsdistribusjonen kan
-  virke overdreven. En fullstendig teknisk forklaring på hvorfor dette gjøres er
+  <para>Denne innsatsen for Ã¥ isolere det nye systemet fra vertsdistribusjonen kan
+  virke overdreven. En fullstendig teknisk forklaring pÃ¥ hvorfor dette gjÃ¸res er
   gitt i <xref linkend="ch-tools-toolchaintechnotes"/>.</para>
 
-  <para>I <xref linkend="chapter-building-system"/> det
-  fulle LFS system blir bygget. En annen fordel gitt av chroot
-  miljøet er at det lar deg fortsette å bruke vertssystemet
-  mens LFS bygges. Mens du venter på at pakkesammenstillinger blir
-  fullført, kan du fortsette å bruke datamaskinen som normalt.</para>
+  <para>I <xref linkend="chapter-building-system"/> blir det
+  fulle LFS system bygget. En annen fordel gitt av chroot
+  miljÃ¸et er at det lar deg fortsette Ã¥ bruke vertssystemet
+  mens LFS bygges. Mens du venter pÃ¥ at pakkesammenstillinger blir
+  fullfÃ¸rt, kan du fortsette Ã¥ bruke datamaskinen som normalt.</para>
 
-  <para>For å fullføre installasjonen er den grunnleggende systemkonfigurasjonen satt opp i
+  <para>For Ã¥ fullfÃ¸re installasjonen er den grunnleggende systemkonfigurasjonen satt opp i
   <xref linkend="chapter-config"/>, og kjernen og oppstartslasteren blir opprettet
   i <xref linkend="chapter-bootable"/>. <xref linkend="chapter-finalizing"/>
-  inneholder informasjon om å fortsette LFS opplevelsen utover denne boken.
-  Etter at trinnene i denne boken er implementert, vil datamaskinen være
-  klar til å starte på nytt i det nye LFS systemet.</para>
+  inneholder informasjon om Ã¥ fortsette LFS opplevelsen utover denne boken.
+  Etter at trinnene i denne boken er implementert, vil datamaskinen vÃ¦re
+  klar til Ã¥ starte pÃ¥ nytt i det nye LFS systemet.</para>
 
-  <para>Dette er prosessen i et nøtteskall. Detaljert informasjon om hvert
-  trinn er diskutert i de følgende kapitlene og pakkebeskrivelsene.
+  <para>Dette er prosessen i et nÃ¸tteskall. Detaljert informasjon om hvert
+  trinn er diskutert i de fÃ¸lgende kapitlene og pakkebeskrivelsene.
   Punkter som kan virke kompliserte vil bli avklart, og alt vil
-  falle på plass når du legger ut på LFS eventyret.</para>
+  falle pÃ¥ plass nÃ¥r du legger ut pÃ¥ LFS eventyret.</para>
 
 </sect1>
