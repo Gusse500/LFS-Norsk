@@ -123,7 +123,7 @@
       <varlistentry id="dc">
         <term><command>dc</command></term>
         <listitem>
-          <para>En omvendt-polert kommandolinjekalkulator</para>
+          <para>En reverse-polish kommandolinjekalkulator</para>
           <indexterm zone="ch-system-bc dc">
             <primary sortas="b-dc">dc</primary>
           </indexterm>

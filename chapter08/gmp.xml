@@ -24,7 +24,7 @@
     <title/>
 
     <para>GMP pakken inneholder matematikkbiblioteker. Disse har nyttige funksjoner
-     for vilkårlig presisjonsaritmetikk.</para>
+    for vilkårlig presisjonsaritmetikk.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -43,18 +43,18 @@
 
     <note>
       <para>Hvis du bygger for 32-bit x86, men du har en CPU som er
-       i stand til å kjøre 64-bits kode <emphasis>og</emphasis> du har spesifisert
+      i stand til å kjøre 64-bits kode <emphasis>og</emphasis> du har spesifisert
       <envar>CFLAGS</envar> i miljøet vil konfigureringsskriptet
-       forsøk å konfigurere for 64-biter og mislykkes.
-       Unngå dette ved å påkalle configure kommandoen nedenfor med
+      forsøk å konfigurere for 64-biter og mislykkes.
+      Unngå dette ved å påkalle configure kommandoen nedenfor med
 <screen role="nodump"><userinput><parameter>ABI=32</parameter> ./configure ...</userinput></screen></para>
     </note>
 
     <note>
       <para>Standardinnstillingene til GMP produserer biblioteker optimalisert for
-       vertsprosessoren. Hvis det er ønskelig med biblioteker egnet for prosessorer mindre
-       kapable enn vertens CPU, kan generiske biblioteker bli
-       opprettet ved å kjøre følgende:
+      vertsprosessoren. Hvis det er ønskelig med biblioteker egnet for prosessorer mindre
+      kapable enn vertens CPU, kan generiske biblioteker bli
+      opprettet ved å kjøre følgende:
 
 <screen role="nodump"><userinput>cp -v configfsf.guess config.guess
 cp -v configfsf.sub   config.sub</userinput></screen></para>
@@ -81,7 +81,7 @@ cp -v configfsf.sub   config.sub</userinput></screen></para>
         <term><parameter>--docdir=/usr/share/doc/gmp-&gmp-version;</parameter></term>
         <listitem>
           <para>Denne variabelen spesifiserer riktig sted for
-           dokumentasjon.</para>
+          dokumentasjon.</para>
         </listitem>
       </varlistentry>
 
@@ -94,7 +94,7 @@ make html</userinput></screen>
 
     <important>
       <para>Testpakken for GMP i denne delen anses som kritisk.
-       Ikke hopp over det under noen omstendigheter.</para>
+      Ikke hopp over det under noen omstendigheter.</para>
     </important>
 
     <para>Test resultatene:</para>
@@ -102,14 +102,14 @@ make html</userinput></screen>
 <screen><userinput remap="test">make check 2>&amp;1 | tee gmp-check-log</userinput></screen>
 
     <caution><para>Koden i gmp er svært optimalisert for prosessoren hvor
-     den er bygget. Noen ganger vil koden som oppdager prosessoren feilidentifisere
-     systemets evner og det vil være feil i testene eller andre
-     applikasjoner som bruker gmp bibliotekene med meldingen "Illegal
+    den er bygget. Noen ganger vil koden som oppdager prosessoren feilidentifisere
+    systemets evner og det vil være feil i testene eller andre
+    applikasjoner som bruker gmp bibliotekene med meldingen "Illegal
     instruction". I dette tilfellet bør gmp rekonfigureres med alternativet
-     --build=x86_64-pc-linux-gnu og gjenoppbygges.</para></caution>
+    --build=x86_64-pc-linux-gnu og gjenoppbygges.</para></caution>
 
     <para>Sørg for at alle 197 testene i testpakken besto.
-     Sjekk resultatene ved å gi følgende kommando:</para>
+    Sjekk resultatene ved å gi følgende kommando:</para>
 
 <screen><userinput remap="test">awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log</userinput></screen>
 

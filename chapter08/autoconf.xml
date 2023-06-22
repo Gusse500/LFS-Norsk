@@ -150,7 +150,7 @@
       <varlistentry id="autoscan">
         <term><command>autoscan</command> </term>
         <listitem>
-          <para>Hjelper med å lage en <filename>configure.in</filename> ffil for en
+          <para>Hjelper med å lage en <filename>configure.in</filename> fil for en
           programvarepakke; den undersøker kildefilene i et mappetre,
           søker etter vanlige problemer med portabilitet, og oppretter en
           <filename>configure.scan</filename> fil som fungerer som en
@@ -179,7 +179,7 @@
         <listitem>
           <para>Hjelper når det skrives <filename>configure.in</filename> filer
           for en programvarepakke; den skriver ut identifikatorene som pakken
-          bruker i C forbehandler betingelser [Hvis en pakke allerede er satt
+          bruker i C forbehandlerbetingelser [Hvis en pakke allerede er satt
           for å ha en viss portabilitet, kan dette programmet hjelpe med å finne ut hva
           <command>configure</command> må sjekke etter. Den kan også fylle ut
           hull i en <filename>configure.in</filename> fil generert av

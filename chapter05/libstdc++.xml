@@ -24,8 +24,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Libstdc++ er standard C++-biblioteket. Det trengs
-    for å kompilere C++-kode
+    <para>Libstdc++ er standard C++ biblioteket. Det trengs
+    for å kompilere C++ kode
     (en del av GCC er skrevet i C++), men vi måtte utsette installasjonen
     da vi bygde <xref linkend="ch-tools-gcc-pass1"/>
     fordi Libstdc++ avhenger av Glibc, som ennå ikke var tilgjengelig i
@@ -93,14 +93,14 @@ cd       build</userinput></screen>
         <term><parameter>--with-gxx-include-dir=/tools/$LFS_TGT/include/c++/&gcc-version;</parameter></term>
         <listitem>
           <para>Dette spesifiserer installasjonsmappen for include filer.
-          Fordi libstdc++ er standard C++-biblioteket for LFS, skal denne
-          mappen samsvare med plasseringen der C++-kompilatoren
+          Fordi libstdc++ er standard C++ biblioteket for LFS, skal denne
+          mappen samsvare med plasseringen der C++ kompilatoren
           (<command>$LFS_TGT-g++</command>) vil søke etter
           standard C++ include filer. I en normal konstruksjon, sendes denne informasjonen
           automatisk til libstdc++ <command>configure</command>
           alternativer fra toppnivåmappen. I vårt tilfelle, denne informasjonen
           må gis eksplisitt.
-          C++-kompilatoren vil legge til sysroot banen
+          C++ kompilatoren vil legge til sysroot banen
           <filename class="directory">$LFS</filename> (spesifisert når
           GCC pass 1 ble bygget) til å inkludere filsøkebanen, så den vil faktisk
           søke i

@@ -24,8 +24,8 @@
     <title/>
 
     <para>Bzip2 pakken inneholder programmer for komprimering og dekomprimering
-     av filer. Komprimering av tekstfiler med <command>bzip2</command> gir mye
-     bedre kompresjonsprosent enn med den tradisjonelle
+    av filer. Komprimering av tekstfiler med <command>bzip2</command> gir mye
+    bedre kompresjonsprosent enn med den tradisjonelle
     <command>gzip</command>.</para>
 
     <segmentedlist>
@@ -51,7 +51,7 @@
 
 <screen><userinput remap="pre">sed -i 's@\(ln -s -f \)$(PREFIX)/bin/@\1@' Makefile</userinput></screen>
 
-    <para>Sørg for at man sidene er installert på riktig sted:</para>
+    <para>Sørg for at mansidene er installert på riktig sted:</para>
 
 <screen><userinput remap="pre">sed -i "s@(PREFIX)/man@(PREFIX)/share/man@g" Makefile</userinput></screen>
 
@@ -70,7 +70,7 @@ make clean</userinput></screen>
           <filename>Makefile</filename> fil, i dette tilfellet
           <filename>Makefile-libbz2_so</filename> filen, som skaper en dynamisk
           <filename class="libraryfile">libbz2.so</filename> bibliotek og lenker
-           Bzip2 verktøyene mot det.</para>
+          Bzip2 verktøyene mot det.</para>
         </listitem>
       </varlistentry>
 
@@ -90,7 +90,7 @@ ln -sv libbz2.so.&bzip2-version; /usr/lib/libbz2.so</userinput></screen>
 
     <para>Installer den delte <command>bzip2</command> binær inn i
     <filename class="directory">/usr/bin</filename> mappen, og erstatt
-     to eksemplarer av <command>bzip2</command> med symbolske lenker:</para>
+    to eksemplarer av <command>bzip2</command> med symbolske lenker:</para>
 
 <screen><userinput remap="install">cp -v bzip2-shared /usr/bin/bzip2
 for i in /usr/bin/{bzcat,bunzip2}; do
@@ -199,8 +199,8 @@ done</userinput></screen>
         <term><command>bzip2</command></term>
         <listitem>
           <para>Komprimerer filer ved å bruke Burrows-Wheeler sortering på blokktekst
-           komprimeringsalgoritme med Huffman-koding; kompresjonshastigheten er
-           bedre enn det som oppnås med mer konvensjonelle kompressorer som bruker
+          komprimeringsalgoritme med Huffman-koding; kompresjonshastigheten er
+          bedre enn det som oppnås med mer konvensjonelle kompressorer som bruker
           <quote>Lempel-Ziv</quote> algoritmer, som <command>gzip</command></para>
           <indexterm zone="ch-system-bzip2 bzip2">
             <primary sortas="b-bzip2">bzip2</primary>
@@ -241,8 +241,8 @@ done</userinput></screen>
       <varlistentry id="libbz2">
         <term><filename class="libraryfile">libbz2</filename></term>
         <listitem>
-          <para>Biblioteket implementerer tapsfri, blokksorterende data
-           komprimering ved å bruke Burrows-Wheeler-algoritmen</para>
+          <para>Biblioteket implementerer tapsfri, blokksorterende
+          datakomprimering ved å bruke Burrows-Wheeler-algoritmen</para>
           <indexterm zone="ch-system-bzip2 libbz2">
             <primary sortas="c-libbz2">libbz2</primary>
           </indexterm>

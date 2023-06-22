@@ -64,10 +64,10 @@ esac</userinput></screen>
       </para>
     </note>
 
-    <para>Noen Glibc-programmer bruker FHS inkompatible
+    <para>Noen Glibc programmer bruker den FHS inkompatible
     <filename class="directory">/var/db</filename> mappen for å lagre deres
     kjøretidsdata. Bruk følgende oppdatering for å få slike programmer til å lagre sine
-    kjøretidsdata på de FHS kompatible stedene:</para>
+    kjøretidsdata på FHS kompatible steder:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../glibc-&glibc-version;-fhs-1.patch</userinput></screen>
 
@@ -150,7 +150,7 @@ cd       build</userinput></screen>
 
     <note><para>Det har vært rapporter om at denne pakken kan mislykkes når
     den bygges som en "parallell make". Hvis dette skjer, kjør make kommandoen på nytt
-    med et "-j1"-alternativ.</para></note>
+    med et "-j1" alternativ.</para></note>
 
     <para>Kompiler pakken:</para>
 

@@ -70,7 +70,7 @@ install -dv -m 1777 /tmp /var/tmp</userinput></screen>
 
   <warning>
     <para>
-      FHS gir ikke mandat til at mappem
+      FHS gir ikke mandat til at mappen
       <filename class="directory">/usr/lib64</filename> skal eksistere, og LFS redaktørene
       har bestemt seg for å ikke bruke den. For at instruksjonene i LFS og BLFS skal fungere riktig,
       er det viktig at denne mappen ikke eksisterer. Fra tid til annen bør du

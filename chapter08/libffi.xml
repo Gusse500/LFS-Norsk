@@ -23,8 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Libffi-biblioteket gir en portabel høynivå programmerings
-    grensesnitt til ulike kallkonvensjoner. Dette lar en programmerer kalle
+    <para>Libffi-biblioteket gir en portabel høynivå programmeringsgrensesnitt
+    til ulike kallkonvensjoner. Dette lar en programmerer kalle
     enhver funksjon ved kjøretid, spesifisert av et kallgrensesnittbeskrivelse.</para>
   
     <para>FFI står for Foreign Function Interface. En FFI tillater et program skrevet

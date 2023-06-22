@@ -79,7 +79,7 @@ rm /usr/lib/libelf.a</userinput></screen>
 
       <seglistitem>
         <seg>
-          libelf.so (symlink) og libelf-&elfutils-version;.so
+          libelf.so (symlenke) og libelf-&elfutils-version;.so
         </seg>
         <seg>
           /usr/include/elfutils

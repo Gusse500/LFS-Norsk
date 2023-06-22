@@ -24,7 +24,7 @@
     <title/>
 
     <para>Flex pakken inneholder et verktøy for å generere programmerer som
-     gjenkjenner mønstre i tekst.</para>
+    gjenkjenner mønstre i tekst.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -49,7 +49,7 @@
     <para>Byggeprosedyren forutsetter at <application>help2man</application>
     programmet er tilgjengelig for å lage en man side fra den kjørbare filen - -help option.
     Dette er ikke til stede, så vi bruker en miljøvariabel for å hoppe over denne prosessen.
-     Forbered nå Flex for kompilering:</para> -->
+    Forbered nå Flex for kompilering:</para> -->
 
     <para>Forbered Flex for kompilering:</para>
 
@@ -70,10 +70,10 @@
 <screen><userinput remap="install">make install</userinput></screen>
 
     <para>Noen få programmer vet ikke om <command>flex</command> ennå og
-     prøver å kjøre forgjengeren, <command>lex</command>. For å støtte de
-     programmene, opprett en symbolsk lenke kalt <filename>lex</filename> som
-     kjører <filename>flex</filename> i <command>lex</command>
-     emuleringsmodus:</para>
+    prøver å kjøre forgjengeren, <command>lex</command>. For å støtte de
+    programmene, opprett en symbolsk lenke kalt <filename>lex</filename> som
+    kjører <filename>flex</filename> i <command>lex</command>
+    emuleringsmodus:</para>
 
 <screen><userinput remap="install">ln -sv flex /usr/bin/lex</userinput></screen>
 
@@ -103,8 +103,8 @@
         <term><command>flex</command></term>
         <listitem>
           <para>Et verktøy for å generere programmer som gjenkjenner mønstre i tekst;
-           det gir mulighet for allsidigheten til å spesifisere reglene for mønstersøking,
-           eliminere behovet for å utvikle et spesialisert program</para>
+          det gir mulighet for allsidigheten til å spesifisere reglene for mønstersøking,
+          eliminere behovet for å utvikle et spesialisert program</para>
           <indexterm zone="ch-system-flex flex">
             <primary sortas="b-flex">flex</primary>
           </indexterm>
@@ -115,7 +115,7 @@
         <term><command>flex++</command></term>
         <listitem>
           <para>En utvidelse av flex brukes til å generere C++ kode
-           og klasser. Det er en symbolsk kobling til <command>flex</command></para>
+          og klasser. Det er en symbolsk kobling til <command>flex</command></para>
           <indexterm zone="ch-system-flex flexpp">
             <primary sortas="b-flex++">flex++</primary>
           </indexterm>

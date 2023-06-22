@@ -61,8 +61,8 @@
         <listitem>
           <para>Dette alternativet forhindrer Inetutils fra å installere
           <command>logger</command> programmet, som brukes av skript til
-           sende meldinger til Systemlogg nissen (System Log Daemon). Ikke installer det fordi
-           Util-linux installerer en nyere versjon.</para>
+          sende meldinger til Systemlogg nissen (System Log Daemon). Ikke installer det fordi
+          Util-linux installerer en nyere versjon.</para>
         </listitem>
       </varlistentry>
 
@@ -71,7 +71,7 @@
         <listitem>
           <para>Dette alternativet deaktiverer byggingen av Inetutils sin
           <command>whois</command> klient, som er utdatert. Instruksjoner for
-           en bedre <command>whois</command> klienten er i BLFS boken.</para>
+          en bedre <command>whois</command> klienten er i BLFS boken.</para>
         </listitem>
       </varlistentry>
 
@@ -79,8 +79,8 @@
         <term><parameter>--disable-r*</parameter></term>
         <listitem>
           <para>Disse parameterne deaktiverer bygging av foreldede programmer som ikke burde
-           brukes på grunn av sikkerhetsproblemer. Funksjonene som tilbys av disse
-           programmer kan leveres av <application>openssh</application>
+          brukes på grunn av sikkerhetsproblemer. Funksjonene som tilbys av disse
+          programmer kan leveres av <application>openssh</application>
           pakken i BLFS boken.</para>
         </listitem>
       </varlistentry>
@@ -89,10 +89,10 @@
         <term><parameter>--disable-servers</parameter></term>
         <listitem>
           <para>Dette deaktiverer installasjonen av de forskjellige nettverksserverne
-           inkludert som en del av Inetutils pakken. Disse serverne anses ikke som
-           hensiktsmessig i et grunnleggende LFS system. Noen er usikre av natur og er
-           ansett som trygt kun på pålitelige nettverk. Merk at
-           bedre erstatninger er tilgjengelige for mange av disse serverne.</para>
+          inkludert som en del av Inetutils pakken. Disse serverne anses ikke som
+          hensiktsmessig i et grunnleggende LFS system. Noen er usikre av natur og er
+          ansett som trygt kun på pålitelige nettverk. Merk at
+          bedre erstatninger er tilgjengelige for mange av disse serverne.</para>
         </listitem>
       </varlistentry>
 
@@ -181,8 +181,8 @@
       <varlistentry id="ping">
         <term><command>ping</command></term>
         <listitem>
-          <para>Sender ekkoforespørselspakker og rapporterer hvor lenge svarene
-           tar</para>
+          <para>Sender ekkoforespørselspakker og rapporterer hvor lang tid svarene
+          tar</para>
           <indexterm zone="ch-system-inetutils ping">
             <primary sortas="b-ping">ping</primary>
           </indexterm>
@@ -233,8 +233,8 @@
         <term><command>traceroute</command></term>
         <listitem>
           <para>Sporer ruten pakkene dine tar fra verten du
-           jobber på videre til en annen vert på et nettverk, og viser alle mellomliggende
-           hopp (porter) underveis</para>
+          jobber på videre til en annen vert på et nettverk, og viser alle mellomliggende
+          hopp (porter) underveis</para>
           <indexterm zone="ch-system-inetutils traceroute">
             <primary sortas="b-traceroute">traceroute</primary>
           </indexterm>

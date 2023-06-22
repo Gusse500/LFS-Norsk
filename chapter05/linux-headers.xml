@@ -14,7 +14,7 @@
     <address>&linux-url;</address>
   </sect1info>
 
-  <title>Linux-&linux-version; API Headers</title>
+  <title>Linux-&linux-version; API Deklarasjoner</title>
 
   <indexterm zone="ch-tools-linux-headers">
     <primary sortas="a-Linux">Linux</primary>

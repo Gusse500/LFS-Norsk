@@ -15,8 +15,8 @@
   og <parameter>--enable-default-ssp</parameter> er aktivert for GCC.
   Disse teknikkene kan dempe noen ondsinnede angrep, men de gir ikke
   perfekt sikkerhet. Merk at noen lærebøker antar at disse alternativene er
-  deaktivert, slik at hvis du kjører eksempler fra en slik lærebok på et LFS-system,
-  Må du kanskje deaktivere PIE og SSP med GCC-alternativene
+  deaktivert, slik at hvis du kjører eksempler fra en slik lærebok på et LFS system,
+  Må du kanskje deaktivere PIE og SSP med GCC alternativene
   <parameter>-fno-pie -no-pie -fno-stack-protection</parameter>.</para>
 
   <para>Nedenfor er en liste over pakkeoppdateringer gjort siden forrige

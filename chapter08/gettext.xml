@@ -249,7 +249,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="msgfmt">
         <term><command>msgfmt</command></term>
         <listitem>
-          <para>Genererer en binær meldingskatalog fra en
+          <para>Genererer en binær meldingsmappe fra en
           oversettelsesmappe</para>
           <indexterm zone="ch-system-gettext msgfmt">
             <primary sortas="b-msgfmt">msgfmt</primary>
@@ -260,7 +260,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="msggrep">
         <term><command>msggrep</command></term>
         <listitem>
-          <para>Trekker ut alle meldinger fra en oversettelseskatalog som samsvarer med et
+          <para>Trekker ut alle meldinger fra en oversettelsesmappe som samsvarer med et
           gitt mønster eller tilhører noen gitte kildefiler</para>
           <indexterm zone="ch-system-gettext msggrep">
             <primary sortas="b-msggrep">msggrep</primary>

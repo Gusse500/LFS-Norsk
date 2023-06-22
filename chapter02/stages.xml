@@ -12,7 +12,7 @@
 
   <para>LFS er designet for å bygges i én økt. Det er det
   instruksjonene forutsetter, at systemet ikke vil bli slått av
-  under prosessen. Det betyr ikke at systemet må
+  under prosessen. Det betyr ikke at byggingen av systemet må
   gjøres i en økt. Problemet er at visse prosedyrer
   må gjenopprettes etter en omstart hvis LFS gjenopptas på
   forskjellige punkter.</para>
@@ -53,7 +53,7 @@
          <para>Prosedyrene i <xref linkend='ch-tools-generalinstructions'/>
          er kritiske. Hvis det er noen
          tvil om installerte pakker, sørg for at tidligere utpakkede
-         tarballs fjernes, pakk deretter ut pakkefilene på nytt og fullfør alle
+         tarballer fjernes, pakk deretter ut pakkefilene på nytt og fullfør alle
          instruksjonene i den delen.</para>
       </listitem>
     </itemizedlist>

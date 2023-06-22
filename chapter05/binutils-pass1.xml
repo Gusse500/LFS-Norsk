@@ -41,7 +41,7 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installasjon av Cross Binutils</title>
+    <title>Installasjon av Kryss Binutils</title>
 
     <note><para>Gå tilbake og les notatene i avsnittet med tittelen <xref
     linkend="ch-tools-generalinstructions"/>.

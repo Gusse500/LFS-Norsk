@@ -40,7 +40,7 @@
     </listitem>
   </itemizedlist>
 
-  <para>Størrelser vil variere avhengig av hvilken kompilator og C-bibliotek som ble brukt,
+  <para>Størrelser vil variere avhengig av hvilken kompilator og C bibliotek som ble brukt,
   men et program som har blitt strippet for feilsøkingssymboler er vanligvis mellom
   50 % til 80 % mindre enn dens ustrippede motpart.
   Fordi de fleste brukere aldri vil bruke en feilsøker på systemprogramvaren,

@@ -24,7 +24,7 @@
     <title/>
 
     <para><application>DejaGnu</application> pakken inneholder et rammeverk for å kjøre test
-       pakker på GNU-verktøy. Det er skrevet i <command>expect</command>, som selv
+       pakker på GNU verktøy. Det er skrevet i <command>expect</command>, som selv
        bruker <application>Tcl</application> verktøykommandospråk (Tool Command Language).</para>
 
     <segmentedlist>

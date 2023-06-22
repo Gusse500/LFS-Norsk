@@ -5,7 +5,7 @@
   %general-entities;
 ]>
 
-<appendix id="appendixc" xreflabel="Appendix C">
+<appendix id="appendixc" xreflabel="Vedlegg C">
   <?dbhtml dir="appendices"?>
   <?dbhtml filename="dependencies.html"?>
 
@@ -23,7 +23,7 @@
   må være tilgjengelig for å kompilere og installere den aktuelle pakken.
   Den andre viser pakkene som må være tilgjengelige når noen programmer eller
   biblioteker fra pakken brukes under kjøring. Den tredje viser hvilke pakker,
-  i tillegg til de på den første listen, må være tilgjengelige for å kjøre
+  i tillegg til de på den første listen, som må være tilgjengelige for å kjøre
   testpakkene. Den fjerde listen over avhengigheter er pakker som krever at
   denne pakken bygges og installeres på den endelige plasseringen før de blir
   bygget og installert. I de fleste tilfeller er dette fordi disse pakkene hardkoder
