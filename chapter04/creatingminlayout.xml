@@ -11,7 +11,7 @@
   <title>Opprette et begrenset mappeoppsett i LFS filsystemet</title>
 
   <para>I denne delen begynner vi å fylle LFS filsystemet med
-  stykker som vil utgjøre det endelige Linuxsystemet. Det første trinnet er å
+  deler som vil utgjøre det endelige Linuxsystemet. Det første trinnet er å
   opprette et begrenset kataloghierarki, slik at programmene som kompileres i <xref
   linkend="chapter-temporary-tools"/> (i tillegg til glibc og libstdc++ i <xref
   linkend="chapter-cross-tools"/>) kan installeres i deres endelige

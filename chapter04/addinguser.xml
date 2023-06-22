@@ -70,8 +70,8 @@ useradd -s /bin/bash -g lfs -m -k /dev/null lfs</userinput></screen>
 
   <para>Hvis du vil logge inn som &lfs-user; eller bytte til &lfs-user; fra en
   ikke-&root; bruker (i motsetning til å bytte til bruker &lfs-user;
-  når du er logget inn som &root;, som ikke krever at &lfs-user; brukeren å
-  ha et passord), må du angi et passord for &lfs-user;.  Utsted
+  når du er logget inn som &root;, som ikke krever at &lfs-user; brukeren
+  har et passord), må du angi et passord for &lfs-user;.  Utsted
   følgende kommando som &root; bruker for å angi passordet:</para>
 
 <screen role="nodump"><userinput>passwd lfs</userinput></screen>
@@ -87,11 +87,11 @@ esac</userinput></screen>
 
 <note><para>I noen vertssystemer, følgende <command>su</command> kommando fullføres ikke
   riktig og suspenderer påloggingen for &lfs-user; bruker i bakgrunnen.
-  Hvis ledeteksten "lfs:~$" vises ikke umiddelbart, å skrive inn
+  Hvis ledeteksten "lfs:~$" ikke vises umiddelbart, å skrive inn
   <command>fg</command> kommandoen vil løse problemet.</para></note>
 
   <para>Deretter starter du et skall som kjører som bruker &lfs-user;. Dette kan gjøres ved
-  logger inn som &lfs-user; på en virtuell konsoll, eller med følgende
+  å logge inn som &lfs-user; på en virtuell konsoll, eller med følgende
   bytt ut/bytt brukerkommando:</para>
 
 <screen role="nodump"><userinput>su - lfs</userinput></screen>

@@ -21,7 +21,7 @@ EOF</userinput></screen>
 
   <para>Når du er pålogget som bruker <systemitem class="username">lfs</systemitem>,
   eller når du bytter til &lfs-user; bruker med en <command>su</command> kommando
-  med <quote><parameter>-</parameter></quote> alternativ,
+  med <quote><parameter>-</parameter></quote> alternativet,
   det første skallet er et <emphasis>login</emphasis> skall som leser
   <filename>/etc/profile</filename> til verten (som sannsynligvis inneholder noen
   innstillinger og miljøvariabler) og deretter <filename>.bash_profile</filename>.
