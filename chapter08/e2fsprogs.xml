@@ -214,7 +214,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
         <term><command>compile_et</command></term>
         <listitem>
           <para>En feiltabellkompilator; den konverterer en tabell med navn på
-          feilkoder og meldinger til en C-kildefil som er egnet for bruk med
+          feilkoder og meldinger til en C kildefil som er egnet for bruk med
           <filename class="libraryfile">com_err</filename> biblioteket</para>
           <indexterm zone="ch-system-e2fsprogs compile_et">
             <primary sortas="b-compile_et">compile_et</primary>

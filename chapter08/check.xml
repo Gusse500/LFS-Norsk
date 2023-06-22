@@ -83,7 +83,7 @@
       <varlistentry id="checkmk">
         <term><command>checkmk</command></term>
         <listitem>
-          <para>Awk skript for å generere C enhetstester for bruk med Check's
+          <para>Awk skript for å generere C enhetstester for bruk med Check sitt
           rammeverk for enhetstesting</para>
           <indexterm zone="ch-system-check checkmk">
             <primary sortas="b-checmk">checkmk</primary>

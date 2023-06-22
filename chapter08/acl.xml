@@ -52,8 +52,8 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Acl testene må kjøres på et filsystem som støtter tilgangskontroller
-    , men ikke før <application>Coreutils</application> pakken er bygget,
+    <para>Acl testene må kjøres på et filsystem som støtter tilgangskontroller,
+    men ikke før <application>Coreutils</application> pakken er bygget,
     ved å bruke <application>Acl</application> biblioteker. Hvis ønskelig, gå tilbake til denne pakken
     og kjør <command>make check</command> etter at <application>Coreutils</application>
     pakken er bygget.</para>

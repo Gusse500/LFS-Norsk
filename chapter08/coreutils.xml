@@ -168,7 +168,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
         sync, tac, tail, tee, test, timeout, touch, tr, true, truncate, tsort,
         tty, uname, unexpand, uniq, unlink, users, vdir, wc, who, whoami, og
         yes</seg>
-        <seg>libstdbuf.so (in /usr/libexec/coreutils)</seg>
+        <seg>libstdbuf.so (i /usr/libexec/coreutils)</seg>
         <seg>/usr/libexec/coreutils</seg>
       </seglistitem>
     </segmentedlist>
@@ -420,7 +420,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="dirname">
         <term><command>dirname</command></term>
         <listitem>
-          <para>Trekker ut katalogdelen(e) av gitte navn</para>
+          <para>Trekker ut mappedelen(e) av gitte navn</para>
           <indexterm zone="ch-system-coreutils dirname">
             <primary sortas="b-dirname">dirname</primary>
           </indexterm>
@@ -430,8 +430,8 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="du">
         <term><command>du</command></term>
         <listitem>
-          <para>Rapporterer hvor mye diskplass som brukes av gjeldende katalog,
-          av hver av de gitte katalogene (inkludert alle underkataloger) eller av
+          <para>Rapporterer hvor mye diskplass som brukes av gjeldende mappe,
+          av hver av de gitte mappene (inkludert alle undermapper) eller av
           hver av de gitte filene</para>
           <indexterm zone="ch-system-coreutils du">
             <primary sortas="b-du">du</primary>
@@ -617,7 +617,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="ls">
         <term><command>ls</command></term>
         <listitem>
-          <para>Viser innholdet i hver gitt katalog</para>
+          <para>Viser innholdet i hver gitt mappe</para>
           <indexterm zone="ch-system-coreutils ls">
             <primary sortas="b-ls">ls</primary>
           </indexterm>
@@ -679,7 +679,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="mv">
         <term><command>mv</command></term>
         <listitem>
-          <para>Flytter eller gir nytt navn til filer eller kataloger</para>
+          <para>Flytter eller gir nytt navn til filer eller mapper</para>
           <indexterm zone="ch-system-coreutils mv">
             <primary sortas="b-mv">mv</primary>
           </indexterm>
@@ -1251,7 +1251,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
         <term><command>whoami</command></term>
         <listitem>
           <para>Rapporterer brukernavnet som er knyttet til gjeldende effektive
-          brukerID</para>
+          bruker-ID</para>
           <indexterm zone="ch-system-coreutils whoami">
             <primary sortas="b-whoami">whoami</primary>
           </indexterm>
