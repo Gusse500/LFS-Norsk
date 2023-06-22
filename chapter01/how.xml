@@ -10,11 +10,11 @@
 
   <title>Hvordan bygge et LFS-system</title>
 
-  <para>LFS-systemet vil bli bygget ved å bruke en allerede installert
-  Linux-distribusjon (som Debian, OpenMandriva, Fedora eller openSUSE). Dette
-  eksisterende Linux-system (verten) vil bli brukt som utgangspunkt for
-  gi nødvendige programmer, inkludert en kompilator, linker og skall,
-  å bygge det nye systemet. Velg <quote>development</quote> alternativet
+  <para>LFS systemet vil bli bygget ved å bruke en allerede installert
+  Linuxdistribusjon (som Debian, OpenMandriva, Fedora eller openSUSE). Dette
+  eksisterende Linuxsystemet (verten) vil bli brukt som utgangspunkt for
+  å gi nødvendige programmer, inkludert en kompilator, linker og skall,
+  for å bygge det nye systemet. Velg <quote>development</quote> alternativet
   under distribusjonsinstallasjonen for å kunne få tilgang til disse
   verktøyene.</para>
 
@@ -47,8 +47,8 @@
   å jobbe deg gjennom <xref linkend="chapter-cross-tools"/> og utover.</para>
 
   <para><xref linkend="chapter-cross-tools"/>  forklarer installasjonen av
-  den første verktøykjeden (binutils, gcc og glibc) ved bruk av krysskompilerings
-  teknikker for å isolere de nye verktøyene fra vertssystemet.</para>
+  den første verktøykjeden (binutils, gcc og glibc) ved bruk av
+  krysskompileringsteknikker for å isolere de nye verktøyene fra vertssystemet.</para>
 
   <para><xref linkend="chapter-temporary-tools"/> viser hvordan du
   krysskompiler grunnleggende verktøy ved å bruke den nettopp bygde kryssverktøykjeden.</para>
@@ -61,8 +61,8 @@
   virke overdreven. En fullstendig teknisk forklaring på hvorfor dette gjøres er
   gitt i <xref linkend="ch-tools-toolchaintechnotes"/>.</para>
 
-  <para>I <xref linkend="chapter-building-system"/> det
-  fulle LFS system blir bygget. En annen fordel gitt av chroot
+  <para>I <xref linkend="chapter-building-system"/> blir det
+  fulle LFS system bygget. En annen fordel gitt av chroot
   miljøet er at det lar deg fortsette å bruke vertssystemet
   mens LFS bygges. Mens du venter på at pakkesammenstillinger blir
   fullført, kan du fortsette å bruke datamaskinen som normalt.</para>
