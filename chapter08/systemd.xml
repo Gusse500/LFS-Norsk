@@ -115,8 +115,8 @@ meson --prefix=/usr                 \
         <term><parameter>-Dldconfig=false</parameter></term>
         <listitem>
           <para>Denne bryteren forhindrer installasjon av en systemd enhet som kjører
-          <command>ldconfig</command> at boot; this is not useful for source
-          distributions such as LFS, and makes the boot time longer. Fjern
+          <command>ldconfig</command> ved oppstart; dette er ikke nyttig for
+          kildedistribusjoner som LFS, og gjør oppstartstiden lengre. Fjern
           dette alternativet for å aktivere kjøring av <command>ldconfig</command> ved oppstart.</para>
         </listitem>
       </varlistentry>

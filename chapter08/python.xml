@@ -174,10 +174,10 @@ tar --strip-components=1  \
       <title>Betydningen av dokumentasjonsinstallasjons kommandoene:</title>
 
     <varlistentry>
-      <term><option>--no-same-owner</option> and <option>--no-same-permissions</option></term>
+      <term><option>--no-same-owner</option> og <option>--no-same-permissions</option></term>
       <listitem>
         <para>Sørger for at de installerte filene har riktig eierskap og
-        tillatelser. Uten disse alternativene,, <application>tar</application>
+        tillatelser. Uten disse alternativene, <application>tar</application>
         vil installere pakkefilene med oppstrøms skaperens verdier.
         </para>
       </listitem>
@@ -234,10 +234,10 @@ tar --strip-components=1  \
         <term><command>idle3</command></term>
         <listitem>
           <para>
-            er et innpakningsskript som åpner en <application>Python</application>
+            er et innpakningsskript som åpner et <application>Python</application>
             bevisst GUI tekstprogram. For at dette skriptet skal kjøre, må du ha installert
             <application>Tk</application> før Python slik at Tkinter
-            Python modulen blir bygget.
+            Pythonmodulen blir bygget.
           </para>
           <indexterm zone="ch-system-Python">
             <primary sortas="b-idle3">idle3</primary>

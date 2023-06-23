@@ -194,12 +194,12 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
 
       <seglistitem>
         <seg>
-           captoinfo (link to tic),
+           captoinfo (lenker til tic),
            clear,
            infocmp,
-           infotocap (link to tic),
+           infotocap (lenker til tic),
            ncursesw6-config,
-           reset (link to tset),
+           reset (lenker til tset),
            tabs,
            tic,
            toe,

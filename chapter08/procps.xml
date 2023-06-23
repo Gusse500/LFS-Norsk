@@ -205,7 +205,7 @@ make check</userinput></screen>
       <varlistentry id="slabtop">
         <term><command>slabtop</command></term>
         <listitem>
-          <para>Viser detaljert kjerne platebuffer (slab cache) informasjon i sanntid</para>
+          <para>Viser detaljert kjernens platebuffer (slab cache) informasjon i sanntid</para>
           <indexterm zone="ch-system-procps slabtop">
             <primary sortas="b-slabtop">slabtop</primary>
           </indexterm>

@@ -46,7 +46,7 @@
     <title>Oppgraderingsproblemer</title>
 
     <para>En Pakkehåndterer gjør det enkelt å oppgradere til nyere versjoner når de
-    blir utgitt. Generelt kan instruksjonene i LFS- og BLFS-bøkene
+    blir utgitt. Generelt kan instruksjonene i LFS og BLFS bøkene
     brukes til å oppgradere til nyere versjoner. Her er noen punkter du bør
     være oppmerksom på når du oppgraderer pakker, spesielt på et kjørende system.</para>
 
@@ -217,7 +217,7 @@ make install</userinput></screen>
       <filename class='libraryfile'>/usr/pkg/libfoo/1.1/lib/libfoo.so.1</filename>
       i stedet for <filename class='libraryfile'>/usr/lib/libfoo.so.1</filename>
       som du forventer. Den riktige tilnærmingen er å bruke
-      <envar>DESTDIR</envar> strategi for forfalske installasjon av pakken. Dette
+      <envar>DESTDIR</envar> strategien for å forfalske installasjon av pakken. Dette
       tilnærmingen fungerer som følger:</para>
 
 <screen role="nodump"><userinput>./configure --prefix=/usr
