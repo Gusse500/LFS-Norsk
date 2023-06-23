@@ -105,7 +105,7 @@ EOF</userinput></screen>
       egentlig bare er aktuelt for btrfs filsystemer. Den refererer til type v
       som igjen refererer til type d (mappe). Dette skaper deretter den
       spesifiserte mappen hvis den ikke er til stede og justerer tillatelsene
-      og eierskap som spesifisert. Innholdet i katalogen vil være
+      og eierskap som spesifisert. Innholdet i mappen vil være
       underlagt tidsbasert opprydding hvis aldersargumentet er spesifisert.
      </para>
 
@@ -199,7 +199,7 @@ EOF</userinput></screen>
          filen.</para>
        </listitem>
        <listitem>
-         <para><command>journalctl -b[=ID] -r</command>: shows the journal
+         <para><command>journalctl -b[=ID] -r</command>: viser journal
          oppføringer siden sist vellykkede oppstart (eller for oppstarts-ID) i omvendt
          kronologisk rekkefølge.</para>
        </listitem>
@@ -265,8 +265,8 @@ EOF</userinput></screen>
     <function>daemon()</function> eller <function>setsid()</function> funksjoner.
     Dette er en bevisst endring fra et historisk tillatt miljø til et
     mer restriktiv. Den nye atferden kan forårsake problemer hvis du er avhengig av
-    langvarige programmer (f.eks., <command>screen</command> eller
-    <command>tmux</command>) for å forbli aktiv etter avsluttet brukerøkt.
+    at langvarige programmer (f.eks., <command>screen</command> eller
+    <command>tmux</command>) forblir aktive etter avsluttet brukerøkt.
     Det er tre måter å aktivere langvarige prosesser til å være aktiv etter at en brukerøkt
     er avsluttet.</para>
 
