@@ -79,7 +79,7 @@ xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso</userinput></
     <para>Plasseringen av oppstartspartisjonen er et valg av brukeren som
     påvirker konfigurasjonen. En anbefaling er å ha en egen liten
     (foreslått størrelse er 200 MB) partisjon kun for oppstartsinformasjon. På den måten
-    hver bygging, enten LFS eller en kommersiell distro, kan få tilgang til den samme oppstartsfilen
+    kan hvert bygg, enten LFS eller en kommersiell distro, få tilgang til den samme oppstartsfilen
     og tilgang kan gjøres fra hvilket som helst oppstartssystem. Hvis du velger å gjøre
     dette må du montere den separate partisjonen, flytte alle filene i
     nåværende <filename class="directory">/boot</filename> mappen (f.eks
@@ -157,7 +157,7 @@ EOF</userinput></screen>
     </para></note>
 
     <note>
-      <para>GRUB-betegnelsen for en partisjon kan endres hvis du la til eller
+      <para>GRUB betegnelsen for en partisjon kan endres hvis du la til eller
       fjernet noen disker (inkludert flyttbare disker som USB-enheter).
       Endringen kan forårsake oppstartsfeil pga
       <filename>grub.cfg</filename> refererer til noen <quote>gamle</quote>
@@ -183,7 +183,7 @@ EOF</userinput></screen>
       LFS.</para>
       <para>Navnet på enhetsnoden for en partisjon i
       <filename class='directory'>/dev</filename> kan også endres (mer
-      usannsynlig enn GRUB-betegnelsesendring). Du kan også bytte ut
+      usannsynlig enn GRUB betegnelsesendring). Du kan også bytte ut
       stier til enhetsnoder som <literal>/dev/sda1</literal> med
       <literal>PARTUUID=<replaceable>&lt;partition UUID&gt;</replaceable></literal>,
       i <filename>/etc/fstab</filename>, for å unngå en potensiell oppstartsfeil
