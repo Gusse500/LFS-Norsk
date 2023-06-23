@@ -10,7 +10,7 @@
 
   <title>Typografi</title>
 
-  <para>For å gjøre ting lettere å følge, er det noen få typografiske
+  <para>For å gjøre ting lettere å følge, er noen få typografiske
   konvensjoner brukt gjennom denne boken. Denne delen inneholder noen
   eksempler på det typografiske formatet som finnes i hele Linux From
   Scratch.</para>
@@ -18,7 +18,7 @@
 <screen role="nodump"><userinput>./configure --prefix=/usr</userinput></screen>
 
   <para>Denne formen for tekst er designet for å skrives nøyaktig slik den er skrevet med mindre
-  noe annet er notert i den omkringliggende teksten. Det brukes også i
+  noe annet er notert i den omkringliggende teksten. Den brukes også i
   forklaringsseksjoner for å identifisere hvilke av kommandoene det refereres til.</para>
 
   <para>I noen tilfeller utvides en logisk linje til to eller flere fysiske linjer
@@ -76,20 +76,20 @@ EOF</userinput></screen>
 
   <para><filename>passwd(5)</filename></para>
 
-  <para>Dette formatet brukes til å referere til en spesifikk manual (man) side. Tallet innenfor parentes
+  <para>Dette formatet brukes til å referere til en spesifikk manualside (manside). Tallet innenfor parentes
   indikerer en bestemt del i manualene. For eksempel,
-  <command>passwd</command> har to man sider. I henhold til LFS installasjonsinstruksjoner,
-  disse to man sidene vil være plassert på
+  <command>passwd</command> har to mansider. I henhold til LFS installasjonsinstruksjoner,
+  vil disse to mansidene være plassert på
   <filename>/usr/share/man/man1/passwd.1</filename> og
   <filename>/usr/share/man/man5/passwd.5</filename>. Når boken bruker <filename>passwd(5)</filename> refererer
   den spesifikt til <filename>/usr/share/man/man5/passwd.5</filename>.
-  <command>man passwd</command> vil skrive ut den første man siden den finner som
+  <command>man passwd</command> vil skrive ut den første mansiden den finner som
   stemmer med <quote>passwd</quote>, som vil bli
   <filename>/usr/share/man/man1/passwd.1</filename>. For dette eksemplet må du
   kjøre <command>man 5 passwd</command> for å lese siden som
-  blir spesifisert. Merk at de fleste man sider ikke har duplikate
-  sidenavn i forskjellige seksjoner. Derfor, <command>man <replaceable>&lt;programnavn&gt;
-  </replaceable></command> er generelt tilstrekkelig.</para>
+  blir spesifisert. Merk at de fleste mansider ikke har duplikate
+  sidenavn i forskjellige seksjoner. Derfor er, <command>man <replaceable>&lt;programnavn&gt;
+  </replaceable></command> generelt tilstrekkelig.</para>
 
 </sect1>
 

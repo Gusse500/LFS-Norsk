@@ -24,9 +24,9 @@
   sikkerhetssårbarheter oppdaget <emphasis>etter</emphasis> at en bok ble utgitt. For å lese listen, besøk
   <ulink url="&secadv;"/> før du fortsetter med byggingen. Du bør anvende
   endringene foreslått av rådene til de relevante delene av
-  boken mens du bygger LFS-systemet. Og hvis du vil bruke LFS-systemet som
+  boken mens du bygger LFS systemet. Og hvis du vil bruke LFS systemet som
   et ekte skrivebord eller serversystem, bør du fortsette å konsultere
-  råd og fikse eventuelle sikkerhetssårbarheter, selv når LFS-systemet
+  råd og fikse eventuelle sikkerhetssårbarheter, selv når LFS systemet
   er ferdig bygget.</para>
 
 </sect1>

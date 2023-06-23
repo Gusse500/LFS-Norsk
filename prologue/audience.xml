@@ -40,7 +40,7 @@ hele systemet fra kildekoden, har du fullmakt til å revidere alt
 og bruk alle sikkerhetsoppdateringene du ønsker. Det er ikke lenger nødvendig
 å vente på at noen andre skal kompilere binære pakker som fikser et sikkerhetshull.
 Med mindre du undersøker oppdateringen og implementerer den selv, har du ingen
-garantier på at den nye binære pakken ble bygget riktig og løser pråblemet
+garantier på at den nye binære pakken ble bygget riktig og løser problemet
 tilstrekkelig.</para>
 
 <para>Målet med Linux From Scratch er å bygge en komplett og brukbart
