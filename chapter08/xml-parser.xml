@@ -24,7 +24,7 @@
     <title/>
 
     <para>XML::Parser modulen er et Perl grensesnitt til James Clarks
-     XML-parser, Expat.</para>
+    XML-parser, Expat.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>

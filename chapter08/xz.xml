@@ -24,8 +24,8 @@
     <title/>
 
     <para>Xz pakken inneholder programmer for komprimering og dekomprimering
-    av filer. Det gir muligheter for lzma og den nyere xz komprimerings
-    formatene. Komprimering av tekstfiler med <command>xz</command> gir en bedre
+    av filer. Det gir muligheter for lzma og den nyere xz komprimeringsformatene.
+    Komprimering av tekstfiler med <command>xz</command> gir en bedre
     kompresjonsprosent enn med de tradisjonelle <command>gzip</command> eller
     <command>bzip2</command> kommandoene.</para>
 

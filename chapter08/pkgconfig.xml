@@ -24,8 +24,8 @@
     <title/>
 
     <para>Pakken pkg-config inneholder et verktøy for å sende inkluderingsbanen
-     og/eller bibliotekstier for å bygge verktøy under konfigurerings- og makefasene
-     av pakkeinstallasjoner.</para>
+    og/eller bibliotekstier for å bygge verktøy under konfigurerings- og makefasene
+    av pakkeinstallasjoner.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -56,7 +56,7 @@
         <term><parameter>--with-internal-glib</parameter></term>
         <listitem>
           <para>Dette vil tillate pkg-config å bruke sin interne versjon av
-           Glib fordi en ekstern versjon ikke er tilgjengelig i LFS.</para>
+          Glib fordi en ekstern versjon ikke er tilgjengelig i LFS.</para>
         </listitem>
       </varlistentry>
 
@@ -64,7 +64,7 @@
         <term><parameter>--disable-host-tool</parameter></term>
         <listitem>
           <para>Dette alternativet deaktiverer opprettelsen av en uønsket hard lenke
-           til pkg-config programmet.</para>
+          til pkg-config programmet.</para>
         </listitem>
       </varlistentry>
 

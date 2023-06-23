@@ -24,7 +24,7 @@
     <title/>
 
     <para>Zlib pakken inneholder komprimerings- og dekompresjonsrutiner som brukes av
-     noen programmer.</para>
+    noen programmer.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -83,7 +83,7 @@
         <term><filename class="libraryfile">libz</filename></term>
         <listitem>
           <para>Inneholder komprimerings- og dekompresjonsfunksjoner som brukes av
-           noen programmer</para>
+          noen programmer</para>
           <indexterm zone="ch-system-zlib libz">
             <primary sortas="c-libz">libz</primary>
           </indexterm>
