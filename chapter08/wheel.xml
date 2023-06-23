@@ -23,8 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Wheel er et Python bibliotek som er referanse
-    implementeringen av Python wheel pakkestandarden.</para>
+    <para>Wheel er et Python bibliotek som er referanseimplementeringen
+    av Python wheel pakkestandarden.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>

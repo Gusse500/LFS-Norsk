@@ -20,7 +20,7 @@
   <sect2>
     <title>Konfigurasjonsfiler for nettverksgrensesnitt</title>
 
-    <para>Fra og med versjon 209, sender systemd en nettverkskonfigurasjons
+    <para>Fra og med versjon 209, inneholder systemd en nettverkskonfigurasjons
     nisse (daemon) kalt <command>systemd-networkd</command> som kan brukes til
     grunnleggende nettverkskonfigurasjon. I tillegg, siden versjon 213, DNS
     navneoppløsning kan håndteres av <command>systemd-resolved</command> i stedet for
@@ -146,7 +146,7 @@ Domains=<replaceable>&lt;Your Domain Name&gt;</replaceable></literal>
 EOF</userinput></screen>
 
       <para>Flere DNS oppføringer kan legges til hvis du har mer enn én DNS
-      server. Ikke inkluder DNS- eller Domains-oppføringer hvis du har tenkt å bruke den
+      server. Ikke inkluder DNS- eller Domainsoppføringer hvis du har tenkt å bruke den
       statiske filen <filename>/etc/resolv.conf</filename> file.</para>
 
     </sect3>
@@ -240,14 +240,14 @@ EOF</userinput></screen>
       <para>Erstatt
       <replaceable>&lt;IP address of the nameserver&gt;</replaceable>
       med IP adressen til DNS serveren som passer best for oppsettet ditt.
-      Det vil ofte være mer enn én oppføring (krever sekundær
-      server for reservefunksjon). Hvis du bare trenger eller ønsker én DNS-server,
+      Det vil ofte være mer enn en oppføring (krever sekundær
+      server for reservefunksjon). Hvis du bare trenger eller ønsker en DNS-server,
       fjern den andre <emphasis>nameserver</emphasis> linjen fra filen.
       IP adressen kan også være en ruter på det lokale nettverket. Et annet alternativ
       er å bruke Googles offentlige DNS tjeneste ved å bruke IP adressene nedenfor som
       navneservere.</para>
 
-      <note><para>Google sine offentlige IPv4 DNS adresser er
+      <note><para>Google sine offentlige DNS adresser er
       <parameter>8.8.8.8</parameter> og <parameter>8.8.4.4</parameter>
       for IPv4, og <parameter>2001:4860:4860::8888</parameter> og
       <parameter>2001:4860:4860::8844</parameter> for IPv6.</para></note>

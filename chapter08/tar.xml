@@ -23,10 +23,10 @@
   <sect2 role="package">
     <title/>
 
-    <para>Tar pakken gir muligheten til å lage tar arkiver også
+    <para>Tar pakken gir muligheten til å lage tar arkiver og
     å utføre forskjellige andre typer arkivmanipulering. Tar kan brukes på
     tidligere opprettede arkiver for å trekke ut filer, for å lagre flere filer, eller
-    for å oppdatere eller liste filer som allerede var lagret. </para>
+    for å oppdatere eller liste filer som allerede er lagret. </para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -106,7 +106,7 @@ make -C doc install-html docdir=/usr/share/doc/tar-&tar-version;</userinput></sc
         <term><command>tar</command></term>
         <listitem>
           <para>Oppretter, trekker ut filer fra og viser innholdet i arkiver,
-          også kjent som tarballs</para>
+          også kjent som tarballer</para>
           <indexterm zone="ch-system-tar tar">
             <primary sortas="b-tar">tar</primary>
           </indexterm>

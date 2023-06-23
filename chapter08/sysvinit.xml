@@ -206,7 +206,7 @@
       <varlistentry id="telinit-sysv">
         <term><command>telinit</command></term>
         <listitem>
-          <para>Forteller <command>init</command> hvilket kjørenivå å bytte til</para>
+          <para>Forteller <command>init</command> hvilket kjørenivå den skal bytte til</para>
           <indexterm zone="ch-system-sysvinit telinit-sysv">
             <primary sortas="b-telinit">telinit</primary>
           </indexterm>
