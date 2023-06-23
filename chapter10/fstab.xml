@@ -66,7 +66,7 @@ EOF</userinput></screen>
   under File systems -&gt; Native Language Support ved konfigurering av kjernen)
   har blitt kompilert inn i kjernen eller bygget som en modul. Imidlertid, hvis
   tegnsettet til lokaliteten er UTF-8, det tilsvarende alternativet
-  <option>iocharset=utf8</option> ville gjøre at filsystemet skille mellom store og små bokstaver. For å
+  <option>iocharset=utf8</option> ville gjøre at filsystemet skiller mellom store og små bokstaver. For å
   fikse dette, bruk spesialalternativet <option>utf8</option> i stedet for
   <option>iocharset=utf8</option>, for UTF-8 lokaliteter.
   <quote>codepage</quote> alternativet er også nødvendig for vfat- og smbfs-filsystemer.

@@ -50,7 +50,7 @@
 <screen><userinput remap="pre">make mrproper</userinput></screen>
 
     <para>Dette sikrer at kjernetreet er helt rent.
-    Kjerne teamet anbefaler at denne kommandoen utstedes før hver
+    Kjerneteamet anbefaler at denne kommandoen utstedes før hver
     kjernekompilering. Ikke stol på at kildetreet er rent etter
     utpakking.</para>
 
@@ -91,7 +91,7 @@
     <para>For generell informasjon om kjernekonfigurasjon se <ulink
     url="&hints-root;kernel-configuration.txt"/>.  BLFS har litt informasjon
     angående spesielle kjernekonfigurasjonskrav for pakker utenfor
-    av LFS på <ulink
+    LFS på <ulink
     url="&blfs-book;longindex.html#kernel-config-index"/>.  Ytterligere
     informasjon om konfigurering og bygging av kjernen finner du på
     <ulink url="http://www.kroah.com/lkn/"/> </para>
@@ -195,7 +195,7 @@ Device Drivers ---&gt;
 
     <note>
       <para>Hvis vertsmaskinvaren din bruker UEFI og du ønsker å starte opp
-      LFS-system med det, bør du justere noen kjernekonfigurasjon
+      LFS systemet med det, bør du justere noen kjernekonfigurasjon
       som på følgende <ulink url="&blfs-book;postlfs/grub-setup.html#uefi-kernel">
       BLFS side</ulink>.</para>
     </note>
@@ -336,7 +336,7 @@ Device Drivers ---&gt;
 
     <caution>
       <para>Hvis du har bestemt deg for å bruke et separat &boot-dir; partisjon for
-      LFS-system (kanskje dele en &boot-dir; partisjon med vertsdistroen
+      LFS systemet (kanskje dele en &boot-dir; partisjon med vertsdistroen
       ), filene som er kopiert nedenfor, skal gå dit. Den enkleste måten å
       gjør det er å opprette oppføringen for &boot-dir; i &fstab; først (les
       forrige seksjon for detaljer), utfør deretter følgende kommando
@@ -425,7 +425,7 @@ cp -r Documentation/* /usr/share/doc/linux-&linux-version;</userinput></screen>
   </sect2>
 
   <sect2 id="conf-modprobe" role="configuration">
-    <title>Konfigurere Linux modul lastingens rekkefølge</title>
+    <title>Konfigurere rekkefølgen på Linux modullasting</title>
 
     <indexterm zone="conf-modprobe">
       <primary sortas="e-/etc/modprobe.d/usb.conf">/etc/modprobe.d/usb.conf</primary>

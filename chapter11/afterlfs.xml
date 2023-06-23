@@ -233,7 +233,7 @@ PATH=/bin:/usr/bin:/sbin:/usr/sbin /bin/bash --login'</command></screen>
        På dette tidspunktet kan du logge på to forskjellige virtuelle konsoller og kjøre
        links eller lynx nettleseren i den ene konsollen og bash i den andre.
 	   GPM tillater da å kopiere kommandoer fra nettleseren med venstre
-	   museknapp, bytte konsoller, og lim inn i den andre konsollen.
+	   museknapp, bytte konsoller, og lime inn i den andre konsollen.
       </para>
 
       <note>
