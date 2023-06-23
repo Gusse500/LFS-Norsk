@@ -15,7 +15,7 @@
   </indexterm>
 
   <para>Skallprogrammet <command>/bin/bash</command> (heretter referert
-  som <quote>skallet</quote>) bruker en samling oppstartsfiler for å hjelpe
+  til som <quote>skallet</quote>) bruker en samling oppstartsfiler for å hjelpe
   til å lage et miljø å kjøre i. Hver fil har en spesifikk bruk og kan påvirke
   pålogging og interaktive miljøer annerledes. Filene i <filename
   class="directory">/etc</filename> mappen gir globale innstillinger. Hvis en

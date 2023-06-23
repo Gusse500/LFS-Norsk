@@ -122,7 +122,7 @@ EOF</userinput></screen>
           <para>Logger meldingene for systemprogrammer som tilbyr logging [Hver
           logget melding inneholder minst et datostempel og et vertsnavn, og
           normalt programmets navn også, men det avhenger av hvor tillitsfull
-          logging nissen blir fortalt å være.]</para>
+          loggingnissen blir fortalt å være.]</para>
           <indexterm zone="ch-system-sysklogd syslogd">
             <primary sortas="b-syslogd">syslogd</primary>
           </indexterm>

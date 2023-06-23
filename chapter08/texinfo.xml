@@ -135,7 +135,7 @@ popd</userinput></screen>
       <varlistentry id="info">
         <term><command>info</command></term>
         <listitem>
-          <para>Brukes til å lese informasjonssider som ligner på man sider, men
+          <para>Brukes til å lese informasjonssider som ligner på mansider, men
           går ofte mye dypere enn bare å forklare alle tilgjengelige kommandoers
           linjealternativer [For eksempel, sammenlign <command>man bison</command> og
           <command>info bison</command>.]</para>

@@ -220,8 +220,8 @@ set spell</literal></screen>
       <varlistentry id="rview">
         <term><command>rview</command></term>
         <listitem>
-          <para>Er en begrenset versjon av <command>view</command>; ikke noen skall
-          kommandoer kan startes og <command>view</command> kan ikke
+          <para>Er en begrenset versjon av <command>view</command>; ingen
+          skallkommandoer kan startes og <command>view</command> kan ikke
           suspenderes</para>
           <indexterm zone="ch-system-vim rview">
             <primary sortas="b-rview">rview</primary>
@@ -232,8 +232,8 @@ set spell</literal></screen>
       <varlistentry id="rvim">
         <term><command>rvim</command></term>
         <listitem>
-          <para>Er en begrenset versjon av <command>vim</command>; ikke noen skall
-          kommandoer kan startes og <command>vim</command> kan ikke
+          <para>Er en begrenset versjon av <command>vim</command>; ingen
+          skallkommandoer kan startes og <command>vim</command> kan ikke
           suspenderes</para>
           <indexterm zone="ch-system-vim rvim">
             <primary sortas="b-rvim">rvim</primary>

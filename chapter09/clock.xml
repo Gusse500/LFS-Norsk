@@ -23,7 +23,7 @@
   kommandoen. Dette vil vise hva gjeldende tid er i henhold til maskinvarens
    klokke. Hvis denne tiden samsvarer med hva klokken din er, er maskinvareklokken
    satt til lokal tid. Hvis utdataen fra <command>hwclock</command> ikke er lokal
-   tid, er sjansen stor for at den er satt til UTC-tid. Bekreft dette ved å legge til eller trekke fra
+   tid, er sjansen stor for at den er satt til UTC. Bekreft dette ved å legge til eller trekke fra
    riktig antall timer for tidssonen til tiden vist av
   <command>hwclock</command>. For eksempel, hvis du for øyeblikket er i MST
    tidssonen, som også er kjent som GMT -0700, legg til syv timer til den lokale
@@ -76,7 +76,7 @@ EOF</userinput></screen>
   <sect2>
     <title>Nettverkstidssynkronisering</title>
 
-    <para>Fra og med versjon 213, sender systemd en nisse (daemon) kalt
+    <para>Fra og med versjon 213, inneholder systemd en nisse (daemon) kalt
     <command>systemd-timesyncd</command> som kan brukes til
      synkronisere systemtiden med eksterne NTP servere.</para>
 

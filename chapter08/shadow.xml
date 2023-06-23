@@ -173,8 +173,8 @@ make -C man install-man</userinput></screen>
     <para>Shadows standardkonfigurasjon for <command>useradd</command>
     verktøyet trenger litt forklaring. Først standard
     handling for <command>useradd</command> verktøyet er å lage brukeren og
-    en gruppe med samme navn som brukeren. Som standard begynner bruker-ID (UID) og
-    gruppe ID-numre (GID) med 1000. Dette betyr at hvis du ikke sender
+    en gruppe med samme navn som brukeren. Som standard begynner brukerID (UID) og
+    gruppeID numre (GID) med 1000. Dette betyr at hvis du ikke sender
     parametere til <command>useradd</command>, hver bruker vil være medlem av en
     unik gruppe på systemet. Hvis denne oppførselen er uønsket, trenger du
     å sende enten <parameter>-g</parameter> eller <parameter>-N</parameter>

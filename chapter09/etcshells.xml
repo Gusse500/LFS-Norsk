@@ -15,21 +15,21 @@
   </indexterm>
 
   <para><filename>shells</filename> filen inneholder en liste over
-   påloggingsskall på systemet. Programmer bruker denne filen til å bestemme
-   om et skall er gyldig. For hvert skall skal det være en enkelt linje
-   tilstede, bestående av skallets bane i forhold til roten av
-   katalogstrukturen (/).</para>
+  påloggingsskall på systemet. Programmer bruker denne filen til å bestemme
+  om et skall er gyldig. For hvert skall skal det være en enkelt linje
+  tilstede, bestående av skallets bane i forhold til roten av
+  katalogstrukturen (/).</para>
 
   <para>For eksempel konsulteres denne filen av <command>chsh</command>
   for å avgjøre om en uprivilegert bruker kan endre påloggingsskallet for sin
-   egen konto. Hvis kommandonavnet ikke er oppført, vil brukeren bli nektet
-   evnen til å skifte skall.</para>
+  egen konto. Hvis kommandonavnet ikke er oppført, vil brukeren bli nektet
+  evnen til å skifte skall.</para>
 
   <para>Det er et krav for applikasjoner som f.eks
   <application>GDM</application> som ikke fyller ut
-   ansiktsnettleseren (face browser) hvis den ikke finner <filename>/etc/shells</filename>, eller
+  ansiktsnettleseren (face browser) hvis den ikke finner <filename>/etc/shells</filename>, eller
   FTP nisser (daemons) som tradisjonelt nekter brukere tilgang
-   med skall som ikke er inkludert i denne filen.</para>
+  med skall som ikke er inkludert i denne filen.</para>
 
 <screen role="root"><userinput>cat &gt; /etc/shells &lt;&lt; "EOF"
 <literal># Begin /etc/shells

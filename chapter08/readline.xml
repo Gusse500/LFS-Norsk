@@ -23,8 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Readline pakken er et sett med biblioteker som tilbyr kommandolinje
-    redigerings- og historikkfunksjoner.</para>
+    <para>Readline pakken er et sett med biblioteker som tilbyr
+    redigerings- og historikkfunksjoner på kommandolinjen.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -137,7 +137,7 @@ sed -i '/{OLDSUFF}/c:' support/shlib-install</userinput></screen>
       <varlistentry id="libreadline">
         <term><filename class="libraryfile">libreadline</filename></term>
         <listitem>
-          <para>Gir et sett med kommandoer for å manipulere tekst som er skrevet inn i et
+          <para>Gir et sett med kommandoer for å manipulere tekst som er skrevet i en
           interaktiv økt av et program</para>
           <indexterm zone="ch-system-readline libreadline">
             <primary sortas="c-libreadline">libreadline</primary>

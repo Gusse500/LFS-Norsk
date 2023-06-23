@@ -24,7 +24,7 @@
     <title/>
 
     <para>Patch pakken inneholder et program for å endre eller lage filer
-     ved å bruke en <quote>patch</quote> fil som vanligvis opprettes av
+    ved å bruke en <quote>patch</quote> fil som vanligvis opprettes av
     <command>diff</command> programmet.</para>
 
     <segmentedlist>
@@ -80,7 +80,7 @@
         <term><command>patch</command></term>
         <listitem>
           <para>Endrer filer i henhold til en patch fil (En patch fil er
-           normalt en forskjellsoppføring opprettet med <command>diff</command>
+          normalt en forskjellsoppføring opprettet med <command>diff</command>
           programmet. Ved å bruke disse forskjellene på originalfilene,
           <command>patch</command> oppretter de lappede versjonene.)</para>
           <indexterm zone="ch-system-patch patch">

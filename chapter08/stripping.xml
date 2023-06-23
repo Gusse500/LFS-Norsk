@@ -13,8 +13,8 @@
   <para>Denne delen er valgfri. Hvis den tiltenkte brukeren ikke er en
   programmerer og ikke planlegger å gjøre
   noen feilsøking på systemprogramvaren, kan systemstørrelsen reduseres
-  med omtrent 2 GB ved å fjerne feilsøkingssymbolene, og noen unødvendige symboltabell
-  oppføringer fra binærfiler og biblioteker. Dette medfører ingen ulemper for
+  med omtrent 2 GB ved å fjerne feilsøkingssymbolene, og noen unødvendige
+  symboltabelloppføringer fra binærfiler og biblioteker. Dette medfører ingen ulemper for
   en typisk Linuxbruker.</para>
 
   <para>De fleste som bruker kommandoene nevnt nedenfor,
