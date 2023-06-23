@@ -132,7 +132,7 @@ EOF</userinput></screen>
 
   <para>Endring av kjørenivåer er gjort med <command>init
   <replaceable>&lt;runlevel&gt;</replaceable></command>, hvor
-  <replaceable>&lt;runlevel&gt;</replaceable> ier målet for kjørenivå. For eksempel for
+  <replaceable>&lt;runlevel&gt;</replaceable> er målet for kjørenivå. For eksempel for
   å starte datamaskinen på nytt, kan en bruker utstede <command>init 6</command> kommandoen,
   som er et alias for <command>reboot</command> kommandoen. Likeså er,
   <command>init 0</command> et alias for <command>halt</command>

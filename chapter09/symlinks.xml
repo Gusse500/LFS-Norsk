@@ -22,9 +22,9 @@
     nettverkskort laget av Intel og Realtek, for eksempel&mdash;
     nettverkskort produsert av Intel kan ha blitt eth0
     mens Realtek-kortet ble eth1. Etter en omstart, er kortene
-    noen ganger omnummerert den andre veien rundt.</para>
+    noen ganger nummerert omvendt.</para>
 
-    <para>I det nye navneskjemaet ville typiske nettverksenhetsnavn da
+    <para>I det nye navneskjemaet vil typiske nettverksenhetsnavn
     være noe sånt som enp5s0 eller wlp3s0. Hvis denne navnekonvensjonen ikke er
     ønsket, kan det tradisjonelle navneskjemaet eller et tilpasset oppsett være
     implementert.</para>
@@ -35,7 +35,7 @@
       <para>Det tradisjonelle navneskjemaet som bruker eth0, eth1, osv. kan bli
       gjenopprettet ved å legge til <userinput>net.ifnames=0</userinput> på
       kjernens kommandolinje. Dette er mest passende for systemene
-      som bare har én Ethernet-enhet av samme type. Bærbare datamaskiner
+      som bare har en Ethernet-enhet av samme type. Bærbare datamaskiner
       har ofte flere ethernet-tilkoblinger som heter eth0 og
       wlan0 og er også kandidater for denne metoden. Kommandolinjen
       sendes i GRUB-konfigurasjonsfilen.
@@ -122,7 +122,7 @@
     <title>CD-ROM symbolkoblinger</title>
 
     <para>Noe programvare som du kanskje vil installere senere (f.eks. diverse
-    mediespillere) forventer <filename class="symlink">/dev/cdrom</filename>
+    mediespillere) forventer at <filename class="symlink">/dev/cdrom</filename>
     og <filename class="symlink">/dev/dvd</filename> symbolkoblinger eksisterer, og
     å peke på en CD-ROM- eller DVD-ROM-enhet. Dessuten kan det være praktisk å sette
     referanser til disse symbolkoblingene i <filename>/etc/fstab</filename>. Udev
