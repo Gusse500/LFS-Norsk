@@ -12,20 +12,20 @@ systemd versjon av boken.
 
 XML ttil XHTML:
 -------------
-make BASEDIR=/path/to/output/location
+make BASEDIR=/sti/til/utdata/plassering
 
 
 XML til enkelt fil XHTML (ingen oppdeling):
 ------------------------------------
-make BASEDIR=/path/to/output/location nochunks
+make BASEDIR=/sti/til/utdata/plassering nochunks
 
 XML til TXT
 ----------
 Følg instruksjonene for ingen oppdeling og kjør:
-lynx -dump /path/to/nochunks >/path/to/output
+lynx -dump /sti/til/nochunks >/sti/til/utdata
 
 XML til PDF:
 -----------
-make BASEDIR=/path/to/output/location pdf
+make BASEDIR=/sti/til/utdata/plassering pdf
 
 
