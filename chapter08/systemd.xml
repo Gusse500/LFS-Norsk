@@ -223,7 +223,7 @@ meson --prefix=/usr                 \
         machinectl, networkctl, oomctl, portablectl, poweroff (symlenke til
         systemctl), reboot (symlenke til systemctl), resolvconf (symlenke til
         resolvectl), resolvectl, runlevel (symlenke til systemctl), shutdown
-        (symlenke til systemctl), systemctl, systemd-analyze,
+        (symlenke til systemctl), systemctl, systemd-ac-power, systemd-analyze,
         systemd-ask-password, systemd-cat, systemd-cgls, systemd-cgtop,
         systemd-creds, systemd-delta, systemd-detect-virt,
         systemd-dissect, systemd-escape, systemd-hwdb, systemd-id128,
@@ -476,7 +476,18 @@ meson --prefix=/usr                 \
         </listitem>
       </varlistentry>
 
-      <varlistentry id="systemd-analyze">
+      <varlistentry id="systemd-ac-power">
+        <term><command>systemd-ac-power</command></term>
+        <listitem>
+          <para>Rapporterer om systemet er koblet til en ekstern
+           strømkilde.</para>
+          <indexterm zone="ch-system-systemd systemd-ac-power">
+            <primary sortas="b-systemd-ac-power">systemd-ac-power</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+	  <varlistentry id="systemd-analyze">
         <term><command>systemd-analyze</command></term>
         <listitem>
           <para>Brukes til å analysere systemoppstartsytelse,
