@@ -157,7 +157,7 @@
   <!-- Use an empty sect2 element to prevent a pdf warning.  -->
   <bridgehead renderas="sect2"
               id="version-check"
-              xreflabel="Host System Requirements">
+              xreflabel="Systemkrav for verten">
   </bridgehead>
   <!--<title> </title>-->
 

@@ -20,7 +20,7 @@
 
   </sect2>
 
-  <sect2 id="ch-intro-maillists" xreflabel="Chapter&nbsp;1 - Mailing Lists">
+  <sect2 id="ch-intro-maillists" xreflabel="Kapittel&nbsp;1 - E-postlister">
     <title>E-postlister</title>
 
     <para><systemitem class='domainname'>linuxfromscratch.org</systemitem>
@@ -73,7 +73,7 @@
 
   </sect2>  -->
 
-  <sect2 id="ch-intro-mirrors" xreflabel="Chapter&nbsp;1 - Mirror sites">
+  <sect2 id="ch-intro-mirrors" xreflabel="Kapittel&nbsp;1 - Speilnettsteder">
     <title>Speilnettsteder</title>
 
     <para>LFS prosjektet har en rekke verdensomspennende speil for å få tilgang til
