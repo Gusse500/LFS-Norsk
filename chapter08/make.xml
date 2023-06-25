@@ -49,9 +49,12 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>For å teste resultatene, utsted:</para>
+    <!-- Running tests as root causes failures:
+         https://savannah.gnu.org/bugs/?63852 -->
+	<para>For å teste resultatene, utsted:</para>
 
-<screen><userinput remap="test">make check</userinput></screen>
+<screen><userinput remap="test">chown -Rv tester .
+su tester -c "PATH=$PATH make check"</userinput></screen>
 
     <para>Installer pakken:</para>
 
