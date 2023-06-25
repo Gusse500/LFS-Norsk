@@ -387,7 +387,7 @@
       <segmentedlist id="bzip2-before">
         <segtitle>&before;</segtitle>
         <seglistitem>
-          <seg>File</seg>
+          <seg>File og Libel</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1685,7 +1685,8 @@
       <segmentedlist id="libelf-depends">
         <segtitle>&dependencies;</segtitle>
         <seglistitem>
-          <seg>Bash, Binutils, Coreutils, GCC, Glibc, Make, og Zstd</seg>
+          <seg>Bash, Binutils, Bzip2, Coreutils, GCC, Glibc, Make, Xz,
+          Zlib, og Zstd</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -3205,7 +3206,7 @@
         <segtitle>&before;</segtitle>
         <seglistitem>
           <seg><phrase revision="sysv">Eudev, </phrase>File, GRUB, Kmod,
-          <phrase revision="sysv">og </phrase>Man-DB<phrase
+          Libelf, <phrase revision="sysv">og </phrase>Man-DB<phrase
           revision="systemd">, og Systemd</phrase></seg>
         </seglistitem>
       </segmentedlist>
@@ -3244,7 +3245,7 @@
       <segmentedlist id="zlib-before">
         <segtitle>&before;</segtitle>
         <seglistitem>
-          <seg>File, Kmod, Perl, og Util-linux</seg>
+          <seg>File, Kmod, Libelf, Perl, og Util-linux</seg>
         </seglistitem>
       </segmentedlist>
 
