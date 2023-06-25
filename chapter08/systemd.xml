@@ -40,12 +40,6 @@
   <sect2 role="installation">
     <title>Installasjon av systemd</title>
 
-
-    <para>Først, fiks et sikkerhetsproblem i systemd-coredump:</para>
-
-<screen><userinput remap="pre">patch -Np1 -i ../&systemd-upstream-patch;</userinput></screen>
-
-
     <para>Fjern to unødvendige grupper,
     <systemitem class="groupname">render</systemitem> og
     <systemitem class="groupname">sgx</systemitem>, fra standard udev

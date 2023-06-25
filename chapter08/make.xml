@@ -41,12 +41,6 @@
   <sect2 role="installation">
     <title>Installasjon av Make</title>
 
-    <para>Først, fiks noen problemer identifisert oppstrøms:</para>
-
-<screen><userinput remap="pre">sed -e '/ifdef SIGPIPE/,+2 d' \
-    -e '/undef  FATAL_SIG/i FATAL_SIG (SIGPIPE);' \
-    -i src/main.c</userinput></screen>
-
     <para>Forbered Make for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>

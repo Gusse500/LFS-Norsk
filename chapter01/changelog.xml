@@ -39,10 +39,43 @@
     <listitem revision="sysv"> or <listitem revision="systemd"> as
     appropriate for the entry or if needed the entire day's listitem.
     -->
-    <listitem>
+    
+<listitem>
       <para>04.03.2023</para>
       <itemizedlist>
+        <listitem revision='systemd'>
+          <para>[xry111] - Oppdatert til systemd-253.  Fikser
+          <ulink url='&lfs-ticket-root;5206'>#5206</ulink>.</para>
+        </listitem>
         <listitem>
+          <para>[xry111] - Oppdatert til bc-6.3.1.  Fikser
+          <ulink url='&lfs-ticket-root;5217'>#5217</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til linux-6.2.2.  Fikser
+          <ulink url='&lfs-ticket-root;5218'>#5218</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til procps-ng-4.0.3.  Fikser
+          <ulink url='&lfs-ticket-root;5220'>#5220</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til iproute2-6.2.0.  Fikser
+          <ulink url='&lfs-ticket-root;5221'>#5221</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til meson-1.0.1.  Fikser
+          <ulink url='&lfs-ticket-root;5222'>#5222</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til make-4.4.1.  Fikser
+          <ulink url='&lfs-ticket-root;5223'>#5223</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til libelf-0.189.  Fikser
+          <ulink url='&lfs-ticket-root;5224'>#5224</ulink>.</para>
+        </listitem>
+		<listitem>
           <para>[bdubbs] - Bytt til et bedre vertskravskript i kapittel 2.</para>
         </listitem>
       </itemizedlist>
