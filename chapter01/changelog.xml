@@ -39,8 +39,7 @@
     <listitem revision="sysv"> or <listitem revision="systemd"> as
     appropriate for the entry or if needed the entire day's listitem.
     -->
-    
-<listitem>
+    <listitem>
       <para>04.03.2023</para>
       <itemizedlist>
         <listitem revision='systemd'>
@@ -52,7 +51,7 @@
           <ulink url='&lfs-ticket-root;5217'>#5217</ulink>.</para>
         </listitem>
         <listitem>
-          <para>[xry111] - Oppdatert til linux-6.2.2.  Fikser
+          <para>[xry111] - Oppdatert til linux-6.2.2 (sikkerhetsfikser).  Fikser
           <ulink url='&lfs-ticket-root;5218'>#5218</ulink>.</para>
         </listitem>
         <listitem>
