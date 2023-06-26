@@ -45,7 +45,38 @@
     i kjernekildetreet for alternative metoder til måten denne boken
     konfigurerer kjernen på.</para>
 
-    <para>Forbered for kompilering ved å kjøre følgende kommando:</para>
+    <important>
+      <para>
+        Å bygge Linuxkjernen for første gang er en av de mest
+        utfordrende oppgaver i LFS. Å få det riktig avhenger av den spesifikke
+        maskinvaren for målsystemet og dine spesifikke behov. Det er
+        nesten 12 000 konfigurasjonselementer som er tilgjengelige for kjernen,
+        selv om bare en tredjedel av dem er nødvendig for de fleste datamaskiner.
+        LFS redaktørene anbefaler at brukere som ikke er kjent med denne prosessen følger
+        prosedyrene nedenfor ganske nøye. Målet er å få et
+        innledende system til et punkt hvor du kan logge inn på kommandolinjen når
+        du starter på nytt senere i <xref linkend="ch-finish-reboot"/>.  På dette punktet
+        er optimering og tilpasning ikke et mål.
+      </para>
+
+      
+      <para>
+        For generell informasjon om kjernekonfigurasjon se <ulink
+        url="&hints-root;kernel-configuration.txt"/>.  Ytterligere informasjon
+        om konfigurering og bygging av kjernen finner du på <ulink
+        url="http://www.kroah.com/lkn/"/>. Disse referansene er litt
+        utdatert, men gir likevel en rimelig oversikt over prosessen.
+      </para>
+
+      <para>
+        Hvis alt annet feiler, kan du be om hjelp på <ulink
+        url="https://www.linuxfromscratch.org/mail.html">lfs-support</ulink>
+        mailingliste. Vær oppmerksom på at du må abonnere på listen
+        for å unngå spam.
+      </para>
+    </important>
+
+	<para>Forbered for kompilering ved å kjøre følgende kommando:</para>
 
 <screen><userinput remap="pre">make mrproper</userinput></screen>
 
@@ -88,10 +119,6 @@
 
     <!-- Support for compiling a keymap into the kernel is deliberately removed -->
 
-    <para>For generell informasjon om kjernekonfigurasjon se <ulink
-    url="&hints-root;kernel-configuration.txt"/>  Ytterligere
-    informasjon om konfigurering og bygging av kjernen finner du på
-    <ulink url="http://www.kroah.com/lkn/"/> </para>
 
     <note>
       <para>Et godt utgangspunkt for å sette opp kjernekonfigurasjonen er å
