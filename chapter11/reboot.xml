@@ -77,7 +77,7 @@
 
     <listitem>
       <para>
-        Sørg for at et passord er angitt for root brukeren.
+        Sørg for at et passord er angitt for &root; brukeren.
       </para>
     </listitem>
 
@@ -141,13 +141,7 @@ umount -v $LFS</userinput></screen>
 
    <para>Når omstarten er fullført, er LFS systemet klart til bruk. Hva du
   vil se er en enkel <quote>login: </quote> ledetekst. På dette tidspunktet kan du
-  fortsette til 
-  <phrase revision="sysv">
-    <ulink url="https://www.linuxfromscratch.org/blfs/view/stable/">
-    i BLFS boken</ulink></phrase>
-  <phrase revision="systemd">
-    <ulink url="https://www.linuxfromscratch.org/blfs/view/stable-systemd/">
-   i BLFS boken</ulink></phrase> 
+  fortsett til <ulink url="&blfs-book;">BLFS boken</ulink> 
   hvor du kan legge til mer programvare som passer dine behov.</para>
 
   <para>
