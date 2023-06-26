@@ -99,6 +99,20 @@ make MANSUFFIX=ssl install</userinput></screen>
       </para>
 
       <para>
+        Hvis <application>OpenSSH</application> er installert, vil det være et
+        unntak fra hovedregelen ovenfor. Den inneholder en
+        over-restriktiv OpenSSL versjonssjekk, så både SSH klienten og SSH
+        serveren vil nekte å starte hvis <application>OpenSSH</application>
+        er oppdatert med MAJOR versjonsnummer uendret men MINOR
+        versjonnummer endret. Du må bygge opp igjen
+        <application>OpenSSH</application> etter en slik oppgradering.
+        <emphasis role='bold'>Hvis <application>OpenSSH</application> blir
+        brukt for å få tilgang til systemet, må du bygge det på nytt og installere det på nytt
+        etter oppgradering av OpenSSL til et nytt MINOR versjonsnummer før utlogging
+        ellers du vil ikke kunne logge på via SSH lenger.</emphasis>
+      </para>
+
+	  <para>
         Imidlertid må alle kjørende programmer koblet til disse bibliotekene stoppes
         og startes på nytt. Les de relaterte oppføringene i
         <xref linkend='pkgmgmt-upgrade-issues'/> for detaljer.
