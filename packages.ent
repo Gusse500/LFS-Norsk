@@ -634,7 +634,7 @@
 <!ENTITY sysklogd-fin-du "0.7 MB">
 <!ENTITY sysklogd-fin-sbu "mindre enn 0.1 SBU">
 
-<!ENTITY systemd-version  "253>
+<!ENTITY systemd-version  "253">
 <!--<!ENTITY systemd-stable   "6b4878d">-->
 <!-- The above entity is used whenever we move to a stable backport branch. In the event of a critical problem or kernel
      change that is incompatible, we will switch to the backport branch until the next stable release. -->
