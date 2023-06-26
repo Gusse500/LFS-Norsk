@@ -98,16 +98,26 @@
 
     <caution>
       <para>Et godt utgangspunkt for å sette opp kjernekonfigurasjonen er å
-      kjøre <command>make defconfig</command>. Dette vil sette grunnleggende
-      konfigurasjon til en god tilstand som tar din nåværende systemarkitektur
-      i betraktning.</para>
+      kjøre <command>make localmodconfig</command>. Hvis vertskjerneversjonen
+      ikke ikke for forskjellig fra versjonen av kjernen du bygger,
+      dette vil sette basiskonfigurasjonen til en god tilstand som ligner på hva
+      verten bruker. En annen mulighet er å bruke <command>make
+      localyesconfig</command>, som gjør det samme bortsett fra at alt er bygget
+      inn i kjernen.</para>
 
       <para>Ikke deaktiver noen alternativer aktivert av <command>make
-      defconfig</command> med mindre følgende merknad uttrykkelig
+      localmodconfig</command> med mindre følgende merknad uttrykkelig
       deaktiverer det eller du virkelig vet hva du gjør.</para>
     </caution>
 
     <note>
+      <para>En annen mulighet er å kjøre <command>make defconfig</command>,
+      som skaper en mer generisk konfigurasjon for arkitekturen din. Du
+      må kanskje deaktivere drivere for maskinvare du ikke har hvis
+      du vil redusere kjernestørrelsen.</para>
+    </note>
+
+	<note>
 	  <para>Sørg for å aktivere/deaktivere/stille inn følgende funksjoner, ellers kan systemet
       ikke fungere riktig eller starte opp i det hele tatt:</para>
 
