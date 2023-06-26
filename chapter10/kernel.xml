@@ -96,13 +96,29 @@
     informasjon om konfigurering og bygging av kjernen finner du på
     <ulink url="http://www.kroah.com/lkn/"/> </para>
 
-    <note>
+    <caution>
       <para>Et godt utgangspunkt for å sette opp kjernekonfigurasjonen er å
-      kjøre <command>make defconfig</command>. Dette vil sette grunnleggende
-      konfigurasjon til en god tilstand som tar din nåværende systemarkitektur
-      i betraktning.</para>
+      kjøre <command>make localmodconfig</command>. Hvis vertskjerneversjonen
+      ikke ikke for forskjellig fra versjonen av kjernen du bygger,
+      dette vil sette basiskonfigurasjonen til en god tilstand som ligner på hva
+      verten bruker. En annen mulighet er å bruke <command>make
+      localyesconfig</command>, som gjør det samme bortsett fra at alt er bygget
+      inn i kjernen.</para>
 
-      <para>Sørg for å aktivere/deaktivere/stille inn følgende funksjoner, ellers kan systemet
+      <para>Ikke deaktiver noen alternativer aktivert av <command>make
+      localmodconfig</command> med mindre følgende merknad uttrykkelig
+      deaktiverer det eller du virkelig vet hva du gjør.</para>
+    </caution>
+
+    <note>
+      <para>En annen mulighet er å kjøre <command>make defconfig</command>,
+      som skaper en mer generisk konfigurasjon for arkitekturen din. Du
+      må kanskje deaktivere drivere for maskinvare du ikke har hvis
+      du vil redusere kjernestørrelsen.</para>
+    </note>
+
+	<note>
+	  <para>Sørg for å aktivere/deaktivere/stille inn følgende funksjoner, ellers kan systemet
       ikke fungere riktig eller starte opp i det hele tatt:</para>
 
       <screen role="nodump" revision="sysv">Processor type and features ---&gt;
@@ -111,6 +127,7 @@
 General setup ---&gt;
    [ ] Compile the kernel with warnings as errors [CONFIG_WERROR]
    &lt; &gt; Enable kernel headers through /sys/kernel/kheaders.tar.xz [CONFIG_IKHEADERS]
+   [ ] Configure standard kernel features (expert users) [CONFIG_EXPERT]
 General architecture-dependent options  ---&gt;
    [*] Stack Protector buffer overflow detection [CONFIG_STACKPROTECTOR]
    [*]   Strong Stack Protector [CONFIG_STACKPROTECTOR_STRONG]
@@ -137,8 +154,7 @@ General setup ---&gt;
    [*] Control Group support [CONFIG_CGROUPS]   ---&gt;
       [*] Memory controller [CONFIG_MEMCG]
    [ ] Enable deprecated sysfs features to support old userspace tools [CONFIG_SYSFS_DEPRECATED]
-   [*] Configure standard kernel features (expert users) [CONFIG_EXPERT] ---&gt;
-      [*] open by fhandle syscalls [CONFIG_FHANDLE]
+   [ ] Configure standard kernel features (expert users) [CONFIG_EXPERT]
 General architecture-dependent options  ---&gt;
    [*] Enable seccomp to safely compute untrusted bytecode [CONFIG_SECCOMP]
    [*] Stack Protector buffer overflow detection [CONFIG_STACKPROTECTOR]
@@ -237,6 +253,19 @@ Device Drivers ---&gt;
       </varlistentry>
 
       <varlistentry>
+        <term>
+          <parameter>
+            Configure standard kernel features (expert users)
+          </parameter>
+        </term>
+        <listitem>
+          <para>Dette vil gjøre at noen alternativer vises i konfigurasjonsgrensesnittet,
+          men å endre disse alternativene kan være farlig. Ikke bruk
+          dette med mindre du vet hva du gjør.</para>
+        </listitem>
+      </varlistentry>
+
+	  <varlistentry>
         <term><parameter>Strong Stack Protector</parameter></term>
         <listitem>
           <para>Aktiver SSP for kjernen. Vi har aktivert det for hele

@@ -41,29 +41,6 @@
   <sect2 role="installation">
     <title>Installasjon av Binutils</title>
 
-    <para>Kontroller at PTYene fungerer som de skal inne i chroot
-    miljøet ved å utføre en enkel test:</para>
-
-<screen><userinput remap="test">expect -c "spawn ls"</userinput></screen>
-
-    <para>Denne kommandoen burde gi følgende utdata:</para>
-
-<screen><computeroutput>spawn ls</computeroutput></screen>
-
-    <para>Hvis utdataene i stedet inkluderer meldingen nedenfor, er miljøet
-	ikke satt opp for riktig PTY drift. Dette problemet må løses før
-    testpakkene for Binutils og GCC kjøres:</para>
-
-<screen><computeroutput>The system has no more ptys.
-Ask your system administrator to create more.</computeroutput></screen>
-<!-- Fixed in binutils-2.39
-    <para>
-      Lag nå en rettelse identifisert oppstrøms som påvirker byggingen av noen pakker:
-     </para>
-
-<screen><userinput remap="pre">sed -e '/R_386_TLS_LE /i \   || (TYPE) == R_386_TLS_IE \\' \
-    -i ./bfd/elfxx-x86.h</userinput></screen>
--->
     <para>Binutils dokumentasjonen anbefaler å bygge Binutils
     i en dedikert byggemappe:</para>
 

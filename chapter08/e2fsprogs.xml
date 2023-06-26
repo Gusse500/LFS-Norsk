@@ -93,7 +93,9 @@ cd       build</userinput></screen>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>En test, u_direct_io, er kjent for å mislykkes på noen systemer.</para>
+    <!-- https://github.com/tytso/e2fsprogs/issues/134 -->
+    <para>En test navngitt <filename>m_assume_storage_prezeroed</filename>
+    er kjent for å mislykkes.</para>
 
 <!-- This is a ridiculous amount now! And is it still true?
      Does not appear to be true for version 1.46.3.  Time with tests
