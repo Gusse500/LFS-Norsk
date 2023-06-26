@@ -98,11 +98,12 @@ make MANSUFFIX=ssl install</userinput></screen>
         MAJOR versjonsnummer</emphasis>.
       </para>
 
-      <para>
+      <!-- https://bugzilla.mindrot.org/show_bug.cgi?id=3548 -->
+	  <para>
         Hvis <application>OpenSSH</application> er installert, vil det være et
         unntak fra hovedregelen ovenfor. Den inneholder en
         over-restriktiv OpenSSL versjonssjekk, så både SSH klienten og SSH
-        serveren vil nekte å starte hvis <application>OpenSSH</application>
+        serveren vil nekte å starte hvis OpenSSL
         er oppdatert med MAJOR versjonsnummer uendret men MINOR
         versjonnummer endret. Du må bygge opp igjen
         <application>OpenSSH</application> etter en slik oppgradering.
