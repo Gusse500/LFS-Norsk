@@ -64,7 +64,8 @@
         For generell informasjon om kjernekonfigurasjon se <ulink
         url="&hints-root;kernel-configuration.txt"/>.  Ytterligere informasjon
         om konfigurering og bygging av kjernen finner du på <ulink
-        url="http://www.kroah.com/lkn/"/>. Disse referansene er litt
+        url="&anduin-sources;/kernel-nutshell/"/>.
+		Disse referansene er litt
         utdatert, men gir likevel en rimelig oversikt over prosessen.
       </para>
 
