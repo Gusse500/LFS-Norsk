@@ -45,7 +45,39 @@
     i kjernekildetreet for alternative metoder til måten denne boken
     konfigurerer kjernen på.</para>
 
-    <para>Forbered for kompilering ved å kjøre følgende kommando:</para>
+    <important>
+      <para>
+        Å bygge Linuxkjernen for første gang er en av de mest
+        utfordrende oppgaver i LFS. Å få det riktig avhenger av den spesifikke
+        maskinvaren for målsystemet og dine spesifikke behov. Det er
+        nesten 12 000 konfigurasjonselementer som er tilgjengelige for kjernen,
+        selv om bare en tredjedel av dem er nødvendig for de fleste datamaskiner.
+        LFS redaktørene anbefaler at brukere som ikke er kjent med denne prosessen følger
+        prosedyrene nedenfor ganske nøye. Målet er å få et
+        innledende system til et punkt hvor du kan logge inn på kommandolinjen når
+        du starter på nytt senere i <xref linkend="ch-finish-reboot"/>.  På dette punktet
+        er optimering og tilpasning ikke et mål.
+      </para>
+
+      
+      <para>
+        For generell informasjon om kjernekonfigurasjon se <ulink
+        url="&hints-root;kernel-configuration.txt"/>.  Ytterligere informasjon
+        om konfigurering og bygging av kjernen finner du på <ulink
+        url="&anduin-sources;/kernel-nutshell/"/>.
+		Disse referansene er litt
+        utdatert, men gir likevel en rimelig oversikt over prosessen.
+      </para>
+
+      <para>
+        Hvis alt annet feiler, kan du be om hjelp på <ulink
+        url="https://www.linuxfromscratch.org/mail.html">lfs-support</ulink>
+        mailingliste. Vær oppmerksom på at du må abonnere på listen
+        for å unngå spam.
+      </para>
+    </important>
+
+	<para>Forbered for kompilering ved å kjøre følgende kommando:</para>
 
 <screen><userinput remap="pre">make mrproper</userinput></screen>
 
@@ -88,36 +120,13 @@
 
     <!-- Support for compiling a keymap into the kernel is deliberately removed -->
 
-    <para>For generell informasjon om kjernekonfigurasjon se <ulink
-    url="&hints-root;kernel-configuration.txt"/>.  BLFS har litt informasjon
-    angående spesielle kjernekonfigurasjonskrav for pakker utenfor
-    LFS på <ulink
-    url="&blfs-book;longindex.html#kernel-config-index"/>.  Ytterligere
-    informasjon om konfigurering og bygging av kjernen finner du på
-    <ulink url="http://www.kroah.com/lkn/"/> </para>
-
-    <caution>
-      <para>Et godt utgangspunkt for å sette opp kjernekonfigurasjonen er å
-      kjøre <command>make localmodconfig</command>. Hvis vertskjerneversjonen
-      ikke ikke for forskjellig fra versjonen av kjernen du bygger,
-      dette vil sette basiskonfigurasjonen til en god tilstand som ligner på hva
-      verten bruker. En annen mulighet er å bruke <command>make
-      localyesconfig</command>, som gjør det samme bortsett fra at alt er bygget
-      inn i kjernen.</para>
-
-      <para>Ikke deaktiver noen alternativer aktivert av <command>make
-      localmodconfig</command> med mindre følgende merknad uttrykkelig
-      deaktiverer det eller du virkelig vet hva du gjør.</para>
-    </caution>
 
     <note>
-      <para>En annen mulighet er å kjøre <command>make defconfig</command>,
-      som skaper en mer generisk konfigurasjon for arkitekturen din. Du
-      må kanskje deaktivere drivere for maskinvare du ikke har hvis
-      du vil redusere kjernestørrelsen.</para>
-    </note>
+      <para>Et godt utgangspunkt for å sette opp kjernekonfigurasjonen er å
+      kjøre <command>make defconfig</command>. Dette vil sette basekonfigurasjonen
+      til en god tilstand som tar din nåværende systemarkitektur
+      i betraktning.</para>
 
-	<note>
 	  <para>Sørg for å aktivere/deaktivere/stille inn følgende funksjoner, ellers kan systemet
       ikke fungere riktig eller starte opp i det hele tatt:</para>
 
@@ -195,6 +204,23 @@ Device Drivers ---&gt;
     [*] Message Signaled Interrupts (MSI and MSI-X) [CONFIG_PCI_MSI]
   [*] IOMMU Hardware Support ---&gt; [CONFIG_IOMMU_SUPPORT]
     [*] Support for Interrupt Remapping [CONFIG_IRQ_REMAP]</screen>
+
+      <para>Hvis du bygger et 32-bits system som kjører på en maskinvare
+      med mer enn 4 GB RAM, juster konfigurasjonen slik at kjernen vil
+      kunne bruke opptil 64 GB fysisk RAM:</para>
+
+      <screen role="nodump">Processor type and features ---&gt;
+  High Memory Support ---&gt;
+    (X) 64GB [CONFIG_HIGHMEM64G]</screen>
+
+      <para>Hvis partisjonen for LFS-systemet er i en NVME SSD (dvs
+      enhetsnoden for partisjonen er <filename>/dev/nvme*</filename>
+      i stedet for <filename>/dev/sd*</filename>), aktivere NVME støtte ellers
+      vil ikke LFS systemet starte:</para>
+
+      <screen role="nodump">Device Drivers ---&gt;
+  NVME Support ---&gt;
+    &lt;*&gt; NVM Express block device [CONFIG_BLK_DEV_NVME]</screen>
     </note>
 
     <note revision="systemd">
@@ -202,18 +228,18 @@ Device Drivers ---&gt;
       kreves, anbefales det sterkt av systemd utviklerne.</para>
     </note>
 
-    <para revision="sysv">Det er flere andre alternativer som kan være ønsket
+    <para>Det er flere andre alternativer som kan være ønsket
     avhengig av kravene til systemet. For en liste over nødvendige alternativer
     for BLFS pakker, se <ulink
     url="&lfs-root;blfs/view/&short-version;/longindex.html#kernel-config-index">BLFS
-    Indeks over kjerneinnstillinger</ulink>
-    (&lfs-root;blfs/view/&short-version;/longindex.html#kernel-config-index).</para>
+    Indeks over kjerneinnstillinger</ulink></para>
 
     <note>
       <para>Hvis vertsmaskinvaren din bruker UEFI og du ønsker å starte opp
       LFS systemet med det, bør du justere noen kjernekonfigurasjon
       som på følgende <ulink url="&blfs-book;postlfs/grub-setup.html#uefi-kernel">
-      BLFS side</ulink>.</para>
+      BLFS side</ulink> <emphasis role='bold'>selv om du bruker
+      UEFI oppstartslaster fra vertsdistroen</emphasis>.</para>
     </note>
 
     <variablelist>

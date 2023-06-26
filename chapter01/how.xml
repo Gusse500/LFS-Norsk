@@ -18,15 +18,13 @@
   under distribusjonsinstallasjonen for å kunne få tilgang til disse
   verktøyene.</para>
 
+  <note><para>Det er mange måter å installere en Linuxdistribusjon på og
+  standardinnstillingene er vanligvis ikke optimale for å bygge et LFS system.
+  For forslag til å sette opp en kommersiell distribusjon, se:
+  <ulink url="&lfs-root;hints/downloads/files/partitioning-for-lfs.txt"/>.</para></note>
+
   <para>Som et alternativ til å installere en separat distribusjon på din
-  maskin, ønsker du kanskje å bruke <!-- the Linux From Scratch LiveCD or --> en LiveCD fra en
-  kommersiell distribusjon. <!-- LFS LiveCD fungerer godt som vertssystem,
-  gir alle verktøyene du trenger for å lykkes med å følge instruksjonene i
-  denne boken. LiveCD-versjonen ligger bak den nåværende boken, men er fortsatt nyttig
-  som vert for å bygge den nåværende boken.  <quote>-nosrc</quote> eller
-  <quote>-min</quote> utgaver av LiveCD er de mest passende for
-  bygge et nåværende LFS-system. For mer informasjon om LFS LiveCD eller
-  for å laste ned en kopi, besøk <ulink url="&livecd-root;"/>. --></para>
+  maskin, kan det være lurt å bruke en LiveCD fra en kommersiell distribusjon.</para>
 
   <!--
   <note>
