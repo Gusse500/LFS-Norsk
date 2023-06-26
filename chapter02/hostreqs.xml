@@ -104,6 +104,12 @@
       installer den, kan du kompilere en kjerne selv. Instruksjoner for å
       kompilere kjernen og konfigurere oppstartslasteren (forutsatt at verten
       bruker GRUB) er lokalisert i <xref linkend="chapter-bootable"/>.</para>
+	  
+	  <para>Vi krever at vertskjernen støtter UNIX 98 pseudoterminal
+      (PTY). Det bør være aktivert på all distribusjoner, skrivebord eller server med
+      Linux &min-kernel; eller en nyere kjerne. Hvis du bygger en egendefinert
+      vertskjerne, sørg for at <option>CONFIG_UNIX98_PTYS</option> er satt til
+      <literal>y</literal> i kjernekonfigurasjonen.</para>
 
     </listitem>
 
@@ -229,6 +235,10 @@ ver_check Tar            tar      1.22
 ver_check Texinfo        texi2any 4.7
 ver_check Xz             xz       5.0.0
 ver_kernel &min-kernel;
+
+if mount | grep -q 'devpts on /dev/pts' &amp;&amp; [ -e /dev/ptmx ]
+then echo "OK:    Linux Kernel supports UNIX 98 PTY";
+else echo "ERROR: Linux Kernel does NOT support UNIX 98 PTY"; fi
 
 alias_check() {
    if $1 --version 2>&amp;1 | grep -qi $2
