@@ -96,18 +96,12 @@
     informasjon om konfigurering og bygging av kjernen finner du på
     <ulink url="http://www.kroah.com/lkn/"/> </para>
 
-    <caution>
+    <note>
       <para>Et godt utgangspunkt for å sette opp kjernekonfigurasjonen er å
       kjøre <command>make defconfig</command>. Dette vil sette basekonfigurasjonen
       til en god tilstand som tar din nåværende systemarkitektur
       i betraktning.</para>
 
-      <para>Ikke deaktiver noen alternativer aktivert av <command>make
-      defconfig</command> med mindre følgende merknad uttrykkelig
-      deaktiverer det eller du virkelig vet hva du gjør.</para>
-    </caution>
-
-	<note>
 	  <para>Sørg for å aktivere/deaktivere/stille inn følgende funksjoner, ellers kan systemet
       ikke fungere riktig eller starte opp i det hele tatt:</para>
 
