@@ -111,6 +111,7 @@
 General setup ---&gt;
    [ ] Compile the kernel with warnings as errors [CONFIG_WERROR]
    &lt; &gt; Enable kernel headers through /sys/kernel/kheaders.tar.xz [CONFIG_IKHEADERS]
+   [ ] Configure standard kernel features (expert users) [CONFIG_EXPERT]
 General architecture-dependent options  ---&gt;
    [*] Stack Protector buffer overflow detection [CONFIG_STACKPROTECTOR]
    [*]   Strong Stack Protector [CONFIG_STACKPROTECTOR_STRONG]
@@ -137,8 +138,7 @@ General setup ---&gt;
    [*] Control Group support [CONFIG_CGROUPS]   ---&gt;
       [*] Memory controller [CONFIG_MEMCG]
    [ ] Enable deprecated sysfs features to support old userspace tools [CONFIG_SYSFS_DEPRECATED]
-   [*] Configure standard kernel features (expert users) [CONFIG_EXPERT] ---&gt;
-      [*] open by fhandle syscalls [CONFIG_FHANDLE]
+   [ ] Configure standard kernel features (expert users) [CONFIG_EXPERT]
 General architecture-dependent options  ---&gt;
    [*] Enable seccomp to safely compute untrusted bytecode [CONFIG_SECCOMP]
    [*] Stack Protector buffer overflow detection [CONFIG_STACKPROTECTOR]
@@ -237,6 +237,19 @@ Device Drivers ---&gt;
       </varlistentry>
 
       <varlistentry>
+        <term>
+          <parameter>
+            Configure standard kernel features (expert users)
+          </parameter>
+        </term>
+        <listitem>
+          <para>Dette vil gjøre at noen alternativer vises i konfigurasjonsgrensesnittet,
+          men å endre disse alternativene kan være farlig. Ikke bruk
+          dette med mindre du vet hva du gjør.</para>
+        </listitem>
+      </varlistentry>
+
+	  <varlistentry>
         <term><parameter>Strong Stack Protector</parameter></term>
         <listitem>
           <para>Aktiver SSP for kjernen. Vi har aktivert det for hele
