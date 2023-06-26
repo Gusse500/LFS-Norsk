@@ -77,6 +77,12 @@
 
     <listitem>
       <para>
+        Sørg for at et passord er angitt for root brukeren.
+      </para>
+    </listitem>
+
+	<listitem>
+      <para>
         En gjennomgang av følgende konfigurasjonsfiler
         er også passende på dette punktet.
       </para>
@@ -133,7 +139,21 @@ umount -v $LFS</userinput></screen>
   <para>Forutsatt at GRUB oppstartslasteren ble satt opp som skissert tidligere, er menyen
   satt til å starte opp <emphasis>LFS &version;</emphasis> automatisk.</para>
 
-  <para>Når omstarten er fullført, er LFS systemet klart til bruk og
-  mer programvare kan legges til for å passe dine behov.</para>
+   <para>Når omstarten er fullført, er LFS systemet klart til bruk. Hva du
+  vil se er en enkel <quote>login: </quote> ledetekst. På dette tidspunktet kan du
+  fortsette til 
+  <phrase revision="sysv">
+    <ulink url="https://www.linuxfromscratch.org/blfs/view/stable/">
+    i BLFS boken</ulink></phrase>
+  <phrase revision="systemd">
+    <ulink url="https://www.linuxfromscratch.org/blfs/view/stable-systemd/">
+   i BLFS boken</ulink></phrase> 
+  hvor du kan legge til mer programvare som passer dine behov.</para>
+
+  <para>
+    Hvis omstarten <emphasis role="bold">ikke</emphasis> er vellykket, er det
+    på tide å feilsøke. For tips om hvordan du løser innledende oppstartsproblemer, se
+    <ulink url="https://www.linuxfromscratch.org/lfs/troubleshooting.html"/>.
+  </para>
 
 </sect1>
