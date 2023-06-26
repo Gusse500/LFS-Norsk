@@ -89,10 +89,7 @@
     <!-- Support for compiling a keymap into the kernel is deliberately removed -->
 
     <para>For generell informasjon om kjernekonfigurasjon se <ulink
-    url="&hints-root;kernel-configuration.txt"/>.  BLFS har litt informasjon
-    angående spesielle kjernekonfigurasjonskrav for pakker utenfor
-    LFS på <ulink
-    url="&blfs-book;longindex.html#kernel-config-index"/>.  Ytterligere
+    url="&hints-root;kernel-configuration.txt"/>  Ytterligere
     informasjon om konfigurering og bygging av kjernen finner du på
     <ulink url="http://www.kroah.com/lkn/"/> </para>
 
@@ -179,6 +176,23 @@ Device Drivers ---&gt;
     [*] Message Signaled Interrupts (MSI and MSI-X) [CONFIG_PCI_MSI]
   [*] IOMMU Hardware Support ---&gt; [CONFIG_IOMMU_SUPPORT]
     [*] Support for Interrupt Remapping [CONFIG_IRQ_REMAP]</screen>
+
+      <para>Hvis du bygger et 32-bits system som kjører på en maskinvare
+      med mer enn 4 GB RAM, juster konfigurasjonen slik at kjernen vil
+      kunne bruke opptil 64 GB fysisk RAM:</para>
+
+      <screen role="nodump">Processor type and features ---&gt;
+  High Memory Support ---&gt;
+    (X) 64GB [CONFIG_HIGHMEM64G]</screen>
+
+      <para>Hvis partisjonen for LFS-systemet er i en NVME SSD (dvs
+      enhetsnoden for partisjonen er <filename>/dev/nvme*</filename>
+      i stedet for <filename>/dev/sd*</filename>), aktivere NVME støtte ellers
+      vil ikke LFS systemet starte:</para>
+
+      <screen role="nodump">Device Drivers ---&gt;
+  NVME Support ---&gt;
+    &lt;*&gt; NVM Express block device [CONFIG_BLK_DEV_NVME]</screen>
     </note>
 
     <note revision="systemd">
@@ -186,18 +200,18 @@ Device Drivers ---&gt;
       kreves, anbefales det sterkt av systemd utviklerne.</para>
     </note>
 
-    <para revision="sysv">Det er flere andre alternativer som kan være ønsket
+    <para>Det er flere andre alternativer som kan være ønsket
     avhengig av kravene til systemet. For en liste over nødvendige alternativer
     for BLFS pakker, se <ulink
     url="&lfs-root;blfs/view/&short-version;/longindex.html#kernel-config-index">BLFS
-    Indeks over kjerneinnstillinger</ulink>
-    (&lfs-root;blfs/view/&short-version;/longindex.html#kernel-config-index).</para>
+    Indeks over kjerneinnstillinger</ulink></para>
 
     <note>
       <para>Hvis vertsmaskinvaren din bruker UEFI og du ønsker å starte opp
       LFS systemet med det, bør du justere noen kjernekonfigurasjon
       som på følgende <ulink url="&blfs-book;postlfs/grub-setup.html#uefi-kernel">
-      BLFS side</ulink>.</para>
+      BLFS side</ulink> <emphasis role='bold'>selv om du bruker
+      UEFI oppstartslaster fra vertsdistroen</emphasis>.</para>
     </note>
 
     <variablelist>
