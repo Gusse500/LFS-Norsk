@@ -66,7 +66,8 @@ meson --prefix=/usr                 \
       -Dman=false                   \
       -Dmode=release                \
       -Dpamconfdir=no               \
-      -Ddocdir=/usr/share/doc/systemd-&systemd-version; \
+      -Ddev-kvm-mode=0660           \
+	  -Ddocdir=/usr/share/doc/systemd-&systemd-version; \
       ..</userinput></screen>
 
     <variablelist>
@@ -167,7 +168,16 @@ meson --prefix=/usr                 \
           er funksjonell på LFS.</para>
         </listitem>
       </varlistentry>
-    </variablelist>
+
+      <varlistentry>
+        <term><parameter>-Ddev-kvm-mode=0660</parameter></term>
+        <listitem>
+          <para>Standard udevregler vil tillate alle brukere tilgang til
+          <filename class='devicefile'>/dev/kvm</filename>.  Redaktørene
+          anser det som farlig. Dette alternativet overstyrer det.</para>
+        </listitem>
+      </varlistentry>
+	</variablelist>
 
     <para>Kompiler pakken:</para>
 
