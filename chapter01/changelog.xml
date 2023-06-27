@@ -43,6 +43,10 @@
       <para>31.03.2023</para>
       <itemizedlist>
         <listitem>
+          <para>[xry111] - Oppdatert til linux-6.2.9 (sikkerhetsfiks).  Fikser
+          <ulink url='&lfs-ticket-root;5230'>#5230</ulink>.</para>
+        </listitem>
+		<listitem>
           <para>[xry111] - Oppdatert til grep-3.10.  Fikser
           <ulink url='&lfs-ticket-root;5234'>#5234</ulink>.</para>
         </listitem>
