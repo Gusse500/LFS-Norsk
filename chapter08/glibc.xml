@@ -777,7 +777,9 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libanl">
         <term><filename class="libraryfile">libanl</filename></term>
         <listitem>
-          <para>Et asynkront navneoppslagsbibliotek</para>
+          <para>Dummy bibliotek som ikke inneholder noen funksjoner. Tidligere var
+          det asynkront navneoppslagsbibliotek, hvor funksjoner nå er i
+          <filename class='libraryfile'>libc</filename></para>
           <indexterm zone="ch-system-glibc libanl">
             <primary sortas="c-libanl">libanl</primary>
           </indexterm>
