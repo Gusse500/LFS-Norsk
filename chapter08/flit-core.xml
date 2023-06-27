@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-flit-core" role="wrap" revision="systemd">
+  <?dbhtml filename="flit-core.html"?>
+
+  <sect1info condition="script">
+    <productname>flit-core</productname>
+    <productnumber>&flit-core-version;</productnumber>
+    <address>&flit-core-url;</address>
+  </sect1info>
+
+  <title>Flit-Core-&flit-core-version;</title>
+
+  <indexterm zone="ch-system-flit-core">
+    <primary sortas="a-flit-core">Flit-core</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Flit-core er den distribusjonsbyggende delene av Flit (et
+    pakkeverktøy for enkle Pythonmoduler).</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+      <seglistitem>
+        <seg>&flit-core-fin-sbu;</seg>
+        <seg>&flit-core-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Flit-core</title>
+
+    <para>Bygg pakken:</para>
+
+<screen><userinput remap="install">pip3 wheel -w dist --no-build-isolation --no-deps $PWD</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">pip3 install --no-index --no-user --find-links dist flit_core</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av pip3 konfigurasjonsalternativene og kommandoene:</title>
+
+      <varlistentry>
+        <term><command>wheel</command></term>
+        <listitem>
+           <para>Denne kommandoen bygger wheelarkivet for denne pakken.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>-w dist</parameter></term>
+        <listitem>
+           <para>Instruerer pip å putte det opprettede wheelet i
+           <filename class='directory'>dist</filename> mappen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><command>install</command></term>
+        <listitem>
+           <para>Denne kommandoen installerer pakken.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--no-build-isolation</parameter>,
+              <parameter>--no-deps</parameter>, and
+              <parameter>--no-index</parameter></term>
+        <listitem>
+          <para>Disse alternativene forhindrer henting av filer fra nettets
+          pakkerepository (PyPI). Hvis pakkene er installert i riktig rekkefølge,
+          trenger ikke pip å hente noen filer i utgangspunktet; disse
+          alternativer gir en viss sikkerhet i tilfelle brukerfeil.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--find-links dist</parameter></term>
+        <listitem>
+           <para>Instruerer pip til å søke etter wheelarkiver i
+           <filename class='directory'>dist</filename> mappen.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </sect2>
+
+  <sect2 id="contents-flit-core" role="content">
+    <title>Innhold i Flit-Core</title>
+
+    <segmentedlist>
+      <segtitle>Installert mappe</segtitle>
+
+      <seglistitem>
+         <seg>
+            /usr/lib/python&python-minor;/site-packages/flit_core og
+            /usr/lib/python&python-minor;/site-packages/flit_core-&flit-core-version;.dist-info
+         </seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+</sect1>

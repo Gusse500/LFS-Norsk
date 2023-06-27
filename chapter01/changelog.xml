@@ -40,6 +40,55 @@
     appropriate for the entry or if needed the entire day's listitem.
     -->
     <listitem>
+      <para>31.03.2023</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Oppdatert til grep-3.10.  Fikser
+          <ulink url='&lfs-ticket-root;5234'>#5234</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til wheel-0.40.0.  Fikser
+          <ulink url='&lfs-ticket-root;5229'>#5229</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til bc-6.5.0.  Fikser
+          <ulink url='&lfs-ticket-root;5228'>#5228</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til texinfo-7.0.3.  Fikser
+          <ulink url='&lfs-ticket-root;5235'>#5235</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til coreutils-9.2.  Fikser
+          <ulink url='&lfs-ticket-root;5232'>#5232</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til libcap-2.68.  Fikser
+          <ulink url='&lfs-ticket-root;5236'>#5236</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til tzdata-2023c.  Fikser
+          <ulink url='&lfs-ticket-root;5237'>#5237</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til xz-5.4.2.  Fikser
+          <ulink url='&lfs-ticket-root;5233'>#5233</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til linux-6.2.8.  Fikser
+          <ulink url='&lfs-ticket-root;5230'>#5230</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til openssl-3.1.0.  Fikser
+          <ulink url='&lfs-ticket-root;5227'>#5227</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Lagt til flit-core-3.8.0.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+	<listitem>
       <para>15.03.2023</para>
       <itemizedlist>
         <listitem>
