@@ -79,10 +79,14 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Denne pakken kommer med en testpakke, men den krever flere
-    pakker som ikke er inkludert i LFS. Instruksjoner for å kjøre
-    testpakken finner du i BLFS-boken på
-    <ulink url="&blfs-book;general/dbus.html"/>.</para>
+    <para><para>For å teste resultatene, utsted:</para>
+
+<screen><userinput remap="test">make check</userinput></screen>
+
+    <para>Mange tester er deaktivert fordi de krever tilleggspakker
+    som ikke er inkludert i LFS. Instruksjoner for å kjøre en
+    omfattende testpakke finner du i
+    <ulink url="&blfs-book;general/dbus.html">the BLFS book</ulink>.</para>
 
     <para>Installer pakken:</para>
 
@@ -107,7 +111,7 @@
         <seg>dbus-cleanup-sockets, dbus-daemon, dbus-launch, dbus-monitor,
         dbus-run-session, dbus-send, dbus-test-tool,
         dbus-update-activation-environment, og dbus-uuidgen</seg>
-        <seg>libdbus-1.{a,so}</seg>
+        <seg>libdbus-1.so</seg>
         <seg>/etc/dbus-1, /usr/include/dbus-1.0, /usr/lib/dbus-1.0,
         /usr/share/dbus-1, /usr/share/doc/dbus-&dbus-version;,
         og /var/lib/dbus</seg>
