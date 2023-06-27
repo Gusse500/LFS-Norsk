@@ -211,6 +211,7 @@
 <!ENTITY flit-core-size "44 KB">
 <!ENTITY flit-core-url "&pypi-src;/f/flit-core/flit_core-&flit-core-version;.tar.gz">
 <!ENTITY flit-core-md5 "7c41da13273f7787709a24f74e0f5a99">
+<!ENTITY flit-core-home "&pypi-home;/flit-core/">
 <!ENTITY flit-core-fin-du "736 KB">
 <!ENTITY flit-core-fin-sbu "mindre enn 0.1 SBU">
 
