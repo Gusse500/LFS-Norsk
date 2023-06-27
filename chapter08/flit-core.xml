@@ -5,7 +5,7 @@
   %general-entities;
 ]>
 
-<sect1 id="ch-system-flit-core" role="wrap" revision="systemd">
+<sect1 id="ch-system-flit-core" role="wrap">
   <?dbhtml filename="flit-core.html"?>
 
   <sect1info condition="script">
