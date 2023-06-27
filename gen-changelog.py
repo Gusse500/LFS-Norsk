@@ -72,9 +72,9 @@ for i in tsv:
         if pos > 0:
             pkg = pkg[:pos]
         tic = fields[0]
-        sec = len(fields) >= 3 and fields[2].startswith("high")
+        if len(fields) >= 3 and fields[2].startswith("high"):
+            security.add(pkg)
         ticket[pkg] = tic
-        security.add(pkg)
 
 print("Plain Text:")
 for (s, act) in [(upd, "Update to "), (add, "Add ")]:
@@ -95,7 +95,10 @@ for (s, act) in [(upd, "Update to "), (add, "Add ")]:
     for i in s:
         print('        <listitem>')
         pkgver = i + "-" + expand_entity(ent, i + "-version")
-        out = '          <para>[' + name + '] - ' + act + pkgver + "."
+        out = '          <para>[' + name + '] - ' + act + pkgver
+        if pkgver in security:
+            out += " (security fix)"
+        out += "."
         if pkgver in ticket:
             out += "  Fixes\n          "
             out += "<ulink url='&lfs-ticket-root;" + ticket[pkgver] + "'>#"
