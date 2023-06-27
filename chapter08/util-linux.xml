@@ -990,7 +990,7 @@ su tester -c "make -k check"</userinput></screen>
         <listitem>
           <para>Verktøy for å aktivere og deaktivere trådløse enheter</para>
           <indexterm zone="ch-system-util-linux rfkill">
-            <primary sortas="b-rkfill">rfkill</primary>
+            <primary sortas="b-rfkill">rfkill</primary>
           </indexterm>
         </listitem>
       </varlistentry>
