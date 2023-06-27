@@ -42,65 +42,12 @@
 
     <para>Kompiler Wheel med følgende kommando:</para>
 
-<screen><userinput remap="make">PYTHONPATH=src pip3 wheel -w dist --no-build-isolation --no-deps $PWD</userinput></screen>
+<screen><userinput remap="make">pip3 wheel -w dist --no-build-isolation --no-deps $PWD</userinput></screen>
 
     <para>Installer wheel med følgende kommando:</para>
 
 <screen><userinput remap="install">pip3 install --no-index --find-links=dist wheel</userinput></screen>
 
-    <variablelist>
-      <title>Betydningen av pip3 konfigurasjonsalternativene og kommandoene:</title>
-
-      <varlistentry>
-        <term><envar>PYTHONPATH=src</envar></term>
-        <listitem>
-           <para>Lar denne pakken (ikke installert ennå) å bygge et
-           wheelarkiv for seg selv, for å unngå et kylling-eller-egg-problem.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term><command>wheel</command></term>
-        <listitem>
-           <para>Denne kommandoen bygger wheelarkivet for denne pakken.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term><parameter>-w dist</parameter></term>
-        <listitem>
-           <para>Instruerer pip å sette det opprettede wheel i
-           <filename class='directory'>dist</filename> mappen.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term><command>install</command></term>
-        <listitem>
-           <para>Denne kommandoen installerer pakken.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term><parameter>--no-build-isolation</parameter>,
-              <parameter>--no-deps</parameter>, og
-              <parameter>--no-index</parameter></term>
-        <listitem>
-          <para>Hindrer pip fra å hente filer fra pakkens
-          nettdepot (PyPI). Hvis pakkene er installert i riktig rekkefølge,
-          da trenger den ikke å hente noen filer med det første, men dette
-          alternativet gir en viss sikkerhet i tilfelle brukerfeil.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term><parameter>--find-links dist</parameter></term>
-        <listitem>
-           <para>Instruerer pip til å søke etter wheelarkiver i
-           <filename class='directory'>dist</filename> mappen.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
   </sect2>
 
   <sect2 id="contents-wheel" role="content">
