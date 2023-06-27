@@ -40,6 +40,40 @@
     appropriate for the entry or if needed the entire day's listitem.
     -->
     <listitem>
+      <para>15.04.2023</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til vim-9.0.1452.  Adresserer
+          <ulink url='&lfs-ticket-root;4500'>#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til iana-etc-20230405.  Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til zstd-1.5.5. Fikser
+          <ulink url='&lfs-ticket-root;5239'>#5239</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til Python-3.11.3. Fikser
+          <ulink url='&lfs-ticket-root;5240'>#5240</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til meson-1.1.0. Fikser
+          <ulink url='&lfs-ticket-root;5242'>#5242</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til man-pages-6.04. Fikser
+          <ulink url='&lfs-ticket-root;5238'>#5238</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.2.11. Fikser
+          <ulink url='&lfs-ticket-root;5241'>#5241</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+	<listitem>
       <para>31.03.2023</para>
       <itemizedlist>
         <listitem>
