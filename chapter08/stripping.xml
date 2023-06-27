@@ -54,7 +54,7 @@
 
   <important>
     <para>
-      Hvis en pakke som versjonen er forskjellig fra versjonen
+      Hvis det er en en pakke som versjonen er forskjellig fra versjonen
       spesifisert av boken (enten etter et sikkerhetsråd eller
       som tilfredsstiller personlige preferanser), kan det være nødvendig å oppdatere
       bibliotekets filnavn i <envar>save_usrlib</envar> eller

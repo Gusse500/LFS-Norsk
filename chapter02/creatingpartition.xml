@@ -169,7 +169,7 @@
       brukes, er 5 til 10 gigabyte generelt tilstrekkelig.</para>
       </listitem>
 
-      <listitem revision='sysv'><para>/tmp &ndash; En separat /tmp mappe
+      <listitem revision='sysv'><para>/tmp &ndash; En separat /tmp partisjon
       er sjeldent, men nyttig hvis du konfigurerer en tynnklient. Denne partisjonen, hvis
       brukt, vil vanligvis ikke trenge å overstige et par
       gigabyte. Hvis du har nok RAM, kan du montere en
