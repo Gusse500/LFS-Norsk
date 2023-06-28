@@ -53,6 +53,8 @@
     x86_64) ./configure --prefix=/usr --localstatedir=/var/lib/locate ;;
 esac</userinput></screen>
 -->
+    <screen><userinput remap="configure">./configure - -prefix=/usr - -localstatedir=/var/lib/locate</userinput></screen>
+
     <variablelist>
       <title>Betydningen av konfigureringsalternativene:</title>
 <!--
