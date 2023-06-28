@@ -222,13 +222,13 @@ readelf -l a.out | grep ld-linux</userinput></screen>
     pakker, spesielt binutils-pass2 eller gcc-pass2, ikke klarer å bygges, er det
     en indikasjon på at noe har gått galt med
     tidligere Binutils-, GCC- eller Glibc-installasjoner.</para></note>
-
+<!--
     <para>Nå som vår kryssverktøykjede er fullført, fullfør installasjonen av
     limits.h deklarasjoner. For å gjøre det, kjør et verktøy levert av GCC
     utviklere:</para>
 
 <screen><userinput>$LFS/tools/libexec/gcc/$LFS_TGT/&gcc-version;/install-tools/mkheaders</userinput></screen>
-
+-->
   </sect2>
 
   <sect2 role="content">

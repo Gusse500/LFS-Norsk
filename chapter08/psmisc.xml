@@ -49,7 +49,9 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Denne pakken kommer ikke med en testpakke.</para>
+    <para>For å kjøre testpakken, kjør:</para>
+
+<screen><userinput remap="test">make check</userinput></screen>
 
     <para>Installer pakken:</para>
 

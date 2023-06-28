@@ -40,6 +40,44 @@
     appropriate for the entry or if needed the entire day's listitem.
     -->
     <listitem>
+          <para>01.05.2023</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til vim-9.0.1503.  Adresserer
+          <ulink url='&lfs-ticket-root;4500'>#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til iana-etc-20230418.  Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem revision='sysv'>
+          <para>[bdubbs] - Oppdatert til sysvinit-3.07.  Fikser
+          <ulink url='&lfs-ticket-root;5250'>#5250</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til iproute2-6.3.0. Fikser
+          <ulink url='&lfs-ticket-root;5248'>#5248</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til gcc-13.1.0. Fikser
+          <ulink url='&lfs-ticket-root;5247'>#5247</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til perl-5.36.1. Fikser
+          <ulink url='&lfs-ticket-root;5246'>#5246</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.3. Fikser
+          <ulink url='&lfs-ticket-root;5245'>#5245</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til coreutils-9.3. Fikser
+          <ulink url='&lfs-ticket-root;5244'>#5244</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>15.04.2023</para>
       <itemizedlist>
         <listitem>

@@ -54,11 +54,12 @@
     </note>
 
    <!-- https://bugs.gnu.org/62403 -->
+<!--
     <para>Rett opp en feil i kontrollsumverktøyet som forårsaker at mislykkede tester ikke
     rapporteres riktig:</para>
 
 <screen><userinput remap="pre">sed '/if ( ! match/s/ed_checksums//' -i src/digest.c</userinput></screen>
-
+-->
     <para>Forbered nå Coreutils for kompilering:</para>
 
 <screen><userinput remap="configure">autoreconf -fiv

@@ -78,6 +78,7 @@ cd       build</userinput></screen>
              --enable-default-ssp     \
              --disable-multilib       \
              --disable-bootstrap      \
+             --disable-fixincludes    \
              --with-system-zlib</userinput></screen>
 
     <para>GCC støtter syv forskjellige dataspråk, men
@@ -94,6 +95,17 @@ cd       build</userinput></screen>
           <para>Denne parameteren gjør at konfigureringsskriptet bruker ld installert
           av binutils bygget tidligere i dette kapittelet, i stedet for
           den kryssbygde versjonen som ellers ville blitt brukt.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--disable-fixincludes</parameter></term>
+        <listitem>
+          <para>Som standard, under installasjonen av GCC noen
+          systemdeklarasjoner vil være <quote>låst</quote> for bruk med GCC. Dette
+          er ikke nødvendig for et moderne Linuxsystem, og potensielt
+          skadelig hvis en pakke installeres på nytt etter installasjon av GCC. Denne
+          bryteren hindrer GCC fra å <quote>låse</quote> deklarasjonene.</para>
         </listitem>
       </varlistentry>
 
@@ -160,13 +172,13 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
     url="&test-results;"/> og
     <ulink url="https://gcc.gnu.org/ml/gcc-testresults/"/>.</para>
 
-    <para>I gcc er elleve tester i i386-testpakken kjent for å FEILE.
-    Det er fordi testfilene ikke tar hensyn til
-    <parameter>--enable-default-pie</parameter> alternativet.</para>
-
-    <para>Fire tester relatert til PR100400 kan rapporteres
-    som både XPASS og FAIL når du tester g++-kompilatoren; testfilen
-    er ikke godt skrevet.</para>
+    <para>To tester navngitt <filename>pr104610.c</filename> og
+    <filename>pr69482-1.c</filename> er kjent for å mislykkes fordi
+    testfilene ikke tar hensyn til
+    <parameter>--enable-default-ssp</parameter> alternativet.
+    <!-- https://gcc.gnu.org/PR106375 og https://gcc.gnu.org/PR109353 -->
+    I tillegg er to tester navngitt <filename>copy.cc</filename> og
+    <filename>pr56837.c</filename> er kjent for å mislykkes.</para>
 
     <para>Noen få uventede feil kan ikke alltid unngås. GCC utviklerne
     er vanligvis klar over disse problemene, men har ikke løst dem ennå.
@@ -334,10 +346,10 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
         og lto-dump</seg>
 
         <seg>libasan.{a,so}, libatomic.{a,so}, libcc1.so, libgcc.a, libgcc_eh.a,
-        libgcc_s.so, libgcov.a, libgomp.{a,so}, libitm.{a,so},
+        libgcc_s.so, libgcov.a, libgomp.{a,so}, libhwasan.{a,so}, libitm.{a,so},
         liblsan.{a,so}, liblto_plugin.so,
         libquadmath.{a,so}, libssp.{a,so}, libssp_nonshared.a,
-        libstdc++.{a,so}, libstdc++fs.a, libsupc++.a, libtsan.{a,so},
+        libstdc++.{a,so}, libstdc++exp.a, libstdc++fs.a, libsupc++.a, libtsan.{a,so},
         og libubsan.{a,so}</seg>
 
         <seg>/usr/include/c++, /usr/lib/gcc, /usr/libexec/gcc, og
@@ -544,6 +556,16 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
         </listitem>
       </varlistentry>
 
+      <varlistentry id="libhwasan">
+        <term><filename class="libraryfile">libhwasan</filename></term>
+        <listitem>
+          <para>Maskinvareassistert kjøretidsbibliotek for Adresserensing</para>
+          <indexterm zone="ch-system-gcc libhwasan">
+            <primary sortas="c-libhwasan">libhwasan</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
       <varlistentry id="libitm">
         <term><filename class="libraryfile">libitm</filename></term>
         <listitem>
@@ -603,6 +625,16 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
           <para>Standard C++ biblioteket</para>
           <indexterm zone="ch-system-gcc libstdc">
             <primary sortas="c-libstdc++">libstdc++</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libstdcexp">
+        <term><filename class="libraryfile">libstdc++exp</filename></term>
+        <listitem>
+          <para>Eksperimentelt C++ kontraktsbibliotek</para>
+          <indexterm zone="ch-system-gcc libstdcexp">
+            <primary sortas="c-libstdc++exp">libstdc++exp</primary>
           </indexterm>
         </listitem>
       </varlistentry>
