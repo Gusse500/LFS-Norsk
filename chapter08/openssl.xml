@@ -65,10 +65,13 @@
 
 <screen><userinput remap="test">make test</userinput></screen>
 
-    <para>En test, 30-test_afalg.t, er kjent for å mislykkes på noen
-    kjernekonfigurasjoner (avhengig av inkonsistente verdier for
-    CONFIG_CRYPTO_USER_API*-innstillinger.) Hvis den mislykkes, kan den trygt bli
-    ignorert.</para>
+    <para>En test, 30-test_afalg.t, er kjent for å mislykkes hvis vertskjernen
+    ikke har <option>CONFIG_CRYPTO_USER_API_SKCIPHER</option> aktivert,
+    eller ikke har noen alternativer som gir en AES med CBC implementering
+    (for eksempel en kombinasjonen av <option>CONFIG_CRYPTO_AES</option>
+    og <option>CONFIG_CRYPTO_CBC</option>, eller
+    <option>CONFIG_CRYPTO_AES_NI_INTEL</option> hvis CPU støtter AES-NI)
+    aktivert. Hvis den mislykkes, kan den trygt ignoreres.</para>
 
     <para>Installer pakken:</para>
 

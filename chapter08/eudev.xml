@@ -40,8 +40,6 @@
   <sect2 role="installation">
     <title>Installasjon av Eudev</title>
 
-    
-
     <para>Først fiks plasseringen av udev regler i .pc filen:</para>
 
 <screen><userinput remap="pre">sed -i '/udevdir/a udev_dir=${udevdir}' src/udev/udev.pc.in</userinput></screen>
@@ -89,6 +87,20 @@ make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
     </indexterm>
 
     <indexterm zone="conf-eudev">
+      <primary sortas="e-/etc/udev/rules.d/65-kvm.rules">/etc/udev/rules.d/65-kvm.rules</primary>
+    </indexterm>
+
+    <para>
+      Standard udevregel installert av Eudev vil tillate alle brukere
+      adgang til <filename class='devicefile'>/dev/kvm</filename>.  Redaktørene
+      anser det som farlig. Opprett en konfigurasjonsfil for å overstyre den:
+    </para>
+
+<screen><userinput remap="configure">cat > /etc/udev/rules.d/65-kvm.rules &lt;&lt; "EOF"
+<literal>KERNEL=="kvm", GROUP="kvm", MODE="0660", TAG+="uaccess"</literal>
+EOF</userinput></screen>
+
+	<indexterm zone="conf-eudev">
       <primary sortas="e-/etc/udev/hwdb.bin">/etc/udev/hwdb.bin</primary>
     </indexterm>
 

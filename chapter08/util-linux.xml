@@ -101,7 +101,11 @@
 su tester -c "make -k check"</userinput></screen>
 
     <para><emphasis>hardlink</emphasis> testene vil mislykkes hvis vertens kjerne
-    ikke har alternativet CONFIG_CRYPTO_USER_API_HASH satt. I tillegg,
+    ikke har alternativet <option>CONFIG_CRYPTO_USER_API_HASH</option>
+    aktivert eller har ingen alternativer som gir en SHA256 implementering
+    (for eksempel, <option>CONFIG_CRYPTO_SHA256</option>, eller
+    <option>CONFIG_CRYPTO_SHA256_SSSE3</option> hvis CPU støtter
+    Supplemental SSE3) aktivert. I tillegg,
     to undertester fra misc: mbsencode og en undertest fra script: replay er
     kjent for å mislykkes.</para>
 
