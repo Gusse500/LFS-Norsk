@@ -78,7 +78,7 @@ cd       build</userinput></screen>
              --enable-default-ssp     \
              --disable-multilib       \
              --disable-bootstrap      \
-             --disable-fixinclude     \
+             --disable-fixincludes    \
              --with-system-zlib</userinput></screen>
 
     <para>GCC støtter syv forskjellige dataspråk, men
