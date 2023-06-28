@@ -43,6 +43,8 @@
   <sect2 role="installation">
     <title>Installasjon av Coreutils</title>
 
+    <screen><userinput remap="configure">export gl_cv_macro_MB_CUR_MAX_good=y</userinput></screen>
+
     <para>Forbered Coreutils for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr                     \

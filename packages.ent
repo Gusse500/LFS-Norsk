@@ -104,10 +104,10 @@
 <!ENTITY check-fin-du "12 MB">
 <!ENTITY check-fin-sbu "0.1 SBU (omtrent 1.7 SBU med tester)">
 
-<!ENTITY coreutils-version "9.2">
-<!ENTITY coreutils-size "5,644 KB">
+<!ENTITY coreutils-version "9.3">
+<!ENTITY coreutils-size "5,673 KB">
 <!ENTITY coreutils-url "&gnu;coreutils/coreutils-&coreutils-version;.tar.xz">
-<!ENTITY coreutils-md5 "4a8a5097d8d7315ccfd6be7eafc8c862">
+<!ENTITY coreutils-md5 "040b4b7acaf89499834bfc79609af29f">
 <!ENTITY coreutils-home "&gnu-software;coreutils/">
 <!ENTITY coreutils-tmp-du "162 MB">
 <!ENTITY coreutils-tmp-sbu "0.3 SBU">
@@ -225,10 +225,10 @@
 <!ENTITY gawk-fin-du "43 MB">
 <!ENTITY gawk-fin-sbu "0.2 SBU">
 
-<!ENTITY gcc-version "12.2.0">
-<!ENTITY gcc-size "82,662 KB">
+<!ENTITY gcc-version "13.1.0">
+<!ENTITY gcc-size "85,402 KB">
 <!ENTITY gcc-url "&gnu;gcc/gcc-&gcc-version;/gcc-&gcc-version;.tar.xz">
-<!ENTITY gcc-md5 "73bafd0af874439dcdb9fc063b6fb069">
+<!ENTITY gcc-md5 "43e4de77f2218c83ca675257ea1af9ef">
 <!ENTITY gcc-sha256 "">
 <!ENTITY gcc-home "https://gcc.gnu.org/">
 <!ENTITY gcc-tmpp1-du "3.8 GB">
@@ -431,13 +431,13 @@
 <!ENTITY libtool-fin-sbu "1.4 SBU">
 
 <!ENTITY linux-major-version "6">
-<!ENTITY linux-minor-version "2">
-<!ENTITY linux-patch-version "11">
-<!--<!ENTITY linux-version "&linux-major-version;.&linux-minor-version;">-->
-<!ENTITY linux-version "&linux-major-version;.&linux-minor-version;.&linux-patch-version;">
-<!ENTITY linux-size "133,276 KB">
+<!ENTITY linux-minor-version "3">
+<!ENTITY linux-patch-version "0">
+<!ENTITY linux-version "&linux-major-version;.&linux-minor-version;">
+<!--<!ENTITY linux-version "&linux-major-version;.&linux-minor-version;.&linux-patch-version;">-->
+<!ENTITY linux-size "133,684 KB">
 <!ENTITY linux-url "&kernel;linux/kernel/v&linux-major-version;.x/linux-&linux-version;.tar.xz">
-<!ENTITY linux-md5 "78d3ab3a52fe283aabca27dad4005d07">
+<!ENTITY linux-md5 "df4f97e65bde4174dd8be2af836f28e1">
 <!ENTITY linux-home "https://www.kernel.org/">
 <!-- measured for 5.13.4 / gcc-11.1.0 on x86_64 : minimum is
  allnoconfig rounded down to allow for ongoing cleanups,
@@ -554,12 +554,12 @@
 
 <!ENTITY perl-version-major "5">
 <!ENTITY perl-version-minor "36">
-<!ENTITY perl-version-patch "0">
+<!ENTITY perl-version-patch "1">
 <!ENTITY perl-version-min "&perl-version-major;.&perl-version-minor;">
 <!ENTITY perl-version "&perl-version-major;.&perl-version-minor;.&perl-version-patch;">
-<!ENTITY perl-size "12,746 KB">
+<!ENTITY perl-size "12,748 KB">
 <!ENTITY perl-url "https://www.cpan.org/src/5.0/perl-&perl-version;.tar.xz">
-<!ENTITY perl-md5 "826e42da130011699172fd655e49cfa2">
+<!ENTITY perl-md5 "825f6b1d7e03b22522e0bdb992fbb728">
 <!ENTITY perl-home "https://www.perl.org/">
 <!ENTITY perl-tmp-du "281 MB">
 <!ENTITY perl-tmp-sbu "0.6 SBU">

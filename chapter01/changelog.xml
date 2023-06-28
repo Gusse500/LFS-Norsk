@@ -39,6 +39,28 @@
     <listitem revision="sysv"> or <listitem revision="systemd"> as
     appropriate for the entry or if needed the entire day's listitem.
     -->
+	<listitem>
+          <para>30.04.2023</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til gcc-13.1.0. Fikser
+          <ulink url='&lfs-ticket-root;5247'>#5247</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til perl-5.36.1. Fikser
+          <ulink url='&lfs-ticket-root;5246'>#5246</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.3. Fikser
+          <ulink url='&lfs-ticket-root;5245'>#5245</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til coreutils-9.3. Fikser
+          <ulink url='&lfs-ticket-root;5244'>#5244</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+	</listitem>
+
     <listitem>
       <para>15.04.2023</para>
       <itemizedlist>
