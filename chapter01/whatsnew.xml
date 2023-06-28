@@ -11,13 +11,25 @@
 
   <title>Hva er nytt side forrige utgivelse</title>
 
-  <para>I 11.3 utgivelsen, <parameter>--enable-default-pie</parameter>
-  og <parameter>--enable-default-ssp</parameter> er aktivert for GCC.
-  Disse teknikkene kan dempe noen ondsinnede angrep, men de gir ikke
-  perfekt sikkerhet. Merk at noen lærebøker antar at disse alternativene er
-  deaktivert, slik at hvis du kjører eksempler fra en slik lærebok på et LFS system,
-  Må du kanskje deaktivere PIE og SSP med GCC alternativene
-  <parameter>-fno-pie -no-pie -fno-stack-protection</parameter>.</para>
+  <caution>
+    <para>
+      Under en utviklingssyklus av LFS er instruksjonene i boken
+      ofte modifisert for å tilpasse seg en pakkeoppdatering eller dra nytte av
+      nye funksjoner fra oppdaterte pakker. Å blande sammen instruksjonene til
+      forskjellige versjoner av LFS boken kan forårsake subtile brudd. Denne
+      type problemer er vanligvis et resultat av gjenbruk av et eller annet opprettet skript
+      for en tidligere LFS utgivelse. Slik gjenbruk frarådes sterkt. Hvis
+      du gjenbruker skript for en tidligere LFS utgivelse av en eller annen grunn, må du
+      være veldig nøye med å oppdatere skriptene for å matche gjeldende versjon
+      av LFS boken.
+    </para>
+  </caution>
+
+  <para>I 11.4 utgivelsen, <parameter>--disable-fixincludes</parameter>
+  er satt for GCC. Det er en konfigurasjonsbryter som nylig er lagt til i GCC 13.1 for
+  å hindre GCC fra<quote>låse</quote> systemdeklarasjonene. En slik
+  <quote>lås</quote> er unødvendig for et moderne Linuxsystem og kan forårsake
+  problemer hvis en pakke oppdateres etter installasjon av GCC.</para>
 
   <para>Nedenfor er en liste over pakkeoppdateringer gjort siden forrige
   utgivelse av boken.</para>
