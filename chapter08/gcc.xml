@@ -99,6 +99,17 @@ cd       build</userinput></screen>
       </varlistentry>
 
       <varlistentry>
+        <term><parameter>--disable-fixincludes</parameter></term>
+        <listitem>
+          <para>Som standard, under installasjonen av GCC noen
+          systemdeklarasjoner vil være <quote>låst</quote> for bruk med GCC. Dette
+          er ikke nødvendig for et moderne Linuxsystem, og potensielt
+          skadelig hvis en pakke installeres på nytt etter installasjon av GCC. Denne
+          bryteren hindrer GCC fra å <quote>låse</quote> deklarasjonene.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
         <term><parameter>--with-system-zlib</parameter></term>
         <listitem>
           <para>Denne bryteren forteller GCC å koble til den systeminstallerte kopien av
