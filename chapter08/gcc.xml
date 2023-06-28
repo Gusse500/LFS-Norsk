@@ -164,11 +164,11 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
     <para>I gcc er elleve tester i i386-testpakken kjent for å FEILE.
     Det er fordi testfilene ikke tar hensyn til
     <parameter>--enable-default-pie</parameter> alternativet.</para>
-
+ <!--
     <para>Fire tester relatert til PR100400 kan rapporteres
     som både XPASS og FAIL når du tester g++-kompilatoren; testfilen
     er ikke godt skrevet.</para>
-
+ -->
     <para>Noen få uventede feil kan ikke alltid unngås. GCC utviklerne
     er vanligvis klar over disse problemene, men har ikke løst dem ennå.
     Med mindre testresultatene er svært forskjellige fra de på URLen ovenfor,
