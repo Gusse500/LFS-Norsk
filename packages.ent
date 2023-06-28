@@ -350,10 +350,10 @@
 <!ENTITY intltool-fin-du "1.5 MB">
 <!ENTITY intltool-fin-sbu "mindre enn 0.1 SBU">
 
-<!ENTITY iproute2-version "6.2.0">
-<!ENTITY iproute2-size "892 KB">
+<!ENTITY iproute2-version "6.3.0">
+<!ENTITY iproute2-size "893 KB">
 <!ENTITY iproute2-url "&kernel;linux/utils/net/iproute2/iproute2-&iproute2-version;.tar.xz">
-<!ENTITY iproute2-md5 "85861856a856f6d358c6d9a4fc9088c9">
+<!ENTITY iproute2-md5 "53ecd48564c75d5fa4b5325d47344d68">
 <!ENTITY iproute2-home "&kernel;linux/utils/net/iproute2/">
 <!ENTITY iproute2-fin-du "17 MB">
 <!ENTITY iproute2-fin-sbu "0.1 SBU">
