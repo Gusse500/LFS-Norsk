@@ -39,9 +39,18 @@
     <listitem revision="sysv"> or <listitem revision="systemd"> as
     appropriate for the entry or if needed the entire day's listitem.
     -->
+
     <listitem>
       <para>17.06.2023</para>
       <itemizedlist>
+        <listitem>
+          <para>[xry111] - Oppdatert til linux-6.3.8.  Fikser
+          <ulink url='&lfs-ticket-root;5272'>#5272</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til kbd-2.6.0.  Fikser
+          <ulink url='&lfs-ticket-root;5273'>#5273</ulink>.</para>
+        </listitem>
         <listitem>
           <para>[rahul] - Endret fra pkg-config til pkgconf 1.9.5.</para>
         </listitem>
