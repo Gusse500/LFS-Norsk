@@ -39,6 +39,40 @@
     <listitem revision="sysv"> or <listitem revision="systemd"> as
     appropriate for the entry or if needed the entire day's listitem.
     -->
+    <listitem>
+      <para>03.06.2023</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til iana-etc-20230524.  Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem revision='systemd'>
+          <para>[bdubbs] - Oppdatert til MarkupSafe-2.1.3 (Pythonmodul)
+          <ulink url='&lfs-ticket-root;5268'>#5268</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.3.5. Fikser
+          <ulink url='&lfs-ticket-root;5264'>#5264</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til openssl-3.1.1. Fikser
+          <ulink url='&lfs-ticket-root;5267'>#5267</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til meson-1.1.1. Fikser
+          <ulink url='&lfs-ticket-root;5266'>#5266</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til diffutils-3.10. Fikser
+          <ulink url='&lfs-ticket-root;5262'>#5262</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til bc-6.6.0. Fikser
+          <ulink url='&lfs-ticket-root;5263'>#5263</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
     <listitem revision='sysv'>
       <para>25.05.2023</para>
       <itemizedlist>
