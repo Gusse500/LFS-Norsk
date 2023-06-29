@@ -57,10 +57,11 @@
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>For å opprettholde kompatibilitet med den originale Pkg-config oppretter du en
-    symbolkobling:</para>
+    <para>For å opprettholde kompatibilitet med den originale Pkg-config oppretter du to
+    symbolkoblinger:</para>
 
-<screen><userinput remap="install">ln -sfv pkgconf /usr/bin/pkg-config</userinput></screen>
+<screen><userinput remap="install">ln -sv pkgconf   /usr/bin/pkg-config
+ln -sv pkgconf.1 /usr/share/man/man1/pkg-config.1</userinput></screen>
 
   </sect2>
 

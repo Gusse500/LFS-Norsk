@@ -215,12 +215,14 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
     av "historiske" grunner.</para>
 
 <screen><userinput remap="install">ln -svr /usr/bin/cpp /usr/lib</userinput></screen>
-  <!-- already done earlier
-    <para>Mange pakker bruker navnet <command>cc</command> for å kalle C
-    kompilatoren. For å tilfredsstille disse pakkene, lag en symbolkobling:</para>
 
-<screen><userinput remap="install">ln -sv gcc /usr/bin/cc</userinput></screen>
-  -->
+    <para>Mange pakker bruker navnet <command>cc</command> for å kalle C
+    kompilatoren.  Vi har allerede opprettet <command>cc</command> som en symlenke i
+    <xref linkend='ch-tools-gcc-pass2'/>, opprette mansiden til den som en symbolkobling
+    også:</para>
+
+<screen><userinput remap="install">ln -sv gcc.1 /usr/share/man/man1/cc.1</userinput></screen>
+
     <para>Legg til en kompatibilitetssymbolkobling for å aktivere byggeprogrammer med
     optimalisering av koblingstid (LTO (Link Time Optimization)):</para>
 
