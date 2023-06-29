@@ -487,10 +487,14 @@
       </listitem>
 
       <listitem>
-        <para>Pkg-config</para>
+        <para>Pkgconf</para>
 
-        <para>Denne pakken gir et program som returnerer metadata om et
-        installert bibliotek eller pakke.</para>
+        <para>Denne pakken inneholder et program som hjelper til med å konfigurere
+        kompilator- og linkerflagg for utviklingsbiblioteker. Programmet
+        kan brukes som drop-in erstatning for
+        <command>pkg-config</command>, som trengs av byggesystemet
+        for mange pakker. Det vedlikeholdes mer aktivt og er litt
+        raskere enn den originale Pkg-config pakken.</para>
       </listitem>
 
       <listitem>

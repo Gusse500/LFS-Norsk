@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-pkgconf" role="wrap">
+  <?dbhtml filename="pkgconf.html"?>
+
+  <sect1info condition="script">
+    <productname>pkgconf</productname>
+    <productnumber>&pkgconf-version;</productnumber>
+    <address>&pkgconf-url;</address>
+  </sect1info>
+
+  <title>Pkgconf-&pkgconf-version;</title>
+
+  <indexterm zone="ch-system-pkgconf">
+    <primary sortas="a-pkgconf">Pkgconf</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Pkgconf pakken er en
+    etterfølger til pkg-config og inneholder et verktøy for å sende inkluderingsbanen
+    og/eller bibliotekstier for å bygge verktøy under konfigurerings- og makefasene
+    av pakkeinstallasjoner.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&pkgconf-fin-sbu;</seg>
+        <seg>&pkgconf-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Pkgconf</title>
+
+    <para>Forbered Pkgconf for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr              \
+            --disable-static           \
+            --docdir=/usr/share/doc/pkgconf-&pkgconf-version;</userinput></screen>
+
+    <para>Forbered Pkgconf for kompilering:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+    <para>For å opprettholde kompatibilitet med den originale Pkg-config oppretter du to
+    symbolkoblinger:</para>
+
+<screen><userinput remap="install">ln -sv pkgconf   /usr/bin/pkg-config
+ln -sv pkgconf.1 /usr/share/man/man1/pkg-config.1</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-pkgconf" role="content">
+    <title>Innhold i Pkgconf</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installert bibliotek</segtitle>
+      <segtitle>Installert mappe</segtitle>
+
+      <seglistitem>
+        <seg>pkgconf, pkg-config (linker til pkgconf), og bomtool</seg>
+        <seg>libpkgconf.so</seg>
+        <seg>/usr/share/doc/pkgconf-&pkgconf-version;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="pkgconf">
+        <term><command>pkgconf</command></term>
+        <listitem>
+          <para>Returnerer metainformasjon for det angitte biblioteket eller
+          pakkenn</para>
+          <indexterm zone="ch-system-pkgconf pkgconf">
+            <primary sortas="b-pkgconf">pkgconf</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="bomtool">
+        <term><command>bomtool</command></term>
+        <listitem>
+          <para>Genererer en programvareliste fra pkg-config .pc
+          filer</para>
+          <indexterm zone="ch-system-pkgconf bomtool">
+            <primary sortas="b-bomtool">bomtool</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libpkgconf">
+        <term><filename class="libraryfile">libpkgconf</filename></term>
+        <listitem>
+          <para>Inneholder det meste av pkgconf sin funksjonalitet, mens det tillater
+          andre verktøy som IDEer og kompilatorer å bruke rammeverket</para>
+          <indexterm zone="ch-system-pkgconf libpkgconf">
+            <primary sortas="c-libpkgconf">libpkgconf</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </sect2>
+
+</sect1>

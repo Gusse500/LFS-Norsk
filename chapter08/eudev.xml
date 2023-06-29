@@ -104,7 +104,7 @@ make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
       anser det som farlig. Opprett en konfigurasjonsfil for å overstyre den:
     </para>
 
-<screen><userinput remap="configure">cat > /etc/udev/rules.d/65-kvm.rules &lt;&lt; "EOF"
+<screen><userinput>cat > /etc/udev/rules.d/65-kvm.rules &lt;&lt; "EOF"
 <literal>KERNEL=="kvm", GROUP="kvm", MODE="0660", TAG+="uaccess"</literal>
 EOF</userinput></screen>
 

@@ -73,9 +73,11 @@
     prøver å kjøre forgjengeren, <command>lex</command>. For å støtte de
     programmene, opprett en symbolsk lenke kalt <filename>lex</filename> som
     kjører <filename>flex</filename> i <command>lex</command>
-    emuleringsmodus:</para>
+    emuleringsmodus, og opprett også mansiden til <command>lex</command> som en
+    symlenke:</para>
 
-<screen><userinput remap="install">ln -sv flex /usr/bin/lex</userinput></screen>
+<screen><userinput remap="install">ln -sv flex   /usr/bin/lex
+ln -sv flex.1 /usr/share/man/man1/lex.1</userinput></screen>
 
   </sect2>
 
