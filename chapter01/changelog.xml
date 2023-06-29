@@ -39,6 +39,73 @@
     <listitem revision="sysv"> or <listitem revision="systemd"> as
     appropriate for the entry or if needed the entire day's listitem.
     -->
+    <listitem revision='sysv'>
+      <para>25.05.2023</para>
+      <itemizedlist>
+        <listitem revision='sysv'>
+          <para>[ken] - Fjern unødvendig gruppe sgx fra eudev regler.  Fikser
+          <ulink url='&lfs-ticket-root;5265'>#5265</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+
+    <listitem>
+      <para>18.05.2023</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til util-linux-2.39.  Fikser
+          <ulink url='&lfs-ticket-root;5259'>#5259</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.3.3. Fikser
+          <ulink url='&lfs-ticket-root;5261'>#5261</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til libcap-2.69. Fikser
+          <ulink url='&lfs-ticket-root;5258'>#5258</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til grep-3.11. Fikser
+          <ulink url='&lfs-ticket-root;5256'>#5256</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til flit_core-3.9.0. Fikser
+          <ulink url='&lfs-ticket-root;5257'>#5257</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til eudev-3.2.12. Fikser
+          <ulink url='&lfs-ticket-root;5260'>#5260</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>13.05.2023</para>
+	  <itemizedlist>
+        <listitem>
+          <para>[xry111] - Oppdatert til less-633.  Fikser
+          <ulink url='&lfs-ticket-root;5251'>#5251</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til linux-6.3.2.  Fikser
+          <ulink url='&lfs-ticket-root;5255'>#5255</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til xz-5.4.3.  Fikser
+          <ulink url='&lfs-ticket-root;5252'>#5252</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til gawk-5.2.2.  Fikser
+          <ulink url='&lfs-ticket-root;5253'>#5253</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Løs systemd kjøretidsproblem utnyttet av GCC 13.
+          Fikser <ulink url='&lfs-ticket-root;5254'>#5254</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
     <listitem>
           <para>01.05.2023</para>
       <itemizedlist>

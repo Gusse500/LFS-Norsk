@@ -39,10 +39,18 @@
 
   <sect2 role="installation">
     <title>Installasjon av Eudev</title>
-
+    <!-- No longer seems needed. bdubbs 5/18/23
     <para>Først fiks plasseringen av udev regler i .pc filen:</para>
 
 <screen><userinput remap="pre">sed -i '/udevdir/a udev_dir=${udevdir}' src/udev/udev.pc.in</userinput></screen>
+-->
+    <!-- different from systemd: we do not have a render group and file is
+    named differently -->
+    <para>Fjern en unødvendig gruppe
+    <systemitem class="groupname">sgx</systemitem>, fra standard udev
+    regler:</para>
+
+<screen><userinput remap="pre">sed -i -e 's/GROUP="sgx", //' rules/50-udev-default.rules</userinput></screen>
 
     <para>Forbered Eudev for kompilering:</para>
 

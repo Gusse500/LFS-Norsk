@@ -183,21 +183,11 @@ esac</userinput></screen>
         tidsavbrudd.</para>
       </listitem>
 
-<!--
       <listitem>
-        <para>The <emphasis>rt/tst-cputimer{1,2,3}</emphasis> testene avhenger av
-        vertssystemkjernen. Kjernene 4.14.91&ndash;4.14.96,
-        4.19.13&ndash;4.19.18, og 4.20.0&ndash;4.20.5 er kjent for
-        å forårsake at disse testene mislykkes.
-        </para>
+        <para>I tillegg kan noen tester mislykkes med en relativt gammel CPU
+        modell eller vertskjerneversjon.</para>
       </listitem>
 
-      <listitem>
-        <para>Mattetestene feiler noen ganger når de kjører på
-        systemer der CPU ikke er en relativt ny Intel eller
-        AMD prosessor.</para>
-      </listitem>
--->
     </itemizedlist>
 
     <para>Selv om det er en ufarlig melding, vil installasjonsstadiet til Glibc
