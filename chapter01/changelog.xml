@@ -41,6 +41,7 @@
     -->
     <listitem>
       <para>13.05.2023</para>
+	  <itemizedlist>
         <listitem>
           <para>[xry111] - Oppdatert til less-633.  Fikser
           <ulink url='&lfs-ticket-root;5251'>#5251</ulink>.</para>
