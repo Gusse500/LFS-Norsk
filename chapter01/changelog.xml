@@ -40,6 +40,24 @@
     appropriate for the entry or if needed the entire day's listitem.
     -->
     <listitem>
+      <para>09.06.2023</para>
+      <itemizedlist>
+        <listitem revision='systemd'>
+          <para>[bdubbs] - Oppdatert til dbus-1.14.8. Fikser 
+          <ulink url='&lfs-ticket-root;5271'>#5271</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.3.6. Fikser
+          <ulink url='&lfs-ticket-root;5269'>#5269</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til Python-3.11.4. Fikser
+          <ulink url='&lfs-ticket-root;5271'>#5271</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>03.06.2023</para>
       <itemizedlist>
         <listitem>
