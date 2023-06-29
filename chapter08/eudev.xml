@@ -39,11 +39,11 @@
 
   <sect2 role="installation">
     <title>Installasjon av Eudev</title>
-
+    <!-- No longer seems needed. bdubbs 5/18/23
     <para>Først fiks plasseringen av udev regler i .pc filen:</para>
 
 <screen><userinput remap="pre">sed -i '/udevdir/a udev_dir=${udevdir}' src/udev/udev.pc.in</userinput></screen>
-
+-->
     <para>Forbered Eudev for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr           \
