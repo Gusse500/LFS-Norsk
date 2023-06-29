@@ -93,8 +93,11 @@
       <para>Grunnen til kravet om kjerneversjon er at vi spesifiserer
       den versjonen når du bygger <application>glibc</application> i
       <xref linkend="chapter-cross-tools"/> og
-      <xref linkend="chapter-building-system"/>,
-      etter anbefaling fra utviklerne.</para>
+      <xref linkend="chapter-building-system"/>, så løsningene for
+      eldre kjerner er ikke aktivert og det kompilerte
+      <application>glibc</application> er litt raskere og mindre.
+      Fra juni 2023, &min-kernel; er den eldste kjerneutgivelsen
+      fortsatt støttet av kjerneutviklerne.</para>
 
       <para>Hvis vertskjernen er tidligere enn &min-kernel; du må erstatte
       kjernen med en mer oppdatert versjon. Det er to måter
