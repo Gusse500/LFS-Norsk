@@ -40,6 +40,15 @@
     appropriate for the entry or if needed the entire day's listitem.
     -->
     <listitem>
+      <para>17.06.2023</para>
+      <itemizedlist>
+        <listitem>
+          <para>[rahul] - Endret fra pkg-config til pkgconf 1.9.5.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>09.06.2023</para>
       <itemizedlist>
         <listitem revision='systemd'>
