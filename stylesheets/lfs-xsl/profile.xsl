@@ -28,7 +28,7 @@
   <xsl:param name="profile.audience" select="''"/>
   <xsl:param name="profile.condition" select="''"/>
   <xsl:param name="profile.conformance" select="''"/>
-  <xsl:param name="profile.lang" select="no"/>
+  <xsl:param name="profile.lang" select="nb"/>
   <xsl:param name="profile.os" select="''"/>
   <xsl:param name="profile.revision" select="''"/>
   <xsl:param name="profile.revisionflag" select="''"/>
