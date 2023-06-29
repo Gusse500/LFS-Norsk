@@ -177,8 +177,12 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
     testfilene ikke tar hensyn til
     <parameter>--enable-default-ssp</parameter> alternativet.
     <!-- https://gcc.gnu.org/PR106375 og https://gcc.gnu.org/PR109353 -->
-    I tillegg er to tester navngitt <filename>copy.cc</filename> og
-    <filename>pr56837.c</filename> er kjent for å mislykkes.</para>
+    To tester navngit <filename>copy.cc</filename> og
+    <filename>pr56837.c</filename> er kjent for å mislykkes.
+    <!-- https://gcc.gnu.org/PR107855#c6 -->
+    I tillegg flere tester i
+    <filename class='directory'>vect</filename> mappen er kjent for å mislykkes
+    hvis maskinvaren ikke støtter AVX.</para>
 
     <para>Noen få uventede feil kan ikke alltid unngås. GCC utviklerne
     er vanligvis klar over disse problemene, men har ikke løst dem ennå.
