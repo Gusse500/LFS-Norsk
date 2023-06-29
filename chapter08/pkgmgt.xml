@@ -126,14 +126,13 @@
       (erstatt <replaceable>libfoo</replaceable> med navnet på
       biblioteket):</para>
 
-<screen role="nodump"><userinput>grep -l  -e '<replaceable>libfoo</replaceable>.*deleted' /proc/*/maps |
-   tr -cd 0-9\\n | xargs -r ps u</userinput></screen>
+<screen role="nodump"><userinput>grep -l '<replaceable>libfoo</replaceable>.*deleted' /proc/*/maps | tr -cd 0-9\\n | xargs -r ps u</userinput></screen>
 
       <para>
         Hvis <application>OpenSSH</application> brukes for tilgang til
         systemet og det er koblet til det oppdaterte biblioteket, må du
         omstarte <command>sshd</command> tjenesten, deretter logg ut, logg på igjen,
-        og kjør kommandoen på nytt for å bekrefte at ingenting fortsatt bruker
+        og kjør kommandoen igjen for å bekrefte at ingenting fortsatt bruker
         de slettede bibliotekene.
       </para>
 
