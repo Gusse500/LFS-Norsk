@@ -85,7 +85,7 @@
         </listitem>
         <listitem revision='systemd'>
           <para>[bdubbs] - Oppdatert til MarkupSafe-2.1.3 (Pythonmodul).
-          Fikser <ulink url='&lfs-ticket-root;5268'>#5268</ulink>.</para
+          Fikser <ulink url='&lfs-ticket-root;5268'>#5268</ulink>.</para>
         </listitem>
         <listitem>
           <para>[bdubbs] - Oppdatert til linux-6.3.5. Fikser
