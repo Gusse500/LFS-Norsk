@@ -85,6 +85,22 @@
       biblioteker med mindre alle de avhengige pakkene er rekompilert.</para>
       </listitem>
 
+      <listitem><para>Hvis en pakke er (direkte eller indirekte) knyttet til
+      både det gamle og det nye navnet på ett delt bibliotek (for eksempel
+      pakken lenker til både
+      <filename class='libraryfile'>libfoo.so.2</filename> og
+      <filename class='libraryfile'>libbar.so.1</filename>, mens sistnevnte
+      linker på sin side til
+      <filename class='libraryfile'>libfoo.so.3</filename>), denne
+      pakken kan fungere feil fordi de forskjellige navnene på det delte
+      biblioteket gir inkompatible funksjoner med samme symbolnavn. Dette
+      kan være forårsaket av rekompilering av noen (men ikke alle) pakker koblet til
+      gammelt delt biblioteknavn etter at pakken som gir det delte biblioteket
+      er oppgradert. For å unngå problemet, anbefales det å rekompilere hver
+      pakke koblet til et delt bibliotek hvor navnet er endret
+      under en oppgradering så snart som mulig, i deres avhengighetsrekkefølge.
+      </para></listitem>
+
       <listitem> <para>Hvis en pakke som inneholder et delt bibliotek oppdateres,
       og navnet på biblioteket ikke endres, men versjonsnummeret til
       bibliotek <emphasis role="bold">filen</emphasis> reduseres (f.eks.
