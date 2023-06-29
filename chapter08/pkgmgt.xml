@@ -86,12 +86,12 @@
       </listitem>
 
       <listitem><para>Hvis en pakke er (direkte eller indirekte) er knyttet til både
-      den gamle og nye versjonen av et delt bibliotek (for eksempel pakken
+      de gamle og nye navnene av et delt bibliotek (for eksempel pakken
       lenker til både <filename class='libraryfile'>libfoo.so.2</filename> og
       <filename class='libraryfile'>libbar.so.1</filename>, mens sistnevnte
       linker til <filename class='libraryfile'>libfoo.so.3</filename>),
       pakken kan fungere feil fordi de forskjellige revisjonene av det delte
-      biblioteket presenterer motstridende plasseringer for noen symbolnavn. Dette kan være
+      biblioteket presenterer uforenlige definisjoner for noen symbolnavn. Dette kan være
       forårsaket av rekompilering av noen, men ikke alle, pakkene knyttet til
       et gammelt delt bibliotek etter at pakken som gir det delte biblioteket
       er oppgradert. For å unngå problemet, må brukere gjenoppbygge hver pakke
