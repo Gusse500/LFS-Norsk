@@ -42,6 +42,10 @@
   <sect2 role="installation">
     <title>Installasjon av Util-linux</title>
 
+    <para>Først deaktiver en problemtest:</para>
+
+    <screen><userinput remap="pre">sed -i '/test_mkfds/s/^/#/' tests/helpers/Makemodule.am</userinput></screen>
+
     <para>Forbered Util-linux for kompilering:</para>
 
 <screen revision="sysv"><userinput remap="configure">./configure ADJTIME_PATH=/var/lib/hwclock/adjtime \
