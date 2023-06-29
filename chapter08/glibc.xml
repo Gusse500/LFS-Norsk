@@ -195,10 +195,9 @@ esac</userinput></screen>
     Forhindre denne advarselen med:</para>
 
 <screen><userinput remap="install">touch /etc/ld.so.conf</userinput></screen>
-
-    <para>Fiks Makefilen til å hoppe over en unødvendig sunnhetssjekk
-    som svikter i LFS delmiljøet:
-    </para>
+    <!-- https://sourceware.org/bugzilla/show_bug.cgi?id=21911 -->
+    <para>Fiks Makefile for å hoppe over en utdatert tilregnlighetssjekk
+    som mislykkes med en moderne Glibc-konfigurasjon:</para>
 
 <screen><userinput remap="install">sed '/test-installation/s@$(PERL)@echo not running@' -i ../Makefile</userinput></screen>
 
