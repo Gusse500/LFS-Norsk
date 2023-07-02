@@ -41,6 +41,36 @@
     -->
 
     <listitem>
+      <para>01.07.2023</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til iana-etc-20230615.  Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til vim-9.0.1671.  Adresserer
+          <ulink url='&lfs-ticket-root;4500'>#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til util-linux-2.39.1.  Adresserer
+          <ulink url='&lfs-ticket-root;5278'>#5278</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.3.10.  Adresserer
+          <ulink url='&lfs-ticket-root;5276'>#5276</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[rahul] - Oppdatert til kbd-2.6.1.  Fikser
+          <ulink url='&lfs-ticket-root;5279'>#5279</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til gettext-0.22.  Fikser
+          <ulink url='&lfs-ticket-root;5275'>#5275</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>17.06.2023</para>
       <itemizedlist>
         <listitem>
