@@ -374,6 +374,17 @@
       </listitem>
 
       <listitem>
+        <para>Libxcrypt</para>
+
+        <para>Denne pakken gir
+        <systemitem class='library'>libcrypt</systemitem> bibliotek
+        nødvendig av forskjellige pakker (spesielt Shadow) for hashing av passord.
+        Den erstatter det foreldede
+        <systemitem class='library'>libcrypt</systemitem> implementering i
+        Glibc.</para>
+      </listitem>
+
+      <listitem>
         <para>Linux Kernel</para>
 
         <para>Denne pakken er operativsystemet. Det er Linux i

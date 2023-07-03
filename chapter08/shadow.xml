@@ -60,11 +60,10 @@ find man -name Makefile.in -exec sed -i 's/getspnam\.3 / /' {} \;
 find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</userinput></screen>
 
     <para id="shadow-login_defs">I stedet for å bruke standard
-    <emphasis>crypt</emphasis> metoden, bruk den sikrere
-    <emphasis>SHA-512</emphasis> metoden for passordkryptering, som også
-    tillater passord lengre enn 8 tegn. I tillegg, angi antall
-    avrundinger til 500 000 i stedet for standard 5000, som er altfor lavt til å
-    forhindre brute force passordangrep. Det er også nødvendig å endre
+    <emphasis>crypt</emphasis> metoden, bruk den mye sikrere
+    <emphasis>YESCRYPT</emphasis> metode for passordkryptering, som også
+    tillater passord lengre enn 8 tegn.
+    It is also necessary to change
     det foreldede <filename class="directory">/var/spool/mail</filename> plasseringen
     for brukerpostbokser som Shadow bruker som standard til <filename
     class="directory">/var/mail</filename> stedet som brukes for øyeblikket. Og,
@@ -81,10 +80,9 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</userinput></s
       bygget.</para>
     </note>
 
-<screen><userinput remap="pre">sed -e 's:#ENCRYPT_METHOD DES:ENCRYPT_METHOD SHA512:' \
-    -e 's@#\(SHA_CRYPT_..._ROUNDS 5000\)@\100@'       \
-    -e 's:/var/spool/mail:/var/mail:'                 \
-    -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                \
+<screen><userinput remap="pre">sed -e 's:#ENCRYPT_METHOD DES:ENCRYPT_METHOD YESCRYPT:' \
+    -e 's:/var/spool/mail:/var/mail:'                   \
+    -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                  \
     -i etc/login.defs</userinput></screen>
 
     <note>
@@ -106,8 +104,9 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</userinput></s
     <para>Forbered Shadow for kompilering:</para>
 
 <screen><userinput remap="configure">touch /usr/bin/passwd
-./configure --sysconfdir=/etc \
-            --disable-static  \
+./configure --sysconfdir=/etc   \
+            --disable-static    \
+            --with-{b,yes}crypt \
             --with-group-name-max-length=32</userinput></screen>
 
     <variablelist>
@@ -122,6 +121,21 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</userinput></s
           lage den på feil sted.</para>
         </listitem>
       </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--with-{b,yes}crypt</parameter></term>
+        <listitem>
+          <para>Skallet utvider dette til to brytere,
+          <parameter>--with-bcrypt</parameter> og
+          <parameter>--with-yescrypt</parameter>.  De lar shadow bruke
+          Bcrypt- og Yescrypt-algoritmene implementert av
+          <application>Libxcrypt</application> for hashing av passord.
+          Disse algoritmene er sikrere (spesielt mye mer
+          motstandsdyktig mot GPU-baserte angrep) enn den tradisjonelle SHA
+          algoritmer.</para>
+        </listitem>
+      </varlistentry>
+
       <varlistentry>
         <term><parameter>--with-group-name-max-length=32</parameter></term>
         <listitem>
