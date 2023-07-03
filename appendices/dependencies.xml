@@ -971,7 +971,7 @@
         <seglistitem>
           <seg>Bash, Binutils, Coreutils, Diffutils, Findutils, Gawk, GCC,
           Gettext, Glibc, GMP, Grep, Libxcrypt, M4, Make, MPC, MPFR, Patch,
-          Perl, Sed, Tar, Texinfo, og Zstd</seg></seg>
+          Perl, Sed, Tar, Texinfo, og Zstd</seg>
         </seglistitem>
       </segmentedlist>
 
