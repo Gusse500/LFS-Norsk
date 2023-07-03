@@ -96,6 +96,7 @@ cd       build</userinput></screen>
     --disable-libatomic                            \
     --disable-libgomp                              \
     --disable-libquadmath                          \
+    --disable-libsanitizer                         \
     --disable-libssp                               \
     --disable-libvtv                               \
     --enable-languages=c,c++</userinput></screen>
@@ -140,6 +141,19 @@ cd       build</userinput></screen>
           bygget i dette passet, i stedet for den statiske versjonen bygget i GCC
           pass 1. Dette er nødvendig for å støtte C++
           unntakshåndtering.</para>
+        </listitem>
+      </varlistentry>
+	  
+	  <varlistentry>
+        <term><parameter>--disable-libsanitizer</parameter></term>
+        <listitem>
+          <para>Deaktiver GCC rensende kjøretidsbiblioteker. De er ikke
+          nødvendig for den midlertidige installasjonen. Denne bryteren er nødvendig
+          for å bygge GCC uten
+          <systemitem class='library'>libcrypt</systemitem> installert for
+          målet. I <xref linkend='ch-tools-gcc-pass1'/> det var
+          underforstått ved <parameter>--disable-libstdcxx</parameter>, men nå vi
+          må eksplisitt angi det.</para>
         </listitem>
       </varlistentry>
 

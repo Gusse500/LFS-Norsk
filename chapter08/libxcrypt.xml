@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-libxcrypt" role="wrap">
+  <?dbhtml filename="libxcrypt.html"?>
+
+  <sect1info condition="script">
+    <productname>libxcrypt</productname>
+    <productnumber>&libxcrypt-version;</productnumber>
+    <address>&libxcrypt-url;</address>
+  </sect1info>
+
+  <title>Libxcrypt-&libxcrypt-version;</title>
+
+  <indexterm zone="ch-system-libxcrypt">
+    <primary sortas="a-Libxcrypt">Libxcrypt</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Libxcrypt pakken inneholder et moderne bibliotek for enveis
+    hashing av passord.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&libxcrypt-fin-sbu;</seg>
+        <seg>&libxcrypt-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Libxcrypt</title>
+
+    <para>Forbered Libxcrypt for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr                \
+            --enable-hashes=strong,glibc \
+            --enable-obsolete-api=no     \
+            --disable-static             \
+            --disable-failure-tokens</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av de nye konfigureringsalternativene:</title>
+
+      <varlistentry>
+        <term><parameter>--enable-hashes=strong,glibc</parameter></term>
+        <listitem>
+          <para>Bygg sterke hash-algoritmer som anbefales for sikkerhetsbruk
+          og hash-algoritmene levert av tradisjonelle Glibc
+          <systemitem class='library'>libcrypt</systemitem> for
+          kompatibilitet.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--enable-obsolete-api=no</parameter></term>
+        <listitem>
+          <para>Deaktiver foreldede API-funksjoner. De trengs ikke for
+          et moderne Linuxsystem bygget fra kilden.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--disable-failure-tokens</parameter></term>
+        <listitem>
+          <para>Deaktiver funksjonen for feiltoken. Det trengs for
+          kompatibilitet med de tradisjonelle hash-bibliotekene til noen
+          plattformer, men et Linuxsystem basert på Glibc trenger ikke
+          den.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>For å teste resultatene, utsted:</para>
+
+<screen><userinput remap="test">make check</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+    <note>
+
+      <para>Instruksjonene ovenfor har deaktivert foreldede API-funksjoner siden
+      ingen pakke installert ved å kompilere fra kilder ville lenke mot
+      dem under kjøring. Imidlertid er de eneste kjente bare binære applikasjonene
+      som koblingen mot disse funksjonene krever ABI versjon 1. Hvis du må
+      har slike biblioteker på grunn av en eller annen binær applikasjon eller for å være
+      kompatibel med LSB, bygg pakken på nytt med følgende
+      kommandoer:</para>
+
+<screen><userinput remap="nodump">make distclean
+./configure --prefix=/usr                \
+            --enable-hashes=strong,glibc \
+            --enable-obsolete-api=glibc  \
+            --disable-static             \
+            --disable-failure-tokens
+make
+cp -av .libs/libcrypt.so.1* /usr/lib</userinput></screen>
+    </note>
+
+  </sect2>
+
+  <sect2 id="contents-libxcrypt" role="content">
+    <title>Innhold i Libxcrypt</title>
+
+    <segmentedlist>
+      <segtitle>Installerte biblioteker</segtitle>
+
+      <seglistitem>
+        <seg>libcrypt.so</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="libcrypt">
+        <term><filename class="libraryfile">libcrypt</filename></term>
+        <listitem>
+          <para>Inneholder funksjoner for å hashe passord</para>
+          <indexterm zone="ch-system-libxcrypt libcrypt">
+            <primary sortas="c-libcrypt">libcrypt</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>
