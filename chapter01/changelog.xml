@@ -47,6 +47,14 @@
           <para>[xry111] - Lagt til libxcrypt-4.4.35.  Fikser
           <ulink url='&lfs-ticket-root;5280'>#5280</ulink>.</para>
         </listitem>
+		<listitem>
+          <para>[xry111] - Oppdatert til iproute2-6.4.0.  Fikser
+          <ulink url='&lfs-ticket-root;5277'>#5277</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til linux-6.4.1.  Fikser
+          <ulink url='&lfs-ticket-root;5276'>#5276</ulink>.</para>
+        </listitem>
       </itemizedlist>
     </listitem>
 
