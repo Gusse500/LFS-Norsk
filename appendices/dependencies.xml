@@ -1892,7 +1892,7 @@
         <segtitle>&dependencies;</segtitle>
         <seglistitem>
           <seg>Bash, Binutils, Coreutils, Diffutils, Gawk, GCC, Glibc, Grep,
-          Make, og Sed</seg>
+          Make, Perl, og Sed</seg>
         </seglistitem>
       </segmentedlist>
 
