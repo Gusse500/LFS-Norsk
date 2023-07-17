@@ -156,13 +156,6 @@
 <!ENTITY elfutils-fin-du "120 MB">
 <!ENTITY elfutils-fin-sbu "0.3 SBU">
 
-<!ENTITY eudev-version "3.2.12">
-<!ENTITY eudev-size "2,145 KB">
-<!ENTITY eudev-url "https://github.com/eudev-project/eudev/releases/download/v&eudev-version;/eudev-&eudev-version;.tar.gz">
-<!ENTITY eudev-md5 "6f1559ca7c27013ff68816e2732498a3">
-<!ENTITY eudev-fin-du "83 MB">
-<!ENTITY eudev-fin-sbu "0.1 SBU">
-
 <!ENTITY expat-version "2.5.0">
 <!ENTITY expat-size "450 KB">
 <!ENTITY expat-url "&sourceforge;expat/expat-&expat-version;.tar.xz">

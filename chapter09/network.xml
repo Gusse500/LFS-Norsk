@@ -37,7 +37,7 @@
 
       <para>Grensesnittnavnene avhenger av implementeringen og
       konfigurasjon av udev nissen (daemon) som kjører på systemet. udev
-      nissen for LFS (installert i <xref linkend="ch-system-eudev"/>) vil
+      nissen for LFS (installert i <xref linkend="ch-system-udev"/>) vil
       ikke kjøre før LFS systemet er startet opp. Så det er upålitelig å
       bestemme grensesnittnavnene som brukes i LFS systemet ved å kjøre
       disse kommandoene på vertsdistroen,
