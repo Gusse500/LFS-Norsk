@@ -111,9 +111,10 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-   <para>For å teste resultatene, utsted:</para>
+    <para>Mange tester er kjent for å mislykkes med groff-1.23.0 eller nyere. Hvis
+    du uansett vil teste resultatene, utsted:</para>
 
-<screen><userinput remap="test">make check</userinput></screen>
+<screen><userinput remap="test">make -k check</userinput></screen>
 
     <para>Installer pakken:</para>
 

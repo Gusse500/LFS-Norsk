@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-udev" role="wrap" revision="sysv">
+  <?dbhtml filename="udev.html"?>
+
+  <sect1info condition="script">
+    <productname>udev</productname>
+    <productnumber>&systemd-version;</productnumber>
+    <address>&systemd-url;</address>
+  </sect1info>
+
+  <title>Udev fra Systemd-&systemd-version;</title>
+
+  <indexterm zone="ch-system-udev">
+    <primary sortas="a-Udev">Udev</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Udev pakken inneholder programmer for dynamisk oppretting av
+    enhetsnoder.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&udev-fin-sbu;</seg>
+        <seg>&udev-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Udev</title>
+
+    <para>Udev er en del av systemd-&systemd-version; pakken. Bruk
+    systemd-&systemd-version;.tar.xz file som tarballkilde.</para>
+
+    <para>Fjern to unødvendige grupper,
+    <systemitem class="groupname">render</systemitem> og
+    <systemitem class="groupname">sgx</systemitem>, fra standard udev
+    regler:</para>
+
+ <screen><userinput remap="pre">sed -i -e 's/GROUP="render"/GROUP="video"/' \
+       -e 's/GROUP="sgx", //' rules.d/50-udev-default.rules.in</userinput></screen>
+
+    <para>Fjern en udevregel som krever en full Systemd installasjon:</para>
+
+ <screen><userinput remap="pre">sed '/systemd-sysctl/s/^/#/' -i rules.d/99-systemd.rules.in</userinput></screen>
+
+    <para>Forbered Udev for kompilering:</para>
+
+<screen><userinput remap="configure">mkdir -p build
+cd       build
+
+meson setup \
+      --prefix=/usr                 \
+      --buildtype=release           \
+      -Dmode=release                \
+      -Ddev-kvm-mode=0660           \
+      -Dlink-udev-shared=false      \
+      ..</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av mesonalternativene:</title>
+
+      <varlistentry>
+        <term><parameter>--buildtype=release</parameter></term>
+        <listitem>
+          <para>Denne bryteren overstyrer standard byggetype
+          (<quote>debug</quote>), som produserer uoptimaliserte
+          binære filer.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>-Dmode=release</parameter></term>
+        <listitem>
+          <para>Deaktiver noen funksjoner som anses som eksperimentelle av oppstrøms.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>-Ddev-kvm-mode=0660</parameter></term>
+        <listitem>
+          <para>Standard udev regelen vil tillate alle brukere tilgang til
+          <filename class='devicefile'>/dev/kvm</filename>.  Utviklerne
+          anser det som farlig. Dette alternativet overstyrer det.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>-Dlink-udev-shared=false</parameter></term>
+        <listitem>
+          <para>Dette alternativet forhindrer udev fra å koble til det interne
+           systemd delte biblioteket,
+          <systemitem class='library'>libsystemd-shared</systemitem>.
+          Dette biblioteket er designet for å deles av mange Systemd komponenter
+          og det er overdrevent for kun en udev installasjon.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Bygg bare komponentene som trengs for udev:</para>
+
+    <screen><userinput remap="make">ninja udevadm systemd-hwdb \
+      $(grep -o -E "^build (src/libudev|src/udev|rules.d|hwdb.d)[^:]*" \
+        build.ninja | awk '{ print $2 }')                              \
+      $(realpath libudev.so --relative-to .)</userinput></screen>
+
+    <para>Fjern en udevregelfil som krever en full Systemd
+    installasjon:</para>
+
+<screen><userinput remap="make">rm rules.d/90-vconsole.rules</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+    <screen><userinput remap="install">install -vm755 -d {/usr/lib,/etc}/udev/{hwdb,rules}.d
+install -vm755 -d /usr/{lib,share}/pkgconfig
+install -vm755 udevadm                     /usr/bin/
+install -vm755 systemd-hwdb                /usr/bin/udev-hwdb
+ln      -sv    ../bin/udevadm              /usr/sbin/udevd
+cp      -av    libudev.so{,*[0-9]}         /usr/lib/
+install -vm644 ../src/libudev/libudev.h    /usr/include/
+install -vm644 src/libudev/*.pc            /usr/lib/pkgconfig/
+install -vm644 src/udev/*.pc               /usr/share/pkgconfig/
+install -vm644 ../src/udev/udev.conf       /etc/udev/
+install -vm644 rules.d/* ../rules.d/{*.rules,README} /usr/lib/udev/rules.d/
+install -vm644 hwdb.d/*  ../hwdb.d/{*.hwdb,README}   /usr/lib/udev/hwdb.d/
+install -vm755 $(find src/udev -type f | grep -F -v ".") /usr/lib/udev</userinput></screen>
+
+    <para>Installer noen tilpassede regler og støttefiler som er nyttige i et LFS
+    miljø:</para>
+
+<screen><userinput remap="install">tar -xvf ../../&udev-lfs-version;.tar.xz
+make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
+
+<para>Installer manualsidene:</para>
+
+    <!-- Please make sure systemd man pages tarball has a common leading
+         component in the path.  -->
+<screen><userinput remap="install">tar -xf ../../systemd-man-pages-253.tar.xz --strip-components=1       \
+    -C /usr/share/man --wildcards '*/udev*' '*/libudev*'              \
+                                  '*/systemd-'{hwdb,udevd.service}.8
+sed 's/systemd\(\\\?-\)/udev-/' /usr/share/man/man8/systemd-hwdb.8    \
+                              > /usr/share/man/man8/udev-hwdb.8
+sed 's|lib.*udevd|sbin/udevd|'                                        \
+    /usr/share/man/man8/systemd-udevd.service.8                       \
+  > /usr/share/man/man8/udevd.8
+rm  /usr/share/man/man8/systemd-*.8</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="conf-udev" role="configuration">
+    <title>Konfigurerer Udev</title>
+
+    <indexterm zone="conf-udev">
+      <primary sortas="a-Udev">Udev</primary>
+      <secondary>configuring</secondary>
+    </indexterm>
+
+    <indexterm zone="conf-udev">
+      <primary sortas="e-/etc/udev/hwdb.bin">/etc/udev/hwdb.bin</primary>
+    </indexterm>
+
+    <para>Informasjon om maskinvareenheter opprettholdes i
+    <filename class="directory">/etc/udev/hwdb.d</filename> og
+    <filename class="directory">/usr/lib/udev/hwdb.d</filename> mappene.
+    <application>Udev</application> trenger at informasjonen samles
+    inn i en binær database <filename>/etc/udev/hwdb.bin</filename>. Opprett
+    første database:</para>
+
+<screen><userinput>udev-hwdb update</userinput></screen>
+
+    <para>Denne kommandoen må kjøres hver gang maskinvareinformasjonen er
+    oppdatert.</para>
+
+  </sect2>
+
+  <sect2 id="contents-udev" role="content">
+    <title>Innhold i Udev</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installerte biblioteker</segtitle>
+      <segtitle>Installerte mapper</segtitle>
+
+      <seglistitem>
+        <seg>udevadm, udevd (symlenke til udevadm), og udev-hwdb</seg>
+
+        <seg>libudev.so</seg>
+
+        <seg>/etc/udev og /usr/lib/udev</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+      <varlistentry id="udevadm" revision="sysv">
+        <term><command>udevadm</command></term>
+        <listitem>
+          <para>Generisk udev administrasjonsverktøy: kontrollerer udevd nissen,
+          gir informasjon fra Udevdatabasen, overvåker uevents, venter på
+          uevents for å fullføre, tester Udevkonfigurasjonen og utløser uevents
+          for en gitt enhet</para>
+          <indexterm zone="ch-system-udev udevadm">
+            <primary sortas="b-udevadm">udevadm</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="udevd">
+        <term><command>udevd</command></term>
+        <listitem>
+          <para>En nisse som lytter etter uevents på netlink socket,
+          oppretter enheter og kjører de konfigurerte eksterne programmene i
+          respons på disse hendelsene</para>
+          <indexterm zone="ch-system-udev udevd">
+            <primary sortas="b-udevd">udevd</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="udev-hwdb">
+        <term><command>udev-hwdb</command></term>
+        <listitem>
+          <para>Oppdaterer eller spørrer maskinvaredatabasen.</para>
+          <indexterm zone="ch-system-udev udev-hwdb">
+            <primary sortas="b-udev-hwdb">udev-hwdb</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libudev">
+        <term><filename class="libraryfile">libudev</filename></term>
+        <listitem>
+          <para>Et biblioteksgrensesnitt til udev enhetsinformasjon</para>
+          <indexterm zone="ch-system-udev libudev">
+            <primary sortas="c-libudev">libudev</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="etc-udev">
+        <term><filename class="directory">/etc/udev</filename></term>
+        <listitem>
+          <para>Inneholder Udev konfigurasjonsfiler,
+          enhetstillatelser og regler for navngivning av enheter</para>
+          <indexterm zone="ch-system-udev etc-udev">
+            <primary sortas="e-/etc/udev">/etc/udev</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>

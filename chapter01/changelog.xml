@@ -41,6 +41,36 @@
     -->
 
     <listitem>
+      <para>15.07.2023</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Erstatt eudev-3.2.12 med udev fra systemd-253.
+          Fikser <ulink url='&lfs-ticket-root;5285'>#5085</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til iana-etc-20230629.  Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.4.3.  Fikser
+          <ulink url='&lfs-ticket-root;5284'>#5284</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til  libxcrypt-4.4.36.  Fikser
+          <ulink url='&lfs-ticket-root;5283'>#5283</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til groff-1.23.0.  Fikser
+          <ulink url='&lfs-ticket-root;5282'>#5282</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til perl-5.38.0.  Fikser
+          <ulink url='&lfs-ticket-root;5281'>#5281</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>02.07.2023</para>
       <itemizedlist>
         <listitem>
