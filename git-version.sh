@@ -28,8 +28,8 @@ if ! git status > /dev/null; then
     exit 0
 fi
 
-export LC_ALL=en_US.utf8
-export TZ=America/Chicago
+export LC_ALL=no.NB.utf8
+export TZ=Europe/Oslo
 
 commit_date=$(git show -s --format=format:"%cd" --date=local)
 
@@ -39,13 +39,13 @@ month_digit=$(date --date "$commit_date" "+%m")
 day=$(date --date "$commit_date" "+%d" | sed 's/^0//')
 
 case $day in
-    "1" | "21" | "31" ) suffix="st";;
-    "2" | "22" ) suffix="nd";;
-    "3" | "23" ) suffix="rd";;
-    * ) suffix="th";;
+    "1" | "21" | "31" ) suffix="";;
+    "2" | "22" ) suffix="";;
+    "3" | "23" ) suffix="";;
+    * ) suffix="";;
 esac
 
-full_date="$month $day$suffix, $year"
+full_date="$day.$month_digit.$year"
 
 sha="$(git describe --abbrev=1)"
 rev=$(echo "$sha" | sed 's/-g[^-]*$//')
