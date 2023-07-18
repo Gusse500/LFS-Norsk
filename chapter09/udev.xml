@@ -16,7 +16,7 @@
   </indexterm>
 
   <para>I <xref linkend="chapter-building-system"/>, installerte vi udev
-  nissen når <phrase revision="sysv">eudev</phrase>
+  nissen når <phrase revision="sysv">udev</phrase>
   <phrase revision="systemd">systemd</phrase> ble bygget. Før vi går inn i
   detaljer om hvordan dette fungerer, er en kort historie om tidligere metoder for
   å håndtere utstyr i orden.</para>

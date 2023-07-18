@@ -306,7 +306,7 @@ Device Drivers ---&gt;
         <term><parameter>Support for uevent helper</parameter></term>
         <listitem>
           <para>Å ha dette alternativet satt kan forstyrre enhetens
-          behandling ved bruk av Udev/Eudev. </para>
+          behandling ved bruk av Udev. </para>
         </listitem>
       </varlistentry>
 
@@ -316,7 +316,7 @@ Device Drivers ---&gt;
           <para>Dette vil opprette automatiserte enhetsnoder som er befolket av
           kjerne, selv uten at Udev kjører. Udev kjører så på toppen av dette,
           administrere tillatelser og legge til symbolkoblinger. Denne konfigurasjonen
-          element er nødvendig for alle brukere av Udev/Eudev.</para>
+          element er nødvendig for alle brukere av Udev.</para>
         </listitem>
       </varlistentry>
 

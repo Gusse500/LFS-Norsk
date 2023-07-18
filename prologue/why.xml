@@ -138,7 +138,7 @@
       </listitem>
 
       <listitem revision="sysv">
-        <para>Eudev</para>
+        <para>Udev</para>
 
         <para>Denne pakken er en enhetsbehandler. Den styrer dynamisk eierskapet,
         tillatelser, navn og symbolske lenker til enheter i /dev mappen mens
@@ -233,7 +233,7 @@
 
         <para>Denne pakken inneholder et program som genererer en perfekt
         hashfunksjon fra et nøkkelsett. Den kreves av
-        <phrase revision='sysv'>Eudev</phrase>
+        <phrase revision='sysv'>Udev</phrase>
         <phrase revision='systemd'>Systemd</phrase>.</para>
       </listitem>
 
