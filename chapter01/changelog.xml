@@ -43,7 +43,7 @@
     <listitem>
       <para>15.07.2023</para>
       <itemizedlist>
-        <listitem>
+        <listitem revision='sysv'>
           <para>[xry111] - Erstatt eudev-3.2.12 med udev fra systemd-253.
           Fikser <ulink url='&lfs-ticket-root;5285'>#5085</ulink>.</para>
         </listitem>

@@ -40,6 +40,12 @@
   <sect2 role="installation">
     <title>Installasjon av Man-pages</title>
 
+    <para>Fjern to mansider for passordhashingsfunksjoner.
+    <application>Libxcrypt</application> vil gi en bedre versjon
+    av disse mansidene:</para>
+
+<screen><userinput remap="pre">rm -v man3/crypt*</userinput></screen>
+
     <para>Installer Man-pages ved å kjøre:</para>
 
 <screen><userinput remap="install">make prefix=/usr install</userinput></screen>
