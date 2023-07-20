@@ -137,15 +137,6 @@
         testede filsystemer som Linux støtter.</para>
       </listitem>
 
-      <listitem revision="sysv">
-        <para>Udev</para>
-
-        <para>Denne pakken er en enhetsbehandler. Den styrer dynamisk eierskapet,
-        tillatelser, navn og symbolske lenker til enheter i /dev mappen mens
-        enheter legges til eller fjernes fra systemet.
-        </para>
-      </listitem>
-
       <listitem>
         <para>Expat</para>
 
@@ -577,6 +568,15 @@
         <para>Denne pakken gir <application>init</application>
         programmet, som er overordnet for alle andre prosesser på et Linux
         system. </para>
+      </listitem>
+  
+      <listitem revision="sysv">
+        <para>Udev</para>
+
+        <para>Denne pakken er en enhetsbehandler. Den styrer dynamisk eierskapet,
+        tillatelser, navn og symbolske lenker til enheter i /dev mappen mens
+        enheter legges til eller fjernes fra systemet.
+        </para>
       </listitem>
 
       <listitem>
