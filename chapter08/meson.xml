@@ -35,15 +35,6 @@
       </seglistitem>
     </segmentedlist>
 
-    <tip revision="sysv">
-      <para>Denne delen er strengt tatt ikke nødvendig når LFS ikke bruker
-      systemd. På den annen side gjør Meson, sammen med Ninja,
-      en kraftig byggesystemkombinasjon,
-      som nok vil bli brukt stadig oftere. Det kreves for
-      flere pakker i <ulink url="&blfs-book;">BLFS
-      boken</ulink>.</para>
-    </tip>
-
   </sect2>
 
   <sect2 role="installation">
