@@ -111,10 +111,13 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Mange tester er kjent for å mislykkes med groff-1.23.0 eller nyere. Hvis
-    du uansett vil teste resultatene, utsted:</para>
+    <para>For å teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">make -k check</userinput></screen>
+
+    <!-- https://gitlab.com/man-db/man-db/-/issues/25 -->
+    <para>En test navngitt <filename>man1/lexgrog.1</filename> er kjent
+    for å mislykkes.</para>
 
     <para>Installer pakken:</para>
 
