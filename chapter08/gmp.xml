@@ -54,10 +54,12 @@
       <para>Standardinnstillingene til GMP produserer biblioteker optimalisert for
       vertsprosessoren. Hvis det er ønskelig med biblioteker egnet for prosessorer mindre
       kapable enn vertens CPU, kan generiske biblioteker bli
-      opprettet ved å kjøre følgende:
+      opprettet ved å legge til <option>--host=none-linux-gnu</option> alternativet
+      til <command>configure</command> kommandoen.</para>
 
-<screen role="nodump"><userinput>cp -v configfsf.guess config.guess
-cp -v configfsf.sub   config.sub</userinput></screen></para>
+      <!-- To editors: the configure script says "the none host is obsolete,
+           use - -disable-assembly", but don't believe it: with the latter
+           CFLAGS is still automatically set to -march=something.  -->
     </note>
 
     <para>Forbered GMP for kompilering:</para>
@@ -106,7 +108,7 @@ make html</userinput></screen>
     systemets evner og det vil være feil i testene eller andre
     applikasjoner som bruker gmp bibliotekene med meldingen "Illegal
     instruction". I dette tilfellet bør gmp rekonfigureres med alternativet
-    --build=x86_64-pc-linux-gnu og gjenoppbygges.</para></caution>
+    <option>--host=none-linux-gnu</option> og gjenoppbygges.</para></caution>
 
     <para>Sørg for at alle 197 testene i testpakken besto.
     Sjekk resultatene ved å gi følgende kommando:</para>
