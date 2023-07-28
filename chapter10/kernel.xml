@@ -431,8 +431,7 @@ Device Drivers ---&gt;
 
     <para>Installer dokumentasjonen for Linux kjernen:</para>
 
-<screen><userinput remap="install">install -d /usr/share/doc/linux-&linux-version;
-cp -r Documentation/* /usr/share/doc/linux-&linux-version;</userinput></screen>
+<screen><userinput remap="install">cp -r Documentation -T /usr/share/doc/linux-&linux-version;</userinput></screen>
 
     <para>Det er viktig å merke seg at filene i kjernekildens
     mappen ikke eies av <emphasis>root</emphasis>. Når en

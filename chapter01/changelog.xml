@@ -40,6 +40,17 @@
     appropriate for the entry or if needed the entire day's listitem.
     -->
 
+    <listitem revision='sysv'>
+      <para>22.07.2023</para>
+      <itemizedlist>
+        <listitem revision='sysv'>
+          <para>[xry111] - Gjør mountvirtfs bootscript opprette essensielle
+          symbolkoblinger i /dev. Fikser
+          <ulink url='&lfs-ticket-root;5289'>#5289</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
     <listitem>
       <para>15.07.2023</para>
       <itemizedlist>

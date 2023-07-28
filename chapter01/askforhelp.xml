@@ -10,6 +10,28 @@
 
   <title>Hjelp</title>
 
+  <note>
+    <para>
+      I tilfelle du har et problem med å bygge en pakke med LFS
+      instruksjoner fraråder vi på det sterkeste å legge ut problemet direkte på
+      oppstrøms støttekanalen før diskusjon via en LFS
+      støttekanal oppført i <xref linkend="ch-intro-resources"/>.
+      Å gjøre det er ofte ganske ineffektivt fordi oppstrøms
+      vedlikeholdere sjelden er kjent med LFS byggeprosedyre. Selv om
+      du virkelig har truffet et oppstrømsproblem, kan LFS-fellesskapet fortsatt hjelpe
+      å isolere informasjonen ønsket av oppstrøms vedlikeholdere og lage
+      en skikkelig rapport.
+    </para>
+
+    <para>
+      Hvis du må stille et spørsmål direkte via en oppstrøms støttekanal,
+      skal du i det minste merke deg at mange oppstrømsprosjekter har
+      støttekanaler atskilt fra feilsporeren.  <quote>bug</quote>
+      rapporter for å stille spørsmål anses som ugyldige og kan irritere
+      oppstrømsutviklere for disse prosjektene.
+    </para>
+  </note>
+
   <para>Hvis det oppstår et problem eller et spørsmål mens du arbeider gjennom
   denne boken, vennligst sjekk siden FAQ på <ulink url="&faq-root;#generalfaq"/>.
   Spørsmål er ofte allerede besvart der. Hvis spørsmålet ditt ikke er
