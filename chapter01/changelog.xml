@@ -41,6 +41,19 @@
     -->
 
     <listitem revision='sysv'>
+      <para>28.07.2023</para>
+      <itemizedlist>
+        <listitem revision='sysv'>
+          <para>[xry111] - Aktiver cgroup-basert minnetrykkinformasjon
+          i kjernen, og legg til cgroup-filsystemet i /etc/fstab og
+          mountvirtfs bootscript. Dette er en forberedelse til udev fra
+          systemd-254.  Adresserer
+          <ulink url='&lfs-ticket-root;5293'>#5293</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem revision='sysv'>
       <para>22.07.2023</para>
       <itemizedlist>
         <listitem revision='sysv'>
