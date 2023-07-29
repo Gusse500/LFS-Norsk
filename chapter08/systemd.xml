@@ -233,7 +233,8 @@ meson setup \
       <seglistitem>
         <seg>busctl, coredumpctl, halt (symlenke til systemctl),
         hostnamectl, init, journalctl, kernel-install, localectl, loginctl,
-        machinectl, networkctl, oomctl, portablectl, poweroff (symlenke til
+        machinectl, mount.ddi (symlenke til systemd-dissect), networkctl,
+        oomctl, portablectl, poweroff (symlenke til
         systemctl), reboot (symlenke til systemctl), resolvconf (symlenke til
         resolvectl), resolvectl, runlevel (symlenke til systemctl), shutdown
         (symlenke til systemctl), systemctl, systemd-ac-power, systemd-analyze,
