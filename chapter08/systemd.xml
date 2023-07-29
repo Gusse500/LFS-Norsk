@@ -40,19 +40,6 @@
   <sect2 role="installation">
     <title>Installasjon av systemd</title>
 
-    <para>
-      Fjern flere upassende bruk av <literal>pure</literal>
-      attributter ellers vil det forårsake kjøretidsproblemer når pakken bygges
-      med gcc-13 eller nyere:
-    </para>
-
-<screen><userinput remap='pre'>sed '/bus_message_type_from_string/s/_pure_//' \
-    -i src/libsystemd/sd-bus/bus-internal.h    &amp;&amp;
-sed '/devt_hash_func/s/_pure_//'               \
-    -i src/basic/hash-funcs.h                  &amp;&amp;
-sed '/job_get_timeout/s/_pure_//'              \
-    -i src/core/job.h</userinput></screen>
-
     <para>Fjern to unødvendige grupper,
     <systemitem class="groupname">render</systemitem> og
     <systemitem class="groupname">sgx</systemitem>, fra standard udev
@@ -205,9 +192,11 @@ meson setup \
 
     <!-- Please make sure systemd man pages tarball has a common leading
          component in the path.  -->
-<screen><userinput remap="install">tar -xf ../../systemd-man-pages-&systemd-man-version;.tar.xz --strip-components=1 -C /usr/share/man</userinput></screen>
+<screen><userinput remap="install">tar -xf ../../systemd-man-pages-&systemd-version;.tar.xz \
+    --no-same-owner --strip-components=1   \
+    -C /usr/share/man</userinput></screen>
 
-    <para>Opprett <filename>/etc/machine-id</filename> filen som trengs av
+    <para>Opprett filen <filename>/etc/machine-id</filename> som trengs av
     <command>systemd-journald</command>:</para>
 
 <screen><userinput remap="adjust">systemd-machine-id-setup</userinput></screen>
@@ -244,12 +233,14 @@ meson setup \
       <seglistitem>
         <seg>busctl, coredumpctl, halt (symlenke til systemctl),
         hostnamectl, init, journalctl, kernel-install, localectl, loginctl,
-        machinectl, networkctl, oomctl, portablectl, poweroff (symlenke til
+        machinectl, mount.ddi (symlenke til systemd-dissect), networkctl,
+        oomctl, portablectl, poweroff (symlenke til
         systemctl), reboot (symlenke til systemctl), resolvconf (symlenke til
         resolvectl), resolvectl, runlevel (symlenke til systemctl), shutdown
         (symlenke til systemctl), systemctl, systemd-ac-power, systemd-analyze,
         systemd-ask-password, systemd-cat, systemd-cgls, systemd-cgtop,
-        systemd-creds, systemd-delta, systemd-detect-virt,
+        systemd-confext (symlenke til systemd-sysext), systemd-creds,
+        systemd-delta, systemd-detect-virt,
         systemd-dissect, systemd-escape, systemd-hwdb, systemd-id128,
         systemd-inhibit, systemd-machine-id-setup,
         systemd-mount, systemd-notify, systemd-nspawn, systemd-path,
