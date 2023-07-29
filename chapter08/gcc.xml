@@ -172,11 +172,11 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
     url="&test-results;"/> og
     <ulink url="https://gcc.gnu.org/ml/gcc-testresults/"/>.</para>
 
-    <para><!--To tester navngitt <filename>pr104610.c</filename> og
+ <para><!--To tester navngitt <filename>pr104610.c</filename> og
     <filename>pr69482-1.c</filename> er kjent for å mislykkes fordi
     testfilene ikke tar hensyn til
-    <parameter>--enable-default-ssp</parameter> alternativet.-->
-    <!-- https://gcc.gnu.org/PR106375 og https://gcc.gnu.org/PR109353 -->
+    <parameter>- -enable-default-ssp</parameter> alternativet.
+     https://gcc.gnu.org/PR106375 og https://gcc.gnu.org/PR109353 -->
     To tester navngit <filename>copy.cc</filename> og
     <filename>pr56837.c</filename> er kjent for å mislykkes.
     <!-- https://gcc.gnu.org/PR107855#c6 -->
