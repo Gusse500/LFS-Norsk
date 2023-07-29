@@ -239,7 +239,8 @@ meson setup \
         resolvectl), resolvectl, runlevel (symlenke til systemctl), shutdown
         (symlenke til systemctl), systemctl, systemd-ac-power, systemd-analyze,
         systemd-ask-password, systemd-cat, systemd-cgls, systemd-cgtop,
-        systemd-creds, systemd-delta, systemd-detect-virt,
+        systemd-confext (symlenke til systemd-sysext), systemd-creds,
+        systemd-delta, systemd-detect-virt,
         systemd-dissect, systemd-escape, systemd-hwdb, systemd-id128,
         systemd-inhibit, systemd-machine-id-setup,
         systemd-mount, systemd-notify, systemd-nspawn, systemd-path,
