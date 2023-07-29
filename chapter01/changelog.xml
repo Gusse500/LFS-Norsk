@@ -40,6 +40,45 @@
     appropriate for the entry or if needed the entire day's listitem.
     -->
 
+    <listitem>
+      <para>28.07.2023</para>
+      <itemizedlist>
+        <listitem>
+           <para>[bdubbs] - Oppdatert udev-lfs tarball for å fjerne foreldet
+           cdrom-regler og referanser til ISDN-enheter. Fikser
+          <ulink url='&lfs-ticket-root;5291'>#5291</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til wheel-0.41.0 (Python Modul). Fikser
+          <ulink url='&lfs-ticket-root;5290'>#5290</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til tar-1.35. Fikser
+          <ulink url='&lfs-ticket-root;5287'>#5287</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til systemd-254. Fikser
+          <ulink url='&lfs-ticket-root;5293'>#5293</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til meson-1.2.0. Fikser
+          <ulink url='&lfs-ticket-root;5286'>#5286</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.4.7. Fikser
+          <ulink url='&lfs-ticket-root;5288'>#5288</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til gcc-13.2.0. Fikser
+          <ulink url='&lfs-ticket-root;5292'>#5292</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til file-5.45. Fikser
+          <ulink url='&lfs-ticket-root;5294'>#5294</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
     <listitem revision='sysv'>
       <para>28.07.2023</para>
       <itemizedlist>
