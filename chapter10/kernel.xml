@@ -64,8 +64,8 @@
         For generell informasjon om kjernekonfigurasjon se <ulink
         url="&hints-root;kernel-configuration.txt"/>.  Ytterligere informasjon
         om konfigurering og bygging av kjernen finner du på <ulink
-        url="&anduin-sources;/kernel-nutshell/"/>.
-		Disse referansene er litt
+        url="&anduin-sources;/kernel-nutshell/"/>. 
+        Disse referansene er litt
         utdatert, men gir likevel en rimelig oversikt over prosessen.
       </para>
 
@@ -77,7 +77,7 @@
       </para>
     </important>
 
-	<para>Forbered for kompilering ved å kjøre følgende kommando:</para>
+    <para>Forbered for kompilering ved å kjøre følgende kommando:</para>
 
 <screen><userinput remap="pre">make mrproper</userinput></screen>
 
@@ -127,61 +127,73 @@
       til en god tilstand som tar din nåværende systemarkitektur
       i betraktning.</para>
 
-	  <para>Sørg for å aktivere/deaktivere/stille inn følgende funksjoner, ellers kan systemet
+      <para>Sørg for å aktivere/deaktivere/stille inn følgende funksjoner, ellers kan systemet
       ikke fungere riktig eller starte opp i det hele tatt:</para>
 
-      <screen role="nodump" revision="sysv">Processor type and features ---&gt;
-   [*] Build a relocatable kernel [CONFIG_RELOCATABLE]
-   [*]   Randomize the address of the kernel image (KASLR) [CONFIG_RANDOMIZE_BASE]
-General setup ---&gt;
+<screen role="nodump" revision="sysv">General setup ---&gt;
    [ ] Compile the kernel with warnings as errors [CONFIG_WERROR]
-   CPU/Task time and stats accounting ---&gt;
-      [*] Pressure stall information tracking [CONFIG_PSI]
-      [ ]   Require boot parameter to enable pressure stall information tracking [CONFIG_PSI_DEFAULT_DISABLED]
+       CPU/Task time and stats accounting ---&gt;
+         [*] Pressure stall information tracking [CONFIG_PSI]
+         [ ] Require boot parameter to enable pressure stall information tracking 
+                                              [CONFIG_PSI_DEFAULT_DISABLED]
    &lt; &gt; Enable kernel headers through /sys/kernel/kheaders.tar.xz [CONFIG_IKHEADERS]
    [*] Control Group support [CONFIG_CGROUPS]   ---&gt;
       [*] Memory controller [CONFIG_MEMCG]
    [ ] Configure standard kernel features (expert users) [CONFIG_EXPERT]
+
+Processor type and features ---&gt;
+   [*] Build a relocatable kernel [CONFIG_RELOCATABLE]
+   [*]   Randomize the address of the kernel image (KASLR) [CONFIG_RANDOMIZE_BASE]
+
 General architecture-dependent options  ---&gt;
    [*] Stack Protector buffer overflow detection [CONFIG_STACKPROTECTOR]
    [*]   Strong Stack Protector [CONFIG_STACKPROTECTOR_STRONG]
-Device Drivers  ---&gt;
-  Graphics support ---&gt;
-   Frame buffer Devices ---&gt;
-      &lt;*&gt; Support for frame buffer devices ---&gt;
-   Console display driver support ---&gt;
-      [*] Framebuffer Console support [CONFIG_FRAMEBUFFER_CONSOLE]
-  Generic Driver Options  ---&gt;
-   [ ] Support for uevent helper [CONFIG_UEVENT_HELPER]
-   [*] Maintain a devtmpfs filesystem to mount at /dev [CONFIG_DEVTMPFS]
-   [*]   Automount devtmpfs at /dev, after the kernel mounted the rootfs [CONFIG_DEVTMPFS_MOUNT]</screen>
 
-      <screen role="nodump" revision="systemd">Processor type and features ---&gt;
-   [*] Build a relocatable kernel [CONFIG_RELOCATABLE]
-   [*]   Randomize the address of the kernel image (KASLR) [CONFIG_RANDOMIZE_BASE]
+Device Drivers  ---&gt;
+   Generic Driver Options  ---&gt;
+     [ ] Support for uevent helper [CONFIG_UEVENT_HELPER]
+     [*] Maintain a devtmpfs filesystem to mount at /dev [CONFIG_DEVTMPFS]
+     [*]   Automount devtmpfs at /dev, after the kernel mounted the rootfs 
+                                                       [CONFIG_DEVTMPFS_MOUNT]
+   Graphics support ---&gt;
+     Frame buffer Devices ---&gt;
+       &lt;*&gt; Support for frame buffer devices ---&gt;
+   Console display driver support ---&gt;
+      [*] Framebuffer Console support [CONFIG_FRAMEBUFFER_CONSOLE]</screen>
+
+<screen role="nodump" revision="systemd">
 General setup ---&gt;
    [ ] Compile the kernel with warnings as errors [CONFIG_WERROR]
    [ ] Auditing Support [CONFIG_AUDIT]
    CPU/Task time and stats accounting ---&gt;
       [*] Pressure stall information tracking [CONFIG_PSI]
-	  [ ]   Require boot parameter to enable pressure stall information tracking [CONFIG_PSI_DEFAULT_DISABLED]
+      [ ] Require boot parameter to enable pressure stall information tracking 
+                                                            [CONFIG_PSI_DEFAULT_DISABLED]
    &lt; &gt; Enable kernel headers through /sys/kernel/kheaders.tar.xz [CONFIG_IKHEADERS]
    [*] Control Group support [CONFIG_CGROUPS]   ---&gt;
       [*] Memory controller [CONFIG_MEMCG]
    [ ] Configure standard kernel features (expert users) [CONFIG_EXPERT]
+
+Processor type and features ---&gt;
+   [*] Build a relocatable kernel [CONFIG_RELOCATABLE]
+   [*]   Randomize the address of the kernel image (KASLR) [CONFIG_RANDOMIZE_BASE]
+
 General architecture-dependent options  ---&gt;
    [*] Enable seccomp to safely compute untrusted bytecode [CONFIG_SECCOMP]
    [*] Stack Protector buffer overflow detection [CONFIG_STACKPROTECTOR]
-   [*]   Strong Stack Protector [CONFIG_STACKPROTECTOR_STRONG]
+   [*] Strong Stack Protector [CONFIG_STACKPROTECTOR_STRONG]
+   
 [*] Networking support  ---&gt;   [CONFIG_NET]
    Networking options  ---&gt;
       [*] TCP/IP networking [CONFIG_INET]
       &lt;*&gt;   The IPv6 protocol [CONFIG_IPV6]
+
 Device Drivers  ---&gt;
-  Generic Driver Options  ---&gt;
+   Generic Driver Options  ---&gt;
       [ ] Support for uevent helper [CONFIG_UEVENT_HELPER]
       [*] Maintain a devtmpfs filesystem to mount at /dev [CONFIG_DEVTMPFS]
-      [*]   Automount devtmpfs at /dev, after the kernel mounted the rootfs [CONFIG_DEVTMPFS_MOUNT]
+      [*] Automount devtmpfs at /dev, after the kernel mounted the rootfs 
+                                                          [CONFIG_DEVTMPFS_MOUNT]
       Firmware Loader ---&gt;
          [ ] Enable the firmware sysfs fallback mechanism [CONFIG_FW_LOADER_USER_HELPER]
    Firmware Drivers   ---&gt;
@@ -191,6 +203,7 @@ Device Drivers  ---&gt;
          &lt;*&gt; Support for frame buffer devices ---&gt;
       Console display driver support ---&gt;
          [*] Framebuffer Console support [CONFIG_FRAMEBUFFER_CONSOLE]
+
 File systems  ---&gt;
    [*] Inotify support for userspace [CONFIG_INOTIFY_USER]
        Pseudo filesystems  ---&gt;
@@ -203,8 +216,9 @@ File systems  ---&gt;
       <parameter>CONFIG_X86_X2APIC</parameter> fordi et alternativ kun
       vises etter at avhengighetene er valgt.</para>
 
-      <screen role="nodump">Processor type and features ---&gt;
+<screen role="nodump">Processor type and features ---&gt;
   [*] Support x2apic [CONFIG_X86_X2APIC]
+
 Device Drivers ---&gt;
   [*] PCI Support ---&gt; [CONFIG_PCI]
     [*] Message Signaled Interrupts (MSI and MSI-X) [CONFIG_PCI_MSI]
@@ -238,7 +252,7 @@ Device Drivers ---&gt;
     avhengig av kravene til systemet. For en liste over nødvendige alternativer
     for BLFS pakker, se <ulink
     url="&lfs-root;blfs/view/&short-version;/longindex.html#kernel-config-index">BLFS
-    Indeks over kjerneinnstillinger</ulink></para>
+    Indeks over kjerneinnstillinger</ulink>.</para>
 
     <note>
       <para>Hvis vertsmaskinvaren din bruker UEFI og du ønsker å starte opp
@@ -297,7 +311,7 @@ Device Drivers ---&gt;
         </listitem>
       </varlistentry>
 
-	  <varlistentry>
+      <varlistentry>
         <term><parameter>Strong Stack Protector</parameter></term>
         <listitem>
           <para>Aktiver SSP for kjernen. Vi har aktivert det for hele
@@ -311,7 +325,7 @@ Device Drivers ---&gt;
         <term><parameter>Support for uevent helper</parameter></term>
         <listitem>
           <para>Å ha dette alternativet satt kan forstyrre enhetens
-          behandling ved bruk av Udev. </para>
+          behandling ved bruk av Udev.</para>
         </listitem>
       </varlistentry>
 
