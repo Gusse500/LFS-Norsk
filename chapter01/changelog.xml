@@ -58,7 +58,7 @@
         </listitem>
         <listitem>
           <para>[bdubbs] - Oppdatert til<phrase revision='sysv'> udev
-          fra</phrase> systemd-254. Fikser
+          fra</phrase> systemd-254. Fikser</para>
         </listitem>
         <listitem>
           <para>[bdubbs] - Oppdatert til meson-1.2.0. Fikser
