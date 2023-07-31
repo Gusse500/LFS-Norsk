@@ -134,7 +134,7 @@
    [ ] <emphasis role='blue'>C</emphasis>ompile the kernel with warnings as errors [CONFIG_WERROR]
        <emphasis role='blue'>C</emphasis>PU/Task time and stats accounting ---&gt;
          [*] <emphasis role='blue'>P</emphasis>ressure stall information tracking [CONFIG_PSI]
-         [ ] <emphasis role='blue'>R</emphasis>equire boot parameter to enable pressure stall information tracking  
+         [ ] <emphasis role='blue'>R</emphasis>equire boot parameter to enable pressure stall information tracking
                                               [CONFIG_PSI_DEFAULT_DISABLED]
    &lt; &gt; <emphasis role='blue'>E</emphasis>nable kernel headers through /sys/kernel/kheaders.tar.xz [CONFIG_IKHEADERS]
    [*] <emphasis role='blue'>C</emphasis>ontrol Group support [CONFIG_CGROUPS]   ---&gt;
@@ -153,7 +153,7 @@
    <emphasis role='blue'>G</emphasis>eneric Driver Options  ---&gt;
      [ ] <emphasis role='blue'>S</emphasis>upport for uevent helper [CONFIG_UEVENT_HELPER]
      [*] M<emphasis role='blue'>a</emphasis>intain a devtmpfs filesystem to mount at /dev [CONFIG_DEVTMPFS]
-     [*]   <emphasis role='blue'>A</emphasis>utomount devtmpfs at /dev, after the kernel mounted the rootfs  
+     [*]   <emphasis role='blue'>A</emphasis>utomount devtmpfs at /dev, after the kernel mounted the rootfs
                                                        [CONFIG_DEVTMPFS_MOUNT]
    <emphasis role='blue'>G</emphasis>raphics support ---&gt;
      <emphasis role='blue'>F</emphasis>rame buffer Devices ---&gt;
