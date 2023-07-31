@@ -229,9 +229,9 @@ Device Drivers ---&gt;
       med mer enn 4 GB RAM, juster konfigurasjonen slik at kjernen vil
       kunne bruke opptil 64 GB fysisk RAM:</para>
 
-      <screen role="nodump">Processor type and features ---&gt;
-  High Memory Support ---&gt;
-    (X) 64GB [CONFIG_HIGHMEM64G]</screen>
+      <screen role="nodump"><emphasis role='blue'>P</emphasis>rocessor type and features ---&gt;
+  H<emphasis role='blue'>i</emphasis>gh Memory Support ---&gt;
+    (X) <emphasis role='blue'>6</emphasis>4GB [CONFIG_HIGHMEM64G]</screen>
 
       <para>Hvis partisjonen for LFS-systemet er i en NVME SSD (dvs
       enhetsnoden for partisjonen er <filename>/dev/nvme*</filename>
