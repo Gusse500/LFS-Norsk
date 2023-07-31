@@ -134,7 +134,7 @@
    [ ] <emphasis role='blue'>C</emphasis>ompile the kernel with warnings as errors [CONFIG_WERROR]
        <emphasis role='blue'>C</emphasis>PU/Task time and stats accounting ---&gt;
          [*] <emphasis role='blue'>P</emphasis>ressure stall information tracking [CONFIG_PSI]
-         [ ] <emphasis role='blue'>R</emphasis>equire boot parameter to enable pressure stall information tracking  
+         [ ] <emphasis role='blue'>R</emphasis>equire boot parameter to enable pressure stall information tracking 
                                               [CONFIG_PSI_DEFAULT_DISABLED]
    &lt; &gt; <emphasis role='blue'>E</emphasis>nable kernel headers through /sys/kernel/kheaders.tar.xz [CONFIG_IKHEADERS]
    [*] <emphasis role='blue'>C</emphasis>ontrol Group support [CONFIG_CGROUPS]   ---&gt;
@@ -153,7 +153,7 @@
    <emphasis role='blue'>G</emphasis>eneric Driver Options  ---&gt;
      [ ] <emphasis role='blue'>S</emphasis>upport for uevent helper [CONFIG_UEVENT_HELPER]
      [*] M<emphasis role='blue'>a</emphasis>intain a devtmpfs filesystem to mount at /dev [CONFIG_DEVTMPFS]
-     [*]   <emphasis role='blue'>A</emphasis>utomount devtmpfs at /dev, after the kernel mounted the rootfs  
+     [*]   <emphasis role='blue'>A</emphasis>utomount devtmpfs at /dev, after the kernel mounted the rootfs 
                                                        [CONFIG_DEVTMPFS_MOUNT]
    <emphasis role='blue'>G</emphasis>raphics support ---&gt;
      <emphasis role='blue'>F</emphasis>rame buffer Devices ---&gt;
@@ -229,9 +229,9 @@ Device Drivers ---&gt;
       med mer enn 4 GB RAM, juster konfigurasjonen slik at kjernen vil
       kunne bruke opptil 64 GB fysisk RAM:</para>
 
-      <screen role="nodump">Processor type and features ---&gt;
-  High Memory Support ---&gt;
-    (X) 64GB [CONFIG_HIGHMEM64G]</screen>
+      <screen role="nodump"><emphasis role='blue'>P</emphasis>rocessor type and features ---&gt;
+  H<emphasis role='blue'>i</emphasis>gh Memory Support ---&gt;
+    (X) <emphasis role='blue'>6</emphasis>4GB [CONFIG_HIGHMEM64G]</screen>
 
       <para>Hvis partisjonen for LFS-systemet er i en NVME SSD (dvs
       enhetsnoden for partisjonen er <filename>/dev/nvme*</filename>
