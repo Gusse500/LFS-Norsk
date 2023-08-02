@@ -151,10 +151,9 @@ cd       build</userinput></screen>
 
 <screen><userinput remap="install">make tooldir=/usr install</userinput></screen>
 
-    <para>Fjern ubrukelige statiske biblioteker og tom manside:</para>
+    <para>Fjern ubrukelige statiske biblioteker:</para>
 
-<screen><userinput remap="install">rm -fv /usr/lib/lib{bfd,ctf,ctf-nobfd,sframe,opcodes}.a
-rm -fv /usr/share/man/man1/{gprofng,gp-*}.1</userinput></screen>
+<screen><userinput remap="install">rm -fv /usr/lib/lib{bfd,ctf,ctf-nobfd,sframe,opcodes}.a</userinput></screen>
 
   </sect2>
 
