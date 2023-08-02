@@ -41,6 +41,36 @@
     -->
 
     <listitem>
+      <para>01.08.2023</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til vim-9.0.1677.  Adresserer
+          <ulink url='&lfs-ticket-root;4500'>#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til openssl-3.1.2. Fikser
+          <ulink url='&lfs-ticket-root;5305'>#5305</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til man-pages-6.05. Fikser
+          <ulink url='&lfs-ticket-root;5303'>#5303</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til binutils-2.41. Fikser
+          <ulink url='&lfs-ticket-root;5300'>#5300</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til gmp-6.3.0. Fikser
+          <ulink url='&lfs-ticket-root;5301'>#5301</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til glibc-2.38. Fikser
+          <ulink url='&lfs-ticket-root;5302'>#5302</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>28.07.2023</para>
       <itemizedlist>
         <listitem>
