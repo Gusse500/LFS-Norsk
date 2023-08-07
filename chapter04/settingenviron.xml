@@ -104,7 +104,7 @@ EOF</userinput></screen>
     </varlistentry>
 
     <varlistentry>
-      <term><parameter>LFS_TGT=(uname -m)-lfs-linux-gnu</parameter></term>
+      <term><parameter>LFS_TGT=$(uname -m)-lfs-linux-gnu</parameter></term>
       <listitem>
   <para>The <envar>LFS_TGT</envar> variabel setter en ikkestandard, men kompatibel
   maskinbeskrivelse for bruk når du bygger vår krysskompiler og linker og når du krysskompiler

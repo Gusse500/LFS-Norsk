@@ -79,7 +79,7 @@
           <parameter>--enable-user-session</parameter>
         </term>
         <listitem>
-          <para>Disse sikrer at D-Bus per-bruker service og socket enhetens
+          <para>Dette sikrer at D-Bus per-bruker service og socket enhetens
           filer er installert for Systemd. De er ikke nyttige (men
           ufarlige) i en grunnleggende LFS installasjon, men de kan brukes
           når systemd er gjenoppbygd med PAM støtte i BLFS.</para>
