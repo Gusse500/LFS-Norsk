@@ -39,6 +39,35 @@
     <listitem revision="sysv"> or <listitem revision="systemd"> as
     appropriate for the entry or if needed the entire day's listitem.
     -->
+    <listitem>
+      <para>07.08.2023</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til xz-5.4.4. Fikser
+          <ulink url='&lfs-ticket-root;5307'>#5307</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til wheel-0.41.1 (Python Module). Fikser
+          <ulink url='&lfs-ticket-root;5311'>#5311</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til man-pages-6.05.01. Fikser
+          <ulink url='&lfs-ticket-root;5306'>#5306</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.4.8. Fikser
+          <ulink url='&lfs-ticket-root;5309'>#5309</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til iana-etc-20230804.  Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[rahul] - Oppdatert til pkgconf-2.0.0. Fikser
+          <ulink url='&lfs-ticket-root;5310'>#5310</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
 
     <listitem>
       <para>01.08.2023</para>
@@ -88,7 +117,8 @@
         </listitem>
         <listitem>
           <para>[bdubbs] - Oppdatert til<phrase revision='sysv'> udev
-          fra</phrase> systemd-254. Fikser</para>
+          fra</phrase> systemd-254. Fikser
+		  <ulink url='&lfs-ticket-root;5293'>#5293</ulink>.</para>
         </listitem>
         <listitem>
           <para>[bdubbs] - Oppdatert til meson-1.2.0. Fikser
@@ -223,7 +253,7 @@
           <ulink url='&lfs-ticket-root;5273'>#5273</ulink>.</para>
         </listitem>
         <listitem>
-          <para>[rahul] - Endret fra pkg-config til pkgconf 1.9.5.  Fikser
+          <para>[rahul] - Endret fra pkg-config til pkgconf-1.9.5.  Fikser
           <ulink url='&lfs-ticket-root;5274'>#5274</ulink>.</para>
         </listitem>
       </itemizedlist>
