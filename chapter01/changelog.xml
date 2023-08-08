@@ -63,7 +63,7 @@
           <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
         </listitem>
         <listitem>
-          <para>[rahul] - Oppdatert til pkgconf 2.0.0. Fikser
+          <para>[rahul] - Oppdatert til pkgconf-2.0.0. Fikser
           <ulink url='&lfs-ticket-root;5310'>#5310</ulink>.</para>
         </listitem>
       </itemizedlist>
@@ -117,7 +117,8 @@
         </listitem>
         <listitem>
           <para>[bdubbs] - Oppdatert til<phrase revision='sysv'> udev
-          fra</phrase> systemd-254. Fikser</para>
+          fra</phrase> systemd-254. Fikser
+		  <ulink url='&lfs-ticket-root;5293'>#5293</ulink>.</para>
         </listitem>
         <listitem>
           <para>[bdubbs] - Oppdatert til meson-1.2.0. Fikser
@@ -252,7 +253,7 @@
           <ulink url='&lfs-ticket-root;5273'>#5273</ulink>.</para>
         </listitem>
         <listitem>
-          <para>[rahul] - Endret fra pkg-config til pkgconf 1.9.5.  Fikser
+          <para>[rahul] - Endret fra pkg-config til pkgconf-1.9.5.  Fikser
           <ulink url='&lfs-ticket-root;5274'>#5274</ulink>.</para>
         </listitem>
       </itemizedlist>
