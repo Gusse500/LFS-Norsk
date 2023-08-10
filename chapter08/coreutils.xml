@@ -116,7 +116,7 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
     disse testene ikke hoppes over, legg til en midlertidig gruppe og gjør
     bruker <systemitem class="username">tester</systemitem> en del av de:</para>
 
-<screen><userinput remap="test">echo "dummy:x:102:tester" &gt;&gt; /etc/group</userinput></screen>
+<screen><userinput remap="test">groupadd -g 102 dummy -U tester</userinput></screen>
 
     <para>Fiks noen av tillatelsene slik at ikke-&root; brukeren kan
     kompilere og kjøre testene:</para>
@@ -134,7 +134,8 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
 
     <para>Fjern den midlertidige gruppen:</para>
 
-<screen><userinput remap="test">sed -i '/dummy/d' /etc/group</userinput></screen>
+<screen><userinput remap="test">groupdel dummy</userinput></screen>
+
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
