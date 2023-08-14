@@ -150,6 +150,24 @@ menuentry "GNU/Linux, Linux &linux-version;-lfs-&version;" {
 }</literal>
 EOF</userinput></screen>
 
+    <para>
+      <command>insmod</command> kommandoer laster inn
+      <application>GRUB</application> moduler navngitt
+      <filename>part_gpt</filename> og <filename>ext2</filename>.
+      Til tross for navngivningen, støtter <filename>ext2</filename> faktisk
+      <systemitem class='filesystem'>ext2</systemitem>,
+      <systemitem class='filesystem'>ext3</systemitem>, og
+      <systemitem class='filesystem'>ext4</systemitem> filsystemer.
+      <command>grub-install</command> kommandoen har bygd inn noen moduler
+      inn i hoveddelen av <application>GRUB</application> bildet (installert i
+      MBR- eller GRUB BIOS-partisjonen) for å få tilgang til de andre modulene
+      (i <filename class='directory'>/boot/grub/i386-pc</filename>) uten
+      et kylling-eller-egg-problem, så med en typisk konfigurasjon er disse to
+      modulene allerede innebygd og de to <command>insmod</command>
+      kommandoer vil ikke gjøre noe. Men de gjør ingen skade uansett, og det kan
+      være nødvendig med noen sjeldne konfigurasjoner.
+    </para>
+
     <note><para>Fra <application>GRUB</application> sitt perspektiv, 
     kjernefilene er i forhold til partisjonen som brukes. Hvis du
     brukte en separat /boot-partisjon, fjern /boot fra ovenstående
