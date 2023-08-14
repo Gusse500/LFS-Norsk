@@ -43,8 +43,9 @@
       <para>15.08.2023</para>
       <itemizedlist>
         <listitem>
-          <para>[bdubbs] - Oppdatert til xz-5.4.4. Fikser
-          <ulink url='&lfs-ticket-root;5307'>#5307</ulink>.</para>
+          <para>[bdubbs] - Legg til en oppdatering for å fikse en ytelsesregresjon i
+          glibc sin posix_memalign() funksjon. Fikser
+          <ulink url='&lfs-ticket-root;5315'>#5315</ulink>.</para>
         </listitem>
         <listitem>
           <para>[bdubbs] - Oppdatert til less-643. Fikser
@@ -172,7 +173,7 @@
     <listitem revision='sysv'>
       <para>28.07.2023</para>
       <itemizedlist>
-        <listitem revision='sysv'>
+        <listitem>
           <para>[xry111] - Aktiver cgroup-basert minnetrykkinformasjon
           i kjernen, og legg til cgroup-filsystemet i /etc/fstab og
           mountvirtfs bootscript. Dette er en forberedelse til udev fra
@@ -185,7 +186,7 @@
     <listitem revision='sysv'>
       <para>22.07.2023</para>
       <itemizedlist>
-        <listitem revision='sysv'>
+        <listitem>
           <para>[xry111] - Gjør mountvirtfs bootscript opprette essensielle
           symbolkoblinger i /dev. Fikser
           <ulink url='&lfs-ticket-root;5289'>#5289</ulink>.</para>
@@ -375,7 +376,7 @@
           <para>[bdubbs] - Oppdatert til flit_core-3.9.0. Fikser
           <ulink url='&lfs-ticket-root;5257'>#5257</ulink>.</para>
         </listitem>
-        <listitem>
+        <listitem revision="sysv">
           <para>[bdubbs] - Oppdatert til eudev-3.2.12. Fikser
           <ulink url='&lfs-ticket-root;5260'>#5260</ulink>.</para>
         </listitem>
