@@ -187,11 +187,12 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
     <para>
       Med Glibc-2.38 er analysatortestene navngitt
       <filename>data-model-4.c</filename> og
-      <filename>conftest-1.c</filename> kjent for å mislykkes.
-      I asan testene er deltesten navngitt
-      <filename>AddressSanitizer_StrtolOOBTest</filename> i testen
-      <filename>asan_test.C</filename> og testen som heter
-      <filename>interception-malloc-test-1.C</filename> kjent for å mislykkes.
+      <filename>conftest-1.c</filename> 
+        er kjent for å mislykkes.
+      I asan testene, flere tester i <filename>asan_test.C</filename> 
+        er kjent for å mislykkes.
+      Testen med navnet <filename>interception-malloc-test-1.C</filename> 
+        er kjent for å mislykkes.
     </para>
 
     <para>Noen få uventede feil kan ikke alltid unngås. GCC utviklerne
