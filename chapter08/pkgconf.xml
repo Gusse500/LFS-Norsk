@@ -43,15 +43,15 @@
   <sect2 role="installation">
 
     <title>Installasjon av Pkgconf</title>
-
+<!--
     <para>Pkgconf-2.0.0 feiler eksplisitt ved forsøk på å kjøre
-    <option>--modversion</option> med flere argumenter, selv om disse
+    <option>- -modversion</option> med flere argumenter, selv om disse
     argumentene er begrensninger for den samme pakken. Dette knekker mange
     pakker i BLFS. Kjør denne sed for å gjenopprette den gamle
     utdataen for pkgconf:</para>
 
      <screen><userinput remap="pre">sed -i '1330,1336s|^|//|' cli/main.c</userinput></screen>
-
+-->
     <para>Forbered Pkgconf for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr              \
