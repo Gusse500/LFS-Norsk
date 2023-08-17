@@ -7,8 +7,8 @@ den nødvendige programvaren. Hvis du allerede har fullført trinnene som er bes
 INSTALL filen, fortsett deretter å lese for eksempler på hvordan du konverterer disse filene til
 forskjellige andre formater.
 
-I alle eksemplene er det nødvendig å sette parameteren REV=systemd for å bygge
-systemd versjon av boken.
+I alle eksemplene er det nødvendig å sette parameteren REV=systemd før BASEDIR for å bygge
+systemd versjon av boken. Eksempel: "make REV=systemd BASEDIR="
 
 XML ttil XHTML:
 -------------
