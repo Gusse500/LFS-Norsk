@@ -103,7 +103,7 @@
       kompatibel med LSB, bygg pakken på nytt med følgende
       kommandoer:</para>
 
-<screen><userinput remap="nodump">make distclean
+<screen role="nodump"><userinput>make distclean
 ./configure --prefix=/usr                \
             --enable-hashes=strong,glibc \
             --enable-obsolete-api=glibc  \
