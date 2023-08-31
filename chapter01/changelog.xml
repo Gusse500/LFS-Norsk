@@ -43,6 +43,16 @@
       <para>18.08.2023</para>
       <itemizedlist>
         <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.4.12.  Fikser
+          <ulink url='&lfs-ticket-root;5320'>#5320</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>18.08.2023</para>
+      <itemizedlist>
+        <listitem>
           <para>[bdubbs] - Oppdatert til udev-lfs-20230818.</para>
         </listitem>
       </itemizedlist>

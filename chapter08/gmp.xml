@@ -110,7 +110,9 @@ make html</userinput></screen>
     instruction". I dette tilfellet bør gmp rekonfigureres med alternativet
     <option>--host=none-linux-gnu</option> og gjenoppbygges.</para></caution>
 
-    <para>Sørg for at alle 199 testene i testpakken består.
+    <!-- Some tests PASS on a specific uarch but SKIP on other CPUs.
+         For example on K8 the following command outputs 200.  -->
+    <para>Sørg for at minst 199 tester i testpakken besto.
     Sjekk resultatene ved å gi følgende kommando:</para>
 
 <screen><userinput remap="test">awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log</userinput></screen>
