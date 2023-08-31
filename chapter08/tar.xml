@@ -81,7 +81,8 @@
 
     <para>En test, capabilities: binary store/restore, er kjent for å mislykkes hvis den
     kjøres (på grunn av at LFS mangler selinux), men vil bli hoppet over hvis vertskjernen ikke
-    støtter utvidede attributter på filsystemet som brukes til å bygge LFS.</para>
+    støtter utvidede attributter eller sikkerhetsetiketter på filsystemet
+    som brukes til å bygge LFS.</para>
 
     <para>Installer pakken:</para>
 
