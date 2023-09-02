@@ -25,7 +25,7 @@
     </para>
   </caution>
 
-  <para>I 11.4 utgivelsen, <parameter>--disable-fixincludes</parameter>
+  <para>I 12.0 utgivelsen, <parameter>--disable-fixincludes</parameter>
   er satt for GCC. Det er en konfigurasjonsbryter som nylig er lagt til i GCC 13.1 for
   å hindre GCC fra<quote>låse</quote> systemdeklarasjonene. En slik
   <quote>lås</quote> er unødvendig for et moderne Linuxsystem og kan forårsake
