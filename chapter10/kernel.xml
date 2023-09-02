@@ -122,6 +122,7 @@
 
 
     <note>
+      <?dbfo keep-together="auto"?>
       <para>Et godt utgangspunkt for å sette opp kjernekonfigurasjonen er å
       kjøre <command>make defconfig</command>. Dette vil sette basekonfigurasjonen
       til en god tilstand som tar din nåværende systemarkitektur

@@ -173,7 +173,7 @@
   <para >For å se om vertssystemet ditt har alle de riktige versjonene, og
   muligheten til å kompilere programmer, kjør følgende:</para>
 
-<screen role="nodump"><userinput>cat &gt; version-check.sh &lt;&lt; "EOF"
+<screen role="nodump"><?dbfo keep-together="auto"?><userinput>cat &gt; version-check.sh &lt;&lt; "EOF"
 <literal>#!/bin/bash
 # A script to list version numbers of critical development tools
 
