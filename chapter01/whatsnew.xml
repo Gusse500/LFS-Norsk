@@ -11,6 +11,13 @@
 
   <title>Hva er nytt side forrige utgivelse</title>
 
+<!--
+
+This does not belong on this page.  I don't want to address this now.
+At first I thought it would go on another page, but nothing seems to fit.
+Perhaps a new page - somthing like 'Upgrading an Existing LFS System'.
+  - Bruce 9/1/23
+
   <caution>
     <para>
       Under en utviklingssyklus av LFS er instruksjonene i boken
@@ -25,7 +32,7 @@
     </para>
   </caution>
 
-  <para>I 12.0 utgivelsen, <parameter>--disable-fixincludes</parameter>
+  <para>I 12.0 utgivelsen, <parameter>- -disable-fixincludes</parameter>
   er satt for GCC. Det er en konfigurasjonsbryter som nylig er lagt til i GCC 13.1 for
   å hindre GCC fra<quote>låse</quote> systemdeklarasjonene. En slik
   <quote>lås</quote> er unødvendig for et moderne Linuxsystem og kan forårsake
@@ -33,7 +40,7 @@
 
   <para>Nedenfor er en liste over pakkeoppdateringer gjort siden forrige
   utgivelse av boken.</para>
-
+-->
   <!--
     Every package in the book is listed in the "Upgraded to:" section.
     Comment/uncomment as needed. DO NOT delete any of these lines unless that
@@ -61,12 +68,12 @@
     <!--<listitem>
       <para>Bash &bash-version;</para>
     </listitem>-->
-    <listitem>
+    <!--<listitem>
       <para>Bc &bc-version;</para>
-    </listitem>
-    <listitem>
+    </listitem>-->
+    <!--<listitem>
       <para>Binutils-&binutils-version;</para>
-    </listitem>
+    </listitem>-->
     <!--<listitem>
       <para>Bison-&bison-version;</para>
     </listitem>-->
@@ -76,23 +83,23 @@
     <!--<listitem>
       <para>Check-&check-version;</para>
     </listitem>-->
-    <listitem>
+    <!--<listitem>
       <para>Coreutils-&coreutils-version;</para>
-    </listitem>
+    </listitem>-->
     <!--<listitem>
       <para>DejaGNU-&dejagnu-version;</para>
     </listitem>-->
-    <listitem revision="systemd">
+    <!--<listitem revision="systemd">
       <para>D-Bus-&dbus-version;</para>
-    </listitem>
-    <listitem>
+    </listitem>-->
+    <!--<listitem>
       <para>Diffutils-&diffutils-version;</para>
-    </listitem>
+    </listitem>-->
     <!--<listitem>
        <para>E2fsprogs-&e2fsprogs-version;</para>
     </listitem>-->
     <!--<listitem revision="sysv">
-       <para>Udev-&systemd-version; (fra systemd)</para>
+       <para>Udev-&systemd-version; (from systemd)</para>
     </listitem>-->
     <!--<listitem>
        <para>Expat-&expat-version;</para>
@@ -100,84 +107,84 @@
     <!--<listitem>
        <para>Expect-&expect-version;</para>
     </listitem>-->
-    <listitem>
+    <!--<listitem>
        <para>File-&file-version;</para>
-    </listitem>
+    </listitem>-->
     <!--<listitem>
       <para>Findutils-&findutils-version;</para>
     </listitem>-->
     <!--<listitem>
       <para>Flex-&flex-version;</para>
     </listitem>-->
-    <listitem>
+    <!--<listitem>
       <para>Flit-core-&flit-core-version;</para>
-    </listitem>
-	<listitem>
+    </listitem>-->
+    <!--<listitem>
       <para>Gawk-&gawk-version;</para>
-    </listitem>
-    <listitem>
+    </listitem>-->
+    <!--<listitem>
        <para>GCC-&gcc-version;</para>
-    </listitem>
+    </listitem>-->
     <!--<listitem>
        <para>GDBM-&gdbm-version;</para>
     </listitem>-->
-    <listitem>
+    <!--<listitem>
       <para>Gettext-&gettext-version;</para>
-    </listitem>
-    <listitem>
+    </listitem>-->
+    <!--<listitem>
       <para>Glibc-&glibc-version;</para>
-    </listitem>
-    <listitem>
+    </listitem>-->
+    <!--<listitem>
       <para>GMP-&gmp-version;</para>
-    </listitem>
+    </listitem>-->
     <!--<listitem>
       <para>Gperf-&gperf-version;</para>
     </listitem>-->
-    <listitem>
+    <!--<listitem>
       <para>Grep-&grep-version;</para>
-    </listitem>
-    <listitem>
+    </listitem>-->
+    <!--<listitem>
       <para>Groff-&groff-version;</para>
-    </listitem>
+    </listitem>-->
     <!--<listitem>
       <para>GRUB-&grub-version;</para>
     </listitem>-->
     <!--<listitem>
       <para>Gzip-&gzip-version;</para>
     </listitem>-->
-    <listitem>
+    <!--<listitem>
       <para>IANA-Etc-&iana-etc-version;</para>
-    </listitem>
+    </listitem>-->
     <!--<listitem>
       <para>Inetutils-&inetutils-version;</para>
     </listitem>-->
     <!--<listitem>
       <para>Intltool-&intltool-version;</para>
     </listitem>-->
-    <listitem>
+    <!--<listitem>
       <para>IPRoute2-&iproute2-version;</para>
-    </listitem>
+    </listitem>-->
     <!--<listitem revision="systemd">
       <para>Jinja2-&jinja2-version;</para>
     </listitem>-->
-    <listitem>
+    <!--<listitem>
       <para>Kbd-&kbd-version;</para>
-    </listitem>
+    </listitem>-->
     <!--<listitem>
       <para>Kmod-&kmod-version;</para>
     </listitem>-->
-    <listitem>
+    <!--<listitem>
       <para>Less-&less-version;</para>
-    </listitem>
+    </listitem>-->
     <!--<listitem>
       <para>LFS-Bootscripts-&lfs-bootscripts-version;</para>
     </listitem>-->
-    <listitem>
+    <!--<listitem>
       <para>Libcap-&libcap-version;</para>
-    </listitem>
-    <listitem>
-      <para>Libelf-&elfutils-version; (fra elfutils)</para>
-    </listitem>
+    </listitem>-->
+    <!--<listitem>
+      <para>Libelf-&elfutils-version; (from elfutils)</para>
+    </listitem>-->
     <!--<listitem>
       <para>Libffi-&libffi-version;</para>
     </listitem>-->
@@ -187,27 +194,27 @@
     <!--<listitem>
       <para>Libtool-&libtool-version;</para>
     </listitem>-->
-    <listitem>
+    <!--<listitem>
       <para>Linux-&linux-version;</para>
-    </listitem>
+    </listitem>-->
     <!--<listitem>
       <para>M4-&m4-version;</para>
     </listitem>-->
-    <listitem>
+    <!--<listitem>
       <para>Make-&make-version;</para>
-    </listitem>
+    </listitem>-->
     <!--<listitem>
       <para>Man-DB-&man-db-version;</para>
     </listitem>-->
-    <listitem>
+    <!--<listitem>
       <para>Man-pages-&man-pages-version;</para>
-    </listitem>
-    <listitem revision="systemd">
+    </listitem>-->
+    <!--<listitem revision="systemd">
       <para>MarkupSafe-&markupsafe-version;</para>
-    </listitem>
-    <listitem>
+    </listitem>-->
+    <!--<listitem>
       <para>Meson-&meson-version;</para>
-    </listitem>
+    </listitem>-->
     <!--<listitem>
       <para>MPC-&mpc-version;</para>
     </listitem>-->
@@ -220,27 +227,27 @@
     <!--<listitem>
       <para>Ninja-&ninja-version;</para>
     </listitem>-->
-    <listitem>
+    <!--<listitem>
       <para>Openssl-&openssl-version;</para>
-    </listitem>
+    </listitem>-->
     <!--<listitem>
       <para>Patch-&patch-version;</para>
     </listitem>-->
-    <listitem>
+    <!--<listitem>
       <para>Pkgconf-&pkgconf-version;</para>
-    </listitem>
-	<listitem>
+    </listitem>-->
+    <!--<listitem>
       <para>Perl-&perl-version;</para>
-    </listitem>
-    <listitem>
+    </listitem>-->
+    <!--<listitem>
       <para>Procps-ng-&procps-ng-version;</para>
-    </listitem>
-    <!--listitem>
+    </listitem>-->
+    <!--<listitem>
       <para>Psmisc-&psmisc-version;</para>
     </listitem>-->
-    <listitem>
+    <!--<listitem>
       <para>Python-&python-version;</para>
-    </listitem>
+    </listitem>-->
     <!--<listitem>
       <para>Readline-&readline-version;</para>
     </listitem>-->
@@ -250,52 +257,52 @@
     <!--<listitem>
       <para>Shadow-&shadow-version;</para>
     </listitem>-->
-    <listitem revision="sysv">
+    <!--<listitem revision="sysv">
       <para>Sysklogd-&sysklogd-version;</para>
-    </listitem>
-    <listitem>
+    </listitem>-->
+    <!--<listitem>
       <para>Systemd-&systemd-version;</para>
-    </listitem>
+    </listitem>-->
     <!--<listitem revision="sysv">
       <para>SysVinit-&sysvinit-version;</para>
     </listitem>-->
-    <listitem>
+    <!--<listitem>
       <para>Tar-&tar-version;</para>
-    </listitem>
+    </listitem>-->
     <!--<listitem>
       <para>Tcl-&tcl-version;</para>
     </listitem>-->
-    <listitem>
+    <!--<listitem>
       <para>Texinfo-&texinfo-version;</para>
-    </listitem>
-    <listitem>
+    </listitem>-->
+    <!--<listitem>
       <para>Tzdata-&tzdata-version;</para>
-    </listitem>
-    <listitem>
+    </listitem>-->
+    <!--<listitem>
       <para>Util-Linux-&util-linux-version;</para>
-    </listitem>
-    <listitem>
+    </listitem>-->
+    <!--<listitem>
       <para>Vim-&vim-version;</para>
-    </listitem>
-    <listitem>
+    </listitem>-->
+    <!--<listitem>
       <para>wheel-&wheel-version;</para>
-    </listitem>
+    </listitem>-->
     <!--<listitem>
       <para>XML-Parser-&xml-parser-version;</para>
     </listitem>-->
-    <listitem>
+    <!--<listitem>
       <para>XZ-Utils-&xz-version;</para>
-    </listitem>
+    </listitem>-->
     <!--<listitem>
       <para>Zlib-&zlib-version;</para>
     </listitem>-->
-    <listitem>
+    <!--<listitem>
       <para>Zstd-&zstd-version;</para>
-    </listitem>
+    </listitem>-->
   </itemizedlist>
 
   <!--<itemizedlist>
-    <title>Downgraded to:</title>
+    <title>Nedgradert til:</title>
 
     <listitem>
       <para>PLACEHOLDER</para>
@@ -306,34 +313,6 @@
   <itemizedlist>
     <title>Lagt til:</title>
     <listitem><para></para></listitem>  <!-- satisfy build -->
-
-    <listitem revision="sysv">
-       <para>Udev-&systemd-version; (fra systemd)</para>
-    </listitem>
-
-	<listitem revision="sysv">
-      <para>Jinja2-&jinja2-version;</para>
-    </listitem>
-
-    <listitem revision="sysv">
-      <para>MarkupSafe-&markupsafe-version;</para>
-    </listitem>
-
-    <listitem>
-      <para>Libxcrypt-&libxcrypt-version;</para>
-    </listitem>
-
-    <listitem>
-      <para>Pkgconf-&pkgconf-version;</para>
-    </listitem>
-
-    <listitem>
-      <para>Flit-core-&flit-core-version;</para>
-    </listitem>
-
-	<listitem>
-      <para>&glibc-memalign-patch;</para>
-    </listitem>
 
     <!--<listitem>
       <para>&grub-upstream-fixes-patch;</para>
@@ -351,7 +330,7 @@
   <itemizedlist>
     <title>Fjernet:</title>
     <listitem><para></para></listitem>  <!-- satisfy build -->
-
+<!--
     <listitem revision='sysv'>
       <para>eudev-3.2.12</para>
     </listitem>
@@ -363,6 +342,5 @@
     <listitem revision='systemd'>
       <para>systemd-252-security_fix-1.patch</para>
     </listitem>
-  </itemizedlist>
-
+-->
 </sect1>
