@@ -140,7 +140,7 @@
 
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
         href="kernel/systemd.xml"/>
-
+   
       <para>Aktiver noen tilleggsfunksjoner hvis du bygger et 64-bit
       system. Hvis du bruker menuconfig, aktiver dem i rekkefølgen
       <parameter>CONFIG_PCI_MSI</parameter> først, deretter
