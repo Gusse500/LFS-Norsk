@@ -42,7 +42,7 @@
 
     <para>Kompiler MarkupSafe med følgende kommando:</para>
 
-<screen><userinput remap="make">pip3 wheel -w dist --no-build-isolation --no-deps $PWD</userinput></screen>
+<screen><userinput remap="make">pip3 wheel -w dist --no-cache-dir --no-build-isolation --no-deps $PWD</userinput></screen>
 
     <para>Denne pakken kommer ikke med en testpakke.</para>
 

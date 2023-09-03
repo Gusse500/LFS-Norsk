@@ -68,7 +68,8 @@ meson setup \
       -Dmode=release                \
       -Dpamconfdir=no               \
       -Ddev-kvm-mode=0660           \
-	  -Ddocdir=/usr/share/doc/systemd-&systemd-version; \
+      -Dnobody-group=nogroup        \
+      -Ddocdir=/usr/share/doc/systemd-&systemd-version; \
       ..</userinput></screen>
 
     <variablelist>
@@ -176,6 +177,14 @@ meson setup \
           <para>Standard udevregler vil tillate alle brukere tilgang til
           <filename class='devicefile'>/dev/kvm</filename>.  Redaktørene
           anser det som farlig. Dette alternativet overstyrer det.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>-Dnobody-group=nogroup</parameter></term>
+        <listitem>
+          <para>Forteller pakken gruppenavnet med GID 65534 er
+          <systemitem class='groupname'>nogroup</systemitem>.</para>
         </listitem>
       </varlistentry>
 	</variablelist>
