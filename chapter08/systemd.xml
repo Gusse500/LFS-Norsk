@@ -183,8 +183,8 @@ meson setup \
       <varlistentry>
         <term><parameter>-Dnobody-group=nogroup</parameter></term>
         <listitem>
-          <para>Forteller pakken hvilket gruppenavn den skal bruke til
-          'nobody-group'.</para>
+          <para>Forteller pakken gruppenavnet med GID 65534 er
+          <systemitem class='groupname'>nogroup</systemitem>.</para>
         </listitem>
       </varlistentry>
 	</variablelist>
