@@ -41,6 +41,17 @@
     -->
 
 	<listitem>
+      <para>04.09.2023</para>
+      <itemizedlist>
+        <listitem>
+           <para>[bdubbs] - Flytt vær forsiktig med å bygge ved å blande
+            annen versjon av LFS til Generelle kompilasjonsinstruksjoner. Fikser
+           <ulink url='&lfs-ticket-root;5338'>#5338</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>02.09.2023</para>
       <itemizedlist>
         <listitem>
