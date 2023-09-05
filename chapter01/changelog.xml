@@ -41,6 +41,29 @@
     -->
 
 	<listitem>
+      <para>05.09.2023</para>
+      <itemizedlist>
+        <listitem>
+           <para>[xry111] - Flytt pkgconf før binutils for binutils
+           byggesystem for å oppdage zstd riktig.
+           <ulink url='&lfs-ticket-root;5340'>#5340</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til linux-6.5.1.  Fikser
+          <ulink url='&lfs-ticket-root;5332'>#5332</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til pkgconf-2.0.3.  Fikser
+          <ulink url='&lfs-ticket-root;5339'>#5339</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til dbus-1.14.10.  Fikser
+          <ulink url='&lfs-ticket-root;5337'>#5337</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>04.09.2023</para>
       <itemizedlist>
         <listitem>

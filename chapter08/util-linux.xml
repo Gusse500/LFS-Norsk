@@ -1230,7 +1230,8 @@ su tester -c "make -k check"</userinput></screen>
           <para>Oppretter nye UUID. Hver ny UUID er et tilfeldig tall sannsynligvis
           unik blant alle UUID opprettet, på det lokale systemet og på andre
           systemer, i fortiden og i fremtiden, med ekstremt høy
-          sannsynlighet (~340 billioner billioner billioner unike UUIDer er mulig)</para>
+          sannsynlighet (2<superscript>128</superscript> UUIDs er
+          mulig)</para>
           <indexterm zone="ch-system-util-linux uuidgen">
             <primary sortas="b-uuidgen">uuidgen</primary>
           </indexterm>
