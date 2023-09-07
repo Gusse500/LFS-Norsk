@@ -45,7 +45,7 @@
       <itemizedlist>
         <listitem>
            <para>[xry111] - Flytt pkgconf før binutils for binutils
-           byggesystem for å oppdage zstd riktig.
+           byggesystem for å oppdage zstd riktig. Fikser
            <ulink url='&lfs-ticket-root;5340'>#5340</ulink>.</para>
         </listitem>
         <listitem>
