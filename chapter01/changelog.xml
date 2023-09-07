@@ -40,7 +40,18 @@
     appropriate for the entry or if needed the entire day's listitem.
     -->
 
-	<listitem>
+    <listitem>
+      <para>07.09.2023</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Løs et problem i pkgconf-2.0.3 som forårsaker
+          at BLFS pakker ikke kan bygges.  Fikser
+          <ulink url='&lfs-ticket-root;5341'>#5341</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>05.09.2023</para>
       <itemizedlist>
         <listitem>
