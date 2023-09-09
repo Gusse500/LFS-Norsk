@@ -43,11 +43,17 @@
   <sect2 role="installation">
     <title>Installation of Binutils</title>
 
-    <!-- Don't remove this until Binutils upstream updates the libtool
-         copy.  On some host distros the issue doesn't show up.  -->
-    <para>Binutils sender en utdatert kopi av libtool i tarballen. Det mangler
-    støtte for sysroot slik at de produserte binærfilene feilaktig kobles til
-    biblioteker fra vertsdistroen. Omgå dette problemet:</para>
+    <!-- Don't remove this until Binutils upstream resolves this issue.
+         We can test by building Binutils on a complete system with
+         zlib (libz.so) installed, passing enable-shared and
+         without-system-zlib.  If the resulted libctf.so still links against
+         libz.so (check with readelf -d) despite we are saying
+         without-system-zlib, then the issue is still unresolved.  -->
+    <para>Binutils er avhengig av en intern libtool kopi å lenke mot
+    interne statiske biblioteker, men liberty- og zlib-kopiene sendt
+    i pakken bruker ikke libtool. Denne inkonsekvensen kan forårsake
+    at produserte binærfiler feilaktig kobler mot biblioteker fra vertens
+    distro. Omgå dette problemet:</para>
 
 <screen><userinput remap="pre">sed '6009s/$add_dir//' -i ltmain.sh</userinput></screen>
 
