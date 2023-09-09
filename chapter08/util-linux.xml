@@ -42,7 +42,7 @@
   <sect2 role="installation">
     <title>Installasjon av Util-linux</title>
 
-    <para>Først deaktiver en problemtest:</para>
+    <para>Først deaktiver en problematisk test:</para>
 
     <screen><userinput remap="pre">sed -i '/test_mkfds/s/^/#/' tests/helpers/Makemodule.am</userinput></screen>
 

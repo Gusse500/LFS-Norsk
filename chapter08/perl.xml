@@ -76,15 +76,7 @@ export BUILD_BZIP2=0</userinput></screen>
              -Dusethreads</userinput></screen>
 
     <variablelist>
-      <title>Betydningen av konfigureringsalternativene:</title>
-
-      <varlistentry>
-        <term><parameter>-Dvendorprefix=/usr</parameter></term>
-        <listitem>
-          <para>Dette sikrer at <command>perl</command> vet hvordan å
-          fortelle pakker hvor de skal installere perl modulene sine.</para>
-        </listitem>
-      </varlistentry>
+      <title>Betydningen av de nye konfigureringsalternativene:</title>
 
       <varlistentry>
         <term><parameter>-Dpager="/usr/bin/less -isR"</parameter></term>
@@ -105,28 +97,9 @@ export BUILD_BZIP2=0</userinput></screen>
       </varlistentry>
 
       <varlistentry>
-        <term><parameter>-Duseshrplib</parameter></term>
-        <listitem>
-          <para>Bygger en delt libperl som trengs av noen perl moduler.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
         <term><parameter>-Dusethreads</parameter></term>
         <listitem>
           <para>Bygg perl med støtte for tråder.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term><parameter>-Dprivlib,-Darchlib,-Dsitelib,...</parameter></term>
-        <listitem>
-          <para>Disse innstillingene definerer hvor Perl leter etter installerte
-          moduler. LFS redaktørene valgte å legge dem i en katalogstruktur
-          basert på Major.Minor-versjonen av Perl (&perl-version-min;) hvilket
-          tillater oppgradering av Perl til nyere Patch nivåer (Patchnivået er
-          den siste punktseparerte delen i den fullstendige versjonenstrengen som
-          &perl-version;) uten å installere alle modulene på nytt.</para>
         </listitem>
       </varlistentry>
 

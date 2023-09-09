@@ -57,13 +57,43 @@
              -Dvendorarch=/usr/lib/perl5/&perl-version-min;/vendor_perl</userinput></screen>
 
     <variablelist>
-      <title>Betydningen av de nye konfigureringsalternativene:</title>
+      <title>Betydningen av konfigureringsalternativene:</title>
+
       <varlistentry>
         <term><parameter>-des</parameter></term>
         <listitem>
           <para>Dette er en kombinasjon av tre alternativer: -d bruker standardinnstillinger for
           alle elementer; -e sikrer gjennomføring av alle oppgaver; -s sender ikke ut
           ikke-essensiell utdata.</para>
+        </listitem>
+      </varlistentry>
+
+	  <varlistentry>
+        <term><parameter>-Dvendorprefix=/usr</parameter></term>
+        <listitem>
+          <para>Dette sikrer at <command>perl</command> vet hvordan å
+          fortelle pakker hvor de skal installere perl modulene sine.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>-Duseshrplib</parameter></term>
+        <listitem>
+          <para>Bygger <systemitem class='library'>libperl</systemitem>
+          som trengs av noen perl moduler som et delt bibliotek, i stedet for
+          et statisk bibliotek.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>-Dprivlib,-Darchlib,-Dsitelib,...</parameter></term>
+        <listitem>
+          <para>Disse innstillingene definerer hvor Perl leter etter installerte
+          moduler. LFS redaktørene valgte å legge dem i en katalogstruktur
+          basert på Major.Minor-versjonen av Perl (&perl-version-min;) hvilket
+          tillater oppgradering av Perl til nyere Patch nivåer (Patchnivået er
+          den siste punktseparerte delen i den fullstendige versjonenstrengen som
+          &perl-version;) uten å installere alle modulene på nytt.</para>
         </listitem>
       </varlistentry>
 

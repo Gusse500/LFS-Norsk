@@ -200,7 +200,7 @@ tar --strip-components=1  \
           2to3, idle3, pip3, pydoc3, python3, og python3-config
         </seg>
         <seg>
-          libpython&python-minor;.so and libpython3.so
+          libpython&python-minor;.so og libpython3.so
         </seg>
         <seg>
           /usr/include/python&python-minor;,
