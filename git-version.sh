@@ -17,6 +17,11 @@ echo "<!ENTITY % systemd \"$SYSTEMD\">"  >> conditional.ent
 if ! git status > /dev/null; then
     # Either it's not a git repository, or git is unavaliable.
     # Just workaround.
+
+	if [ -e LFS-RELEASE ]; then
+		exit 0
+	fi
+
     echo "<![ %sysv; ["                                    >  version.ent
     echo "<!ENTITY version           \"unknown\">"         >> version.ent
     echo "]]>"                                             >> version.ent
