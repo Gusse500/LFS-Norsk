@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ "$1" = sysv ]; then
     SYSV="INCLUDE"
@@ -14,6 +14,10 @@ fi
 echo "<!ENTITY % sysv    \"$SYSV\">"     >  conditional.ent
 echo "<!ENTITY % systemd \"$SYSTEMD\">"  >> conditional.ent
 
+if [ -e LFS-RELEASE ]; then
+	exit 0
+fi
+
 if ! git status > /dev/null; then
     # Either it's not a git repository, or git is unavaliable.
     # Just workaround.
@@ -28,7 +32,7 @@ if ! git status > /dev/null; then
     exit 0
 fi
 
-export LC_ALL=no.NB.utf8
+export LC_ALL=nb.NO.utf8
 export TZ=Europe/Oslo
 
 commit_date=$(git show -s --format=format:"%cd" --date=local)

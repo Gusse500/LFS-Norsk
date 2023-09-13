@@ -29,9 +29,12 @@
   som ikke er nødvendig for linkeren (for statiske biblioteker) eller dynamisk linker (for
   dynamisk koblede binære filer og delte biblioteker).</para>
 
-  <para>Feilsøkingssymbolene for utvalgte biblioteker er plassert
-  i separate filer. Denne feilsøkingsinformasjonen er nødvendig hvis det kjøres
-  regresjonstester som bruker <ulink
+  <!-- TODO: Zstd is better than Zlib for both speed and size.
+             Unfortunately Valgrind does not support Zstd-compressed debug
+             info yet: https://bugs.kde.org/show_bug.cgi?id=469782 -->
+  <para>Feilsøkingssymbolene fra utvalgte biblioteker komprimeres med
+  <application>Zlib</application> og lagres i separate filer. Denne
+  feilsøkingsinformasjon er nødvendig for å kjøre regresjonstester med <ulink
   url='&blfs-book;/general/valgrind.html'>valgrind</ulink> eller <ulink
   url='&blfs-book;/general/gdb.html'>gdb</ulink> senere i BLFS.
   </para>
