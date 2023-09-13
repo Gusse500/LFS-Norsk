@@ -34,7 +34,7 @@
              info yet: https://bugs.kde.org/show_bug.cgi?id=469782 -->
   <para>Feilsøkingssymbolene fra utvalgte biblioteker komprimeres med
   <application>Zlib</application> og lagres i separate filer. Denne
-  feilsøkingsinformasjon er nødvendig for å kjøre regresjonstester med <ulink>
+  feilsøkingsinformasjon er nødvendig for å kjøre regresjonstester med <ulink
   url='&blfs-book;/general/valgrind.html'>valgrind</ulink> eller <ulink
   url='&blfs-book;/general/gdb.html'>gdb</ulink> senere i BLFS.
   </para>
