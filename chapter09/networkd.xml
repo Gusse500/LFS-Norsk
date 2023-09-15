@@ -316,27 +316,18 @@ EOF</userinput></screen>
      <para>x kan være et hvilket som helst tall i området 16-31. y kan være et hvilket som helst tall i
      område 0-255.</para>
 
-     <para>En gyldig privat IP adresse kan være 192.168.1.1. En gyldig FQDN for
-     denne IPen kan være lfs.example.org.</para>
+     <para>En gyldig privat IP adresse kan være 192.168.1.1.</para>
 
-     <para>Selv om du ikke bruker et nettverkskort, kreves det fortsatt et gyldig FQDN.
-     Dette er nødvendig for at visse programmer, for eksempel MTAs, skal fungere ordentlig.</para>
+     <para>Hvis datamaskinen skal være synlig for Internett, en gyldig FQDN
+     kan være selve domenenavnet, eller en streng som er resultatet av å sette sammen et
+     prefiks (ofte vertsnavnet) og domenenavnet med <quote>.</quote>
+     karakter. Og du må kontakte domeneleverandøren for å knytte
+     FQDN til din offentlige IP-adresse.</para>
 
-<!--
-     <para>Opprett /etc/hosts filen ved å bruke følgende kommando:</para>
-
-<screen role="nodump"><userinput>cat &gt; /etc/hosts &lt;&lt; "EOF"
-<literal># Begin /etc/hosts
-
-127.0.0.1 localhost.localdomain localhost
-127.0.1.1 <replaceable>&lt;FQDN&gt;</replaceable> <replaceable>&lt;HOSTNAME&gt;</replaceable>
-::1       localhost ip6-localhost ip6-loopback
-ff02::1   ip6-allnodes
-ff02::2   ip6-allrouters
-
-# End /etc/hosts</literal>
-EOF</userinput></screen>
--->
+     <para>Selv om datamaskinen ikke er synlig for Internett, er en FQDN
+     fortsatt nødvendig for at visse programmer, for eksempel MTA-er, skal fungere ordentlig.
+     En spesiell FQDN, <literal>localhost.localdomain</literal>, kan bli brukt
+     til dette formålet.</para>
 
      <para>Opprett <filename>/etc/hosts</filename> filen ved å bruke følgende
      kommando:</para>
@@ -344,28 +335,32 @@ EOF</userinput></screen>
 <screen><userinput>cat &gt; /etc/hosts &lt;&lt; "EOF"
 <literal># Begin /etc/hosts
 
-127.0.0.1 localhost.localdomain localhost
-127.0.1.1 <replaceable>&lt;FQDN&gt;</replaceable> <replaceable>&lt;HOSTNAME&gt;</replaceable>
-<replaceable>&lt;192.168.0.2&gt;</replaceable> <replaceable>&lt;FQDN&gt;</replaceable> <replaceable>&lt;HOSTNAME&gt;</replaceable> <replaceable>[alias1] [alias2] ...</replaceable>
-::1       localhost ip6-localhost ip6-loopback
+<replaceable>&lt;192.168.0.2&gt;</replaceable> <replaceable>&lt;FQDN&gt;</replaceable> <replaceable>[alias1] [alias2] ...</replaceable>
+::1       ip6-localhost ip6-loopback
 ff02::1   ip6-allnodes
 ff02::2   ip6-allrouters
 
 # End /etc/hosts</literal>
 EOF</userinput></screen>
 
-     <para><replaceable>&lt;192.168.0.2&gt;</replaceable>,
-     <replaceable>&lt;FQDN&gt;</replaceable>, og
-     <replaceable>&lt;HOSTNAME&gt;</replaceable> verdier må bli
-     endret for spesifikke bruksområder eller krav (hvis det er tildelt en IP adresse av en
+     <para><replaceable>&lt;192.168.0.2&gt;</replaceable> og
+     <replaceable>&lt;FQDN&gt;</replaceable> verdier må bli
+     endret for spesifikke bruksområder eller krav (hvis tildelt en IP adresse av en
      nettverks-/systemadministrator og maskinen kobles til et
      eksisterende nettverk). De valgfrie aliasnavnene kan utelates, og
-     <replaceable>&lt;192.168.0.2&gt;</replaceable> linjen kan utelates hvis du
-     bruker en tilkobling konfigurert med DHCP eller IPv6 Autoconfiguration.</para>
+     <replaceable>&lt;192.168.0.2&gt;</replaceable>linjen kan utelates hvis du
+     bruker en tilkobling konfigurert med DHCP eller IPv6 autokonfigurasjon,
+     eller bruker <literal>localhost.localdomain</literal> som FQDN.</para>
+
+     <para><filename>/etc/hostname</filename> inneholder ikke oppføringer
+     for <literal>localhost</literal>,
+     <literal>localhost.localdomain</literal>, eller vertsnavnet (uten
+     domene) fordi de håndteres av
+     <systemitem class='library'>myhostname</systemitem> NSS modul, les
+     mansiden <filename>nss-myhostname(8)</filename> for detaljer.</para>
 
      <para>::1 oppføringen er IPv6 motstykket til 127.0.0.1 og representerer
-     IPv6 grensesnittet for tilbakesløyfe (loopback). 127.0.1.1 er en tilbakesløyfeoppføring reservert
-     spesielt for FQDN.</para>
+     IPv6 loopback grensesnittet.</para>
 
    </sect2>
 

@@ -178,9 +178,10 @@ EOF</userinput></screen>
        <secondary>/etc/hosts</secondary>
      </indexterm>
 
-     <para>Bestem deg for IP adressen, fullt kvalifisert domenenavn (FQDN) og
-     mulige aliaser for bruk i filen <filename>/etc/hosts</filename>.
-     Syntaks er:</para>
+     <para>Bestem deg for et fullt kvalifisert domenenavn (FQDN) og mulige aliaser
+     til bruk i <filename>/etc/hosts</filename> filen. Hvis du bruker statiske IP
+     adresser, må du også bestemme deg for en IP adresse. Syntaksen
+     for en vertsfiloppføring er:</para>
 
 <screen><literal>IP_addresse minvert.eksempel.org aliaser</literal></screen>
 
@@ -197,11 +198,18 @@ EOF</userinput></screen>
      <para>x kan være et hvilket som helst tall i området 16-31. y kan være et hvilket som helst tall i
      område 0-255.</para>
 
-     <para>En gyldig privat IP adresse kan være 192.168.1.1. Et gyldig FQDN for
-     denne IPen kan være lfs.example.org.</para>
+     <para>En gyldig privat IP adresse kan være 192.168.1.1.</para>
 
-     <para>Selv om du ikke bruker et nettverkskort, kreves det fortsatt et gyldig FQDN.
-     Dette er nødvendig for at enkelte programmer skal fungere korrekt.</para>
+     <para>Hvis datamaskinen skal være synlig for Internett, en gyldig FQDN
+     kan være selve domenenavnet, eller en streng som er resultatet av å sette sammen et
+     prefiks (ofte vertsnavnet) og domenenavnet med <quote>.</quote>
+     karakter. Og du må kontakte domeneleverandøren for å knytte
+     FQDN til din offentlige IP-adresse.</para>
+
+     <para>Selv om datamaskinen ikke er synlig for Internett, er en FQDN
+     fortsatt nødvendig for at visse programmer, for eksempel MTA-er, skal fungere ordentlig.
+     En spesiell FQDN, <literal>localhost.localdomain</literal>, kan bli brukt
+     til dette formålet.</para>
 
      <para>Opprett  <filename>/etc/hosts</filename> filen ved å kjøre:</para>
 
