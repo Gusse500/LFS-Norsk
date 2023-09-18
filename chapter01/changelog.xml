@@ -41,6 +41,24 @@
     -->
 
     <listitem>
+      <para>17.09.2023</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Oppdatert til linux-6.5.3.  Fikser
+          <ulink url='&lfs-ticket-root;5343'>#5343</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til iana-etc-20230912.  Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til iproute2-6.5.0.  Fikser
+          <ulink url='&lfs-ticket-root;5342'>#5342</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>13.09.2023</para>
       <itemizedlist>
         <listitem>
