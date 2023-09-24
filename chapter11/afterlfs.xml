@@ -184,15 +184,25 @@ PATH=/bin:/usr/bin:/sbin:/usr/sbin /bin/bash --login'</command></screen>
     <para>
        Denne metoden gir også et fullstendig grafisk miljø, men først
        kreves installasjon av
-        <ulink url="&blfs-book;postlfs/openssh.html">sshd</ulink> og
-        <ulink url="&blfs-book;basicnet/wget.html">wget</ulink>
+        <ulink url="&blfs-book;postlfs/openssh.html">sshd</ulink>
        på LFS systemet, vanligvis i chroot. Det krever også en
        datamaskin nummer to. Denne metoden har fordelen av å være enkel ved å ikke kreve
        kompleksiteten til chroot-miljøet. Den bruker også din LFS bygde
        kjerne for alle tilleggspakker og gir fortsatt et komplett system
        for å installere pakker.
     </para>
-
+	
+    <para>
+      Du kan bruke <command>scp</command> kommando for å laste opp pakke
+      kilder som skal bygges inn i LFS systemet. Hvis du vil laste ned
+      kildene direkte på LFS systemet, installer
+      <ulink url="&blfs-book;general/libtasn1.html">libtasn1</ulink>,
+      <ulink url="&blfs-book;postlfs/p11-kit.html">p11-kit</ulink>,
+      <ulink url="&blfs-book;postlfs/make-ca.html">make-ca</ulink>, og
+      <ulink url="&blfs-book;basicnet/wget.html">wget</ulink>
+      i chroot (eller last opp kildene deres ved å bruke <command>scp</command>
+      etter oppstart av LFS systemet).
+    </para>
   </sect3>
 
   <sect3>
@@ -200,13 +210,13 @@ PATH=/bin:/usr/bin:/sbin:/usr/sbin /bin/bash --login'</command></screen>
 
     <para>
        Denne metoden krever installasjon av
-        <ulink url="&blfs-book;general/libtasn1.html">libtasn1</ulink>,
-        <ulink url="&blfs-book;postlfs/p11-kit.html">p11-kit</ulink>,
-        <ulink url="&blfs-book;postlfs/make-ca.html">make-ca</ulink>,
-        <ulink url="&blfs-book;basicnet/wget.html">wget</ulink>,
-        <ulink url="&blfs-book;general/gpm.html">gpm</ulink>, og
-        <ulink url="&blfs-book;basicnet/links.html">links</ulink>
-        (eller <ulink url="&blfs-book;basicnet/lynx.html">lynx</ulink>)
+       <ulink url="&blfs-book;general/libtasn1.html">libtasn1</ulink>,
+       <ulink url="&blfs-book;postlfs/p11-kit.html">p11-kit</ulink>,
+       <ulink url="&blfs-book;postlfs/make-ca.html">make-ca</ulink>,
+       <ulink url="&blfs-book;basicnet/wget.html">wget</ulink>,
+       <ulink url="&blfs-book;general/gpm.html">gpm</ulink>, og
+       <ulink url="&blfs-book;basicnet/links.html">links</ulink>
+       (eller <ulink url="&blfs-book;basicnet/lynx.html">lynx</ulink>)
        i chroot og deretter omstart i det nye LFS systemet. På dette
        punktet har standardsystemet seks virtuelle konsoller. Veksling mellom
        konsoller er like enkelt som å bruke
