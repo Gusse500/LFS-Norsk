@@ -62,14 +62,7 @@
           testpakken til Perl.</para>
         </listitem>
       </varlistentry>
-	  
-      <varlistentry>
-        <term><envar>gl_cv_macro_MB_CUR_MAX_good=y</envar></term>
-        <listitem>
-          <para>Dette er nødvendig for å omgå et problem i gnulib kopien
-          sendt av pakken som ville bryte krysskompileringen.</para>
-        </listitem>
-      </varlistentry>
+
     </variablelist>
 
     <para>Kompiler pakken:</para>
