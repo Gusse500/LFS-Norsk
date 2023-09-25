@@ -41,6 +41,16 @@
     -->
 
     <listitem>
+      <para>16.09.2023</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Oppdater Glibc oppstrøms oppdatering for å tette en
+          minnelekkasje introdusert av sikkerhetsfiksen.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>17.09.2023</para>
       <itemizedlist>
         <listitem>
