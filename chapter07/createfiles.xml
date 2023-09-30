@@ -215,8 +215,23 @@ chmod -v 600  /var/log/btmp</userinput></screen>
   mislykkede påloggingsforsøk. <filename>/var/log/btmp</filename> filen registrerer
   de dårlige påloggingsforsøkene.</para>
 
-  <note><para><filename>/run/utmp</filename> filen registrerer brukerne som
-  for øyeblikket er pålogget. Denne filen opprettes dynamisk i
-  oppstartsskriptet.</para></note>
+  <!-- systemd no longer creates this -->
+  <note revision='sysv'><para><filename>/run/utmp</filename> filen
+  registrerer brukerne som for øyeblikket er pålogget. Denne filen er opprettet
+  dynamisk i oppstartsskriptene.</para></note>
+
+  <!-- AFAIK they are not vital for system function, users requiring such
+       info should rely on systemd-logind or elogind or some custom PAM
+       module.  Maybe we can stop to create them at all.  -->
+  <note>
+    <para>
+      <phrase revision='sysv'><filename>utmp</filename>,
+      </phrase><filename>wtmp</filename>, <filename>btmp</filename>, og
+      <filename>lastlog</filename> filene bruker 32-biters heltall for tidsstempel
+      og de vil være fundamentalt ødelagte etter år 2038. Mange pakker
+      har sluttet å bruke dem og andre pakker kommer til å slutte å bruke
+      dem. Ikke stol på innholdet i dem for noe.
+    </para>
+  </note>
 
 </sect1>
