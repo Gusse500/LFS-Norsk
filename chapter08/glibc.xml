@@ -74,6 +74,7 @@ cd       build</userinput></screen>
              --enable-kernel=&min-kernel;                     \
              --enable-stack-protector=strong          \
              --with-headers=/usr/include              \
+             --disable-nscd                           \
              libc_cv_slibdir=/usr/lib</userinput></screen>
 
     <variablelist>
@@ -111,6 +112,14 @@ cd       build</userinput></screen>
         <listitem>
           <para>Dette alternativet forteller byggesystemet hvor det skal finne
           kjernens API deklarasjoner.</para>
+        </listitem>
+      </varlistentry>
+
+       <varlistentry>
+        <term><parameter>--disable-nscd</parameter></term>
+        <listitem>
+          <para>Ikke bygg navnetjenesten cache daemon som ikke
+          er brukt lenger.</para>
         </listitem>
       </varlistentry>
 
@@ -206,7 +215,7 @@ esac</userinput></screen>
     <command>ldd</command> skriptet:</para>
 
 <screen><userinput remap="install">sed '/RTLDLIST=/s@/usr@@g' -i /usr/bin/ldd</userinput></screen>
-
+<!--
     <para>Installer konfigurasjonsfilen og kjøretidsmappen for
     <command>nscd</command>:</para>
 
@@ -218,7 +227,7 @@ mkdir -pv /var/cache/nscd</userinput></screen>
 
     <screen revision="systemd"><userinput remap="install">install -v -Dm644 ../nscd/nscd.tmpfiles /usr/lib/tmpfiles.d/nscd.conf
 install -v -Dm644 ../nscd/nscd.service /usr/lib/systemd/system/nscd.service</userinput></screen>
-
+-->
     <para>Installer deretter lokalitetene som kan få systemet til å svare i et
     annet språk. Ingen av disse stedene er påkrevd, men hvis noen av dem
     mangler, vil testpakkene til noen pakker hoppe over viktige

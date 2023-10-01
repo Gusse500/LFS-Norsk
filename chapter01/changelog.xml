@@ -41,6 +41,56 @@
     -->
 
     <listitem>
+      <para>2023-10-01</para>
+      <itemizedlist>
+        <listitem>
+           <para>[bdubbs] - Deaktiver byggingen av nscd i glibc. Fikser
+           <ulink url='&lfs-ticket-root;5349'>#5349</ulink>.</para>
+        </listitem>
+        <listitem>
+           <para>[bdubbs] - Oppdatert til iana-etc-20230929. Adresserer
+           <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+           <para>[bdubbs] - Oppdatert til vim-9.0.1968. Adresserer
+           <ulink url='&lfs-ticket-root;4500'>#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+           <para>[bdubbs] - Oppdatert til openssl-3.1.3. Fikser
+           <ulink url='&lfs-ticket-root;5350'>#5350</ulink>.</para>
+        </listitem>
+        <listitem>
+           <para>[bdubbs] - Oppdatert til meson-1.2.2. Fikser
+           <ulink url='&lfs-ticket-root;5356'>#5356</ulink>.</para>
+        </listitem>
+        <listitem>
+           <para>[bdubbs] - Oppdatert til man-db-2.12.0. Fikser
+           <ulink url='&lfs-ticket-root;5354'>#5354</ulink>.</para>
+        </listitem>
+        <listitem>
+           <para>[bdubbs] - Oppdatert til linux-6.5.5. Fikser
+           <ulink url='&lfs-ticket-root;5352'>#5352</ulink>.</para>
+        </listitem>
+        <listitem>
+           <para>[bdubbs] - Oppdatert til kmod-31. Fikser
+           <ulink url='&lfs-ticket-root;5355'>#5355</ulink>.</para>
+        </listitem>
+        <listitem>
+           <para>[bdubbs] - Oppdatert til kbd-2.6.3. Fikser
+           <ulink url='&lfs-ticket-root;5351'>#5361</ulink>.</para>
+        </listitem>
+        <listitem>
+           <para>[bdubbs] - Oppdatert til gettext-0.22.2. Fikser
+           <ulink url='&lfs-ticket-root;5348'>#5348</ulink>.</para>
+        </listitem>
+        <listitem>
+           <para>[bdubbs] - Oppdatert til bc-6.7.0. Fikser
+           <ulink url='&lfs-ticket-root;5353'>#5353</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>24.09.2023</para>
       <itemizedlist>
         <listitem>
