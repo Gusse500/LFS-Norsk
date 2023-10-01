@@ -91,6 +91,7 @@ cd       build</userinput></screen>
       --build=$(../scripts/config.guess) \
       --enable-kernel=&min-kernel;               \
       --with-headers=$LFS/usr/include    \
+      --disable-nscd                     \
       libc_cv_slibdir=/usr/lib</userinput></screen>
 
     <variablelist>
@@ -129,6 +130,14 @@ cd       build</userinput></screen>
         <listitem>
           <para>Dette sikrer at biblioteket er installert i /usr/lib i stedet
           for standard /lib64 på 64-bits maskiner.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--disable-nscd</parameter></term>
+        <listitem>
+          <para>Ikke bygg navnetjenesten cache daemon som ikke er
+          brukt lenger.</para>
         </listitem>
       </varlistentry>
 

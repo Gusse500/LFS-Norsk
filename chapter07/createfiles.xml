@@ -227,10 +227,10 @@ chmod -v 600  /var/log/btmp</userinput></screen>
     <para>
       <phrase revision='sysv'><filename>utmp</filename>,
       </phrase><filename>wtmp</filename>, <filename>btmp</filename>, og
-      <filename>lastlog</filename> filene bruker 32-biters heltall for tidsstempel
+      <filename>lastlog</filename> filene bruker 32-biters heltall for tidsstempler
       og de vil være fundamentalt ødelagte etter år 2038. Mange pakker
       har sluttet å bruke dem og andre pakker kommer til å slutte å bruke
-      dem. Ikke stol på innholdet i dem for noe.
+      dem. Det er sannsynligvis best å betrakte dem som avviklet.
     </para>
   </note>
 
