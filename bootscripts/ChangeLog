@@ -1,3 +1,8 @@
+2023-10-04 Pierre Labastie <pierre.labastie@neuf.fr>
+   * After the changes done on 2022-03-24, several "halt stop" should
+     have been changed to "halt start". Done now. Fortunately, those
+     occur only when something wrong happens with disks or devices.
+
 2023-07-28 Xi Ruoyao <xry111@xry111.site>
    * In mountvirtfs, mount /sys/fs/cgroup for udev from systemd-254.
 
