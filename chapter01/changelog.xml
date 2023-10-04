@@ -41,7 +41,17 @@
     -->
 
     <listitem>
-      <para>2023-10-01</para>
+      <para>03.10.2023</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Oppdater Glibc oppstrøms fikser oppdatering for å fikse
+          CVE-2023-4911.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>01.10.2023</para>
       <itemizedlist>
         <listitem>
            <para>[bdubbs] - Deaktiver byggingen av nscd i glibc. Fikser
