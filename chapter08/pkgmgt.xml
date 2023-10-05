@@ -69,6 +69,17 @@
         det.  </para>
       </listitem>
 
+      <listitem>
+        <para>Reinstallerer den samme versjonen av Glibc (&glibc-version; for
+        denne utgivelsen av LFS) med oppdateringer bør være trygg når disse oppdateringene
+        ikke endre ABI og API. Når en sikkerhetssårbarhet blir funnet
+        i Glibc må vi ofte bruke en slik oppdatering for å fikse
+        sårbarhet og installer Glibc på nytt. Rådfør
+        <ulink url='&lfs-root;lfs/advisories/'>LFS 
+        sikkerhetsråd</ulink> hvis du blir varslet om en publisert Glibc 
+        sikkerhetssårbarhet, men usikker på hva som skal gjøres.</para>
+      </listitem>
+
       <listitem> <para>Hvis en pakke som inneholder et delt bibliotek oppdateres, og
       hvis navnet på biblioteket endres, vil eventuelle pakker dynamisk
       koblet til biblioteket måtte kompileres på nytt for å kunne kobles mot
