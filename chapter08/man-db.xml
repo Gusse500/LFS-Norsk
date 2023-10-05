@@ -113,11 +113,7 @@
 
     <para>For å teste resultatene, utsted:</para>
 
-<screen><userinput remap="test">make -k check</userinput></screen>
-
-    <!-- https://gitlab.com/man-db/man-db/-/issues/25 -->
-    <para>En test navngitt <filename>man1/lexgrog.1</filename> er kjent
-    for å mislykkes.</para>
+<screen><userinput remap="test">make check</userinput></screen>
 
     <para>Installer pakken:</para>
 
