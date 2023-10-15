@@ -41,6 +41,24 @@
     -->
 
     <listitem>
+      <para>15.10.2023</para>
+      <itemizedlist>
+        <listitem>
+           <para>[bdubbs] - Oppdatert til linux-6.5.7. Fikser
+           <ulink url='&lfs-ticket-root;5362'>#5362</ulink>.</para>
+        </listitem>
+        <listitem>
+           <para>[bdubbs] - Oppdatert til shadow-4.14.1. Fikser
+           <ulink url='&lfs-ticket-root;5361'>#5361</ulink>.</para>
+        </listitem>
+        <listitem>
+           <para>[bdubbs] - Oppdatert til gettext-0.22.3. Fikser
+           <ulink url='&lfs-ticket-root;5359'>#5359</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>03.10.2023</para>
       <itemizedlist>
         <listitem>
