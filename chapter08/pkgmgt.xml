@@ -163,7 +163,7 @@
         levert av <application>coreutils</application> har allerede
         implementert dette og de fleste pakker bruker det til å installere binærfiler og
         biblioteker. Dette betyr at du ikke vil bli plaget av dette problemet mesteparten av tiden.
-        Imidlertid er installasjonsprosessen for noen pakker (spesielt Mozilla JS
+        Imidlertid er installasjonsprosessen for noen pakker (spesielt SpiderMonkey
         i BLFS) bare å overskrive filen hvis den eksisterer og forårsaker et krasj, så
         det er tryggere å lagre arbeidet ditt og lukke unødvendige kjørende prosesser
         før du oppdaterer en pakke.</para> <!-- binary is an adjective, not a noun. -->
