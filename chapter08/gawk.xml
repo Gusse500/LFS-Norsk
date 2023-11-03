@@ -66,7 +66,7 @@ make install</userinput></screen>
       <title>Betydningen av parameter:</title>
 
       <varlistentry>
-        <term><envar>rm -f /usr/bin/gawk-&gawk-version;</envar></term>
+        <term><command>rm -f /usr/bin/gawk-&gawk-version;</command></term>
         <listitem>
            <para>Byggesystemet vil ikke gjenskape den harde lenken
            <filename>gawk-&gawk-version;</filename> hvis den allerede eksisterer.
