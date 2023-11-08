@@ -196,19 +196,29 @@
       <para>Dette er en forenklet pakkehåndtering som ikke trenger noe ekstra
       pakke for å administrere installasjonene. Hver pakke er installert i en
       egen mappe. For eksempel pakke foo-1.1 er installert i
-      <filename class='directory'>/usr/pkg/foo-1.1</filename>
-      og en symbolkobling er laget fra <filename>/usr/pkg/foo</filename> til
-      <filename class='directory'>/usr/pkg/foo-1.1</filename>. Når
+      <filename class='directory'>/opt/foo-1.1</filename>
+      og en symbolkobling er laget fra <filename>/opt/foo</filename> til
+      <filename class='directory'>/opt/foo-1.1</filename>. Når
       en ny versjon foo-1.2 kommer, blir den installert i
-      <filename class='directory'>/usr/pkg/foo-1.2</filename> og den forrige
+      <filename class='directory'>/opt/foo-1.2</filename> og den forrige
       symbolkoblingen erstattes av en symbolkobling til den nye versjonen.</para>
 
       <para>Miljøvariabler som f.eks <envar>PATH</envar>,
-      <envar>LD_LIBRARY_PATH</envar>, <envar>MANPATH</envar>,
-      <envar>INFOPATH</envar> og <envar>CPPFLAGS</envar> må utvides til
-      å inkludere <filename>/usr/pkg/foo</filename>. For mer enn noen få pakker,
-      blir denne ordningen uhåndterlig.</para>
+      <envar>MANPATH</envar>, <envar>INFOPATH</envar>,
+      <envar>PKG_CONFIG_PATH</envar>, <envar>CPPFLAGS</envar>,
+      <envar>LDFLAGS</envar>, og konfigurasjonsfilen
+      <filename>/etc/ld.so.conf</filename> må kanskje utvides til
+       inkludere de tilsvarende undermappene i
+      <filename class='directory'>/opt/foo-x.y</filename>.</para>
 
+      <para>
+        Denne ordningen brukes av BLFS boken for å installere noen veldig store
+        pakker for å gjøre det enklere å oppgradere dem. Hvis du installerer mer
+        enn noen få pakker, blir denne ordningen uhåndterlig. Og noen
+        pakker (for eksempel Linux API deklarasjoner og Glibc) fungerer kanskje ikke bra
+        med denne ordningen.
+        <emphasis role='bold'>Bruk aldri denne ordningen systemomfattende.</emphasis>
+      </para>
     </sect3>
 
     <sect3>
