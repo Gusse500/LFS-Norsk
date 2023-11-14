@@ -37,18 +37,6 @@
   tall kan variere med så mye som dusinvis av minutter i noen tilfeller.</para>
 
   <note>
-    <para>For mange moderne systemer med flere prosessorer (eller kjerner) kan
-    kompileringstiden for en pakke reduseres ved å utføre en "parallell
-    make" ved å enten sette en miljøvariabel eller fortelle
-    <command>make</command> programmer hvor mange prosessorer som er tilgjengelige. For
-    eksempel kan en Intel i5-6500 CPU støtte fire samtidige prosesser med:</para>
-
-    <screen role="nodump"><userinput>export MAKEFLAGS='-j4'</userinput></screen>
-
-    <para>eller bare bygge med:</para>
-
-    <screen role="nodump"><userinput>make -j4</userinput></screen>
-
     <para>Når flere prosessorer brukes på denne måten, vil SBU enhetene i
     boken variere enda mer enn de normalt ville gjort. I noen tilfeller, make
     trinnet vil rett og slett mislykkes. Å analysere resultatet av byggeprosessen vil også
