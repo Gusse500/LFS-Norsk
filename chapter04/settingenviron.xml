@@ -195,6 +195,48 @@ EOF</userinput></screen>
      fullført LFS system.</para>
   </important>
 
+  <para>
+    For mange moderne systemer med flere prosessorer (eller kjerner) kan
+    kompileringstiden for en pakke reduseres ved å utføre en "parallell
+    make" ved å fortelle make programmet hvor mange prosessorer som er tilgjengelige via
+    et kommandolinjealternativ eller en miljøvariabel. For eksempel en Intel
+    Core i9-13900K-prosessor har 8 P (ytelse) kjerner og
+    16 E (effektivitet) kjerner, og en P-kjerne kan kjøre to tråder samtidig
+    så hver P-kjerne er modellert som to logiske kjerner av Linuxkjernen.
+    Som et resultat er det totalt 32 logiske kjerner. En åpenbar måte å
+    bruke alle disse logiske kjernene er å tillate <command>make</command> å gjøre
+    opptil 32 byggejobber. Dette kan gjøres ved å sende
+    <parameter>-j32</parameter> alternativet til <command>make</command>:
+  </para>
+  <screen role='nodump'><userinput>make -j32</userinput></screen>
+  <para>
+    Eller angi <envar>MAKEFLAGS</envar> miljøvariabel og dens
+    innhold vil automatisk bli brukt av <command>make</command> som
+    kommandolinjealternativer:
+  </para>
+  <screen role='nodump'><userinput>export MAKEFLAGS=-j32</userinput></screen>
+  <important>
+    <para>
+      Aldri send en <parameter>-j</parameter> alternativ uten nummer til
+      <command>make</command> eller angi et slikt alternativ i
+      <envar>MAKEFLAGS</envar>.  Å gjøre det vil tillate <command>make</command>
+      å skape uendelige byggejobber og forårsake problemer med systemstabilitet.
+    </para>
+  </important>
+  <para>
+    For å bruke alle logiske kjerner som er tilgjengelige for å bygge pakker i
+    <xref linkend='chapter-cross-tools'/> og
+    <xref linkend='chapter-temporary-tools'/>, sett <envar>MAKEFLAGS</envar>
+    nå i <filename>.bashrc</filename>:
+  </para>
+<screen><userinput>cat &gt;&gt; ~/.bashrc &lt;&lt; "EOF"
+<literal>export MAKEFLAGS=-j<replaceable>$(nproc)</replaceable></literal>
+EOF</userinput></screen>
+  <para>
+    Erstatt <replaceable>$(nproc)</replaceable> med antallet logiske
+     kjerner du vil bruke hvis du ikke vil bruke alle de logiske kjernene.
+  </para>
+
   <para>Til slutt, å ha miljøet fullt forberedt for å bygge
   midlertidige verktøy, tving <command>bash</command> skallet å lese
   den nye brukerprofilen:</para>

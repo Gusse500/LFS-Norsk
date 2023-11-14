@@ -43,7 +43,7 @@
     <para>Udev er en del av systemd-&systemd-version; pakken. Bruk
     systemd-&systemd-version;.tar.xz file som tarballkilde.</para>
 
-    <para>Fjern to unÃ¸dvendige grupper,
+    <para>Fjern to unødvendige grupper,
     <systemitem class="groupname">render</systemitem> og
     <systemitem class="groupname">sgx</systemitem>, fra standard udev
     regler:</para>
@@ -66,6 +66,8 @@ meson setup \
       -Dmode=release                \
       -Ddev-kvm-mode=0660           \
       -Dlink-udev-shared=false      \
+	  -Dlogind=false                \
+      -Dvconsole=false              \
       ..</userinput></screen>
 
     <variablelist>
@@ -107,41 +109,44 @@ meson setup \
           og det er overdrevent for kun en udev installasjon.</para>
         </listitem>
       </varlistentry>
+	  
+      <varlistentry>
+        <term><parameter>-Dlogind=false -Dvconsole=false</parameter></term>
+        <listitem>
+          <para>Disse alternativene forhindrer generering av flere udev
+          regelfiler som tilhører de andre Systemd komponentene som vi ikke vil
+          installere.</para>
+        </listitem>
+      </varlistentry>
     </variablelist>
 
     <para>Bygg bare komponentene som trengs for udev:</para>
 
-    <screen><userinput remap="make">ninja udevadm systemd-hwdb \
-      $(grep -o -E "^build (src/libudev|src/udev|rules.d|hwdb.d)[^:]*" \
-        build.ninja | awk '{ print $2 }')                              \
+    <screen><userinput remap="make">ninja udevadm systemd-hwdb                                           \
+      $(ninja -n | grep -Eo '(src/(lib)?udev|rules.d|hwdb.d)/[^ ]*') \
       $(realpath libudev.so --relative-to .)</userinput></screen>
-
-    <para>Fjern en udevregelfil som krever en full Systemd
-    installasjon og fire udev regelfiler for påloggingsbehandlingen (hvis du trenger
-    en login manager, installer BLFS elogind pakken etter å ha fullført LFS;
-    elogind pakken vil også installere disse udev-reglene):</para>
-
-<screen><userinput remap="make">rm rules.d/{70-uaccess,71-seat,73-seat-late,90-vconsole}.rules
-rm ../rules.d/70-power-switch.rules</userinput></screen>
 
     <para>Installer pakken:</para>
 
     <screen><userinput remap="install">install -vm755 -d {/usr/lib,/etc}/udev/{hwdb,rules}.d
 install -vm755 -d /usr/{lib,share}/pkgconfig
-install -vm755 udevadm                     /usr/bin/
-install -vm755 systemd-hwdb                /usr/bin/udev-hwdb
-ln      -svfn    ../bin/udevadm              /usr/sbin/udevd
-cp      -av    libudev.so{,*[0-9]}         /usr/lib/
-install -vm644 ../src/libudev/libudev.h    /usr/include/
-install -vm644 src/libudev/*.pc            /usr/lib/pkgconfig/
-install -vm644 src/udev/*.pc               /usr/share/pkgconfig/
-install -vm644 ../src/udev/udev.conf       /etc/udev/
-install -vm644 rules.d/* ../rules.d/{*.rules,README} /usr/lib/udev/rules.d/
-install -vm644 hwdb.d/*  ../hwdb.d/{*.hwdb,README}   /usr/lib/udev/hwdb.d/
-install -vm755 $(find src/udev -type f | grep -F -v ".") /usr/lib/udev</userinput></screen>
+install -vm755 udevadm                             /usr/bin/
+install -vm755 systemd-hwdb                        /usr/bin/udev-hwdb
+ln      -svfn  ../bin/udevadm                      /usr/sbin/udevd
+cp      -av    libudev.so{,*[0-9]}                 /usr/lib/
+install -vm644 ../src/libudev/libudev.h            /usr/include/
+install -vm644 src/libudev/*.pc                    /usr/lib/pkgconfig/
+install -vm644 src/udev/*.pc                       /usr/share/pkgconfig/
+install -vm644 ../src/udev/udev.conf               /etc/udev/
+install -vm644 rules.d/* ../rules.d/README         /usr/lib/udev/rules.d/
+install -vm644 $(find ../rules.d/*.rules \
+                      -not -name '*power-switch*') /usr/lib/udev/rules.d/
+install -vm644 hwdb.d/*  ../hwdb.d/{*.hwdb,README} /usr/lib/udev/hwdb.d/
+install -vm755 $(find src/udev \
+                      -type f -not -name '*.*')    /usr/lib/udev</userinput></screen>
 
-    <para>Installer noen tilpassede regler og stÃ¸ttefiler som er nyttige i et LFS
-    miljÃ¸:</para>
+    <para>Installer noen tilpassede regler og støttefiler som er nyttige i et LFS
+    miljø¸:</para>
 
 <screen><userinput remap="install">tar -xvf ../../&udev-lfs-version;.tar.xz
 make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
@@ -179,12 +184,12 @@ rm  /usr/share/man/man8/systemd-*.8</userinput></screen>
     <filename class="directory">/etc/udev/hwdb.d</filename> og
     <filename class="directory">/usr/lib/udev/hwdb.d</filename> mappene.
     <application>Udev</application> trenger at informasjonen samles
-    inn i en binÃ¦r database <filename>/etc/udev/hwdb.bin</filename>. Opprett
-    fÃ¸rste database:</para>
+    inn i en binær database <filename>/etc/udev/hwdb.bin</filename>. Opprett
+    første database:</para>
 
 <screen><userinput>udev-hwdb update</userinput></screen>
 
-    <para>Denne kommandoen mÃ¥ kjÃ¸res hver gang maskinvareinformasjonen er
+    <para>Denne kommandoen må kjøres hver gang maskinvareinformasjonen er
     oppdatert.</para>
 
   </sect2>
@@ -213,9 +218,9 @@ rm  /usr/share/man/man8/systemd-*.8</userinput></screen>
       <varlistentry id="udevadm" revision="sysv">
         <term><command>udevadm</command></term>
         <listitem>
-          <para>Generisk udev administrasjonsverktÃ¸y: kontrollerer udevd nissen,
-          gir informasjon fra Udevdatabasen, overvÃ¥ker uevents, venter pÃ¥
-          uevents for Ã¥ fullfÃ¸re, tester Udevkonfigurasjonen og utlÃ¸ser uevents
+          <para>Generisk udev administrasjonsverktøy: kontrollerer udevd nissen,
+          gir informasjon fra Udevdatabasen, overvåker uevents, venter på
+          uevents for å fullføre, tester Udevkonfigurasjonen og utløser uevents
           for en gitt enhet</para>
           <indexterm zone="ch-system-udev udevadm">
             <primary sortas="b-udevadm">udevadm</primary>
@@ -226,9 +231,9 @@ rm  /usr/share/man/man8/systemd-*.8</userinput></screen>
       <varlistentry id="udevd">
         <term><command>udevd</command></term>
         <listitem>
-          <para>En nisse som lytter etter uevents pÃ¥ netlink socket,
-          oppretter enheter og kjÃ¸rer de konfigurerte eksterne programmene i
-          respons pÃ¥ disse hendelsene</para>
+          <para>En nisse som lytter etter uevents på netlink socket,
+          oppretter enheter og kjører de konfigurerte eksterne programmene i
+          respons på disse hendelsene</para>
           <indexterm zone="ch-system-udev udevd">
             <primary sortas="b-udevd">udevd</primary>
           </indexterm>
@@ -238,7 +243,7 @@ rm  /usr/share/man/man8/systemd-*.8</userinput></screen>
       <varlistentry id="udev-hwdb">
         <term><command>udev-hwdb</command></term>
         <listitem>
-          <para>Oppdaterer eller spÃ¸rrer maskinvaredatabasen.</para>
+          <para>Oppdaterer eller spørrer maskinvaredatabasen.</para>
           <indexterm zone="ch-system-udev udev-hwdb">
             <primary sortas="b-udev-hwdb">udev-hwdb</primary>
           </indexterm>
