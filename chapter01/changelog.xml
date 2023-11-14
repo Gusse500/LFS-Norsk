@@ -40,6 +40,44 @@
     appropriate for the entry or if needed the entire day's listitem.
     -->
     <listitem>
+      <para>13.11.2023</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Oppdatert til elfutils-0.190.  Fikser
+          <ulink url='&lfs-ticket-root;5373'>#5373</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til vim-9.0.2103.  Adresserer
+           <ulink url='&lfs-ticket-root;4500'>#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til linux-6.6.1.  Fikser
+          <ulink url='&lfs-ticket-root;5369'>#5369</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til xz-5.4.5.  Fikser
+          <ulink url='&lfs-ticket-root;5371'>#5371</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til iana-etc-20231107.  Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til gawk-5.3.0.  Fikser
+          <ulink url='&lfs-ticket-root;5372'>#5372</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til bash-5.2.21.  Fikser
+          <ulink url='&lfs-ticket-root;5375'>#5375</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdatert til iproute2-6.6.0.  Fikser
+          <ulink url='&lfs-ticket-root;5374'>#5374</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>01.11.2023</para>
       <itemizedlist>
         <listitem>
