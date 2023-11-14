@@ -63,7 +63,7 @@
 
     <para>For å teste resultatene, utsted:</para>
 
-<screen><userinput remap="test">make test</userinput></screen>
+<screen><userinput remap="test">HARNESS_JOBS=<replaceable>$(nproc)</replaceable> make test</userinput></screen>
 
     <para>En test, 30-test_afalg.t, er kjent for å mislykkes hvis vertskjernen
     ikke har <option>CONFIG_CRYPTO_USER_API_SKCIPHER</option> aktivert,
