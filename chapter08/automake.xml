@@ -53,11 +53,13 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para> Å bruke make -j4 alternativet øker hastigheten på testene, selv på systemer med
-     kun én prosessor, på grunn av interne forsinkelser i individuelle tester. Å teste
+    <para> Å bruke fire parallelle jobber øker hastigheten på testene, selv på systemer med
+     mindre logiske kjerner, på grunn av interne forsinkelser i individuelle tester. Å teste
      resultatene, utsted:</para>
 
-<screen><userinput remap="test">make -j4 check</userinput></screen>
+<screen><userinput remap="test">make <replaceable>-j$(($(nproc)&gt;4?$(nproc):4))</replaceable> check</userinput></screen>
+    <para>Erstatt <replaceable>$((...))</replaceable> med antall
+    logiske kjerner du vil bruke, hvis du ikke vil bruke alle.</para>
 
     <para>Testen t/subobj.sh er kjent for å mislykkes.</para>
 
