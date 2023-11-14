@@ -28,14 +28,13 @@
     /bin/bash --login</userinput></screen>
 
   <para>
-    Igjen, bytt ut <replaceable>$(nproc)</replaceable> med antall
-    logiske kjerner du vil bruke for å bygge pakker i dette kapittelet
-    og de følgende kapitlene hvis du ikke vil bruke alle tilgjengelige
-    logiske kjerner. Testpakkene til noen pakker (spesielt Autoconf,
-    Libtool og Tar) i &ch-final; er ikke berørt av
-    <envar>MAKEFLAGS</envar>, de bruker en <envar>TESTSUITEFLAGS</envar>
-    miljøvariabel i stedet. Så vi setter den her også for å kjøre
-    disse testpakkene med flere kjerner.
+    Hvis du ikke vil bruke alle tilgjengelige logiske kjerner, bytt ut
+    <replaceable>$(nproc)</replaceable> med antall logiske kjerner du
+    ønsker å bruke til å bygge pakker i dette kapittelet og de følgende
+    kapitler. Testpakkene til noen pakker (spesielt Autoconf, Libtool,
+    og Tar) i &ch-final; er ikke berørt av <envar>MAKEFLAGS</envar>, de
+    bruker en <envar>TESTSUITEFLAGS</envar> miljøvariabel i stedet. Vi
+    setter det her også for å kjøre disse testpakkene med flere kjerner.
   </para>
 
   <para><parameter>-i</parameter> alternativet gitt til <command>env</command>
