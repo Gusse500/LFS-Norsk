@@ -111,7 +111,7 @@ export BUILD_BZIP2=0</userinput></screen>
 
     <para>For å teste resultatene (ca. 11 SBU), utsted:</para>
 
-<screen><userinput remap="test">make test</userinput></screen>
+<screen><userinput remap="test">TEST_JOBS=$(nproc) make test_harness</userinput></screen>
 
     <para>Installer pakken og rydd opp:</para>
 
