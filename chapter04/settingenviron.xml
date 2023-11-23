@@ -208,13 +208,17 @@ EOF</userinput></screen>
     opptil 32 byggejobber. Dette kan gjøres ved å sende
     <parameter>-j32</parameter> alternativet til <command>make</command>:
   </para>
+
   <screen role='nodump'><userinput>make -j32</userinput></screen>
+
   <para>
     Eller angi <envar>MAKEFLAGS</envar> miljøvariabel og dens
     innhold vil automatisk bli brukt av <command>make</command> som
     kommandolinjealternativer:
   </para>
+
   <screen role='nodump'><userinput>export MAKEFLAGS=-j32</userinput></screen>
+
   <important>
     <para>
       Aldri send en <parameter>-j</parameter> alternativ uten nummer til
@@ -223,15 +227,18 @@ EOF</userinput></screen>
       å skape uendelige byggejobber og forårsake problemer med systemstabilitet.
     </para>
   </important>
+
   <para>
     For å bruke alle logiske kjerner som er tilgjengelige for å bygge pakker i
     <xref linkend='chapter-cross-tools'/> og
     <xref linkend='chapter-temporary-tools'/>, sett <envar>MAKEFLAGS</envar>
     nå i <filename>.bashrc</filename>:
   </para>
+
 <screen><userinput>cat &gt;&gt; ~/.bashrc &lt;&lt; "EOF"
 <literal>export MAKEFLAGS=-j<replaceable>$(nproc)</replaceable></literal>
 EOF</userinput></screen>
+
   <para>
     Erstatt <replaceable>$(nproc)</replaceable> med antallet logiske
      kjerner du vil bruke hvis du ikke vil bruke alle de logiske kjernene.
