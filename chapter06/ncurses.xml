@@ -78,7 +78,7 @@ popd</userinput></screen>
       <varlistentry>
         <term><parameter>--with-manpage-format=normal</parameter></term>
         <listitem>
-          <para>Dette forhindrer Ncurses fra å installere komprimerte
+          <para>Dette forhindrer at Ncurses installerer komprimerte
           manualsider, noe som kan skje hvis selve vertsdistribusjonen
           har komprimerte manualsider.</para>
         </listitem>
