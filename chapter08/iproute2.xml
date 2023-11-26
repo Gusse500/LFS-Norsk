@@ -45,9 +45,6 @@
     bygges siden den er avhengig av Berkeley DB, som ikke er installert i
     LFS. Men en mappe og en manside for <command>arpd</command> vil fortsatt
     bli installert. Forhindre dette ved å kjøre kommandoene nedenfor.
-    (Hvis <command>arpd</command> programmet er nødvendig,
-    instruksjoner for kompilering av Berkeley DB finnes i BLFS boken på
-    <ulink url="&blfs-book;server/db.html"/>.)
     </para>
 
 <screen><userinput remap="pre">sed -i /ARPD/d Makefile
