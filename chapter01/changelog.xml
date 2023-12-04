@@ -39,7 +39,18 @@
     <listitem revision="sysv"> or <listitem revision="systemd"> as
     appropriate for the entry or if needed the entire day's listitem.
     -->
-    <listitem revision='sysv'>
+    
+    <listitem>
+      <para>04.12.2023</para>
+      <itemizedlist>
+        <listitem>
+          <para>[thomas] - Endre kommandoer for installering av Python dokumenter for å unngå
+          for restriktive tillatelser på filene og mappene.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+	<listitem revision='sysv'>
       <para>01.12.2023</para>
       <itemizedlist>
         <listitem>
