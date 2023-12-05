@@ -19,5 +19,5 @@ s-kernel-version:
 	fi
 	touch s-kernel-version
 
-%.xml: %.toml kernel-config.py kernel_version.py kernel.version
+%.xml.tmp: %.toml kernel-config.py kernel_version.py kernel.version
 	./kernel-config.py $(KERNEL_TREE) $< > $@
