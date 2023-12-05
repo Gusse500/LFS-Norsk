@@ -273,16 +273,18 @@
       </varlistentry>
 
       <varlistentry>
-        <term><parameter>Framebuffer Console support</parameter></term>
+        <term>
+          <parameter>
+            Aktiver eldre fbdev støtte for modusinnstillingsdriveren
+          </parameter> og
+          <parameter>Framebuffer Console support</parameter>
+        </term>
         <listitem>
-          <para>Dette er nødvendig for å vise Linux konsollen på en ramme
-          bufferenhet. For å la kjernen skrive ut feilsøkingsmeldinger på et
-          tidlig oppstartsstadium, bør den ikke bygges som en kjernemodul
-          med mindre en initramfs vil bli brukt. Og hvis
-          <option>CONFIG_DRM</option> (Direct Rendering Manager) er aktivert,
-          er det sannsynlig at <option>CONFIG_DRM_FBDEV_EMULATION</option> (Enable
-          legacy fbdev support for your modesetting driver) bør være
-          aktivert også.</para>
+          <para>Disse er nødvendige for å vise Linux konsollen på en
+          GPU drevet av en DRI driver (Direct Rendering Infrastructure).
+          Hvis <option>CONFIG_DRM</option> (Direct Rendering Manager) er
+          aktivert, bør du aktivere disse to alternativene også, ellers vil du se
+          en tom skjerm når DRI driveren er lastet inn.</para>
         </listitem>
       </varlistentry>
 
