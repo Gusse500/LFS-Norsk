@@ -112,7 +112,20 @@
       at du vet hvilket navn som har blitt tildelt hvert av nettverkskortene dine før
       du fortsetter, og sørg for å bruke <literal>NAME</literal> verdien når
       du opprette konfigurasjonsfilene nedenfor.</para>
+	  
+	  <para>Selv om den tilpassede UDEV regelfilen er opprettet, kan UDEV fortsatt
+      tilordne ett eller flere alternative navn for en NIC basert på fysisk
+      kjennetegn. Hvis en tilpasset UDEV regel ville gi nytt navn til en annen NIC ved hjelp av
+      et navn som allerede er tildelt som et alternativt navn på en annen NIC, denne
+      UDEV regelen vil mislykkes. Hvis dette problemet skjer, kan du opprette
+      <filename>/etc/udev/network/99-default.link</filename> konfigurasjonsfil
+      med en tom alternativ tildelingspolitikk, og overstyrer
+      standard konfigurasjonsfil
+      <filename>/usr/lib/udev/network/99-default.link</filename>:</para>
 
+<screen role="nodump"><userinput>sed -e '/^AlternativeNamesPolicy/s/=.*$/=/'  \
+    -i /usr/lib/udev/network/99-default.link \
+     > /etc/udev/network/99-default.link</userinput></screen>
     </sect3>
 
   </sect2>
