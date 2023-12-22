@@ -114,7 +114,7 @@
       du opprette konfigurasjonsfilene nedenfor.</para>
 	  
 	  <para>Selv om den tilpassede UDEV regelfilen er opprettet, kan UDEV fortsatt
-      tilordne ett eller flere alternative navn for en NIC basert på fysisk
+      tilordne ett eller flere alternative navn for en annen NIC basert på fysisk
       kjennetegn. Hvis en tilpasset UDEV regel ville gi nytt navn til en annen NIC ved hjelp av
       et navn som allerede er tildelt som et alternativt navn på en annen NIC, denne
       UDEV regelen vil mislykkes. Hvis dette problemet skjer, kan du opprette
