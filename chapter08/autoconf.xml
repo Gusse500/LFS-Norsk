@@ -61,17 +61,6 @@
     For å kjøre testene uansett, utsted:</para>
  -->
 <screen><userinput remap="test">make check</userinput></screen>
-<!--
-    <para>Dette tar lang tid, ca &autoconf-fin-sbu-tests; SBU. I tillegg,
-    flere tester hoppes over som bruker Automake. For full testdekning,
-    Autoconf kan testes på nytt etter at Automake er installert. I tillegg,
-    to tester mislykkes på grunn av endringer i libtool-2.4.3 og senere.</para>
--->
-    <note><para>Testtiden for autoconf kan reduseres betydelig på en
-    system med flere kjerner. For å gjøre dette, legg til
-    <command>TESTSUITEFLAGS=-j&lt;N&gt;</command> til linjen over. For
-    eksempel ved å bruke -j4 kan testtiden reduseres med over 60
-    prosent.</para></note>
 
     <para>Installer pakken:</para>
 

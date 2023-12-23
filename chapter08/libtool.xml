@@ -54,12 +54,6 @@
 
 <screen><userinput remap="test">make -k check</userinput></screen>
 
-    <note><para>Testtiden for libtool kan reduseres betydelig på et
-    system med flere kjerner. For å gjøre dette, legg til
-    <command>TESTSUITEFLAGS=-j&lt;N&gt;</command> til linjen over. For
-    eksempel kan bruk av -j4 redusere testtiden med over 60
-    prosent.</para></note>
-
     <para>Fem tester er kjent for å mislykkes i LFS byggemiljøet pga
     en sirkulær avhengighet, men disse testene består hvis de sjekkes på nytt etter
     at automake er installert.  I tillegg, med grep-3.8, vil to tester
