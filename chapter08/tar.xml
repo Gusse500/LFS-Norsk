@@ -72,13 +72,6 @@
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <!-- On one system the -j4 improvement is 167s - 46s = 121s (72.46%) -->
-    <note><para>Testtiden for TAR kan reduseres betydelig på et
-    system med flere kjerner. For å gjøre dette, legg til
-    <command>TESTSUITEFLAGS=-j&lt;N&gt;</command> til linjen over.
-    For eksempel kan bruk av -j4 redusere testtiden med over 70
-    prosent.</para></note>
-
     <para>En test, capabilities: binary store/restore, er kjent for å mislykkes hvis den
     kjøres (på grunn av at LFS mangler selinux), men vil bli hoppet over hvis vertskjernen ikke
     støtter utvidede attributter eller sikkerhetsetiketter på filsystemet
