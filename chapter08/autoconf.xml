@@ -41,12 +41,6 @@
   <sect2 role="installation">
     <title>Installasjon av Autoconf</title>
 
-    <para>Først, fiks flere problemer med testene forårsaket av bash-5.2 og senere:</para>
-
-    <screen><userinput remap="pre">sed -e 's/SECONDS|/&amp;SHLVL|/'               \
-    -e '/BASH_ARGV=/a\        /^SHLVL=/ d' \
-    -i.orig tests/local.at</userinput></screen>
-
     <para>Forbered Autoconf for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr</userinput></screen>

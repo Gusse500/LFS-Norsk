@@ -62,13 +62,10 @@
     </warning>
 
     <para>
-      Løs et problem som forårsaker at <command>grub-install</command> mislykkes når
-      <filename class='directory'>/boot</filename> partisjon (eller root
-      partisjon hvis <filename class='directory'>/boot</filename> ikke er en
-      separat partisjon) er opprettet av e2fsprogs-1.47.0 eller nyere:
+      Legg til en fil som mangler fra utgivelsens tarball:
     </para>
 
-<screen><userinput remap='pre'>patch -Np1 -i ../grub-&grub-version;-upstream_fixes-1.patch</userinput></screen>
+<screen><userinput remap='pre'>echo <literal>depends bli part_gpt</literal> &gt; grub-core/extra_deps.lst</userinput></screen>
 
     <para>Forbered GRUB for kompilering:</para>
 
