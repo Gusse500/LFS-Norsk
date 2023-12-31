@@ -48,6 +48,13 @@
  <screen><userinput remap="pre">sed -i -e 's/GROUP="render"/GROUP="video"/' \
        -e 's/GROUP="sgx", //' rules.d/50-udev-default.rules.in</userinput></screen>
 
+    <!-- https://github.com/systemd/systemd/pull/30549 -->
+    <para>Nå fiks en sikkerhetssårbarhet i DNSSEC verifiseringen av
+    <command>systemd-resolved</command>:</para>
+
+<screen><userinput remap='pre'>sed -e '/return FLAGS_SET.*AUTHENTICATED/s/(t/(dt/' \
+    -i src/resolve/resolved-dns-transaction.c</userinput></screen>
+
     <para>Forbered systemd for kompilering:</para>
 
 <screen><userinput remap="configure">mkdir -p build
