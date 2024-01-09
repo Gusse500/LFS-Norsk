@@ -41,6 +41,16 @@
     -->
     
     <listitem>
+      <para>09.01.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[renodr] - Fiks definisjonen av C.UTF-8 lokaliteten. Fikser
+          <ulink url="&lfs-ticket-root;5409">#5409</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>31.12.2023</para>
       <itemizedlist>
         <listitem>
