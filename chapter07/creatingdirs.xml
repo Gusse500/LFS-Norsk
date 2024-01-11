@@ -54,7 +54,7 @@ install -dv -m 1777 /tmp /var/tmp</userinput></screen>
   <filename class="directory">/tmp</filename> og <filename
   class="directory">/var/tmp</filename> mappene, men kan ikke fjerne
   en annen brukers filer fra dem. Sistnevnte er forbudt av den såkalte
-  <quote>låst bit (sticky bit),</quote> den høyeste biten (1) i 1777 bitmasken.</para>
+  <quote>låst bit (sticky bit)</quote> den høyeste biten (1) i 1777 bitmasken.</para>
 
   <sect2>
     <title>FHS Samsvarsmerknad</title>
