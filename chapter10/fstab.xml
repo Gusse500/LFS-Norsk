@@ -56,7 +56,7 @@ EOF</userinput></screen>
   class="partition">sda2</filename>, <filename
   class="partition">sda5</filename>, og <systemitem
   class="filesystem">ext4</systemitem>. For detaljer om de seks
-  feltene i denne filen, se <command>man 5 fstab</command>.</para>
+  feltene i denne filen, se <filename>fstab(5)</filename>.</para>
 
   <para>Filsystemer med MS-DOS eller Windows opprinnelse (dvs. vfat, ntfs, smbfs,
   cifs, iso9660, udf) trenger et spesielt alternativ, utf8, for ikke-ASCII

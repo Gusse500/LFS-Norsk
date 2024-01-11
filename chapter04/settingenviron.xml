@@ -79,8 +79,8 @@ EOF</userinput></screen>
   <para>Å sette brukerfilopprettingsmasken (umask) til 022 sikrer at nye
   opprettede filer og mapper bare kan skrives av eieren, men er
   lesbar og kjørbar av alle (forutsatt at standardmoduser brukes av
-  <function>open(2)</function> systemkall, vil nye filer ende opp med tillatelse
-  modus 644 og mapper med modus 755).</para>
+  <filename>open(2)</filename> systemkall, vil nye filer ende opp med
+  tillatelsesmodus 644 og mapper med modus 755).</para>
       </listitem>
     </varlistentry>
 
