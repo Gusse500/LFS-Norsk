@@ -157,7 +157,7 @@ meson setup \
       </varlistentry>
 
       <varlistentry>
-        <term><parameter>-Dman=false</parameter></term>
+        <term><parameter>-Dman=disabled</parameter></term>
         <listitem>
           <para>Forhindre generering av mansider for å unngå ekstra
           avhengigheter. Vi vil installere forhåndsgenererte mansider for systemd
