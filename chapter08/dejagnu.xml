@@ -54,15 +54,15 @@ cd       build</userinput></screen>
 makeinfo --html --no-split -o doc/dejagnu.html ../doc/dejagnu.texi
 makeinfo --plaintext       -o doc/dejagnu.txt  ../doc/dejagnu.texi</userinput></screen>
 
-    <para>Bygg og installer pakken:</para>
+    <para>For å teste resultatene, kjør:</para>
+
+<screen><userinput remap="test">make check</userinput></screen>
+
+    <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make install
 install -v -dm755  /usr/share/doc/dejagnu-&dejagnu-version;
 install -v -m644   doc/dejagnu.{html,txt} /usr/share/doc/dejagnu-&dejagnu-version;</userinput></screen>
-
-    <para>For å teste resultatene, utsted:</para>
-
-<screen><userinput remap="test">make check</userinput></screen>
 
   </sect2>
 
