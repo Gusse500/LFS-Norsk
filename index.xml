@@ -27,7 +27,7 @@
 </part>
 
 <part id="part3">
-<title>Bygge LFS Kryssverktøykjede og midlertidige verktøy</title>
+<title>Bygge LFS KryssverktÃ¸ykjede og midlertidige verktÃ¸y</title>
 <?dbhtml filename="part3.html"?>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="part3intro/part3intro.xml"/>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="chapter05/chapter05.xml"/>
