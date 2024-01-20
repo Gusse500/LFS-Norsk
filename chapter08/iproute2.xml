@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -44,14 +44,14 @@
     <para><command>arpd</command> programmet inkludert i denne pakken vil ikke
     bygges siden den er avhengig av Berkeley DB, som ikke er installert i
     LFS. Men en mappe og en manside for <command>arpd</command> vil fortsatt
-    bli installert. Forhindre dette ved å kjøre kommandoene nedenfor.
+    bli installert. Forhindre dette ved Ã¥ kjÃ¸re kommandoene nedenfor.
     </para>
 
 <screen><userinput remap="pre">sed -i /ARPD/d Makefile
 rm -fv man/man8/arpd.8</userinput></screen>
 
 <!-- fixed upstream for 5.16.0
-    <para>Det er også nødvendig å deaktivere å bygge to moduler som
+    <para>Det er ogsÃ¥ nÃ¸dvendig Ã¥ deaktivere Ã¥ bygge to moduler som
     krever <ulink url="&blfs-book;postlfs/iptables.html"/>.</para>
 
 <screen><userinput remap="pre">sed -i 's/.m_ipt.o//' tc/Makefile</userinput></screen>
@@ -62,12 +62,12 @@ rm -fv man/man8/arpd.8</userinput></screen>
 
     <para>Denne pakken har ikke en fungerende testpakke.</para>
 <!-- currently not useful, no tests actually run
-    <para>Denne pakken kommer med en testpakke, men på grunn av antakelser den gjør,
-    er det ikke mulig å kjøre disse testene pålitelig fra chroot
-    miljøet. Hvis du ønsker å kjøre disse testene etter oppstart i din nye LFS
-    system, sørg for at du aktiverer <filename>/proc/config.gz</filename> støtte
+    <para>Denne pakken kommer med en testpakke, men pÃ¥ grunn av antakelser den gjÃ¸r,
+    er det ikke mulig Ã¥ kjÃ¸re disse testene pÃ¥litelig fra chroot
+    miljÃ¸et. Hvis du Ã¸nsker Ã¥ kjÃ¸re disse testene etter oppstart i din nye LFS
+    system, sÃ¸rg for at du aktiverer <filename>/proc/config.gz</filename> stÃ¸tte
     i kjernen din (&quot;General setup&quot; -> &quot;Aktiver tilgang til
-    .config gjennom /proc/config.gz&quot; [CONFIG_IKCONFIG_PROC]), så kjør
+    .config gjennom /proc/config.gz&quot; [CONFIG_IKCONFIG_PROC]), sÃ¥ kjÃ¸r
     'make alltests' fra <filename class="directory">testsuite/</filename>
     undermappen.</para>-->
 
@@ -75,7 +75,7 @@ rm -fv man/man8/arpd.8</userinput></screen>
 
 <screen><userinput remap="install">make SBINDIR=/usr/sbin install</userinput></screen>
 
-    <para>Hvis ønskelig, installer dokumentasjonen:</para>
+    <para>Hvis Ã¸nskelig, installer dokumentasjonen:</para>
 
 <screen><userinput remap="install">mkdir -pv             /usr/share/doc/iproute2-&iproute2-version;
 cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></screen>
@@ -116,7 +116,7 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
       <varlistentry id="ctstat">
         <term><command>ctstat</command></term>
         <listitem>
-          <para>Verktøy for tilkoblingsstatus</para>
+          <para>VerktÃ¸y for tilkoblingsstatus</para>
           <indexterm zone="ch-system-iproute2 ctstat">
             <primary sortas="b-ctstat">ctstat</primary>
           </indexterm>
@@ -126,7 +126,7 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
       <varlistentry id="genl">
         <term><command>genl</command></term>
         <listitem>
-          <para>Generisk verktøy for netlink grenseflate</para>
+          <para>Generisk verktÃ¸y for netlink grenseflate</para>
           <indexterm zone="ch-system-iproute2 genl">
             <primary sortas="b-genl">genl</primary>
           </indexterm>
@@ -137,7 +137,7 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
         <term><command>ifstat</command></term>
         <listitem>
           <para>Viser grensesnittstatistikken, inkludert mengden av
-          overførte og mottatte pakker via et grensesnitt</para>
+          overfÃ¸rte og mottatte pakker via et grensesnitt</para>
           <indexterm zone="ch-system-iproute2 ifstat">
             <primary sortas="b-ifstat">ifstat</primary>
           </indexterm>
@@ -147,34 +147,34 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
       <varlistentry id="ip">
         <term><command>ip</command></term>
         <listitem>
-          <para>Den viktigste kjørbare. Den har flere forskjellige funksjoner:</para>
+          <para>Den viktigste kjÃ¸rbare. Den har flere forskjellige funksjoner:</para>
 
           <para><command>ip link <replaceable>&lt;device&gt;</replaceable></command>
-          lar brukere se på enhetens tilstand og gjøre endringer</para>
+          lar brukere se pÃ¥ enhetens tilstand og gjÃ¸re endringer</para>
 
-          <para><command>ip addr</command> lar brukere se på adresser og
+          <para><command>ip addr</command> lar brukere se pÃ¥ adresser og
           egenskapene deres, legge til nye adresser og slette gamle</para>
 
-          <para><command>ip neighbor</command> lar brukerne se på
-          nabobindinger og deres egenskaper, legge til nye nabooppføringer og slette
+          <para><command>ip neighbor</command> lar brukerne se pÃ¥
+          nabobindinger og deres egenskaper, legge til nye nabooppfÃ¸ringer og slette
           gamle</para>
 
-          <para><command>ip rule</command> lar brukerne se på rutingsreglene
+          <para><command>ip rule</command> lar brukerne se pÃ¥ rutingsreglene
           og endre dem</para>
 
-          <para><command>ip route</command> lar brukerne se på rutingtabellen
+          <para><command>ip route</command> lar brukerne se pÃ¥ rutingtabellen
           og endre rutetabellregler</para>
 
-          <para><command>ip tunnel</command> lar brukere se på IP
+          <para><command>ip tunnel</command> lar brukere se pÃ¥ IP
           tunneler og deres egenskaper, og endre dem</para>
 
-          <para><command>ip maddr</command> lar brukerne se på multicast
+          <para><command>ip maddr</command> lar brukerne se pÃ¥ multicast
           adresser og deres egenskaper, og endre dem</para>
 
           <para><command>ip mroute</command> lar brukere angi, endre eller
           slette multicast rutingen</para>
 
-          <para><command>ip monitor</command> lar brukerne overvåke kontinuerlig
+          <para><command>ip monitor</command> lar brukerne overvÃ¥ke kontinuerlig
           tilstanden til enheter, adresser og ruter</para>
           <indexterm zone="ch-system-iproute2 ip">
             <primary sortas="b-ip">ip</primary>
@@ -207,7 +207,7 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
       <varlistentry id="routel">
         <term><command>routel</command></term>
         <listitem>
-          <para>En komponent av <command>ip route</command>, for å liste
+          <para>En komponent av <command>ip route</command>, for Ã¥ liste
           rutetabellene</para>
           <indexterm zone="ch-system-iproute2 routel">
             <primary sortas="b-routel">routel</primary>
@@ -229,7 +229,7 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
       <varlistentry id="rtmon">
         <term><command>rtmon</command></term>
         <listitem>
-          <para>Overvåkingsverktøy for Route</para>
+          <para>OvervÃ¥kingsverktÃ¸y for Route</para>
           <indexterm zone="ch-system-iproute2 rtmon">
             <primary sortas="b-rtmon">rtmon</primary>
           </indexterm>
@@ -250,7 +250,7 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
       <varlistentry id="rtstat">
         <term><command>rtstat</command></term>
         <listitem>
-          <para>Statusverktøy for Route</para>
+          <para>StatusverktÃ¸y for Route</para>
           <indexterm zone="ch-system-iproute2 rtstat">
             <primary sortas="b-rtstat">rtstat</primary>
           </indexterm>
@@ -260,7 +260,7 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
       <varlistentry id="ss">
         <term><command>ss</command></term>
         <listitem>
-          <para>Ligner på <command>netstat</command> kommandoen; viser aktive
+          <para>Ligner pÃ¥ <command>netstat</command> kommandoen; viser aktive
           forbindelser</para>
           <indexterm zone="ch-system-iproute2 ss">
             <primary sortas="b-ss">ss</primary>
@@ -275,15 +275,15 @@ cp -v COPYING README* /usr/share/doc/iproute2-&iproute2-version;</userinput></sc
           (QOS) og Class Of Service (COS) implementeringer</para>
 
           <para><command>tc qdisc</command> lar brukere sette opp
-          kødisiplinen</para>
+          kÃ¸disiplinen</para>
 
           <para><command>tc class</command> lar brukere sette opp klasser basert
-          på køen til kødisiplinplanleggingen</para>
+          pÃ¥ kÃ¸en til kÃ¸disiplinplanleggingen</para>
 
           <para><command>tc filter</command> lar brukere sette opp QOS/COS
           pakkefiltrering</para>
         
-          <para><command>tc monitor</command> kan brukes til å se endringer
+          <para><command>tc monitor</command> kan brukes til Ã¥ se endringer
           gjort til trafikkkontroll i kjernen.</para>
           
           <indexterm zone="ch-system-iproute2 ss">

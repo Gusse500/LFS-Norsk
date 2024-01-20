@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -10,24 +10,24 @@
 
   <title>Bygge LFS i etapper</title>
 
-  <para>LFS er designet for å bygges i én økt. Det er det
-  instruksjonene forutsetter, at systemet ikke vil bli slått av
-  under prosessen. Det betyr ikke at byggingen av systemet må
-  gjøres i en økt. Problemet er at visse prosedyrer
-  må gjenopprettes etter en omstart hvis LFS gjenopptas på
+  <para>LFS er designet for Ã¥ bygges i en Ã¸kt. Det er det
+  instruksjonene forutsetter, at systemet ikke vil bli slÃ¥tt av
+  under prosessen. Det betyr ikke at byggingen av systemet mÃ¥
+  gjÃ¸res i en Ã¸kt. Problemet er at visse prosedyrer
+  mÃ¥ gjenopprettes etter en omstart hvis LFS gjenopptas pÃ¥
   forskjellige punkter.</para>
 
   <sect2>
   <title>Kapitler&nbsp;1&ndash;4</title>
 
-    <para>Disse kapitlene er utført på vertssystemet. Ved
-    omstart, være sikker på én ting:</para>
+    <para>Disse kapitlene er utfÃ¸rt pÃ¥ vertssystemet. Ved
+    omstart, vÃ¦r sikker pÃ¥ en ting:</para>
 
     <itemizedlist>
       <listitem>
-        <para>Prosedyrer utført som
+        <para>Prosedyrer utfÃ¸rt som
         <systemitem class="username">root</systemitem> brukeren etter seksjon
-        2.4 må ha LFS miljøvariabelen satt
+        2.4 mÃ¥ ha LFS miljÃ¸variabelen satt
         <emphasis>FOR BRUKEREN ROOT</emphasis>.</para>
       </listitem>
     </itemizedlist>
@@ -38,22 +38,22 @@
 
     <itemizedlist>
       <listitem>
-        <para>/mnt/lfs partisjonen må være montert.</para>
+        <para>/mnt/lfs partisjonen mÃ¥ vÃ¦re montert.</para>
       </listitem>
 
       <listitem>
-        <para>Disse to kapitlene <emphasis>må</emphasis> gjøres som bruker
+        <para>Disse to kapitlene <emphasis>mÃ¥</emphasis> gjÃ¸res som bruker
         <systemitem class="username">lfs</systemitem>.
-        En <command>su - lfs</command> kommando må gjøres før noen oppgaver i disse
-        kapitlene. Hvis du ikke gjør det, risikerer du å installere pakker til
-        vertssystemet, og potensielt gjøre det ubrukelig.</para>
+        En <command>su - lfs</command> kommando mÃ¥ gjÃ¸res fÃ¸r noen oppgaver i disse
+        kapitlene. Hvis du ikke gjÃ¸r det, risikerer du Ã¥ installere pakker til
+        vertssystemet, og potensielt gjÃ¸re det ubrukelig.</para>
       </listitem>
 
       <listitem>
          <para>Prosedyrene i <xref linkend='ch-tools-generalinstructions'/>
          er kritiske. Hvis det er noen
-         tvil om installerte pakker, sørg for at tidligere utpakkede
-         tarballer fjernes, pakk deretter ut pakkefilene på nytt og fullfør alle
+         tvil om installerte pakker, sÃ¸rg for at tidligere utpakkede
+         tarballer fjernes, pakk deretter ut pakkefilene pÃ¥ nytt og fullfÃ¸r alle
          instruksjonene i den delen.</para>
       </listitem>
     </itemizedlist>
@@ -64,26 +64,26 @@
 
     <itemizedlist>
       <listitem>
-         <para>/mnt/lfs partisjonen må være montert.</para>
+         <para>/mnt/lfs partisjonen mÃ¥ vÃ¦re montert.</para>
       </listitem>
 
       <listitem>
-        <para>Noen få operasjoner, fra <quote>Skifte eierskap</quote> for å
-        <quote>Gå inn i Chroot miljøet</quote>, må gjøres som
+        <para>Noen fÃ¥ operasjoner, fra <quote>Skifte eierskap</quote> for Ã¥
+        <quote>GÃ¥ inn i Chroot miljÃ¸et</quote>, mÃ¥ gjÃ¸res som
         <systemitem class="username">root</systemitem> brukeren, med LFS
-        miljøvariabel satt for &root; brukeren.</para>
+        miljÃ¸variabel satt for &root; brukeren.</para>
       </listitem>
 
       <listitem>
-         <para> Når du går inn i chroot, må LFS miljøvariabelen angis
+         <para> NÃ¥r du gÃ¥r inn i chroot, mÃ¥ LFS miljÃ¸variabelen angis
          for <systemitem class="username">root</systemitem>. LFS
-         variabelen brukes ikke etter at du er gått inn i chroot miljøet.</para>
+         variabelen brukes ikke etter at du er gÃ¥tt inn i chroot miljÃ¸et.</para>
       </listitem>
 
       <listitem>
-         <para> De virtuelle filsystemene må være montert. Dette kan gjøres
-         før eller etter at chroot er gått inn i, ved å bytte til en virtuell vertsterminal
-         og som <systemitem class="username">root</systemitem>, kjøre
+         <para> De virtuelle filsystemene mÃ¥ vÃ¦re montert. Dette kan gjÃ¸res
+         fÃ¸r eller etter at chroot er gÃ¥tt inn i, ved Ã¥ bytte til en virtuell vertsterminal
+         og som <systemitem class="username">root</systemitem>, kjÃ¸rer
          kommandoene i
          <xref linkend='ch-tools-bindmount'/> og
          <xref linkend='ch-tools-kernfsmount'/>.</para>

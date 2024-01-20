@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -14,15 +14,15 @@
     <primary sortas="e-/dev/">/dev/*</primary>
   </indexterm>
 
-    <para>Applikasjoner som kjører i brukerområdet bruker forskjellige
-    filsystemer opprettet av kjernen for å kommunisere
+    <para>Applikasjoner som kjÃ¸rer i brukeromrÃ¥det bruker forskjellige
+    filsystemer opprettet av kjernen for Ã¥ kommunisere
     med selve kjernen. Disse filsystemene er virtuelle: ingen
     diskplass brukes til dem. Innholdet i disse filsystemene ligger i
-    minnet. Disse filsystemene må monteres i $LFS katalogtreet
-    slik at applikasjonene kan finne dem i chroot miljøet.</para>
+    minnet. Disse filsystemene mÃ¥ monteres i $LFS katalogtreet
+    slik at applikasjonene kan finne dem i chroot miljÃ¸et.</para>
 
-    <para>Begynn med å lage mappene som disse virtuelle filsystemene vil være
-    montert på:</para>
+    <para>Begynn med Ã¥ lage mappene som disse virtuelle filsystemene vil vÃ¦re
+    montert pÃ¥:</para>
 
 <screen><userinput>mkdir -pv $LFS/{dev,proc,sys,run}</userinput></screen>
 
@@ -31,28 +31,28 @@
 
       <para>Under en normal oppstart av et LFS systemet vil kjernen automatisk
       montere <systemitem class="filesystem">devtmpfs</systemitem>
-      filsystemet på
+      filsystemet pÃ¥
       <filename class="directory">/dev</filename> mappen; kjernen
-      oppretter enhetsnoder på det virtuelle filsystemet under oppstartsprosessen,
-      eller når en enhet først oppdages eller åpnes. Udev nissen kan
+      oppretter enhetsnoder pÃ¥ det virtuelle filsystemet under oppstartsprosessen,
+      eller nÃ¥r en enhet fÃ¸rst oppdages eller Ã¥pnes. Udev nissen kan
       endre eierskapet eller tillatelsene til enhetsnodene opprettet av
-      kjernen, og lage nye enhetsnoder eller symbolkoblinger for å lette arbeidet til
+      kjernen, og lage nye enhetsnoder eller symbolkoblinger for Ã¥ lette arbeidet til
       distro vedlikeholdere og systemadministratorer. (Se
       <xref linkend='ch-config-udev-device-node-creation'/> for detaljer.)
-      Hvis vertskjernen støtter &devtmpfs;, kan vi enkelt montere en
-      &devtmpfs; på <filename class='directory'>$LFS/dev</filename> og stole på
+      Hvis vertskjernen stÃ¸tter &devtmpfs;, kan vi enkelt montere en
+      &devtmpfs; pÃ¥ <filename class='directory'>$LFS/dev</filename> og stole pÃ¥
       at kjernen fyller den.</para>
 
-      <para>Men noen vertskjerner mangler &devtmpfs; støtte; disse
-      vertsdistroene bruker forskjellige metoder for å lage innholdet i
+      <para>Men noen vertskjerner mangler &devtmpfs; stÃ¸tte; disse
+      vertsdistroene bruker forskjellige metoder for Ã¥ lage innholdet i
       <filename class="directory">/dev</filename>.
-      Så den eneste verts-agnostiske måten å fylle
+      SÃ¥ den eneste verts-agnostiske mÃ¥ten Ã¥ fylle
       <filename class="directory">$LFS/dev</filename> mappen er
-      ved å bind-montere vertssystemets
+      ved Ã¥ bind-montere vertssystemets
       <filename class="directory">/dev</filename> mappe. En bind-montering er
       en spesiell type montering som lager et mappeundertre eller en fil
-      synlig på et annet sted. Bruk følgende
-      kommando for å gjøre dette.</para>
+      synlig pÃ¥ et annet sted. Bruk fÃ¸lgende
+      kommando for Ã¥ gjÃ¸re dette.</para>
 
 <screen><userinput>mount -v --bind /dev $LFS/dev</userinput></screen>
 
@@ -61,7 +61,7 @@
   <sect2 id="ch-tools-kernfsmount">
     <title>Montering av det virtuelle kjernefilsystemer</title>
 
-      <para>Monter nå de gjenværende virtuelle kjernefilsystemene:</para>
+      <para>Monter nÃ¥ de gjenvÃ¦rende virtuelle kjernefilsystemene:</para>
 
 <screen><userinput>mount -v --bind /dev/pts $LFS/dev/pts
 mount -vt proc proc $LFS/proc
@@ -89,8 +89,8 @@ mount -vt tmpfs tmpfs $LFS/run</userinput></screen>
           (bruker lesbar og skrivbar, gruppeskrivbar). Sammen med
           alternativet ovenfor, sikrer dette at devpts vil opprette enhetsnoder som
           oppfylle kravene til grantpt(), som betyr Glibc
-          <command>pt_chown</command> hjelper binær (som ikke er installert som
-          standard) ikke er nødvendig.</para>
+          <command>pt_chown</command> hjelper binÃ¦r (som ikke er installert som
+          standard) ikke er nÃ¸dvendig.</para>
         </listitem>
       </varlistentry>
 
@@ -98,12 +98,12 @@ mount -vt tmpfs tmpfs $LFS/run</userinput></screen>
 -->
       <para>I noen vertssystemer, <filename>/dev/shm</filename> er en
       symbolsk lenke til <filename class="directory">/run/shm</filename>.
-      /run tmpfs ble montert ovenfor, så i dette tilfellet er det bare en
-      mappe som må opprettes.</para>
+      /run tmpfs ble montert ovenfor, sÃ¥ i dette tilfellet er det bare en
+      mappe som mÃ¥ opprettes.</para>
 
       <para>I andre vertssystemer <filename>/dev/shm</filename> er et monteringspunkt
-      for en tmpfs. I så fall vil monteringen av /dev ovenfor bare opprette
-      /dev/shm i chroot miljøet som en mappe. I denne situasjonen
+      for en tmpfs. I sÃ¥ fall vil monteringen av /dev ovenfor bare opprette
+      /dev/shm i chroot miljÃ¸et som en mappe. I denne situasjonen
       monterer vi eksplisitt en tmpfs:</para>
 
 <screen><userinput>if [ -h $LFS/dev/shm ]; then

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -10,22 +10,22 @@
 
   <title>Forutsetninger</title>
 
-  <para>Å bygge et LFS system er ikke en enkel oppgave. Det krever en viss
-  nivå av eksisterende kunnskap om Unix systemadministrasjon for å løse
-  problemer og riktig utføre kommandoene som er oppført. Spesielt som et
-  absolutt minimum, bør du allerede vite hvordan du bruker
-  kommandolinjen (skallet) for å kopiere eller flytte filer og mapper, liste mapper
-  og filinnhold, og endre gjeldende mappe. Det forventes også at
+  <para>Ã… bygge et LFS system er ikke en enkel oppgave. Det krever en viss
+  nivÃ¥ av eksisterende kunnskap om Unix systemadministrasjon for Ã¥ lÃ¸se
+  problemer og riktig utfÃ¸re kommandoene som er oppfÃ¸rt. Spesielt som et
+  absolutt minimum, bÃ¸r du allerede vite hvordan du bruker
+  kommandolinjen (skallet) for Ã¥ kopiere eller flytte filer og mapper, liste mapper
+  og filinnhold, og endre gjeldende mappe. Det forventes ogsÃ¥ at
   du har rimelig kunnskap om bruk og installasjon av Linux
   programvare.</para>
 
   <para>Fordi LFS boka antar <emphasis>i det minste</emphasis> dette grunnleggende
-  ferdighetsnivået, er det usannsynlig at de ulike LFS støtteforaene vil kunne
-  gi deg mye hjelp på disse områdene. Du vil finne at dine
-  spørsmål angående slik grunnleggende kunnskap sannsynligvis vil forbli ubesvart (eller du
-  vil ganske enkelt bli henvist til LFS essensielle forhåndsleseliste).</para>
+  ferdighetsnivÃ¥et, er det usannsynlig at de ulike LFS stÃ¸tteforaene vil kunne
+  gi deg mye hjelp pÃ¥ disse omrÃ¥dene. Du vil finne at dine
+  spÃ¸rsmÃ¥l angÃ¥ende slik grunnleggende kunnskap sannsynligvis vil forbli ubesvart (eller du
+  vil ganske enkelt bli henvist til LFS essensielle forhÃ¥ndsleseliste).</para>
 
-  <para>Før du bygger et LFS system, anbefaler vi å lese følgende:</para>
+  <para>FÃ¸r du bygger et LFS system, anbefaler vi Ã¥ lese fÃ¸lgende:</para>
 
   <itemizedlist>
     <listitem>
@@ -35,25 +35,25 @@
       <para>Dette er en omfattende veiledning for bygging og installasjon av
       <quote>generiske</quote> Unix-programvarepakker under Linux. Selv om det
       ble skrevet for en tid siden, gir den fortsatt en god oppsummering av
-      grunnleggende teknikker som trengs for å bygge og installere programvare.</para>
+      grunnleggende teknikker som trengs for Ã¥ bygge og installere programvare.</para>
     </listitem>
 
     <listitem>
-      <para>Nybegynnerveiledning for å installere fra kilden
+      <para>Nybegynnerveiledning for Ã¥ installere fra kilden
       <ulink url="https://moi.vonos.net/linux/beginners-installing-from-source/"/></para>
 
       <para>Denne veiledningen gir en god oppsummering av grunnleggende ferdigheter og
-      teknikker som trengs for å bygge programvare fra kildekode.</para>
+      teknikker som trengs for Ã¥ bygge programvare fra kildekode.</para>
     </listitem>
 <!--
     <listitem>
-      <para>Det essensielle tipset om forhåndslesing
+      <para>Det essensielle tipset om forhÃ¥ndslesing
       <ulink url="&hints-root;essential_prereading.txt"/></para>
 
       <para>Dette er et LFS-tips skrevet spesielt for brukere som er nye til Linux.
       Den inneholder en liste over lenker til utmerkede informasjonskilder om en
-      bredt spekter av emner. Alle som prøver å installere LFS bør ha en
-      forståelse av mange av emnene i dette hintet.</para>
+      bredt spekter av emner. Alle som prÃ¸ver Ã¥ installere LFS bÃ¸r ha en
+      forstÃ¥else av mange av emnene i dette hintet.</para>
     </listitem>
 -->
   </itemizedlist>

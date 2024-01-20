@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -10,68 +10,68 @@
 
   <title>Introduksjon</title>
 
-  <para>I dette kapittelet begynner vi for alvor å bygge LFS systemet.
+  <para>I dette kapittelet begynner vi for alvor Ã¥ bygge LFS systemet.
   </para>
 
-  <para>Installasjonen av denne programvaren er enkel. Skjønt i mange
-  tilfeller kan installasjonsinstruksjonene gjøres kortere og mer generelle,
-  vi har valgt å gi de fullstendige instruksjonene for hver pakke for å minimere
-  mulighetene for feil. Nøkkelen til å lære hva som gjør at et Linux system
-  virker er å vite hva hver pakke brukes til og hvorfor du (eller systemet)
+  <para>Installasjonen av denne programvaren er enkel. SkjÃ¸nt i mange
+  tilfeller kan installasjonsinstruksjonene gjÃ¸res kortere og mer generelle,
+  vi har valgt Ã¥ gi de fullstendige instruksjonene for hver pakke for Ã¥ minimere
+  mulighetene for feil. NÃ¸kkelen til Ã¥ lÃ¦re hva som gjÃ¸r at et Linux system
+  virker er Ã¥ vite hva hver pakke brukes til og hvorfor du (eller systemet)
   kan trenge det.</para>
 
-  <para>Vi anbefaler ikke å bruke optimaliseringer. De kan gjøre at
-  et program kjører litt raskere, men de kan også forårsake kompileringsvanskeligheter
-  og problemer når du kjører programmet. Hvis en pakke nekter å
-  kompilere når du bruker optimalisering, prøv å kompilere den uten optimalisering og
-  se om det løser problemet. Selv om pakken kompileres ved bruk av
+  <para>Vi anbefaler ikke Ã¥ bruke optimaliseringer. De kan gjÃ¸re at
+  et program kjÃ¸rer litt raskere, men de kan ogsÃ¥ forÃ¥rsake kompileringsvanskeligheter
+  og problemer nÃ¥r du kjÃ¸rer programmet. Hvis en pakke nekter Ã¥
+  kompilere nÃ¥r du bruker optimalisering, prÃ¸v Ã¥ kompilere den uten optimalisering og
+  se om det lÃ¸ser problemet. Selv om pakken kompileres ved bruk av
   optimalisering, er det risiko for at det kan ha blitt kompilert feil fordi
-  det er komplekse interaksjoner mellom koden og byggeverktøyene. Legg også merke til
+  det er komplekse interaksjoner mellom koden og byggeverktÃ¸yene. Legg ogsÃ¥ merke til
   at <option>-march</option> og <option>-mtune</option> alternativene som
   ikke er spesifisert i boken er ikke testet. Dette kan skape problemer med
-  verktøykjedepakkene (Binutils, GCC og Glibc). De små potensielle gevinstene
-  oppnådd ved bruk av kompilatoroptimaliseringer oppveies ofte av risikoen.
-  Førstegangsbyggere av LFS oppfordres til å bygge uten tilpassete
+  verktÃ¸ykjedepakkene (Binutils, GCC og Glibc). De smÃ¥ potensielle gevinstene
+  oppnÃ¥dd ved bruk av kompilatoroptimaliseringer oppveies ofte av risikoen.
+  FÃ¸rstegangsbyggere av LFS oppfordres til Ã¥ bygge uten tilpassete
   optimaliseringer.</para>
 
-  <para>På den annen side holder vi optimaliseringene aktivert som standard
+  <para>PÃ¥ den annen side holder vi optimaliseringene aktivert som standard
   konfigurasjon av pakkene. I tillegg aktiverer vi noen ganger eksplisitt en
   optimalisert konfigurasjon levert av en pakke, men ikke aktivert som
   standard. Pakkevedlikeholderne har allerede testet disse konfigurasjonene
-  og anser dem som trygge, så det er ikke sannsynlig at de vil bryte byggingen.
+  og anser dem som trygge, sÃ¥ det er ikke sannsynlig at de vil bryte byggingen.
   Vanligvis aktiverer standardkonfigurasjonen allerede <option>-O2</option>
-  eller <option>-O3</option>, så det resulterende systemet vil fortsatt kjøre veldig raskt
-  uten noen tilpasset optimalisering, og være stabil samtidig.</para>
+  eller <option>-O3</option>, sÃ¥ det resulterende systemet vil fortsatt kjÃ¸re veldig raskt
+  uten noen tilpasset optimalisering, og vÃ¦re stabil samtidig.</para>
 
-  <para>Før installasjonsinstruksjonene gir hver installasjonsside
+  <para>FÃ¸r installasjonsinstruksjonene gir hver installasjonsside
   informasjon om pakken, inkludert en kortfattet beskrivelse av hva den
-  inneholder, omtrent hvor lang tid det vil ta å bygge, og hvor mye diskplass
+  inneholder, omtrent hvor lang tid det vil ta Ã¥ bygge, og hvor mye diskplass
   som kreves under denne byggeprosessen. Etter installasjonsinstruksene
   , er det en liste over programmer og biblioteker (sammen med korte
   beskrivelser) som pakken installerer.</para>
 
-  <note><para>SBU verdiene og nødvendig diskplass inkluderer testpakkedata
+  <note><para>SBU verdiene og nÃ¸dvendig diskplass inkluderer testpakkedata
   for alle gjeldende pakker i <xref linkend="chapter-building-system"/>. SBU
-  verdier har blitt beregnet ved å bruke fire CPU kjerner (-j4) for alle
+  verdier har blitt beregnet ved Ã¥ bruke fire CPU kjerner (-j4) for alle
   operasjoner med mindre annet er spesifisert.</para></note>
 
   <sect2>
     <title>Om biblioteker</title>
 
-    <para>Generelt fraråder LFS redaktørene å bygge og installere statiske
+    <para>Generelt frarÃ¥der LFS redaktÃ¸rene Ã¥ bygge og installere statiske
     biblioteker. De fleste statiske biblioteker er gjort
-    foreldet i et moderne Linuxsystem. I tillegg å koble et statisk bibliotek
-    inn i et program kan være skadelig. Hvis en oppdatering til biblioteket er nødvendig
-    for å fjerne et sikkerhetsproblem, må hvert program som bruker det statiske biblioteket
+    foreldet i et moderne Linuxsystem. I tillegg Ã¥ koble et statisk bibliotek
+    inn i et program kan vÃ¦re skadelig. Hvis en oppdatering til biblioteket er nÃ¸dvendig
+    for Ã¥ fjerne et sikkerhetsproblem, mÃ¥ hvert program som bruker det statiske biblioteket
     kobles sammen med det nye biblioteket. Siden bruken av statiske biblioteker
-    ikke alltid er åpenbart, de relevante programmene (og prosedyrene som trengs for å
-    gjøre koblingen) er kanskje ikke engang kjent.</para>
+    ikke alltid er Ã¥penbart, de relevante programmene (og prosedyrene som trengs for Ã¥
+    gjÃ¸re koblingen) er kanskje ikke engang kjent.</para>
 
     <para>I prosedyrene i dette kapittelet fjerner eller deaktiverer vi installasjon av
-    de fleste statiske biblioteker. Vanligvis gjøres dette ved å utstede en
+    de fleste statiske biblioteker. Vanligvis gjÃ¸res dette ved Ã¥ utstede en
     <option>--disable-static</option> alternativ til <command>configure</command>.
-    I andre tilfeller er det nødvendig med alternative midler. I noen få tilfeller, spesielt
-    glibc og gcc, forblir bruken av statiske biblioteker avgjørende for
+    I andre tilfeller er det nÃ¸dvendig med alternative midler. I noen fÃ¥ tilfeller, spesielt
+    glibc og gcc, forblir bruken av statiske biblioteker avgjÃ¸rende for
     pakkebyggeprosessen. </para>
 
     <para>For en mer fullstendig diskusjon av biblioteker, se diskusjonen

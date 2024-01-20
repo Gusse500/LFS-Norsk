@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -10,57 +10,57 @@
 
   <title>Introduksjon</title>
 
-  <para>Dette kapittelet inneholder en liste over pakker som må lastes ned
-  for å bygge et grunnleggende Linux system. De oppførte versjonsnumrene tilsvarer
-  versjoner av programvaren som er kjent for å fungere, og denne boken er basert på
-  deres bruk. Vi anbefaler på det sterkeste å ikke bruke forskjellige versjoner fordi konstruksjonens
+  <para>Dette kapittelet inneholder en liste over pakker som mÃ¥ lastes ned
+  for Ã¥ bygge et grunnleggende Linux system. De oppfÃ¸rte versjonsnumrene tilsvarer
+  versjoner av programvaren som er kjent for Ã¥ fungere, og denne boken er basert pÃ¥
+  deres bruk. Vi anbefaler pÃ¥ det sterkeste Ã¥ ikke bruke forskjellige versjoner fordi konstruksjonens
   kommandoer for en versjon kanskje ikke fungerer med en annen versjon, med mindre
-  annen versjon er spesifisert av en LFS errata eller sikkerhetsrådgivning.
-  De nyeste pakkeversjonene kan også ha problemer som krever
-  løsninger. Disse løsningene vil bli utviklet og stabilisert i
+  annen versjon er spesifisert av en LFS errata eller sikkerhetsrÃ¥dgivning.
+  De nyeste pakkeversjonene kan ogsÃ¥ ha problemer som krever
+  lÃ¦sninger. Disse lÃ¦sningene vil bli utviklet og stabilisert i
   utviklingsversjon av boken.</para>
 
   <para>For noen pakker, utgivelsens tarball og (Git eller SVN)
-  øyeblikksbilde fra depotets tarball for denne utgivelsen kan publiseres med
+  Ã¦yeblikksbilde fra depotets tarball for denne utgivelsen kan publiseres med
   lignende filnavn. En utgivelses tarball inneholder genererte filer (for
   eksempel, <command>configure</command> skript generert av
   <command>autoconf</command>), i tillegg til innholdet i
-  tilsvarende øyeblikksbilde av depot. Boken bruker utgivelses tarballer
-  når det er mulig. Bruke et øyeblikksbilde av depot i stedet for en utgivelses
-  tarball spesifisert av boken vil forårsake problemer.</para>
+  tilsvarende Ã¸yeblikksbilde av depot. Boken bruker utgivelses tarballer
+  nÃ¥r det er mulig. Bruke et Ã¸yeblikksbilde av depot i stedet for en utgivelses
+  tarball spesifisert av boken vil forÃ¥rsake problemer.</para>
 
   <para>Nedlastingsplasseringer er kanskje ikke alltid tilgjengelige. Hvis en
   nedlastingsplasseringen har endret seg siden denne boken ble publisert, Google (<ulink
-  url="https://www.google.com/"/>) gir en nyttig søkemotor for
-  de fleste pakkene. Hvis dette søket ikke lykkes, prøv en
-  alternativ måte å laste ned på <ulink
+  url="https://www.google.com/"/>) gir en nyttig sÃ¸kemotor for
+  de fleste pakkene. Hvis dette sÃ¸ket ikke lykkes, prÃ¸v en
+  alternativ mÃ¥te Ã¥ laste ned pÃ¥ <ulink
   url="&lfs-root;lfs/mirrors.html#files"/>. </para>
 
-  <para>Nedlastede pakker og oppdateringer må oppbevares et sted
+  <para>Nedlastede pakker og oppdateringer mÃ¥ oppbevares et sted
   som er praktisk tilgjengelig gjennom hele bygget. En fungerende
-  mappe er også nødvendig for å pakke ut kildene og bygge dem.
-  <filename class="directory">$LFS/sources</filename> kan brukes både
-  som et sted å oppbevare tarballene og oppdateringene og som en
-  arbeidsmappe. Ved å bruke denne mappen vil de nødvendige elementene være
-  plassert på LFS partisjonen og vil være tilgjengelig under alle stadier
+  mappe er ogsÃ¥ nÃ¸dvendig for Ã¥ pakke ut kildene og bygge dem.
+  <filename class="directory">$LFS/sources</filename> kan brukes bÃ¥de
+  som et sted Ã¥ oppbevare tarballene og oppdateringene og som en
+  arbeidsmappe. Ved Ã¥ bruke denne mappen vil de nÃ¸dvendige elementene vÃ¦re
+  plassert pÃ¥ LFS partisjonen og vil vÃ¦re tilgjengelig under alle stadier
   av byggeprosessen.</para>
 
-  <para>For å opprette denne mappen, utfør følgende kommando, som bruker
-  <systemitem class="username">root</systemitem>, før du starter nedlastingsøkten
+  <para>For Ã¥ opprette denne mappen, utfÃ¸r fÃ¸lgende kommando, som bruker
+  <systemitem class="username">root</systemitem>, fÃ¸r du starter nedlastingsÃ¸kten
   :</para>
 
 <screen role="nodump"><userinput>mkdir -v $LFS/sources</userinput></screen>
 
-  <para>Gjør denne mappen skrivbar og låst (sticky). <quote>Sticky</quote>
-  betyr at selv om flere brukere har skrivetillatelse på en
+  <para>GjÃ¸r denne mappen skrivbar og lÃ¥st (sticky). <quote>Sticky</quote>
+  betyr at selv om flere brukere har skrivetillatelse pÃ¥ en
   mappe, er det bare eieren av en fil som kan slette filen i en
-  låst mappe. Følgende kommando vil aktivere skrive og
-  låste moduser:</para>
+  lÃ¥st mappe. FÃ¸lgende kommando vil aktivere skrive og
+  lÃ¥ste moduser:</para>
 
 <screen role="nodump"><userinput>chmod -v a+wt $LFS/sources</userinput></screen>
 
-  <para>Det er flere måter å få tak i alle nødvendige pakker og oppdateringer
-  for å bygge LFS:</para>
+  <para>Det er flere mÃ¥ter Ã¥ fÃ¥ tak i alle nÃ¸dvendige pakker og oppdateringer
+  for Ã¥ bygge LFS:</para>
 
   <itemizedlist>
     <listitem>
@@ -68,8 +68,8 @@
       neste to avsnitt.</para>
     </listitem>
     <listitem>
-      <para>For stabile versjoner av boken, en tarball av alle nødvendige filer
-      kan lastes ned fra et av LFS filspeilene som er oppført på
+      <para>For stabile versjoner av boken, en tarball av alle nÃ¸dvendige filer
+      kan lastes ned fra et av LFS filspeilene som er oppfÃ¸rt pÃ¥
       <ulink url="https://www.linuxfromscratch.org/mirrors.html#files"/>.</para>
     </listitem>
     <listitem>
@@ -78,7 +78,7 @@
     </listitem>
   </itemizedlist>
 
-  <para>For å laste ned alle pakkene og oppdateringene ved å bruke
+  <para>For Ã¥ laste ned alle pakkene og oppdateringene ved Ã¥ bruke
   <ulink url="../&wget-list;">&wget-list;</ulink>
   som en inngang til kommandoen <command>wget</command> ,bruk:</para>
 
@@ -86,31 +86,31 @@
 <!--
   <note><para>
     The <filename>wget-list</filename> filen nevnt ovenfor henter alle
-    pakker for både sysV og systemd versjonene av LFS. Det er totalt
-    fem ekstra små pakker som ikke er nødvendig for den gjeldende boken.
+    pakker for bÃ¥de sysV og systemd versjonene av LFS. Det er totalt
+    fem ekstra smÃ¥ pakker som ikke er nÃ¸dvendig for den gjeldende boken.
     <filename>md5sums</filename> filen nevnt nedenfor er spesifikk for
     gjeldende bok.
   </para></note>
 -->
   <para>I tillegg, fra og med LFS 7.0, er det en egen fil,
-  <ulink url="../md5sums">md5sums</ulink>, som kan brukes til å bekrefte at alle
-  de riktige pakkene er tilgjengelige før du fortsetter. Legg inn denne filen i
-  <filename class="directory">$LFS/sources</filename> og kjør:</para>
+  <ulink url="../md5sums">md5sums</ulink>, som kan brukes til Ã¥ bekrefte at alle
+  de riktige pakkene er tilgjengelige fÃ¸r du fortsetter. Legg inn denne filen i
+  <filename class="directory">$LFS/sources</filename> og kjÃ¸r:</para>
 
 <screen role="nodump"><userinput>pushd $LFS/sources
   md5sum -c md5sums
 popd</userinput></screen>
 
-  <para>Denne sjekken kan brukes etter å ha hentet de nødvendige filene med en av de
-  metodene oppført ovenfor.</para>
+  <para>Denne sjekken kan brukes etter Ã¥ ha hentet de nÃ¸dvendige filene med en av de
+  metodene oppfÃ¸rt ovenfor.</para>
 
   <para>Hvis pakkene og oppdateringene er lastet ned som ikke-&root; bruker,
   vil disse filene eies av brukeren. Filsystemet registrerer
   eier ved hjelp av UID, og UID til en vanlig bruker i vertsdistroen er
-  ikke tildelt i LFS. Så filene vil bli eid av en ikke navngitt UID
+  ikke tildelt i LFS. SÃ¥ filene vil bli eid av en ikke navngitt UID
   i det endelige LFS systemet. Hvis du ikke vil tilordne samme UID for brukeren din
-  i LFS systemet, endre eierne av disse filene til &root; nå for å
-  unngå dette problemet:</para>
+  i LFS systemet, endre eierne av disse filene til &root; nÃ¥ for Ã¥
+  unngÃ¥ dette problemet:</para>
 
 <screen role="nodump"><userinput>chown root:root $LFS/sources/*</userinput></screen>
 

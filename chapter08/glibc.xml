@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -24,9 +24,9 @@
     <title/>
 
     <para>Glibc pakken inneholder C hovedbiblioteket. Dette biblioteket tilbyr
-    de grunnleggende rutinene for tildeling av minne, søk i kataloger, åpne og
-    lukke filer, lese og skrive filer, strenghåndtering, mønstertilpasning,
-    aritmetikk og så videre.</para>
+    de grunnleggende rutinene for tildeling av minne, sÃ¸k i kataloger, Ã¥pne og
+    lukke filer, lese og skrive filer, strenghÃ¥ndtering, mÃ¸nstertilpasning,
+    aritmetikk og sÃ¥ videre.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -44,25 +44,25 @@
     <title>Installation of Glibc</title>
 
     <para>Noen av Glibc programmene bruker ikke-FHS kompatible
-    <filename class="directory">/var/db</filename> mappen til å lagre
-    kjøretidsdataene i. Bruk følgende oppdatering for å forsikre om at slike programmer
-    lagrer kjøretidsdataene deres på de FHS kompatible stedene:</para>
+    <filename class="directory">/var/db</filename> mappen til Ã¥ lagre
+    kjÃ¸retidsdataene i. Bruk fÃ¸lgende oppdatering for Ã¥ forsikre om at slike programmer
+    lagrer kjÃ¸retidsdataene deres pÃ¥ de FHS kompatible stedene:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&glibc-fhs-patch;</userinput></screen>
 
-    <para>Rett opp to sikkerhetssårbarheter og en regresjon som forårsaker at
+    <para>Rett opp to sikkerhetssÃ¥rbarheter og en regresjon som forÃ¥rsaker at
     posix_memalign() fungerer veldig sakte under noen forhold:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&glibc-upstream-fixes-patch;</userinput></screen>
 
-    <para>Glibc dokumentasjonen anbefaler å bygge Glibc
+    <para>Glibc dokumentasjonen anbefaler Ã¥ bygge Glibc
     i en dedikert byggemappe:</para>
 
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>
 
-    <para>Sørg for at <command>ldconfig</command> og <command>sln</command>
-    verktøyene vil bli installert i
+    <para>SÃ¸rg for at <command>ldconfig</command> og <command>sln</command>
+    verktÃ¸yene vil bli installert i
     <filename class="directory">/usr/sbin</filename>:</para>
 
 <screen><userinput remap="pre">echo "rootsbindir=/usr/sbin" &gt; configparms</userinput></screen>
@@ -84,7 +84,7 @@ cd       build</userinput></screen>
         <term><parameter>--disable-werror</parameter></term>
         <listitem>
           <para>Dette alternativet deaktiverer alternativet -Werror sendt til
-          GCC. Dette er nødvendig for å kjøre testpakken.</para>
+          GCC. Dette er nÃ¸dvendig for Ã¥ kjÃ¸re testpakken.</para>
         </listitem>
       </varlistentry>
 
@@ -92,8 +92,8 @@ cd       build</userinput></screen>
         <term><parameter>--enable-kernel=&min-kernel;</parameter></term>
         <listitem>
           <para>Dette alternativet forteller byggesystemet at denne glibc kan
-          brukes med kjerner så gamle som &min-kernel;. Dette betyr å generere
-          løsninger i tilfelle et systemanrop introdusert i en senere versjon
+          brukes med kjerner sÃ¥ gamle som &min-kernel;. Dette betyr Ã¥ generere
+          lÃ¸sninger i tilfelle et systemanrop introdusert i en senere versjon
           ikke kan brukes.</para>
         </listitem>
       </varlistentry>
@@ -101,8 +101,8 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--enable-stack-protector=strong</parameter></term>
         <listitem>
-          <para>Dette alternativet øker systemsikkerheten ved å legge til
-          ekstra kode for å se etter bufferoverflyt "buffer overflows", for eksempel stabel (stack)
+          <para>Dette alternativet Ã¸ker systemsikkerheten ved Ã¥ legge til
+          ekstra kode for Ã¥ se etter bufferoverflyt "buffer overflows", for eksempel stabel (stack)
           knusende angrep.</para>
         </listitem>
       </varlistentry>
@@ -127,7 +127,7 @@ cd       build</userinput></screen>
         <term><parameter>libc_cv_slibdir=/usr/lib</parameter></term>
         <listitem>
           <para>Denne variabelen setter riktig bibliotek for alle
-          systemer. Vi ønsker ikke at lib64 skal brukes.</para>
+          systemer. Vi Ã¸nsker ikke at lib64 skal brukes.</para>
         </listitem>
       </varlistentry>
 
@@ -142,8 +142,8 @@ cd       build</userinput></screen>
       Ikke hopp over den under noen omstendigheter.</para>
     </important>
 
-    <para>Vanligvis består ikke noen få tester. Testfeilene som er oppført nedenfor
-    er vanligvis trygge å ignorere.</para>
+    <para>Vanligvis bestÃ¥r ikke noen fÃ¥ tester. Testfeilene som er oppfÃ¸rt nedenfor
+    er vanligvis trygge Ã¥ ignorere.</para>
 
 <!-- Use remap="make" here to work around a jhalfs issue. -->
 <!--<screen><userinput remap="make">case $(uname -m) in
@@ -151,14 +151,14 @@ cd       build</userinput></screen>
   x86_64) ln -sfnv $PWD/elf/ld-linux-x86-64.so.2 /lib ;;
 esac</userinput></screen>
 
-    <note><para>Den symbolske lenken ovenfor er nødvendig for å kjøre testene på dette
-    byggetrinnet i chroot miljøet. Den vil bli overskrevet
+    <note><para>Den symbolske lenken ovenfor er nÃ¸dvendig for Ã¥ kjÃ¸re testene pÃ¥ dette
+    byggetrinnet i chroot miljÃ¸et. Den vil bli overskrevet
     i installasjonsfasen nedenfor.</para></note>
 -->
 <screen><userinput remap="test">make check</userinput></screen>
 
     <para>Du kan se noen testfeil. Glibc testpakken er
-    noe avhengig av vertssystemet. Noen få feil ut av
+    noe avhengig av vertssystemet. Noen fÃ¥ feil ut av
     over 5000 tester kan generelt ignoreres. Dette er en liste over
     de vanligste problemene som er sett for nyere versjoner av LFS:</para>
 
@@ -166,26 +166,26 @@ esac</userinput></screen>
 
       <listitem>
         <para><emphasis>io/tst-lchmod</emphasis>
-        er kjent for å mislykkes i LFS chroot miljøet.</para>
+        er kjent for Ã¥ mislykkes i LFS chroot miljÃ¸et.</para>
       </listitem>
 
 <!-- Did not fail with glibc-2.38
       <listitem>
         <para><emphasis>misc/tst-ttyname</emphasis>
-        er kjent for å mislykkes i LFS chroot miljøet.</para>
+        er kjent for Ã¥ mislykkes i LFS chroot miljÃ¸et.</para>
       </listitem>
 -->
 
       <!-- https://sourceware.org/pipermail/libc-alpha/2022-August/141567.html -->
       <listitem>
         <para><emphasis>stdlib/tst-arc4random-thread</emphasis>
-        testen er kjent for å mislykkes hvis vertskjernen er relativt gammel.</para>
+        testen er kjent for Ã¥ mislykkes hvis vertskjernen er relativt gammel.</para>
       </listitem>
 
       <listitem>
         <para>Noen tester, for eksempel
         <emphasis>nss/tst-nss-files-hosts-multi</emphasis>,
-        er kjent for å mislykkes på relativt trege systemer på grunn av et internt
+        er kjent for Ã¥ mislykkes pÃ¥ relativt trege systemer pÃ¥ grunn av et internt
         tidsavbrudd.</para>
       </listitem>
 
@@ -197,12 +197,12 @@ esac</userinput></screen>
     </itemizedlist>
 
     <para>Selv om det er en ufarlig melding, vil installasjonsstadiet til Glibc
-    klage på fravær av <filename>/etc/ld.so.conf</filename>.
+    klage pÃ¥ fravÃ¦r av <filename>/etc/ld.so.conf</filename>.
     Forhindre denne advarselen med:</para>
 
 <screen><userinput remap="install">touch /etc/ld.so.conf</userinput></screen>
     <!-- https://sourceware.org/bugzilla/show_bug.cgi?id=21911 -->
-    <para>Fiks Makefile for å hoppe over en utdatert tilregnlighetssjekk
+    <para>Fiks Makefile for Ã¥ hoppe over en utdatert tilregnlighetssjekk
     som mislykkes med en moderne Glibc-konfigurasjon:</para>
 
 <screen><userinput remap="install">sed '/test-installation/s@$(PERL)@echo not running@' -i ../Makefile</userinput></screen>
@@ -211,29 +211,29 @@ esac</userinput></screen>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>Fiks en hardkodet bane til den kjørbare lasteren i
+    <para>Fiks en hardkodet bane til den kjÃ¸rbare lasteren i
     <command>ldd</command> skriptet:</para>
 
 <screen><userinput remap="install">sed '/RTLDLIST=/s@/usr@@g' -i /usr/bin/ldd</userinput></screen>
 <!--
-    <para>Installer konfigurasjonsfilen og kjøretidsmappen for
+    <para>Installer konfigurasjonsfilen og kjÃ¸retidsmappen for
     <command>nscd</command>:</para>
 
 <screen><userinput remap="install">cp -v ../nscd/nscd.conf /etc/nscd.conf
 mkdir -pv /var/cache/nscd</userinput></screen>
 
-    <para revision="systemd">Installer systemd støttefilene for
+    <para revision="systemd">Installer systemd stÃ¸ttefilene for
     <command>nscd</command>:</para>
 
     <screen revision="systemd"><userinput remap="install">install -v -Dm644 ../nscd/nscd.tmpfiles /usr/lib/tmpfiles.d/nscd.conf
 install -v -Dm644 ../nscd/nscd.service /usr/lib/systemd/system/nscd.service</userinput></screen>
 -->
-    <para>Installer deretter lokalitetene som kan få systemet til å svare i et
-    annet språk. Ingen av disse stedene er påkrevd, men hvis noen av dem
+    <para>Installer deretter lokalitetene som kan fÃ¥ systemet til Ã¥ svare i et
+    annet sprÃ¥k. Ingen av disse stedene er pÃ¥krevd, men hvis noen av dem
     mangler, vil testpakkene til noen pakker hoppe over viktige
     testsaker.</para>
 
-    <para>Individuelle lokaliteter kan installeres ved å bruke
+    <para>Individuelle lokaliteter kan installeres ved Ã¥ bruke
     <command>localedef</command> programmet. For eksempel den andre
     <command>localedef</command> kommandoen nedenfor kombinerer
     <filename>/usr/share/i18n/locales/cs_CZ</filename>
@@ -241,8 +241,8 @@ install -v -Dm644 ../nscd/nscd.service /usr/lib/systemd/system/nscd.service</use
     <filename>/usr/share/i18n/charmaps/UTF-8.gz</filename>
     tegnsett definisjonen og legger resultatet til
     <filename>/usr/lib/locale/locale-archive</filename> filen.
-    Følgende instruksjoner vil installere minimumssettet med
-    lokaliteter som er nødvendige for optimal dekning av tester:</para>
+    FÃ¸lgende instruksjoner vil installere minimumssettet med
+    lokaliteter som er nÃ¸dvendige for optimal dekning av tester:</para>
 
 <screen role="nodump"><userinput remap="locale-test">mkdir -pv /usr/lib/locale
 localedef -i C -f UTF-8 C.UTF-8
@@ -281,28 +281,28 @@ localedef -i zh_CN -f GB18030 zh_CN.GB18030
 localedef -i zh_HK -f BIG5-HKSCS zh_HK.BIG5-HKSCS
 localedef -i zh_TW -f UTF-8 zh_TW.UTF-8</userinput></screen>
 
-    <para>Installer i tillegg lokaliteten for ditt eget land, språk og
+    <para>Installer i tillegg lokaliteten for ditt eget land, sprÃ¥k og
     tegnsett.</para>
 
-    <para>Alternativt kan du installere alle lokaliteter som er oppført i
+    <para>Alternativt kan du installere alle lokaliteter som er oppfÃ¸rt i
     <filename>glibc-&glibc-version;/localedata/SUPPORTED</filename> filen
-    (den inkluderer alle lokaliteter oppført ovenfor og mange flere) med en gang med
+    (den inkluderer alle lokaliteter oppfÃ¸rt ovenfor og mange flere) med en gang med
     denne tidkrevende kommandoen:</para>
 
 <screen><userinput remap="locale-full">make localedata/install-locales</userinput></screen>
 
-    <para>Bruk deretter <command>localedef</command> kommandoen for å lage og
-    installere lokaliteter som ikke er oppført i
+    <para>Bruk deretter <command>localedef</command> kommandoen for Ã¥ lage og
+    installere lokaliteter som ikke er oppfÃ¸rt i
     <filename>glibc-&glibc-version;/localedata/SUPPORTED</filename> filen
-    når du trenger dem. For eksempel er følgende to lokaliteter
-    nødvendig for noen tester senere i dette kapittelet:</para>
+    nÃ¥r du trenger dem. For eksempel er fÃ¸lgende to lokaliteter
+    nÃ¸dvendig for noen tester senere i dette kapittelet:</para>
 
 <screen role="nodump"><userinput remap="locale-full">localedef -i C -f UTF-8 C.UTF-8
 localedef -i ja_JP -f SHIFT_JIS ja_JP.SJIS 2> /dev/null || true</userinput></screen>
 
-    <note><para>Glibc bruker nå libidn2 når den løser internasjonalisert
-    domenenavn. Dette er en kjøretids avhengighet. Hvis denne evnen
-    er nødvendig, er instruksjonene for installasjon av libidn2 i
+    <note><para>Glibc bruker nÃ¥ libidn2 nÃ¥r den lÃ¸ser internasjonalisert
+    domenenavn. Dette er en kjÃ¸retids avhengighet. Hvis denne evnen
+    er nÃ¸dvendig, er instruksjonene for installasjon av libidn2 i
     <ulink url="&blfs-book;general/libidn2.html">BLFS libidn2 siden</ulink>.
     </para></note>
 
@@ -322,12 +322,12 @@ localedef -i ja_JP -f SHIFT_JIS ja_JP.SJIS 2> /dev/null || true</userinput></scr
   <sect3>
   <title>Legge til nsswitch.conf</title>
 
-    <para><filename>/etc/nsswitch.conf</filename> filen må opprettes
-    fordi Glibc standardene ikke fungerer bra i et nettverksmiljø.
+    <para><filename>/etc/nsswitch.conf</filename> filen mÃ¥ opprettes
+    fordi Glibc standardene ikke fungerer bra i et nettverksmiljÃ¸
     </para>
 
-    <para>Opprett en ny fil <filename>/etc/nsswitch.conf</filename> ved å kjøre
-    følgende:</para>
+    <para>Opprett en ny fil <filename>/etc/nsswitch.conf</filename> ved Ã¥ kjÃ¸re
+    fÃ¸lgende:</para>
 
 <screen revision='sysv'><userinput>cat &gt; /etc/nsswitch.conf &lt;&lt; "EOF"
 <literal># Begin /etc/nsswitch.conf
@@ -370,7 +370,7 @@ EOF</userinput></screen>
     <sect3>
     <title>Legge til tidssonedata</title>
 
-    <para>Installer og sett opp tidssonedataene med følgende:</para>
+    <para>Installer og sett opp tidssonedataene med fÃ¸lgende:</para>
 <screen><userinput>tar -xf ../../tzdata&tzdata-version;.tar.gz
 
 ZONEINFO=/usr/share/zoneinfo
@@ -394,14 +394,14 @@ unset ZONEINFO</userinput></screen>
         <term><parameter>zic -L /dev/null ...</parameter></term>
         <listitem>
           <para>Dette skaper posix tidssoner uten noen skuddsekunder. Det er
-          konvensjonelt å legge disse i både
+          konvensjonelt Ã¥ legge disse i bÃ¥de
           <filename class="directory">zoneinfo</filename> og
           <filename class="directory">zoneinfo/posix</filename>. Det er
-          nødvendig for å legge POSIX tidssonene i
+          nÃ¸dvendig for Ã¥ legge POSIX tidssonene i
           <filename class="directory">zoneinfo</filename>, ellers vil forskjellige
-          testpakker rapportere feil. På et innebygd system, hvor plass er
-          stramt og du aldri har tenkt å oppdatere tidssonene, kan du spare
-          1,9 MB ved å ikke bruke <filename class="directory">posix</filename>
+          testpakker rapportere feil. PÃ¥ et innebygd system, hvor plass er
+          stramt og du aldri har tenkt Ã¥ oppdatere tidssonene, kan du spare
+          1,9 MB ved Ã¥ ikke bruke <filename class="directory">posix</filename>
           mappen, men noen applikasjoner eller testpakker kan produsere noen
           feil.</para>
         </listitem>
@@ -409,10 +409,10 @@ unset ZONEINFO</userinput></screen>
       <varlistentry>
         <term><parameter>zic -L leapseconds ...</parameter></term>
         <listitem>
-          <para>Dette skaper riktige tidssoner, inkludert skuddsekunder. På en
-          innebygd system, hvor det er trangt om plass og du ikke har tenkt å oppdatere
+          <para>Dette skaper riktige tidssoner, inkludert skuddsekunder. PÃ¥ en
+          innebygd system, hvor det er trangt om plass og du ikke har tenkt Ã¥ oppdatere
           tidssonene noen gang, eller ikke bryr deg om riktig tid, kan du
-          spar 1,9 MB ved å utelate <filename class="directory">right</filename>
+          spar 1,9 MB ved Ã¥ utelate <filename class="directory">right</filename>
           mappen.</para>
         </listitem>
       </varlistentry>
@@ -427,25 +427,25 @@ unset ZONEINFO</userinput></screen>
     </variablelist>
 
 
-    <para>En måte å bestemme den lokale tidssonen på er å kjøre følgende
+    <para>En mÃ¥te Ã¥ bestemme den lokale tidssonen pÃ¥ er Ã¥ kjÃ¸re fÃ¸lgende
     skript:</para>
 
 <screen role="nodump"><userinput>tzselect</userinput></screen>
 
-    <para>Etter å ha svart på noen spørsmål om lokaliteten, vil skriptet
-    skrive ut navnet på tidssonen (f.eks.,
-    <emphasis>America/Edmonton</emphasis>). Det er også noen andre mulige
-    tidssoner oppført i <filename
+    <para>Etter Ã¥ ha svart pÃ¥ noen spÃ¸rsmÃ¥l om lokaliteten, vil skriptet
+    skrive ut navnet pÃ¥ tidssonen (f.eks.,
+    <emphasis>America/Edmonton</emphasis>). Det er ogsÃ¥ noen andre mulige
+    tidssoner oppfÃ¸rt i <filename
     class='directory'>/usr/share/zoneinfo</filename> som for eksempel
     <emphasis>Canada/Eastern</emphasis> eller <emphasis>EST5EDT</emphasis> som
     ikke identifiseres av skriptet, men kan brukes.</para>
 
-    <para>Deretter oppretter du <filename>/etc/localtime</filename> filen med å
-    kjøre:</para>
+    <para>Deretter oppretter du <filename>/etc/localtime</filename> filen med Ã¥
+    kjÃ¸re:</para>
 
 <screen><userinput>ln -sfv /usr/share/zoneinfo/<replaceable>&lt;xxx&gt;</replaceable> /etc/localtime</userinput></screen>
 
-    <para>Erstatt <replaceable>&lt;xxx&gt;</replaceable> med navnet på
+    <para>Erstatt <replaceable>&lt;xxx&gt;</replaceable> med navnet pÃ¥
     den valgte tidssonen (f.eks. Europe/Oslo).</para>
 
   </sect3>
@@ -458,20 +458,20 @@ unset ZONEINFO</userinput></screen>
     </indexterm>
 
     <para>Som standard den dynamiske lasteren (<filename
-    class="libraryfile">/lib/ld-linux.so.2</filename>) søker gjennom
+    class="libraryfile">/lib/ld-linux.so.2</filename>) sÃ¸ker gjennom
     <filename class="directory">/usr/lib</filename> for dynamiske biblioteker
-    som trengs av programmer når de kjøres. Imidlertid, hvis det er
+    som trengs av programmer nÃ¥r de kjÃ¸res. Imidlertid, hvis det er
     biblioteker i andre kataloger enn
-    <filename class="directory">/usr/lib</filename>, må disse legges til
+    <filename class="directory">/usr/lib</filename>, mÃ¥ disse legges til
     <filename>/etc/ld.so.conf</filename> filen for at den
     dynamiske lasteren skal finne dem. To kataloger som er allment kjent
-    å inneholde flere biblioteker er <filename
+    Ã¥ inneholde flere biblioteker er <filename
     class="directory">/usr/local/lib</filename> og <filename
-    class="directory">/opt/lib</filename>, så legg disse mappene til
-    den dynamiske lasterens søkebane.</para>
+    class="directory">/opt/lib</filename>, sÃ¥ legg disse mappene til
+    den dynamiske lasterens sÃ¸kebane.</para>
 
-    <para>Opprett en ny fil <filename>/etc/ld.so.conf</filename> ved å kjøre
-    følgende:</para>
+    <para>Opprett en ny fil <filename>/etc/ld.so.conf</filename> ved Ã¥ kjÃ¸re
+    fÃ¸lgende:</para>
 
 <screen><userinput>cat &gt; /etc/ld.so.conf &lt;&lt; "EOF"
 <literal># Begin /etc/ld.so.conf
@@ -480,10 +480,10 @@ unset ZONEINFO</userinput></screen>
 </literal>
 EOF</userinput></screen>
 
-  <para>Om ønskelig kan den dynamiske lasteren også søke i en mappe og
+  <para>Om Ã¸nskelig kan den dynamiske lasteren ogsÃ¥ sÃ¸ke i en mappe og
   inkludere innholdet i filene som finnes der. Vanligvis vil filene i
-  denne mappen inkludere en linje som spesifiserer ønsket biblioteksti.
-  For å legge til denne funksjonen, kjør følgende kommandoer:</para>
+  denne mappen inkludere en linje som spesifiserer Ã¸nsket biblioteksti.
+  For Ã¥ legge til denne funksjonen, kjÃ¸r fÃ¸lgende kommandoer:</para>
 
 <screen role="nodump"><userinput>cat &gt;&gt; /etc/ld.so.conf &lt;&lt; "EOF"
 <literal># Add an include directory
@@ -560,7 +560,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="getent">
         <term><command>getent</command></term>
         <listitem>
-          <para>Henter oppføringer fra en administrativ database</para>
+          <para>Henter oppfÃ¸ringer fra en administrativ database</para>
           <indexterm zone="ch-system-glibc getent">
             <primary sortas="b-getent">getent</primary>
           </indexterm>
@@ -570,7 +570,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="iconv">
         <term><command>iconv</command></term>
         <listitem>
-          <para>Utfører tegnsettkonvertering</para>
+          <para>UtfÃ¸rer tegnsettkonvertering</para>
           <indexterm zone="ch-system-glibc iconv">
             <primary sortas="b-iconv">iconv</primary>
           </indexterm>
@@ -591,7 +591,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="ldconfig">
         <term><command>ldconfig</command></term>
         <listitem>
-          <para>Konfigurerer dynamiske lenker til kjøretidsbindingene</para>
+          <para>Konfigurerer dynamiske lenker til kjÃ¸retidsbindingene</para>
           <indexterm zone="ch-system-glibc ldconfig">
             <primary sortas="b-ldconfig">ldconfig</primary>
           </indexterm>
@@ -613,7 +613,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
         <term><command>lddlibc4</command></term>
         <listitem>
           <para>Assisterer <command>ldd</command> med objektfiler.
-          Det eksisterer ikke på nyere arkitekturer som x86_64</para>
+          Det eksisterer ikke pÃ¥ nyere arkitekturer som x86_64</para>
           <indexterm zone="ch-system-glibc lddlibc4">
             <primary sortas="b-lddlibc4">lddlibc4</primary>
           </indexterm>
@@ -674,7 +674,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="pldd">
         <term><command>pldd</command></term>
         <listitem>
-          <para>Viser dynamiske delte objekter som brukes av kjørende prosesser</para>
+          <para>Viser dynamiske delte objekter som brukes av kjÃ¸rende prosesser</para>
           <indexterm zone="ch-system-glibc pldd">
             <primary sortas="b-pldd">pldd</primary>
           </indexterm>
@@ -714,7 +714,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="tzselect">
         <term><command>tzselect</command></term>
         <listitem>
-          <para>Spør brukeren om lokaliteten til systemet og rapporterer
+          <para>SpÃ¸r brukeren om lokaliteten til systemet og rapporterer
           den tilsvarende tidssonebeskrivelsen</para>
           <indexterm zone="ch-system-glibc tzselect">
             <primary sortas="b-tzselect">tzselect</primary>
@@ -725,8 +725,8 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="xtrace">
         <term><command>xtrace</command></term>
         <listitem>
-          <para>Sporer kjøringen av et program ved å skrive ut gjeldende
-          utført funksjon</para>
+          <para>Sporer kjÃ¸ringen av et program ved Ã¥ skrive ut gjeldende
+          utfÃ¸rt funksjon</para>
           <indexterm zone="ch-system-glibc xtrace">
             <primary sortas="b-xtrace">xtrace</primary>
           </indexterm>
@@ -756,7 +756,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="ld.so">
         <term><filename class="libraryfile">ld-*.so</filename></term>
         <listitem>
-          <para>Hjelpeprogrammet for kjørbare delte biblioteker</para>
+          <para>Hjelpeprogrammet for kjÃ¸rbare delte biblioteker</para>
           <indexterm zone="ch-system-glibc ld.so">
             <primary sortas="c-ld.so">ld-&glibc-version;.so</primary>
           </indexterm>
@@ -766,8 +766,8 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libBrokenLocale">
         <term><filename class="libraryfile">libBrokenLocale</filename></term>
         <listitem>
-          <para>Brukes internt av Glibc som et grovt hack for å få ødelagte programmer
-          (f.eks. noen Motif-applikasjoner) kjørende. Se kommentarer i
+          <para>Brukes internt av Glibc som et grovt hack for Ã¥ fÃ¥ Ã¸delagte programmer
+          (f.eks. noen Motif-applikasjoner) kjÃ¸rende. Se kommentarer i
           <filename>glibc-&glibc-version;/locale/broken_cur_max.c</filename>
           for mer informasjon</para>
           <indexterm zone="ch-system-glibc libBrokenLocale">
@@ -780,7 +780,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
         <term><filename class="libraryfile">libanl</filename></term>
         <listitem>
           <para>Dummy bibliotek som ikke inneholder noen funksjoner. Tidligere var
-          det asynkront navneoppslagsbibliotek, hvor funksjoner nå er i
+          det asynkront navneoppslagsbibliotek, hvor funksjoner nÃ¥ er i
           <filename class='libraryfile'>libc</filename></para>
           <indexterm zone="ch-system-glibc libanl">
             <primary sortas="c-libanl">libanl</primary>
@@ -801,7 +801,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libc_malloc_debug">
         <term><filename class="libraryfile">libc_malloc_debug</filename></term>
         <listitem>
-          <para>Slår på minneallokeringskontroll når den er forhåndslastet</para>
+          <para>SlÃ¥r pÃ¥ minneallokeringskontroll nÃ¥r den er forhÃ¥ndslastet</para>
           <indexterm zone="ch-system-glibc libc_malloc_debug">
             <primary sortas="c-libc_malloc_debug">libc_malloc_debug</primary>
           </indexterm>
@@ -812,7 +812,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
         <term><filename class="libraryfile">libdl</filename></term>
         <listitem>
           <para>Dummy bibliotek som ikke inneholder noen funksjoner. Tidligere var den
-          dynamisk koblingsgrensesnittbibliotek, funksjonene er nå i
+          dynamisk koblingsgrensesnittbibliotek, funksjonene er nÃ¥ i
           <filename class="libraryfile">libc</filename></para>
           <indexterm zone="ch-system-glibc libdl">
             <primary sortas="c-libdl">libdl</primary>
@@ -824,7 +824,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
         <term><filename class="libraryfile">libg</filename></term>
         <listitem>
           <para>Dummy bibliotek som ikke inneholder noen funksjoner. Tidligere var det et
-          kjøretidsbibliotek for <command>g++</command></para>
+          kjÃ¸retidsbibliotek for <command>g++</command></para>
           <indexterm zone="ch-system-glibc libg">
             <primary sortas="c-libg">libg</primary>
           </indexterm>
@@ -845,7 +845,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
         <term><filename class="libraryfile">libmvec</filename></term>
         <listitem>
           <para>Matematisk vektorbibliotek, koblet inn etter behov
-          når <filename class='libraryfile'>libm</filename> blir brukt</para>
+          nÃ¥r <filename class='libraryfile'>libm</filename> blir brukt</para>
           <indexterm zone="ch-system-glibc libmvec">
             <primary sortas="c-libmvec">libmvec</primary>
           </indexterm>
@@ -855,7 +855,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libmcheck">
         <term><filename class="libraryfile">libmcheck</filename></term>
         <listitem>
-          <para>Slår på minneallokeringskontroll når den er koblet til</para>
+          <para>SlÃ¥r pÃ¥ minneallokeringskontroll nÃ¥r den er koblet til</para>
           <indexterm zone="ch-system-glibc libmcheck">
             <primary sortas="c-libmcheck">libmcheck</primary>
           </indexterm>
@@ -865,7 +865,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libmemusage">
         <term><filename class="libraryfile">libmemusage</filename></term>
         <listitem>
-          <para>Brukt av <command>memusage</command> for å hjelpe til med å samle inn
+          <para>Brukt av <command>memusage</command> for Ã¥ hjelpe til med Ã¥ samle inn
           informasjon om minnebruken til et program</para>
           <indexterm zone="ch-system-glibc libmemusage">
             <primary sortas="c-libmemusage">libmemusage</primary>
@@ -876,7 +876,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libnsl">
         <term><filename class="libraryfile">libnsl</filename></term>
         <listitem>
-          <para>Nettverkstjenestebiblioteket, nå avviklet</para>
+          <para>Nettverkstjenestebiblioteket, nÃ¥ avviklet</para>
           <indexterm zone="ch-system-glibc libnsl">
             <primary sortas="c-libnsl">libnsl</primary>
           </indexterm>
@@ -886,10 +886,10 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libnss">
         <term><filename class="libraryfile">libnss_*</filename></term>
         <listitem>
-          <para>Navnetjenestebrytermodulene, som inneholder funksjoner for å
-          løse vertsnavn, brukernavn, gruppenavn, aliaser, tjenester,
+          <para>Navnetjenestebrytermodulene, som inneholder funksjoner for Ã¥
+          lÃ¸se vertsnavn, brukernavn, gruppenavn, aliaser, tjenester,
           protokoller osv. Lastet av
-          <filename class='libraryfile'>libc</filename> ifølge
+          <filename class='libraryfile'>libc</filename> ifÃ¸lge
           konfigurasjon i <filename>/etc/nsswitch.conf</filename></para>
           <indexterm zone="ch-system-glibc libnss">
             <primary sortas="c-libnss">libnss_*</primary>
@@ -900,7 +900,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libpcprofile">
         <term><filename class="libraryfile">libpcprofile</filename></term>
         <listitem>
-          <para>Kan forhåndslastes til PC profile en kjørbar fil</para>
+          <para>Kan forhÃ¥ndslastes til PC profile en kjÃ¸rbar fil</para>
           <indexterm zone="ch-system-glibc libpcprofile">
             <primary sortas="c-libpcprofile">libpcprofile</primary>
           </indexterm>
@@ -913,7 +913,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
           <para>Dummy bibliotek som ikke inneholder noen funksjoner. Tidligere inneholdt den
           funksjoner som gir de fleste grensesnittene som er spesifisert
           av POSIX.1c Threads Extensions og semaforgrensesnittene
-          spesifisert av POSIX.1b Real-time Extensions, nå er funksjonene
+          spesifisert av POSIX.1b Real-time Extensions, nÃ¥ er funksjonene
           i <filename class="libraryfile">libc</filename></para>
           <indexterm zone="ch-system-glibc libpthread">
             <primary sortas="c-libpthread">libpthread</primary>
@@ -924,7 +924,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libresolv">
         <term><filename class="libraryfile">libresolv</filename></term>
         <listitem>
-          <para>Inneholder funksjoner for å lage, sende og tolke
+          <para>Inneholder funksjoner for Ã¥ lage, sende og tolke
           pakker til domenenavnservere</para>
           <indexterm zone="ch-system-glibc libresolv">
             <primary sortas="c-libresolv">libresolv</primary>
@@ -946,8 +946,8 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libthread_db">
         <term><filename class="libraryfile">libthread_db</filename></term>
         <listitem>
-          <para>Inneholder funksjoner som er nyttige for å bygge feilsøkere for
-          flertrådede programmer</para>
+          <para>Inneholder funksjoner som er nyttige for Ã¥ bygge feilsÃ¸kere for
+          flertrÃ¥dede programmer</para>
           <indexterm zone="ch-system-glibc libthread_db">
             <primary sortas="c-libthread_db">libthread_db</primary>
           </indexterm>
@@ -959,7 +959,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
         <listitem>
           <para>Dummy bibliotek som ikke inneholder noen funksjoner. Tidligere inneholdt den
           kode for <quote>standard</quote> funksjoner som brukes i
-          mange forskjellige Unix verktøy. Disse funksjonene er nå i
+          mange forskjellige Unix verktÃ¸y. Disse funksjonene er nÃ¥ i
           <filename class="libraryfile">libc</filename></para>
           <indexterm zone="ch-system-glibc libutil">
             <primary sortas="c-libutil">libutil</primary>

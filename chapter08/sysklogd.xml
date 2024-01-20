@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -24,7 +24,7 @@
     <title/>
 
     <para>Sysklogd pakken inneholder programmer for logging av systemmeldinger,
-    slik som de kjernen gir når uvanlige ting skjer.</para>
+    slik som de kjernen gir nÃ¥r uvanlige ting skjer.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -41,7 +41,7 @@
   <sect2 role="installation">
     <title>Installasjon av Sysklogd</title>
 
-    <para>Først, fiks problemer som forårsaker en segmenteringsfeil under
+    <para>FÃ¸rst, fiks problemer som forÃ¥rsaker en segmenteringsfeil under
      noen forhold i klogd og fiks en foreldet programkonstruksjon:</para>
 
 <screen><userinput remap="pre">sed -i '/Error loading kernel symbols/{n;n;d}' ksym_mod.c
@@ -71,8 +71,8 @@ sed -i 's/union wait/int/' syslogd.c</userinput></screen>
       <primary sortas="e-/etc/syslog.conf">/etc/syslog.conf</primary>
     </indexterm>
 
-    <para>Lag en ny <filename>/etc/syslog.conf</filename> fil ved å kjøre
-    følgende:</para>
+    <para>Lag en ny <filename>/etc/syslog.conf</filename> fil ved Ã¥ kjÃ¸re
+    fÃ¸lgende:</para>
 
 <screen><userinput>cat &gt; /etc/syslog.conf &lt;&lt; "EOF"
 <literal># Begin /etc/syslog.conf
@@ -109,7 +109,7 @@ EOF</userinput></screen>
       <varlistentry id="klogd">
         <term><command>klogd</command></term>
         <listitem>
-          <para>En systemnisse (system daemon) for å avskjære og logge kjernemeldinger</para>
+          <para>En systemnisse (system daemon) for Ã¥ avskjÃ¦re og logge kjernemeldinger</para>
           <indexterm zone="ch-system-sysklogd klogd">
             <primary sortas="b-klogd">klogd</primary>
           </indexterm>
@@ -121,8 +121,8 @@ EOF</userinput></screen>
         <listitem>
           <para>Logger meldingene for systemprogrammer som tilbyr logging [Hver
           logget melding inneholder minst et datostempel og et vertsnavn, og
-          normalt programmets navn også, men det avhenger av hvor tillitsfull
-          loggingnissen blir fortalt å være.]</para>
+          normalt programmets navn ogsÃ¥ men det avhenger av hvor tillitsfull
+          loggingnissen blir fortalt Ã¥ vÃ¦re.]</para>
           <indexterm zone="ch-system-sysklogd syslogd">
             <primary sortas="b-syslogd">syslogd</primary>
           </indexterm>

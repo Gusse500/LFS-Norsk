@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -23,13 +23,13 @@
   <sect2 role="package">
     <title/>
 
-    <para><application>Expect</application> pakken inneholder verktøy for å
+    <para><application>Expect</application> pakken inneholder verktÃ¸y for Ã¥
     automatisere, via skriptede dialoger, interaktive applikasjoner som f.eks
     <command>telnet</command>, <command>ftp</command>,
     <command>passwd</command>, <command>fsck</command>,
     <command>rlogin</command>, og <command>tip</command>.
-    <application>Expect</application> er også nyttig for å teste disse samme
-    applikasjoner i tillegg til å lette alle slags oppgaver som er uoverkommelige
+    <application>Expect</application> er ogsÃ¥ nyttig for Ã¥ teste disse samme
+    applikasjoner i tillegg til Ã¥ lette alle slags oppgaver som er uoverkommelige
     vanskelig med noe annet. <application>DejaGnu</application>
     rammeverket er skrevet i <application>Expect</application>.</para>
 
@@ -62,7 +62,7 @@
       <varlistentry>
         <term><parameter>--with-tcl=/usr/lib</parameter></term>
         <listitem>
-          <para>Denne parameteren er nødvendig for å fortelle
+          <para>Denne parameteren er nÃ¸dvendig for Ã¥ fortelle
           <command>configure</command> hvor
           <command>tclConfig.sh</command> skriptet er plassert.</para>
         </listitem>
@@ -87,7 +87,7 @@
       Ikke hopp over den under noen omstendigheter.</para>
     </important>
 
-	<para>For å teste resultatene, utsted:</para>
+	<para>For Ã¥ teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">make test</userinput></screen>
 
@@ -96,12 +96,12 @@
     administrator to create more</computeroutput></quote>, indikerer det
     at du ikke har montert
     <systemitem class="filesystem">devpts</systemitem> filsystemet
-    riktig. Du må gå ut av chroot miljøet, les
-    <xref linkend='ch-tools-kernfs'/> igjen, og sørg for at
+    riktig. Du mÃ¥ gÃ¥ ut av chroot miljÃ¸et, les
+    <xref linkend='ch-tools-kernfs'/> igjen, og sÃ¸rg for at
     <systemitem class="filesystem">devpts</systemitem> filsystemet (og
-    andre virtuelle kjernefilsystemer) er montert på riktig måte. Gå deretter inn i
-    chroot miljøet igjen ved å følge <xref linkend='ch-tools-chroot'/>.
-    Dette problemet må løses før du fortsetter.</para>
+    andre virtuelle kjernefilsystemer) er montert pÃ¥ riktig mÃ¥te. GÃ¥ deretter inn i
+    chroot miljÃ¸et igjen ved Ã¥ fÃ¸lge <xref linkend='ch-tools-chroot'/>.
+    Dette problemet mÃ¥ lÃ¸ses fÃ¸r du fortsetter.</para>
 
 	<para>Installer pakken:</para>
 
@@ -142,7 +142,7 @@ ln -svf expect&expect-version;/libexpect&expect-version;.so /usr/lib</userinput>
       <varlistentry id="libexpect">
         <term><filename class="libraryfile">libexpect-&expect-version;.so</filename></term>
         <listitem>
-          <para>Inneholder funksjoner som gjør at Expect kan brukes som en Tcl
+          <para>Inneholder funksjoner som gjÃ¸r at Expect kan brukes som en Tcl
           utvidelse eller brukes direkte fra C eller C++ (uten Tcl)</para>
           <indexterm zone="ch-system-expect libexpect">
             <primary sortas="c-libexpect-&expect-version;">libexpect-&expect-version;</primary>

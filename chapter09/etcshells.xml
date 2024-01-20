@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE part PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
    "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -15,15 +15,15 @@
   </indexterm>
 
   <para><filename>shells</filename> filen inneholder en liste over
-  påloggingsskall på systemet. Programmer bruker denne filen til å bestemme
-  om et skall er gyldig. For hvert skall skal det være en enkelt linje
-  tilstede, bestående av skallets bane i forhold til roten av
+  pÃ¥loggingsskall pÃ¥ systemet. Programmer bruker denne filen til Ã¥ bestemme
+  om et skall er gyldig. For hvert skall skal det vÃ¦re en enkelt linje
+  tilstede, bestÃ¥ende av skallets bane i forhold til roten av
   katalogstrukturen (/).</para>
 
   <para>For eksempel konsulteres denne filen av <command>chsh</command>
-  for å avgjøre om en uprivilegert bruker kan endre påloggingsskallet for sin
-  egen konto. Hvis kommandonavnet ikke er oppført, vil brukeren bli nektet
-  evnen til å skifte skall.</para>
+  for Ã¥ avgjÃ¸re om en uprivilegert bruker kan endre pÃ¥loggingsskallet for sin
+  egen konto. Hvis kommandonavnet ikke er oppfÃ¸rt, vil brukeren bli nektet
+  evnen til Ã¥ skifte skall.</para>
 
   <para>Det er et krav for applikasjoner som f.eks
   <application>GDM</application> som ikke fyller ut

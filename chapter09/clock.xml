@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -19,21 +19,21 @@
    systemklokken og tidssonen.</para>
 
   <para>Hvis du ikke kan huske om maskinvareklokken er satt til UTC eller ikke,
-   finn ut ved å kjøre <userinput>hwclock --localtime --show</userinput>
+   finn ut ved Ã¥ kjÃ¸re <userinput>hwclock --localtime --show</userinput>
   kommandoen. Dette vil vise hva gjeldende tid er i henhold til maskinvarens
    klokke. Hvis denne tiden samsvarer med hva klokken din er, er maskinvareklokken
    satt til lokal tid. Hvis utdataen fra <command>hwclock</command> ikke er lokal
-   tid, er sjansen stor for at den er satt til UTC. Bekreft dette ved å legge til eller trekke fra
+   tid, er sjansen stor for at den er satt til UTC. Bekreft dette ved Ã¥ legge til eller trekke fra
    riktig antall timer for tidssonen til tiden vist av
-  <command>hwclock</command>. For eksempel, hvis du for øyeblikket er i MST
-   tidssonen, som også er kjent som GMT -0700, legg til syv timer til den lokale
+  <command>hwclock</command>. For eksempel, hvis du for Ã¸yeblikket er i MST
+   tidssonen, som ogsÃ¥ er kjent som GMT -0700, legg til syv timer til den lokale
    tiden.</para>
 
   <para><command>systemd-timedated</command> leser <filename>/etc/adjtime</filename>,
   og avhengig av innholdet i filen, setter klokken til enten UTC eller
    lokal tid.</para>
 
-  <para>Opprett <filename>/etc/adjtime</filename> filen med følgende innhold
+  <para>Opprett <filename>/etc/adjtime</filename> filen med fÃ¸lgende innhold
    hvis maskinvareklokken er satt til lokal tid:</para>
 
 <screen><userinput>cat &gt; /etc/adjtime &lt;&lt; "EOF"
@@ -42,35 +42,35 @@
 LOCAL</literal>
 EOF</userinput></screen>
 
-  <para>Hvis <filename>/etc/adjtime</filename> ikke er tilstede ved første oppstart,
+  <para>Hvis <filename>/etc/adjtime</filename> ikke er tilstede ved fÃ¸rste oppstart,
   <command>systemd-timedated</command> vil anta at maskinvareklokken er
    satt til UTC og juster filen i henhold til det.</para>
 
-  <para>Du kan også bruke <command>timedatectl</command> verktøyet for å fortelle
+  <para>Du kan ogsÃ¥ bruke <command>timedatectl</command> verktÃ¸yet for Ã¥ fortelle
   <command>systemd-timedated</command> om maskinvareklokken er satt til
    UTC eller lokal tid:</para>
 
 <screen role="nodump"><userinput>timedatectl set-local-rtc 1</userinput></screen>
 
-  <para><command>timedatectl</command> kan også brukes til å endre systemtid og
+  <para><command>timedatectl</command> kan ogsÃ¥ brukes til Ã¥ endre systemtid og
    tidssone.</para>
 
-  <para>For å endre gjeldende systemtid, utsted:</para>
+  <para>For Ã¥ endre gjeldende systemtid, utsted:</para>
 
 <screen role="nodump"><userinput>timedatectl set-time YYYY-MM-DD HH:MM:SS</userinput></screen>
 
-  <para>Maskinvareklokken vil også bli oppdatert tilsvarende.</para>
+  <para>Maskinvareklokken vil ogsÃ¥ bli oppdatert tilsvarende.</para>
 
-  <para>For å endre gjeldende tidssone, utsted:</para>
+  <para>For Ã¥ endre gjeldende tidssone, utsted:</para>
 
 <screen role="nodump"><userinput>timedatectl set-timezone TIMEZONE</userinput></screen>
 
-  <para>Du kan få en liste over tilgjengelige tidssoner ved å kjøre:</para>
+  <para>Du kan fÃ¥ en liste over tilgjengelige tidssoner ved Ã¥ kjÃ¸re:</para>
 
 <screen role="nodump"><userinput>timedatectl list-timezones</userinput></screen>
 
-  <note><para>Vær oppmerksom på at <command>timedatectl</command> kommandoen
-   ikke fungerer i chroot miljøet. Det kan bare
+  <note><para>VÃ¦r oppmerksom pÃ¥ at <command>timedatectl</command> kommandoen
+   ikke fungerer i chroot miljÃ¸et. Det kan bare
    brukes etter at LFS systemet er startet opp med systemd.</para></note>
 
   <sect2>
@@ -83,20 +83,20 @@ EOF</userinput></screen>
     <para>Nissen er ikke ment som en erstatning for den vel
      etablerte NTP nissen, men bare som klientimplementering
      av SNTP protokollen som kan brukes for mindre avanserte
-     oppgaver og på ressursbegrensede systemer.</para>
+     oppgaver og pÃ¥ ressursbegrensede systemer.</para>
 
     <para>Fra og med systemd versjon 216,
     <command>systemd-timesyncd</command> nissen er aktivert som
-     standard. Hvis du vil deaktivere den, utsted følgende
+     standard. Hvis du vil deaktivere den, utsted fÃ¸lgende
      kommando:</para>
 
 <screen role="nodump"><userinput>systemctl disable systemd-timesyncd</userinput></screen>
 
     <para><filename>/etc/systemd/timesyncd.conf</filename> filen
-     kan brukes til å endre NTP serveren som
+     kan brukes til Ã¥ endre NTP serveren som
     <command>systemd-timesyncd</command> synkroniserer med.</para>
 
-    <para>Vær oppmerksom på at når systemklokken er satt til lokal tid,
+    <para>VÃ¦r oppmerksom pÃ¥ at nÃ¥r systemklokken er satt til lokal tid,
     <command>systemd-timesyncd</command> vil ikke oppdatere maskinvarens
      klokke.</para>
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -22,15 +22,15 @@
   <para><command>systemd-vconsole-setup</command> tjenesten leser
   <filename>/etc/vconsole.conf</filename> filen for konfigurasjonsinformasjon.
   Bestemmer hvilket tastatur og skjermskrift som skal brukes. Diverse
-  språkspesifikke HOWTOer kan også hjelpe med dette, se <ulink
+  sprÃ¥kspesifikke HOWTOer kan ogsÃ¥ hjelpe med dette, se <ulink
   url="https://tldp.org/HOWTO/HOWTO-INDEX/other-lang.html"/>.
-  Undersøk utdataen av <command>localectl list-keymaps</command> for en liste over
+  UndersÃ¸k utdataen av <command>localectl list-keymaps</command> for en liste over
   gyldige konsolltastaturer. Se i
   <filename class="directory">/usr/share/consolefonts</filename>
   mappen for gyldige skjermfonter.</para>
 
   <para><filename>/etc/vconsole.conf</filename> filen skal inneholde linjer
-  av formen: VARIABLE="verdi". Følgende variabler gjenkjennes:</para>
+  av formen: VARIABLE="verdi". FÃ¸lgende variabler gjenkjennes:</para>
 
   <variablelist>
 
@@ -45,7 +45,7 @@
     <varlistentry>
       <term>KEYMAP_TOGGLE</term>
       <listitem>
-        <para>Denne variabelen kan brukes til å konfigurere et andre vekslingstastatur og
+        <para>Denne variabelen kan brukes til Ã¥ konfigurere et andre vekslingstastatur og
         er deaktivert som standard.</para>
       </listitem>
     </varlistentry>
@@ -83,23 +83,23 @@
 FONT=Lat2-Terminus16</literal>
 EOF</userinput></screen>
 
-  <para>Du kan endre KEYMAP verdien under kjøring ved å bruke
-  <command>localectl</command> verktøyet:</para>
+  <para>Du kan endre KEYMAP verdien under kjÃ¸ring ved Ã¥ bruke
+  <command>localectl</command> verktÃ¸yet:</para>
 
 <screen role="nodump"><userinput>localectl set-keymap MAP</userinput></screen>
 
-  <note><para>Vær oppmerksom på at <command>localectl</command> kommandoen
-  ikke fungerer i chroot miljøet. Det kan bare
+  <note><para>VÃ¦r oppmerksom pÃ¥ at <command>localectl</command> kommandoen
+  ikke fungerer i chroot miljÃ¸et. Det kan bare
   brukes etter at LFS systemet er startet opp med systemd.</para></note>
 
-  <para>Du kan også bruke <command>localectl</command> verktøyet med
-  tilsvarende parametere for å endre X11 tastaturoppsett, modell, variant
+  <para>Du kan ogsÃ¥ bruke <command>localectl</command> verktÃ¸yet med
+  tilsvarende parametere for Ã¥ endre X11 tastaturoppsett, modell, variant
   og alternativer:</para>
 
 <screen role="nodump"><userinput>localectl set-x11-keymap LAYOUT [MODEL] [VARIANT] [OPTIONS]</userinput></screen>
 
-  <para>For å liste opp mulige verdier for <command>localectl set-x11-keymap</command>
-  parametere, kjør <command>localectl</command> med parametere oppført nedenfor:
+  <para>For Ã¥ liste opp mulige verdier for <command>localectl set-x11-keymap</command>
+  parametere, kjÃ¸r <command>localectl</command> med parametere oppfÃ¸rt nedenfor:
   </para>
 
   <variablelist>
@@ -134,7 +134,7 @@ EOF</userinput></screen>
 
   </variablelist>
 
-  <note><para>Bruk av noen av parameterne oppført ovenfor krever
+  <note><para>Bruk av noen av parameterne oppfÃ¸rt ovenfor krever
   XKeyboard-Config pakken fra BLFS.</para></note>
 
 </sect1>

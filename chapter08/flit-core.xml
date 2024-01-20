@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -24,7 +24,7 @@
     <title/>
 
     <para>Flit-core er den distribusjonsbyggende delene av Flit (et
-    pakkeverktøy for enkle Pythonmoduler).</para>
+    pakkeverktÃ¸y for enkle Pythonmoduler).</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -61,7 +61,7 @@
       <varlistentry>
         <term><parameter>-w dist</parameter></term>
         <listitem>
-           <para>Instruerer pip å putte det opprettede wheelet i
+           <para>Instruerer pip Ã¥ putte det opprettede wheelet i
            <filename class='directory'>dist</filename> mappen.</para>
         </listitem>
       </varlistentry>
@@ -69,7 +69,7 @@
       <varlistentry>
         <term><parameter>--no-cache-dir</parameter></term>
         <listitem>
-          <para>Hindrer pip fra å kopiere det opprettede wheel inn i
+          <para>Hindrer pip fra Ã¥ kopiere det opprettede wheel inn i
           <filename class='directory'>/root/.cache/pip</filename>
           mappen.</para>
         </listitem>
@@ -88,8 +88,8 @@
               <parameter>--no-index</parameter></term>
         <listitem>
           <para>Disse alternativene forhindrer henting av filer fra nettets
-          pakkerepository (PyPI). Hvis pakkene er installert i riktig rekkefølge,
-          trenger ikke pip å hente noen filer i utgangspunktet; disse
+          pakkerepository (PyPI). Hvis pakkene er installert i riktig rekkefÃ¸lge,
+          trenger ikke pip Ã¥ hente noen filer i utgangspunktet; disse
           alternativer gir en viss sikkerhet i tilfelle brukerfeil.</para>
         </listitem>
       </varlistentry>
@@ -97,7 +97,7 @@
       <varlistentry>
         <term><parameter>--find-links dist</parameter></term>
         <listitem>
-           <para>Instruerer pip til å søke etter wheelarkiver i
+           <para>Instruerer pip til Ã¥ sÃ¸ke etter wheelarkiver i
            <filename class='directory'>dist</filename> mappen.</para>
         </listitem>
       </varlistentry>

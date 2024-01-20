@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -13,7 +13,7 @@
   <title>Udev konfigurasjonsregler</title>
 
   <para>Reglene i dette vedlegget er listet opp for enkelhets skyld. Installasjon
-  gjøres normalt via instruksjoner i <xref linkend='ch-system-udev'/>.  </para>
+  gjÃ¸res normalt via instruksjoner i <xref linkend='ch-system-udev'/>.  </para>
 
   <sect1 id="lfsrules" role="wrap">
     <title>55-lfs.rules</title>

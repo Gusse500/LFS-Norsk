@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -10,25 +10,25 @@
 
   <title>Introduksjon</title>
 
-  <para>Denne delen er delt inn i tre stadier: først bygge en
-  krysskompilator og tilhørende biblioteker; for det andre, bruke denne kryssverktøykjeden
-  til å bygge flere verktøy på en måte som isolerer dem fra vertens
-  distribusjon; for det tredje, gå inn i chroot miljøet, som forbedrer ytterligere
-  vertsisolasjon, og bygge de resterende verktøyene som trengs for å bygge det endelige
+  <para>Denne delen er delt inn i tre stadier: fÃ¸rst bygge en
+  krysskompilator og tilhÃ¸rende biblioteker; for det andre, bruke denne kryssverktÃ¸ykjeden
+  til Ã¥ bygge flere verktÃ¸y pÃ¥ en mÃ¥te som isolerer dem fra vertens
+  distribusjon; for det tredje, gÃ¥ inn i chroot miljÃ¸et, som forbedrer ytterligere
+  vertsisolasjon, og bygge de resterende verktÃ¸yene som trengs for Ã¥ bygge det endelige
   systemet.</para>
 
-  <important><para>Med denne delen begynner det virkelige arbeidet med å bygge et nytt
-  system. Det krever mye forsiktighet for å sikre at instruksjonene blir
-  fulgt nøyaktig slik boken viser dem. Du bør prøve å forstå
-  hva de gjør, og uansett hvor ivrig du er etter å fullføre bygget, bør du
-  avstå fra å skrive dem blindt som vist, men les heller dokumentasjon når
-  det er noe du ikke forstår. Hold også styr på skrivingen din
-  og utdata av kommandoer, ved å bruke <command>tee</command> verktøyet
-  for å sende terminalutdataen til en fil. Dette gjør feilsøkingen enklere
-  hvis noe går galt.</para></important>
+  <important><para>Med denne delen begynner det virkelige arbeidet med Ã¥ bygge et nytt
+  system. Det krever mye forsiktighet for Ã¥ sikre at instruksjonene blir
+  fulgt nÃ¸yaktig slik boken viser dem. Du bÃ¸r prÃ¸ve Ã¥ forstÃ¥
+  hva de gjÃ¸r, og uansett hvor ivrig du er etter Ã¥ fullfÃ¸re bygget, bÃ¸r du
+  avstÃ¥ fra Ã¥ skrive dem blindt som vist, men les heller dokumentasjon nÃ¥r
+  det er noe du ikke forstÃ¥r. Hold ogsÃ¥ styr pÃ¥ skrivingen din
+  og utdata av kommandoer, ved Ã¥ bruke <command>tee</command> verktÃ¸yet
+  for Ã¥ sende terminalutdataen til en fil. Dette gjÃ¸r feilsÃ¸kingen enklere
+  hvis noe gÃ¥r galt.</para></important>
 
   <para>Den neste delen er en teknisk introduksjon til byggeprosessen,
-  mens den følgende presenterer <emphasis role="strong">veldig
+  mens den fÃ¸lgende presenterer <emphasis role="strong">veldig
   viktige</emphasis> generelle instruksjoner.</para>
 
 </sect1>

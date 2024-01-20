@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -22,24 +22,24 @@
     <primary sortas="e-/etc/os-release">/etc/os-release</primary>
   </indexterm>
 
-  <para>Bra gjort! Det nye LFS systemet er installert! Vi ønsker deg mye
+  <para>Bra gjort! Det nye LFS systemet er installert! Vi Ã¸nsker deg mye
   suksess med ditt skinnende nye spesialbygde Linux-system.</para>
 
-  <para>Det kan være lurt å opprette en
-  <filename>/etc/lfs-release</filename> fil. Ved å ha denne filen, er det veldig
-  lett for deg (og for oss hvis du trenger å be om hjelp på et tidspunkt) å finne
-  ut hvilken LFS versjon som er installert på systemet. Opprett denne filen med
-  å kjøre:</para>
+  <para>Det kan vÃ¦re lurt Ã¥ opprette en
+  <filename>/etc/lfs-release</filename> fil. Ved Ã¥ ha denne filen, er det veldig
+  lett for deg (og for oss hvis du trenger Ã¥ be om hjelp pÃ¥ et tidspunkt) Ã¥ finne
+  ut hvilken LFS versjon som er installert pÃ¥ systemet. Opprett denne filen med
+  Ã¥ kjÃ¸re:</para>
 
 <screen><userinput>echo &version; &gt; /etc/lfs-release</userinput></screen>
 
   <para>To filer som beskriver det installerte systemet kan brukes av pakker som
-  kan installeres på systemet senere, enten i binær form eller ved å bygge
+  kan installeres pÃ¥ systemet senere, enten i binÃ¦r form eller ved Ã¥ bygge
   dem.</para>
 
-  <para>Den første viser statusen til ditt
-  nye system med hensyn til Linux Standards Base (LSB). For å lage
-  denne filen, kjør:</para>
+  <para>Den fÃ¸rste viser statusen til ditt
+  nye system med hensyn til Linux Standards Base (LSB). For Ã¥ lage
+  denne filen, kjÃ¸r:</para>
 
 <screen><userinput>cat &gt; /etc/lsb-release &lt;&lt; "EOF"
 DISTRIB_ID="Linux From Scratch"
@@ -49,8 +49,8 @@ DISTRIB_DESCRIPTION="Linux From Scratch"
 EOF</userinput></screen>
 
   <para>Den andre inneholder omtrent samme informasjon, og brukes
-  av systemd og noen grafiske skrivebordsmiljøer. For å lage
-  denne filen, kjør:</para>
+  av systemd og noen grafiske skrivebordsmiljÃ¸er. For Ã¥ lage
+  denne filen, kjÃ¸r:</para>
 
 <screen><userinput>cat &gt; /etc/os-release &lt;&lt; "EOF"
 NAME="Linux From Scratch"
@@ -61,7 +61,7 @@ VERSION_CODENAME="&lt;your name here&gt;"
 HOME_URL="&lfs-root;lfs/"
 EOF</userinput></screen>
 
-  <para>Pass på å tilpasse feltene 'DISTRIB_CODENAME' og
-  'VERSION_CODENAME' for å gjøre systemet unikt ditt.</para>
+  <para>Pass pÃ¥ Ã¥ tilpasse feltene 'DISTRIB_CODENAME' og
+  'VERSION_CODENAME' for Ã¥ gjÃ¸re systemet unikt ditt.</para>
 
 </sect1>

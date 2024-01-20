@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -10,9 +10,9 @@
 
   <title>Introduksjon</title>
 
-  <para>I dette kapittelet, vertsverktøyene som trengs for å bygge LFS
-  kontrolleres og om nødvendig installeres. Deretter vil en partisjon klargjøres
+  <para>I dette kapittelet, vertsverktÃ¸yene som trengs for Ã¥ bygge LFS
+  kontrolleres og om nÃ¸dvendig installeres. Deretter vil en partisjon klargjÃ¸res
   som vert for LFS systemet. Vi lager partisjonen,
-  lager et filsystem på den og monter den.</para>
+  lager et filsystem pÃ¥ den og monter den.</para>
 
 </sect1>

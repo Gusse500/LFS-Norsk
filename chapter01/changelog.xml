@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -11,15 +11,15 @@
   <title>Endringslogg</title>
 
   <para>Dette er versjon &version; av Linux From Scratch-boken, datert
-  &releasedate;. Hvis denne boken er mer enn seks måneder gammel, er en nyere og bedre
-  versjonen sannsynligvis allerede tilgjengelig. For å finne ut, vennligst sjekk et av
+  &releasedate;. Hvis denne boken er mer enn seks mÃ¥neder gammel, er en nyere og bedre
+  versjonen sannsynligvis allerede tilgjengelig. For Ã¥ finne ut, vennligst sjekk et av
   speilene via <ulink url="&lfs-root;mirrors.html"/>.</para>
 
   <para>Nedenfor er en liste over endringer som er gjort siden forrige utgivelse av
   boken.</para>
 
   <itemizedlist>
-    <title>Endringsloggoppføringer:</title>
+    <title>EndringsloggoppfÃ¸ringer:</title>
 
 <!-- Changelog template
 
@@ -149,8 +149,8 @@
       <para>04.12.2023</para>
       <itemizedlist>
         <listitem>
-          <para>[thomas] - Endre kommandoer for installering av Python dokumenter for å unngå
-          for restriktive tillatelser på filene og mappene.</para>
+          <para>[thomas] - Endre kommandoer for installering av Python dokumenter for Ã¥ unngÃ¥
+          for restriktive tillatelser pÃ¥ filene og mappene.</para>
         </listitem>
       </itemizedlist>
     </listitem>
@@ -159,7 +159,7 @@
       <para>01.12.2023</para>
       <itemizedlist>
         <listitem>
-          <para>[xry111] - Gjenopprett NIC navngivning basert på det fysiske systemets
+          <para>[xry111] - Gjenopprett NIC navngivning basert pÃ¥ det fysiske systemets
           kjennetegn. Fikser
           <ulink url='&lfs-ticket-root;5386'>#5386</ulink>.</para>
         </listitem>
@@ -326,7 +326,7 @@
       <para>03.10.2023</para>
       <itemizedlist>
         <listitem>
-          <para>[xry111] - Oppdater Glibc oppstrøms fikser oppdatering for å fikse
+          <para>[xry111] - Oppdater Glibc oppstrÃ¸ms fikser oppdatering for Ã¥ fikse
           CVE-2023-4911.</para>
         </listitem>
       </itemizedlist>
@@ -386,7 +386,7 @@
       <para>24.09.2023</para>
       <itemizedlist>
         <listitem>
-          <para>[xry111] - Oppdater Glibc oppstrøms oppdatering for å tette en
+          <para>[xry111] - Oppdater Glibc oppstrÃ¸ms oppdatering for Ã¥ tette en
           minnelekkasje introdusert av sikkerhetsfiksen.</para>
         </listitem>
       </itemizedlist>
@@ -434,7 +434,7 @@
       <para>07.09.2023</para>
       <itemizedlist>
         <listitem>
-          <para>[xry111] - Løs et problem i pkgconf-2.0.3 som forårsaker
+          <para>[xry111] - LÃ¸s et problem i pkgconf-2.0.3 som forÃ¥rsaker
           at BLFS pakker ikke kan bygges.  Fikser
           <ulink url='&lfs-ticket-root;5341'>#5341</ulink>.</para>
         </listitem>
@@ -445,8 +445,8 @@
       <para>05.09.2023</para>
       <itemizedlist>
         <listitem>
-           <para>[xry111] - Flytt pkgconf før binutils for binutils
-           byggesystem for å oppdage zstd riktig. Fikser
+           <para>[xry111] - Flytt pkgconf fÃ¸r binutils for binutils
+           byggesystem for Ã¥ oppdage zstd riktig. Fikser
            <ulink url='&lfs-ticket-root;5340'>#5340</ulink>.</para>
         </listitem>
         <listitem>
@@ -468,7 +468,7 @@
       <para>04.09.2023</para>
       <itemizedlist>
         <listitem>
-           <para>[bdubbs] - Flytt vær forsiktig med å bygge ved å blande
+           <para>[bdubbs] - Flytt vÃ¦r forsiktig med Ã¥ bygge ved Ã¥ blande
             annen versjon av LFS til Generelle kompilasjonsinstruksjoner. Fikser
            <ulink url='&lfs-ticket-root;5338'>#5338</ulink>.</para>
         </listitem>

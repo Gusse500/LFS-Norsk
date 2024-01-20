@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -43,12 +43,12 @@
   <sect2 role="installation">
     <title>Installasjon av Ncurses</title>
 
-    <para>Først, sørg for at <command>gawk</command> blir funnet først under konfigurasjonen:</para>
+    <para>FÃ¸rst, sÃ¸rg for at <command>gawk</command> blir funnet fÃ¸rst under konfigurasjonen:</para>
 
 <screen><userinput remap="pre">sed -i s/mawk// configure</userinput></screen>
 
-    <para>Kjør deretter følgende kommandoer for å bygge <quote>tic</quote>
-    programmet på byggeverten:</para>
+    <para>KjÃ¸r deretter fÃ¸lgende kommandoer for Ã¥ bygge <quote>tic</quote>
+    programmet pÃ¥ byggeverten:</para>
 
 <screen><userinput remap="pre">mkdir build
 pushd build
@@ -87,7 +87,7 @@ popd</userinput></screen>
       <varlistentry>
         <term><parameter>--with-shared</parameter></term>
         <listitem>
-          <para>Dette får Ncurses til å bygge og installere delte C biblioteker.</para>
+          <para>Dette fÃ¥r Ncurses til Ã¥ bygge og installere delte C biblioteker.</para>
         </listitem>
       </varlistentry>
 
@@ -103,24 +103,24 @@ popd</userinput></screen>
         <term><parameter>--without-debug</parameter></term>
         <listitem>
           <para>Dette forhindrer at Ncurses bygger og installerer
-          feilsøkingsbiblioteker.</para>
+          feilsÃ¸kingsbiblioteker.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--with-cxx-shared</parameter></term>
         <listitem>
-          <para>Dette får Ncurses til å bygge og installere delte C++ bindinger. Den
-          forhindrer også at den bygger og installerer statiske C++ bindinger.</para>
+          <para>Dette fÃ¥r Ncurses til Ã¥ bygge og installere delte C++ bindinger. Den
+          forhindrer ogsÃ¥ at den bygger og installerer statiske C++ bindinger.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--without-ada</parameter></term>
         <listitem>
-          <para>Dette sikrer at Ncurses ikke bygger støtte for Ada
-          kompilatoren som kan være til stede på verten, men som ikke vil være tilgjengelig
-          når vi går inn i <command>chroot</command> miljøet.</para>
+          <para>Dette sikrer at Ncurses ikke bygger stÃ¸tte for Ada
+          kompilatoren som kan vÃ¦re til stede pÃ¥ verten, men som ikke vil vÃ¦re tilgjengelig
+          nÃ¥r vi gÃ¥r inn i <command>chroot</command> miljÃ¸et.</para>
         </listitem>
       </varlistentry>
 
@@ -128,22 +128,22 @@ popd</userinput></screen>
         <term><parameter>--disable-stripping</parameter></term>
         <listitem>
           <para>Denne bryteren hindrer byggesystemet fra
-          å bruke <command>strip</command> programmet fra verten.
-          Bruk av vertsverktøy på krysskompilerte programmer kan forårsake feil.</para>
+          Ã¥ bruke <command>strip</command> programmet fra verten.
+          Bruk av vertsverktÃ¸y pÃ¥ krysskompilerte programmer kan forÃ¥rsake feil.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--enable-widec</parameter></term>
         <listitem>
-          <para>Denne bryteren gjør at biblioteker med brede tegn (wide-character) f.eks., <filename
+          <para>Denne bryteren gjÃ¸r at biblioteker med brede tegn (wide-character) f.eks., <filename
           class="libraryfile">libncursesw.so.&ncurses-version;</filename>)
           skal bygges i stedet for vanlige (f.eks., <filename
           class="libraryfile">libncurses.so.&ncurses-version;</filename>).
-          Disse brede tegnbibliotekene er brukbare i både multibyte og
+          Disse brede tegnbibliotekene er brukbare i bÃ¥de multibyte og
           tradisjonelle 8-biters lokaliteter, mens vanlige biblioteker fungerer som de skal
           bare i 8-biters lokaliteter. Brede karakterer og normale biblioteker er
-          kildekompatibel, men ikke binærkompatibel.</para>
+          kildekompatibel, men ikke binÃ¦rkompatibel.</para>
         </listitem>
       </varlistentry>
 
@@ -158,7 +158,7 @@ popd</userinput></screen>
 <screen><userinput remap="install">make DESTDIR=$LFS TIC_PATH=$(pwd)/build/progs/tic install
 echo "INPUT(-lncursesw)" > $LFS/usr/lib/libncurses.so</userinput></screen>
 <!--
-    <para>Fjern et unødvendig statisk bibliotek som ikke håndteres av
+    <para>Fjern et unÃ¸dvendig statisk bibliotek som ikke hÃ¥ndteres av
     <command>configure</command>:</para>
 
 <screen><userinput remap="install">rm -v $LFS/usr/lib/libncurses++w.a</userinput></screen>
@@ -169,8 +169,8 @@ echo "INPUT(-lncursesw)" > $LFS/usr/lib/libncurses.so</userinput></screen>
       <varlistentry>
         <term><parameter>TIC_PATH=$(pwd)/build/progs/tic</parameter></term>
         <listitem>
-          <para>Vi må sende stien til den nettopp bygde
-          <command>tic</command> programmet som kjører på byggemaskinen, slik at
+          <para>Vi mÃ¥ sende stien til den nettopp bygde
+          <command>tic</command> programmet som kjÃ¸rer pÃ¥ byggemaskinen, slik at
           terminaldatabasen kan opprettes uten feil.</para>
         </listitem>
       </varlistentry>
@@ -179,8 +179,8 @@ echo "INPUT(-lncursesw)" > $LFS/usr/lib/libncurses.so</userinput></screen>
         <term><command>echo "INPUT(-lncursesw)" > $LFS/usr/lib/libncurses.so</command></term>
         <listitem>
           <para><filename>libncurses.so</filename> biblioteket trengs av
-          noen få pakker vi skal bygge snart. Vi lager dette lille linkskriptet
-          , da dette er det som gjøres i <xref
+          noen fÃ¥ pakker vi skal bygge snart. Vi lager dette lille linkskriptet
+          , da dette er det som gjÃ¸res i <xref
           linkend="chapter-building-system"/>.</para>
         </listitem>
       </varlistentry>

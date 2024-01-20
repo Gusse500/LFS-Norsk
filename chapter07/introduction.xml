@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -11,22 +11,22 @@
   <title>Introduksjon</title>
 
   <para>Dette kapittelet viser hvordan du bygger de siste manglende delene av det midlertidige
-  systemet: verktøyene som trengs for å bygge maskineriet av forskjellige pakker. Nå
-  som alle sirkulære avhengigheter er løst, et <quote>chroot</quote>
-  miljø, fullstendig isolert fra vertsoperativsystemet (bortsett fra
-  den kjørende kjernen), kan brukes til byggingen.</para>
+  systemet: verktÃ¸yene som trengs for Ã¥ bygge maskineriet av forskjellige pakker. NÃ¥
+  som alle sirkulÃ¦re avhengigheter er lÃ¸st, et <quote>chroot</quote>
+  miljÃ¸ fullstendig isolert fra vertsoperativsystemet (bortsett fra
+  den kjÃ¸rende kjernen), kan brukes til byggingen.</para>
 
-  <para>For riktig drift av det isolerte miljøet, noe kommunikasjon
-  med den kjørende kjernen må være etablert. Dette gjøres gjennom de
-  såkalte <emphasis>Virtuelle kjernefilsystemer (Virtual Kernel File Systems)</emphasis>, som må være
-  montert når du går inn i chroot miljøet. Det kan være lurt å sjekke
-  at de er montert ved å kjøre <command>findmnt</command> kommandoen.</para>
+  <para>For riktig drift av det isolerte miljÃ¸et, noe kommunikasjon
+  med den kjÃ¸rende kjernen mÃ¥ vÃ¦re etablert. Dette gjÃ¸res gjennom de
+  sÃ¥kalte <emphasis>Virtuelle kjernefilsystemer (Virtual Kernel File Systems)</emphasis>, som mÃ¥ vÃ¦re
+  montert nÃ¥r du gÃ¥r inn i chroot miljÃ¸et. Det kan vÃ¦re lurt Ã¥ sjekke
+  at de er montert ved Ã¥ kjÃ¸re <command>findmnt</command> kommandoen.</para>
 
-  <para>Inntil <xref linkend="ch-tools-chroot"/>, må kommandoene kjøres
+  <para>Inntil <xref linkend="ch-tools-chroot"/>, mÃ¥ kommandoene kjÃ¸res
   som <systemitem class="username">root</systemitem>, med
-  <envar>LFS</envar> variabelen satt. Etter å ha gått inn i inn chroot, alle kommandoer
-  kjøres som &root;, heldigvis uten tilgang til operativsystemet til datamaskinen
-  du bygde LFS på. Vær forsiktig uansett, da det er lett å ødelegge hele
-  LFS system med dårlige kommandoer.</para>
+  <envar>LFS</envar> variabelen satt. Etter Ã¥ ha gÃ¥tt inn i inn chroot, alle kommandoer
+  kjÃ¸res som &root;, heldigvis uten tilgang til operativsystemet til datamaskinen
+  du bygde LFS pÃ¥. VÃ¦r forsiktig uansett, da det er lett Ã¥ Ã¸delegge hele
+  LFS system med dÃ¥rlige kommandoer.</para>
 
 </sect1>

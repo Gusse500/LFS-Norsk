@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -10,15 +10,15 @@
 
   <title>Legge til LFS brukeren</title>
 
-  <para>Når du er logget inn som bruker <systemitem class="username">root</systemitem>,
-  kan det å gjøre en enkelt feil skade eller ødelegge et system. Derfor,
+  <para>NÃ¥r du er logget inn som bruker <systemitem class="username">root</systemitem>,
+  kan det Ã¥ gjÃ¸re en enkelt feil skade eller Ã¸delegge et system. Derfor,
   pakkene i de neste to kapitlene er bygget som en uprivilegert bruker.
-  Du kan bruke ditt eget brukernavn, men for å gjøre det enklere å sette opp et rent
-  arbeidsmiljø, opprett en ny bruker kalt <systemitem
-  class="username">lfs</systemitem> som medlem av en ny gruppe (også kalt
-  <systemitem class="groupname">lfs</systemitem>) og kjøre kommandoer som &lfs-user; under
+  Du kan bruke ditt eget brukernavn, men for Ã¥ gjÃ¸re det enklere Ã¥ sette opp et rent
+  arbeidsmiljÃ¸, opprett en ny bruker kalt <systemitem
+  class="username">lfs</systemitem> som medlem av en ny gruppe (ogsÃ¥ kalt
+  <systemitem class="groupname">lfs</systemitem>) og kjÃ¸re kommandoer som &lfs-user; under
   installasjonsprosessen. Som <systemitem class="username">root</systemitem>,
-  utfør følgende kommandoer for å legge til den nye brukeren:</para>
+  utflr fllgende kommandoer for Ã¥ legge til den nye brukeren:</para>
 
 <screen><userinput>groupadd lfs
 useradd -s /bin/bash -g lfs -m -k /dev/null lfs</userinput></screen>
@@ -29,7 +29,7 @@ useradd -s /bin/bash -g lfs -m -k /dev/null lfs</userinput></screen>
     <varlistentry>
       <term><parameter>-s /bin/bash</parameter></term>
       <listitem>
-        <para>Dette gjør <command>bash</command> til standard skall for brukeren
+        <para>Dette gjÃ¸r <command>bash</command> til standard skall for brukeren
         <systemitem class="username">lfs</systemitem>.</para>
       </listitem>
     </varlistentry>
@@ -55,7 +55,7 @@ useradd -s /bin/bash -g lfs -m -k /dev/null lfs</userinput></screen>
       <listitem>
         <para>Denne parameteren forhindrer mulig kopiering av filer fra en skjelettmappe
         (standard er <filename class="directory">/etc/skel</filename>)
-        ved å endre inndataplasseringen til den spesielle nullenheten.</para>
+        ved Ã¥ endre inndataplasseringen til den spesielle nullenheten.</para>
       </listitem>
     </varlistentry>
 
@@ -69,15 +69,15 @@ useradd -s /bin/bash -g lfs -m -k /dev/null lfs</userinput></screen>
   </variablelist>
 
   <para>Hvis du vil logge inn som &lfs-user; eller bytte til &lfs-user; fra en
-  ikke-&root; bruker (i motsetning til å bytte til bruker &lfs-user;
-  når du er logget inn som &root;, som ikke krever at &lfs-user; brukeren
-  har et passord), må du angi et passord for &lfs-user;.  Utsted
-  følgende kommando som &root; bruker for å angi passordet:</para>
+  ikke-&root; bruker (i motsetning til Ã¥ bytte til bruker &lfs-user;
+  nÃ¥r du er logget inn som &root;, som ikke krever at &lfs-user; brukeren
+  har et passord), mÃ¥ du angi et passord for &lfs-user;.  Utsted
+  fÃ¸lgende kommando som &root; bruker for Ã¥ angi passordet:</para>
 
 <screen role="nodump"><userinput>passwd lfs</userinput></screen>
 
   <para>Bevilg <systemitem class="username">lfs</systemitem> full tilgang til
-  alle mapper under <filename class="directory">$LFS</filename> ved å gjøre
+  alle mapper under <filename class="directory">$LFS</filename> ved Ã¥ gjÃ¸re
   <systemitem class="username">lfs</systemitem> eieren:</para>
 
 <screen><userinput>chown -v lfs $LFS/{usr{,/*},lib,var,etc,bin,sbin,tools}
@@ -85,19 +85,19 @@ case $(uname -m) in
   x86_64) chown -v lfs $LFS/lib64 ;;
 esac</userinput></screen>
 
-<note><para>I noen vertssystemer, følgende <command>su</command> kommando fullføres ikke
-  riktig og suspenderer påloggingen for &lfs-user; bruker i bakgrunnen.
-  Hvis ledeteksten "lfs:~$" ikke vises umiddelbart, å skrive inn
-  <command>fg</command> kommandoen vil løse problemet.</para></note>
+<note><para>I noen vertssystemer, fÃ¸lgende <command>su</command> kommando fullfÃ¸res ikke
+  riktig og suspenderer pÃ¥loggingen for &lfs-user; bruker i bakgrunnen.
+  Hvis ledeteksten "lfs:~$" ikke vises umiddelbart, Ã¥ skrive inn
+  <command>fg</command> kommandoen vil lÃ¸se problemet.</para></note>
 
-  <para>Deretter starter du et skall som kjører som bruker &lfs-user;. Dette kan gjøres ved
-  å logge inn som &lfs-user; på en virtuell konsoll, eller med følgende
+  <para>Deretter starter du et skall som kjÃ¸rer som bruker &lfs-user;. Dette kan gjÃ¸res ved
+  Ã¥ logge inn som &lfs-user; pÃ¥ en virtuell konsoll, eller med fÃ¸lgende
   bytt ut/bytt brukerkommando:</para>
 
 <screen role="nodump"><userinput>su - lfs</userinput></screen>
 
   <para><quote><parameter>-</parameter></quote> instruerer
-  <command>su</command> å starte et påloggingsskall i motsetning til et ikke-påloggingsskall.
+  <command>su</command> Ã¥ starte et pÃ¥loggingsskall i motsetning til et ikke-pÃ¥loggingsskall.
   Forskjellen mellom disse to skjelltypene finner du i detalj i
   <filename>bash(1)</filename> og <command>info bash</command>.</para>
 

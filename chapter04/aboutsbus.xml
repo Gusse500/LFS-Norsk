@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -10,42 +10,42 @@
 
   <title>Om SBU</title>
 
-  <para>Mange vil gjerne vite på forhånd hvor lenge
-  det tar å kompilere og installere hver pakke. Fordi Linux Fra
-  Scratch kan bygges på mange forskjellige systemer, er det umulig å
-  gi nøyaktige tidsanslag. Den største pakken (Glibc) vil
-  ta omtrent 5 minutter på de raskeste systemene, men kan ta
-  flere dager på tregere systemer! I stedet for å oppgi faktiske tider,
+  <para>Mange vil gjerne vite pÃ¥ forhÃ¥nd hvor lenge
+  det tar Ã¥ kompilere og installere hver pakke. Fordi Linux Fra
+  Scratch kan bygges pÃ¥ mange forskjellige systemer, er det umulig Ã¥
+  gi nÃ¸yaktige tidsanslag. Den stÃ¸rste pakken (Glibc) vil
+  ta omtrent 5 minutter pÃ¥ de raskeste systemene, men kan ta
+  flere dager pÃ¥ tregere systemer! I stedet for Ã¥ oppgi faktiske tider,
   vil Standard byggenhet (SBU)
   brukes i stedet.</para>
 
-  <para>SBU fungerer som følgende. Den første pakken som skal kompileres
-  fra denne boken er binutils i <xref linkend="chapter-cross-tools"/>. Tiden det tar å
-  kompilere med én kjerne er det vi vil referere til som standard
+  <para>SBU fungerer som fÃ¸lgende. Den fÃ¸rste pakken som skal kompileres
+  fra denne boken er binutils i <xref linkend="chapter-cross-tools"/>. Tiden det tar Ã¥
+  kompilere med en kjerne er det vi vil referere til som standard
   byggenhet eller SBU. Alle andre kompileringstider vil bli uttrykt i forhold til denne
   tidsenheten.</para>
 
-  <para>Tenk for eksempel på en pakke hvis kompileringstid er 4,5
-  SBU. Dette betyr at hvis et system tok 10 minutter å kompilere og
-  installer det første passet med binutils, vil det ta
-  <emphasis>omtrent</emphasis> 45 minutter å bygge denne eksempelpakken.
+  <para>Tenk for eksempel pÃ¥ en pakke hvis kompileringstid er 4,5
+  SBU. Dette betyr at hvis et system tok 10 minutter Ã¥ kompilere og
+  installer det fÃ¸rste passet med binutils, vil det ta
+  <emphasis>omtrent</emphasis> 45 minutter Ã¥ bygge denne eksempelpakken.
   Heldigvis er de fleste byggetidene kortere enn en SBU.</para>
 
-  <para>Generelt er ikke SBU helt nøyaktige fordi de er avhengige av mange
+  <para>Generelt er ikke SBU helt nÃ¸yaktige fordi de er avhengige av mange
   faktorer, inkludert vertssystemets versjon av GCC. De er gitt her
-  for å gi et estimat på hvor lang tid det kan ta å installere en pakke, men
-  tall kan variere med så mye som dusinvis av minutter i noen tilfeller.</para>
+  for Ã¥ gi et estimat pÃ¥ hvor lang tid det kan ta Ã¥ installere en pakke, men
+  tall kan variere med sÃ¥ mye som dusinvis av minutter i noen tilfeller.</para>
 
   <note>
-    <para>Når flere prosessorer brukes på denne måten, vil SBU enhetene i
+    <para>NÃ¥r flere prosessorer brukes pÃ¥ denne mÃ¥ten, vil SBU enhetene i
     boken variere enda mer enn de normalt ville gjort. I noen tilfeller, make
-    trinnet vil rett og slett mislykkes. Å analysere resultatet av byggeprosessen vil også
-    være vanskeligere fordi linjene i forskjellige prosesser vil være
-    sammenflettet. Hvis du får et problem med et byggetrinn, gå tilbake til et
-    enkelt prosessorbygg for å analysere feilmeldingene på riktig måte.</para>
+    trinnet vil rett og slett mislykkes. Ã… analysere resultatet av byggeprosessen vil ogsÃ¥
+    vÃ¦re vanskeligere fordi linjene i forskjellige prosesser vil vÃ¦re
+    sammenflettet. Hvis du fÃ¥r et problem med et byggetrinn, gÃ¥ tilbake til et
+    enkelt prosessorbygg for Ã¥ analysere feilmeldingene pÃ¥ riktig mÃ¥te.</para>
 
-    <para>Tidene som presenteres her er basert på bruk av fire kjerner (-j4).
-    Tidene i kapittel 8 inkluderer også tiden det skal kjøres regresjonstestene for
+    <para>Tidene som presenteres her er basert pÃ¥ bruk av fire kjerner (-j4).
+    Tidene i kapittel 8 inkluderer ogsÃ¥ tiden det skal kjÃ¸res regresjonstestene for
     pakken med mindre annet er spesifisert.</para>
 
   </note>

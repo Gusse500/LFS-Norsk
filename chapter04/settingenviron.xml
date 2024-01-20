@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -8,35 +8,35 @@
 <sect1 id="ch-preps-settingenviron">
   <?dbhtml filename="settingenvironment.html"?>
 
-  <title>Sette opp miljøet</title>
+  <title>Sette opp miljÃ¸et</title>
 
-  <para>Sett opp et godt arbeidsmiljø ved å lage to nye oppstartsfiler
+  <para>Sett opp et godt arbeidsmiljÃ¸ ved Ã¥ lage to nye oppstartsfiler
   for <command>bash</command> skallet. Mens du er logget inn som bruker
-  <systemitem class="username">lfs</systemitem>, utsted følgende kommando
-  for å lage en ny <filename>.bash_profile</filename>:</para>
+  <systemitem class="username">lfs</systemitem>, utsted fÃ¸lgende kommando
+  for Ã¥ lage en ny <filename>.bash_profile</filename>:</para>
 
 <screen><userinput>cat &gt; ~/.bash_profile &lt;&lt; "EOF"
 <literal>exec env -i HOME=$HOME TERM=$TERM PS1='\u:\w\$ ' /bin/bash</literal>
 EOF</userinput></screen>
 
-  <para>Når du er pålogget som bruker <systemitem class="username">lfs</systemitem>,
-  eller når du bytter til &lfs-user; bruker med en <command>su</command> kommando
+  <para>NÃ¥r du er pÃ¥logget som bruker <systemitem class="username">lfs</systemitem>,
+  eller nÃ¥r du bytter til &lfs-user; bruker med en <command>su</command> kommando
   med <quote><parameter>-</parameter></quote> alternativet,
-  det første skallet er et <emphasis>login</emphasis> skall som leser
+  det fÃ¸rste skallet er et <emphasis>login</emphasis> skall som leser
   <filename>/etc/profile</filename> til verten (som sannsynligvis inneholder noen
-  innstillinger og miljøvariabler) og deretter <filename>.bash_profile</filename>.
+  innstillinger og miljÃ¸variabler) og deretter <filename>.bash_profile</filename>.
   <command>exec env -i.../bin/bash</command> kommandoen i
-  <filename>.bash_profile</filename> filen erstatter det kjørende skallet med et nytt
-  et med et helt tomt miljø, bortsett fra <envar>HOME</envar>,
+  <filename>.bash_profile</filename> filen erstatter det kjÃ¸rende skallet med et nytt
+  et med et helt tomt miljÃ¸ bortsett fra <envar>HOME</envar>,
   <envar>TERM</envar>, og <envar>PS1</envar> variabler. Dette sikrer at ingen
-  uønskede og potensielt farlige miljøvariabler fra vertssystemet
-  lekker inn i byggemiljøet.</para>
+  uÃ¸nskede og potensielt farlige miljÃ¸variabler fra vertssystemet
+  lekker inn i byggemiljÃ¸et.</para>
 
   <para>Den nye instansen av skallet er et <emphasis>non-login</emphasis>
-  skall, som ikke leser, og utfører, innholdet i <filename>/etc/profile</filename> eller
-  <filename>.bash_profile</filename> filer, men heller leser og kjører
+  skall, som ikke leser, og utfÃ¸rer, innholdet i <filename>/etc/profile</filename> eller
+  <filename>.bash_profile</filename> filer, men heller leser og kjÃ¸rer
   <filename>.bashrc</filename> filen istedet. Opprett
-  <filename>.bashrc</filename> filen nå:</para>
+  <filename>.bashrc</filename> filen nÃ¥</para>
 
 <screen><userinput>cat &gt; ~/.bashrc &lt;&lt; "EOF"
 <literal>set +h
@@ -57,16 +57,16 @@ EOF</userinput></screen>
     <varlistentry>
       <term><parameter>set +h</parameter></term>
       <listitem>
-  <para><command>set +h</command> kommandoen slår av
+  <para><command>set +h</command> kommandoen slÃ¥r av
   <command>bash</command> sin hashfunksjon. Hashing er vanligvis en nyttig
-  funksjon&mdash;<command>bash</command> bruker en hashtabell for å huske
-  banen til kjørbare filer for å unngå å søke i <envar>PATH</envar>
-  gang på gang for å finne den samme kjørbare filen. Imidlertid bør de nye verktøyene
-  brukes så snart de er installert. Ved å slå av hashfunksjonen,
-  vil skallet alltid søke <envar>PATH</envar> når et program
-  kjøres. Som sådan vil skallet finne de nylig kompilerte verktøyene i
-  <filename class="directory">$LFS/tools/bin</filename> så snart de er
-  tilgjengelig uten å huske en tidligere versjon av det samme programmet
+  funksjon&mdash;<command>bash</command> bruker en hashtabell for Ã¥ huske
+  banen til kjÃ¸rbare filer for Ã¥ unngÃ¥ Ã¥ sÃ¸ke i <envar>PATH</envar>
+  gang pÃ¥ gang for Ã¥ finne den samme kjÃ¸rbare filen. Imidlertid bÃ¸r de nye verktÃ¸yene
+  brukes sÃ¥ snart de er installert. Ved Ã¥ slÃ¥ av hashfunksjonen,
+  vil skallet alltid sÃ¸ke <envar>PATH</envar> nÃ¥r et program
+  kjÃ¸res. Som sÃ¥dan vil skallet finne de nylig kompilerte verktÃ¸yene i
+  <filename class="directory">$LFS/tools/bin</filename> sÃ¥ snart de er
+  tilgjengelig uten Ã¥ huske en tidligere versjon av det samme programmet
   levert av vertsdistroen, i
   <filename class='directory'>/usr/bin</filename> eller
   <filename class='directory'>/bin</filename>.</para>
@@ -76,9 +76,9 @@ EOF</userinput></screen>
     <varlistentry>
       <term><parameter>umask 022</parameter></term>
       <listitem>
-  <para>Å sette brukerfilopprettingsmasken (umask) til 022 sikrer at nye
+  <para>Ã… sette brukerfilopprettingsmasken (umask) til 022 sikrer at nye
   opprettede filer og mapper bare kan skrives av eieren, men er
-  lesbar og kjørbar av alle (forutsatt at standardmoduser brukes av
+  lesbar og kjÃ¸rbar av alle (forutsatt at standardmoduser brukes av
   <filename>open(2)</filename> systemkall, vil nye filer ende opp med
   tillatelsesmodus 644 og mapper med modus 755).</para>
       </listitem>
@@ -96,10 +96,10 @@ EOF</userinput></screen>
       <term><parameter>LC_ALL=POSIX</parameter></term>
       <listitem>
   <para><envar>LC_ALL</envar> variabelen styrer lokaliseringen av visse
-  programmer, slik at meldingene deres følger konvensjonene i et spesifisert land.
+  programmer, slik at meldingene deres fllger konvensjonene i et spesifisert land.
   Innstillingen <envar>LC_ALL</envar> til <quote>POSIX</quote> eller <quote>C</quote>
   (de to er likeverdige) sikrer at alt fungerer som forventet i
-  chroot miljøet.</para>
+  chroot miljlet.</para>
       </listitem>
     </varlistentry>
 
@@ -107,8 +107,8 @@ EOF</userinput></screen>
       <term><parameter>LFS_TGT=$(uname -m)-lfs-linux-gnu</parameter></term>
       <listitem>
   <para>The <envar>LFS_TGT</envar> variabel setter en ikkestandard, men kompatibel
-  maskinbeskrivelse for bruk når du bygger vår krysskompiler og linker og når du krysskompiler
-  vår midlertidige verktøykjede. Mer informasjon finnes i
+  maskinbeskrivelse for bruk nÃ¥r du bygger vÃ¥r krysskompiler og linker og nÃ¥r du krysskompiler
+  vÃ¥r midlertidige verktÃ¸ykjede. Mer informasjon finnes i
   <xref linkend="ch-tools-toolchaintechnotes" role=""/>.</para>
       </listitem>
     </varlistentry>
@@ -116,13 +116,13 @@ EOF</userinput></screen>
     <varlistentry>
       <term><parameter>PATH=/usr/bin</parameter></term>
       <listitem>
-  <para>Mange moderne Linux distribusjoner har slått sammen <filename
+  <para>Mange moderne Linux distribusjoner har slÃ¥tt sammen <filename
   class="directory">/bin</filename> og <filename
-  class="directory">/usr/bin</filename>. Når dette er tilfelle, standard
+  class="directory">/usr/bin</filename>. NÃ¥r dette er tilfelle, standard
   <envar>PATH</envar> variabel burde settes til <filename
   class="directory">/usr/bin/</filename> for <xref
-  linkend="chapter-temporary-tools"/> miljøet. Når dette ikke er
-  tilfelle, legger følgende linje <filename class="directory">/bin</filename>
+  linkend="chapter-temporary-tools"/> miljÃ¸et. NÃ¥r dette ikke er
+  tilfelle, legger fÃ¸lgende linje <filename class="directory">/bin</filename>
   til stien.</para>
       </listitem>
     </varlistentry>
@@ -131,17 +131,17 @@ EOF</userinput></screen>
       <term><parameter>if [ ! -L /bin ]; then PATH=/bin:$PATH; fi</parameter></term>
       <listitem>
   <para>Hvis <filename class="directory">/bin</filename> ikke er en symbolsk
-  lenke, så må den legges til <envar>PATH</envar> variabelen.</para>
+  lenke, sÃ¥ mÃ¥ den legges til <envar>PATH</envar> variabelen.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
       <term><parameter>PATH=$LFS/tools/bin:$PATH</parameter></term>
       <listitem>
-  <para>Ved å putte <filename class="directory">$LFS/tools/bin</filename> foran
+  <para>Ved Ã¥ putte <filename class="directory">$LFS/tools/bin</filename> foran
   standard <envar>PATH</envar>, krysskompilatoren installert i begynnelsen
   av <xref linkend="chapter-cross-tools"/> blir plukket opp av skallet
-  umiddelbart etter installasjonen. Dette, kombinert med å slå av hashing,
+  umiddelbart etter installasjonen. Dette, kombinert med Ã¥ slÃ¥ av hashing,
   begrenser risikoen for at kompilatoren fra verten brukes i stedet for
   krysskompilator.</para>
       </listitem>
@@ -153,17 +153,17 @@ EOF</userinput></screen>
   <para>I <xref linkend="chapter-cross-tools"/> og
   <xref linkend="chapter-temporary-tools"/>, hvis denne variabelen ikke er satt,
   <command>configure</command> skriptet
-  kan forsøke å laste inn konfigurasjonselementer som er spesifikke for enkelte distribusjoner fra
-  <filename>/usr/share/config.site</filename> på vertssystemet. Overstyr
-  det for å forhindre potensiell forurensning fra verten.</para>
+  kan forsÃ¸ke Ã¥ laste inn konfigurasjonselementer som er spesifikke for enkelte distribusjoner fra
+  <filename>/usr/share/config.site</filename> pÃ¥ vertssystemet. Overstyr
+  det for Ã¥ forhindre potensiell forurensning fra verten.</para>
       </listitem>
     </varlistentry>
 
     <varlistentry>
       <term><parameter>export ...</parameter></term>
       <listitem>
-        <para>Mens kommandoene ovenfor har satt noen variabler, for å
-        gjøre dem synlige innenfor eventuelle underskall, eksporterer vi dem.</para>
+        <para>Mens kommandoene ovenfor har satt noen variabler, for Ã¥
+        gjÃ¸re dem synlige innenfor eventuelle underskall, eksporterer vi dem.</para>
       </listitem>
     </varlistentry>
 
@@ -173,46 +173,46 @@ EOF</userinput></screen>
 
      <para>Flere kommersielle distribusjoner legger til en ikke dokumentert instansiering
      av <filename>/etc/bash.bashrc</filename> til initialisering av
-     <command>bash</command>. Denne filen har potensial til å endre
+     <command>bash</command>. Denne filen har potensial til Ã¥ endre
      <systemitem class="username">lfs</systemitem>
-     brukerens miljø på måter som kan påvirke byggingen av kritiske LFS
-     pakker. For å sikre at <systemitem class="username">lfs</systemitem>
-     brukerens miljø er rent, sjekk for
-     tilstedeværelse av <filename>/etc/bash.bashrc</filename> og flytt den hvis den er tilstede
+     brukerens miljÃ¸ pÃ¥ mÃ¥ter som kan pÃ¥virke byggingen av kritiske LFS
+     pakker. For Ã¥ sikre at <systemitem class="username">lfs</systemitem>
+     brukerens miljÃ¸ er rent, sjekk for
+     tilstedevÃ¦relse av <filename>/etc/bash.bashrc</filename> og flytt den hvis den er tilstede
      Som <systemitem class="username">root</systemitem>
-     bruker, kjør:</para>
+     bruker, kjÃ¸r:</para>
 
      <screen role="nodump"><userinput>[ ! -e /etc/bash.bashrc ] || mv -v /etc/bash.bashrc /etc/bash.bashrc.NOUSE</userinput></screen>
 
-     <para>Når <systemitem class="username">lfs</systemitem>
-     brukeren ikke lenger er nødvendig (i begynnelsen av <xref
+     <para>NÃ¥r <systemitem class="username">lfs</systemitem>
+     brukeren ikke lenger er nÃ¸dvendig (i begynnelsen av <xref
      linkend="chapter-chroot-temporary-tools"/>), kan du trygt gjenopprette
-     <filename>/etc/bash.bashrc</filename> (hvis ønsket).</para>
+     <filename>/etc/bash.bashrc</filename> (hvis Ã¸nsket).</para>
 
      <para>Legg merke til at LFS Bash pakken vi bygger i
-     <xref linkend="ch-system-bash"/> ikke er konfigurert til å laste eller kjøre
-     <filename>/etc/bash.bashrc</filename>, så denne filen er ubrukelig på et
-     fullført LFS system.</para>
+     <xref linkend="ch-system-bash"/> ikke er konfigurert til Ã¥ laste eller kjÃ¸re
+     <filename>/etc/bash.bashrc</filename>, sÃ¥ denne filen er ubrukelig pÃ¥ et
+     fullfÃ¸rt LFS system.</para>
   </important>
 
   <para>
     For mange moderne systemer med flere prosessorer (eller kjerner) kan
-    kompileringstiden for en pakke reduseres ved å utføre en "parallell
-    make" ved å fortelle make programmet hvor mange prosessorer som er tilgjengelige via
-    et kommandolinjealternativ eller en miljøvariabel. For eksempel en Intel
+    kompileringstiden for en pakke reduseres ved Ã¥ utfÃ¸re en "parallell
+    make" ved Ã¥ fortelle make programmet hvor mange prosessorer som er tilgjengelige via
+    et kommandolinjealternativ eller en miljÃ¸variabel. For eksempel en Intel
     Core i9-13900K-prosessor har 8 P (ytelse) kjerner og
-    16 E (effektivitet) kjerner, og en P-kjerne kan kjøre to tråder samtidig
-    så hver P-kjerne er modellert som to logiske kjerner av Linuxkjernen.
-    Som et resultat er det totalt 32 logiske kjerner. En åpenbar måte å
-    bruke alle disse logiske kjernene er å tillate <command>make</command> å gjøre
-    opptil 32 byggejobber. Dette kan gjøres ved å sende
+    16 E (effektivitet) kjerner, og en P-kjerne kan kjÃ¸re to trÃ¥der samtidig
+    sÃ¥ hver P-kjerne er modellert som to logiske kjerner av Linuxkjernen.
+    Som et resultat er det totalt 32 logiske kjerner. En Ã¥penbar mÃ¥te Ã¥
+    bruke alle disse logiske kjernene er Ã¥ tillate <command>make</command> Ã¥ gjÃ¸re
+    opptil 32 byggejobber. Dette kan gjÃ¸res ved Ã¥ sende
     <parameter>-j32</parameter> alternativet til <command>make</command>:
   </para>
 
   <screen role='nodump'><userinput>make -j32</userinput></screen>
 
   <para>
-    Eller angi <envar>MAKEFLAGS</envar> miljøvariabel og dens
+    Eller angi <envar>MAKEFLAGS</envar> miljÃ¸variabel og dens
     innhold vil automatisk bli brukt av <command>make</command> som
     kommandolinjealternativer:
   </para>
@@ -223,16 +223,16 @@ EOF</userinput></screen>
     <para>
       Aldri send en <parameter>-j</parameter> alternativ uten nummer til
       <command>make</command> eller angi et slikt alternativ i
-      <envar>MAKEFLAGS</envar>.  Å gjøre det vil tillate <command>make</command>
-      å skape uendelige byggejobber og forårsake problemer med systemstabilitet.
+      <envar>MAKEFLAGS</envar>.  Ã… gjÃ¸re det vil tillate <command>make</command>
+      Ã¥ skape uendelige byggejobber og forÃ¥rsake problemer med systemstabilitet.
     </para>
   </important>
 
   <para>
-    For å bruke alle logiske kjerner som er tilgjengelige for å bygge pakker i
+    For Ã¥ bruke alle logiske kjerner som er tilgjengelige for Ã¥ bygge pakker i
     <xref linkend='chapter-cross-tools'/> og
     <xref linkend='chapter-temporary-tools'/>, sett <envar>MAKEFLAGS</envar>
-    nå i <filename>.bashrc</filename>:
+    nÃ¥ i <filename>.bashrc</filename>:
   </para>
 
 <screen><userinput>cat &gt;&gt; ~/.bashrc &lt;&lt; "EOF"
@@ -244,8 +244,8 @@ EOF</userinput></screen>
      kjerner du vil bruke hvis du ikke vil bruke alle de logiske kjernene.
   </para>
 
-  <para>Til slutt, å ha miljøet fullt forberedt for å bygge
-  midlertidige verktøy, tving <command>bash</command> skallet å lese
+  <para>Til slutt, Ã¥ ha miljÃ¸et fullt forberedt for Ã¥ bygge
+  midlertidige verktÃ¸y, tving <command>bash</command> skallet Ã¥ lese
   den nye brukerprofilen:</para>
 
 <screen><userinput>source ~/.bash_profile</userinput></screen>

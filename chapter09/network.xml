@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -19,34 +19,34 @@
 
     <para>Hvilke grensesnitt bringes opp og ned av nettverksskriptet
     avhenger vanligvis av filene i <filename
-    class="directory">/etc/sysconfig/</filename>.  Denne mappen bør
+    class="directory">/etc/sysconfig/</filename>.  Denne mappen bÃ¸r
     inneholde en fil for hvert grensesnitt som skal konfigureres, for eksempel
     <filename>ifconfig.xyz</filename>, hvor <quote>xyz</quote> skal beskrive
     nettverkskortet. Grensesnittnavnet (f.eks. eth0) er vanligvis passende.
     Inne i denne filen er attributter til dette grensesnittet, for eksempel dets IP
-    adresse(r), nettverksmasker og så videre. Det er nødvendig at stammen av
+    adresse(r), nettverksmasker og sÃ¥ videre. Det er nÃ¸dvendig at stammen av
     filnavnet er <emphasis>ifconfig</emphasis>.</para>
 
     <note>
       <para>Hvis prosedyren i forrige avsnitt ikke ble brukt, udev
-      vil tildele nettverkskortgrensesnittnavn basert på systemets fysiske
-      egenskaper som enp2s1. Hvis du ikke er sikker på hva grensesnittetnavnet ditt
-      er, kan du alltid kjøre <command>ip link</command> eller <command>ls
+      vil tildele nettverkskortgrensesnittnavn basert pÃ¥ systemets fysiske
+      egenskaper som enp2s1. Hvis du ikke er sikker pÃ¥ hva grensesnittetnavnet ditt
+      er, kan du alltid kjÃ¸re <command>ip link</command> eller <command>ls
       /sys/class/net</command> etter at du har startet opp systemet.
       </para>
 
       <para>Grensesnittnavnene avhenger av implementeringen og
-      konfigurasjon av udev nissen (daemon) som kjører på systemet. udev
+      konfigurasjon av udev nissen (daemon) som kjÃ¸rer pÃ¥ systemet. udev
       nissen for LFS (installert i <xref linkend="ch-system-udev"/>) vil
-      ikke kjøre før LFS systemet er startet opp. Så det er upålitelig å
-      bestemme grensesnittnavnene som brukes i LFS systemet ved å kjøre
-      disse kommandoene på vertsdistroen,
-      <emphasis>selv om det er i chroot miljøet</emphasis>.</para>
+      ikke kjÃ¸re fÃ¸r LFS systemet er startet opp. SÃ¥ det er upÃ¥litelig Ã¥
+      bestemme grensesnittnavnene som brukes i LFS systemet ved Ã¥ kjÃ¸re
+      disse kommandoene pÃ¥ vertsdistroen,
+      <emphasis>selv om det er i chroot miljÃ¸et</emphasis>.</para>
     </note>
 
-    <para>Følgende kommando oppretter en eksempelfil for
+    <para>FÃ¸lgende kommando oppretter en eksempelfil for
     <emphasis>eth0</emphasis> enheten med en statisk IP-adresse:</para>
-<!-- jhalfs er avhengig av verdiene for IFACE, IP, etc. Hvis du ønsker å endre
+<!-- jhalfs er avhengig av verdiene for IFACE, IP, etc. Hvis du Ã¸nsker Ã¥ endre
       dem, vennligst informer jhalfs vedlikeholder(e). -->
 <screen><userinput>cd /etc/sysconfig/
 cat &gt; ifconfig.<replaceable>eth0</replaceable> &lt;&lt; "EOF"
@@ -59,7 +59,7 @@ PREFIX=<replaceable>24</replaceable>
 BROADCAST=<replaceable>192.168.1.255</replaceable></literal>
 EOF</userinput></screen>
 
-    <para>Verdiene i kursiv må endres i hver fil for å samsvare
+    <para>Verdiene i kursiv mÃ¥ endres i hver fil for Ã¥ samsvare
     med riktig oppsett.</para>
 
     <para>Hvis <envar>ONBOOT</envar> variabelen er satt til <quote>yes</quote>
@@ -71,25 +71,25 @@ EOF</userinput></screen>
 
     <para><envar>IFACE</envar> variabelen definerer grensesnittnavnet,
     for eksempel eth0. Det kreves for all konfigurasjon av nettverksenhets
-    filer. Filnavnet må samsvare med denne verdien.</para>
+    filer. Filnavnet mÃ¥ samsvare med denne verdien.</para>
 
     <para><envar>SERVICE</envar> variabelen definerer metoden som brukes for
-    få IP adressen. LFS-Bootscripts pakken har en modulær IP
+    fÃ¥ IP adressen. LFS-Bootscripts pakken har en modulÃ¦r IP
     tildelingsformat, og oppretter flere filer i <filename
     class="directory">/lib/services/</filename> katalogen tillater annen IP
     tildelingsmetoder. Dette brukes ofte for dynamisk vertskonfigurasjon
     Protokoll (DHCP), som er adressert i BLFS boken.</para>
 
     <para><envar>GATEWAY</envar> variabelen skal inneholde standard
-    standardruter (gateway) IP adresse, hvis en er til stede. Hvis ikke, så kommenter
+    standardruter (gateway) IP adresse, hvis en er til stede. Hvis ikke, sÃ¥ kommenter
     variabelen helt ut.</para>
 
     <para><envar>PREFIX</envar> variabelen inneholder antall
     biter som brukes i subnettet. Hver oktett i en IP-adresse er 8 bits. Hvis
-    subnettets nettmaske er 255.255.255.0, bruker den deretter de tre første oktettene
-    (24 bits) for å spesifisere nettverksnummeret. Hvis nettmasken er 255.255.255.240,
-    ville det være å bruke de første 28 bitene. Prefikser lengre enn 24 biter er
-    ofte brukt av DSL- og kabelbaserte Internett-leverandører (ISP).
+    subnettets nettmaske er 255.255.255.0, bruker den deretter de tre fÃ¸rste oktettene
+    (24 bits) for Ã¥ spesifisere nettverksnummeret. Hvis nettmasken er 255.255.255.240,
+    ville det vÃ¦re Ã¥ bruke de fÃ¸rste 28 bitene. Prefikser lengre enn 24 biter er
+    ofte brukt av DSL- og kabelbaserte Internett-leverandÃ¸rer (ISP).
     I dette eksemplet (PREFIX=24) er nettmasken 255.255.255.0. Juster
     <envar>PREFIX</envar> variabel i henhold til ditt spesifikke undernett.
     Hvis det utelates, er PREFIX sin standard 24.</para>
@@ -104,33 +104,33 @@ EOF</userinput></screen>
       <primary sortas="e-/etc/resolv.conf">/etc/resolv.conf</primary>
     </indexterm>
 
-    <para>Systemet vil trenge noen midler for å få domenenavntjeneste
-    (DNS) navneoppløsning for å løse Internett domenenavn til IP adresser, og
-    omvendt. Dette oppnås best ved å plassere IP adressen til DNS
-    server, tilgjengelig fra Internett leverandøren eller nettverksadministratoren, til
-    <filename>/etc/resolv.conf</filename>. Opprett filen ved å kjøre
-    følgende:</para>
+    <para>Systemet vil trenge noen midler for Ã¥ fÃ¥ domenenavntjeneste
+    (DNS) navneopplÃ¸sning for Ã¥ lÃ¸se Internett domenenavn til IP adresser, og
+    omvendt. Dette oppnÃ¥s best ved Ã¥ plassere IP adressen til DNS
+    server, tilgjengelig fra Internett leverandÃ¸ren eller nettverksadministratoren, til
+    <filename>/etc/resolv.conf</filename>. Opprett filen ved Ã¥ kjÃ¸re
+    fÃ¸lgende:</para>
 
 <screen><userinput>cat &gt; /etc/resolv.conf &lt;&lt; "EOF"
 <literal># Begin /etc/resolv.conf
 
 domain <replaceable>&lt;Ditt domenenavn&gt;</replaceable>
-nameserver <replaceable>&lt;IP adressen til din primære navneserver&gt;</replaceable>
-nameserver <replaceable>&lt;IP adressen til din sekundære navneserver&gt;</replaceable>
+nameserver <replaceable>&lt;IP adressen til din primÃ¦re navneserver&gt;</replaceable>
+nameserver <replaceable>&lt;IP adressen til din sekundÃ¦re navneserver&gt;</replaceable>
 
 # End /etc/resolv.conf</literal>
 EOF</userinput></screen>
 
-    <para><varname>domain</varname> erklæringen kan utelates
-    eller erstattet med en <varname>search</varname> erklæring.  Se mansiden for
+    <para><varname>domain</varname> erklÃ¦ringen kan utelates
+    eller erstattet med en <varname>search</varname> erklÃ¦ring.  Se mansiden for
     resolv.conf for flere detaljer.</para>
 
     <para>Erstatt <replaceable>&lt;IP adressen til din navneserver&gt;</replaceable>
     med IP adressen til DNS som passer best for oppsettet. Det vil
-    ofte være mer enn én oppføring (krever sekundære servere for
-    reservefunksjon). Hvis du bare trenger eller vil ha én DNS-server, fjern
+    ofte vÃ¦re mer enn en oppfÃ¸ring (krever sekundÃ¦re servere for
+    reservefunksjon). Hvis du bare trenger eller vil ha en DNS-server, fjern
     andre <emphasis>nameserver</emphasis> linjen fra filen. IP adressen
-    kan også være en ruter på det lokale nettverket.</para>
+    kan ogsÃ¥ vÃ¦re en ruter pÃ¥ det lokale nettverket.</para>
 
     <note>
       <para>Googles offentlige IPv4 DNS adresser er 8.8.8.8 og 8.8.4.4.</para>
@@ -147,14 +147,14 @@ EOF</userinput></screen>
     </indexterm>
 
      <para>Under oppstartsprosessen vil filen <filename>/etc/hostname</filename>
-     brukes til å etablere systemets vertsnavn.</para>
+     brukes til Ã¥ etablere systemets vertsnavn.</para>
 
      <para>Opprett <filename>/etc/hostname</filename> filen og skriv inn et
-     vertsnavn ved å kjøre:</para>
+     vertsnavn ved Ã¥ kjÃ¸re:</para>
 
 <screen><userinput>echo "<replaceable>&lt;lfs&gt;</replaceable>" &gt; /etc/hostname</userinput></screen>
 
-     <para><replaceable>&lt;lfs&gt;</replaceable> må erstattes med
+     <para><replaceable>&lt;lfs&gt;</replaceable> mÃ¥ erstattes med
      navnet til datamaskinen. Ikke skriv inn det fullt kvalifiserte domenenavnet
      (FQDN) her. Den informasjonen er i
      <filename>/etc/hosts</filename> filen.</para>
@@ -180,38 +180,38 @@ EOF</userinput></screen>
 
      <para>Bestem deg for et fullt kvalifisert domenenavn (FQDN) og mulige aliaser
      til bruk i <filename>/etc/hosts</filename> filen. Hvis du bruker statiske IP
-     adresser, må du også bestemme deg for en IP adresse. Syntaksen
-     for en vertsfiloppføring er:</para>
+     adresser, mÃ¥ du ogsÃ¥ bestemme deg for en IP adresse. Syntaksen
+     for en vertsfiloppfÃ¸ring er:</para>
 
 <screen><literal>IP_addresse minvert.eksempel.org aliaser</literal></screen>
 
-     <para>Med mindre datamaskinen skal være synlig for Internett (dvs. det er
+     <para>Med mindre datamaskinen skal vÃ¦re synlig for Internett (dvs. det er
      et registrert domene og en gyldig blokk med tildelte IP adresser&mdash;de fleste
-     brukere har ikke dette), sørg for at IP adressen er i den private
-     nettverkets IP adresseområde. Gyldige områder er:</para>
+     brukere har ikke dette), sÃ¸rg for at IP adressen er i den private
+     nettverkets IP adresseomrÃ¥de. Gyldige omrÃ¥der er:</para>
 
-<screen><literal>Privat nettverk Adresseområde      Normalt prefiks
+<screen><literal>Privat nettverk AdresseomrÃ¥de      Normalt prefiks
 10.0.0.1 - 10.255.255.254           8
 172.x.0.1 - 172.x.255.254           16
 192.168.y.1 - 192.168.y.254         24</literal></screen>
 
-     <para>x kan være et hvilket som helst tall i området 16-31. y kan være et hvilket som helst tall i
-     område 0-255.</para>
+     <para>x kan vÃ¦re et hvilket som helst tall i omrÃ¥det 16-31. y kan vÃ¦re et hvilket som helst tall i
+     omrÃ¥de 0-255.</para>
 
-     <para>En gyldig privat IP adresse kan være 192.168.1.1.</para>
+     <para>En gyldig privat IP adresse kan vÃ¦re 192.168.1.1.</para>
 
-     <para>Hvis datamaskinen skal være synlig for Internett, en gyldig FQDN
-     kan være selve domenenavnet, eller en streng som er resultatet av å sette sammen et
+     <para>Hvis datamaskinen skal vÃ¦re synlig for Internett, en gyldig FQDN
+     kan vÃ¦re selve domenenavnet, eller en streng som er resultatet av Ã¥ sette sammen et
      prefiks (ofte vertsnavnet) og domenenavnet med <quote>.</quote>
-     karakter. Og du må kontakte domeneleverandøren for å knytte
+     karakter. Og du mÃ¥ kontakte domeneleverandÃ¸ren for Ã¥ knytte
      FQDN til din offentlige IP-adresse.</para>
 
      <para>Selv om datamaskinen ikke er synlig for Internett, er en FQDN
-     fortsatt nødvendig for at visse programmer, for eksempel MTA-er, skal fungere ordentlig.
+     fortsatt nÃ¸dvendig for at visse programmer, for eksempel MTA-er, skal fungere ordentlig.
      En spesiell FQDN, <literal>localhost.localdomain</literal>, kan bli brukt
-     til dette formålet.</para>
+     til dette formÃ¥let.</para>
 
-     <para>Opprett  <filename>/etc/hosts</filename> filen ved å kjøre:</para>
+     <para>Opprett  <filename>/etc/hosts</filename> filen ved Ã¥ kjÃ¸re:</para>
 
 <screen><userinput>cat &gt; /etc/hosts &lt;&lt; "EOF"
 <literal># Begin /etc/hosts
@@ -228,15 +228,15 @@ EOF</userinput></screen>
 
      <para><replaceable>&lt;192.168.1.1&gt;</replaceable>,
      <replaceable>&lt;FQDN&gt;</replaceable>, og
-     <replaceable>&lt;HOSTNAME&gt;</replaceable> verdiene må være
-     endret for spesifikke bruksområder eller krav (hvis tildelt en IP-adresse av en
+     <replaceable>&lt;HOSTNAME&gt;</replaceable> verdiene mÃ¥ vÃ¦re
+     endret for spesifikke bruksomrÃ¥der eller krav (hvis tildelt en IP-adresse av en
      nettverks-/systemadministrator og maskinen kobles til en
      eksisterende nettverk). De valgfrie aliasnavnene kan utelates.</para>
 
 <!--  Dette er lite nyttig
 
      <para>Hvis et nettverkskort ikke skal konfigureres, oppretter du
-     <filename>/etc/hosts</filename> filen ved å kjøre:</para>
+     <filename>/etc/hosts</filename> filen ved Ã¥ kjÃ¸re:</para>
 
 <screen role="nodump"><userinput>cat &gt; /etc/hosts &lt;&lt; "EOF"
 <literal># Begin /etc/hosts (no network card version)

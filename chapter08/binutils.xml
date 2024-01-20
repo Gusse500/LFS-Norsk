@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -24,7 +24,7 @@
     <title/>
 
     <para>Binutils pakken inneholder en linker, en assembler og annet
-    verktøy for håndtering av objektfiler.</para>
+    verktÃ¸y for hÃ¥ndtering av objektfiler.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -41,7 +41,7 @@
   <sect2 role="installation">
     <title>Installasjon av Binutils</title>
 
-    <para>Binutils dokumentasjonen anbefaler å bygge Binutils
+    <para>Binutils dokumentasjonen anbefaler Ã¥ bygge Binutils
     i en dedikert byggemappe:</para>
 
 <screen><userinput remap="pre">mkdir -v build
@@ -74,7 +74,7 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--enable-ld=default</parameter></term>
         <listitem>
-          <para>Bygg den originale bfd linkeren og installer den som både ld (som er
+          <para>Bygg den originale bfd linkeren og installer den som bÃ¥de ld (som er
           standard linker) og ld.bfd.</para>
         </listitem>
       </varlistentry>
@@ -82,14 +82,14 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--enable-plugins</parameter></term>
         <listitem>
-          <para>Aktiverer støtte for programtillegg for linkeren.</para>
+          <para>Aktiverer stltte for programtillegg for linkeren.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--with-system-zlib</parameter></term>
         <listitem>
-          <para>Bruk det installerte zlib biblioteket i stedet for å bygge den
+          <para>Bruk det installerte zlib biblioteket i stedet for Ã¥ bygge den
           inkluderte versjonen.</para>
         </listitem>
       </varlistentry>
@@ -106,17 +106,17 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>tooldir=/usr</parameter></term>
         <listitem>
-          <para>Vanligvis er verktøymappen (mappen der de kjørbare filene
+          <para>Vanligvis er verktÃ¸ymappen (mappen der de kjÃ¸rbare filene
           til slutt vil bli lokalisert i) satt til <filename
           class="directory">$(exec_prefix)/$(target_alias)</filename>. For
           eksempel, x86_64-maskiner vil utvide det til <filename
           class="directory">/usr/x86_64-pc-linux-gnu</filename>. Fordi dette er
-          et tilpasset system, er denne målspesifikke katalogen i <filename
-          class="directory">/usr</filename> ikke påkrevd. <filename
-          class="directory">$(exec_prefix)/$(target_alias)</filename> ville vært
-          brukt hvis systemet ble brukt til å krysskompilere (for eksempel kompilering av en
-          pakke på en Intel maskin som genererer kode som kan kjøres
-          på PowerPC maskiner).</para>
+          et tilpasset system, er denne mÃ¥lspesifikke katalogen i <filename
+          class="directory">/usr</filename> ikke pÃ¥krevd. <filename
+          class="directory">$(exec_prefix)/$(target_alias)</filename> ville vÃ¦rt
+          brukt hvis systemet ble brukt til Ã¥ krysskompilere (for eksempel kompilering av en
+          pakke pÃ¥ en Intel maskin som genererer kode som kan kjÃ¸res
+          pÃ¥ PowerPC maskiner).</para>
         </listitem>
       </varlistentry>
 
@@ -131,15 +131,15 @@ cd       build</userinput></screen>
 
 <screen><userinput remap="test">make -k check</userinput></screen>
 
-    <para>For en liste over mislykkede tester, kjør:</para>
+    <para>For en liste over mislykkede tester, kjÃ¸r:</para>
 
 <screen><userinput remap="test">grep '^FAIL:' $(find -name '*.log')</userinput></screen>
 
-    <para>Tolv tester mislykkes i gold testpakken når
+    <para>Tolv tester mislykkes i gold testpakken nÃ¥r
     <option>--enable-default-pie</option> og
     <option>--enable-default-ssp</option> alternativene sendes til GCC.</para>
 
-    <para>Tre tester i pakken gprofng er også kjent for å mislykkes.</para>
+    <para>Tre tester i pakken gprofng er ogsÃ¥ kjent for Ã¥ mislykkes.</para>
 
     <para>Installer pakken:</para>
 
@@ -177,8 +177,8 @@ cd       build</userinput></screen>
         <term><command>addr2line</command></term>
         <listitem>
           <para>Oversetter programadresser til filnavn og linjenumre;
-          gitt en adresse og navnet på en kjørbar fil, bruker den feilsøkingsinformasjonen
-          i den kjørbare filen for å bestemme hvilken kildefil og linjenummer
+          gitt en adresse og navnet pÃ¥ en kjÃ¸rbar fil, bruker den feilsÃ¸kingsinformasjonen
+          i den kjÃ¸rbare filen for Ã¥ bestemme hvilken kildefil og linjenummer
           som er knyttet til adressen</para>
           <indexterm zone="ch-system-binutils addr2line">
             <primary sortas="b-addr2line">addr2line</primary>
@@ -210,8 +210,8 @@ cd       build</userinput></screen>
       <varlistentry id="c-filt">
         <term><command>c++filt</command></term>
         <listitem>
-          <para>Brukes av linkeren til å dekode C++ og Java symboler og hindre
-          overbelastede funksjoner å krasje</para>
+          <para>Brukes av linkeren til Ã¥ dekode C++ og Java symboler og hindre
+          overbelastede funksjoner Ã¥ krasje</para>
           <indexterm zone="ch-system-binutils c-filt">
             <primary sortas="b-c++filt">c++filt</primary>
           </indexterm>
@@ -221,7 +221,7 @@ cd       build</userinput></screen>
       <varlistentry id="dwp">
         <term><command>dwp</command></term>
         <listitem>
-          <para>DWARF pakkeverktøyet</para>
+          <para>DWARF pakkeverktÃ¸yet</para>
           <indexterm zone="ch-system-binutils dwp">
             <primary sortas="dwp">dwp</primary>
           </indexterm>
@@ -273,7 +273,7 @@ cd       build</userinput></screen>
       <varlistentry id="ld.gold">
         <term><command>ld.gold</command></term>
         <listitem>
-          <para>En nedskalert versjon av ld som bare støtter
+          <para>En nedskalert versjon av ld som bare stÃ¸tter
           objektfil formatet elf</para>
           <indexterm zone="ch-system-binutils ld.gold">
             <primary sortas="b-ld.gold">ld.gold</primary>
@@ -304,7 +304,7 @@ cd       build</userinput></screen>
       <varlistentry id="objcopy">
         <term><command>objcopy</command></term>
         <listitem>
-          <para>Oversetter én type objektfil til en annen</para>
+          <para>Oversetter en type objektfil til en annen</para>
           <indexterm zone="ch-system-binutils objcopy">
             <primary sortas="b-objcopy">objcopy</primary>
           </indexterm>
@@ -317,7 +317,7 @@ cd       build</userinput></screen>
           <para>Viser informasjon om den gitte objektfilen, med alternativer
           kontrollerer den hvilken informasjonen som skal vises; informasjonen som
           vises er nyttig for programmerere som jobber med kompileringens
-          verktøy</para>
+          verktÃ¸y</para>
           <indexterm zone="ch-system-binutils objdump">
             <primary sortas="b-objdump">objdump</primary>
           </indexterm>
@@ -339,7 +339,7 @@ cd       build</userinput></screen>
       <varlistentry id="readelf">
         <term><command>readelf</command></term>
         <listitem>
-          <para>Viser informasjon om binærfiler av ELF typen</para>
+          <para>Viser informasjon om binÃ¦rfiler av ELF typen</para>
           <indexterm zone="ch-system-binutils readelf">
             <primary sortas="b-readelf">readelf</primary>
           </indexterm>
@@ -349,7 +349,7 @@ cd       build</userinput></screen>
       <varlistentry id="size">
         <term><command>size</command></term>
         <listitem>
-          <para>Viser seksjonsstørrelsene og totalstørrelsen for de gitte
+          <para>Viser seksjonsstÃ¸rrelsene og totalstÃ¸rrelsen for de gitte
           objektfilene</para>
           <indexterm zone="ch-system-binutils size">
             <primary sortas="b-size">size</primary>
@@ -384,7 +384,7 @@ cd       build</userinput></screen>
       <varlistentry id="libbfd">
         <term><filename class="libraryfile">libbfd</filename></term>
         <listitem>
-          <para>Biblioteket med binære filbeskrivelser</para>
+          <para>Biblioteket med binÃ¦re filbeskrivelser</para>
           <indexterm zone="ch-system-binutils libbfd">
             <primary sortas="c-libbfd">libbfd</primary>
           </indexterm>
@@ -394,7 +394,7 @@ cd       build</userinput></screen>
       <varlistentry id="libctf">
         <term><filename class="libraryfile">libctf</filename></term>
         <listitem>
-          <para>Compat ANSI-C Type Format støttebibliotek for feilsøking</para>
+          <para>Compat ANSI-C Type Format stÃ¸ttebibliotek for feilsÃ¸king</para>
           <indexterm zone="ch-system-binutils libctf">
             <primary sortas="c-libctf">libctf</primary>
           </indexterm>
@@ -425,9 +425,9 @@ cd       build</userinput></screen>
       <varlistentry id="libopcodes">
         <term><filename class="libraryfile">libopcodes</filename></term>
         <listitem>
-          <para>Et bibliotek for å håndtere opkoder&mdash;<quote>leselig
+          <para>Et bibliotek for Ã¥ hÃ¥ndtere opkoder&mdash;<quote>leselig
           tekst</quote> versjoner av instruksjoner for prosessoren;
-          den brukes til å bygge verktøy som
+          den brukes til Ã¥ bygge verktÃ¸y som
           <command>objdump</command></para>
           <indexterm zone="ch-system-binutils libopcodes">
             <primary sortas="c-libopcodes">libopcodes</primary>
@@ -438,7 +438,7 @@ cd       build</userinput></screen>
       <varlistentry id="libsframe">
         <term><filename class="libraryfile">libsframe</filename></term>
         <listitem>
-           <para>Et bibliotek for å støtte tilbakesporing på nettet ved hjelp av en
+           <para>Et bibliotek for Ã¥ stÃ¸tte tilbakesporing pÃ¥ nettet ved hjelp av en
            enkel avvikling</para>
           <indexterm zone="ch-system-binutils libsframe">
             <primary sortas="c-libsframe">libsframe</primary>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -10,57 +10,57 @@
 
   <title>Stille inn $LFS variabelen</title>
 
-  <para>Gjennom hele denne boken, vil miljøvariabelen <envar>LFS</envar>
-  brukes flere ganger. Du bør sørge for at denne variabelen alltid er definert
-  gjennom hele LFS byggeprosessen. Den bør settes til navnet på
+  <para>Gjennom hele denne boken, vil miljÃ¸variabelen <envar>LFS</envar>
+  brukes flere ganger. Du bÃ¸r sÃ¸rge for at denne variabelen alltid er definert
+  gjennom hele LFS byggeprosessen. Den bÃ¸r settes til navnet pÃ¥
   mappen hvor du skal bygge LFS systemet ditt - vi vil bruke
   <filename class="directory">/mnt/lfs</filename> som et eksempel, men du kan
-  velg et hvilket som helst mappenavn du ønsker. Hvis du bygger LFS på en separat
-  partisjon, vil denne mappen være monteringspunktet for partisjonen.
+  velg et hvilket som helst mappenavn du Ã¸nsker. Hvis du bygger LFS pÃ¥ en separat
+  partisjon, vil denne mappen vÃ¦re monteringspunktet for partisjonen.
   Velg en mappeplassering og sett variabelen med
-  følgende kommando:</para>
+  fÃ¸lgende kommando:</para>
 
 <screen role="nodump"><userinput>export LFS=<replaceable>/mnt/lfs</replaceable></userinput></screen>
 
-  <para>Å ha denne variabelen satt er fordelaktig ved at kommandoer som f.eks
+  <para>Ã… ha denne variabelen satt er fordelaktig ved at kommandoer som f.eks
   <command>mkdir -v $LFS/tools</command> kan skrives bokstavelig. Skallet
   vil automatisk erstatte <quote>$LFS</quote> med
-  <quote>/mnt/lfs</quote> (eller hvilken verdi variabelen ble satt til) når den
+  <quote>/mnt/lfs</quote> (eller hvilken verdi variabelen ble satt til) nÃ¥r den
   behandler kommandolinjen.</para>
 
   <caution>
-  <para>Ikke glem å sjekke at <envar>LFS</envar> er satt når
-  du forlater og går inn i det nåværende arbeidsmiljøet igjen (for eksempel når du gjør en
+  <para>Ikke glem Ã¥ sjekke at <envar>LFS</envar> er satt nÃ¥r
+  du forlater og gÃ¥r inn i det nÃ¥vÃ¦rende arbeidsmiljÃ¸et igjen (for eksempel nÃ¥r du gjÃ¸r en
   <command>su</command> til <systemitem class="username">root</systemitem> eller
   en annen bruker). Sjekk at <envar>LFS</envar> variabelen er satt opp
   skikkelig med:</para>
 
 <screen role="nodump"><userinput>echo $LFS</userinput></screen>
 
-  <para>Sørg for at utdataene viser banen til LFS systemets
+  <para>SÃ¸rg for at utdataene viser banen til LFS systemets
   byggeplassering, som er <filename class="directory">/mnt/lfs</filename> hvis
   gitt eksempel ble fulgt. Hvis utdaten er feil, bruk kommandoen
-  gitt tidligere på denne siden for å sette <envar>$LFS</envar> til det riktige
+  gitt tidligere pÃ¥ denne siden for Ã¥ sette <envar>$LFS</envar> til det riktige
   mappenavnet.</para>
   </caution>
 
-  <note><para>En måte å sikre at <envar>LFS</envar> variabelen alltid er
-  satt er å redigere <filename>.bash_profile</filename> filen i både din
+  <note><para>En mÃ¥te Ã¥ sikre at <envar>LFS</envar> variabelen alltid er
+  satt er Ã¥ redigere <filename>.bash_profile</filename> filen i bÃ¥de din
   personlig hjemmemappe og i  <filename>/root/.bash_profile</filename> og
   skriv inn export kommandoen ovenfor.  I tillegg, skallet spesifisert i
   <filename>/etc/passwd</filename> filen for alle brukere som trenger
-  <envar>LFS</envar> variabelen må være bash for å sikre at
+  <envar>LFS</envar> variabelen mÃ¥ vÃ¦re bash for Ã¥ sikre at
   <filename>/root/.bash_profile</filename> filen er innlemmet som en del av
-  påloggingsprosessen.</para>
+  pÃ¥loggingsprosessen.</para>
 
-  <para>En annen vurdering er metoden som brukes for å logge på
-  vertssystemet. Hvis du logger på via en grafisk skjermbehandler,
-  brukerens <filename>.bash_profile</filename> brukes vanligvis ikke når
+  <para>En annen vurdering er metoden som brukes for Ã¥ logge pÃ¥
+  vertssystemet. Hvis du logger pÃ¥ via en grafisk skjermbehandler,
+  brukerens <filename>.bash_profile</filename> brukes vanligvis ikke nÃ¥r
   en virtuell terminal startes. I dette tilfellet legger du til export kommandoen til
   filen <filename>.bashrc</filename> for brukeren og
   <systemitem class="username">root</systemitem>.  I tillegg,
-  noen distribusjoner bruk en "if" test, og kjører ikke de resterende <filename>.bashrc</filename>
-  instruksjoner for en ikke-interaktiv bash påkallelse. Pass på å plassere
+  noen distribusjoner bruk en "if" test, og kjÃ¸rer ikke de resterende <filename>.bashrc</filename>
+  instruksjoner for en ikke-interaktiv bash pÃ¥kallelse. Pass pÃ¥ Ã¥ plassere
   export kommandoen foran testen for ikke interaktiv bruk.</para>
 
   </note>

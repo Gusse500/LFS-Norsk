@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -10,11 +10,11 @@
 
   <title>Bli regnet med</title>
 
-  <para>Nå som du er ferdig med boken, ønsker du å bli regnet som en
-  LFS bruker? Gå over til <ulink url="&lfs-root;cgi-bin/lfscounter.php"/> og
-  registrer deg som LFS bruker ved å skrive inn navnet ditt og den første LFS versjonen du
+  <para>NÃ¥ som du er ferdig med boken, Ã¸nsker du Ã¥ bli regnet som en
+  LFS bruker? GÃ¥ over til <ulink url="&lfs-root;cgi-bin/lfscounter.php"/> og
+  registrer deg som LFS bruker ved Ã¥ skrive inn navnet ditt og den fÃ¸rste LFS versjonen du
   har brukt.</para>
 
-  <para>La oss restarte inn i LFS nå.</para>
+  <para>La oss restarte inn i LFS nÃ¥.</para>
 
 </sect1>

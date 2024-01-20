@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -41,7 +41,7 @@
   <sect2 role="installation">
     <title>Installasjon av Util-linux</title>
 
-    <para>FHS anbefaler å bruke <filename
+    <para>FHS anbefaler Ã¥ bruke <filename
     class="directory">/var/lib/hwclock</filename> mappen i stedet for den
     vanlige <filename class="directory">/etc</filename> mappen som
     plassering for <filename>adjtime</filename> filen. Opprett denne mappen
@@ -73,9 +73,9 @@
         <listitem>
           <para>Dette angir plasseringen av filopptaksinformasjonen om
           maskinvareklokken i henhold til FHS. Dette er ikke strengt tatt
-          nødvendig for dette midlertidige verktøyet, men det forhindrer at det lages en fil
-          på et annet sted, som ikke ville bli overskrevet eller fjernet
-          når du bygger den endelige util-linux pakken.</para>
+          nÃ¸dvendig for dette midlertidige verktÃ¸yet, men det forhindrer at det lages en fil
+          pÃ¥ et annet sted, som ikke ville bli overskrevet eller fjernet
+          nÃ¥r du bygger den endelige util-linux pakken.</para>
         </listitem>
       </varlistentry>
 
@@ -83,7 +83,7 @@
         <term><parameter>--libdir=/usr/lib</parameter></term>
         <listitem>
           <para>Denne bryteren sikrer at
-          <filename class="extension">.so</filename> målrettes direkte mot symbolkoblinger
+          <filename class="extension">.so</filename> mÃ¥lrettes direkte mot symbolkoblinger
           i den delte bibliotekfilen i samme mappe
           (<filename class="directory">/usr/lib</filename>).</para>
         </listitem>
@@ -93,7 +93,7 @@
         <term><parameter>--disable-*</parameter></term>
         <listitem>
           <para>Disse bryterne forhindrer advarsler om bygningskomponenter
-          som krever pakker som ikke er i LFS eller ikke er installert ennå.</para>
+          som krever pakker som ikke er i LFS eller ikke er installert ennÃ¥.</para>
         </listitem>
       </varlistentry>
 
@@ -101,7 +101,7 @@
         <term><parameter>--without-python</parameter></term>
         <listitem>
           <para>Denne bryteren deaktiverer bruk av <application>Python</application>.
-          Den unngår å prøve å bygge unødvendige bindinger.</para>
+          Den unngÃ¥r Ã¥ prÃ¸ve Ã¥ bygge unÃ¸dvendige bindinger.</para>
         </listitem>
       </varlistentry>
 

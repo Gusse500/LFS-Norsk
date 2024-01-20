@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -43,7 +43,7 @@
   <sect2 role="installation">
     <title>Installasjon av Gettext</title>
 
-    <para>For vårt midlertidige sett med verktøy trenger vi bare å installere
+    <para>For vÃ¥rt midlertidige sett med verktÃ¸y trenger vi bare Ã¥ installere
      tre programmer fra Gettext.</para>
 
     <para>Forbered Gettext for kompilering:</para>
@@ -56,8 +56,8 @@
       <varlistentry>
         <term><parameter>--disable-shared</parameter></term>
         <listitem>
-          <para>Vi trenger ikke å installere noen av de delte Gettext bibliotekene,
-           denne gangen er det derfor ikke nødvendig å bygge dem.</para>
+          <para>Vi trenger ikke Ã¥ installere noen av de delte Gettext bibliotekene,
+           denne gangen er det derfor ikke nÃ¸dvendig Ã¥ bygge dem.</para>
         </listitem>
       </varlistentry>
 

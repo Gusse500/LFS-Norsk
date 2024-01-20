@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -23,8 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Meson er et åpen kildekode byggesystem ment å være både ekstremt raskt
-    og så brukervennlig som mulig.</para>
+    <para>Meson er et Ã¥pen kildekode byggesystem ment Ã¥ vÃ¦re bÃ¥de ekstremt raskt
+    og sÃ¥ brukervennlig som mulig.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,11 +40,11 @@
   <sect2 role="installation">
     <title>Installasjon av Meson</title>
 <!--
-    <para>Først bruker du en oppdatering som løser et problem identifisert oppstrøms:</para>
+    <para>FÃ¸rst bruker du en oppdatering som lÃ¸ser et problem identifisert oppstrÃ¸ms:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&meson-fix-patch;</userinput></screen>
 -->
-    <para>Kompiler Meson med følgende kommando:</para>
+    <para>Kompiler Meson med fÃ¸lgende kommando:</para>
 
 <screen><userinput remap="make">pip3 wheel -w dist --no-cache-dir --no-build-isolation --no-deps $PWD</userinput></screen>
 
@@ -102,7 +102,7 @@ install -vDm644 data/shell-completions/zsh/_meson /usr/share/zsh/site-functions/
       <varlistentry id="meson">
         <term><command>meson</command></term>
         <listitem>
-          <para>Et byggesystem med høy produktivitet</para>
+          <para>Et byggesystem med hÃ¸y produktivitet</para>
           <indexterm zone="ch-system-meson meson">
             <primary sortas="b-meson">meson</primary>
           </indexterm>

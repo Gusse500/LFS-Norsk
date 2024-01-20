@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -13,8 +13,8 @@
   <!--<sect2>
     <title/> -->
 
-     <para>Strukturen til LFS følger Linux standarder så tett som
-     mulig. De primære standardene er:</para>
+     <para>Strukturen til LFS fÃ¸lger Linux standarder sÃ¥ tett som
+     mulig. De primÃ¦re standardene er:</para>
 
     <itemizedlist>
       <listitem>
@@ -32,30 +32,30 @@
         Standard base (LSB) Versjon 5.0 (2015)</ulink></para>
 
         <para>LSB har fire separate standarder: Kjerne, Skrivebord,
-        Kjøretidsspråk og bildebehandling. I tillegg til generiske krav
-        er det også arkitekturspesifikke krav. Det er også to
-        områder for prøvebruk: Gtk3 og grafikk.  LFS forsøker å samsvare med LSB
+        KjÃ¸retidssprÃ¥k og bildebehandling. I tillegg til generiske krav
+        er det ogsÃ¥ arkitekturspesifikke krav. Det er ogsÃ¥ to
+        omrÃ¥der for prÃ¸vebruk: Gtk3 og grafikk.  LFS forsÃ¸ker Ã¥ samsvare med LSB
         spesifikasjoner for IA32 (32-bit x86) eller AMD64 (x86_64)
         arkitekturer omtalt i forrige avsnitt.</para>
 
         <note><para>Mange mennesker er ikke enige i kravene til LSB.
-        Hovedformålet med å definere det er å sikre at proprietær programvare
-        vil kunne installeres og kjøres riktig på et kompatibelt system.
+        HovedformÃ¥let med Ã¥ definere det er Ã¥ sikre at proprietÃ¦r programvare
+        vil kunne installeres og kjÃ¸res riktig pÃ¥ et kompatibelt system.
         Siden LFS er kildebasert, har brukeren full kontroll over hvilke
-        pakker som er ønsket og mange velger å ikke installere noen pakker som
+        pakker som er Ã¸nsket og mange velger Ã¥ ikke installere noen pakker som
         er spesifisert av LSB.</para></note>
 
       </listitem>
     </itemizedlist>
 
-    <para>Å opprette et komplett LFS system som er i stand til å bestå LSB
+    <para>Ã… opprette et komplett LFS system som er i stand til Ã¥ bestÃ¥ LSB
     sertifiseringstester er mulig, men ikke uten mange tilleggspakker
     som er utenfor omfanget av LFS. Disse tilleggspakkene har
     installasjonsinstruksjoner i BLFS. </para>
 
     <variablelist>
       <bridgehead renderas="sect3">Pakker levert av LFS som trengs
-           for å tilfredsstille LSB kravene</bridgehead>
+           for Ã¥ tilfredsstille LSB kravene</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
@@ -76,7 +76,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term><emphasis>LSB Kjøretidsspråk:</emphasis></term>
+        <term><emphasis>LSB KjÃ¸retidssprÃ¥k:</emphasis></term>
         <listitem>
           <para>Perl, Python</para>
         </listitem>
@@ -90,7 +90,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term><emphasis>LSB Gtk3 og LSB Grafikk (Prøvebruk):</emphasis></term>
+        <term><emphasis>LSB Gtk3 og LSB Grafikk (PrÃ¸vebruk):</emphasis></term>
         <listitem>
           <para>Ingen</para>
         </listitem>
@@ -100,7 +100,7 @@
 
     <variablelist>
       <bridgehead renderas="sect3">Pakker levert av BLFS som trengs
-           for å tilfredsstille LSB kravene</bridgehead>
+           for Ã¥ tilfredsstille LSB kravene</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
@@ -123,7 +123,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term><emphasis>LSB Kjøretidsspråk:</emphasis></term>
+        <term><emphasis>LSB KjÃ¸retidssprÃ¥k:</emphasis></term>
         <listitem>
           <para>Libxml2, Libxslt </para>
         </listitem>
@@ -137,7 +137,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term><emphasis>LSB Gtk3 and LSB Grafikk (Prøvebruk):</emphasis></term>
+        <term><emphasis>LSB Gtk3 and LSB Grafikk (PrÃ¸vebruk):</emphasis></term>
         <listitem>
           <para>GTK+3</para>
         </listitem>
@@ -147,7 +147,7 @@
 
     <variablelist>
       <bridgehead renderas="sect3">Pakker som ikke er levert av LFS eller BLFS
-      nødvendige for å tilfredsstille LSB kravene</bridgehead>
+      nÃ¸dvendige for Ã¥ tilfredsstille LSB kravene</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
 
@@ -166,7 +166,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term><emphasis>LSB Kjøretidsspråk:</emphasis></term>
+        <term><emphasis>LSB KjÃ¸retidssprÃ¥k:</emphasis></term>
         <listitem>
           <para>Ingen</para>
         </listitem>
@@ -180,7 +180,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term><emphasis>LSB Gtk3 and LSB Grafikk (Prøvebruk):</emphasis></term>
+        <term><emphasis>LSB Gtk3 and LSB Grafikk (PrÃ¸vebruk):</emphasis></term>
         <listitem>
           <para>Ingen</para>
         </listitem>

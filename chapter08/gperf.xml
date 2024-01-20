@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Gperf genererer en perfekt hashfunksjon fra et nøkkelsett.</para>
+    <para>Gperf genererer en perfekt hashfunksjon fra et nÃ¸kkelsett.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -48,8 +48,8 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Testene er kjent for å mislykkes hvis de kjører flere
-    samtidige tester (-j alternativ større enn 1). Å teste
+    <para>Testene er kjent for Ã¥ mislykkes hvis de kjÃ¸rer flere
+    samtidige tester (-j alternativ stÃ¸rre enn 1). Ã… teste
     resultatene, utsted:</para>
 
 <screen><userinput remap="test">make -j1 check</userinput></screen>
@@ -81,7 +81,7 @@
       <varlistentry id="gperf">
         <term><command>gperf</command></term>
         <listitem>
-          <para>Genererer en perfekt hash fra et nøkkelsett</para>
+          <para>Genererer en perfekt hash fra et nÃ¸kkelsett</para>
           <indexterm zone="ch-system-gperf gperf">
             <primary sortas="b-gperf">gperf</primary>
           </indexterm>

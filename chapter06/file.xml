@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -44,9 +44,9 @@
     <title>Installasjon av File</title>
 
     <para>
-       <command>file</command> kommandoen på byggevertens må
-       være samme versjon som den vi bygger for å
-       opprette signaturfilen. Kjør følgende kommandoer for å lage en
+       <command>file</command> kommandoen pÃ¥ byggevertens mÃ¥
+       vÃ¦re samme versjon som den vi bygger for Ã¥
+       opprette signaturfilen. KjÃ¸r fÃ¸lgende kommandoer for Ã¥ lage en
        midlertidig kopi av <command>file</command> kommandoen:
     </para>
 
@@ -65,11 +65,11 @@ popd</userinput></screen>
       <varlistentry>
         <term><parameter>--disable-*</parameter></term>
         <listitem>
-          <para>Konfigurasjonsskriptet prøver å bruke noen pakker fra
+          <para>Konfigurasjonsskriptet prÃ¸ver Ã¥ bruke noen pakker fra
           vertsdistribusjonen hvis de tilsvarende bibliotekfilene finnes.
-          Det kan føre til kompileringsfeil hvis det finnes en bibliotekfil, men
-          de tilsvarende deklarasjonsfilene ikke gjør det. Disse alternativene forhindrer
-          at det brukes disse unødvendige egenskapene fra verten.</para>
+          Det kan fÃ¸re til kompileringsfeil hvis det finnes en bibliotekfil, men
+          de tilsvarende deklarasjonsfilene ikke gjÃ¸r det. Disse alternativene forhindrer
+          at det brukes disse unÃ¸dvendige egenskapene fra verten.</para>
         </listitem>
       </varlistentry>
     </variablelist>

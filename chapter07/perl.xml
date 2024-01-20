@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -63,7 +63,7 @@
         <term><parameter>-des</parameter></term>
         <listitem>
           <para>Dette er en kombinasjon av tre alternativer: -d bruker standardinnstillinger for
-          alle elementer; -e sikrer gjennomføring av alle oppgaver; -s sender ikke ut
+          alle elementer; -e sikrer gjennomfÃ¸ring av alle oppgaver; -s sender ikke ut
           ikke-essensiell utdata.</para>
         </listitem>
       </varlistentry>
@@ -71,7 +71,7 @@
 	  <varlistentry>
         <term><parameter>-Dvendorprefix=/usr</parameter></term>
         <listitem>
-          <para>Dette sikrer at <command>perl</command> vet hvordan å
+          <para>Dette sikrer at <command>perl</command> vet hvordan Ã¥
           fortelle pakker hvor de skal installere perl modulene sine.</para>
         </listitem>
       </varlistentry>
@@ -89,11 +89,11 @@
         <term><parameter>-Dprivlib,-Darchlib,-Dsitelib,...</parameter></term>
         <listitem>
           <para>Disse innstillingene definerer hvor Perl leter etter installerte
-          moduler. LFS redaktørene valgte å legge dem i en katalogstruktur
-          basert på Major.Minor-versjonen av Perl (&perl-version-min;) hvilket
-          tillater oppgradering av Perl til nyere Patch nivåer (Patchnivået er
+          moduler. LFS redaktÃ¸rene valgte Ã¥ legge dem i en katalogstruktur
+          basert pÃ¥ Major.Minor-versjonen av Perl (&perl-version-min;) hvilket
+          tillater oppgradering av Perl til nyere Patch nivÃ¥er (PatchnivÃ¥et er
           den siste punktseparerte delen i den fullstendige versjonenstrengen som
-          &perl-version;) uten å installere alle modulene på nytt.</para>
+          &perl-version;) uten Ã¥ installere alle modulene pÃ¥ nytt.</para>
         </listitem>
       </varlistentry>
 

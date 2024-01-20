@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE appendix PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -16,27 +16,27 @@
   <title>Avhengigheter</title>
 
   <para>Hver pakke bygget i LFS er avhengig av en eller flere andre pakker
-  for å bygges og installeres riktig. Noen pakker deltar til og med i
-  sirkulære avhengigheter, det vil si at den første pakken avhenger av den andre
-  i sin tur avhenger av den første. På grunn av disse avhengighetene er rekkefølgen som
-  pakkene bygges i LFS veldig viktig. Formålet med denne siden
-  er å dokumentere avhengighetene til hver pakke bygget i LFS.</para>
+  for Ã¥ bygges og installeres riktig. Noen pakker deltar til og med i
+  sirkulÃ¦re avhengigheter, det vil si at den fÃ¸rste pakken avhenger av den andre
+  i sin tur avhenger av den fÃ¦rste. PÃ¥ grunn av disse avhengighetene er rekkefÃ¸lgen som
+  pakkene bygges i LFS veldig viktig. FormÃ¥let med denne siden
+  er Ã¥ dokumentere avhengighetene til hver pakke bygget i LFS.</para>
 
   <para>For hver pakke som bygges er det tre, og noen ganger opptil
-  fem typer avhengigheter oppført nedenfor. Den første viser hvilke andre pakker
-  må være tilgjengelig for å kompilere og installere den aktuelle pakken.
-  Den andre viser pakkene som må være tilgjengelige når noen programmer eller
-  biblioteker fra pakken brukes under kjøring. Den tredje viser hvilke pakker,
-  i tillegg til de på den første listen, som må være tilgjengelige for å kjøre
+  fem typer avhengigheter oppfÃ¸rt nedenfor. Den fÃ¸rste viser hvilke andre pakker
+  mÃ¥ vÃ¦re tilgjengelig for Ã¥ kompilere og installere den aktuelle pakken.
+  Den andre viser pakkene som mÃ¥ vÃ¦re tilgjengelige nÃ¥r noen programmer eller
+  biblioteker fra pakken brukes under kjÃ¸ring. Den tredje viser hvilke pakker,
+  i tillegg til de pÃ¥ den fÃ¸rste listen, som mÃ¥ vÃ¦re tilgjengelige for Ã¥ kjÃ¸re
   testpakkene. Den fjerde listen over avhengigheter er pakker som krever at
-  denne pakken bygges og installeres på den endelige plasseringen før de blir
+  denne pakken bygges og installeres pÃ¥ den endelige plasseringen fÃ¸r de blir
   bygget og installert.</para>
 
   <para>Den siste listen over avhengigheter er valgfrie pakker som ikke er
-  adressert i LFS, men kan være nyttig for brukeren. Disse pakkene kan ha
+  adressert i LFS, men kan vÃ¦re nyttig for brukeren. Disse pakkene kan ha
   ekstra obligatoriske eller valgfrie avhengigheter. For disse
-  avhengigheter, er den anbefalte praksisen å installere dem etter fullføring av
-  LFS boken og gå tilbake og gjenoppbygg LFS pakken. I flere tilfeller,
+  avhengigheter, er den anbefalte praksisen Ã¥ installere dem etter fullfÃ¸ring av
+  LFS boken og gÃ¥ tilbake og gjenoppbygg LFS pakken. I flere tilfeller,
   er reinstallasjon adressert i BLFS.</para>
 
 <!-- Begin Acl dependency info -->

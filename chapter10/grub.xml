@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -14,15 +14,15 @@
     <address>&grub-url;</address>
   </sect1info>
 
-  <title>Bruke GRUB til å sette opp oppstartsprosessen</title>
+  <title>Bruke GRUB til Ã¥ sette opp oppstartsprosessen</title>
 
   <note>
     <para>
-      Hvis systemet ditt har UEFI støtte og du ønsker å starte LFS med UEFI,
-      bør du hoppe over instruksjonene på denne siden, men likevel lære deg
-      syntaksen til <filename>grub.cfg</filename> og metoden for å spesifisere
+      Hvis systemet ditt har UEFI stÃ¸tte og du Ã¸nsker Ã¥ starte LFS med UEFI,
+      bÃ¸r du hoppe over instruksjonene pÃ¥ denne siden, men likevel lÃ¦re deg
+      syntaksen til <filename>grub.cfg</filename> og metoden for Ã¥ spesifisere
       en partisjon i filen fra denne siden, og konfigurer GRUB med UEFI
-      støtte ved å bruke instruksjonene gitt i
+      stÃ¸tte ved Ã¥ bruke instruksjonene gitt i
       <ulink url="&blfs-book;postlfs/grub-setup.html">BLFS siden</ulink>.
     </para>
   </note>
@@ -30,16 +30,16 @@
   <sect2>
     <title>Introduksjon</title>
 
-    <warning><para>Å konfigurere GRUB feil kan gjøre systemet ditt
+    <warning><para>Ã… konfigurere GRUB feil kan gjÃ¸re systemet ditt
     ubrukelig uten en alternativ oppstartsenhet som en CD-ROM eller oppstartbar
-    USB-stasjon. Denne delen er ikke nødvendig for å starte opp LFS systemet. Du kan
-    bare endre din nåværende oppstartslaster, f.eks. Grub-Legacy, GRUB2 eller
+    USB-stasjon. Denne delen er ikke nÃ¸dvendig for Ã¥ starte opp LFS systemet. Du kan
+    bare endre din nÃ¥vÃ¦rende oppstartslaster, f.eks. Grub-Legacy, GRUB2 eller
     LILO.</para></warning>
 
-    <para> Sørg for at en nødoppstartsdiskett er klar til å <quote>redde</quote>
+    <para> SÃ¸rg for at en nÃ¸doppstartsdiskett er klar til Ã¥ <quote>redde</quote>
     datamaskinen hvis datamaskinen blir ubrukelig (ikke-oppstartbar). Hvis du ikke
     allerede har en oppstartsenhet, kan du opprette en. For at prosedyren
-    nedenfor skal fungere, så må du hoppe til BLFS og installere
+    nedenfor skal fungere, sÃ¥ mÃ¥ du hoppe til BLFS og installere
     <userinput>xorriso</userinput> fra <ulink
     url="&blfs-book;multimedia/libisoburn.html">
     libisoburn</ulink> pakken.</para>
@@ -64,39 +64,39 @@ xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso</userinput></
     GRUB og <filename class="partition">sdb3</filename> er
     <emphasis>(hd1,3)</emphasis>. I motsetning til Linux anser ikke GRUB
     CD-ROM-stasjoner som harddisker. For eksempel hvis du bruker en CD
-    på <filename class="partition">hdb</filename> og en ekstra harddisk
-    på <filename class="partition">hdc</filename>, vil den andre harddisken
-    fortsatt være <emphasis>(hd1)</emphasis>.</para>
+    pÃ¥ <filename class="partition">hdb</filename> og en ekstra harddisk
+    pÃ¥ <filename class="partition">hdc</filename>, vil den andre harddisken
+    fortsatt vÃ¦re <emphasis>(hd1)</emphasis>.</para>
 
   </sect2>
 
   <sect2>
     <title>Sette opp konfigurasjonen</title>
 
-    <para>GRUB fungerer ved å skrive data til det første fysiske sporet til en
-    hardisk. Dette området er ikke en del av noe filsystem. programmene
+    <para>GRUB fungerer ved Ã¥ skrive data til det fÃ¸rste fysiske sporet til en
+    hardisk. Dette omrÃ¥det er ikke en del av noe filsystem. programmene
     der gir tilgang til GRUB moduler i oppstartspartisjonen. Standardplasseringen
     er /boot/grub/.</para>
 
     <para>Plasseringen av oppstartspartisjonen er et valg av brukeren som
-    påvirker konfigurasjonen. En anbefaling er å ha en egen liten
-    (foreslått størrelse er 200 MB) partisjon kun for oppstartsinformasjon. På den måten
-    kan hvert bygg, enten LFS eller en kommersiell distro, få tilgang til den samme oppstartsfilen
-    og tilgang kan gjøres fra hvilket som helst oppstartssystem. Hvis du velger å gjøre
-    dette må du montere den separate partisjonen, flytte alle filene i
-    nåværende <filename class="directory">/boot</filename> mappen (f.eks
+    pÃ¥virker konfigurasjonen. En anbefaling er Ã¥ ha en egen liten
+    (foreslÃ¥tt stÃ¸rrelse er 200 MB) partisjon kun for oppstartsinformasjon. PÃ¥ den mÃ¥ten
+    kan hvert bygg, enten LFS eller en kommersiell distro, fÃ¥ tilgang til den samme oppstartsfilen
+    og tilgang kan gjÃ¸res fra hvilket som helst oppstartssystem. Hvis du velger Ã¥ gjÃ¸re
+    dette mÃ¥ du montere den separate partisjonen, flytte alle filene i
+    nÃ¥vÃ¦rende <filename class="directory">/boot</filename> mappen (f.eks
     linuxkjernen du nettopp bygde i forrige seksjon) til den nye partisjonen.
-    Du må da avmontere partisjonen og montere den på nytt som <filename
-    class="directory">/boot</filename>.  Hvis du gjør dette, sørg for å oppdatere
+    Du mÃ¥ da avmontere partisjonen og montere den pÃ¥ nytt som <filename
+    class="directory">/boot</filename>.  Hvis du gjÃ¸r dette, sÃ¸rg for Ã¥ oppdatere
     <filename>/etc/fstab</filename>.</para>
 
-    <para>Å la <filename class="directory">/boot</filename> være på
-    nåværende LFS partisjon vil også virke, men konfigurasjonen
+    <para>Ã… la <filename class="directory">/boot</filename> vÃ¦re pÃ¥
+    nÃ¥vÃ¦rende LFS partisjon vil ogsÃ¥ virke, men konfigurasjonen
     for flere systemer er mer vanskelig.</para>
 
     <para>Bruk informasjonen ovenfor, finn ut hva som er riktig
     designator for rotpartisjonen (eller oppstartspartisjonen, hvis en separat
-    er brukt). For det følgende eksempelet antas det at rot
+    er brukt). For det fÃ¸lgende eksempelet antas det at rot
     (eller separat oppstart) partisjon er <filename
     class="partition">sda2</filename>.</para>
 
@@ -104,17 +104,17 @@ xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso</userinput></
     class="directory">/boot/grub</filename> og sett opp oppstartssporet:</para>
 
     <warning>
-      <para>Følgende kommando vil overskrive gjeldende oppstartslaster. Ikke
-      kjør kommandoen hvis dette ikke er ønsket, for eksempel hvis du bruker en tredjeparts
-      oppstartsbehandler for å administrere Master Boot Record (MBR).</para>
+      <para>FÃ¸lgende kommando vil overskrive gjeldende oppstartslaster. Ikke
+      kjÃ¸r kommandoen hvis dette ikke er Ã¸nsket, for eksempel hvis du bruker en tredjeparts
+      oppstartsbehandler for Ã¥ administrere Master Boot Record (MBR).</para>
     </warning>
 
 <screen role="nodump"><userinput>grub-install /dev/sda</userinput></screen>
 
     <note>
       <para>Hvis systemet har blitt startet opp med UEFI,
-      <command>grub-install</command> vil prøve å installere filer for
-      <emphasis>x86_64-efi</emphasis> målet, men disse filene
+      <command>grub-install</command> vil prÃ¸ve Ã¥ installere filer for
+      <emphasis>x86_64-efi</emphasis> mÃ¥let, men disse filene
       er ikke installert i <xref linkend="chapter-building-system"/>.
       Hvis dette er tilfelle, legg til <option>--target i386-pc</option> til
       kommandoen ovenfor.</para>
@@ -123,12 +123,12 @@ xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso</userinput></
 <!-- This does not seem to be true any more
     <note><para><application>grub-install</application> er et skript og kaller et annet
     program, grub-probe, som kan mislykkes med en melding "cannot stat `/dev/root'".
-    I så fall oppretter du en midlertidig symbolsk lenke fra rotpartisjonen din til /dev/root:</para>
+    I sÃ¥ fall oppretter du en midlertidig symbolsk lenke fra rotpartisjonen din til /dev/root:</para>
 
 <screen role="nodump"><userinput>ln -sv /dev/sda2 /dev/root</userinput></screen>
 
-    <para>Den symbolske lenken vil bare være tilstede til systemet startes på nytt.
-    Koblingen er kun nødvendig for installasjonsprosedyren.
+    <para>Den symbolske lenken vil bare vÃ¦re tilstede til systemet startes pÃ¥ nytt.
+    Koblingen er kun nÃ¸dvendig for installasjonsprosedyren.
     </para></note>
 -->
   </sect2>
@@ -156,36 +156,36 @@ EOF</userinput></screen>
       <command>insmod</command> kommandoer laster inn
       <application>GRUB</application> moduler navngitt
       <filename>part_gpt</filename> og <filename>ext2</filename>.
-      Til tross for navngivningen, støtter <filename>ext2</filename> faktisk
+      Til tross for navngivningen, stÃ¸tter <filename>ext2</filename> faktisk
       <systemitem class='filesystem'>ext2</systemitem>,
       <systemitem class='filesystem'>ext3</systemitem>, og
       <systemitem class='filesystem'>ext4</systemitem> filsystemer.
       <command>grub-install</command> kommandoen har bygd inn noen moduler
       inn i hoveddelen av <application>GRUB</application> bildet (installert i
-      MBR- eller GRUB BIOS-partisjonen) for å få tilgang til de andre modulene
+      MBR- eller GRUB BIOS-partisjonen) for Ã¥ fÃ¥ tilgang til de andre modulene
       (i <filename class='directory'>/boot/grub/i386-pc</filename>) uten
-      et kylling-eller-egg-problem, så med en typisk konfigurasjon er disse to
+      et kylling-eller-egg-problem, sÃ¥ med en typisk konfigurasjon er disse to
       modulene allerede innebygd og de to <command>insmod</command>
-      kommandoer vil ikke gjøre noe. Men de gjør ingen skade uansett, og det kan
-      være nødvendig med noen sjeldne konfigurasjoner.
+      kommandoer vil ikke gjÃ¸re noe. Men de gjÃ¸r ingen skade uansett, og det kan
+      vÃ¦re nÃ¸dvendig med noen sjeldne konfigurasjoner.
     </para>
 
     <note><para>Fra <application>GRUB</application> sitt perspektiv, 
     kjernefilene er i forhold til partisjonen som brukes. Hvis du
-    brukte en separat /boot-partisjon, fjern /boot fra ovenstående
-    <emphasis>linux</emphasis> linjen.  Du må også endre
-    <emphasis>set root</emphasis> linjen for å peke på oppstartspartisjonen.
+    brukte en separat /boot-partisjon, fjern /boot fra ovenstÃ¥ende
+    <emphasis>linux</emphasis> linjen.  Du mÃ¥ ogsÃ¥ endre
+    <emphasis>set root</emphasis> linjen for Ã¥ peke pÃ¥ oppstartspartisjonen.
     </para></note>
 
     <note>
       <para>GRUB betegnelsen for en partisjon kan endres hvis du la til eller
       fjernet noen disker (inkludert flyttbare disker som USB-enheter).
-      Endringen kan forårsake oppstartsfeil pga
+      Endringen kan forÃ¥rsake oppstartsfeil pga
       <filename>grub.cfg</filename> refererer til noen <quote>gamle</quote>
-      betegnelser. Hvis du ønsker å unngå et slikt problem, kan du bruke
+      betegnelser. Hvis du Ã¸nsker Ã¥ unngÃ¥ et slikt problem, kan du bruke
       UUID for partisjon og filsystem i stedet for GRUB betegnelser til
-      å angi en partisjon.
-      Kjør <command>lsblk -o UUID,PARTUUID,PATH,MOUNTPOINT</command> for å vise
+      Ã¥ angi en partisjon.
+      KjÃ¸r <command>lsblk -o UUID,PARTUUID,PATH,MOUNTPOINT</command> for Ã¥ vise
       UUID-ene til filsystemene dine (i <literal>UUID</literal> kolonnen) og
       partisjoner (i <literal>PARTUUID</literal> kolonnen).  Bytt deretter ut
       <literal>set root=(hdx,y)</literal> med
@@ -196,33 +196,33 @@ EOF</userinput></screen>
       er bygget&gt;</replaceable></literal>.</para>
       <para>Merk at partisjonens UUID og filsystemets UUID
       i denne partisjonen er helt annerledes. Noen nettressurser kan
-      instruere deg om å bruke
+      instruere deg om Ã¥ bruke
       <literal>root=UUID=<replaceable>&lt;filesystem UUID&gt;</replaceable></literal>
       i stedet for
       <literal>root=PARTUUID=<replaceable>&lt;partition UUID&gt;</replaceable></literal>,
-      men å gjøre det vil kreve en initramfs som er utenfor omfanget av
+      men Ã¥ gjÃ¸re det vil kreve en initramfs som er utenfor omfanget av
       LFS.</para>
-      <para>Navnet på enhetsnoden for en partisjon i
-      <filename class='directory'>/dev</filename> kan også endres (mer
-      usannsynlig enn GRUB betegnelsesendring). Du kan også bytte ut
+      <para>Navnet pÃ¥ enhetsnoden for en partisjon i
+      <filename class='directory'>/dev</filename> kan ogsÃ¥ endres (mer
+      usannsynlig enn GRUB betegnelsesendring). Du kan ogsÃ¥ bytte ut
       stier til enhetsnoder som <literal>/dev/sda1</literal> med
       <literal>PARTUUID=<replaceable>&lt;partition UUID&gt;</replaceable></literal>,
-      i <filename>/etc/fstab</filename>, for å unngå en potensiell oppstartsfeil
+      i <filename>/etc/fstab</filename>, for Ã¥ unngÃ¥ en potensiell oppstartsfeil
       i tilfelle enhetens nodenavn er endret.</para>
     </note>
 
     <para>GRUB er et ekstremt kraftig program og det gir en enorm
     antall alternativer for oppstart fra et bredt utvalg av enheter, operativ
-    systemer og partisjonstyper. Det er også mange muligheter for tilpasning
+    systemer og partisjonstyper. Det er ogsÃ¥ mange muligheter for tilpasning
     som grafiske splash-skjermer, avspilling av lyder, museinngang, etc.
     Detaljer om disse alternativene er utenfor rammen av disse introduksjonene.</para>
 
     <caution><para>Det er en kommando, <application>grub-mkconfig</application>, som
     kan skrive en konfigurasjonsfil automatisk. Den bruker et sett med skript i
-    /etc/grub.d/ og vil ødelegge eventuelle tilpasninger du gjør. Disse skriptene
-    er først og fremst designet for distribusjoner uten kilder og anbefales ikke for
+    /etc/grub.d/ og vil Ã¸delegge eventuelle tilpasninger du gjÃ¸r. Disse skriptene
+    er fÃ¸rst og fremst designet for distribusjoner uten kilder og anbefales ikke for
     LFS. Hvis du installerer en kommersiell Linux distribusjon, er det en god sjanse
-    at dette programmet skal kjøres. Sørg for å sikkerhetskopiere grub.cfg filen.</para></caution>
+    at dette programmet skal kjÃ¸res. SÃ¸rg for Ã¥ sikkerhetskopiere grub.cfg filen.</para></caution>
 
    </sect2>
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -10,12 +10,12 @@
 
   <title>Begrunnelse for pakker i boken</title>
 
-    <para>Målet med LFS er å bygge en komplett og brukbart
-    system på fundamentnivå&mdash;inkludert alle pakkene som trengs for å replikere
-    seg selv&mdash;og gi en relativt minimal base for å tilpasse
-    et mer komplett system basert på brukerens valg. Dette betyr ikke
+    <para>MÃ¥let med LFS er Ã¥ bygge en komplett og brukbart
+    system pÃ¥ fundamentnivÃ¥&mdash;inkludert alle pakkene som trengs for Ã¥ replikere
+    seg selv&mdash;og gi en relativt minimal base for Ã¥ tilpasse
+    et mer komplett system basert pÃ¥ brukerens valg. Dette betyr ikke
     at LFS er det minste systemet som er mulig. Flere viktige pakker
-    er inkludert som strengt tatt ikke er påkrevd. Listen nedenfor dokumenterer
+    er inkludert som strengt tatt ikke er pÃ¥krevd. Listen nedenfor dokumenterer
     grunner til at hver pakke i boken er inkludert.</para>
 
     <itemizedlist>
@@ -23,9 +23,9 @@
       <listitem>
         <para>Acl</para>
 
-        <para>Denne pakken inneholder verktøy for å administrere
-        tilgangskontrolllister, som brukes til å definere mer finkornet
-        skjønnsmessige tilgangsrettigheter for filer og kataloger.
+        <para>Denne pakken inneholder verktÃ¸y for Ã¥ administrere
+        tilgangskontrolllister, som brukes til Ã¥ definere mer finkornet
+        skjÃ¸nnsmessige tilgangsrettigheter for filer og kataloger.
         </para>
       </listitem>
 
@@ -33,69 +33,69 @@
         <para>Attr</para>
 
         <para>Denne pakken inneholder programmer for administrasjon
-        av utvidede attributter på filsystemobjekter.
+        av utvidede attributter pÃ¥ filsystemobjekter.
         </para>
       </listitem>
 
       <listitem>
         <para>Autoconf</para>
 
-        <para>Denne pakken inneholder programmer for å produsere skallskript som
+        <para>Denne pakken inneholder programmer for Ã¥ produsere skallskript som
         automatisk kan konfigurere kildekoden fra en utviklermal.
-        Det er ofte nødvendig for å gjenoppbygge en pakke etter oppdateringer
+        Det er ofte nÃ¸dvendig for Ã¥ gjenoppbygge en pakke etter oppdateringer
         til byggeprosedyrene</para>
       </listitem>
 
       <listitem>
         <para>Automake</para>
 
-        <para>Denne pakken inneholder programmer for å generere Make filer fra
-        en mal. Det er ofte nødvendig for å gjenoppbygge en pakke etter oppdateringer
+        <para>Denne pakken inneholder programmer for Ã¥ generere Make filer fra
+        en mal. Det er ofte nÃ¸dvendig for Ã¥ gjenoppbygge en pakke etter oppdateringer
         til byggeprosedyrene.</para>
       </listitem>
 
       <listitem>
         <para>Bash</para>
 
-        <para>Denne pakken tilfredsstiller et LSB-kjernekrav for å gi
+        <para>Denne pakken tilfredsstiller et LSB-kjernekrav for Ã¥ gi
         et Bourne Shell grensesnitt til systemet. Det ble valgt over
-        andre skallpakker på grunn av dens vanlige bruk og omfattende
+        andre skallpakker pÃ¥ grunn av dens vanlige bruk og omfattende
         funksjoner utover grunnleggende skallfunksjoner.</para>
       </listitem>
 
       <listitem>
         <para>Bc</para>
 
-        <para>Denne pakken gir et vilkårlig presisjons numerisk behandlingsspråk.
-        Den tilfredsstiller et krav som er nødvendig når du bygger Linux kjernen.</para>
+        <para>Denne pakken gir et vilkÃ¥rlig presisjons numerisk behandlingssprÃ¥k.
+        Den tilfredsstiller et krav som er nÃ¸dvendig nÃ¥r du bygger Linux kjernen.</para>
       </listitem>
 
       <listitem>
         <para>Binutils</para>
 
         <para>Denne pakken inneholder en linker, en assembler og annet
-        verktøy for håndtering av objektfiler. Programmene i denne pakken er
-        nødvendig for å kompilere de fleste pakkene i et LFS system.</para>
+        verktÃ¸y for hÃ¥ndtering av objektfiler. Programmene i denne pakken er
+        nÃ¸dvendig for Ã¥ kompilere de fleste pakkene i et LFS system.</para>
       </listitem>
 
       <listitem>
         <para>Bison</para>
 
         <para>Denne pakken inneholder GNU-versjonen av yacc (Yet Another
-        Compiler Compiler) nødvendig for å bygge flere andre LFS programmer.</para>
+        Compiler Compiler) nÃ¸dvendig for Ã¥ bygge flere andre LFS programmer.</para>
       </listitem>
 
       <listitem>
         <para>Bzip2</para>
 
         <para>Denne pakken inneholder programmer for komprimering og dekomprimering
-        av filer. Det kreves for å dekomprimere mange LFS pakker.</para>
+        av filer. Det kreves for Ã¥ dekomprimere mange LFS pakker.</para>
       </listitem>
 
       <listitem>
         <para>Check</para>
 
-        <para>Denne pakken inneholder et testmiljø for andre programmer.</para>
+        <para>Denne pakken inneholder et testmiljÃ¸ for andre programmer.</para>
       </listitem>
 
       <listitem>
@@ -103,38 +103,38 @@
 
         <para>Denne pakken inneholder en rekke viktige programmer for visning
         og manipulering av filer og mapper. Disse programmene trengs for
-        kommandolinjefilbehandling, og er nødvendige for installasjons
+        kommandolinjefilbehandling, og er nÃ¸dvendige for installasjons
         prosedyrer for hver pakke i LFS.</para>
       </listitem>
 
       <listitem revision="systemd">
         <para>D-Bus</para>
 
-        <para>Denne pakken inneholder programmer for å implementere et meldingsbusssystem,
-        som er en enkel måte for applikasjoner å snakke med hverandre på.
+        <para>Denne pakken inneholder programmer for Ã¥ implementere et meldingsbusssystem,
+        som er en enkel mÃ¥te for applikasjoner Ã¥ snakke med hverandre pÃ¥.
         </para>
       </listitem>
 
       <listitem>
         <para>DejaGNU</para>
 
-        <para>Denne pakken inneholder et rammeverk for å teste andre programmer.</para>
+        <para>Denne pakken inneholder et rammeverk for Ã¥ teste andre programmer.</para>
       </listitem>
 
       <listitem>
         <para>Diffutils</para>
 
         <para>Denne pakken inneholder programmer som viser forskjellene
-        mellom filer eller mapper. Disse programmene kan brukes til å lage
-        oppdateringer (patcher), og brukes også i mange pakkers byggeprosedyrer.</para>
+        mellom filer eller mapper. Disse programmene kan brukes til Ã¥ lage
+        oppdateringer (patcher), og brukes ogsÃ¥ i mange pakkers byggeprosedyrer.</para>
       </listitem>
 
       <listitem>
         <para>E2fsprogs</para>
 
-        <para>Denne pakken inneholder verktøyene for å håndtere ext2, ext3
+        <para>Denne pakken inneholder verktÃ¸yene for Ã¥ hÃ¥ndtere ext2, ext3
         og ext4 filsystemer. Disse er de mest vanlige og grundig
-        testede filsystemer som Linux støtter.</para>
+        testede filsystemer som Linux stÃ¸tter.</para>
       </listitem>
 
       <listitem>
@@ -147,7 +147,7 @@
       <listitem>
         <para>Expect</para>
 
-        <para>Denne pakken inneholder et program for å utføre skriptete
+        <para>Denne pakken inneholder et program for Ã¥ utfÃ¸re skriptete
         dialoger med andre interaktive programmer. Det er ofte brukt
         for testing av andre pakker.</para>
       </listitem>
@@ -155,30 +155,30 @@
       <listitem>
         <para>File</para>
 
-        <para>Denne pakken inneholder et verktøy for å bestemme typen av en
-        gitt fil eller filer. Noen få pakker trenger det i byggeskriptene deres.</para>
+        <para>Denne pakken inneholder et verktÃ¸y for Ã¥ bestemme typen av en
+        gitt fil eller filer. Noen fÃ¥ pakker trenger det i byggeskriptene deres.</para>
       </listitem>
 
       <listitem>
         <para>Findutils</para>
 
-        <para>Denne pakken inneholder programmer for å finne filer i et filsystem.
+        <para>Denne pakken inneholder programmer for Ã¥ finne filer i et filsystem.
         Det brukes i mange pakkers byggeskript.</para>
       </listitem>
 
       <listitem>
         <para>Flex</para>
 
-        <para>Denne pakken inneholder et verktøy for å generere programmer som
-        gjenkjenne mønstre i tekst. Det er GNU versjonen av lex
-        (lexical analyzer) programmet. Det kreves for å bygge flere
+        <para>Denne pakken inneholder et verktÃ¸y for Ã¥ generere programmer som
+        gjenkjenne mÃ¸nstre i tekst. Det er GNU versjonen av lex
+        (lexical analyzer) programmet. Det kreves for Ã¥ bygge flere
         LFS pakker.</para>
       </listitem>
 
       <listitem>
         <para>Gawk</para>
 
-        <para>Denne pakken inneholder programmer for å manipulere tekstfiler.
+        <para>Denne pakken inneholder programmer for Ã¥ manipulere tekstfiler.
         Det er GNU versjonen av awk (Aho-Weinberg-Kernighan). Den brukes i
         mange andre pakkers byggeskript.</para>
       </listitem>
@@ -201,7 +201,7 @@
       <listitem>
         <para>Gettext</para>
 
-        <para>Denne pakken inneholder verktøy og biblioteker for
+        <para>Denne pakken inneholder verktÃ¸y og biblioteker for
         internasjonalisering og lokalisering av en rekke pakker.</para>
       </listitem>
 
@@ -209,21 +209,21 @@
         <para>Glibc</para>
 
         <para>Denne pakken inneholder C hovedbiblioteket. Linux programmer vil
-        ikke kjøre uten.</para>
+        ikke kjÃ¸re uten.</para>
       </listitem>
 
       <listitem>
         <para>GMP</para>
 
         <para>Denne pakken inneholder matematiske biblioteker som gir nyttige funksjoner
-        for vilkårlig presisjonsaritmetikk. Det kreves for å bygge GCC.</para>
+        for vilkÃ¥rlig presisjonsaritmetikk. Det kreves for Ã¥ bygge GCC.</para>
       </listitem>
 
       <listitem>
         <para>Gperf</para>
 
         <para>Denne pakken inneholder et program som genererer en perfekt
-        hashfunksjon fra et nøkkelsett. Den kreves av
+        hashfunksjon fra et nÃ¸kkelsett. Den kreves av
         <phrase revision='sysv'>Udev</phrase>
         <phrase revision='systemd'>Systemd</phrase>.</para>
       </listitem>
@@ -231,7 +231,7 @@
       <listitem>
         <para>Grep</para>
 
-        <para>Denne pakken inneholder programmer for å søke gjennom filer. Disse
+        <para>Denne pakken inneholder programmer for Ã¥ sÃ¸ke gjennom filer. Disse
         programmene brukes av de fleste pakkenes byggeskript.</para>
       </listitem>
 
@@ -239,7 +239,7 @@
         <para>Groff</para>
 
         <para>Denne pakken inneholder programmer for behandling og formatering av tekst.
-        En viktig funksjon av disse programmene er å formatere mansider.</para>
+        En viktig funksjon av disse programmene er Ã¥ formatere mansider.</para>
       </listitem>
 
       <listitem>
@@ -254,7 +254,7 @@
         <para>Gzip</para>
 
         <para>Denne pakken inneholder programmer for komprimering og
-        dekomprimere av filer. Det er nødvendig for å dekomprimere mange pakker
+        dekomprimere av filer. Det er nÃ¦dvendig for Ã¥ dekomprimere mange pakker
         i LFS.</para>
       </listitem>
 
@@ -262,7 +262,7 @@
         <para>Iana-etc</para>
 
         <para>Denne pakken gir data for nettverkstjenester og protokoller.
-        Det er nødvendig for å aktivere riktige nettverksfunksjoner.</para>
+        Det er nÃ¦dvendig for Ã¥ aktivere riktige nettverksfunksjoner.</para>
       </listitem>
 
       <listitem>
@@ -275,7 +275,7 @@
       <listitem>
         <para>Intltool</para>
 
-        <para>Denne pakken inneholder verktøy for å trekke ut oversettbare
+        <para>Denne pakken inneholder verktÃ¦y for Ã¥ trekke ut oversettbare
         strenger fra kildefiler.</para>
       </listitem>
 
@@ -284,27 +284,27 @@
 
         <para>Denne pakken inneholder programmer for grunnleggende og avansert IPv4 og
         IPv6 nettverk. Det ble valgt fremfor den andre vanlige
-        verktøypakken for nettverk (net-tools) for sine IPv6-funksjoner.  </para>
+        verktÃ¦ypakken for nettverk (net-tools) for sine IPv6-funksjoner.  </para>
       </listitem>
 
       <listitem revision="systemd">
         <para>Jinja2</para>
 
-        <para>Denne pakken er en Python modul for å lage tekstmaler.
-        Den kreves for å bygge Systemd.</para>
+        <para>Denne pakken er en Python modul for Ã¥ lage tekstmaler.
+        Den kreves for Ã¥ bygge Systemd.</para>
       </listitem>
 
       <listitem>
         <para>Kbd</para>
 
-        <para>Denne pakken inneholder tastaturtabellfiler, tastaturverktøy
+        <para>Denne pakken inneholder tastaturtabellfiler, tastaturverktÃ¸y
         for ikke-amerikanske tastaturer, og en rekke konsollfonter.</para>
       </listitem>
 
       <listitem>
         <para>Kmod</para>
 
-        <para>Denne pakken inneholder programmer som trengs for å administrere Linux
+        <para>Denne pakken inneholder programmer som trengs for Ã¥ administrere Linux
         kjernemoduler.</para>
       </listitem>
 
@@ -312,8 +312,8 @@
         <para>Less</para>
 
         <para>Denne pakken inneholder en veldig fin tekstfilviser som
-        lar deg rulle opp eller ned når du viser en fil.
-        Mange pakker bruker den til å søke på utdataene.</para>
+        lar deg rulle opp eller ned nÃ¥r du viser en fil.
+        Mange pakker bruker den til Ã¥ sÃ¸ke pÃ¥ utdataene.</para>
       </listitem>
 
       <listitem>
@@ -327,9 +327,9 @@
       <listitem>
         <para>Libelf</para>
 
-        <para>Elfutils prosjektet gir biblioteker og verktøy for ELF filer
-        og DWARF data. De fleste verktøyene i denne pakken er tilgjengelige i
-        andre pakker, men biblioteket er nødvendig for å bygge Linux
+        <para>Elfutils prosjektet gir biblioteker og verktÃ¸y for ELF filer
+        og DWARF data. De fleste verktÃ¸yene i denne pakken er tilgjengelige i
+        andre pakker, men biblioteket er nÃ¸dvendig for Ã¥ bygge Linux
         kjernen som bruker standard (og mest effektive) konfigurasjon.</para>
 
       </listitem>
@@ -337,12 +337,12 @@
       <listitem>
         <para>Libffi</para>
 
-        <para>Denne pakken implementerer et grensesnitt for overførbar programmering på høyt nivå
+        <para>Denne pakken implementerer et grensesnitt for overfÃ¸rbar programmering pÃ¥ hÃ¸yt nivÃ¥
         til ulike kallkonvensjoner. Noen programmer vet kanskje ikke
-        på sammenstillingstidspunktet hvilke argumenter som skal overføres til en
-        funksjon. For eksempel kan en tolk bli fortalt under kjøringen om
-        antallet og typene argumenter som brukes til å kalle en gitt funksjon. Libffi
-        kan brukes i slike programmer for å gi en bro fra tolkeprogrammet
+        pÃ¥ sammenstillingstidspunktet hvilke argumenter som skal overfÃ¸res til en
+        funksjon. For eksempel kan en tolk bli fortalt under kjÃ¸ringen om
+        antallet og typene argumenter som brukes til Ã¥ kalle en gitt funksjon. Libffi
+        kan brukes i slike programmer for Ã¥ gi en bro fra tolkeprogrammet
         til kompilert kode.</para>
 
       </listitem>
@@ -350,16 +350,16 @@
       <listitem>
         <para>Libpipeline</para>
 
-        <para>Libpipeline pakken inneholder et bibliotek for å manipulere
-        kommandokøer av delprosesser på en fleksibel og praktisk måte. Den
+        <para>Libpipeline pakken inneholder et bibliotek for Ã¥ manipulere
+        kommandokÃ¸er av delprosesser pÃ¥ en fleksibel og praktisk mÃ¥te. Den
         kreves av Man-DB pakken.</para>
       </listitem>
 
       <listitem>
         <para>Libtool</para>
 
-        <para>Denne pakken inneholder GNU skriptet for generisk bibliotekstøtte.
-        Det omslutter kompleksiteten ved å bruke delte biblioteker i en
+        <para>Denne pakken inneholder GNU skriptet for generisk bibliotekstÃ¸tte.
+        Det omslutter kompleksiteten ved Ã¥ bruke delte biblioteker i en
         konsekvent, flyttbart grensesnitt. Det trengs av testpakker
         i andre LFS pakker.</para>
       </listitem>
@@ -369,7 +369,7 @@
 
         <para>Denne pakken gir
         <systemitem class='library'>libcrypt</systemitem> bibliotek
-        nødvendig av forskjellige pakker (spesielt Shadow) for hashing av passord.
+        nÃ¸dvendig av forskjellige pakker (spesielt Shadow) for hashing av passord.
         Den erstatter det foreldede
         <systemitem class='library'>libcrypt</systemitem> implementering i
         Glibc.</para>
@@ -379,36 +379,36 @@
         <para>Linux Kernel</para>
 
         <para>Denne pakken er operativsystemet. Det er Linux i
-        GNU/Linux miljøet.</para>
+        GNU/Linux miljÃ¸et.</para>
       </listitem>
 
       <listitem>
         <para>M4</para>
 
         <para>Denne pakken inneholder en generell tekstmakroprosessor som er nyttig
-        som byggeverktøy for andre programmer.</para>
+        som byggeverktÃ¸y for andre programmer.</para>
       </listitem>
 
       <listitem>
         <para>Make</para>
 
-        <para>Denne pakken inneholder et program for å styre byggingen
+        <para>Denne pakken inneholder et program for Ã¥ styre byggingen
         av pakker. Det kreves av nesten alle pakker i LFS.</para>
       </listitem>
 
       <listitem revision="systemd">
         <para>MarkupSafe</para>
 
-        <para>Denne pakken er en Python modul for å behandle strenger i
+        <para>Denne pakken er en Python modul for Ã¥ behandle strenger i
         HTML/XHTML/XML trygt. Jinja2 krever denne pakken.</para>
       </listitem>
 
       <listitem>
         <para>Man-DB</para>
 
-        <para>Denne pakken inneholder programmer for å finne og vise mansider.
+        <para>Denne pakken inneholder programmer for Ã¥ finne og vise mansider.
         Det ble valgt i stedet for <application>man</application> pakken
-        på grunn av overlegne internasjonaliseringsevner. Det leverer
+        pÃ¥ grunn av overlegne internasjonaliseringsevner. Det leverer
         man programmet.</para>
       </listitem>
 
@@ -422,10 +422,10 @@
       <listitem>
         <para>Meson</para>
 
-        <para>Denne pakken inneholder et programvareverktøy for å automatisere byggingen
-        av programvare. Hovedmålet for Meson er å minimere tiden
-        som programvareutviklere må bruke på å konfigurere
-        byggesystemet. Det kreves for å bygge Systemd, så vel som mange BLFS
+        <para>Denne pakken inneholder et programvareverktÃ¸y for Ã¥ automatisere byggingen
+        av programvare. HovedmÃ¥let for Meson er Ã¥ minimere tiden
+        som programvareutviklere mÃ¥ bruke pÃ¥ Ã¥ konfigurere
+        byggesystemet. Det kreves for Ã¥ bygge Systemd, sÃ¥ vel som mange BLFS
         pakker.</para>
 
       </listitem>
@@ -447,9 +447,9 @@
       <listitem>
         <para>Ninja</para>
 
-        <para>Denne pakken inneholder et lite byggesystem med fokus på hastighet.
-        Den er designet for å ha inndatafilene generert på høyere nivå av et
-        byggesystem, og å kjøre bygget så raskt som mulig.
+        <para>Denne pakken inneholder et lite byggesystem med fokus pÃ¥ hastighet.
+        Den er designet for Ã¥ ha inndatafilene generert pÃ¥ hÃ¸yere nivÃ¥ av et
+        byggesystem, og Ã¥ kjÃ¸re bygget sÃ¥ raskt som mulig.
         Denne pakken kreves av Meson.</para>
 
       </listitem>
@@ -458,24 +458,24 @@
         <para>Ncurses</para>
 
         <para>Denne pakken inneholder biblioteker for terminaluavhengig
-        håndtering av skjermkarakterer. Det brukes ofte til å gi
-        markørkontroll for et menysystem. Det trengs av en rekke
+        hÃ¥ndtering av skjermkarakterer. Det brukes ofte til Ã¥ gi
+        markÃ¸rkontroll for et menysystem. Det trengs av en rekke
         pakker i LFS.</para>
       </listitem>
 
       <listitem>
         <para>Openssl</para>
 
-        <para>Denne pakken inneholder administrasjonsverktøy og biblioteker knyttet til
-        kryptografi. Disse er nyttige for å gi kryptografiske funksjoner til
+        <para>Denne pakken inneholder administrasjonsverktÃ¸y og biblioteker knyttet til
+        kryptografi. Disse er nyttige for Ã¥ gi kryptografiske funksjoner til
         andre pakker, inkludert Linuxkjernen.</para>
       </listitem>
 
       <listitem>
         <para>Patch</para>
 
-        <para>Denne pakken inneholder et program for å endre eller lage filer ved
-        å bruke en <emphasis>oppdateringsfil (patch)</emphasis> vanligvis opprettet
+        <para>Denne pakken inneholder et program for Ã¥ endre eller lage filer ved
+        Ã¥ bruke en <emphasis>oppdateringsfil (patch)</emphasis> vanligvis opprettet
         av <application>diff</application> programmet.  Det trengs av
         byggeprosedyren for flere LFS pakker.</para>
       </listitem>
@@ -483,15 +483,15 @@
       <listitem>
         <para>Perl</para>
 
-        <para>Denne pakken er en tolk for kjøretidsspråket
-        PERL. Det er nødvendig for installasjon og testpakker for flere LFS
+        <para>Denne pakken er en tolk for kjÃ¸retidssprÃ¥ket
+        PERL. Det er nÃ¸dvendig for installasjon og testpakker for flere LFS
         pakker.</para>
       </listitem>
 
       <listitem>
         <para>Pkgconf</para>
 
-        <para>Denne pakken inneholder et program som hjelper til med å konfigurere
+        <para>Denne pakken inneholder et program som hjelper til med Ã¥ konfigurere
         kompilator- og linkerflagg for utviklingsbiblioteker. Programmet
         kan brukes som drop-in erstatning for
         <command>pkg-config</command>, som trengs av byggesystemet
@@ -502,16 +502,16 @@
       <listitem>
         <para>Procps-NG</para>
 
-        <para>Denne pakken inneholder programmer for overvåking av prosesser. Disse
-        programmer er nyttige for systemadministrasjon, og brukes også av
+        <para>Denne pakken inneholder programmer for overvÃ¥king av prosesser. Disse
+        programmer er nyttige for systemadministrasjon, og brukes ogsÃ¥ av
         LFS Oppstartsskript.</para>
       </listitem>
 
       <listitem>
         <para>Psmisc</para>
 
-        <para>Denne pakken inneholder programmer for å vise informasjon
-        om prosesser som kjører. Disse programmene er nyttige for
+        <para>Denne pakken inneholder programmer for Ã¥ vise informasjon
+        om prosesser som kjÃ¸rer. Disse programmene er nyttige for
         systemadministrasjon.</para>
       </listitem>
 
@@ -519,7 +519,7 @@
         <para>Python 3</para>
 
         <para>Denne pakken gir et tolkeprogram som har en design
-        filosofi som legger vekt på kodelesbarhet.</para>
+        filosofi som legger vekt pÃ¥ kodelesbarhet.</para>
 
       </listitem>
 
@@ -527,30 +527,30 @@
         <para>Readline</para>
 
         <para>Denne pakken er et sett med biblioteker som tilbyr
-        redigerings- og historikkfunksjoner på kommandolinjen. Den brukes av Bash.</para>
+        redigerings- og historikkfunksjoner pÃ¥ kommandolinjen. Den brukes av Bash.</para>
       </listitem>
 
       <listitem>
         <para>Sed</para>
 
-        <para>Denne pakken tillater redigering av tekst uten å åpne den i en
-        tekstredigerer. Det er også nødvendig for de fleste LFS pakkers
+        <para>Denne pakken tillater redigering av tekst uten Ã¥ Ã¥pne den i en
+        tekstredigerer. Det er ogsÃ¥ nÃ¸dvendig for de fleste LFS pakkers
         konfigureringsskript.</para>
       </listitem>
 
       <listitem>
         <para>Shadow</para>
 
-        <para>Denne pakken inneholder programmer for håndtering av passord
-        på en sikker måte.</para>
+        <para>Denne pakken inneholder programmer for hÃ¥ndtering av passord
+        pÃ¥ en sikker mÃ¥te.</para>
       </listitem>
 
       <listitem revision="sysv">
         <para>Sysklogd</para>
 
         <para>Denne pakken inneholder programmer for logging av systemmeldinger,
-        slik som de som er gitt av kjernen eller nisseprosessene (daemon processes) når uvanlig
-        hendelser oppstår.</para>
+        slik som de som er gitt av kjernen eller nisseprosessene (daemon processes) nÃ¥r uvanlig
+        hendelser oppstÃ¥r.</para>
       </listitem>
 
       <listitem revision="systemd">
@@ -566,7 +566,7 @@
         <para>Sysvinit</para>
 
         <para>Denne pakken gir <application>init</application>
-        programmet, som er overordnet for alle andre prosesser på et Linux
+        programmet, som er overordnet for alle andre prosesser pÃ¥ et Linux
         system. </para>
       </listitem>
   
@@ -589,14 +589,14 @@
       <listitem>
         <para>Tcl</para>
 
-        <para>Denne pakken inneholder Verktøykommandospråk (Tool Command Language) som brukes
+        <para>Denne pakken inneholder VerktÃ¸ykommandosprÃ¥k (Tool Command Language) som brukes
         i mange testpakker i LFS pakker.</para>
       </listitem>
 
       <listitem>
         <para>Texinfo</para>
 
-        <para>Denne pakken inneholder programmer for å lese, skrive til og
+        <para>Denne pakken inneholder programmer for Ã¥ lese, skrive til og
         konvertere informasjonssider. Den brukes i installasjonsprosedyrer
         for mange LFS pakker.</para>
       </listitem>
@@ -605,17 +605,17 @@
         <para>Util-linux</para>
 
         <para>Denne pakken inneholder diverse hjelpeprogrammer.
-        Blant dem er verktøy for håndtering av filsystemer, konsoller,
+        Blant dem er verktÃ¸y for hÃ¥ndtering av filsystemer, konsoller,
         partisjoner og meldinger.</para>
       </listitem>
 
       <listitem>
         <para>Vim</para>
 
-        <para>Denne pakken inneholder et redigeringsprogram. Den ble valgt på grunn av sin
+        <para>Denne pakken inneholder et redigeringsprogram. Den ble valgt pÃ¥ grunn av sin
         kompatibilitet med det klassiske vi redigeringsprogrammet og dens enormt antall kraftige
         kapasiteter. Et redigeringsprogram er et veldig personlig valg for
-        mange brukere og andre redigeringsprogram kan brukes om ønskelig.</para>
+        mange brukere og andre redigeringsprogram kan brukes om Ã¸nskelig.</para>
       </listitem>
       
       <listitem>
@@ -636,8 +636,8 @@
         <para>XZ Utils</para>
 
         <para>Denne pakken inneholder programmer for komprimering og dekomprimering
-        av filer. Det gir den høyeste kompresjonen som generelt er tilgjengelig
-        og er nyttig for å dekomprimere pakker i XZ- eller LZMA-format.</para>
+        av filer. Det gir den hÃ¸yeste kompresjonen som generelt er tilgjengelig
+        og er nyttig for Ã¥ dekomprimere pakker i XZ- eller LZMA-format.</para>
       </listitem>
 
       <listitem>
@@ -651,7 +651,7 @@
         <para>Zstd</para>
 
         <para>Denne pakken inneholder komprimerings- og dekompresjonsrutiner
-        som brukes av noen programmer. Det gir høyt kompresjonsforhold og et svært
+        som brukes av noen programmer. Det gir hÃ¸yt kompresjonsforhold og et svÃ¦rt
         bredt utvalg av kompresjon/hastighets avveininger.</para>
       </listitem>
 

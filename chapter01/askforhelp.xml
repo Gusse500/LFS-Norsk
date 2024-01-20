@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -12,58 +12,58 @@
 
   <note>
     <para>
-      I tilfelle du har et problem med å bygge en pakke med LFS
-      instruksjoner fraråder vi på det sterkeste å legge ut problemet direkte på
-      oppstrøms støttekanalen før diskusjon via en LFS
-      støttekanal oppført i <xref linkend="ch-intro-resources"/>.
-      Å gjøre det er ofte ganske ineffektivt fordi oppstrøms
+      I tilfelle du har et problem med Ã¥ bygge en pakke med LFS
+      instruksjoner frarÃ¥der vi pÃ¥ det sterkeste Ã¥ legge ut problemet direkte pÃ¥
+      oppstrÃ¸ms stÃ¸ttekanalen fÃ¸r diskusjon via en LFS
+      stÃ¸ttekanal oppfÃ¸rt i <xref linkend="ch-intro-resources"/>.
+      Ã… gjÃ¸re det er ofte ganske ineffektivt fordi oppstrÃ¸ms
       vedlikeholdere sjelden er kjent med LFS byggeprosedyre. Selv om
-      du virkelig har truffet et oppstrømsproblem, kan LFS-fellesskapet fortsatt hjelpe
-      å isolere informasjonen ønsket av oppstrøms vedlikeholdere og lage
+      du virkelig har truffet et oppstrÃ¸msproblem, kan LFS-fellesskapet fortsatt hjelpe
+      Ã¥ isolere informasjonen Ã¸nsket av oppstrÃ¸ms vedlikeholdere og lage
       en skikkelig rapport.
     </para>
 
     <para>
-      Hvis du må stille et spørsmål direkte via en oppstrøms støttekanal,
-      skal du i det minste merke deg at mange oppstrømsprosjekter har
-      støttekanaler atskilt fra feilsporeren.  <quote>bug</quote>
-      rapporter for å stille spørsmål anses som ugyldige og kan irritere
-      oppstrømsutviklere for disse prosjektene.
+      Hvis du mÃ¥ stille et spÃ¸rsmÃ¥l direkte via en oppstrÃ¸ms stÃ¸ttekanal,
+      skal du i det minste merke deg at mange oppstrÃ¸msprosjekter har
+      stÃ¸ttekanaler atskilt fra feilsporeren.  <quote>bug</quote>
+      rapporter for Ã¥ stille spÃ¸rsmÃ¥l anses som ugyldige og kan irritere
+      oppstrÃ¸msutviklere for disse prosjektene.
     </para>
   </note>
 
-  <para>Hvis det oppstår et problem eller et spørsmål mens du arbeider gjennom
-  denne boken, vennligst sjekk siden FAQ på <ulink url="&faq-root;#generalfaq"/>.
-  Spørsmål er ofte allerede besvart der. Hvis spørsmålet ditt ikke er
-  svart på denne siden, prøv å finne kilden til problemet. De
-  følgende tips vil gi deg veiledning for feilsøking:
+  <para>Hvis det oppstÃ¥r et problem eller et spÃ¸rsmÃ¥l mens du arbeider gjennom
+  denne boken, vennligst sjekk siden FAQ pÃ¥ <ulink url="&faq-root;#generalfaq"/>.
+  SpÃ¸rsmÃ¥l er ofte allerede besvart der. Hvis spÃ¸rsmÃ¥let ditt ikke er
+  svart pÃ¥ denne siden, prÃ¸v Ã¥ finne kilden til problemet. De
+  fÃ¸lgende tips vil gi deg veiledning for feilsÃ¸king:
   <ulink url="&hints-root;errors.txt"/>.</para>
 
-  <para>Hvis du ikke finner problemet oppført i FAQ, søk i E-post
-   listene på <ulink url="&lfs-root;search.html"/>.</para>
+  <para>Hvis du ikke finner problemet oppfÃ¸rt i FAQ, sÃ¸k i E-post
+   listene pÃ¥ <ulink url="&lfs-root;search.html"/>.</para>
 
-  <para>Vi har også et fantastisk LFS fellesskap som er villig til å tilby
+  <para>Vi har ogsÃ¥ et fantastisk LFS fellesskap som er villig til Ã¥ tilby
   hjelp gjennom E-postlistene og IRC (se <xref
   linkend="ch-intro-resources"/> delen av denne boken). Imidlertid
-  får vi flere brukerspørsmål hver dag, og mange av dem kan være
-  besvart gjennom FAQ og gjennom E-postlistene, søk der først.
-  Så for at vi skal kunne tilby best mulig hjelp, må du gjøre noe
-  forskning på egen hånd først. Det lar oss fokusere på de mere uvanlige
-  brukerstøtte. Hvis søkene dine ikke gir en løsning, vennligst ta med
-  all relevant informasjon (nevnt nedenfor) i din forespørsel om hjelp.</para>
+  fÃ¥r vi flere brukerspÃ¸rsmÃ¥l hver dag, og mange av dem kan vÃ¦re
+  besvart gjennom FAQ og gjennom E-postlistene, sÃ¸k der fÃ¸rst.
+  SÃ¥ for at vi skal kunne tilby best mulig hjelp, mÃ¥ du gjÃ¸re noe
+  forskning pÃ¥ egen hÃ¥nd fÃ¸rst. Det lar oss fokusere pÃ¥ de mere uvanlige
+  brukerstÃ¸tte. Hvis sÃ¸kene dine ikke gir en lÃ¸sning, vennligst ta med
+  all relevant informasjon (nevnt nedenfor) i din forespÃ¸rsel om hjelp.</para>
 
   <sect2>
-    <title>Ting å nevne</title>
+    <title>Ting Ã¥ nevne</title>
 
     <para>Bortsett fra en kort forklaring av problemet som oppleves,
-    enhver forespørsel om hjelp bør inkludere disse viktige tingene:</para>
+    enhver forespÃ¸rsel om hjelp bÃ¸r inkludere disse viktige tingene:</para>
 
     <itemizedlist>
       <listitem>
         <para>Versjonen av boken som brukes (i dette tilfellet &version;)</para>
       </listitem>
       <listitem>
-        <para>Vertsdistribusjonen og versjonen som brukes til å lage LFS</para>
+        <para>Vertsdistribusjonen og versjonen som brukes til Ã¥ lage LFS</para>
       </listitem>
       <listitem>
         <para>Utdata fra <xref linkend='version-check'/> skriptet</para>
@@ -72,7 +72,7 @@
         <para>Pakken eller seksjonen problemet ble oppdaget i</para>
       </listitem>
       <listitem>
-        <para>Den nøyaktige feilmeldingen, eller en tydelig beskrivelse av problemet</para>
+        <para>Den nÃ¸yaktige feilmeldingen, eller en tydelig beskrivelse av problemet</para>
       </listitem>
       <listitem>
         <para>Gi beskjed om du i det hele tatt har avveket fra boken </para>
@@ -80,10 +80,10 @@
     </itemizedlist>
 
     <note>
-      <para>Avvik fra denne boken gjør <emphasis>ikke</emphasis> at
+      <para>Avvik fra denne boken gjÃ¸r <emphasis>ikke</emphasis> at
       vi ikke vil hjelpe deg. Tross alt handler LFS om personlig preferanse.
-      Å være på forhånd om eventuelle endringer i den etablerte prosedyren hjelper oss
-      å vurdere og finne mulige årsaker til problemet ditt.</para>
+      Ã… vÃ¦re pÃ¥ forhÃ¥nd om eventuelle endringer i den etablerte prosedyren hjelper oss
+      Ã¥ vurdere og finne mulige Ã¥rsaker til problemet ditt.</para>
     </note>
 
   </sect2>
@@ -91,22 +91,22 @@
   <sect2>
     <title>Konfigurasjonsskript problemer</title>
 
-    <para>Hvis noe går galt mens du kjører <command>configure</command>
-    skriptet, gjennomgå <filename>config.log</filename> filen. Denne filen kan
-    inneholde feil oppstått under <command>configure</command> som ikke
-    ble skrevet ut på skjermen. Inkluder <emphasis>relevante</emphasis> linjer
-    hvis du trenger å be om hjelp.</para>
+    <para>Hvis noe gÃ¥r galt mens du kjÃ¸rer <command>configure</command>
+    skriptet, gjennomgÃ¥ <filename>config.log</filename> filen. Denne filen kan
+    inneholde feil oppstÃ¥tt under <command>configure</command> som ikke
+    ble skrevet ut pÃ¥ skjermen. Inkluder <emphasis>relevante</emphasis> linjer
+    hvis du trenger Ã¥ be om hjelp.</para>
 
   </sect2>
 
   <sect2>
     <title>Kompileringsproblemer</title>
 
-    <para>Både skjermutdata og innholdet i ulike filer er nyttige
-    ved å fastslå årsaken til kompileringsproblemer. Skjermens utdata
+    <para>BÃ¥de skjermutdata og innholdet i ulike filer er nyttige
+    ved Ã¥ fastslÃ¥ Ã¥rsaken til kompileringsproblemer. Skjermens utdata
     fra <command>configure</command> skriptet og <command>make</command>
-    kjøringen kan være nyttig. Det er ikke nødvendig å inkludere hele utdataen, men
-    inkludere nok av relevant informasjon. Nedenfor er et eksempel på
+    kjÃ¸ringen kan vÃ¦re nyttig. Det er ikke nÃ¸dvendig Ã¥ inkludere hele utdataen, men
+    inkludere nok av relevant informasjon. Nedenfor er et eksempel pÃ¥
     type informasjon som skal inkluderes fra skjermens utdata fra
     <command>make</command>.</para>
 
@@ -134,16 +134,16 @@ make: *** [all-recursive-am] Error 2</computeroutput></screen>
 
 <screen><computeroutput>make [2]: *** [make] Error 1</computeroutput></screen>
 
-    <para>Dette er ikke nok informasjon til å diagnostisere problemet riktig
+    <para>Dette er ikke nok informasjon til Ã¥ diagnostisere problemet riktig
     fordi den bare merker at noe gikk galt, ikke
     <emphasis>hva</emphasis> som gikk galt. Hele delen, som i
     eksempelet ovenfor, er det som skal lagres fordi det inkluderer kommandoen
-    som ble utført og tilhørende feilmelding(er).</para>
+    som ble utfÃ¸rt og tilhÃ¸rende feilmelding(er).</para>
 
-    <para>En utmerket artikkel om å be om hjelp på Internett er
-    tilgjengelig på nett på <ulink
+    <para>En utmerket artikkel om Ã¥ be om hjelp pÃ¥ Internett er
+    tilgjengelig pÃ¥ nett pÃ¥ <ulink
     url="http://catb.org/~esr/faqs/smart-questions.html"/>. Les og
-    følg tipsene i dette dokumentet for å øke sannsynligheten for å få
+    fÃ¸lg tipsene i dette dokumentet for Ã¥ Ã¸ke sannsynligheten for Ã¥ fÃ¥
     hjelpen du trenger.</para>
 
   </sect2>

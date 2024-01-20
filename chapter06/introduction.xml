@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -10,22 +10,22 @@
 
   <title>Introduksjon</title>
 
-  <para>Dette kapittelet viser hvordan du krysskompilerer grunnleggende verktøy ved å bruke
-  den nettopp bygde kryssverktøykjeden. Disse verktøyene er installert i
-  deres endelige plassering, men kan ikke brukes ennå. Grunnleggende oppgaver er fortsatt avhengige av
-  vertens verktøy. Likevel brukes de installerte bibliotekene ved
+  <para>Dette kapittelet viser hvordan du krysskompilerer grunnleggende verktÃ¸y ved Ã¥ bruke
+  den nettopp bygde kryssverktÃ¸ykjeden. Disse verktÃ¸yene er installert i
+  deres endelige plassering, men kan ikke brukes ennÃ¥ Grunnleggende oppgaver er fortsatt avhengige av
+  vertens verktÃ¸y. Likevel brukes de installerte bibliotekene ved
   koblinger.</para>
 
-  <para>Bruk av verktøyene vil være mulig i neste kapittel etter å ha gått
-  inn i <quote>chroot</quote> miljøet. Men alle pakkene som bygges i
-  nåværende kapittel må bygges før vi gjør det. Derfor kan vi ikke være
-  uavhengig av vertssystemet ennå.</para>
+  <para>Bruk av verktÃ¸yene vil vÃ¦re mulig i neste kapittel etter Ã¥ ha gÃ¥tt
+  inn i <quote>chroot</quote> miljÃ¸et. Men alle pakkene som bygges i
+  nÃ¥vÃ¦rende kapittel mÃ¥ bygges fÃ¸r vi gjÃ¸r det. Derfor kan vi ikke vÃ¦re
+  uavhengig av vertssystemet ennÃ¥.</para>
 
   <para>Nok en gang, la oss huske den feilaktige innstillingen av <envar>LFS</envar>
-  sammen med å bygge som <systemitem class="username">root</systemitem>,
-  kan gjøre datamaskinen din ubrukelig.
-  Hele dette kapittelet må gjøres som bruker <systemitem
-  class="username">lfs</systemitem>, med miljøet som beskrevet i
+  sammen med Ã¥ bygge som <systemitem class="username">root</systemitem>,
+  kan gjÃ¸re datamaskinen din ubrukelig.
+  Hele dette kapittelet mÃ¥ gjÃ¸res som bruker <systemitem
+  class="username">lfs</systemitem>, med miljÃ¸et som beskrevet i
   <xref linkend="ch-preps-settingenviron"/>.</para>
 
 </sect1>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -10,12 +10,12 @@
 
   <title>Opprette et begrenset mappeoppsett i LFS filsystemet</title>
 
-  <para>I denne delen begynner vi å fylle LFS filsystemet med
-  deler som vil utgjøre det endelige Linuxsystemet. Det første trinnet er å
+  <para>I denne delen begynner vi Ã¥ fylle LFS filsystemet med
+  deler som vil utgjÃ¸re det endelige Linuxsystemet. Det fÃ¸rste trinnet er Ã¥
   opprette et begrenset kataloghierarki, slik at programmene som kompileres i <xref
   linkend="chapter-temporary-tools"/> (i tillegg til glibc og libstdc++ i <xref
   linkend="chapter-cross-tools"/>) kan installeres i deres endelige
-  plassering. Vi gjør dette slik at de midlertidige programmene vil bli overskrevet når
+  plassering. Vi gjÃ¸r dette slik at de midlertidige programmene vil bli overskrevet nÃ¥r
   de endelige versjonene bygges i <xref linkend="chapter-building-system"/>.</para>
 
   <para>Create the required directory layout by issuing the following commands as
@@ -34,20 +34,20 @@ esac</userinput></screen>
   <para>Programmer i <xref linkend="chapter-temporary-tools"/> vil bli kompilert
   med en krysskompilator (mer detaljer kan bli funnet i avsnitt <xref
   linkend="ch-tools-toolchaintechnotes"/>). Denne krysskompilatoren vil bli installert
-  i en spesiell katalog for å skille den fra de andre programmene. Fortsatt som
+  i en spesiell katalog for Ã¥ skille den fra de andre programmene. Fortsatt som
   &root;, lag den mappen med denne kommandoen:</para>
 
 <screen><userinput>mkdir -pv $LFS/tools</userinput></screen>
 
   <note>
     <para>
-      LFS redaksjonen har bevisst besluttet å ikke bruke en
+      LFS redaksjonen har bevisst besluttet Ã¥ ikke bruke en
       <filename class="directory">/usr/lib64</filename> mappe.  Flere
-      skritt tas for å være sikker på at verktøykjeden ikke vil bruke den. Hvis for noen
-      grunn denne katalogen vises (enten fordi du gjorde en feil i når
-      du fulgte instruksjonene, eller fordi du installerte en binær pakke som
-      opprettet det etter å ha fullført LFS), kan det ødelegge systemet ditt.
-      Du bør alltid være sikker på at denne katalogen ikke eksisterer.
+      skritt tas for Ã¥ vÃ¦re sikker pÃ¥ at verktÃ¸ykjeden ikke vil bruke den. Hvis for noen
+      grunn denne katalogen vises (enten fordi du gjorde en feil nÃ¥r
+      du fulgte instruksjonene, eller fordi du installerte en binÃ¦r pakke som
+      opprettet det etter Ã¥ ha fullfÃ¸rt LFS), kan det Ã¸delegge systemet ditt.
+      Du bÃ¸r alltid vÃ¦re sikker pÃ¥ at denne katalogen ikke eksisterer.
     </para>
   </note>
 

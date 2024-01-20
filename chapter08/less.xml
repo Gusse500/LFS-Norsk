@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -62,7 +62,7 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>For å teste resultatene, kjør:</para>
+    <para>For Ã¥ teste resultatene, kjÃ¸r:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
@@ -91,7 +91,7 @@
       <varlistentry id="less">
         <term><command>less</command></term>
         <listitem>
-          <para>En filviser eller søker; den viser innholdet i det gitte
+          <para>En filviser eller sÃ¸ker; den viser innholdet i det gitte
           fil, lar brukeren rulle, finne strenger og hoppe til merker</para>
           <indexterm zone="ch-system-less less">
             <primary sortas="b-less">less</primary>
@@ -102,8 +102,8 @@
       <varlistentry id="lessecho">
         <term><command>lessecho</command></term>
         <listitem>
-          <para>Trengs for å utvide metakarakterer, som f.eks <emphasis>*</emphasis>
-          og <emphasis>?</emphasis>, i filnavn på Unix systemer</para>
+          <para>Trengs for Ã¥ utvide metakarakterer, som f.eks <emphasis>*</emphasis>
+          og <emphasis>?</emphasis>, i filnavn pÃ¥ Unix systemer</para>
           <indexterm zone="ch-system-less lessecho">
             <primary sortas="b-lessecho">lessecho</primary>
           </indexterm>
@@ -113,7 +113,7 @@
       <varlistentry id="lesskey">
         <term><command>lesskey</command></term>
         <listitem>
-          <para>Brukes til å spesifisere tastaturbindingene for <command>less</command></para>
+          <para>Brukes til Ã¥ spesifisere tastaturbindingene for <command>less</command></para>
           <indexterm zone="ch-system-less lesskey">
             <primary sortas="b-lesskey">lesskey</primary>
           </indexterm>

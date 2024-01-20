@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -10,47 +10,47 @@
 
   <title>Publikum</title>
 
-<para>Det er mange grunner til at du ønsker å lese denne boken. Et av
-spørsmålene mange spør er, <quote>hvorfor gå gjennom alt bryet med å manuelt
-bygge et Linux system fra bunnen av når du bare kan laste ned og installere
+<para>Det er mange grunner til at du Ã¸nsker Ã¥ lese denne boken. Et av
+spÃ¸rsmÃ¥lene mange spÃ¸r er, <quote>hvorfor gÃ¥ gjennom alt bryet med Ã¥ manuelt
+bygge et Linux system fra bunnen av nÃ¥r du bare kan laste ned og installere
 en eksisterende?</quote></para>
 
-<para>En viktig grunn til dette prosjektets eksistens er å hjelpe deg med å lære
-hvordan et Linux system fungerer fra innsiden og ut. Å bygge et LFS system hjelper å
-demonstrere hva som får Linux til å virke, og hvordan ting fungerer sammen og avhenger av
-hverandre. Noe av det beste denne læringsopplevelsen kan gi er
-muligheten til å tilpasse et Linux system for å passe dine egne unike behov.</para>
+<para>En viktig grunn til dette prosjektets eksistens er Ã¥ hjelpe deg med Ã¥ lÃ¦re
+hvordan et Linux system fungerer fra innsiden og ut. Ã¥ bygge et LFS system hjelper Ã¥
+demonstrere hva som fÃ¥r Linux til Ã¥ virke, og hvordan ting fungerer sammen og avhenger av
+hverandre. Noe av det beste denne lÃ¦ringsopplevelsen kan gi er
+muligheten til Ã¥ tilpasse et Linux system for Ã¥ passe dine egne unike behov.</para>
 
 <para>En annen viktig fordel med LFS er at den lar deg ha mer kontroll
-over systemet uten å stole på andres Linux implementering. Med
-LFS, du er i førersetet. <emphasis>Du</emphasis> dikterer alle aspekter av
+over systemet uten Ã¥ stole pÃ¥ andres Linux implementering. Med
+LFS, du er i fÃ¸rersetet. <emphasis>Du</emphasis> dikterer alle aspekter av
 systemet ditt.</para>
 
-<para>LFS lar deg lage svært kompakte Linux systemer. Ved installasjon av
-vanlige distribusjoner, blir du ofte tvunget til å installere svært mange
-programmer som sannsynligvis aldri blir brukt eller forstått. Disse programmene sløser
+<para>LFS lar deg lage svÃ¦rt kompakte Linux systemer. Ved installasjon av
+vanlige distribusjoner, blir du ofte tvunget til Ã¥ installere svÃ¦rt mange
+programmer som sannsynligvis aldri blir brukt eller forstÃ¥tt. Disse programmene slÃ¸ser
 ressurser. Du kan hevde at det med dagens harddisk og CPUer, f.eks
 ressurser er ikke lenger en vurdering. Noen ganger er du imidlertid fortsatt
-begrenset av størrelseshensyn om ikke annet. Tenk på oppstartbar
-CDer, USB-pinner og innebygde systemer. Det er områder hvor LFS kan være
+begrenset av stÃ¸rrelseshensyn om ikke annet. Tenk pÃ¥ oppstartbar
+CDer, USB-pinner og innebygde systemer. Det er omrÃ¥der hvor LFS kan vÃ¦re
 gunstig.</para>
 
-<para>En annen fordel med et spesialbygd Linux system er sikkerhet. Ved å kompilere
-hele systemet fra kildekoden, har du fullmakt til å revidere alt
-og bruk alle sikkerhetsoppdateringene du ønsker. Det er ikke lenger nødvendig
-å vente på at noen andre skal kompilere binære pakker som fikser et sikkerhetshull.
-Med mindre du undersøker oppdateringen og implementerer den selv, har du ingen
-garantier på at den nye binære pakken ble bygget riktig og løser problemet
+<para>En annen fordel med et spesialbygd Linux system er sikkerhet. Ved Ã¥ kompilere
+hele systemet fra kildekoden, har du fullmakt til Ã¥ revidere alt
+og bruk alle sikkerhetsoppdateringene du Ã¸nsker. Det er ikke lenger nÃ¸dvendig
+Ã¥ vente pÃ¥ at noen andre skal kompilere binÃ¦re pakker som fikser et sikkerhetshull.
+Med mindre du undersÃ¸ker oppdateringen og implementerer den selv, har du ingen
+garantier pÃ¥ at den nye binÃ¦re pakken ble bygget riktig og lÃ¸ser problemet
 tilstrekkelig.</para>
 
-<para>Målet med Linux From Scratch er å bygge en komplett og brukbart
-system på fundamentnivå. Hvis du ikke ønsker å bygge ditt eget Linux system
+<para>MÃ¥let med Linux From Scratch er Ã¥ bygge en komplett og brukbart
+system pÃ¥ fundamentnivÃ¥ Hvis du ikke Ã¸nsker Ã¥ bygge ditt eget Linux system
 fra bunnen av kan du likevel ha nytte av informasjonen i denne
 boken.</para>
 
-<para>Det er for mange andre gode grunner til å bygge ditt eget LFS-system til
+<para>Det er for mange andre gode grunner til Ã¥ bygge ditt eget LFS-system til
 liste dem alle her. Til syvende og sist er utdanning den desidert mest kraftfulle av
-grunner. Når du fortsetter i LFS-opplevelsen din, vil du oppdage kraften
+grunner. NÃ¥r du fortsetter i LFS-opplevelsen din, vil du oppdage kraften
 som informasjon og kunnskap virkelig gir.</para>
 
 </sect1>

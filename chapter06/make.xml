@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -55,9 +55,9 @@
       <varlistentry>
         <term><parameter>--without-guile</parameter></term>
         <listitem>
-          <para>Selv om vi krysskompilerer, prøver configure å bruke
-          guile fra byggeverten hvis den finner det. Dette gjør at kompileringen
-          mislykkes, så denne bryteren forhindrer bruk av den.</para>
+          <para>Selv om vi krysskompilerer, prÃ¸ver configure Ã¥ bruke
+          guile fra byggeverten hvis den finner det. Dette gjÃ¸r at kompileringen
+          mislykkes, sÃ¥ denne bryteren forhindrer bruk av den.</para>
         </listitem>
       </varlistentry>
     </variablelist>

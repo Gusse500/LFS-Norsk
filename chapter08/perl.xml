@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -24,7 +24,7 @@
     <title/>
 
     <para>Perl pakken inneholder den praktiske utvinnings og
-    rapporteringsspråket (Practical Extraction and Report Language).</para>
+    rapporteringssprÃ¥ket (Practical Extraction and Report Language).</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -41,23 +41,23 @@
   <sect2 role="installation">
     <title>Installasjon av Perl</title>
 <!--
-    <para>Først bruker du en oppdatering som fikser et problem fremhevet av nylige
+    <para>FÃ¸rst bruker du en oppdatering som fikser et problem fremhevet av nylige
     versjoner av gdbm:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&perl-fix-patch;</userinput></screen>
 -->
-    <para>Denne versjonen av Perl bygger nå Compress::Raw::Zlib og
+    <para>Denne versjonen av Perl bygger nÃ¥ Compress::Raw::Zlib og
     Compress::Raw::BZip2 moduler. Som
-    standard vil Perl bruke en intern kopi av kildene for å bygge.
-    Utfør følgende kommando slik at Perl vil bruke bibliotekene
-    installert på systemet:</para>
+    standard vil Perl bruke en intern kopi av kildene for Ã¥ bygge.
+    UtfÃ¸r fÃ¸lgende kommando slik at Perl vil bruke bibliotekene
+    installert pÃ¥ systemet:</para>
 
 <screen><userinput remap="pre">export BUILD_ZLIB=False
 export BUILD_BZIP2=0</userinput></screen>
 
-    <para>For å ha full kontroll over måten Perl er satt opp på, kan du fjerne
-    <quote>-des</quote> alternativer fra følgende kommando og håndplukke måten
-    denne pakken er bygget. Alternativt kan du bruke kommandoen nøyaktig som nedenfor for å
+    <para>For Ã¥ ha full kontroll over mÃ¥ten Perl er satt opp pÃ¥ kan du fjerne
+    <quote>-des</quote> alternativer fra fÃ¸lgende kommando og hÃ¥ndplukke mÃ¥ten
+    denne pakken er bygget. Alternativt kan du bruke kommandoen nÃ¸yaktig som nedenfor for Ã¥
     bruke standardinnstillingene som Perl automatisk oppdager:</para>
 
  <screen><userinput remap="configure">sh Configure -des                                         \
@@ -90,16 +90,16 @@ export BUILD_BZIP2=0</userinput></screen>
         <term><parameter>-Dman1dir=/usr/share/man/man1
         -Dman3dir=/usr/share/man/man3</parameter></term>
         <listitem>
-          <para>Siden Groff ikke er installert ennå, vil ikke <command>Configure</command>
+          <para>Siden Groff ikke er installert ennÃ¥ vil ikke <command>Configure</command>
           opprette mansider for Perl.  Disse
-          parameterene overstyrer denne oppførselen.</para>
+          parameterene overstyrer denne oppfÃ¸rselen.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>-Dusethreads</parameter></term>
         <listitem>
-          <para>Bygg perl med støtte for tråder.</para>
+          <para>Bygg perl med stÃ¸tte for trÃ¥der.</para>
         </listitem>
       </varlistentry>
 
@@ -109,7 +109,7 @@ export BUILD_BZIP2=0</userinput></screen>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>For å teste resultatene (ca. 11 SBU), utsted:</para>
+    <para>For Ã¥ teste resultatene (ca. 11 SBU), utsted:</para>
 
 <screen><userinput remap="test">TEST_JOBS=$(nproc) make test_harness</userinput></screen>
 
@@ -224,7 +224,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="instmodsh">
         <term><command>instmodsh</command></term>
         <listitem>
-          <para>Skallskript for å undersøke installerte Perl moduler,
+          <para>Skallskript for Ã¥ undersÃ¸ke installerte Perl moduler,
           og kan lage en tarball fra en installert modul</para>
           <indexterm zone="ch-system-perl instmodsh">
             <primary sortas="b-instmodsh">instmodsh</primary>
@@ -245,7 +245,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="libnetcfg">
         <term><command>libnetcfg</command></term>
         <listitem>
-          <para>Kan brukes til å konfigurere
+          <para>Kan brukes til Ã¥ konfigurere
           <filename class="libraryfile">libnet</filename> Perl modulen</para>
           <indexterm zone="ch-system-perl libnetcfg">
             <primary sortas="b-libnetcfg">libnetcfg</primary>
@@ -258,7 +258,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
         <listitem>
           <para>Kombinerer noen av de beste egenskapene til C, <command>sed</command>,
           <command>awk</command> og <command>sh</command> til et singelt
-          swiss-army språk</para>
+          swiss-army sprÃ¥k</para>
           <indexterm zone="ch-system-perl perl">
             <primary sortas="b-perl">perl</primary>
           </indexterm>
@@ -278,7 +278,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="perlbug">
         <term><command>perlbug</command></term>
         <listitem>
-          <para>Brukes til å generere feilrapporter om Perl, eller modulene som kommer
+          <para>Brukes til Ã¥ generere feilrapporter om Perl, eller modulene som kommer
           med den, og sender dem</para>
           <indexterm zone="ch-system-perl perlbug">
             <primary sortas="b-perlbug">perlbug</primary>
@@ -312,7 +312,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="perlthanks">
         <term><command>perlthanks</command></term>
         <listitem>
-          <para>Brukes til å generere takkemeldinger på E-post til Perl
+          <para>Brukes til Ã¥ generere takkemeldinger pÃ¥ E-post til Perl
           utviklere</para>
           <indexterm zone="ch-system-perl perlthanks">
             <primary sortas="b-perlthanks">perlthanks</primary>
@@ -334,7 +334,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="pl2pm">
         <term><command>pl2pm</command></term>
         <listitem>
-          <para>Et grovt verktøy for å konvertere Perl4
+          <para>Et grovt verktÃ¸y for Ã¥ konvertere Perl4
           <filename class="extension">.pl</filename> filer til Perl5
           <filename class="extension">.pm</filename> moduler</para>
           <indexterm zone="ch-system-perl pl2pm">
@@ -406,7 +406,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="prove">
         <term><command>prove</command></term>
         <listitem>
-          <para>Kommandolinjeverktøy for å kjøre tester mot Test::Harness
+          <para>KommandolinjeverktÃ¸y for Ã¥ kjÃ¸re tester mot Test::Harness
           moduler</para>
           <indexterm zone="ch-system-perl prove">
             <primary sortas="b-prove">prove</primary>
@@ -449,7 +449,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="ptargrep">
         <term><command>ptargrep</command></term>
         <listitem>
-          <para>Et Perl program som bruker mønstertilpasning på innholdet
+          <para>Et Perl program som bruker mÃ¸nstertilpasning pÃ¥ innholdet
           av filer i et tararkiv</para>
           <indexterm zone="ch-system-perl ptargrep">
             <primary sortas="b-ptargrep">ptargrep</primary>
@@ -470,7 +470,7 @@ unset BUILD_ZLIB BUILD_BZIP2</userinput></screen>
       <varlistentry id="splain">
         <term><command>splain</command></term>
         <listitem>
-          <para>Brukes til å fremtvinge detaljert advarselsdiagnostikk i Perl</para>
+          <para>Brukes til Ã¥ fremtvinge detaljert advarselsdiagnostikk i Perl</para>
           <indexterm zone="ch-system-perl splain">
             <primary sortas="b-splain">splain</primary>
           </indexterm>

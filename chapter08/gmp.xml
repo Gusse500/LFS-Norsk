@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -24,7 +24,7 @@
     <title/>
 
     <para>GMP pakken inneholder matematikkbiblioteker. Disse har nyttige funksjoner
-    for vilkårlig presisjonsaritmetikk.</para>
+    for vilkÃ¥rlig presisjonsaritmetikk.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -43,18 +43,18 @@
 
     <note>
       <para>Hvis du bygger for 32-bit x86, men du har en CPU som er
-      i stand til å kjøre 64-bits kode <emphasis>og</emphasis> du har spesifisert
-      <envar>CFLAGS</envar> i miljøet vil konfigureringsskriptet
-      forsøk å konfigurere for 64-biter og mislykkes.
-      Unngå dette ved å påkalle configure kommandoen nedenfor med
+      i stand til Ã¥ kjÃ¸re 64-bits kode <emphasis>og</emphasis> du har spesifisert
+      <envar>CFLAGS</envar> i miljÃ¸et vil konfigureringsskriptet
+      forsÃ¸ke Ã¥ konfigurere for 64-biter og mislykkes.
+      UnngÃ¥ dette ved Ã¥ pÃ¥kalle configure kommandoen nedenfor med
 <screen role="nodump"><userinput><parameter>ABI=32</parameter> ./configure ...</userinput></screen></para>
     </note>
 
     <note>
       <para>Standardinnstillingene til GMP produserer biblioteker optimalisert for
-      vertsprosessoren. Hvis det er ønskelig med biblioteker egnet for prosessorer mindre
+      vertsprosessoren. Hvis det er Ã¸nskelig med biblioteker egnet for prosessorer mindre
       kapable enn vertens CPU, kan generiske biblioteker bli
-      opprettet ved å legge til <option>--host=none-linux-gnu</option> alternativet
+      opprettet ved Ã¥ legge til <option>--host=none-linux-gnu</option> alternativet
       til <command>configure</command> kommandoen.</para>
 
       <!-- To editors: the configure script says "the none host is obsolete,
@@ -75,7 +75,7 @@
       <varlistentry>
         <term><parameter>--enable-cxx</parameter></term>
         <listitem>
-          <para>Denne parameteren aktiverer C++ støtte</para>
+          <para>Denne parameteren aktiverer C++ stÃ¸tte</para>
         </listitem>
       </varlistentry>
 
@@ -103,17 +103,17 @@ make html</userinput></screen>
 
 <screen><userinput remap="test">make check 2>&amp;1 | tee gmp-check-log</userinput></screen>
 
-    <caution><para>Koden i gmp er svært optimalisert for prosessoren hvor
+    <caution><para>Koden i gmp er svÃ¦rt optimalisert for prosessoren hvor
     den er bygget. Noen ganger vil koden som oppdager prosessoren feilidentifisere
-    systemets evner og det vil være feil i testene eller andre
+    systemets evner og det vil vÃ¦re feil i testene eller andre
     applikasjoner som bruker gmp bibliotekene med meldingen "Illegal
-    instruction". I dette tilfellet bør gmp rekonfigureres med alternativet
+    instruction". I dette tilfellet bÃ¸r gmp rekonfigureres med alternativet
     <option>--host=none-linux-gnu</option> og gjenoppbygges.</para></caution>
 
     <!-- Some tests PASS on a specific uarch but SKIP on other CPUs.
          For example on K8 the following command outputs 200.  -->
-    <para>Sørg for at minst 199 tester i testpakken besto.
-    Sjekk resultatene ved å gi følgende kommando:</para>
+    <para>SÃ¸rg for at minst 199 tester i testpakken besto.
+    Sjekk resultatene ved Ã¥ gi fÃ¸lgende kommando:</para>
 
 <screen><userinput remap="test">awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log</userinput></screen>
 

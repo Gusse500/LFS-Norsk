@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -40,68 +40,68 @@
   <sect2 role="installation">
     <title>Installasjon av kjernen</title>
 
-    <para>Å bygge kjernen innebærer noen få trinn&mdash;konfigurasjon,
+    <para>Ã… bygge kjernen innebÃ¦rer noen fÃ¥ trinn&mdash;konfigurasjon,
     kompilering og installasjon. Les <filename>README</filename> filen
-    i kjernekildetreet for alternative metoder til måten denne boken
-    konfigurerer kjernen på.</para>
+    i kjernekildetreet for alternative metoder til mÃ¥ten denne boken
+    konfigurerer kjernen pÃ¥.</para>
 
     <important>
       <para>
-        Å bygge Linuxkjernen for første gang er en av de mest
-        utfordrende oppgaver i LFS. Å få det riktig avhenger av den spesifikke
-        maskinvaren for målsystemet og dine spesifikke behov. Det er
+        Ã… bygge Linuxkjernen for fÃ¦rste gang er en av de mest
+        utfordrende oppgaver i LFS. Ã… fÃ¥ det riktig avhenger av den spesifikke
+        maskinvaren for mÃ¥lsystemet og dine spesifikke behov. Det er
         nesten 12 000 konfigurasjonselementer som er tilgjengelige for kjernen,
-        selv om bare en tredjedel av dem er nødvendig for de fleste datamaskiner.
-        LFS redaktørene anbefaler at brukere som ikke er kjent med denne prosessen følger
-        prosedyrene nedenfor ganske nøye. Målet er å få et
-        innledende system til et punkt hvor du kan logge inn på kommandolinjen når
-        du starter på nytt senere i <xref linkend="ch-finish-reboot"/>.  På dette punktet
-        er optimering og tilpasning ikke et mål.
+        selv om bare en tredjedel av dem er nÃ¦dvendig for de fleste datamaskiner.
+        LFS redaktÃ¦rene anbefaler at brukere som ikke er kjent med denne prosessen fÃ¦lger
+        prosedyrene nedenfor ganske nÃ¦ye. MÃ¥let er Ã¥ fÃ¥ et
+        innledende system til et punkt hvor du kan logge inn pÃ¥ kommandolinjen nÃ¥r
+        du starter pÃ¥ nytt senere i <xref linkend="ch-finish-reboot"/>.  PÃ¥ dette punktet
+        er optimering og tilpasning ikke et mÃ¥l.
       </para>
 
       
       <para>
         For generell informasjon om kjernekonfigurasjon se <ulink
         url="&hints-root;kernel-configuration.txt"/>.  Ytterligere informasjon
-        om konfigurering og bygging av kjernen finner du på <ulink
+        om konfigurering og bygging av kjernen finner du pÃ¥ <ulink
         url="&anduin-sources;/kernel-nutshell/"/>. 
         Disse referansene er litt
         utdatert, men gir likevel en rimelig oversikt over prosessen.
       </para>
 
       <para>
-        Hvis alt annet feiler, kan du be om hjelp på <ulink
+        Hvis alt annet feiler, kan du be om hjelp pÃ¥ <ulink
         url="https://www.linuxfromscratch.org/mail.html">lfs-support</ulink>
-        mailingliste. Vær oppmerksom på at du må abonnere på listen
-        for å unngå spam.
+        mailingliste. VÃ¦r oppmerksom pÃ¥ at du mÃ¥ abonnere pÃ¥ listen
+        for Ã¥ unngÃ¥ spam.
       </para>
     </important>
 
-    <para>Forbered for kompilering ved å kjøre følgende kommando:</para>
+    <para>Forbered for kompilering ved Ã¥ kjÃ¸re fÃ¸lgende kommando:</para>
 
 <screen><userinput remap="pre">make mrproper</userinput></screen>
 
     <para>Dette sikrer at kjernetreet er helt rent.
-    Kjerneteamet anbefaler at denne kommandoen utstedes før hver
-    kjernekompilering. Ikke stol på at kildetreet er rent etter
+    Kjerneteamet anbefaler at denne kommandoen utstedes fÃ¸r hver
+    kjernekompilering. Ikke stol pÃ¥ at kildetreet er rent etter
     utpakking.</para>
 
-    <para>Det er flere måter å konfigurere kjernealternativene på. Vanligvis,
-    gjøres dette for eksempel gjennom et menydrevet grensesnitt:</para>
+    <para>Det er flere mÃ¥ter Ã¥ konfigurere kjernealternativene pÃ¥ Vanligvis,
+    gjÃ¸res dette for eksempel gjennom et menydrevet grensesnitt:</para>
 
 <screen role="nodump"><userinput>make menuconfig</userinput></screen>
 
     <variablelist>
-      <title>Betydningen av valgfrie make miljøvariabler:</title>
+      <title>Betydningen av valgfrie make miljÃ¸variabler:</title>
 
       <varlistentry>
         <term><parameter>LANG=&lt;host_LANG_value&gt; LC_ALL=</parameter></term>
         <listitem>
-          <para>Dette etablerer lokalinnstillingen til den som brukes på
-          verten. Dette kan være nødvendig for et riktig menyconfig ncurses grensesnitt
-          linjetegning på en UTF-8 linux tekstkonsoll.</para>
+          <para>Dette etablerer lokalinnstillingen til den som brukes pÃ¥
+          verten. Dette kan vÃ¦re nÃ¸dvendig for et riktig menyconfig ncurses grensesnitt
+          linjetegning pÃ¥ en UTF-8 linux tekstkonsoll.</para>
 
-          <para>Hvis brukt, sørg for å erstatte
+          <para>Hvis brukt, sÃ¸rg for Ã¥ erstatte
           <replaceable>&lt;host_LANG_value&gt;</replaceable> med verdien av
           <envar>$LANG</envar> variabel fra verten din.  Du kan
           alternativt bruke vertens verdi av <envar>$LC_ALL</envar>
@@ -123,12 +123,12 @@
 
     <note>
       <?dbfo keep-together="auto"?>
-      <para>Et godt utgangspunkt for å sette opp kjernekonfigurasjonen er å
-      kjøre <command>make defconfig</command>. Dette vil sette basekonfigurasjonen
-      til en god tilstand som tar din nåværende systemarkitektur
+      <para>Et godt utgangspunkt for Ã¥ sette opp kjernekonfigurasjonen er Ã¥
+      kjÃ¸re <command>make defconfig</command>. Dette vil sette basekonfigurasjonen
+      til en god tilstand som tar din nÃ¥vÃ¦rende systemarkitektur
       i betraktning.</para>
 
-      <para>Sørg for å aktivere/deaktivere/stille inn følgende funksjoner, ellers kan systemet
+      <para>SÃ¸rg for Ã¥ aktivere/deaktivere/stille inn fÃ¸lgende funksjoner, ellers kan systemet
       ikke fungere riktig eller starte opp i det hele tatt:</para>
 
       <!-- To editors: for updating kernel configuration, edit
@@ -142,8 +142,8 @@
         href="kernel/systemd.xml"/>
    
       <para>Aktiver noen tilleggsfunksjoner hvis du bygger et 64-bit
-      system. Hvis du bruker menuconfig, aktiver dem i rekkefølgen
-      <parameter>CONFIG_PCI_MSI</parameter> først, deretter
+      system. Hvis du bruker menuconfig, aktiver dem i rekkefÃ¸lgen
+      <parameter>CONFIG_PCI_MSI</parameter> fÃ¸rst, deretter
       <parameter>CONFIG_IRQ_REMAP</parameter>, til sist
       <parameter>CONFIG_X86_X2APIC</parameter> fordi et alternativ kun
       vises etter at avhengighetene er valgt.</para>
@@ -151,7 +151,7 @@
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
         href="kernel/x2apic.xml"/>
 
-      <para>Hvis du bygger et 32-bits system som kjører på en maskinvare
+      <para>Hvis du bygger et 32-bits system som kjÃ¸rer pÃ¥ en maskinvare
       med mer enn 4 GB RAM, juster konfigurasjonen slik at kjernen vil
       kunne bruke opptil 64 GB fysisk RAM:</para>
 
@@ -160,7 +160,7 @@
 
       <para>Hvis partisjonen for LFS-systemet er i en NVME SSD (dvs
       enhetsnoden for partisjonen er <filename>/dev/nvme*</filename>
-      i stedet for <filename>/dev/sd*</filename>), aktivere NVME støtte ellers
+      i stedet for <filename>/dev/sd*</filename>), aktivere NVME stÃ¸tte ellers
       vil ikke LFS systemet starte:</para>
 
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
@@ -172,16 +172,16 @@
       kreves, anbefales det sterkt av systemd utviklerne.</para>
     </note>
 
-    <para>Det er flere andre alternativer som kan være ønsket
-    avhengig av kravene til systemet. For en liste over nødvendige alternativer
+    <para>Det er flere andre alternativer som kan vÃ¦re Ã¸nsket
+    avhengig av kravene til systemet. For en liste over nÃ¸dvendige alternativer
     for BLFS pakker, se <ulink
     url="&lfs-root;blfs/view/&short-version;/longindex.html#kernel-config-index">BLFS
     Indeks over kjerneinnstillinger</ulink>.</para>
 
     <note>
-      <para>Hvis vertsmaskinvaren din bruker UEFI og du ønsker å starte opp
-      LFS systemet med det, bør du justere noen kjernekonfigurasjon
-      som på følgende <ulink url="&blfs-book;postlfs/grub-setup.html#uefi-kernel">
+      <para>Hvis vertsmaskinvaren din bruker UEFI og du Ã¸nsker Ã¥ starte opp
+      LFS systemet med det, bÃ¸r du justere noen kjernekonfigurasjon
+      som pÃ¥ fÃ¸lgende <ulink url="&blfs-book;postlfs/grub-setup.html#uefi-kernel">
       BLFS side</ulink> <emphasis role='bold'>selv om du bruker
       UEFI oppstartslaster fra vertsdistroen</emphasis>.</para>
     </note>
@@ -192,8 +192,8 @@
       <varlistentry>
         <term><parameter>Randomize the address of the kernel image (KASLR)</parameter></term>
         <listitem>
-          <para>Aktiver ASLR for kjernebilde for å redusere noen angrep basert
-          på faste adresser til sensitive data eller kode i kjernen.</para>
+          <para>Aktiver ASLR for kjernebilde for Ã¥ redusere noen angrep basert
+          pÃ¥ faste adresser til sensitive data eller kode i kjernen.</para>
         </listitem>
       </varlistentry>
 
@@ -204,7 +204,7 @@
           </parameter>
         </term>
         <listitem>
-          <para>Dette kan forårsake bygningsfeil hvis kompilatoren og/eller
+          <para>Dette kan forÃ¥rsake bygningsfeil hvis kompilatoren og/eller
           konfigurasjonen er forskjellig fra kjernens
           utviklere.</para>
         </listitem>
@@ -217,7 +217,7 @@
           </parameter>
         </term>
         <listitem>
-          <para>Dette vil kreve <command>cpio</command> for å bygge kjernen.
+          <para>Dette vil kreve <command>cpio</command> for Ã¥ bygge kjernen.
           <command>cpio</command> er ikke installert av LFS.</para>
         </listitem>
       </varlistentry>
@@ -229,9 +229,9 @@
           </parameter>
         </term>
         <listitem>
-          <para>Dette vil gjøre at noen alternativer vises i konfigurasjonsgrensesnittet,
-          men å endre disse alternativene kan være farlig. Ikke bruk
-          dette med mindre du vet hva du gjør.</para>
+          <para>Dette vil gjÃ¸re at noen alternativer vises i konfigurasjonsgrensesnittet,
+          men Ã¥ endre disse alternativene kan vÃ¦re farlig. Ikke bruk
+          dette med mindre du vet hva du gjÃ¸r.</para>
         </listitem>
       </varlistentry>
 
@@ -248,7 +248,7 @@
       <varlistentry>
         <term><parameter>Support for uevent helper</parameter></term>
         <listitem>
-          <para>Å ha dette alternativet satt kan forstyrre enhetens
+          <para>Ã… ha dette alternativet satt kan forstyrre enhetens
           behandling ved bruk av Udev.</para>
         </listitem>
       </varlistentry>
@@ -257,17 +257,17 @@
         <term><parameter>Maintain a devtmpfs</parameter></term>
         <listitem>
           <para>Dette vil opprette automatiserte enhetsnoder som er befolket av
-          kjerne, selv uten at Udev kjører. Udev kjører så på toppen av dette,
+          kjerne, selv uten at Udev kjÃ¸rer. Udev kjÃ¸rer sÃ¥ pÃ¥ toppen av dette,
           administrere tillatelser og legge til symbolkoblinger. Denne konfigurasjonen
-          element er nødvendig for alle brukere av Udev.</para>
+          element er nÃ¸dvendig for alle brukere av Udev.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>Automount devtmpfs at /dev</parameter></term>
         <listitem>
-          <para>Dette vil montere kjernevisningen til enhetene på /dev
-          ved bytte til rotfilsystem rett før start av
+          <para>Dette vil montere kjernevisningen til enhetene pÃ¥ /dev
+          ved bytte til rotfilsystem rett fÃ¸r start av
           init.</para>
         </listitem>
       </varlistentry>
@@ -275,27 +275,27 @@
       <varlistentry>
         <term>
           <parameter>
-            Aktiver eldre fbdev støtte for modusinnstillingsdriveren
+            Aktiver eldre fbdev stÃ¸tte for modusinnstillingsdriveren
           </parameter> og
           <parameter>Framebuffer Console support</parameter>
         </term>
         <listitem>
-          <para>Disse er nødvendige for å vise Linux konsollen på en
+          <para>Disse er nÃ¸dvendige for Ã¥ vise Linux konsollen pÃ¥ en
           GPU drevet av en DRI driver (Direct Rendering Infrastructure).
           Hvis <option>CONFIG_DRM</option> (Direct Rendering Manager) er
-          aktivert, bør du aktivere disse to alternativene også, ellers vil du se
-          en tom skjerm når DRI driveren er lastet inn.</para>
+          aktivert, bÃ¸r du aktivere disse to alternativene ogsÃ¥, ellers vil du se
+          en tom skjerm nÃ¥r DRI driveren er lastet inn.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>Support x2apic</parameter></term>
         <listitem>
-          <para>Støtte for å kjøre avbruddskontrolleren for 64-bit x86
-          prosessorer i x2APIC-modus. x2APIC kan være aktivert av fastvare på
-          64-bit x86-systemer, og en kjerne uten dette alternativet aktivert vil få
+          <para>StÃ¸tte for Ã¥ kjÃ¸re avbruddskontrolleren for 64-bit x86
+          prosessorer i x2APIC-modus. x2APIC kan vÃ¦re aktivert av fastvare pÃ¥
+          64-bit x86-systemer, og en kjerne uten dette alternativet aktivert vil fÃ¥
           panikk ved oppstart hvis x2APIC er aktivert av fastvare. Dette alternativet
-          har ingen effekt, men gjør heller ingen skade hvis x2APIC er deaktivert av
+          har ingen effekt, men gjÃ¸r heller ingen skade hvis x2APIC er deaktivert av
           fastvare.</para>
         </listitem>
       </varlistentry>
@@ -306,11 +306,11 @@
     hensiktsmessig i noen situasjoner. Se <filename>README</filename>
     filen for mer informasjon.</para>
 
-    <para>Hvis ønskelig, hopp over kjernekonfigurasjonen ved å kopiere kjernens
+    <para>Hvis Ã¦nskelig, hopp over kjernekonfigurasjonen ved Ã¥ kopiere kjernens
     konfigurasjonsfil, <filename>.config</filename>, fra vertssystemet
     (forutsatt at den er tilgjengelig) til den utpakkede <filename
     class="directory">linux-&linux-version;</filename> mappen. Derimot,
-    vi anbefaler ikke dette alternativet. Det er ofte bedre å utforske alle
+    vi anbefaler ikke dette alternativet. Det er ofte bedre Ã¥ utforske alle
     konfigurasjonsmenyer og lage kjernekonfigurasjonen fra
     grunnen av.</para>
 
@@ -319,28 +319,28 @@
 <screen><userinput remap="make">make</userinput></screen>
 
     <para>Hvis du bruker kjernemoduler, modulkonfigurasjon i <filename
-    class="directory">/etc/modprobe.d</filename> kan være nødvendig.
+    class="directory">/etc/modprobe.d</filename> kan vÃ¦re nÃ¦dvendig.
     Informasjon knyttet til moduler og kjernekonfigurasjon er
     lokalisert i <xref linkend="ch-config-udev"/> og kjerne
     dokumentasjon i <filename
     class="directory">linux-&linux-version;/Documentation</filename> mappen.
-    Også, <filename>modprobe.d(5)</filename> kan være av interesse.</para>
+    OgsÃ¥, <filename>modprobe.d(5)</filename> kan vÃ¦re av interesse.</para>
 
-    <para>Med mindre modulstøtte er deaktivert i kjernekonfigurasjonen,
+    <para>Med mindre modulstÃ¦tte er deaktivert i kjernekonfigurasjonen,
     installere modulene med:</para>
 
 <screen><userinput remap="install">make modules_install</userinput></screen>
 
-    <para>Etter at kjernekompileringen er fullført, er flere trinn
-    nødvendig for å fullføre installasjonen. Noen filer må kopieres til
+    <para>Etter at kjernekompileringen er fullfÃ¦rt, er flere trinn
+    nÃ¦dvendig for Ã¥ fullfÃ¦re installasjonen. Noen filer mÃ¥ kopieres til
     <filename class="directory">/boot</filename> mappen.</para>
 
     <caution>
-      <para>Hvis du har bestemt deg for å bruke et separat &boot-dir; partisjon for
+      <para>Hvis du har bestemt deg for Ã¥ bruke et separat &boot-dir; partisjon for
       LFS systemet (kanskje dele en &boot-dir; partisjon med vertsdistroen
-      ), filene som er kopiert nedenfor, skal gå dit. Den enkleste måten å
-      gjør det er å opprette oppføringen for &boot-dir; i &fstab; først (les
-      forrige seksjon for detaljer), utfør deretter følgende kommando
+      ), filene som er kopiert nedenfor, skal gÃ¥ dit. Den enkleste mÃ¥ten Ã¥
+      gjÃ¦r det er Ã¥ opprette oppfÃ¦ringen for &boot-dir; i &fstab; fÃ¦rst (les
+      forrige seksjon for detaljer), utfÃ¦r deretter fÃ¦lgende kommando
       som &root; bruker i
       <emphasis>chroot environment</emphasis>:</para>
 
@@ -351,25 +351,25 @@
     </caution>
 
     <para>Stien til kjernebildet kan variere avhengig av plattformen
-    som er brukt. Filnavnet nedenfor kan endres for å passe din smak, men stammen av
-    filnavnet skal være <emphasis>vmlinuz</emphasis> for å være kompatibel med
+    som er brukt. Filnavnet nedenfor kan endres for Ã¥ passe din smak, men stammen av
+    filnavnet skal vÃ¦re <emphasis>vmlinuz</emphasis> for Ã¥ vÃ¦re kompatibel med
     det automatiske oppsettet av oppstartsprosessen beskrevet i neste avsnitt. De
-    følgende kommandoene antar et x86 arkitektur:</para>
+    fÃ¸lgende kommandoene antar et x86 arkitektur:</para>
 
 <screen><userinput remap="install">cp -iv arch/x86/boot/bzImage /boot/vmlinuz-&linux-version;-lfs-&version;</userinput></screen>
 
     <para><filename>System.map</filename> er en symbolfil for kjernen.
     Den kartlegger funksjonsinngangspunktene til hver funksjon i kjernens API,
-    samt adressene til kjernedatastrukturene for kjøringen av
-    kjernen. Den brukes som en ressurs når man undersøker kjerneproblemer.
-    Utfør følgende kommando for å installere kartfilen:</para>
+    samt adressene til kjernedatastrukturene for kjÃ¸ringen av
+    kjernen. Den brukes som en ressurs nÃ¥r man undersÃ¸ker kjerneproblemer.
+    UtfÃ¸r fÃ¸lgende kommando for Ã¥ installere kartfilen:</para>
 
 <screen><userinput remap="install">cp -iv System.map /boot/System.map-&linux-version;</userinput></screen>
 
     <para>Kjernens konfigurasjonsfil <filename>.config</filename>
     produsert av <command>make menuconfig</command> steget
     ovenfor inneholder alle konfigurasjonsvalgene for kjernen
-    som nettopp ble kompilert. Det er en god idé å beholde denne filen for fremtidig
+    som nettopp ble kompilert. Det er en god ide Ã¥ beholde denne filen for fremtidig
     referanse:</para>
 
 <screen><userinput remap="install">cp -iv .config /boot/config-&linux-version;</userinput></screen>
@@ -378,54 +378,54 @@
 
 <screen><userinput remap="install">cp -r Documentation -T /usr/share/doc/linux-&linux-version;</userinput></screen>
 
-    <para>Det er viktig å merke seg at filene i kjernekildens
-    mappen ikke eies av <emphasis>root</emphasis>. Når en
+    <para>Det er viktig Ã¥ merke seg at filene i kjernekildens
+    mappen ikke eies av <emphasis>root</emphasis>. NÃ¥r en
     pakke pakkes ut som bruker <emphasis>root</emphasis> (som vi gjorde
     inne i chroot), filene har bruker- og gruppe-IDer for hva som helst
-    de var på pakkerens datamaskin. Dette er vanligvis ikke et problem
+    de var pÃ¥ pakkerens datamaskin. Dette er vanligvis ikke et problem
     for enhver pakke som skal installeres fordi kildetreet blir
     fjernet etter installasjonen. Imidlertid er Linux kildetreet
-    ofte beholdt i lang tid. På grunn av dette er det en sjanse
+    ofte beholdt i lang tid. PÃ¥ grunn av dette er det en sjanse
     at hvilken bruker-ID pakkeren brukte vil bli tildelt noen
-    på maskinen. Den personen ville da ha skrivetilgang til kjernens
+    pÃ¥ maskinen. Den personen ville da ha skrivetilgang til kjernens
     kilde.</para>
 
     <note>
-      <para>I mange tilfeller må konfigurasjonen av kjernen være
+      <para>I mange tilfeller mÃ¥ konfigurasjonen av kjernen vÃ¦re
       oppdatert for pakker som vil bli installert senere i BLFS. I motsetning til
-      andre pakker, er det ikke nødvendig å fjerne kjernekildetreet
+      andre pakker, er det ikke nÃ¸dvendig Ã¥ fjerne kjernekildetreet
       etter at den nybygde kjernen er installert.</para>
 
-      <para>Hvis kjernekildetreet skal beholdes, kjør
-      <command>chown -R 0:0</command> på <filename
-      class="directory">linux-&linux-version;</filename> mappen å sikre
+      <para>Hvis kjernekildetreet skal beholdes, kjÃ¸r
+      <command>chown -R 0:0</command> pÃ¥ <filename
+      class="directory">linux-&linux-version;</filename> mappen Ã¥ sikre
       at alle filer eies av brukeren <emphasis>root</emphasis>.</para>
     </note>
 
     <warning>
-      <para>Noe kjernedokumentasjon anbefaler å opprette en symbolkobling fra
-      <filename class="symlink">/usr/src/linux</filename> som peker på kjernens
-      kildemappe. Dette er spesifikt for kjerner før 2.6-serien og
-      <emphasis>må ikke</emphasis> opprettes på et LFS system, for det kan forårsake
-      problemer for pakker du kanskje ønsker å bygge når basis LFS systemet er
+      <para>Noe kjernedokumentasjon anbefaler Ã¥ opprette en symbolkobling fra
+      <filename class="symlink">/usr/src/linux</filename> som peker pÃ¥ kjernens
+      kildemappe. Dette er spesifikt for kjerner fÃ¸r 2.6-serien og
+      <emphasis>mÃ¥ ikke</emphasis> opprettes pÃ¥ et LFS system, for det kan forÃ¥rsake
+      problemer for pakker du kanskje Ã¸nsker Ã¥ bygge nÃ¥r basis LFS systemet er
       fullstendig.</para>
     </warning>
 
     <warning>
       <para>Deklarasjonene i systemets <filename
       class="directory">include</filename> mappe (<filename
-      class="directory">/usr/include</filename>) bør
-      <emphasis>alltid</emphasis> være de som Glibc ble kompilert mot,
+      class="directory">/usr/include</filename>) bÃ¸r
+      <emphasis>alltid</emphasis> vÃ¦re de som Glibc ble kompilert mot,
       det vil si de desinfiserte deklarasjonene installert i <xref
-      linkend="ch-tools-linux-headers"/>.  Derfor bør de
-      <emphasis>aldri</emphasis> erstattes av enten de rå kjernedeklarasjonene
+      linkend="ch-tools-linux-headers"/>.  Derfor bÃ¸r de
+      <emphasis>aldri</emphasis> erstattes av enten de rÃ¥ kjernedeklarasjonene
       eller andre kjernerensede deklarasjoner.</para>
     </warning>
 
   </sect2>
 
   <sect2 id="conf-modprobe" role="configuration">
-    <title>Konfigurere rekkefølgen på Linux modullasting</title>
+    <title>Konfigurere rekkefÃ¸lgen pÃ¥ Linux modullasting</title>
 
     <indexterm zone="conf-modprobe">
       <primary sortas="e-/etc/modprobe.d/usb.conf">/etc/modprobe.d/usb.conf</primary>
@@ -434,14 +434,14 @@
     <para>Mesteparten av tiden lastes Linux moduler automatisk, men
     noen ganger trenger den en bestemt retning. Programmet som laster
     moduler, <command>modprobe</command> eller <command>insmod</command>, bruker
-    <filename>/etc/modprobe.d/usb.conf</filename> for dette formålet. Denne filen
-    må opprettes slik at hvis USB-driverne (ehci_hcd, ohci_hcd og
+    <filename>/etc/modprobe.d/usb.conf</filename> for dette formÃ¥let. Denne filen
+    mÃ¥ opprettes slik at hvis USB-driverne (ehci_hcd, ohci_hcd og
     uhci_hcd) har blitt bygget som moduler, vil de bli lastet inn i riktig
-    rekkefølge; ehci_hcd må lastes før ohci_hcd og uhci_hcd i rekkefølge
-    for å unngå at det sendes ut en advarsel ved oppstart.</para>
+    rekkefÃ¸lge; ehci_hcd mÃ¥ lastes fÃ¸r ohci_hcd og uhci_hcd i rekkefÃ¸lge
+    for Ã¥ unngÃ¥ at det sendes ut en advarsel ved oppstart.</para>
 
-    <para>Opprett en ny fil <filename>/etc/modprobe.d/usb.conf</filename> ved å kjøre
-    følgende:</para>
+    <para>Opprett en ny fil <filename>/etc/modprobe.d/usb.conf</filename> ved Ã¥ kjÃ¸re
+    fÃ¸lgende:</para>
 
 <screen><userinput>install -v -m755 -d /etc/modprobe.d
 cat &gt; /etc/modprobe.d/usb.conf &lt;&lt; "EOF"
@@ -488,12 +488,12 @@ EOF</userinput></screen>
       <varlistentry id="lfskernel">
         <term><filename>vmlinuz-&linux-version;-lfs-&version;</filename></term>
         <listitem>
-          <para>Motoren til Linux systemet. Når du slår på datamaskinen,
-          er kjernen den første delen av operativsystemet som blir lastet.
+          <para>Motoren til Linux systemet. NÃ¥r du slÃ¥r pÃ¥ datamaskinen,
+          er kjernen den fÃ¸rste delen av operativsystemet som blir lastet.
           Den oppdager og initialiserer alle komponenter i datamaskinens maskinvare,
-          gjør deretter disse komponentene tilgjengelige som et tre med filer til
+          gjÃ¸r deretter disse komponentene tilgjengelige som et tre med filer til
           programvarer og forvandler en enkelt CPU til en multitasking-maskin
-          med å kjøre mange programmer tilsynelatende samtidig</para>
+          med Ã¥ kjÃ¸re mange programmer tilsynelatende samtidig</para>
           <indexterm zone="ch-bootable-kernel lfskernel">
             <primary sortas="b-lfskernel">lfskernel-&linux-version;</primary>
           </indexterm>

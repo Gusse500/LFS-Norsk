@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -25,11 +25,11 @@
     <title/>
 
     <para>Libstdc++ er standard C++ biblioteket. Det trengs
-    for å kompilere C++ kode
-    (en del av GCC er skrevet i C++), men vi måtte utsette installasjonen
+    for Ã¥ kompilere C++ kode
+    (en del av GCC er skrevet i C++), men vi mÃ¥tte utsette installasjonen
     da vi bygde <xref linkend="ch-tools-gcc-pass1"/>
-    fordi Libstdc++ avhenger av Glibc, som ennå ikke var tilgjengelig i
-    målmappen.
+    fordi Libstdc++ avhenger av Glibc, som ennÃ¥ ikke var tilgjengelig i
+    mÃ¥lmappen.
     </para>
 
     <segmentedlist>
@@ -49,11 +49,11 @@
 
     <note>
       <para><application>Libstdc++</application> er en del av GCC kildene.
-      Du bør først pakke ut GCC tarball og bytte til
+      Du bÃ¸r fÃ¸rst pakke ut GCC tarball og bytte til
       <filename>gcc-&gcc-version;</filename> mappen.</para>
     </note>
 
-    <para>Opprett en egen byggemappe for libstdc++ og gå inn i den:</para>
+    <para>Opprett en egen byggemappe for libstdc++ og gÃ¥ inn i den:</para>
 
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>
@@ -84,8 +84,8 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--disable-libstdcxx-pch</parameter></term>
         <listitem>
-          <para>Denne bryteren forhindrer installasjon av forhåndskompilerte
-          include filer som ikke er nødvendige på dette stadiet.</para>
+          <para>Denne bryteren forhindrer installasjon av forhÃ¥ndskompilerte
+          include filer som ikke er nÃ¸dvendige pÃ¥ dette stadiet.</para>
         </listitem>
       </varlistentry>
 
@@ -95,25 +95,25 @@ cd       build</userinput></screen>
           <para>Dette spesifiserer installasjonsmappen for include filer.
           Fordi libstdc++ er standard C++ biblioteket for LFS, skal denne
           mappen samsvare med plasseringen der C++ kompilatoren
-          (<command>$LFS_TGT-g++</command>) vil søke etter
+          (<command>$LFS_TGT-g++</command>) vil sÃ¸ke etter
           standard C++ include filer. I en normal konstruksjon, sendes denne informasjonen
           automatisk til libstdc++ <command>configure</command>
-          alternativer fra toppnivåmappen. I vårt tilfelle, denne informasjonen
-          må gis eksplisitt.
+          alternativer fra toppnivÃ¥mappen. I vÃ¥rt tilfelle, denne informasjonen
+          mÃ¥ gis eksplisitt.
           C++ kompilatoren vil legge til sysroot banen
-          <filename class="directory">$LFS</filename> (spesifisert når
-          GCC pass 1 ble bygget) til å inkludere filsøkebanen, så den vil faktisk
-          søke i
+          <filename class="directory">$LFS</filename> (spesifisert nÃ¥r
+          GCC pass 1 ble bygget) til Ã¥ inkludere filsÃ¸kebanen, sÃ¥ den vil faktisk
+          sÃ¸ke i
           <filename class="directory">$LFS/tools/$LFS_TGT/include/c++/&gcc-version;</filename>.
           Kombinasjonen av <parameter>DESTDIR</parameter>
           variabelen (i <command>make install</command> kommandoen nedenfor)
-          og denne bryteren sørger for å installere deklarasjonene der.</para>
+          og denne bryteren sÃ¸rger for Ã¥ installere deklarasjonene der.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Kompiler libstdc++ ved å kjøre:</para>
+    <para>Kompiler libstdc++ ved Ã¥ kjÃ¸re:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 

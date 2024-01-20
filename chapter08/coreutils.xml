@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -42,25 +42,25 @@
     <title>Installasjon av Coreutils</title>
 
     <para>POSIX krever at programmer fra Coreutils gjenkjenner karaktergrenser
-    riktig selv i multibyte lokaliteter. Følgende oppdateringer
+    riktig selv i multibyte lokaliteter. FÃ¸lgende oppdateringer
     fikser dette misligholdet og andre internasjonaliseringsrelaterte feil.</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&coreutils-i18n-patch;</userinput></screen>
 
     <note>
       <para>Tidligere ble det funnet mange feil i denne oppdateringen. Ved melding om nye
-      feil til Coreutils vedlikeholdere, vennligst først sjekk om de er reproduserbare
+      feil til Coreutils vedlikeholdere, vennligst fÃ¸rst sjekk om de er reproduserbare
       uten denne oppdateringen.</para>
     </note>
 
    <!-- https://bugs.gnu.org/62403 -->
 <!--
-    <para>Rett opp en feil i kontrollsumverktøyet som forårsaker at mislykkede tester ikke
+    <para>Rett opp en feil i kontrollsumverktÃ¸yet som forÃ¥rsaker at mislykkede tester ikke
     rapporteres riktig:</para>
 
 <screen><userinput remap="pre">sed '/if ( ! match/s/ed_checksums//' -i src/digest.c</userinput></screen>
 -->
-    <para>Forbered nå Coreutils for kompilering:</para>
+    <para>Forbered nÃ¥ Coreutils for kompilering:</para>
 
 <screen><userinput remap="configure">autoreconf -fiv
 FORCE_UNSAFE_CONFIGURE=1 ./configure \
@@ -74,7 +74,7 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
         <term><command>autoreconf</command></term>
         <listitem>
           <para>Oppdateringen for internasjonalisering har modifisert
-          byggesystemet til pakken, slik at konfigurasjonsfilene må
+          byggesystemet til pakken, slik at konfigurasjonsfilene mÃ¥
           bli regenerert.</para>
         </listitem>
       </varlistentry>
@@ -82,7 +82,7 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
       <varlistentry>
         <term><envar>FORCE_UNSAFE_CONFIGURE=1</envar></term>
         <listitem>
-          <para>Denne miljøvariabelen lar pakken bli
+          <para>Denne miljÃ¸variabelen lar pakken bli
           bygget som <systemitem class="username">root</systemitem> brukeren.
           </para>
         </listitem>
@@ -91,7 +91,7 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
       <varlistentry>
         <term><parameter>--enable-no-install-program=kill,uptime</parameter></term>
         <listitem>
-          <para>Hensikten med denne bryteren er å hindre Coreutils fra å
+          <para>Hensikten med denne bryteren er Ã¥ hindre Coreutils fra Ã¥
           installere programmer som vil bli installert av andre pakker senere.
           </para>
         </listitem>
@@ -103,34 +103,34 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
 <screen><userinput remap="make">make</userinput></screen>
 
     <para>Hopp ned til <quote>Installer
-    pakken</quote> hvis du ikke kjører testpakken.</para>
+    pakken</quote> hvis du ikke kjÃ¸rer testpakken.</para>
 
-    <para>Nå er testpakken klar til å kjøres. Kjør først testene som er
-    ment å kjøres som bruker <systemitem class="username">root</systemitem>:</para>
+    <para>NÃ¥ er testpakken klar til Ã¥ kjÃ¸res. KjÃ¸r fÃ¸rst testene som er
+    ment Ã¥ kjÃ¸res som bruker <systemitem class="username">root</systemitem>:</para>
 
 <screen><userinput remap="test">make NON_ROOT_USERNAME=tester check-root</userinput></screen>
 
-    <para>Vi kommer til å kjøre resten av testene som 
+    <para>Vi kommer til Ã¥ kjÃ¸re resten av testene som 
     brukeren <systemitem class="username">tester</systemitem>. Visse tester
-    krever at brukeren er medlem av mer enn én gruppe. Sånn at
-    disse testene ikke hoppes over, legg til en midlertidig gruppe og gjør
+    krever at brukeren er medlem av mer enn en gruppe. SÃ¥nn at
+    disse testene ikke hoppes over, legg til en midlertidig gruppe og gjÃ¸r
     bruker <systemitem class="username">tester</systemitem> en del av de:</para>
 
 <screen><userinput remap="test">groupadd -g 102 dummy -U tester</userinput></screen>
 
     <para>Fiks noen av tillatelsene slik at ikke-&root; brukeren kan
-    kompilere og kjøre testene:</para>
+    kompilere og kjÃ¸re testene:</para>
 
 <screen><userinput remap="test">chown -Rv tester . </userinput></screen>
 
-    <para>Kjør nå testene:</para>
+    <para>KjÃ¸r nÃ¥ testene:</para>
 
 <screen><userinput remap="test">su tester -c "PATH=$PATH make RUN_EXPENSIVE_TESTS=yes check"</userinput></screen>
 
 <!-- Sometimes skipped, but if not it may fail.
      Please DO NOT remove or comment out this unless we can fully
      understand it!  -->
-    <para>test-getlogin testen kan mislykkes i LFS chroot miljøet.</para>
+    <para>test-getlogin testen kan mislykkes i LFS chroot miljÃ¸et.</para>
 
     <para>Fjern den midlertidige gruppen:</para>
 
@@ -244,7 +244,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="cat">
         <term><command>cat</command></term>
         <listitem>
-          <para>Slår sammen filer til standard utgang</para>
+          <para>SlÃ¥r sammen filer til standard utgang</para>
           <indexterm zone="ch-system-coreutils cat">
             <primary sortas="b-cat">cat</primary>
           </indexterm>
@@ -275,7 +275,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
         <term><command>chmod</command></term>
         <listitem>
           <para>Endrer tillatelsene til hver fil til gitt modus; modusen
-          kan enten være en symbolsk representasjon av endringene som skal gjøres eller en
+          kan enten vÃ¦re en symbolsk representasjon av endringene som skal gjÃ¸res eller en
           oktalt tall som representerer de nye tillatelsene</para>
           <indexterm zone="ch-system-coreutils chmod">
             <primary sortas="b-chmod">chmod</primary>
@@ -297,7 +297,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="chroot">
         <term><command>chroot</command></term>
         <listitem>
-          <para>Kjører en kommando med den angitte mappen som
+          <para>KjÃ¸rer en kommando med den angitte mappen som
           <filename class="directory">/</filename> mappen</para>
           <indexterm zone="ch-system-coreutils chroot">
             <primary sortas="b-chroot">chroot</primary>
@@ -341,7 +341,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
         <term><command>csplit</command></term>
         <listitem>
           <para>Deler en gitt fil i flere nye filer, og skiller dem
-          i henhold til gitte mønstre eller linjenummer og skriver ut antall
+          i henhold til gitte mÃ¸nstre eller linjenummer og skriver ut antall
           byte av hver nye fil</para>
           <indexterm zone="ch-system-coreutils csplit">
             <primary sortas="b-csplit">csplit</primary>
@@ -374,8 +374,8 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="dd">
         <term><command>dd</command> </term>
         <listitem>
-          <para>Kopierer en fil med den gitte blokkstørrelsen og antallet, mens
-          det valgfritt utføres konverteringer på den</para>
+          <para>Kopierer en fil med den gitte blokkstÃ¸rrelsen og antallet, mens
+          det valgfritt utfÃ¸res konverteringer pÃ¥ den</para>
           <indexterm zone="ch-system-coreutils dd">
             <primary sortas="b-dd">dd</primary>
           </indexterm>
@@ -385,8 +385,8 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="df">
         <term><command>df</command></term>
         <listitem>
-          <para>Rapporterer hvor mye diskplass som er tilgjengelig (og brukt) på alle
-          monterte filsystemer, eller bare på filsystemene som inneholder de valgte
+          <para>Rapporterer hvor mye diskplass som er tilgjengelig (og brukt) pÃ¥ alle
+          monterte filsystemer, eller bare pÃ¥ filsystemene som inneholder de valgte
           filer</para>
           <indexterm zone="ch-system-coreutils df">
             <primary sortas="b-df">df</primary>
@@ -408,8 +408,8 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="dircolors">
         <term><command>dircolors</command></term>
         <listitem>
-          <para>Skriver ut kommandoer for å angi <envar>LS_COLOR</envar>
-          miljøvariabelen for å endre fargeskjemaet som brukes av
+          <para>Skriver ut kommandoer for Ã¥ angi <envar>LS_COLOR</envar>
+          miljÃ¸variabelen for Ã¥ endre fargeskjemaet som brukes av
           <command>ls</command></para>
           <indexterm zone="ch-system-coreutils dircolors">
             <primary sortas="b-dircolors">dircolors</primary>
@@ -452,7 +452,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="env">
         <term><command>env</command></term>
         <listitem>
-          <para>Kjører en kommando i et modifisert miljø</para>
+          <para>KjÃ¸rer en kommando i et modifisert miljÃ¸</para>
           <indexterm zone="ch-system-coreutils env">
             <primary sortas="b-env">env</primary>
           </indexterm>
@@ -492,7 +492,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="false">
         <term><command>false</command></term>
         <listitem>
-          <para>Gjør ingenting, mislykket; den avsluttes alltid med en statuskode
+          <para>GjÃ¸r ingenting, mislykket; den avsluttes alltid med en statuskode
           som indikerer feil</para>
           <indexterm zone="ch-system-coreutils false">
             <primary sortas="b-false">false</primary>
@@ -533,7 +533,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="head">
         <term><command>head</command></term>
         <listitem>
-          <para>Skriver ut de ti første linjene (eller gitt antall linjer)
+          <para>Skriver ut de ti fÃ¸rste linjene (eller gitt antall linjer)
           av hver gitt fil</para>
           <indexterm zone="ch-system-coreutils head">
             <primary sortas="b-head">head</primary>
@@ -576,7 +576,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="join">
         <term><command>join</command></term>
         <listitem>
-          <para>Kobler sammen linjene som har identiske sammenføyningsfelt fra to
+          <para>Kobler sammen linjene som har identiske sammenfÃ¸yningsfelt fra to
           separate filer</para>
           <indexterm zone="ch-system-coreutils join">
             <primary sortas="b-join">join</primary>
@@ -607,7 +607,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="logname">
         <term><command>logname</command></term>
         <listitem>
-          <para>Rapporterer gjeldende brukers påloggingsnavn</para>
+          <para>Rapporterer gjeldende brukers pÃ¥loggingsnavn</para>
           <indexterm zone="ch-system-coreutils logname">
             <primary sortas="b-logname">logname</primary>
           </indexterm>
@@ -647,8 +647,8 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="mkfifo">
         <term><command>mkfifo</command></term>
         <listitem>
-          <para>Oppretter først inn, først ut (FIFOs), en "navngitt
-          kanal (pipe)" på UNIX-språk, med gitt navn</para>
+          <para>Oppretter fÃ¸rst inn, fÃ¸rst ut (FIFOs), en "navngitt
+          kanal (pipe)" pÃ¥ UNIX-sprÃ¥k, med gitt navn</para>
           <indexterm zone="ch-system-coreutils mkfifo">
             <primary sortas="b-mkfifo">mkfifo</primary>
           </indexterm>
@@ -669,7 +669,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="mktemp">
         <term><command>mktemp</command></term>
         <listitem>
-          <para>Oppretter midlertidige filer på en sikker måte; det brukes i skript</para>
+          <para>Oppretter midlertidige filer pÃ¥ en sikker mÃ¥te; det brukes i skript</para>
         <indexterm zone="ch-system-coreutils mktemp">
           <primary sortas="b-mktemp">mktemp</primary>
         </indexterm>
@@ -689,7 +689,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="nice">
         <term><command>nice</command></term>
         <listitem>
-          <para>Kjører et program med endret planleggingsprioritet</para>
+          <para>KjÃ¸rer et program med endret planleggingsprioritet</para>
           <indexterm zone="ch-system-coreutils nice">
             <primary sortas="b-nice">nice</primary>
           </indexterm>
@@ -709,7 +709,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="nohup">
         <term><command>nohup</command></term>
         <listitem>
-          <para>Kjører en kommando som er immun mot avbrudd, med utdata omdirigert til
+          <para>KjÃ¸rer en kommando som er immun mot avbrudd, med utdata omdirigert til
           en loggfil</para>
           <indexterm zone="ch-system-coreutils nohup">
             <primary sortas="b-nohup">nohup</primary>
@@ -751,7 +751,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="paste">
         <term><command>paste</command></term>
         <listitem>
-          <para>Slår sammen de gitte filene og kobler sammen sekvensielt tilsvarende linjer
+          <para>SlÃ¥r sammen de gitte filene og kobler sammen sekvensielt tilsvarende linjer
           side ved side, atskilt med tabulatortegn</para>
           <indexterm zone="ch-system-coreutils paste">
             <primary sortas="b-paste">paste</primary>
@@ -793,7 +793,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="printenv">
         <term><command>printenv</command></term>
         <listitem>
-          <para>Skriver ut miljøet</para>
+          <para>Skriver ut miljÃ¸et</para>
           <indexterm zone="ch-system-coreutils printenv">
             <primary sortas="b-printenv">printenv</primary>
           </indexterm>
@@ -815,7 +815,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
         <term><command>ptx</command></term>
         <listitem>
           <para>Produserer en permutert indeks fra innholdet i de gitte filene,
-          med hvert søkeord i sin kontekst</para>
+          med hvert sÃ¸keord i sin kontekst</para>
           <indexterm zone="ch-system-coreutils ptx">
             <primary sortas="b-ptx">ptx</primary>
           </indexterm>
@@ -825,7 +825,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="pwd">
         <term><command>pwd</command></term>
         <listitem>
-          <para>Rapporterer navnet på gjeldende arbeidsmappe</para>
+          <para>Rapporterer navnet pÃ¥ gjeldende arbeidsmappe</para>
           <indexterm zone="ch-system-coreutils pwd">
             <primary sortas="b-pwd">pwd</primary>
           </indexterm>
@@ -845,7 +845,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="realpath">
         <term><command>realpath</command></term>
         <listitem>
-          <para>Skriver ut den løste banen</para>
+          <para>Skriver ut den lÃ¸ste banen</para>
           <indexterm zone="ch-system-coreutils realpath">
             <primary sortas="b-realpath">realpath</primary>
           </indexterm>
@@ -875,7 +875,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="runcon">
         <term><command>runcon</command></term>
         <listitem>
-          <para>Kjører en kommando med spesifisert sikkerhetskontekst</para>
+          <para>KjÃ¸rer en kommando med spesifisert sikkerhetskontekst</para>
           <indexterm zone="ch-system-coreutils runcon">
             <primary sortas="b-runcon">runcon</primary>
           </indexterm>
@@ -885,8 +885,8 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="seq">
         <term><command>seq</command></term>
         <listitem>
-          <para>Skriver ut en sekvens av tall innenfor et gitt område og med en
-          gitt økning</para>
+          <para>Skriver ut en sekvens av tall innenfor et gitt omrÃ¥de og med en
+          gitt Ã¸kning</para>
           <indexterm zone="ch-system-coreutils seq">
             <primary sortas="b-seq">seq</primary>
           </indexterm>
@@ -947,8 +947,8 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="shred">
         <term><command>shred</command></term>
         <listitem>
-          <para>Overskriver de gitte filene gjentatte ganger med komplekse mønstre,
-          som gjør det vanskelig å gjenopprette dataene</para>
+          <para>Overskriver de gitte filene gjentatte ganger med komplekse mÃ¸nstre,
+          som gjÃ¸r det vanskelig Ã¥ gjenopprette dataene</para>
           <indexterm zone="ch-system-coreutils shred">
             <primary sortas="b-shred">shred</primary>
           </indexterm>
@@ -988,7 +988,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="split">
         <term><command>split</command></term>
         <listitem>
-          <para>Deler den gitte filen i biter, etter størrelse eller antall
+          <para>Deler den gitte filen i biter, etter stÃ¸rrelse eller antall
           linjer</para>
           <indexterm zone="ch-system-coreutils split">
             <primary sortas="b-split">split</primary>
@@ -1009,7 +1009,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="stdbuf">
         <term><command>stdbuf</command></term>
         <listitem>
-          <para>Kjører kommandoer med endrede bufferoperasjoner for standard
+          <para>KjÃ¸rer kommandoer med endrede bufferoperasjoner for standard
           dataflyt</para>
           <indexterm zone="ch-system-coreutils stdbuf">
             <primary sortas="b-stdbuf">stdbuf</primary>
@@ -1040,7 +1040,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="sync">
         <term><command>sync</command></term>
         <listitem>
-          <para>Tømmer filsystembuffere; den tvinger endrede blokker til disk
+          <para>TÃ¸mmer filsystembuffere; den tvinger endrede blokker til disk
           og oppdaterer superblokken</para>
           <indexterm zone="ch-system-coreutils sync">
             <primary sortas="b-sync">sync</primary>
@@ -1051,7 +1051,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="tac">
         <term><command>tac</command></term>
         <listitem>
-          <para>Sammenslår de gitte filene i revers</para>
+          <para>SammenslÃ¥r de gitte filene i revers</para>
           <indexterm zone="ch-system-coreutils tac">
             <primary sortas="b-tac">tac</primary>
           </indexterm>
@@ -1072,7 +1072,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="tee">
         <term><command>tee</command></term>
         <listitem>
-          <para>Leser fra standard inngang mens du skriver både til standard utgang
+          <para>Leser fra standard inngang mens du skriver bÃ¥de til standard utgang
           og til de gitte filene</para>
           <indexterm zone="ch-system-coreutils tee">
             <primary sortas="b-tee">tee</primary>
@@ -1093,7 +1093,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="timeout">
         <term><command>timeout</command></term>
         <listitem>
-          <para>Kjører en kommando med en tidsbegrensning</para>
+          <para>KjÃ¸rer en kommando med en tidsbegrensning</para>
           <indexterm zone="ch-system-coreutils timeout">
             <primary sortas="b-timeout">timeout</primary>
           </indexterm>
@@ -1126,7 +1126,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="true">
         <term><command>true</command></term>
         <listitem>
-          <para>Gjør ingenting, vellykket; den avsluttes alltid med en statuskode
+          <para>GjÃ¸r ingenting, vellykket; den avsluttes alltid med en statuskode
           som indikerer suksess</para>
           <indexterm zone="ch-system-coreutils true">
             <primary sortas="b-true">true</primary>
@@ -1137,7 +1137,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="truncate">
         <term><command>truncate</command></term>
         <listitem>
-          <para>Krymper eller utvider en fil til den angitte størrelsen</para>
+          <para>Krymper eller utvider en fil til den angitte stÃ¸rrelsen</para>
           <indexterm zone="ch-system-coreutils truncate">
             <primary sortas="b-truncate">truncate</primary>
           </indexterm>
@@ -1147,8 +1147,8 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="tsort">
         <term><command>tsort</command></term>
         <listitem>
-          <para>Utfører en topologisk sortering; den skriver en fullstendig ordnet liste
-          i henhold til den delvise rekkefølgen i en gitt fil</para>
+          <para>UtfÃ¸rer en topologisk sortering; den skriver en fullstendig ordnet liste
+          i henhold til den delvise rekkefÃ¸lgen i en gitt fil</para>
           <indexterm zone="ch-system-coreutils tsort">
             <primary sortas="b-tsort">tsort</primary>
           </indexterm>
@@ -1189,7 +1189,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="uniq">
         <term><command>uniq</command></term>
         <listitem>
-          <para>Forkaster alle unntatt en av påfølgende identiske linjer</para>
+          <para>Forkaster alle unntatt en av pÃ¥fÃ¸lgende identiske linjer</para>
           <indexterm zone="ch-system-coreutils uniq">
             <primary sortas="b-uniq">uniq</primary>
           </indexterm>
@@ -1209,7 +1209,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="users">
         <term><command>users</command></term>
         <listitem>
-          <para>Rapporterer navnene på brukerne som er logget på</para>
+          <para>Rapporterer navnene pÃ¥ brukerne som er logget pÃ¥</para>
           <indexterm zone="ch-system-coreutils users">
             <primary sortas="b-users">users</primary>
           </indexterm>
@@ -1230,7 +1230,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
         <term><command>wc</command></term>
         <listitem>
           <para>Rapporterer antall linjer, ord og byte for hver gitt
-          fil, samt det totale linjer når mer enn én fil er gitt</para>
+          fil, samt det totale linjer nÃ¥r mer enn en fil er gitt</para>
           <indexterm zone="ch-system-coreutils wc">
             <primary sortas="b-wc">wc</primary>
           </indexterm>
@@ -1240,7 +1240,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="who">
         <term><command>who</command></term>
         <listitem>
-          <para>Rapporterer hvem som er pålogget</para>
+          <para>Rapporterer hvem som er pÃ¥logget</para>
           <indexterm zone="ch-system-coreutils who">
             <primary sortas="b-who">who</primary>
           </indexterm>

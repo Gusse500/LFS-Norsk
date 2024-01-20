@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
    <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -16,24 +16,24 @@
 
   <para><filename>inputrc</filename> filen er konfigurasjonsfilen for
   readline biblioteket, som gir redigeringsmuligheter mens brukeren skriver
-  en linje fra terminalen. Det fungerer ved å oversette tastaturinndata
+  en linje fra terminalen. Det fungerer ved Ã¥ oversette tastaturinndata
   inn i spesifikke handlinger. Readline brukes av bash og de fleste andre skall som
   samt mange andre applikasjoner.</para>
 
-  <para>De fleste trenger ikke brukerspesifikk funksjonalitet så kommandoen
+  <para>De fleste trenger ikke brukerspesifikk funksjonalitet sÃ¥ kommandoen
   nedenfor skaper en global <filename>/etc/inputrc</filename> som brukes av alle som
-  logger på. Hvis du senere bestemmer deg for at du må overstyre standardinnstillingene på et per bruker
+  logger pÃ¥ Hvis du senere bestemmer deg for at du mÃ¥ overstyre standardinnstillingene pÃ¥ et per bruker
   grunnlag, kan du lage en <filename>.inputrc</filename> fil i brukerens hjemmemappe
   med de modifiserte tilordningene.</para>
 
   <para>For mer informasjon om hvordan du redigerer <filename>inputrc</filename>
   filen, se <command>info bash</command> under <emphasis>Readline Init
-  File</emphasis> seksjonen. <command>info readline</command> er også en god
+  File</emphasis> seksjonen. <command>info readline</command> er ogsÃ¥ en god
   informasjonskilde.</para>
 
   <para>Nedenfor er en generisk global <filename>inputrc</filename> sammen med kommentarer
-  for å forklare hva de ulike alternativene gjør. Merk at kommentarer ikke kan være på den samme
-  linjen som kommandoer. Opprett filen ved å bruke følgende kommando:</para>
+  for Ã¥ forklare hva de ulike alternativene gjÃ¸r. Merk at kommentarer ikke kan vÃ¦re pÃ¥ den samme
+  linjen som kommandoer. Opprett filen ved Ã¥ bruke fÃ¸lgende kommando:</para>
 
 <screen><userinput>cat &gt; /etc/inputrc &lt;&lt; "EOF"
 <literal># Begin /etc/inputrc

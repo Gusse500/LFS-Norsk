@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Man-DB pakken inneholder programmer for å finne og se på
+    <para>Man-DB pakken inneholder programmer for Ã¥ finne og se pÃ¥
     mansider.</para>
 
     <segmentedlist>
@@ -69,7 +69,7 @@
       <varlistentry>
         <term><parameter>--disable-setuid</parameter></term>
         <listitem>
-          <para>Dette deaktiverer å lage <command>man</command> program setuid
+          <para>Dette deaktiverer Ã¥ lage <command>man</command> program setuid
           til bruker <systemitem class="username">man</systemitem>.</para>
         </listitem>
       </varlistentry>
@@ -85,22 +85,22 @@
       <varlistentry>
         <term><parameter>--with-...</parameter></term>
         <listitem>
-          <para>Disse tre parameterne brukes til å angi noen standardprogrammer.
+          <para>Disse tre parameterne brukes til Ã¥ angi noen standardprogrammer.
           <command>lynx</command> er en tekstbasert nettleser (se
           BLFS for installasjonsinstruksjoner), <command>vgrind</command>
           konverterer programkilder til Groff inndata, og <command>grap</command>
-          er nyttig for å sette grafer i Groff dokumenter.
+          er nyttig for Ã¥ sette grafer i Groff dokumenter.
           <command>vgrind</command> og <command>grap</command> programmer er
-          vanligvis ikke nødvendig for å vise mansider. De er ikke en del av
-          LFS eller BLFS, men du bør kunne installere dem selv etter at du har
-          fullført LFS hvis du ønsker å gjøre det.</para>
+          vanligvis ikke nÃ¸dvendig for Ã¥ vise mansider. De er ikke en del av
+          LFS eller BLFS, men du bÃ¸r kunne installere dem selv etter at du har
+          fullfÃ¸rt LFS hvis du Ã¸nsker Ã¥ gjÃ¸re det.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry revision="sysv">
         <term><parameter>--with-systemd...</parameter></term>
         <listitem>
-          <para>Disse parameterne forhindrer installasjon av unødvendig systemd
+          <para>Disse parameterne forhindrer installasjon av unÃ¸dvendig systemd
           mapper og filer.</para>
         </listitem>
       </varlistentry>
@@ -111,7 +111,7 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>For å teste resultatene, utsted:</para>
+    <para>For Ã¥ teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
@@ -124,9 +124,9 @@
   <sect2>
     <title>Ikke-engelske manualsider i LFS</title>
 
-    <para>Følgende tabell viser tegnsettet som Man-DB antar
+    <para>FÃ¸lgende tabell viser tegnsettet som Man-DB antar
     manuelle sider installert under
-    <filename class="directory">/usr/share/man/&lt;ll&gt;</filename> vil være
+    <filename class="directory">/usr/share/man/&lt;ll&gt;</filename> vil vÃ¦re
     kodet med.  I tillegg til dette, bestemmer Man-DB korrekt om manualsider
     installert i den katalogen er UTF-8-kodet.</para>
 
@@ -144,9 +144,9 @@
 
         <thead>
           <row>
-            <entry>Språk (Kode)</entry>
+            <entry>SprÃ¥k (Kode)</entry>
             <entry>Koding</entry>
-            <entry>Språk (Kode)</entry>
+            <entry>SprÃ¥k (Kode)</entry>
             <entry>Koding</entry>
           </row>
         </thead>
@@ -227,7 +227,7 @@
             <entry>ISO-8859-2</entry>
           </row>
           <row>
-            <entry>Norsk Bokmål (nb)</entry>
+            <entry>Norsk BokmÃ¥l (nb)</entry>
             <entry>ISO-8859-1</entry>
             <entry>Serbisk Latin (sr@latin)</entry>
             <entry>ISO-8859-2</entry>
@@ -294,7 +294,7 @@
     </table>
 
     <note>
-      <para>Manualsider på språk som ikke er på listen støttes ikke.</para>
+      <para>Manualsider pÃ¥ sprÃ¥k som ikke er pÃ¥ listen stÃ¸ttes ikke.</para>
     </note>
 
   </sect2>
@@ -335,7 +335,7 @@
       <varlistentry id="apropos">
         <term><command>apropos</command></term>
         <listitem>
-          <para>Søker <command>whatis</command> databasen og viser
+          <para>SÃ¸ker <command>whatis</command> databasen og viser
           de korte beskrivelsene av systemkommandoer som inneholder en gitt
           streng</para>
           <indexterm zone="ch-system-man-db apropos">
@@ -347,7 +347,7 @@
       <varlistentry id="catman">
         <term><command>catman</command></term>
         <listitem>
-          <para>Oppretter eller oppdaterer de forhåndsformaterte manualsidene</para>
+          <para>Oppretter eller oppdaterer de forhÃ¥ndsformaterte manualsidene</para>
           <indexterm zone="ch-system-man-db catman">
             <primary sortas="b-catman">catman</primary>
           </indexterm>
@@ -399,8 +399,8 @@
         <term><command>manpath</command></term>
         <listitem>
           <para>Viser innholdet i $MANPATH eller (hvis $MANPATH ikke er angitt)
-          en passende søkebane basert på innstillingene i man.conf og
-          brukerens miljø</para>
+          en passende sÃ¸kebane basert pÃ¥ innstillingene i man.conf og
+          brukerens miljÃ¸</para>
           <indexterm zone="ch-system-man-db manpath">
             <primary sortas="b-manpath">manpath</primary>
           </indexterm>
@@ -410,9 +410,9 @@
       <varlistentry id="whatis">
         <term><command>whatis</command></term>
         <listitem>
-          <para>Søker <command>whatis</command> databasen og viser
+          <para>SÃ¸ker <command>whatis</command> databasen og viser
           de korte beskrivelsene av systemkommandoer som inneholder de gitte
-          nøkkelord som et separat ord</para>
+          nÃ¸kkelord som et separat ord</para>
           <indexterm zone="ch-system-man-db whatis">
             <primary sortas="b-whatis">whatis</primary>
           </indexterm>
@@ -422,7 +422,7 @@
       <varlistentry id="libman">
         <term><filename class="libraryfile">libman</filename></term>
         <listitem>
-          <para>Inneholder kjøretidsstøtte for <command>man</command></para>
+          <para>Inneholder kjÃ¸retidsstÃ¸tte for <command>man</command></para>
           <indexterm zone="ch-system-man-db libman">
             <primary sortas="c-libman">libman</primary>
           </indexterm>
@@ -432,7 +432,7 @@
       <varlistentry id="libmandb">
         <term><filename class="libraryfile">libmandb</filename></term>
         <listitem>
-          <para>Inneholder kjøretidsstøtte for <command>man</command></para>
+          <para>Inneholder kjÃ¸retidsstÃ¸tte for <command>man</command></para>
           <indexterm zone="ch-system-man-db libmandb">
             <primary sortas="c-libmandb">libmandb</primary>
           </indexterm>

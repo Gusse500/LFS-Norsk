@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -48,8 +48,8 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Samlingen er nå fullført. For å kjøre testpakkene for Check, utsted
-    følgende kommando:</para>
+    <para>Samlingen er nÃ¥ fullfÃ¸rt. For Ã¥ kjÃ¸re testpakkene for Check, utsted
+    fÃ¸lgende kommando:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
@@ -83,7 +83,7 @@
       <varlistentry id="checkmk">
         <term><command>checkmk</command></term>
         <listitem>
-          <para>Awk skript for å generere C enhetstester for bruk med Check sitt
+          <para>Awk skript for Ã¥ generere C enhetstester for bruk med Check sitt
           rammeverk for enhetstesting</para>
           <indexterm zone="ch-system-check checkmk">
             <primary sortas="b-checmk">checkmk</primary>
@@ -94,7 +94,7 @@
       <varlistentry id="libcheck">
         <term><filename class="libraryfile">libcheck.so</filename></term>
         <listitem>
-          <para>Inneholder funksjoner som gjør at Check kan kalles fra et test
+          <para>Inneholder funksjoner som gjÃ¸r at Check kan kalles fra et test
           program</para>
           <indexterm zone="ch-system-check libcheck">
             <primary sortas="c-libcheck">libcheck</primary>

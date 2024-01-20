@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -23,9 +23,9 @@
   <sect2 role="package">
     <title/>
 
-    <para><application>DejaGnu</application> pakken inneholder et rammeverk for å kjøre test
-       pakker på GNU verktøy. Det er skrevet i <command>expect</command>, som selv
-       bruker <application>Tcl</application> verktøykommandospråk (Tool Command Language).</para>
+    <para><application>DejaGnu</application> pakken inneholder et rammeverk for Ã¥ kjÃ¸re test
+       pakker pÃ¥ GNU verktÃ¦y. Det er skrevet i <command>expect</command>, som selv
+       bruker <application>Tcl</application> verktÃ¸ykommandosprÃ¥k (Tool Command Language).</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -42,7 +42,7 @@
   <sect2 role="installation">
     <title>Installasjon av DejaGNU</title>
 
-    <para>Upstream anbefaler å bygge DejaGNU i en dedikert byggemappe
+    <para>Upstream anbefaler Ã¥ bygge DejaGNU i en dedikert byggemappe
      :</para>
 
 <screen><userinput remap="pre">mkdir -v build
@@ -54,7 +54,7 @@ cd       build</userinput></screen>
 makeinfo --html --no-split -o doc/dejagnu.html ../doc/dejagnu.texi
 makeinfo --plaintext       -o doc/dejagnu.txt  ../doc/dejagnu.texi</userinput></screen>
 
-    <para>For å teste resultatene, kjør:</para>
+    <para>For Ã¥ teste resultatene, kjÃ¸r:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
@@ -97,7 +97,7 @@ install -v -m644   doc/dejagnu.{html,txt} /usr/share/doc/dejagnu-&dejagnu-versio
         <term><command>runtest</command></term>
         <listitem>
           <para>Et innpakningsskript som lokaliserer riktig
-          <command>expect</command> skall og kjører deretter DejaGNU</para>
+          <command>expect</command> skall og kjÃ¸rer deretter DejaGNU</para>
           <indexterm zone="ch-system-dejagnu runtest">
             <primary sortas="b-runtest">runtest</primary>
           </indexterm>

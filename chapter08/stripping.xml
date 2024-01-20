@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -11,58 +11,58 @@
   <title>Stripping</title>
 
   <para>Denne delen er valgfri. Hvis den tiltenkte brukeren ikke er en
-  programmerer og ikke planlegger å gjøre
-  noen feilsøking på systemprogramvaren, kan systemstørrelsen reduseres
-  med omtrent 2 GB ved å fjerne feilsøkingssymbolene, og noen unødvendige
-  symboltabelloppføringer fra binærfiler og biblioteker. Dette medfører ingen ulemper for
+  programmerer og ikke planlegger Ã¥ gjÃ¸re
+  noen feilsÃ¸king pÃ¥ systemprogramvaren, kan systemstÃ¸rrelsen reduseres
+  med omtrent 2 GB ved Ã¥ fjerne feilsÃ¸kingssymbolene, og noen unÃ¸dvendige
+  symboltabelloppfÃ¸ringer fra binÃ¦rfiler og biblioteker. Dette medfÃ¸rer ingen ulemper for
   en typisk Linuxbruker.</para>
 
   <para>De fleste som bruker kommandoene nevnt nedenfor,
-  opplever ikke noen vanskeligheter. Det er imidlertid lett å gjøre en skrivefeil og
-  gjør det nye systemet ubrukelig, så før du kjører
-  <command>strip</command> kommandoer, er det en god idé å lage en
+  opplever ikke noen vanskeligheter. Det er imidlertid lett Ã¥ gjÃ¸re en skrivefeil og
+  gjÃ¸r det nye systemet ubrukelig, sÃ¥ fÃ¸r du kjÃ¸rer
+  <command>strip</command> kommandoer, er det en god ide Ã¥ lage en
   sikkerhetskopiering av LFS systemet i gjeldende tilstand.</para>
 
   <para>En <command>strip</command> kommando med
-  <parameter>--strip-unneeded</parameter> alternativet fjerner alle feilsøkingssymboler
-  fra en binær eller et bibliotek. Og det fjerner alle symboltabelloppføringer
-  som ikke er nødvendig for linkeren (for statiske biblioteker) eller dynamisk linker (for
-  dynamisk koblede binære filer og delte biblioteker).</para>
+  <parameter>--strip-unneeded</parameter> alternativet fjerner alle feilsÃ¸kingssymboler
+  fra en binÃ¦r eller et bibliotek. Og det fjerner alle symboltabelloppfÃ¸ringer
+  som ikke er nÃ¸dvendig for linkeren (for statiske biblioteker) eller dynamisk linker (for
+  dynamisk koblede binÃ¦re filer og delte biblioteker).</para>
 
   <!-- TODO: Zstd is better than Zlib for both speed and size.
              Unfortunately Valgrind does not support Zstd-compressed debug
              info yet: https://bugs.kde.org/show_bug.cgi?id=469782 -->
-  <para>Feilsøkingssymbolene fra utvalgte biblioteker komprimeres med
+  <para>FeilsÃ¸kingssymbolene fra utvalgte biblioteker komprimeres med
   <application>Zlib</application> og lagres i separate filer. Denne
-  feilsøkingsinformasjon er nødvendig for å kjøre regresjonstester med <ulink
+  feilsÃ¸kingsinformasjon er nÃ¸dvendig for Ã¥ kjÃ¸re regresjonstester med <ulink
   url='&blfs-book;/general/valgrind.html'>valgrind</ulink> eller <ulink
   url='&blfs-book;/general/gdb.html'>gdb</ulink> senere i BLFS.
   </para>
 
-  <para>Merk at <command>strip</command> vil overskrive binær eller bibliotek
+  <para>Merk at <command>strip</command> vil overskrive binÃ¦r eller bibliotek
   filen den behandler. Dette kan krasje prosessene som bruker kode eller data fra
-  filen. Hvis prosessen som kjører <command>strip</command> selv er
-  påvirket, kan binærfilen eller biblioteket som blir strippet bli ødelagt og kan
-  gjøre systemet helt ubrukelig. For å unngå det, kopierer vi noen biblioteker
-  og binærfiler til <filename class="directory">/tmp</filename>, stripper dem
+  filen. Hvis prosessen som kjÃ¸rer <command>strip</command> selv er
+  pÃ¥virket, kan binÃ¦rfilen eller biblioteket som blir strippet bli Ã¸delagt og kan
+  gjÃ¸re systemet helt ubrukelig. For Ã¥ unngÃ¥ det, kopierer vi noen biblioteker
+  og binÃ¦rfiler til <filename class="directory">/tmp</filename>, stripper dem
   der, og installer dem tilbake med <command>install</command> kommandoen.
-  (Den relaterte oppføringen i <xref linkend="pkgmgmt-upgrade-issues"/> gir
-  begrunnelsen for å bruke <command>install</command> kommandoen her.)</para>
+  (Den relaterte oppfÃ¸ringen i <xref linkend="pkgmgmt-upgrade-issues"/> gir
+  begrunnelsen for Ã¥ bruke <command>install</command> kommandoen her.)</para>
 
-  <note><para>ELF lasterens navn er ld-linux-x86-64.so.2 på 64-bits systemer
-  og ld-linux.so.2 på 32-bits systemer. Konstruksjonen nedenfor velger
+  <note><para>ELF lasterens navn er ld-linux-x86-64.so.2 pÃ¥ 64-bits systemer
+  og ld-linux.so.2 pÃ¥ 32-bits systemer. Konstruksjonen nedenfor velger
   riktig navn for gjeldende arkitektur, unntatt noe som slutter
-  med <quote>g</quote>, i tilfelle kommandoene nedenfor allerede har vært
-  kjørt.</para></note>
+  med <quote>g</quote>, i tilfelle kommandoene nedenfor allerede har vÃ¦rt
+  kjÃ¸rt.</para></note>
 
   <important>
     <para>
       Hvis det er en en pakke som versjonen er forskjellig fra versjonen
-      spesifisert av boken (enten etter et sikkerhetsråd eller
-      som tilfredsstiller personlige preferanser), kan det være nødvendig å oppdatere
+      spesifisert av boken (enten etter et sikkerhetsrÃ¥d eller
+      som tilfredsstiller personlige preferanser), kan det vÃ¦re nÃ¸dvendig Ã¥ oppdatere
       bibliotekets filnavn i <envar>save_usrlib</envar> eller
       <envar>online_usrlib</envar>.
-      <emphasis role='bold'>Unnlatelse av å gjøre det kan gjøre systemet
+      <emphasis role='bold'>Unnlatelse av Ã¥ gjÃ¸re det kan gjÃ¸re systemet
       helt ubrukelig.</emphasis>
     </para>
   </important>
@@ -130,6 +130,6 @@ unset BIN LIB save_usrlib online_usrbin online_usrlib
 
   <para>Et stort antall filer vil bli rapportert som at
   filformatet ikke er gjenkjent. Disse advarslene kan trygt ignoreres. De
-  indikerer at disse filene er skript i stedet for binære filer.</para>
+  indikerer at disse filene er skript i stedet for binÃ¦re filer.</para>
 
 </sect1>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -10,62 +10,62 @@
 
   <title>Forord</title>
 
-<para>Min reise for å lære og bedre forstå Linux begynte
-tilbake i 1998. Jeg hadde nettopp installert min første Linux-distribusjon og hadde
+<para>Min reise for Ã¥ lÃ¦re og bedre forstÃ¥ Linux begynte
+tilbake i 1998. Jeg hadde nettopp installert min fÃ¸rste Linux-distribusjon og hadde
 raskt blitt fascinert av hele konseptet og filosofien bak
 Linux.</para>
 
-<para>Det er alltid mange måter å utføre en enkelt oppgave på. Det samme kan sies
-om Linux-distribusjoner. Svært mange har eksistert opp gjennom årene. Noen
+<para>Det er alltid mange mÃ¥ter Ã¥ utfÃ¸re en enkelt oppgave pÃ¥ Det samme kan sies
+om Linux-distribusjoner. SvÃ¦rt mange har eksistert opp gjennom Ã¥rene. Noen
 eksisterer fortsatt, noen har forvandlet seg til noe annet, mens andre har blitt
-henvist til våre minner. De gjør alle ting annerledes for å passe behovene til
-deres målgruppe. Fordi det eksisterer så mange forskjellige måter å oppnå det samme
-sluttmålet , begynte jeg å innse at jeg ikke lenger måtte være begrenset av noen
-gjennomføring. Før vi oppdaget Linux, stilte vi rett og slett opp med problemer i
+henvist til vÃ¥re minner. De gjÃ¸r alle ting annerledes for Ã¥ passe behovene til
+deres mÃ¥lgruppe. Fordi det eksisterer sÃ¥ mange forskjellige mÃ¥ter Ã¥ oppnÃ¥ det samme
+sluttmÃ¥let , begynte jeg Ã¥ innse at jeg ikke lenger mÃ¥tte vÃ¦re begrenset av noen
+gjennomfÃ¸ring. FÃ¸r vi oppdaget Linux, stilte vi rett og slett opp med problemer i
 andre operativsystemer siden du ikke hadde noe valg. Det var hva det var, enten du
-likte det eller ikke. Med Linux begynte konseptet med valg å dukke opp. Hvis du
-ikke likte noe, du var fri, til og med oppmuntret, til å endre det.</para>
+likte det eller ikke. Med Linux begynte konseptet med valg Ã¥ dukke opp. Hvis du
+ikke likte noe, du var fri, til og med oppmuntret, til Ã¥ endre det.</para>
 
-<para>Jeg prøvde en rekke distribusjoner og kunne ikke bestemme meg for noen. De
-var flotte systemer i seg selv. Det var ikke et spørsmål om rett og
-feil lenger. Det var blitt et spørsmål om personlig smak. Med allle de
-valgene tilgjengelig, ble det klart at det ikke ville være en eneste
-system som ville være perfekt for meg. Så jeg satte meg for å lage min egen Linux
+<para>Jeg prÃ¸vde en rekke distribusjoner og kunne ikke bestemme meg for noen. De
+var flotte systemer i seg selv. Det var ikke et spÃ¸rsmÃ¥l om rett og
+feil lenger. Det var blitt et spÃ¸rsmÃ¥l om personlig smak. Med allle de
+valgene tilgjengelig, ble det klart at det ikke ville vÃ¦re en eneste
+system som ville vÃ¦re perfekt for meg. SÃ¥ jeg satte meg for Ã¥ lage min egen Linux
 system som fullt ut samsvarer med mine personlige preferanser.</para>
 
-<para>For å virkelig gjøre det til mitt eget system, bestemte jeg meg for å kompilere alt fra
-kildekode i stedet for å bruke forhåndskompilerte binære pakker. Dette
+<para>For Ã¥ virkelig gjÃ¸re det til mitt eget system, bestemte jeg meg for Ã¥ kompilere alt fra
+kildekode i stedet for Ã¥ bruke forhÃ¥ndskompilerte binÃ¦re pakker. Dette
 <quote>perfekt</quote> Linux-system vil ha styrken til forskjellige
-systemer uten deres opplevde svakheter. Først var tanken snarere
+systemer uten deres opplevde svakheter. FÃ¸rst var tanken snarere
 skremmende. Jeg forble forpliktet til ideen om at et slikt system kunne bli
 bygget.</para>
 
-<para>Etter å ha sortert gjennom problemer som sirkulære avhengigheter og kompileringsfeil
+<para>Etter Ã¥ ha sortert gjennom problemer som sirkulÃ¦re avhengigheter og kompileringsfeil
 , bygget jeg endelig et spesialbygd Linux-system. Det var fullt
 operativ og perfekt brukbart som alle andre Linux-systemer ute
-der på den tiden. Men det var min egen skapelse. Det var veldig tilfredsstillende å
+der pÃ¥ den tiden. Men det var min egen skapelse. Det var veldig tilfredsstillende Ã¥
 har satt sammen et slikt system selv. Det eneste bedre ville ha
-vært å lage hvert stykke programvare selv. Dette var det nest beste
+vÃ¦rt Ã¥ lage hvert stykke programvare selv. Dette var det nest beste
 .</para>
 
-<para>Da jeg delte mine mål og erfaringer med andre medlemmer av Linux
+<para>Da jeg delte mine mÃ¥l og erfaringer med andre medlemmer av Linux
 samfunnet, ble det tydelig at det var en vedvarende interesse for disse
 ideer. Det ble raskt klart at slike spesialbygde Linux-systemer
-tjener ikke bare for å møte brukerspesifikke krav, men også tjene som en
-ideell læringsmulighet for programmerere og systemadministratorer
+tjener ikke bare for Ã¥ mÃ¸te brukerspesifikke krav, men ogsÃ¥ tjene som en
+ideell lÃ¦ringsmulighet for programmerere og systemadministratorer
 forbedre deres (eksisterende) Linux-ferdigheter. Ut fra denne utvidede interessen
-<emphasis>Linux From Scratch Project</emphasis> ble født.</para>
+<emphasis>Linux From Scratch Project</emphasis> ble fÃ¸dt.</para>
 
 <para>Denne Linux From Scratch boken er den sentrale kjernen rundt det prosjektet. Den
-gir bakgrunnen og instruksjonene som er nødvendige for deg å designe og
+gir bakgrunnen og instruksjonene som er nÃ¸dvendige for deg Ã¥ designe og
 bygge ditt eget system. Mens denne boken gir en mal som vil resultere
-i et korrekt fungerende system står du fritt til å endre instruksjonene til
-å passer deg selv, som delvis er en viktig del av dette prosjektet. Du
-forblir i kontroll; vi gir bare en hjelpende hånd for å komme i gang på din
+i et korrekt fungerende system stÃ¥r du fritt til Ã¥ endre instruksjonene til
+Ã¥ passer deg selv, som delvis er en viktig del av dette prosjektet. Du
+forblir i kontroll; vi gir bare en hjelpende hÃ¥nd for Ã¥ komme i gang pÃ¥ din
 egen reise.</para>
 
-<para>Jeg håper inderlig at du vil ha en flott tid med å jobbe med din egen Linux From
-Scratch system og nyte de mange fordelene ved å ha et system som er
+<para>Jeg hÃ¥per inderlig at du vil ha en flott tid med Ã¥ jobbe med din egen Linux From
+Scratch system og nyte de mange fordelene ved Ã¥ ha et system som er
 virkelig din egen.</para>
 
 <literallayout>--

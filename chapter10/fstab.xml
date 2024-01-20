@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -15,8 +15,8 @@
   </indexterm>
 
   <para><filename>/etc/fstab</filename> filen brukes av noen programmer til
-  bestemme hvor filsystemer skal monteres som standard, i hvilken rekkefølge, og
-  hvilke som må kontrolleres (for integritetsfeil) før montering. Lag en ny
+  bestemme hvor filsystemer skal monteres som standard, i hvilken rekkefÃ¸lge, og
+  hvilke som mÃ¥ kontrolleres (for integritetsfeil) fÃ¸r montering. Lag en ny
   filsystemtabell som denne:</para>
 
 <screen revision="sysv"><userinput>cat &gt; /etc/fstab &lt;&lt; "EOF"
@@ -61,19 +61,19 @@ EOF</userinput></screen>
   <para>Filsystemer med MS-DOS eller Windows opprinnelse (dvs. vfat, ntfs, smbfs,
   cifs, iso9660, udf) trenger et spesielt alternativ, utf8, for ikke-ASCII
   tegn i filnavn som skal tolkes riktig. For ikke-UTF-8-lokaliteter,
-  verdien av <option>iocharset</option> bør settes til å være det samme som
-  tegnsettet for lokaliteten, justert på en slik måte at kjernen
-  forstår det. Dette fungerer hvis den relevante tegnsettdefinisjonen (funnet
+  verdien av <option>iocharset</option> bÃ¸r settes til Ã¥ vÃ¦re det samme som
+  tegnsettet for lokaliteten, justert pÃ¥ en slik mÃ¥te at kjernen
+  forstÃ¥r det. Dette fungerer hvis den relevante tegnsettdefinisjonen (funnet
   under File systems -&gt; Native Language Support ved konfigurering av kjernen)
   har blitt kompilert inn i kjernen eller bygget som en modul. Imidlertid, hvis
   tegnsettet til lokaliteten er UTF-8, det tilsvarende alternativet
-  <option>iocharset=utf8</option> ville gjøre at filsystemet skiller mellom store og små bokstaver. For å
+  <option>iocharset=utf8</option> ville gjÃ¸re at filsystemet skiller mellom store og smÃ¥ bokstaver. For Ã¥
   fikse dette, bruk spesialalternativet <option>utf8</option> i stedet for
   <option>iocharset=utf8</option>, for UTF-8 lokaliteter.
-  <quote>codepage</quote> alternativet er også nødvendig for vfat- og smbfs-filsystemer.
-  Det bør settes til tegnsettnummeret som brukes under MS-DOS i ditt land.
-  For eksempel, for å montere USB-flash-stasjoner, ville en ru_RU.KOI8-R bruker
-  trenge følgende i alternativdelen av monteringslinjen i
+  <quote>codepage</quote> alternativet er ogsÃ¥ nÃ¸dvendig for vfat- og smbfs-filsystemer.
+  Det bÃ¸r settes til tegnsettnummeret som brukes under MS-DOS i ditt land.
+  For eksempel, for Ã¥ montere USB-flash-stasjoner, ville en ru_RU.KOI8-R bruker
+  trenge fÃ¸lgende i alternativdelen av monteringslinjen i
   <filename>/etc/fstab</filename>:</para>
 
 <screen><literal>noauto,user,quiet,showexec,codepage=866,iocharset=koi8r</literal></screen>
@@ -82,44 +82,44 @@ EOF</userinput></screen>
 
 <screen><literal>noauto,user,quiet,showexec,codepage=866,utf8</literal></screen>
 
-  <para>Merk at å bruke <option>iocharset</option> er standard for
-  <literal>iso8859-1</literal> ((så filsystemet skiller mellom store og små bokstaver)
+  <para>Merk at Ã¥ bruke <option>iocharset</option> er standard for
+  <literal>iso8859-1</literal> ((sÃ¥ filsystemet skiller mellom store og smÃ¥ bokstaver)
   , og <option>utf8</option> alternativet forteller
-  kjernen å konvertere filnavnene ved hjelp av UTF-8 slik at de kan være
+  kjernen Ã¥ konvertere filnavnene ved hjelp av UTF-8 slik at de kan vÃ¦re
   tolket i UTF-8 lokaliteten.</para>
 
   <!--note>
-    <para>I det siste tilfellet sender kjernen følgende melding:</para>
+    <para>I det siste tilfellet sender kjernen fÃ¸lgende melding:</para>
 
 <screen><computeroutput>FAT: utf8 is not a recommended IO charset for FAT filesystems,
     filesystem will be case sensitive!</computeroutput></screen>
 
-    <para>Denne negative anbefalingen bør ignoreres, siden alle andre verdier
+    <para>Denne negative anbefalingen bÃ¸r ignoreres, siden alle andre verdier
     av <quote>iocharset</quote> alternativet resulterer i feil visning av filnavn i
     UTF-8 lokaliteter.</para>
   </note-->
 
-  <para>Det er også mulig å spesifisere standard kodesett og iocharset verdier for
+  <para>Det er ogsÃ¥ mulig Ã¥ spesifisere standard kodesett og iocharset verdier for
   noen filsystemer under kjernekonfigurasjon. De relevante parameterne
   er navngitt
   <quote>Default NLS Option</quote> (<option>CONFIG_NLS_DEFAULT)</option>,
   <quote>Default Remote NLS Option</quote> (<option>CONFIG_SMB_NLS_DEFAULT</option>),
   <quote>Default codepage for FAT</quote> (<option>CONFIG_FAT_DEFAULT_CODEPAGE</option>), and
   <quote>Default iocharset for FAT</quote> (<option>CONFIG_FAT_DEFAULT_IOCHARSET</option>).
-  Det er ingen måte å spesifisere disse innstillingene for
-  ntfs filsystem på kjernekompileringstidspunktet.</para>
+  Det er ingen mÃ¥te Ã¥ spesifisere disse innstillingene for
+  ntfs filsystem pÃ¥ kjernekompileringstidspunktet.</para>
 
-  <para>Det er mulig å gjøre ext3 filsystemet pålitelig på tvers av strømfeil
-   for enkelte harddisktyper. For å gjøre dette, legg til
-  <option>barrier=1</option> monteringsalternativet til den aktuelle oppføringen i
-  <filename>/etc/fstab</filename>.  For å sjekke om diskstasjonen støtter
-  dette alternativet, kjør
+  <para>Det er mulig Ã¥ gjÃ¸re ext3 filsystemet pÃ¥litelig pÃ¥ tvers av strÃ¸mfeil
+   for enkelte harddisktyper. For Ã¥ gjÃ¸re dette, legg til
+  <option>barrier=1</option> monteringsalternativet til den aktuelle oppfÃ¸ringen i
+  <filename>/etc/fstab</filename>.  For Ã¥ sjekke om diskstasjonen stÃ¸tter
+  dette alternativet, kjÃ¸r
   <ulink url="&blfs-book;general/hdparm.html">hdparm</ulink>
-  på den aktuelle diskstasjonen. For eksempel hvis:</para>
+  pÃ¥ den aktuelle diskstasjonen. For eksempel hvis:</para>
 
 <screen role="nodump"><userinput>hdparm -I /dev/sda | grep NCQ</userinput></screen>
 
-  <para>returnerer ikke-tom utdata, støttes alternativet.</para>
+  <para>returnerer ikke-tom utdata, stÃ¸ttes alternativet.</para>
 
   <para>Merk: Logical Volume Management (LVM) baserte partisjoner kan ikke bruke
   <option>barrier</option> valget.</para>

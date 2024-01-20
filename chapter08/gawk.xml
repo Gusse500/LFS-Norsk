@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Gawk pakken inneholder programmer for å manipulere tekstfiler.</para>
+    <para>Gawk pakken inneholder programmer for Ã¥ manipulere tekstfiler.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,7 +40,7 @@
   <sect2 role="installation">
     <title>Installasjon av Gawk</title>
 
-    <para>Først, sørg for at noen unødvendige filer ikke blir installert:</para>
+    <para>FÃ¸rst, sÃ¸rg for at noen unÃ¸dvendige filer ikke blir installert:</para>
 
 <screen><userinput remap="pre">sed -i 's/extras//' Makefile.in</userinput></screen>
 
@@ -52,7 +52,7 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>For å teste resultatene, utsted:</para>
+    <para>For Ã¥ teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">chown -Rv tester .
 su tester -c "PATH=$PATH make check"</userinput></screen>
@@ -70,7 +70,7 @@ make install</userinput></screen>
         <listitem>
            <para>Byggesystemet vil ikke gjenskape den harde lenken
            <filename>gawk-&gawk-version;</filename> hvis den allerede eksisterer.
-           Fjern den for å sikre at den forrige hardlinken installert
+           Fjern den for Ã¥ sikre at den forrige hardlinken installert
            i <xref linkend='ch-tools-gawk'/> er oppdatert her.</para>
        </listitem>
       </varlistentry>
@@ -78,11 +78,11 @@ make install</userinput></screen>
 
     <para>Installasjonsprosessen har allerede opprettet <command>awk</command>
     som en symlenke til <command>gawk</command>, opprette mansiden til den som en
-    symlenke også:</para>
+    symlenke ogsÃ¥</para>
 
 <screen><userinput remap="install">ln -sv gawk.1 /usr/share/man/man1/awk.1</userinput></screen>
 
-    <para>Hvis ønskelig, installer dokumentasjonen:</para>
+    <para>Hvis Ã¸nskelig, installer dokumentasjonen:</para>
 
 <screen><userinput remap="install">mkdir -pv                                   /usr/share/doc/gawk-&gawk-version;
 cp    -v doc/{awkforai.txt,*.{eps,pdf,jpg}} /usr/share/doc/gawk-&gawk-version;</userinput></screen>
@@ -125,7 +125,7 @@ cp    -v doc/{awkforai.txt,*.{eps,pdf,jpg}} /usr/share/doc/gawk-&gawk-version;</
       <varlistentry id="gawk">
         <term><command>gawk</command></term>
         <listitem>
-          <para>Et program for å manipulere tekstfiler; det er GNU
+          <para>Et program for Ã¥ manipulere tekstfiler; det er GNU
           implementeringen av <command>awk</command></para>
           <indexterm zone="ch-system-gawk gawk">
             <primary sortas="b-gawk">gawk</primary>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -10,13 +10,13 @@
 
   <title>Struktur</title>
 
-  <para>Denne boken er delt inn i følgende deler.</para>
+  <para>Denne boken er delt inn i fÃ¸lgende deler.</para>
 
   <sect2>
     <title>Del I - Introduksjon</title>
 
-    <para>Del I forklarer noen viktige merknader om hvordan du går frem med
-    LFS installasjon. Denne delen gir også metainformasjon om
+    <para>Del I forklarer noen viktige merknader om hvordan du gÃ¥r frem med
+    LFS installasjon. Denne delen gir ogsÃ¥ metainformasjon om
     boken.</para>
   </sect2>
 
@@ -25,24 +25,24 @@
 
     <para>Del II beskriver hvordan du forbereder byggeprosessen&mdash;lage
     en partisjon, nedlasting av pakkene og kompilering av midlertidige
-    verktøy.</para>
+    verktÃ¸y.</para>
   </sect2>
 
   <sect2>
-    <title>Del III - Bygging av LFS kryssverktøykjede og midlertidige verktøy</title>
+    <title>Del III - Bygging av LFS kryssverktÃ¸ykjede og midlertidige verktÃ¸y</title>
 
-    <para>Del III gir instruksjoner for å bygge verktøyene
-    nødvendig for å konstruere det endelige LFS systemet.</para>
+    <para>Del III gir instruksjoner for Ã¥ bygge verktÃ¸yene
+    nÃ¸dvendig for Ã¥ konstruere det endelige LFS systemet.</para>
   </sect2>
 
   <sect2>
     <title>Del IV - Bygge LFS systemet</title>
 
     <para>Del IV guider leseren gjennom byggingen av LFS
-    systemet&mdash;kompilere og installere alle pakkene én etter én,
+    systemet&mdash;kompilere og installere alle pakkene en etter en,
     sette opp oppstartsskriptene og installere kjernen. Det resulterende
-    Linux-systemet er grunnlaget som annen programvare kan bygges på,
-    utvide systemet etter ønske. På slutten av denne boken er det en
+    Linux-systemet er grunnlaget som annen programvare kan bygges pÃ¥,
+    utvide systemet etter Ã¸nske. PÃ¥ slutten av denne boken er det en
     enkel referanse som viser alle programmene, bibliotekene og
     viktige filer som er installert.</para>
   </sect2>
