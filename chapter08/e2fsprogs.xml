@@ -282,7 +282,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
       <varlistentry id="e2label">
         <term><command>e2label</command></term>
         <listitem>
-          <para>Viser eller endrer filsystemetiketten p�å et <systemitem
+          <para>Viser eller endrer filsystemetiketten på et <systemitem
           class="filesystem">ext{234}</systemitem> filsystem tilstede på en gitt
           enhet</para>
           <indexterm zone="ch-system-e2fsprogs e2label">
