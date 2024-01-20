@@ -41,7 +41,7 @@
   <sect2 role="installation">
     <title>Installasjon av Perl</title>
 <!--
-    <para>Først bruker du en oppdatering som fikser et problem fremhevet av nylige
+    <para>FÃ¸rst bruker du en oppdatering som fikser et problem fremhevet av nylige
     versjoner av gdbm:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&perl-fix-patch;</userinput></screen>

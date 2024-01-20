@@ -61,7 +61,7 @@
 
   <para>Merk at <command>bash</command> ledeteksten vil si
   <computeroutput>I have no name!</computeroutput> Dette er normalt fordi
-  <filename>/etc/passwd</filename> filen ikke er opprettet ennåpara>
+  <filename>/etc/passwd</filename> filen ikke er opprettet ennå</para>
 
   <note>
     <para>Det er viktig at alle kommandoene gjennom resten av dette

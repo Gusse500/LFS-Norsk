@@ -36,7 +36,7 @@ EOF</userinput></screen>
   skall, som ikke leser, og utfører, innholdet i <filename>/etc/profile</filename> eller
   <filename>.bash_profile</filename> filer, men heller leser og kjører
   <filename>.bashrc</filename> filen istedet. Opprett
-  <filename>.bashrc</filename> filen nåpara>
+  <filename>.bashrc</filename> filen nå</para>
 
 <screen><userinput>cat &gt; ~/.bashrc &lt;&lt; "EOF"
 <literal>set +h

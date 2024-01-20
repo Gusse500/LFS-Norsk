@@ -78,7 +78,7 @@ make install</userinput></screen>
 
     <para>Installasjonsprosessen har allerede opprettet <command>awk</command>
     som en symlenke til <command>gawk</command>, opprette mansiden til den som en
-    symlenke ogsåpara>
+    symlenke også</para>
 
 <screen><userinput remap="install">ln -sv gawk.1 /usr/share/man/man1/awk.1</userinput></screen>
 

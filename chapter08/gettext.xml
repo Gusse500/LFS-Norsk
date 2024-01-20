@@ -273,7 +273,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
         <listitem>
           <para>Oppretter en ny <filename class="extension">.po</filename> fil,
           initialisere metainformasjonen med verdier fra brukerens
-          miljø<para>
+          miljø</para>
           <indexterm zone="ch-system-gettext msginit">
             <primary sortas="b-msginit">msginit</primary>
           </indexterm>
