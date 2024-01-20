@@ -59,7 +59,7 @@
       <varlistentry>
         <term><parameter>--disable-logger</parameter></term>
         <listitem>
-          <para>Dette alternativet forhindrer Inetutils fra å installere
+          <para>Dette alternativet forhindrer Inetutils fra Ã¥ installere
           <command>logger</command> programmet, som brukes av skript til
           sende meldinger til Systemlogg nissen (System Log Daemon). Ikke installer det fordi
           Util-linux installerer en nyere versjon.</para>
@@ -79,7 +79,7 @@
         <term><parameter>--disable-r*</parameter></term>
         <listitem>
           <para>Disse parameterne deaktiverer bygging av foreldede programmer som ikke burde
-          brukes på grunn av sikkerhetsproblemer. Funksjonene som tilbys av disse
+          brukes pÃ¥ grunn av sikkerhetsproblemer. Funksjonene som tilbys av disse
           programmer kan leveres av <application>openssh</application>
           pakken i BLFS boken.</para>
         </listitem>
@@ -91,7 +91,7 @@
           <para>Dette deaktiverer installasjonen av de forskjellige nettverksserverne
           inkludert som en del av Inetutils pakken. Disse serverne anses ikke som
           hensiktsmessig i et grunnleggende LFS system. Noen er usikre av natur og er
-          ansett som trygt kun på pålitelige nettverk. Merk at
+          ansett som trygt kun pÃ¥ pÃ¥litelige nettverk. Merk at
           bedre erstatninger er tilgjengelige for mange av disse serverne.</para>
         </listitem>
       </varlistentry>
@@ -102,14 +102,14 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>For å teste resultatene, utsted:</para>
+    <para>For Ã¥ teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 <!--
     <note><para>En test, libls.sh, kan mislykkes i det innledende chroot
-     miljøet, men vil bestå hvis testen kjøres på nytt etter at LFS systemet
+     miljÃ¸et, men vil bestÃ¥ hvis testen kjÃ¸res pÃ¥ nytt etter at LFS systemet
      er ferdig. En test, ping-localhost.sh, vil mislykkes hvis
-     vertssystemet ikke har ipv6 støtte.</para></note>
+     vertssystemet ikke har ipv6 stÃ¸tte.</para></note>
 -->
     <para>Installer pakken:</para>
 
@@ -151,7 +151,7 @@
       <varlistentry id="ftp">
         <term><command>ftp</command></term>
         <listitem>
-        <para>Er protokollprogrammet for filoverføringer</para>
+        <para>Er protokollprogrammet for filoverfÃ¸ringer</para>
         <indexterm zone="ch-system-inetutils ftp">
           <primary sortas="b-ftp">ftp</primary>
         </indexterm>
@@ -161,7 +161,7 @@
       <varlistentry id="hostname">
         <term><command>hostname</command></term>
         <listitem>
-          <para>Rapporterer eller angir navnet på verten</para>
+          <para>Rapporterer eller angir navnet pÃ¥ verten</para>
           <indexterm zone="ch-system-inetutils hostname">
             <primary sortas="b-hostname">hostname</primary>
           </indexterm>
@@ -181,7 +181,7 @@
       <varlistentry id="ping">
         <term><command>ping</command></term>
         <listitem>
-          <para>Sender ekkoforespørselspakker og rapporterer hvor lang tid svarene
+          <para>Sender ekkoforespÃ¸rselspakker og rapporterer hvor lang tid svarene
           tar</para>
           <indexterm zone="ch-system-inetutils ping">
             <primary sortas="b-ping">ping</primary>
@@ -202,7 +202,7 @@
       <varlistentry id="talk">
         <term><command>talk</command></term>
         <listitem>
-          <para>Brukes til å snakke med en annen bruker</para>
+          <para>Brukes til Ã¥ snakke med en annen bruker</para>
           <indexterm zone="ch-system-inetutils talk">
             <primary sortas="b-talk">talk</primary>
           </indexterm>
@@ -222,7 +222,7 @@
       <varlistentry id="tftp">
         <term><command>tftp</command></term>
         <listitem>
-          <para>Et trivielt filoverføringsprogram</para>
+          <para>Et trivielt filoverfÃ¸ringsprogram</para>
           <indexterm zone="ch-system-inetutils tftp">
             <primary sortas="b-tftp">tftp</primary>
           </indexterm>
@@ -233,7 +233,7 @@
         <term><command>traceroute</command></term>
         <listitem>
           <para>Sporer ruten pakkene dine tar fra verten du
-          jobber på videre til en annen vert på et nettverk, og viser alle mellomliggende
+          jobber pÃ¥ videre til en annen vert pÃ¥ et nettverk, og viser alle mellomliggende
           hopp (porter) underveis</para>
           <indexterm zone="ch-system-inetutils traceroute">
             <primary sortas="b-traceroute">traceroute</primary>

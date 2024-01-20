@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Bc pakken inneholder et vilkårlig behandlingsspråk for numerisk
+    <para>Bc pakken inneholder et vilkÃ¥rlig behandlingssprÃ¥k for numerisk
     presisjon.</para>
 
     <segmentedlist>
@@ -59,7 +59,7 @@
         <term><parameter>-G</parameter></term>
         <listitem>
           <para>Utelat deler av testpakken som ikke vil fungere
-          før bc programmet er installert.</para>
+          fÃ¸r bc programmet er installert.</para>
         </listitem>
       </varlistentry>
 
@@ -73,7 +73,7 @@
       <varlistentry>
         <term><parameter>-r</parameter></term>
         <listitem>
-          <para>Aktiver bruk av <application>Readline</application> for å
+          <para>Aktiver bruk av <application>Readline</application> for Ã¥
           forbedre linjeredigeringsfunksjonen til bc.</para>
         </listitem>
       </varlistentry>
@@ -83,7 +83,7 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>For å teste bc, kjør</para>
+    <para>For Ã¥ teste bc, kjÃ¸r</para>
 
 <screen><userinput remap="test">make test</userinput></screen>
 

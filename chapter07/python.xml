@@ -45,9 +45,9 @@
 
     <note>
       <para>Det er to pakkefiler som navnet begynner med
-      <quote>python</quote>. Den å pakke ut er
+      <quote>python</quote>. Den Ã¥ pakke ut er
       <filename>Python-&python-version;.tar.xz</filename> (legg merke til
-      stor bokstav først).</para>
+      stor bokstav fÃ¸rst).</para>
     </note>
 
     <para>Forbered Python for kompilering:</para>
@@ -70,7 +70,7 @@
         <term><parameter>--without-ensurepip</parameter></term>
         <listitem>
           <para>Denne bryteren deaktiverer Python pakkeinstallasjonsprogrammet, som ikke er
-          nødvendig på dette stadiet.</para>
+          nÃ¸dvendig pÃ¥ dette stadiet.</para>
         </listitem>
       </varlistentry>
 
@@ -82,13 +82,13 @@
 
     <note>
       <para>
-        Noen Python 3 moduler kan ikke bygges nå på grunn av at avhengighetene
-        ikke er installert ennå. Byggesystemet prøver imidlertid å bygge
-        dem, så kompileringen av noen filer vil mislykkes og
-        kompilatormeldingen kan synes å indikere <quote>fatal error</quote>.
-        Meldingen bør ignoreres. Bare sørg for toppnivåets
+        Noen Python 3 moduler kan ikke bygges nÃ¥ pÃ¥ grunn av at avhengighetene
+        ikke er installert ennÃ¥. Byggesystemet prÃ¸ver imidlertid Ã¥ bygge
+        dem, sÃ¥ kompileringen av noen filer vil mislykkes og
+        kompilatormeldingen kan synes Ã¥ indikere <quote>fatal error</quote>.
+        Meldingen bÃ¸r ignoreres. Bare sÃ¸rg for toppnivÃ¥ets
         <command>make</command> kommando ikke har feilet. De valgfrie
-        modulene er ikke nødvendig nå, og de vil bli bygget i
+        modulene er ikke nÃ¸dvendig nÃ¥, og de vil bli bygget i
         <xref linkend="chapter-building-system"/>.
       </para>
     </note>

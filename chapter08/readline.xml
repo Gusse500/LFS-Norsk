@@ -24,7 +24,7 @@
     <title/>
 
     <para>Readline pakken er et sett med biblioteker som tilbyr
-    redigerings- og historikkfunksjoner på kommandolinjen.</para>
+    redigerings- og historikkfunksjoner pÃ¥ kommandolinjen.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -41,15 +41,15 @@
   <sect2 role="installation">
     <title>Installasjon av Readline</title>
 
-    <para>Å installere Readline på nytt vil føre til at de gamle bibliotekene flyttes til
+    <para>Ã… installere Readline pÃ¥ nytt vil fÃ¸re til at de gamle bibliotekene flyttes til
     &lt;libraryname&gt;.old. Selv om dette normalt ikke er et problem, i noen tilfeller
-    kan det utløse en koblingsfeil i <command>ldconfig</command>. Dette kan
-    unngås ved å utstede følgende to seds:</para>
+    kan det utlÃ¸se en koblingsfeil i <command>ldconfig</command>. Dette kan
+    unngÃ¥s ved Ã¥ utstede fÃ¸lgende to seds:</para>
 
 <screen><userinput remap="pre">sed -i '/MV.*old/d' Makefile.in
 sed -i '/{OLDSUFF}/c:' support/shlib-install</userinput></screen>
 
-    <para>Løs nå et problem identifisert oppstrøms:</para>
+    <para>LÃ¸s nÃ¥ et problem identifisert oppstrÃ¸ms:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&readline-fixes-patch;</userinput></screen>
 
@@ -68,7 +68,7 @@ sed -i '/{OLDSUFF}/c:' support/shlib-install</userinput></screen>
         <listitem>
           <para>Dette alternativet forteller Readline at det kan finne termcap
           bibliotekfunksjoner i curses biblioteket, i stedet for et separat
-          termcap bibliotek. Det gjør det mulig å generere en korrekt
+          termcap bibliotek. Det gjÃ¸r det mulig Ã¥ generere en korrekt
           <filename>readline.pc</filename> fil.</para>
         </listitem>
       </varlistentry>
@@ -85,7 +85,7 @@ sed -i '/{OLDSUFF}/c:' support/shlib-install</userinput></screen>
       <varlistentry>
         <term><parameter>SHLIB_LIBS="-lncursesw"</parameter></term>
         <listitem>
-          <para>Dette alternativet tvinger Readline til å lenke mot
+          <para>Dette alternativet tvinger Readline til Ã¥ lenke mot
           <filename class="libraryfile">libncursesw</filename> biblioteket.</para>
         </listitem>
       </varlistentry>
@@ -98,7 +98,7 @@ sed -i '/{OLDSUFF}/c:' support/shlib-install</userinput></screen>
 
 <screen><userinput remap="install">make SHLIB_LIBS="-lncursesw" install</userinput></screen>
 
-    <para>Hvis ønskelig, installer dokumentasjonen:</para>
+    <para>Hvis Ã¸nskelig, installer dokumentasjonen:</para>
 
 <screen><userinput remap="install">install -v -m644 doc/*.{ps,pdf,html,dvi} /usr/share/doc/readline-&readline-version;</userinput></screen>
 
@@ -137,8 +137,8 @@ sed -i '/{OLDSUFF}/c:' support/shlib-install</userinput></screen>
       <varlistentry id="libreadline">
         <term><filename class="libraryfile">libreadline</filename></term>
         <listitem>
-          <para>Gir et sett med kommandoer for å manipulere tekst som er skrevet i en
-          interaktiv økt av et program</para>
+          <para>Gir et sett med kommandoer for Ã¥ manipulere tekst som er skrevet i en
+          interaktiv Ã¸kt av et program</para>
           <indexterm zone="ch-system-readline libreadline">
             <primary sortas="c-libreadline">libreadline</primary>
           </indexterm>

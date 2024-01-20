@@ -9,7 +9,7 @@
   <?dbhtml dir="partintro"?>
   <?dbhtml filename="partintro.html"?>
 
-  <title>Viktig foreløpig materiale</title>
+  <title>Viktig forelÃ¸pig materiale</title>
 
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="introduction.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="toolchaintechnotes.xml"/>

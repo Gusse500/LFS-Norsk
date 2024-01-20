@@ -8,30 +8,30 @@
 <sect1 id="ch-tools-toolchaintechnotes" xreflabel="Verktøykjedens tekniske merknader">
   <?dbhtml filename="toolchaintechnotes.html"?>
 
-  <title>Verktøykjedens tekniske merknader</title>
+  <title>VerktÃ¸ykjedens tekniske merknader</title>
 
   <para>Denne delen forklarer noen av begrunnelsen og de tekniske detaljene
-  bak den overordnede byggemetoden. Det er ikke nødvendig å umiddelbart
-  forstå alt i denne delen. Det meste av denne informasjonen vil være
-  klarere etter å ha utført en faktisk konstruksjon. Denne delen kan refereres
-  til når som helst under prosessen.</para>
+  bak den overordnede byggemetoden. Det er ikke nÃ¸dvendig Ã¥ umiddelbart
+  forstÃ¥ alt i denne delen. Det meste av denne informasjonen vil vÃ¦re
+  klarere etter Ã¥ ha utfÃ¸rt en faktisk konstruksjon. Denne delen kan refereres
+  til nÃ¥r som helst under prosessen.</para>
 
-  <para>Det overordnede målet for <xref linkend="chapter-cross-tools"/> og <xref
-  linkend="chapter-temporary-tools"/> er å produsere et midlertidig område som
-  inneholder et kjent sett med verktøy som kan isoleres fra vertssystemet.
+  <para>Det overordnede mÃ¥let for <xref linkend="chapter-cross-tools"/> og <xref
+  linkend="chapter-temporary-tools"/> er Ã¥ produsere et midlertidig omrÃ¥de som
+  inneholder et kjent sett med verktÃ¸y som kan isoleres fra vertssystemet.
   Ved bruk av <command>chroot</command> kommandoene, kompilasjonene i de resterende kapitlene
-  vil være isolert inne i det miljøet, og sikre en ren, problemfri
-  bygging av det nye LFS systemet. Byggeprosessen er designet for å
+  vil vÃ¦re isolert inne i det miljÃ¸et, og sikre en ren, problemfri
+  bygging av det nye LFS systemet. Byggeprosessen er designet for Ã¥
   minimere risikoen for nye lesere og gi den mest pedagogiske verdien
   samtidig.</para>
 
-  <para>Byggeprosessen baserer seg på
+  <para>Byggeprosessen baserer seg pÃ¥
   <emphasis>krysskompilering</emphasis>. Krysskompilering brukes normalt
-  for å bygge en kompilator og dens verktøykjede for en annen maskin enn
-  den som brukes til byggingen. Dette er strengt tatt ikke nødvendig for LFS,
-  siden maskinen der det nye systemet skal kjøre er den samme som den
+  for Ã¥ bygge en kompilator og dens verktÃ¸ykjede for en annen maskin enn
+  den som brukes til byggingen. Dette er strengt tatt ikke nÃ¸dvendig for LFS,
+  siden maskinen der det nye systemet skal kjÃ¸re er den samme som den
   brukt til byggingen. Men krysskompilering har den store fordelen at
-  alt som er krysskompilert ikke avhenger av vertsmiljøet.</para>
+  alt som er krysskompilert ikke avhenger av vertsmiljÃ¸et.</para>
 
   <sect2 id="cross-compile" xreflabel="About Cross-Compilation">
 
@@ -40,44 +40,44 @@
     <note>
       <para>
         LFS boken er ikke, og inneholder ikke en generell veiledning til
-        å bygge en kryss (eller lokal) verktøykjede. Ikke bruk kommandoen i
-        boken for en kryssverktøykjede som skal brukes til andre formål
-        enn å bygge LFS, med mindre du virkelig forstår hva du gjør.
+        Ã¥ bygge en kryss (eller lokal) verktÃ¸ykjede. Ikke bruk kommandoen i
+        boken for en kryssverktÃ¸ykjede som skal brukes til andre formÃ¥l
+        enn Ã¥ bygge LFS, med mindre du virkelig forstÃ¥r hva du gjÃ¸r.
       </para>
     </note>
 
     <para>Krysskompilering involverer noen begreper som fortjener en seksjon for
-    seg selv. Selv om denne delen kan utelates i en første lesning,
-    å komme tilbake til det senere vil være gunstig for din fulle forståelse av
+    seg selv. Selv om denne delen kan utelates i en fÃ¸rste lesning,
+    Ã¥ komme tilbake til det senere vil vÃ¦re gunstig for din fulle forstÃ¥else av
     prosessen.</para>
 
-    <para>La oss først definere noen begreper som brukes i denne sammenhengen.</para>
+    <para>La oss fÃ¸rst definere noen begreper som brukes i denne sammenhengen.</para>
 
     <variablelist>
       <varlistentry><term>bygg</term><listitem>
         <para>er maskinen der vi bygger programmer. Merk at denne maskinen
-        er også referert til som <quote>verten</quote>.</para></listitem>
+        er ogsÃ¥ referert til som <quote>verten</quote>.</para></listitem>
       </varlistentry>
 
       <varlistentry><term>vert</term><listitem>
-        <para>er maskinen/systemet der de bygde programmene skal kjøres. Merk
+        <para>er maskinen/systemet der de bygde programmene skal kjÃ¸res. Merk
         at denne bruken av <quote>verten</quote> ikke er den samme som i andre
         seksjoner.</para></listitem>
       </varlistentry>
 
-      <varlistentry><term>mål</term><listitem>
+      <varlistentry><term>mÃ¥l</term><listitem>
         <para>brukes kun for kompilatorer. Det er maskinen kompilatoren
-        produserer kode for. Det kan være forskjellig fra både bygg og
+        produserer kode for. Det kan vÃ¦re forskjellig fra bÃ¥de bygg og
         vertent.</para></listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Som et eksempel, la oss forestille oss følgende scenario (noen ganger
+    <para>Som et eksempel, la oss forestille oss fÃ¸lgende scenario (noen ganger
     referert til som <quote>Canadian Cross</quote>). vi har en
-    kompilator bare på en treg maskin, la oss kalle det maskin A, og kompilatoren
-    ccA. Vi kan også ha en rask maskin (B), men uten kompilator, og vi
-    ønsker å produsere kode for en annen treg maskin (C). Å bygge en
+    kompilator bare pÃ¥ en treg maskin, la oss kalle det maskin A, og kompilatoren
+    ccA. Vi kan ogsÃ¥ ha en rask maskin (B), men uten kompilator, og vi
+    Ã¸nsker Ã¥ produsere kode for en annen treg maskin (C). Ã… bygge en
     kompilator for maskin C, ville vi ha tre trinn:</para>
 
     <informaltable align="center">
@@ -89,29 +89,29 @@
         <colspec colnum="5" align="left"/>
         <thead>
           <row><entry>Stadie</entry><entry>Bygg</entry><entry>Vert</entry>
-               <entry>Mål</entry><entry>Handling</entry></row>
+               <entry>MÃ¥l</entry><entry>Handling</entry></row>
         </thead>
         <tbody>
           <row>
             <entry>1</entry><entry>A</entry><entry>A</entry><entry>B</entry>
-            <entry>bygg krysskompilator cc1 med ccA på maskin A</entry>
+            <entry>bygg krysskompilator cc1 med ccA pÃ¥ maskin A</entry>
           </row>
           <row>
             <entry>2</entry><entry>A</entry><entry>B</entry><entry>C</entry>
-            <entry>bygg krysskompilator cc2 med cc1 på maskin A</entry>
+            <entry>bygg krysskompilator cc2 med cc1 pÃ¥ maskin A</entry>
           </row>
           <row>
             <entry>3</entry><entry>B</entry><entry>C</entry><entry>C</entry>
-            <entry>bygg kompilator ccC med cc2 på maskin B</entry>
+            <entry>bygg kompilator ccC med cc2 pÃ¥ maskin B</entry>
           </row>
         </tbody>
       </tgroup>
     </informaltable>
 
     <para>Deretter kan alle de andre programmene som trengs av maskin C kompileres
-    ved å bruke cc2 på den raske maskinen B. Merk at med mindre B kan kjøre programmer
-    produsert for C, er det ingen måte å teste de bygde programmene før maskinen
-    C selv kjører. For eksempel, for å teste ccC, vil vi kanskje legge til en
+    ved Ã¥ bruke cc2 pÃ¥ den raske maskinen B. Merk at med mindre B kan kjÃ¸re programmer
+    produsert for C, er det ingen mÃ¥te Ã¥ teste de bygde programmene fÃ¸r maskinen
+    C selv kjÃ¸rer. For eksempel, for Ã¥ teste ccC, vil vi kanskje legge til en
     fjerde trinn:</para>
 
     <informaltable align="center">
@@ -123,21 +123,21 @@
         <colspec colnum="5" align="left"/>
         <thead>
           <row><entry>Stadie</entry><entry>Bygg</entry><entry>Vert</entry>
-               <entry>Mål</entry><entry>Handling</entry></row>
+               <entry>MÃ¥l</entry><entry>Handling</entry></row>
         </thead>
         <tbody>
           <row>
             <entry>4</entry><entry>C</entry><entry>C</entry><entry>C</entry>
-            <entry>bygge om og teste ccC ved å bruke seg selv på maskin C</entry>
+            <entry>bygge om og teste ccC ved Ã¥ bruke seg selv pÃ¥ maskin C</entry>
           </row>
         </tbody>
       </tgroup>
     </informaltable>
 
     <para>I eksemplet ovenfor er bare cc1 og cc2 krysskompilatorer, det vil si
-    de produserer kode for en annen maskin enn de de kjører på.
-    De andre kompilatorene ccA og ccC produserer kode for maskinen de kjører
-    på. Slike kompilatorer kalles <emphasis>lokale</emphasis> kompilatorer.</para>
+    de produserer kode for en annen maskin enn de de kjÃ¸rer pÃ¥.
+    De andre kompilatorene ccA og ccC produserer kode for maskinen de kjÃ¸rer
+    pÃ¥. Slike kompilatorer kalles <emphasis>lokale</emphasis> kompilatorer.</para>
 
   </sect2>
 
@@ -148,62 +148,62 @@
       <para>Alle de krysskompilerte pakkene i denne boken bruker en
       autoconf basert byggesystem. Det autoconf baserte byggesystemet
       godtar systemtyper i formen cpu-vendor-kernel-os,
-      referert til som systemtripletten. Siden leverandørfeltet ofte er
+      referert til som systemtripletten. Siden leverandÃ¸rfeltet ofte er
       irrelevant, autoconf lar deg utelate det.</para>
       
-      <para>En klok leser kan lure på
+      <para>En klok leser kan lure pÃ¥
       hvorfor en <quote>triplett</quote> refererer til et firekomponents navn.
       Kjernefeltet og os-feltet begynte som et enkelt
       <quote>system</quote> felt.  Et slikt trefeltsskjema er fortsatt gyldig
       i dag for noen systemer, for eksempel,
       <literal>x86_64-unknown-freebsd</literal>.  Men
-      to systemer kan dele samme kjerne og fortsatt være for forskjellige for å
-      bruke den samme tripletten for å beskrive dem. For eksempel Android kjørende på en
-      mobiltelefon er helt forskjellig fra Ubuntu som kjører på en ARM64
-      server, selv om de begge kjører på samme type CPU (ARM64) og
+      to systemer kan dele samme kjerne og fortsatt vÃ¦re for forskjellige for Ã¥
+      bruke den samme tripletten for Ã¥ beskrive dem. For eksempel Android kjÃ¸rende pÃ¥ en
+      mobiltelefon er helt forskjellig fra Ubuntu som kjÃ¸rer pÃ¥ en ARM64
+      server, selv om de begge kjÃ¸rer pÃ¥ samme type CPU (ARM64) og
       bruker samme kjerne (Linux).</para>
       
-      <para>Uten et emuleringslag kan du ikke kjøre en
-      kjørbar fil for en server på en mobiltelefon eller omvendt. Så
+      <para>Uten et emuleringslag kan du ikke kjÃ¸re en
+      kjÃ¸rbar fil for en server pÃ¥ en mobiltelefon eller omvendt. SÃ¥
       <quote>system</quote> feltet har blitt delt inn i kjerne- og os-felt, for
-      å angi disse systemene entydig. I vårt eksempel, Android
+      Ã¥ angi disse systemene entydig. I vÃ¥rt eksempel, Android
       systemet er angitt <literal>aarch64-unknown-linux-android</literal>,
       og Ubuntu systemet er angitt
       <literal>aarch64-unknown-linux-gnu</literal>.</para>
       
-      <para>Ordet <quote>triplett</quote> forblir innebygd i leksikonet. En enkel måte å bestemme din
-      systemtriplett er å kjøre <command>config.guess</command>
-      skript som følger med kilden for mange pakker. Pakk ut binutils sine
-      kilder, kjør skriptet <userinput>./config.guess</userinput>, og merk
+      <para>Ordet <quote>triplett</quote> forblir innebygd i leksikonet. En enkel mÃ¥te Ã¥ bestemme din
+      systemtriplett er Ã¥ kjÃ¸re <command>config.guess</command>
+      skript som fÃ¸lger med kilden for mange pakker. Pakk ut binutils sine
+      kilder, kjÃ¸r skriptet <userinput>./config.guess</userinput>, og merk
       utdaten. For eksempel, for en 32-bits Intel-prosessor
-      utdataen vil være <emphasis>i686-pc-linux-gnu</emphasis>. På et 64-bit
-      system blir det <emphasis>x86_64-pc-linux-gnu</emphasis>. På de fleste
+      utdataen vil vÃ¦re <emphasis>i686-pc-linux-gnu</emphasis>. PÃ¥ et 64-bit
+      system blir det <emphasis>x86_64-pc-linux-gnu</emphasis>. PÃ¥ de fleste
       Linux systemer den enklere <command>gcc -dumpmachine</command> kommando
       vil gi deg lignende informasjon.</para>
 
-      <para>Vær også oppmerksom på navnet på plattformens dynamiske lenker, ofte
-      referert til som den dynamiske lasteren (ikke å forveksle med standard
+      <para>VÃ¦r ogsÃ¥ oppmerksom pÃ¥ navnet pÃ¥ plattformens dynamiske lenker, ofte
+      referert til som den dynamiske lasteren (ikke Ã¥ forveksle med standard
       lenker <command>ld</command> som er en del av binutils). Den dynamiske lenkeren
       levert av Glibc finner og laster de delte bibliotekene som trengs av et
-      program, forbereder programmet for kjøring, og deretter kjører det. Navnet på
+      program, forbereder programmet for kjÃ¸ring, og deretter kjÃ¸rer det. Navnet pÃ¥
       dynamisk lenker for en 32-bits Intel-maskin er <filename
       class="libraryfile">ld-linux.so.2</filename>; og er <filename
       class="libraryfile">ld-linux-x86-64.so.2</filename> for 64-bits systemer. En
-      sikker måte å bestemme navnet på den dynamiske lenkeren på er å inspisere en
-      tilfeldig binær fra vertssystemet ved å kjøre: <userinput>readelf -l
-      &lt;navn på binær&gt; | grep interpreter</userinput> og legg merke til
+      sikker mÃ¥te Ã¥ bestemme navnet pÃ¥ den dynamiske lenkeren pÃ¥ er Ã¥ inspisere en
+      tilfeldig binÃ¦r fra vertssystemet ved Ã¥ kjÃ¸re: <userinput>readelf -l
+      &lt;navn pÃ¥ binÃ¦r&gt; | grep interpreter</userinput> og legg merke til
       utdataen. Den autoritative referansen som dekker alle plattformer er i
       <filename>shlib-versions</filename> filen i roten til Glibc
       kildetreet.</para>
     </note>
 
-    <para>For å forfalske en krysskompilering i LFS, navnet på vertstripletten
-    justeres litt ved å endre &quot;vendor&quot; feltet i
-    <envar>LFS_TGT</envar> variabel så det står &quot;lfs&quot;. Vi bruker også
-    <parameter>--with-sysroot</parameter> alternativet når du bygger krysslenkeren og
-    krysskompilatoren for å fortelle dem hvor de skal finne de nødvendige vertsfilene. Dette
+    <para>For Ã¥ forfalske en krysskompilering i LFS, navnet pÃ¥ vertstripletten
+    justeres litt ved Ã¥ endre &quot;vendor&quot; feltet i
+    <envar>LFS_TGT</envar> variabel sÃ¥ det stÃ¥r &quot;lfs&quot;. Vi bruker ogsÃ¥
+    <parameter>--with-sysroot</parameter> alternativet nÃ¥r du bygger krysslenkeren og
+    krysskompilatoren for Ã¥ fortelle dem hvor de skal finne de nÃ¸dvendige vertsfilene. Dette
     sikrer at ingen av de andre programmene bygget i <xref
-    linkend="chapter-temporary-tools"/> kan lenke til biblioteker på
+    linkend="chapter-temporary-tools"/> kan lenke til biblioteker pÃ¥
     byggemaskinen. Kun to trinn er obligatoriske, og ett til for tester:</para>
 
     <informaltable align="center">
@@ -215,87 +215,87 @@
         <colspec colnum="5" align="left"/>
         <thead>
           <row><entry>Stadie</entry><entry>Bygg</entry><entry>Vert</entry>
-               <entry>Mål</entry><entry>Handling</entry></row>
+               <entry>MÃ¥l</entry><entry>Handling</entry></row>
         </thead>
         <tbody>
           <row>
             <entry>1</entry><entry>pc</entry><entry>pc</entry><entry>lfs</entry>
-            <entry>Bygg krysskompilator cc1 ved å bruke cc-pc på pc</entry>
+            <entry>Bygg krysskompilator cc1 ved Ã¥ bruke cc-pc pÃ¥ pc</entry>
           </row>
           <row>
             <entry>2</entry><entry>pc</entry><entry>lfs</entry><entry>lfs</entry>
-            <entry>Bygg kompilator cc-lfs ved å bruke cc1 på pc</entry>
+            <entry>Bygg kompilator cc-lfs ved Ã¥ bruke cc1 pÃ¥ pc</entry>
           </row>
           <row>
             <entry>3</entry><entry>lfs</entry><entry>lfs</entry><entry>lfs</entry>
-            <entry>Bygge om og teste cc-lfs ved å bruke seg selv på lfs</entry>
+            <entry>Bygge om og teste cc-lfs ved Ã¥ bruke seg selv pÃ¥ lfs</entry>
           </row>
         </tbody>
       </tgroup>
     </informaltable>
 
-    <para>I tabellen ovenfor, <quote>på pc</quote> betyr at kommandoene kjøres
-    på en maskin som bruker den allerede installerte distribusjonen. <quote>på
-    lfs</quote> betyr at kommandoene kjøres i et chroot-miljø.</para>
+    <para>I tabellen ovenfor, <quote>pÃ¥ pc</quote> betyr at kommandoene kjÃ¸res
+    pÃ¥ en maskin som bruker den allerede installerte distribusjonen. <quote>pÃ¥
+    lfs</quote> betyr at kommandoene kjÃ¸res i et chroot-miljÃ¸.</para>
 
-    <para>Dette er ennå ikke slutten på historien. C-språket er ikke
-    bare en kompilator; den definerer også et standardbibliotek. I denne boken er det
-    GNU C-biblioteket, kalt glibc, som brukes (det finnes et alternativ, &quot;musl&quot;). Dette biblioteket må
-    kompileres for LFS-maskinen; det vil si å bruke krysskompilatoren cc1.
+    <para>Dette er ennÃ¥ ikke slutten pÃ¥ historien. C-sprÃ¥ket er ikke
+    bare en kompilator; den definerer ogsÃ¥ et standardbibliotek. I denne boken er det
+    GNU C-biblioteket, kalt glibc, som brukes (det finnes et alternativ, &quot;musl&quot;). Dette biblioteket mÃ¥
+    kompileres for LFS-maskinen; det vil si Ã¥ bruke krysskompilatoren cc1.
     Men kompilatoren selv bruker et internt bibliotek som gir komplekse
     subrutiner for funksjoner som ikke er tilgjengelige i assembler-instruksjonssettet. Dette
-    interne biblioteket heter libgcc, og det må være koblet til glibc for at
-    biblioteket skal være fullt funksjonelt. Videre standardbiblioteket for
-    C++ (libstdc++) må også være koblet til glibc. Løsningen på dette
-    kylling og egg problemet er først å bygge en nedgradert cc1-basert libgcc,
-    mangler noen funksjoner som tråder og unntakshåndtering, og da
-    å bygge glibc ved å bruke denne nedgraderte kompilatoren (glibc selv er ikke
-    nedgradert), og også for å bygge libstdc++. Dette siste biblioteket vil mangle noe av
+    interne biblioteket heter libgcc, og det mÃ¥ vÃ¦re koblet til glibc for at
+    biblioteket skal vÃ¦re fullt funksjonelt. Videre standardbiblioteket for
+    C++ (libstdc++) mÃ¥ ogsÃ¥ vÃ¦re koblet til glibc. LÃ¸sningen pÃ¥ dette
+    kylling og egg problemet er fÃ¸rst Ã¥ bygge en nedgradert cc1-basert libgcc,
+    mangler noen funksjoner som trÃ¥der og unntakshÃ¥ndtering, og da
+    Ã¥ bygge glibc ved Ã¥ bruke denne nedgraderte kompilatoren (glibc selv er ikke
+    nedgradert), og ogsÃ¥ for Ã¥ bygge libstdc++. Dette siste biblioteket vil mangle noe av
     funksjonaliteten til libgcc.</para>
 
-    <para>Resultatet av det foregående avsnittet er at cc1 ikke er i stand til å
+    <para>Resultatet av det foregÃ¥ende avsnittet er at cc1 ikke er i stand til Ã¥
     bygge et fullt funksjonell libstdc++ med den nedgraderte libgcc, men cc1
-    er den eneste kompilatoren som er tilgjengelig for å bygge C/C++-bibliotekene
+    er den eneste kompilatoren som er tilgjengelig for Ã¥ bygge C/C++-bibliotekene
     under fase 2. Det er to grunner til at vi ikke umiddelbart bruker
-    kompilator bygget i trinn 2, cc-lfs, for å bygge disse bibliotekene.</para>
+    kompilator bygget i trinn 2, cc-lfs, for Ã¥ bygge disse bibliotekene.</para>
 
     <itemizedlist>
       <listitem>
         <para>
-          Generelt sett kan ikke cc-lfs kjøre på pc (vertssystemet). Selv om
-          triplettene for pc og lfs er kompatible med hverandre, en kjørbar fil
-          for lfs må avhenge av glibc-&glibc-version;; vertsdistroen
+          Generelt sett kan ikke cc-lfs kjÃ¸re pÃ¥ pc (vertssystemet). Selv om
+          triplettene for pc og lfs er kompatible med hverandre, en kjÃ¸rbar fil
+          for lfs mÃ¥ avhenge av glibc-&glibc-version;; vertsdistroen
           kan bruke en annen implementering av libc (for eksempel musl), eller
           en tidligere utgivelse av glibc (for eksempel, glibc-2.13).
         </para>
       </listitem>
       <listitem>
         <para>
-          Selv om cc-lfs kan kjøre på pc, vil det å bruke det på pc skape
-          en risiko for å koble til pc-bibliotekene, siden cc-lfs er en lokal
+          Selv om cc-lfs kan kjÃ¸re pÃ¥ pc, vil det Ã¥ bruke det pÃ¥ pc skape
+          en risiko for Ã¥ koble til pc-bibliotekene, siden cc-lfs er en lokal
           kompilator.
         </para>
       </listitem>
     </itemizedlist>
 
-    <para>Så når vi bygger gcc trinn 2, instruerer vi byggesystemet til
-    å gjenoppbygge libgcc og libstdc++ med cc1, men vi kobler libstdc++ til den nye
-    gjenoppbygde libgcc i stedet for den gamle, nedgraderte konstruksjonen. Dette gjør den ombygde
+    <para>SÃ¥ nÃ¥r vi bygger gcc trinn 2, instruerer vi byggesystemet til
+    Ã¥ gjenoppbygge libgcc og libstdc++ med cc1, men vi kobler libstdc++ til den nye
+    gjenoppbygde libgcc i stedet for den gamle, nedgraderte konstruksjonen. Dette gjÃ¸r den ombygde
     libstdc++ fullt funksjonell.</para>
 
     <para>I &ch-final; (eller <quote>stage 3</quote>), alle pakkene som trengs for
     LFS systemet er bygget. Selv om en pakke allerede er installert i
-    LFS systemet i et tidligere kapittel, bygger vi fortsatt pakken på nytt. Hovedårsaken til
-    å gjenoppbygge disse pakkene er å gjøre dem stabile: hvis vi installerer en LFS pakke på nytt
-    på et fullført LFS system, det reinstallerte innholdet i pakken
-    skal være det samme som innholdet i den samme pakken når den først installeres i
+    LFS systemet i et tidligere kapittel, bygger vi fortsatt pakken pÃ¥ nytt. HovedÃ¥rsaken til
+    Ã¥ gjenoppbygge disse pakkene er Ã¥ gjÃ¸re dem stabile: hvis vi installerer en LFS pakke pÃ¥ nytt
+    pÃ¥ et fullfÃ¸rt LFS system, det reinstallerte innholdet i pakken
+    skal vÃ¦re det samme som innholdet i den samme pakken nÃ¥r den fÃ¸rst installeres i
     &ch-final;.  De midlertidige pakkene installert i &ch-tmp-cross; eller
     &ch-tmp-chroot; kan ikke tilfredsstille dette kravet, fordi noen av dem
     er bygget uten valgfrie avhengigheter, og autoconf kan ikke
-    utføre noen funksjonsinnsjekker &ch-tmp-cross; på grunn av krysskompilering,
-    forårsaker at de midlertidige pakkene mangler valgfrie funksjoner,
+    utfÃ¸re noen funksjonsinnsjekker &ch-tmp-cross; pÃ¥ grunn av krysskompilering,
+    forÃ¥rsaker at de midlertidige pakkene mangler valgfrie funksjoner,
     eller bruker suboptimale koderutiner. I tillegg en mindre grunn til
-    gjenoppbygging av pakkene er å kjøre testpakkene.</para>
+    gjenoppbygging av pakkene er Ã¥ kjÃ¸re testpakkene.</para>
 
   </sect2>
 
@@ -305,100 +305,100 @@
 
     <para>Krysskompilatoren vil bli installert i en separat <filename
     class="directory">$LFS/tools</filename> mappe, siden den ikke vil
-    være en del av det endelige systemet.</para>
+    vÃ¦re en del av det endelige systemet.</para>
 
-    <para>Binutils installeres først fordi <command>configure</command>
-    kjøringer av både GCC og Glibc utfører forskjellige funksjonstester på assembleren
-    og lenker for å bestemme hvilke programvarefunksjoner som skal aktiveres eller deaktiveres. Dette
-    er viktigere enn man kanskje først er klar over. En feilkonfigurert
-    GCC eller Glibc kan resultere i en subtilt ødelagt verktøykjede, hvor virkningen av
-    et slikt brudd ikke vises før mot slutten av konstruksjonen av
+    <para>Binutils installeres fÃ¸rst fordi <command>configure</command>
+    kjÃ¸ringer av bÃ¥de GCC og Glibc utfÃ¸rer forskjellige funksjonstester pÃ¥ assembleren
+    og lenker for Ã¥ bestemme hvilke programvarefunksjoner som skal aktiveres eller deaktiveres. Dette
+    er viktigere enn man kanskje fÃ¸rst er klar over. En feilkonfigurert
+    GCC eller Glibc kan resultere i en subtilt Ã¸delagt verktÃ¸ykjede, hvor virkningen av
+    et slikt brudd ikke vises fÃ¸r mot slutten av konstruksjonen av
     hele distribusjonen. En feil i testserien vil vanligvis fremheve denne feilen
-    før det utføres for mye tilleggsarbeid.</para>
+    fÃ¸r det utfÃ¸res for mye tilleggsarbeid.</para>
 
-    <para>Binutils installerer sin assembler og lenker på to steder,
+    <para>Binutils installerer sin assembler og lenker pÃ¥ to steder,
     <filename class="directory">$LFS/tools/bin</filename> og <filename
-    class="directory">$LFS/tools/$LFS_TGT/bin</filename>. Verktøyene i en
+    class="directory">$LFS/tools/$LFS_TGT/bin</filename>. VerktÃ¸yene i en
     plassering er hardlenket til den andre. En viktig fasett av lenkeren er
-    bibliotekets søkerekkefølge. Detaljert informasjon kan fås fra
-    <command>ld</command> ved å gi den <parameter>--verbose</parameter>
+    bibliotekets sÃ¸kerekkefÃ¸lge. Detaljert informasjon kan fÃ¥s fra
+    <command>ld</command> ved Ã¥ gi den <parameter>--verbose</parameter>
     flagget. For eksempel, <command>$LFS_TGT-ld --verbose | grep SEARCH</command>
-    vil illustrere gjeldende søkestier og rekkefølgen deres. (Merk at dette
-    eksempelet kan kjøres som vist kun mens du er logget på som bruker
+    vil illustrere gjeldende sÃ¸kestier og rekkefÃ¸lgen deres. (Merk at dette
+    eksempelet kan kjÃ¸res som vist kun mens du er logget pÃ¥ som bruker
     <systemitem class="username">lfs</systemitem>. Hvis du kommer tilbake til denne
     siden senere, bytt ut <command>$LFS_TGT-ld</command> med
     <command>ld</command>).</para>
 
-    <para>Den neste pakken som er installert er GCC. Et eksempel på hva som kan bli
-    sett under kjøringen av <command>configure</command> er:</para>
+    <para>Den neste pakken som er installert er GCC. Et eksempel pÃ¥ hva som kan bli
+    sett under kjÃ¸ringen av <command>configure</command> er:</para>
 
 <screen><computeroutput>checking what assembler to use... /mnt/lfs/tools/i686-lfs-linux-gnu/bin/as
 checking what linker to use... /mnt/lfs/tools/i686-lfs-linux-gnu/bin/ld</computeroutput></screen>
 
-    <para>Dette er viktig av grunnene nevnt ovenfor. Det viser også
-    at GCCs konfigureringsskript ikke søker i STI (PATH)
-    mapper for å finne hvilke verktøy det skal bruke. Imidlertid under selve
-    kjøringen av <command>gcc</command> er ikke de samme søkestiene
-    nødvendigvis brukt. For å finne ut hvilke standardlenker <command>gcc</command>
-    vil bruke, kjør: <command>$LFS_TGT-gcc -print-prog-name=ld</command>. (En gang til,
+    <para>Dette er viktig av grunnene nevnt ovenfor. Det viser ogsÃ¥
+    at GCCs konfigureringsskript ikke sÃ¸ker i STI (PATH)
+    mapper for Ã¥ finne hvilke verktÃ¸y det skal bruke. Imidlertid under selve
+    kjÃ¸ringen av <command>gcc</command> er ikke de samme sÃ¸kestiene
+    nÃ¸dvendigvis brukt. For Ã¥ finne ut hvilke standardlenker <command>gcc</command>
+    vil bruke, kjÃ¸r: <command>$LFS_TGT-gcc -print-prog-name=ld</command>. (En gang til,
     fjern <command>$LFS_TGT-</command> prefikset hvis du kommer tilbake til dette
     seinere.)</para>
 
-    <para>Detaljert informasjon kan fås fra <command>gcc</command> med
-    å gi alternativet <parameter>-v</parameter> på kommandolinjen under kompilering
+    <para>Detaljert informasjon kan fÃ¥s fra <command>gcc</command> med
+    Ã¥ gi alternativet <parameter>-v</parameter> pÃ¥ kommandolinjen under kompilering
      av et program. For eksempel, <command>$LFS_TGT-gcc -v
     <replaceable>example.c</replaceable></command> (eller uten <command>
     $LFS_TGT-</command> hvis du kommer tilbake senere) vises
     detaljert informasjon om forprosessoren, kompileringen og sammenstillings
-    stadier, inkludert <command>gcc</command> sine søkestier for inkluderte
-    deklarasjoner og deres rekkefølge.</para>
+    stadier, inkludert <command>gcc</command> sine sÃ¸kestier for inkluderte
+    deklarasjoner og deres rekkefÃ¸lge.</para>
 
     <para>Neste, desinfiserte Linux API deklarasjoner (headers). Disse tillater
-    standard C-bibliotek (Glibc) å bruke funksjoner som Linux
+    standard C-bibliotek (Glibc) Ã¥ bruke funksjoner som Linux
     kjernen vil gi.</para>
 
     <para>Neste kommer glibc. Det viktigste
-    hensynet for å bygge glibc er kompilatoren, binære verktøy og
+    hensynet for Ã¥ bygge glibc er kompilatoren, binÃ¦re verktÃ¸y og
     kjernedeklarasjoner. Kompilatoren er generelt ikke et problem siden glibc vil
     alltid bruke kompilatoren som er relatert til <parameter>--host</parameter>
-    parameteret sendt til konfigureringsskriptet; f.eks. i vårt tilfelle kompilatoren
-    vil være <command>$LFS_TGT-gcc</command>. De binære verktøyene og kjerne
-    deklarasjoner kan være litt mer kompliserte. Derfor tar vi ingen risiko og bruker
-    de tilgjengelige konfigurasjonsbryterne for å fremtvinge de riktige valgene. Etter
-    kjøring av <command>configure</command>, sjekk innholdet i
+    parameteret sendt til konfigureringsskriptet; f.eks. i vÃ¥rt tilfelle kompilatoren
+    vil vÃ¦re <command>$LFS_TGT-gcc</command>. De binÃ¦re verktÃ¸yene og kjerne
+    deklarasjoner kan vÃ¦re litt mer kompliserte. Derfor tar vi ingen risiko og bruker
+    de tilgjengelige konfigurasjonsbryterne for Ã¥ fremtvinge de riktige valgene. Etter
+    kjÃ¸ring av <command>configure</command>, sjekk innholdet i
     <filename>config.make</filename> filen i <filename
     class="directory">build</filename> mappen for alle viktige detaljer.
     Legg merke til bruken av <parameter>CC="$LFS_TGT-gcc"</parameter> (med
-    <envar>$LFS_TGT</envar> utvidet) for å kontrollere hvilke binære verktøy som brukes
+    <envar>$LFS_TGT</envar> utvidet) for Ã¥ kontrollere hvilke binÃ¦re verktÃ¸y som brukes
     og bruken av <parameter>-nostdinc</parameter> og
-    <parameter>-isystem</parameter> flagg for å kontrollere kompilatorens inkluderte
-    søkeveier. Disse elementene fremhever et viktig aspekt ved Glibc
-    pakken&mdash;en er veldig selvforsynt med tanke på byggemaskineriet
-    og er generelt ikke avhengig av standardinnstillinger for verktøykjeder.</para>
+    <parameter>-isystem</parameter> flagg for Ã¥ kontrollere kompilatorens inkluderte
+    sÃ¸keveier. Disse elementene fremhever et viktig aspekt ved Glibc
+    pakken&mdash;en er veldig selvforsynt med tanke pÃ¥ byggemaskineriet
+    og er generelt ikke avhengig av standardinnstillinger for verktÃ¸ykjeder.</para>
 
     <para>Som nevnt ovenfor, blir standard C++-biblioteket kompilert som neste, etterfulgt i
-    <xref linkend="chapter-temporary-tools"/> av andre programmer som må
-    krysskompileres for å bryte sirkulære avhengigheter på byggetidspunktet.
+    <xref linkend="chapter-temporary-tools"/> av andre programmer som mÃ¥
+    krysskompileres for Ã¥ bryte sirkulÃ¦re avhengigheter pÃ¥ byggetidspunktet.
     Installasjonstrinnet for alle disse pakkene bruker
-    <envar>DESTDIR</envar> variabel for å tvinge installasjonen
+    <envar>DESTDIR</envar> variabel for Ã¥ tvinge installasjonen
     inn i LFS filsystemet.</para>
 
     <para>Ved slutten av <xref linkend="chapter-temporary-tools"/> den lokale
-    lfs kompilatoren er installert. Første binutils-pass2 blir bygget,
+    lfs kompilatoren er installert. FÃ¸rste binutils-pass2 blir bygget,
     med den samme <envar>DESTDIR</envar> mappen som de andre programmene,
     deretter konstrueres den andre passeringen av GCC, og utelater libstdc++
-    og andre ikke-viktige biblioteker. På grunn av en merkelig logikk i GCC
+    og andre ikke-viktige biblioteker. PÃ¥ grunn av en merkelig logikk i GCC
     konfigureringsskript, <envar>CC_FOR_TARGET</envar> ender opp som
-    <command>cc</command> når verten er den samme som målet, men er
+    <command>cc</command> nÃ¥r verten er den samme som mÃ¥let, men er
     forskjellig fra byggesystemet. Det er derfor
-    <parameter>CC_FOR_TARGET=$LFS_TGT-gcc</parameter> er erklært eksplisitt
+    <parameter>CC_FOR_TARGET=$LFS_TGT-gcc</parameter> er erklÃ¦rt eksplisitt
     som et av konfigurasjonsalternativene.</para>
 
-    <para>Når du kommer inn i chroot-miljøet i <xref
+    <para>NÃ¥r du kommer inn i chroot-miljÃ¸et i <xref
     linkend="chapter-chroot-temporary-tools"/>,
     de midlertidige installasjonene av programmer som trengs for riktig
-    betjening av verktøykjeden utføres. Fra dette tidspunktet og fremover
-    er kjerneverktøykjeden selvstendig og selvhostet. I
+    betjening av verktÃ¸ykjeden utfÃ¸res. Fra dette tidspunktet og fremover
+    er kjerneverktÃ¸ykjeden selvstendig og selvhostet. I
     <xref linkend="chapter-building-system"/>, endelige versjoner av alle
     pakker som trengs for et fullt funksjonelt system bygges, testes og
     installert.</para>

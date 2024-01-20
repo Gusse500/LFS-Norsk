@@ -58,7 +58,7 @@ make html</userinput></screen>
       Ikke hopp over den under noen omstendigheter.</para>
     </important>
 
-    <para>Test resultatene og sørg for at alle 198 testene består:</para>
+    <para>Test resultatene og sÃ¸rg for at alle 198 testene bestÃ¥r:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 

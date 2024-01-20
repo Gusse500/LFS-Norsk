@@ -15,74 +15,74 @@
   </indexterm>
 
   <para>Skallprogrammet <command>/bin/bash</command> (heretter referert
-  til som <quote>skallet</quote>) bruker en samling oppstartsfiler for å hjelpe
-  til å lage et miljø å kjøre i. Hver fil har en spesifikk bruk og kan påvirke
-  pålogging og interaktive miljøer annerledes. Filene i <filename
+  til som <quote>skallet</quote>) bruker en samling oppstartsfiler for Ã¥ hjelpe
+  til Ã¥ lage et miljÃ¸ Ã¥ kjÃ¸re i. Hver fil har en spesifikk bruk og kan pÃ¥virke
+  pÃ¥logging og interaktive miljÃ¸er annerledes. Filene i <filename
   class="directory">/etc</filename> mappen gir globale innstillinger. Hvis en
   tilsvarende fil finnes i hjemmemappen, kan den overstyre de globale
   innstillingene.</para>
 
-  <para>Et interaktivt påloggingsskall startes etter en vellykket pålogging, ved hjelp av
-  <command>/bin/login</command>, ved å lese <filename>/etc/passwd</filename>
-  filen. Et interaktivt ikke-påloggingsskall startet på kommandolinjen (f.eks.,
+  <para>Et interaktivt pÃ¥loggingsskall startes etter en vellykket pÃ¥logging, ved hjelp av
+  <command>/bin/login</command>, ved Ã¥ lese <filename>/etc/passwd</filename>
+  filen. Et interaktivt ikke-pÃ¥loggingsskall startet pÃ¥ kommandolinjen (f.eks.,
   <prompt>[prompt]$</prompt><command>/bin/bash</command>). Et ikke-interaktiv
-  skall er vanligvis tilstede når et skallskript kjører. Det er ikke-interaktivt
-  fordi det behandler et skript og ikke venter på brukerinndata mellom
+  skall er vanligvis tilstede nÃ¥r et skallskript kjÃ¸rer. Det er ikke-interaktivt
+  fordi det behandler et skript og ikke venter pÃ¥ brukerinndata mellom
   kommandoer.</para>
 
 <para>For mer informasjon, se <emphasis>Bash Startup Files</emphasis> og
   <emphasis>Interactive Shells</emphasis> seksjonene i <emphasis>Bash 
-  Features</emphasis> kapittel på Bash infosidene (<command>info bash</command>).</para>
+  Features</emphasis> kapittel pÃ¥ Bash infosidene (<command>info bash</command>).</para>
 
   <para>Filene <filename>/etc/profile</filename> og
-  <filename>~/.bash_profile</filename> leses når skallet er
-  startet som et interaktivt påloggingsskall.</para>
+  <filename>~/.bash_profile</filename> leses nÃ¥r skallet er
+  startet som et interaktivt pÃ¥loggingsskall.</para>
 
   <para>Grunnfilen <filename>/etc/profile</filename> nedenfor setter noen
-  miljøvariabler som er nødvendige for morsmålsstøtte. Å sette
+  miljÃ¸variabler som er nÃ¸dvendige for morsmÃ¥lsstÃ¸tte. Ã… sette
   de riktig resulterer i:</para>
 
   <itemizedlist>
     <listitem>
-      <para>Utdataene fra programmer oversatt til morsmålet</para>
+      <para>Utdataene fra programmer oversatt til morsmÃ¥let</para>
     </listitem>
     <listitem>
       <para>Riktig klassifisering av tegn i bokstaver, sifre og andre
-      klasser. Dette er nødvendig for at <command>bash</command> skal akseptere ordentlig
-      ikke-ASCII tegn i kommandolinjer i ikke-engelske språk</para>
+      klasser. Dette er nÃ¸dvendig for at <command>bash</command> skal akseptere ordentlig
+      ikke-ASCII tegn i kommandolinjer i ikke-engelske sprÃ¥k</para>
     </listitem>
     <listitem>
-      <para>Riktig alfabetisk sorteringsrekkefølge for landet</para>
+      <para>Riktig alfabetisk sorteringsrekkefÃ¸lge for landet</para>
     </listitem>
     <listitem>
-      <para>Passende standard papirstørrelse</para>
+      <para>Passende standard papirstÃ¸rrelse</para>
     </listitem>
     <listitem>
       <para>Riktig formatering av penge-, tids- og datoverdier</para>
     </listitem>
   </itemizedlist>
 
-  <para>Erstatt <replaceable>&lt;ll&gt;</replaceable> nedenfor med koden på to bokstaver
-  for ønsket språk (f.eks., <quote>en</quote>) og
+  <para>Erstatt <replaceable>&lt;ll&gt;</replaceable> nedenfor med koden pÃ¥ to bokstaver
+  for Ã¸nsket sprÃ¥k (f.eks., <quote>en</quote>) og
   <replaceable>&lt;CC&gt;</replaceable> med tobokstavskoden for det aktuelle
-  landet (f.eks., <quote>GB</quote>). <replaceable>&lt;charmap&gt;</replaceable> bør
+  landet (f.eks., <quote>GB</quote>). <replaceable>&lt;charmap&gt;</replaceable> bÃ¸r
   erstattes med den kanoniske tegntabellen for din valgte lokalitet. Valgfri
-  modifikatorer som f.eks <quote>@euro</quote> kan også være tilstede.</para>
+  modifikatorer som f.eks <quote>@euro</quote> kan ogsÃ¥ vÃ¦re tilstede.</para>
 
-  <para>Listen over alle lokaliteter som støttes av Glibc kan fås ved å kjøre
-  følgende kommando:</para>
+  <para>Listen over alle lokaliteter som stÃ¸ttes av Glibc kan fÃ¥s ved Ã¥ kjÃ¸re
+  fÃ¸lgende kommando:</para>
 
 <screen role="nodump"><userinput>locale -a</userinput></screen>
 
   <para>Tegntabeller kan ha en rekke aliaser, f.eks., <quote>ISO-8859-1</quote>
-  er også referert til som <quote>iso8859-1</quote> og <quote>iso88591</quote>.
-  Noen applikasjoner kan ikke håndtere de forskjellige synonymene riktig (f.eks. kreves
+  er ogsÃ¥ referert til som <quote>iso8859-1</quote> og <quote>iso88591</quote>.
+  Noen applikasjoner kan ikke hÃ¥ndtere de forskjellige synonymene riktig (f.eks. kreves
   det at <quote>UTF-8</quote> er skrevet som <quote>UTF-8</quote>, ikke
-  <quote>utf8</quote>), så det er tryggest i de fleste
-  tilfeller for å velge det kanoniske navnet for en bestemt lokalitet. Å bestemme
-  det kanoniske navnet, kjør følgende kommando, hvor <replaceable>&lt;locale
+  <quote>utf8</quote>), sÃ¥ det er tryggest i de fleste
+  tilfeller for Ã¥ velge det kanoniske navnet for en bestemt lokalitet. Ã… bestemme
+  det kanoniske navnet, kjÃ¸r fÃ¸lgende kommando, hvor <replaceable>&lt;locale
   name&gt;</replaceable> er utdataen gitt av <command>locale -a</command> til
-  din foretrukne lokalitet (<quote>en_GB.iso88591</quote> i vårt eksempel).</para>
+  din foretrukne lokalitet (<quote>en_GB.iso88591</quote> i vÃ¦rt eksempel).</para>
 
 <screen role="nodump"><userinput>LC_ALL=<replaceable>&lt;locale name&gt;</replaceable> locale charmap</userinput></screen>
 
@@ -92,50 +92,50 @@
 <screen><computeroutput>ISO-8859-1</computeroutput></screen>
 
   <para>Dette resulterer er en endelig lokaleinnstilling av <quote>en_GB.ISO-8859-1</quote>.
-  Det er viktig at lokaliteten funnet ved hjelp av heuristikken ovenfor testes på forhånd
-  før det legges til Bash oppstartsfilene:</para>
+  Det er viktig at lokaliteten funnet ved hjelp av heuristikken ovenfor testes pÃ¥ forhÃ¥nd
+  fÃ¸r det legges til Bash oppstartsfilene:</para>
 
 <screen role="nodump"><userinput>LC_ALL=&lt;locale name&gt; locale language
 LC_ALL=&lt;locale name&gt; locale charmap
 LC_ALL=&lt;locale name&gt; locale int_curr_symbol
 LC_ALL=&lt;locale name&gt; locale int_prefix</userinput></screen>
 
-  <para>Kommandoene ovenfor skal skrive ut språknavnet, tegnkoding
-  som brukes av lokaliteten, den lokale valutaen og prefikset før telefonnummeret for å ringe
+  <para>Kommandoene ovenfor skal skrive ut sprÃ¥knavnet, tegnkoding
+  som brukes av lokaliteten, den lokale valutaen og prefikset fÃ¥r telefonnummeret for Ã¥ ringe
   inn i landet. Hvis noen av
-  kommandoene ovenfor mislykkes med en melding som ligner på den som vises nedenfor, betyr dette
+  kommandoene ovenfor mislykkes med en melding som ligner pÃ¥ den som vises nedenfor, betyr dette
   at lokaliteten din enten ikke var installert i <xref linkend="ch-system-glibc"/>
-  eller ikke støttes av standardinstallasjonen av Glibc.</para>
+  eller ikke stÃ¸ttes av standardinstallasjonen av Glibc.</para>
 
 <screen><computeroutput>locale: Cannot set LC_* to default locale: No such file or directory</computeroutput></screen>
 
-  <para>Hvis dette skjer, bør du enten installere ønsket lokalitet ved å bruke
-  <command>localedef</command> kommandoen, eller vurder å velge en annen lokalitet.
+  <para>Hvis dette skjer, bÃ¸r du enten installere Ã¸nsket lokalitet ved Ã¥ bruke
+  <command>localedef</command> kommandoen, eller vurder Ã¥ velge en annen lokalitet.
   Ytterligere instruksjoner forutsetter at det ikke er slike feilmeldinger fra
   Glibc.</para>
 
   <!-- FIXME: the xlib example will became obsolete real soon -->
-  <!--<para>Noen pakker utover LFS kan også mangle støtte for din valgte lokalitet. En
+  <!--<para>Noen pakker utover LFS kan ogsÃ¥ mangle stÃ¸tte for din valgte lokalitet. En
   eksempel er X-biblioteket (en del av X Window System), som sender ut
-  følgende feilmelding hvis lokaliteten ikke samsvarer nøyaktig med en av tegntabell
+  fÃ¸lgende feilmelding hvis lokaliteten ikke samsvarer nÃ¸yaktig med en av tegntabell
   navn i interne filer:</para>
 
 <screen><computeroutput>Warning: locale not supported by Xlib, locale set to C</computeroutput></screen>
 
-  <para>I flere tilfeller forventer Xlib at karakterkartet vil bli oppført i
+  <para>I flere tilfeller forventer Xlib at karakterkartet vil bli oppfÃ¸rt i
   store bokstaver med kanoniske bindestreker. For eksempel "ISO-8859-1" heller
-  enn "iso88591". Det er også mulig å finne en passende spesifikasjon ved å
+  enn "iso88591". Det er ogsÃ¥ mulig Ã¥ finne en passende spesifikasjon ved Ã¥
   fjerne charmap delen av lokalitetsspesifikasjonen. Dette kan sjekkes
-  ved å kjøre <command>locale charmap</command> kommandoen i begge lokaliteter.
-  For eksempel må man endre "de_DE.ISO-8859-15@euro" til
-  "de_DE@euro" for å få denne lokaliteten gjenkjent av Xlib.</para>
+  ved Ã¥ kjÃ¸re <command>locale charmap</command> kommandoen i begge lokaliteter.
+  For eksempel mÃ¥ man endre "de_DE.ISO-8859-15@euro" til
+  "de_DE@euro" for Ã¥ fÃ¥ denne lokaliteten gjenkjent av Xlib.</para>
 -->
-  <para>Andre pakker kan også fungere feil (men kanskje ikke nødvendigvis
+  <para>Andre pakker kan ogsÃ¥ fungere feil (men kanskje ikke nÃ¸dvendigvis
   vise eventuelle feilmeldinger) hvis lokalenavnet ikke oppfyller deres forventninger.
-  I disse tilfellene, å undersøke hvordan andre Linux distribusjoner støtter lokaliteten din
+  I disse tilfellene, Ã¥ undersÃ¸ke hvordan andre Linux distribusjoner stÃ¸tter lokaliteten din
   kan gi noe nyttig informasjon.</para>
 
-  <para>Når de riktige lokale innstillingene er bestemt, oppretter du
+  <para>NÃ¥r de riktige lokale innstillingene er bestemt, oppretter du
   <filename>/etc/profile</filename> filen:</para>
 
 <screen><userinput>cat &gt; /etc/profile &lt;&lt; "EOF"
@@ -148,16 +148,16 @@ EOF</userinput></screen>
 
   <para><quote>C</quote> (standard) og <quote>en_US.utf8</quote> (det anbefalte
   for engelske brukere i USA) lokalitetene er forskjellige. <quote>C</quote>
-  bruker US-ASCII 7-biters tegnsett, og behandler byte med det høye bitsettet
-  <quote>på</quote> som ugyldige tegn. Det er derfor, f.eks <command>ls</command> kommandoen
-  erstatter dem med spørsmålstegn i det lokalet. Også et forsøk på å sende
+  bruker US-ASCII 7-biters tegnsett, og behandler byte med det hÃ¸ye bitsettet
+  <quote>pÃ¥</quote> som ugyldige tegn. Det er derfor, f.eks <command>ls</command> kommandoen
+  erstatter dem med spÃ¸rsmÃ¥lstegn i det lokalet. OgsÃ¥ et forsÃ¸k pÃ¥ Ã¥ sende
   post med slike tegn fra Mutt eller Pine resulterer i ikke-RFC samsvars
-  meldinger som sendes (tegnsettet i den utgående posten er indikert som <quote>unknown
-  8-bit</quote>). Så du kan bruke <quote>C</quote> lokaliteten bare hvis du er sikker på at
+  meldinger som sendes (tegnsettet i den utgÃ¥ende posten er indikert som <quote>unknown
+  8-bit</quote>). SÃ¥ du kan bruke <quote>C</quote> lokaliteten bare hvis du er sikker pÃ¥ at
   du aldri trenger 8-bits tegn.</para>
 
-  <para>UTF-8 baserte lokaliteter støttes ikke godt av noen programmer.
-  Det pågår arbeid med å dokumentere og om mulig fikse slike problemer, se
+  <para>UTF-8 baserte lokaliteter stÃ¸ttes ikke godt av noen programmer.
+  Det pÃ¥gÃ¥r arbeid med Ã¥ dokumentere og om mulig fikse slike problemer, se
   <ulink url="&blfs-book;introduction/locale-issues.html"/>.</para>
 
 </sect1>

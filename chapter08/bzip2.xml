@@ -47,11 +47,11 @@
 
 <screen><userinput remap="pre">patch -Np1 -i ../&bzip2-docs-patch;</userinput></screen>
 
-   <para>Følgende kommando sikrer at installasjonen av symbolske lenker er relative:</para>
+   <para>FÃ¸lgende kommando sikrer at installasjonen av symbolske lenker er relative:</para>
 
 <screen><userinput remap="pre">sed -i 's@\(ln -s -f \)$(PREFIX)/bin/@\1@' Makefile</userinput></screen>
 
-    <para>Sørg for at mansidene er installert på riktig sted:</para>
+    <para>SÃ¸rg for at mansidene er installert pÃ¥ riktig sted:</para>
 
 <screen><userinput remap="pre">sed -i "s@(PREFIX)/man@(PREFIX)/share/man@g" Makefile</userinput></screen>
 
@@ -66,11 +66,11 @@ make clean</userinput></screen>
       <varlistentry>
         <term><parameter>-f Makefile-libbz2_so</parameter></term>
         <listitem>
-          <para>Vil føre til at Bzip2 bygges med en annen
+          <para>Vil fÃ¸re til at Bzip2 bygges med en annen
           <filename>Makefile</filename> fil, i dette tilfellet
           <filename>Makefile-libbz2_so</filename> filen, som skaper en dynamisk
           <filename class="libraryfile">libbz2.so</filename> bibliotek og lenker
-          Bzip2 verktøyene mot det.</para>
+          Bzip2 verktÃ¸yene mot det.</para>
         </listitem>
       </varlistentry>
 
@@ -88,7 +88,7 @@ make clean</userinput></screen>
 <screen><userinput remap="install">cp -av libbz2.so.* /usr/lib
 ln -sv libbz2.so.&bzip2-version; /usr/lib/libbz2.so</userinput></screen>
 
-    <para>Installer den delte <command>bzip2</command> binær inn i
+    <para>Installer den delte <command>bzip2</command> binÃ¦r inn i
     <filename class="directory">/usr/bin</filename> mappen, og erstatt
     to eksemplarer av <command>bzip2</command> med symbolske lenker:</para>
 
@@ -148,7 +148,7 @@ done</userinput></screen>
       <varlistentry id="bzcmp">
         <term><command>bzcmp</command></term>
         <listitem>
-          <para>Kjører <command>cmp</command> på bzippede filer</para>
+          <para>KjÃ¸rer <command>cmp</command> pÃ¥ bzippede filer</para>
           <indexterm zone="ch-system-bzip2 bzcmp">
             <primary sortas="b-bzcmp">bzcmp</primary>
           </indexterm>
@@ -158,7 +158,7 @@ done</userinput></screen>
       <varlistentry id="bzdiff">
         <term><command>bzdiff</command></term>
         <listitem>
-          <para>Kjører <command>diff</command> på bzippede filer</para>
+          <para>KjÃ¸rer <command>diff</command> pÃ¥ bzippede filer</para>
           <indexterm zone="ch-system-bzip2 bzdiff">
             <primary sortas="b-bzdiff">bzdiff</primary>
           </indexterm>
@@ -168,7 +168,7 @@ done</userinput></screen>
       <varlistentry id="bzegrep">
         <term><command>bzegrep</command></term>
         <listitem>
-          <para>Kjører <command>egrep</command> på bzippede filer</para>
+          <para>KjÃ¸rer <command>egrep</command> pÃ¥ bzippede filer</para>
           <indexterm zone="ch-system-bzip2 bzegrep">
             <primary sortas="b-bzegrep">bzegrep</primary>
           </indexterm>
@@ -178,7 +178,7 @@ done</userinput></screen>
       <varlistentry id="bzfgrep">
         <term><command>bzfgrep</command></term>
         <listitem>
-          <para>Kjører <command>fgrep</command> på bzippede filer</para>
+          <para>KjÃ¸rer <command>fgrep</command> pÃ¥ bzippede filer</para>
           <indexterm zone="ch-system-bzip2 bzfgrep">
             <primary sortas="b-bzfgrep">bzfgrep</primary>
           </indexterm>
@@ -188,7 +188,7 @@ done</userinput></screen>
       <varlistentry id="bzgrep">
         <term><command>bzgrep</command></term>
         <listitem>
-          <para>Kjører <command>grep</command> på bzippede filer</para>
+          <para>KjÃ¸rer <command>grep</command> pÃ¥ bzippede filer</para>
           <indexterm zone="ch-system-bzip2 bzgrep">
             <primary sortas="b-bzgrep">bzgrep</primary>
           </indexterm>
@@ -198,9 +198,9 @@ done</userinput></screen>
       <varlistentry id="bzip2">
         <term><command>bzip2</command></term>
         <listitem>
-          <para>Komprimerer filer ved å bruke Burrows-Wheeler sortering på blokktekst
+          <para>Komprimerer filer ved Ã¥ bruke Burrows-Wheeler sortering pÃ¥ blokktekst
           komprimeringsalgoritme med Huffman-koding; kompresjonshastigheten er
-          bedre enn det som oppnås med mer konvensjonelle kompressorer som bruker
+          bedre enn det som oppnÃ¥s med mer konvensjonelle kompressorer som bruker
           <quote>Lempel-Ziv</quote> algoritmer, som <command>gzip</command></para>
           <indexterm zone="ch-system-bzip2 bzip2">
             <primary sortas="b-bzip2">bzip2</primary>
@@ -211,7 +211,7 @@ done</userinput></screen>
       <varlistentry id="bzip2recover">
         <term><command>bzip2recover</command></term>
         <listitem>
-          <para>Prøver å gjenopprette data fra skadde bzippede filer</para>
+          <para>PrÃ¸ver Ã¥ gjenopprette data fra skadde bzippede filer</para>
           <indexterm zone="ch-system-bzip2 bzip2recover">
             <primary sortas="b-bzip2recover">bzip2recover</primary>
           </indexterm>
@@ -221,7 +221,7 @@ done</userinput></screen>
       <varlistentry id="bzless">
         <term><command>bzless</command></term>
         <listitem>
-          <para>Kjører <command>less</command> på bzippede filer</para>
+          <para>KjÃ¸rer <command>less</command> pÃ¥ bzippede filer</para>
           <indexterm zone="ch-system-bzip2 bzless">
             <primary sortas="b-bzless">bzless</primary>
           </indexterm>
@@ -231,7 +231,7 @@ done</userinput></screen>
       <varlistentry id="bzmore">
         <term><command>bzmore</command></term>
         <listitem>
-          <para>Kjører <command>more</command> på bzippede filer</para>
+          <para>KjÃ¸rer <command>more</command> pÃ¥ bzippede filer</para>
           <indexterm zone="ch-system-bzip2 bzmore">
             <primary sortas="b-bzmore">bzmore</primary>
           </indexterm>
@@ -242,7 +242,7 @@ done</userinput></screen>
         <term><filename class="libraryfile">libbz2</filename></term>
         <listitem>
           <para>Biblioteket implementerer tapsfri, blokksorterende
-          datakomprimering ved å bruke Burrows-Wheeler-algoritmen</para>
+          datakomprimering ved Ã¥ bruke Burrows-Wheeler-algoritmen</para>
           <indexterm zone="ch-system-bzip2 libbz2">
             <primary sortas="c-libbz2">libbz2</primary>
           </indexterm>

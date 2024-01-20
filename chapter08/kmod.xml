@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Kmod pakken inneholder biblioteker og verktøy for lasting av
+    <para>Kmod pakken inneholder biblioteker og verktÃ¸y for lasting av
     kjernemoduler</para>
 
     <segmentedlist>
@@ -58,7 +58,7 @@
           <parameter>--with-openssl</parameter>
         </term>
         <listitem>
-          <para>Dette alternativet gjør det mulig for Kmod å håndtere PKCS7 signaturer for
+          <para>Dette alternativet gjÃ¸r det mulig for Kmod Ã¥ hÃ¥ndtere PKCS7 signaturer for
           kjernemoduler.</para>
         </listitem>
       </varlistentry>
@@ -70,7 +70,7 @@
           <parameter>--with-zstd</parameter>
         </term>
         <listitem>
-          <para>Disse alternativene gjør at Kmod kan håndtere komprimerte kjernemoduler.</para>
+          <para>Disse alternativene gjÃ¸r at Kmod kan hÃ¥ndtere komprimerte kjernemoduler.</para>
         </listitem>
       </varlistentry>
 
@@ -80,12 +80,12 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Testpakken til denne pakken krever rå kjernedeklarasjoner
+    <para>Testpakken til denne pakken krever rÃ¥ kjernedeklarasjoner
     (ikke de <quote>sanitiserte</quote> kjernedeklarasonene installert tidligere),
     som er utenfor rammen av LFS.</para>
 
     <para>Installer pakken og lag symbolkoblinger for
-    kompatibilitet med Module-Init-Tools (pakken som tidligere håndterte
+    kompatibilitet med Module-Init-Tools (pakken som tidligere hÃ¥ndterte
     Linux kjernemoduler):</para>
 
 <screen><userinput remap="install">make install
@@ -121,9 +121,9 @@ ln -sfv kmod /usr/bin/lsmod</userinput></screen>
       <varlistentry id="depmod">
         <term><command>depmod</command></term>
         <listitem>
-          <para>Oppretter en avhengighetsfil basert på symbolene den finner i
+          <para>Oppretter en avhengighetsfil basert pÃ¥ symbolene den finner i
           eksisterende sett med moduler; denne avhengighetsfilen brukes av
-          <command>modprobe</command> for automatisk å laste de nødvendige
+          <command>modprobe</command> for automatisk Ã¥ laste de nÃ¸dvendige
           modulene</para>
           <indexterm zone="ch-system-kmod depmod">
             <primary sortas="b-depmod">depmod</primary>
@@ -134,7 +134,7 @@ ln -sfv kmod /usr/bin/lsmod</userinput></screen>
       <varlistentry id="insmod">
         <term><command>insmod</command></term>
         <listitem>
-          <para>Installerer en lastbar modul i kjernen som kjører</para>
+          <para>Installerer en lastbar modul i kjernen som kjÃ¸rer</para>
           <indexterm zone="ch-system-kmod insmod">
             <primary sortas="b-insmod">insmod</primary>
           </indexterm>
@@ -164,7 +164,7 @@ ln -sfv kmod /usr/bin/lsmod</userinput></screen>
       <varlistentry id="modinfo">
         <term><command>modinfo</command></term>
         <listitem>
-          <para>Undersøker en objektfil assosiert med en kjernemodul og
+          <para>UndersÃ¸ker en objektfil assosiert med en kjernemodul og
           viser all informasjon den kan hente</para>
           <indexterm zone="ch-system-kmod modinfo">
             <primary sortas="b-modinfo">modinfo</primary>
@@ -176,7 +176,7 @@ ln -sfv kmod /usr/bin/lsmod</userinput></screen>
         <term><command>modprobe</command></term>
         <listitem>
           <para>Bruker en avhengighetsfil, opprettet av
-          <command>depmod</command>, for automatisk å laste inn relevante moduler</para>
+          <command>depmod</command>, for automatisk Ã¥ laste inn relevante moduler</para>
           <indexterm zone="ch-system-kmod modprobe">
             <primary sortas="b-modprobe">modprobe</primary>
           </indexterm>
@@ -186,7 +186,7 @@ ln -sfv kmod /usr/bin/lsmod</userinput></screen>
       <varlistentry id="rmmod">
         <term><command>rmmod</command></term>
         <listitem>
-          <para>Laster ut moduler fra kjernen som kjører</para>
+          <para>Laster ut moduler fra kjernen som kjÃ¸rer</para>
           <indexterm zone="ch-system-kmod rmmod">
             <primary sortas="b-rmmod">rmmod</primary>
           </indexterm>
@@ -196,7 +196,7 @@ ln -sfv kmod /usr/bin/lsmod</userinput></screen>
       <varlistentry id="libkmod">
         <term><filename class="libraryfile">libkmod</filename></term>
         <listitem>
-          <para>Dette biblioteket brukes av andre programmer til å laste inn og laste ut
+          <para>Dette biblioteket brukes av andre programmer til Ã¥ laste inn og laste ut
            kjernemoduler</para>
           <indexterm zone="ch-system-kmod">
             <primary sortas="c-libkmod">libkmod</primary>

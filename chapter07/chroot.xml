@@ -8,15 +8,15 @@
 <sect1 id="ch-tools-chroot">
   <?dbhtml filename="chroot.html"?>
 
-  <title>Gå inn i Chroot miljøet</title>
+  <title>GÃ¥ inn i Chroot miljÃ¸et</title>
 
-  <para>Nå som alle pakkene som kreves for å bygge resten av
-  nødvendige verktøy er på systemet, er det på tide å gå inn i chroot miljøet for å
-  fullføre installasjonen av de gjenværende midlertidige verktøyene. Dette miljøet vil
-  også brukes for å installere det endelige systemet. Som bruker <systemitem
-  class="username">root</systemitem>, kjør følgende kommando for å gå inn i
-  miljøet som for øyeblikket er befolket med bare midlertidige
-  verktøy:</para>
+  <para>NÃ¥ som alle pakkene som kreves for Ã¥ bygge resten av
+  nÃ¸dvendige verktÃ¸y er pÃ¥ systemet, er det pÃ¥ tide Ã¥ gÃ¥ inn i chroot miljÃ¸et for Ã¥
+  fullfÃ¸re installasjonen av de gjenvÃ¦rende midlertidige verktÃ¸yene. Dette miljÃ¸et vil
+  ogsÃ¥ brukes for Ã¥ installere det endelige systemet. Som bruker <systemitem
+  class="username">root</systemitem>, kjÃ¸r fÃ¸lgende kommando for Ã¥ gÃ¥ inn i
+  miljÃ¸et som for Ã¸yeblikket er befolket med bare midlertidige
+  verktÃ¸y:</para>
 
 <screen role="nodump"><userinput>chroot "$LFS" /usr/bin/env -i   \
     HOME=/root                  \
@@ -30,46 +30,46 @@
   <para>
     Hvis du ikke vil bruke alle tilgjengelige logiske kjerner, bytt ut
     <replaceable>$(nproc)</replaceable> med antall logiske kjerner du
-    ønsker å bruke til å bygge pakker i dette kapittelet og de følgende
+    Ã¸nsker Ã¥ bruke til Ã¥ bygge pakker i dette kapittelet og de fÃ¸lgende
     kapitler. Testpakkene til noen pakker (spesielt Autoconf, Libtool,
-    og Tar) i &ch-final; er ikke berørt av <envar>MAKEFLAGS</envar>, de
-    bruker en <envar>TESTSUITEFLAGS</envar> miljøvariabel i stedet. Vi
-    setter det her også for å kjøre disse testpakkene med flere kjerner.
+    og Tar) i &ch-final; er ikke berÃ¸rt av <envar>MAKEFLAGS</envar>, de
+    bruker en <envar>TESTSUITEFLAGS</envar> miljÃ¸variabel i stedet. Vi
+    setter det her ogsÃ¥ for Ã¥ kjÃ¸re disse testpakkene med flere kjerner.
   </para>
 
   <para><parameter>-i</parameter> alternativet gitt til <command>env</command>
-  kommandoen vil slette alle variabler i chroot miljøet. Etter det, bare
+  kommandoen vil slette alle variabler i chroot miljÃ¸et. Etter det, bare
   <envar>HOME</envar>, <envar>TERM</envar>, <envar>PS1</envar>, og
-  <envar>PATH</envar> variablene settes på nytt.
+  <envar>PATH</envar> variablene settes pÃ¥ nytt.
   <parameter>TERM=$TERM</parameter> konstruksjonen setter <envar>TERM</envar>
   variabelen inne i chroot til samme verdi som utenfor chroot. Denne variabelen er
-  nødvendig for at programmer som <command>vim</command> og <command>less</command>
-  kan fungere skikkelig.  Hvis andre variabler ønskes, som f.eks
-  <envar>CFLAGS</envar> eller <envar>CXXFLAGS</envar>, er dette et bra sted å sette
+  nÃ¸dvendig for at programmer som <command>vim</command> og <command>less</command>
+  kan fungere skikkelig.  Hvis andre variabler Ã¸nskes, som f.eks
+  <envar>CFLAGS</envar> eller <envar>CXXFLAGS</envar>, er dette et bra sted Ã¥ sette
   dem.</para>
 
-  <para>Fra dette tidspunktet er det ikke nødvendig å bruke
-  <envar>LFS</envar> variabelen lenger fordi alt arbeid vil være begrenset
-  til LFS filsystemet. <command>chroot</command> kommandoen kjører
+  <para>Fra dette tidspunktet er det ikke nÃ¸dvendig Ã¥ bruke
+  <envar>LFS</envar> variabelen lenger fordi alt arbeid vil vÃ¦re begrenset
+  til LFS filsystemet. <command>chroot</command> kommandoen kjÃ¸rer
   Bash skallet med rot
   (<filename class="directory">/</filename>) mappen satt til
   <filename class='directory'>$LFS</filename>.</para>
 
   <para>Merk at <filename class="directory">/tools/bin</filename> ikke er
-  i <envar>PATH</envar>. Dette betyr at kryssverktøykjeden ikke lenger vil bli
+  i <envar>PATH</envar>. Dette betyr at kryssverktÃ¸ykjeden ikke lenger vil bli
   brukt.</para>
 
   <para>Merk at <command>bash</command> ledeteksten vil si
   <computeroutput>I have no name!</computeroutput> Dette er normalt fordi
-  <filename>/etc/passwd</filename> filen ikke er opprettet ennå.</para>
+  <filename>/etc/passwd</filename> filen ikke er opprettet ennÃ¥para>
 
   <note>
     <para>Det er viktig at alle kommandoene gjennom resten av dette
-    kapittel og de følgende kapitlene kjøres fra chroot
-    miljøet. Hvis du forlater dette miljøet av en eller annen grunn (omstart for
-    eksempel), sørg for at de virtuelle kjernefilsystemene er montert som
+    kapittel og de fÃ¸lgende kapitlene kjÃ¸res fra chroot
+    miljÃ¸et. Hvis du forlater dette miljÃ¸et av en eller annen grunn (omstart for
+    eksempel), sÃ¸rg for at de virtuelle kjernefilsystemene er montert som
     forklart i <xref linkend="ch-tools-bindmount"/> og <xref
-    linkend="ch-tools-kernfsmount"/> og gå inn i chroot igjen før du fortsetter
+    linkend="ch-tools-kernfsmount"/> og gÃ¥ inn i chroot igjen fÃ¸r du fortsetter
     med installasjonen.</para>
   </note>
 

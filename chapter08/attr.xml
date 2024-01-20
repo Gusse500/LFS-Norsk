@@ -23,8 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Attr pakken inneholder verktøy for å administrere utvidede
-    attributter på filsystemobjekter.</para>
+    <para>Attr pakken inneholder verktÃ¸y for Ã¥ administrere utvidede
+    attributter pÃ¥ filsystemobjekter.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -52,9 +52,9 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Testene må kjøres på et filsystem som støtter utvidete
+    <para>Testene mÃ¥ kjÃ¸res pÃ¥ et filsystem som stÃ¸tter utvidete
     attributter som filsystemene ext2, ext3 eller ext4.
-    For å teste resultatene, utsted:</para>
+    For Ã¥ teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
@@ -87,7 +87,7 @@
       <varlistentry id="attr">
         <term><command>attr</command></term>
         <listitem>
-          <para>Utvider attributter på filsystemobjekter</para>
+          <para>Utvider attributter pÃ¥ filsystemobjekter</para>
           <indexterm zone="ch-system-attr attr">
             <primary sortas="b-attr">attr</primary>
           </indexterm>
@@ -117,7 +117,7 @@
       <varlistentry id="libattr">
         <term><filename class="libraryfile">libattr</filename></term>
         <listitem>
-          <para>Inneholder bibliotekfunksjonene for å manipulere utvidede attributter</para>
+          <para>Inneholder bibliotekfunksjonene for Ã¥ manipulere utvidede attributter</para>
           <indexterm zone="ch-system-attr libattr">
             <primary sortas="c-libattr">libattr</primary>
           </indexterm>

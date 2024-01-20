@@ -75,7 +75,7 @@
         <listitem>
           <para>Deaktiver funksjonen for feiltoken. Det trengs for
           kompatibilitet med de tradisjonelle hash-bibliotekene til noen
-          plattformer, men et Linuxsystem basert på Glibc trenger ikke
+          plattformer, men et Linuxsystem basert pÃ¥ Glibc trenger ikke
           den.</para>
         </listitem>
       </varlistentry>
@@ -85,7 +85,7 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>For å teste resultatene, utsted:</para>
+    <para>For Ã¥ teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
@@ -96,11 +96,11 @@
     <note>
 
       <para>Instruksjonene ovenfor har deaktivert foreldede API-funksjoner siden
-      ingen pakke installert ved å kompilere fra kilder ville lenke mot
-      dem under kjøring. Imidlertid er de eneste kjente bare binære applikasjonene
-      som koblingen mot disse funksjonene krever ABI versjon 1. Hvis du må
-      ha slike funksjoner på grunn av en eller annen binær applikasjon eller for å være
-      kompatibel med LSB, bygg pakken på nytt med følgende
+      ingen pakke installert ved Ã¥ kompilere fra kilder ville lenke mot
+      dem under kjÃ¸ring. Imidlertid er de eneste kjente bare binÃ¦re applikasjonene
+      som koblingen mot disse funksjonene krever ABI versjon 1. Hvis du mÃ¥
+      ha slike funksjoner pÃ¥ grunn av en eller annen binÃ¦r applikasjon eller for Ã¥ vÃ¦re
+      kompatibel med LSB, bygg pakken pÃ¥ nytt med fÃ¸lgende
       kommandoer:</para>
 
 <screen role="nodump"><userinput>make distclean
@@ -134,7 +134,7 @@ cp -av .libs/libcrypt.so.1* /usr/lib</userinput></screen>
       <varlistentry id="libcrypt">
         <term><filename class="libraryfile">libcrypt</filename></term>
         <listitem>
-          <para>Inneholder funksjoner for å hashe passord</para>
+          <para>Inneholder funksjoner for Ã¥ hashe passord</para>
           <indexterm zone="ch-system-libxcrypt libcrypt">
             <primary sortas="c-libcrypt">libcrypt</primary>
           </indexterm>

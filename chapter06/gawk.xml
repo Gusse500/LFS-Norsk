@@ -43,7 +43,7 @@
   <sect2 role="installation">
     <title>Installasjon av Gawk</title>
 
-    <para>Først, sørg for at noen unødvendige filer ikke blir installert:</para>
+    <para>FÃ¸rst, sÃ¸rg for at noen unÃ¸dvendige filer ikke blir installert:</para>
 
 <screen><userinput remap="pre">sed -i 's/extras//' Makefile.in</userinput></screen>
 

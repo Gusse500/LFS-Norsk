@@ -53,9 +53,9 @@
       <varlistentry>
         <term><parameter>--with-installed-readline</parameter></term>
         <listitem>
-          <para>Dette alternativet forteller Bash å bruke <filename
+          <para>Dette alternativet forteller Bash Ã¥ bruke <filename
           class="libraryfile">readline</filename> biblioteket som allerede er
-          installert på systemet i stedet for å bruke sin egen readline
+          installert pÃ¥ systemet i stedet for Ã¥ bruke sin egen readline
           versjon.</para>
         </listitem>
       </varlistentry>
@@ -67,16 +67,16 @@
 <screen><userinput remap="make">make</userinput></screen>
 
     <para>Hopp ned til <quote>Installer
-    pakken</quote> hvis du ikke kjører testpakken.</para>
+    pakken</quote> hvis du ikke kjÃ¸rer testpakken.</para>
 
-    <para>For å forberede testene, sørg for at brukeren <systemitem class="username">tester</systemitem> kan skrive til kildetreet:</para>
+    <para>For Ã¥ forberede testene, sÃ¸rg for at brukeren <systemitem class="username">tester</systemitem> kan skrive til kildetreet:</para>
 
 <screen><userinput remap="test">chown -Rv tester .</userinput></screen>
 
-    <para>Testpakken til pakken er designet for å kjøres som en ikke-&root;
-    bruker som eier terminalen koblet til standardinngang. For å tilfredsstille
+    <para>Testpakken til pakken er designet for Ã¥ kjÃ¸res som en ikke-&root;
+    bruker som eier terminalen koblet til standardinngang. For Ã¥ tilfredsstille
     kravet, skap en ny pseudoterminal ved hjelp av
-    <application>Expect</application> og kjør testene som bruker <systemitem
+    <application>Expect</application> og kjÃ¸r testene som bruker <systemitem
     class="username">tester</systemitem>:</para>
 
 <screen><userinput remap="test">su -s /usr/bin/expect tester &lt;&lt; EOF
@@ -87,7 +87,7 @@ lassign [wait] _ _ _ value
 exit $value
 EOF</userinput></screen>
 
-    <para>Testpakken bruker <command>diff</command> får å oppdage
+    <para>Testpakken bruker <command>diff</command> for Ã¥ oppdage
     forskjellen mellom utdata fra testskriptet og forventet utdata. Enhver
     utdata fra <command>diff</command> (prefikset med
     <computeroutput>&lt;</computeroutput> og
@@ -96,16 +96,16 @@ EOF</userinput></screen>
     <!-- Some host distros set core file size hard limit < 1000, then the
          test "ulimit -c -S 1000" attempts to set soft limit > hard limit
          and fail.  -->
-    En test med navnet <filename>run-builtins</filename> er kjent for å mislykkes
-    på noen vertsdistroer med en forskjell på den første linjen i
+    En test med navnet <filename>run-builtins</filename> er kjent for Ã¥ mislykkes
+    pÃ¥ noen vertsdistroer med en forskjell pÃ¥ den fÃ¸rste linjen i
     utdataen.</para>
 
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>Kjør den nylig kompilerte <command>bash</command> programmet (erstatter det som
-    kjøres for øyeblikket):</para>
+    <para>KjÃ¸r den nylig kompilerte <command>bash</command> programmet (erstatter det som
+    kjÃ¸res for Ã¸yeblikket):</para>
 
  <screen role="nodump"><userinput>exec /usr/bin/bash --login</userinput></screen>
 
@@ -133,9 +133,9 @@ EOF</userinput></screen>
       <varlistentry id="bash">
         <term><command>bash</command></term>
         <listitem>
-          <para>En mye brukt kommandotolk; den utfører mange typer av
-          utvidelser og erstatninger på en gitt kommandolinje før kjøringen gjøres
-          , og dette gjør dermed denne tolken til et kraftig verktøy</para>
+          <para>En mye brukt kommandotolk; den utfÃ¸rer mange typer av
+          utvidelser og erstatninger pÃ¥ en gitt kommandolinje fÃ¸r kjÃ¸ringen gjÃ¸res
+          , og dette gjÃ¸r dermed denne tolken til et kraftig verktÃ¸y</para>
           <indexterm zone="ch-system-bash bash">
             <primary sortas="b-bash">bash</primary>
           </indexterm>
@@ -145,8 +145,8 @@ EOF</userinput></screen>
       <varlistentry id="bashbug">
         <term><command>bashbug</command></term>
         <listitem>
-          <para>Et skallskript for å hjelpe brukeren med å skrive og sende standard
-          formaterte feilrapporter vedrørende <command>bash</command></para>
+          <para>Et skallskript for Ã¥ hjelpe brukeren med Ã¥ skrive og sende standard
+          formaterte feilrapporter vedrÃ¸rende <command>bash</command></para>
           <indexterm zone="ch-system-bash bashbug">
             <primary sortas="b-bashbug">bashbug</primary>
           </indexterm>
@@ -156,10 +156,10 @@ EOF</userinput></screen>
       <varlistentry id="sh">
         <term><command>sh</command></term>
         <listitem>
-          <para>En symbolsk lenke til <command>bash</command> programmet; når det påkalles
-          som <command>sh</command>, prøver <command>bash</command> å etterligne
-          oppstartadferd av historiske versjoner av <command>sh</command> så
-          nært som mulig, samtidig som den også samsvarer med POSIX
+          <para>En symbolsk lenke til <command>bash</command> programmet; nÃ¥r det pÃ¥kalles
+          som <command>sh</command>, prÃ¸ver <command>bash</command> Ã¥ etterligne
+          oppstartadferd av historiske versjoner av <command>sh</command> sÃ¥
+          nÃ¦rt som mulig, samtidig som den ogsÃ¥ samsvarer med POSIX
           standarden</para>
           <indexterm zone="ch-system-bash sh">
             <primary sortas="b-sh">sh</primary>

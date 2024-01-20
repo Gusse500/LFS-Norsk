@@ -24,7 +24,7 @@
     <title/>
 
     <para>Ncurses pakken inneholder biblioteker for terminaluavhengig
-    håndtering av karakterskjermer.</para>
+    hÃ¥ndtering av karakterskjermer.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -59,7 +59,7 @@
       <varlistentry>
         <term><parameter>--with-shared</parameter></term>
         <listitem>
-          <para>Dette får Ncurses til å bygge og installere delte C biblioteker.</para>
+          <para>Dette fÃ¥r Ncurses til Ã¥ bygge og installere delte C biblioteker.</para>
         </listitem>
       </varlistentry>
 
@@ -75,15 +75,15 @@
         <term><parameter>--without-debug</parameter></term>
         <listitem>
           <para>Dette forhindrer at Ncurses bygger og installerer
-          feilsøkingsbiblioteker.</para>
+          feilsÃ¸kingsbiblioteker.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--with-cxx-shared</parameter></term>
         <listitem>
-          <para>Dette får Ncurses til å bygge og installere delte C++ bindinger. Den
-          forhindrer også at den bygger og installerer statiske C++ bindinger.</para>
+          <para>Dette fÃ¥r Ncurses til Ã¥ bygge og installere delte C++ bindinger. Den
+          forhindrer ogsÃ¥ at den bygger og installerer statiske C++ bindinger.</para>
         </listitem>
       </varlistentry>
 
@@ -98,14 +98,14 @@
       <varlistentry>
         <term><parameter>--enable-widec</parameter></term>
         <listitem>
-          <para>Denne bryteren forårsaker at biblioteker med brede tegn (f.eks., <filename
+          <para>Denne bryteren forÃ¥rsaker at biblioteker med brede tegn (f.eks., <filename
           class="libraryfile">libncursesw.so.&ncurses-version;</filename>)
           blir bygget i stedet for vanlige (f.eks., <filename
           class="libraryfile">libncurses.so.&ncurses-version;</filename>).
-          Disse bibliotekene med brede tegn er brukbare i både multibyte og
+          Disse bibliotekene med brede tegn er brukbare i bÃ¥de multibyte og
           tradisjonelle 8-biters lokaliteter, mens vanlige biblioteker fungerer som de skal
           bare i 8-biters lokaliteter. Biblioteker med brede tegn og normale biblioteker er
-          kildekompatibel, men ikke binærkompatibel.</para>
+          kildekompatibel, men ikke binÃ¦rkompatibel.</para>
         </listitem>
       </varlistentry>
 
@@ -115,7 +115,7 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Denne pakken har en testpakke, men den kan bare kjøres etter at
+    <para>Denne pakken har en testpakke, men den kan bare kjÃ¸res etter at
     pakken er installert. Testene ligger i
     <filename class="directory">test/</filename> mappen.  Se
     <filename>README</filename> filen i den mappen for ytterligere detaljer.
@@ -139,7 +139,7 @@ rm -v  dest/usr/lib/libncursesw.so.&ncurses-version;
 cp -av dest/* /</userinput></screen>
 
     <para>Mange applikasjoner forventer fortsatt at lenkeren skal kunne finne
-    Ncurses biblioteker med ikke-brede karakterer. Lur slike applikasjoner til å koble til
+    Ncurses biblioteker med ikke-brede karakterer. Lur slike applikasjoner til Ã¥ koble til
     biblioteker med brede tegn ved hjelp av symbolkoblinger og lenkerskript:</para>
 
 <screen><userinput remap="install">for lib in ncurses form panel menu ; do
@@ -148,7 +148,7 @@ cp -av dest/* /</userinput></screen>
     ln -sfv ${lib}w.pc        /usr/lib/pkgconfig/${lib}.pc
 done</userinput></screen>
 
-    <para>Til slutt, sørg for at gamle programmer som ser etter
+    <para>Til slutt, sÃ¸rg for at gamle programmer som ser etter
     <filename class="libraryfile">-lcurses</filename> ved byggetiden fortsatt er
     byggbare:</para>
 
@@ -156,7 +156,7 @@ done</userinput></screen>
 echo "INPUT(-lncursesw)" &gt; /usr/lib/libcursesw.so
 ln -sfv libncurses.so      /usr/lib/libcurses.so</userinput></screen>
 
-    <para>Hvis ønskelig, installer Ncurses dokumentasjonen:</para>
+    <para>Hvis Ã¸nskelig, installer Ncurses dokumentasjonen:</para>
 
 <screen><userinput remap="install">cp -v -R doc -T /usr/share/doc/ncurses-&ncurses-version;</userinput></screen>
 
@@ -164,11 +164,11 @@ ln -sfv libncurses.so      /usr/lib/libcurses.so</userinput></screen>
 
       <para>Instruksjonene ovenfor oppretter ikke Ncurses med ikke-brede tegn
       biblioteker siden ingen pakke installert ved kompilering fra kilder ville kobles
-      mot dem under kjøring. Imidlertid den eneste kjente bare binær
+      mot dem under kjÃ¸ring. Imidlertid den eneste kjente bare binÃ¦r
       applikasjonen som kobler mot Ncurses-biblioteker med ikke-brede karakterer
-      krever versjon 5. Hvis du må ha slike biblioteker på grunn av noen bare binær
-      applikasjon eller for å være kompatibel med LSB, bygg pakken på nytt med
-      følgende kommandoer:</para>
+      krever versjon 5. Hvis du mÃ¥ ha slike biblioteker pÃ¥ grunn av noen bare binÃ¦r
+      applikasjon eller for Ã¥ vÃ¦re kompatibel med LSB, bygg pakken pÃ¥ nytt med
+      fÃ¸lgende kommandoer:</para>
 
 <screen role="nodump"><userinput>make distclean
 ./configure --prefix=/usr    \
@@ -239,7 +239,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="clear">
         <term><command>clear</command></term>
         <listitem>
-          <para>Tømmer skjermen hvis mulig</para>
+          <para>TÃ¸mmer skjermen hvis mulig</para>
           <indexterm zone="ch-system-ncurses clear">
             <primary sortas="b-clear">clear</primary>
           </indexterm>
@@ -289,7 +289,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="tabs">
         <term><command>tabs</command></term>
         <listitem>
-          <para>Fjerner og setter tabulatorstopp på en terminal</para>
+          <para>Fjerner og setter tabulatorstopp pÃ¥ en terminal</para>
           <indexterm zone="ch-system-ncurses tabs">
             <primary sortas="b-tabs">tabs</primary>
           </indexterm>
@@ -300,7 +300,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
         <term><command>tic</command></term>
         <listitem>
           <para>Terminfo entry-description kompilatoren som oversetter en
-          terminfo fil fra kildeformat til det binære formatet som trengs for
+          terminfo fil fra kildeformat til det binÃ¦re formatet som trengs for
           ncurses biblioteksrutiner [En terminfo fil inneholder informasjon om
           egenskapene til en bestemt terminal.]</para>
           <indexterm zone="ch-system-ncurses tic">
@@ -312,7 +312,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="toe">
         <term><command>toe</command></term>
         <listitem>
-          <para>Viser alle tilgjengelige terminaltyper, med primærnavn og
+          <para>Viser alle tilgjengelige terminaltyper, med primÃ¦rnavn og
           beskrivelse for hver</para>
           <indexterm zone="ch-system-ncurses toe">
             <primary sortas="b-toe">toe</primary>
@@ -323,8 +323,8 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="tput">
         <term><command>tput</command></term>
         <listitem>
-          <para>Gjør verdiene til terminalavhengige funksjoner tilgjengelig for
-          skallet; den kan også brukes til å tilbakestille eller initialisere en terminal eller
+          <para>GjÃ¸r verdiene til terminalavhengige funksjoner tilgjengelig for
+          skallet; den kan ogsÃ¥ brukes til Ã¥ tilbakestille eller initialisere en terminal eller
           rapporter det lange navnet</para>
           <indexterm zone="ch-system-ncurses tput">
             <primary sortas="b-tput">tput</primary>
@@ -335,7 +335,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="tset">
         <term><command>tset</command></term>
         <listitem>
-          <para>Kan brukes til å initialisere terminaler</para>
+          <para>Kan brukes til Ã¥ initialisere terminaler</para>
           <indexterm zone="ch-system-ncurses tset">
             <primary sortas="b-tset">tset</primary>
           </indexterm>
@@ -355,8 +355,8 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="libncursesw">
         <term><filename class="libraryfile">libncursesw</filename></term>
         <listitem>
-          <para>Inneholder funksjoner for å vise tekst på mange komplekse måter på en
-          terminalskjerm; et godt eksempel på bruken av disse funksjonene er
+          <para>Inneholder funksjoner for Ã¥ vise tekst pÃ¥ mange komplekse mÃ¥ter pÃ¥ en
+          terminalskjerm; et godt eksempel pÃ¥ bruken av disse funksjonene er
           menyen som vises under kjernens <command>make
           menuconfig</command></para>
           <indexterm zone="ch-system-ncurses libncursesw">
@@ -378,7 +378,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="libformw">
         <term><filename class="libraryfile">libformw</filename></term>
         <listitem>
-          <para>Inneholder funksjoner for å implementere skjemaer</para>
+          <para>Inneholder funksjoner for Ã¥ implementere skjemaer</para>
           <indexterm zone="ch-system-ncurses libformw">
             <primary sortas="c-libformw">libformw</primary>
           </indexterm>
@@ -388,7 +388,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="libmenuw">
         <term><filename class="libraryfile">libmenuw</filename></term>
         <listitem>
-          <para>Inneholder funksjoner for å implementere menyer</para>
+          <para>Inneholder funksjoner for Ã¥ implementere menyer</para>
           <indexterm zone="ch-system-ncurses libmenuw">
             <primary sortas="c-libmenuw">libmenuw</primary>
           </indexterm>
@@ -398,7 +398,7 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
       <varlistentry id="libpanelw">
         <term><filename class="libraryfile">libpanelw</filename></term>
         <listitem>
-          <para>Inneholder funksjoner for å implementere paneler</para>
+          <para>Inneholder funksjoner for Ã¥ implementere paneler</para>
           <indexterm zone="ch-system-ncurses libpanelw">
             <primary sortas="c-libpanelw">libpanelw</primary>
           </indexterm>

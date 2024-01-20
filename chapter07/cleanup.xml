@@ -13,22 +13,22 @@
   <sect2>
     <title>Rydde opp</title>
 
-    <para>Fjern først den installerte dokumentasjonen for å forhindre dem
-    fra å havne i det endelige systemet, og å spare ca 35 MB:</para>
+    <para>Fjern fÃ¸rst den installerte dokumentasjonen for Ã¥ forhindre dem
+    fra Ã¥ havne i det endelige systemet, og Ã¥ spare ca 35 MB:</para>
 
 <screen><userinput>rm -rf /usr/share/{info,man,doc}/*</userinput></screen>
 
-    <para>For det andre, på et moderne Linuxsystem, er libtool .la-filene bare
-    nyttig for libltdl. Ingen biblioteker i LFS forventes å bli lastet av
-    libltdl, og det er kjent at noen .la-filer kan forårsake at BLFS pakker
-    feiler under byggingen. Fjern disse filene nå:</para>
+    <para>For det andre, pÃ¥ et moderne Linuxsystem, er libtool .la-filene bare
+    nyttig for libltdl. Ingen biblioteker i LFS forventes Ã¥ bli lastet av
+    libltdl, og det er kjent at noen .la-filer kan forÃ¥rsake at BLFS pakker
+    feiler under byggingen. Fjern disse filene nÃ¥:</para>
 
 <screen><userinput>find /usr/{lib,libexec} -name \*.la -delete</userinput></screen>
 
     <para>
-      Den nåværende systemstørrelsen er nå omtrent 3 GB,
-      /tools mappen er ikke lenger nødvendig. Den bruker ca
-      1 GB diskplass. Slett den nå:
+      Den nÃ¸vÃ¦rende systemstÃ¸rrelsen er nÃ¥ omtrent 3 GB,
+      /tools mappen er ikke lenger nÃ¸dvendig. Den bruker ca
+      1 GB diskplass. Slett den nÃ¥
     </para>
 
 <screen><userinput>rm -rf /tools</userinput></screen>
@@ -38,89 +38,89 @@
     <title>Sikkerhetskopiering</title>
 
     <para>
-      På dette tidspunktet er de essensielle programmene og bibliotekene opprettet
-      og ditt nåværende LFS system er i god stand. Systemet ditt kan nå bli
-      sikkerhetskopiert for senere gjenbruk. Ved fatale feil i de påfølgende
-      kapitler, viser det seg ofte at å fjerne alt og starte på nytt
-      (mer forsiktig) er det beste alternativet for å gjenopprette. Dessverre, alle
-      midlertidige filer vil også bli fjernet. For å unngå å bruke ekstra tid på
-      gjøre om noe som har blitt bygget vellykket, det og lage en sikkerhetskopi av
-      det nåværende LFS systemet kan vise seg å være nyttig.
+      PÃ¥ dette tidspunktet er de essensielle programmene og bibliotekene opprettet
+      og ditt nÃ¥vÃ¦rende LFS system er i god stand. Systemet ditt kan nÃ¥ bli
+      sikkerhetskopiert for senere gjenbruk. Ved fatale feil i de pÃ¥fÃ¸lgende
+      kapitler, viser det seg ofte at Ã¥ fjerne alt og starte pÃ¥ nytt
+      (mer forsiktig) er det beste alternativet for Ã¥ gjenopprette. Dessverre, alle
+      midlertidige filer vil ogsÃ¥ bli fjernet. For Ã¥ unngÃ¥ Ã¥ bruke ekstra tid pÃ¥
+      gjÃ¦re om noe som har blitt bygget vellykket, det og lage en sikkerhetskopi av
+      det nÃ¥vÃ¦rende LFS systemet kan vise seg Ã¥ vÃ¦re nyttig.
     </para>
 
     <note><para>
       Alle de resterende trinnene i denne delen er valgfrie. Likevel,
-      så snart du begynner å installere pakker i <xref
+      sÃ¥ snart du begynner Ã¥ installere pakker i <xref
       linkend="chapter-building-system"/>, vil de midlertidige filene bli
-      overskrevet. Så det kan være lurt å ta en sikkerhetskopi av
+      overskrevet. SÃ¥ det kan vÃ¦re lurt Ã¥ ta en sikkerhetskopi av
       systemet som beskrevet nedenfor.
     </para></note>
 
     <para>
-      Følgende trinn utføres fra utenfor chroot
-      miljøet. Det betyr at du må forlate chroot miljøet
-      før du fortsetter. Grunnen til det er å
-      få tilgang til filsystemplasseringer utenfor chroot
-      miljøet for å lagre/lese sikkerhetskopiarkivet som ikke burde
+      FÃ¸lgende trinn utfÃ¸res fra utenfor chroot
+      miljÃ¸et. Det betyr at du mÃ¥ forlate chroot miljÃ¸et
+      fÃ¸r du fortsetter. Grunnen til det er Ã¥
+      fÃ¥ tilgang til filsystemplasseringer utenfor chroot
+      miljÃ¸et for Ã¥ lagre/lese sikkerhetskopiarkivet som ikke burde
       plasseres innenfor
       <filename class="directory">$LFS</filename> hierarkiet.
     </para>
 
     <para>
-       Hvis du har bestemt deg for å ta en sikkerhetskopi, forlat chroot miljøet:
+       Hvis du har bestemt deg for Ã¥ ta en sikkerhetskopi, forlat chroot miljÃ¸et:
     </para>
 
 <screen role="nodump"><userinput>exit</userinput></screen>
 
     <important>
       <para>
-        Alle følgende instruksjoner utføres av
-        <systemitem class="username">root</systemitem> på vertssystemet ditt.
-        Vær ekstra forsiktig med kommandoene du skal kjøre ettersom feil
-        her kan endre vertssystemet ditt. Vær oppmerksom på at
-        miljøvariabelen <envar>LFS</envar>
+        Alle fÃ¸lgende instruksjoner utfÃ¸res av
+        <systemitem class="username">root</systemitem> pÃ¥ vertssystemet ditt.
+        VÃ¦r ekstra forsiktig med kommandoene du skal kjÃ¸re ettersom feil
+        her kan endre vertssystemet ditt. VÃ¦r oppmerksom pÃ¥ at
+        miljÃ¸variabelen <envar>LFS</envar>
         er satt for bruker <systemitem class="username">lfs</systemitem> som standard
         er kanskje <emphasis>ikke</emphasis> satt for
         <systemitem class="username">root</systemitem>.
      </para>
      <para>
-        Når kommandoer skal utføres av <systemitem class="username">root</systemitem>,
-        sørg for at du har satt <envar>LFS</envar>.
+        NÃ¥r kommandoer skal utfÃ¸res av <systemitem class="username">root</systemitem>,
+        sÃ¸rg for at du har satt <envar>LFS</envar>.
      </para>
      <para>
-        Dette har vært diskutert i <xref linkend='ch-partitioning-aboutlfs'/>.
+        Dette har vÃ¦rt diskutert i <xref linkend='ch-partitioning-aboutlfs'/>.
       </para>
     </important>
 
-    <para>Før du lager en sikkerhetskopi, avmonter det virtuelle filsystemet:</para>
+    <para>FÃ¥r du lager en sikkerhetskopi, avmonter det virtuelle filsystemet:</para>
 
 <screen role="nodump"><userinput>mountpoint -q $LFS/dev/shm &amp;&amp; umount $LFS/dev/shm
 umount $LFS/dev/pts
 umount $LFS/{sys,proc,run,dev}</userinput></screen>
 
     <para>
-      Sørg for at du har minst 1 GB ledig diskplass (kildenes tarballer
-      vil bli inkludert i sikkerhetskopiarkivet) på filsystemet som inneholder
+      SÃ¸rg for at du har minst 1 GB ledig diskplass (kildenes tarballer
+      vil bli inkludert i sikkerhetskopiarkivet) pÃ¥ filsystemet som inneholder
       mappen der du oppretter sikkerhetskopiarkivet.
     </para>
 
     <para>
       Merk at instruksjonene nedenfor spesifiserer hjemmemappen til vertssystemets
       bruker <systemitem class="username">root</systemitem> som
-      vanligvis finnes på rotfilsystemet.
+      vanligvis finnes pÃ¥ rotfilsystemet.
       Erstatt <envar>$HOME</envar> med en mappe etter eget valg hvis du
-      ikke ønsker å ha sikkerhetskopien lagret i <systemitem
+      ikke Ã¸nsker Ã¥ ha sikkerhetskopien lagret i <systemitem
       class="username">root</systemitem> sin hjemmemappe.
     </para>
 
     <para>
-      Opprett sikkerhetskopiarkivet ved å kjøre følgende kommando:
+      Opprett sikkerhetskopiarkivet ved Ã¥ kjÃ¸re fÃ¸lgende kommando:
     </para>
 
     <note>
        <para>
           Fordi sikkerhetskopieringsarkivet er komprimert, tar det relativt
-          lang tid (over 10 minutter) selv på et rimelig raskt system.
+          lang tid (over 10 minutter) selv pÃ¥ et rimelig raskt system.
        </para>
     </note>
 
@@ -129,7 +129,7 @@ tar -cJpf $HOME/lfs-temp-tools-&version;.tar.xz .</userinput></screen>
 
     <note>
       <para>
-        Hvis du fortsetter til kapittel 8, ikke glem å gå inn i chroot miljøet på
+        Hvis du fortsetter til kapittel 8, ikke glem Ã¥ gÃ¥ inn i chroot miljÃ¸et pÃ¥
         nytt som forklart i <quote>Viktig</quote> boksen under.
       </para>
     </note>
@@ -140,22 +140,22 @@ tar -cJpf $HOME/lfs-temp-tools-&version;.tar.xz .</userinput></screen>
     <title>Gjenopprett</title>
 
     <para>
-      I tilfelle noen feil har blitt gjort og du må begynne på nytt, kan du
-      bruk denne sikkerhetskopien til å gjenopprette systemet og spare litt gjenopprettingstid.
+      I tilfelle noen feil har blitt gjort og du mÃ¥ begynne pÃ¥ nytt, kan du
+      bruk denne sikkerhetskopien til Ã¥ gjenopprette systemet og spare litt gjenopprettingstid.
       Siden kildene ligger under
       <filename class="directory">$LFS</filename>, er de inkludert i
-      sikkerhetskopieringsarkivet, slik at de ikke trenger å lastes ned igjen. Etter
-      å ha sjekket at <envar>$LFS</envar> er riktig innstilt,
-      gjenopprett sikkerhetskopien ved å utføre følgende kommandoer:
+      sikkerhetskopieringsarkivet, slik at de ikke trenger Ã¥ lastes ned igjen. Etter
+      Ã¥ ha sjekket at <envar>$LFS</envar> er riktig innstilt,
+      gjenopprett sikkerhetskopien ved Ã¥ utfÃ¸re fÃ¸lgende kommandoer:
     </para>
 
 <!-- Make the following look different so users don't blindly run the
      restore when they don't need to. -->
 
-    <warning><para>Følgende kommandoer er ekstremt farlige. Hvis
-    du kjører <command>rm -rf ./*</command> som &root; brukeren og du
+    <warning><para>FÃ¸lgende kommandoer er ekstremt farlige. Hvis
+    du kjÃ¸rer <command>rm -rf ./*</command> som &root; brukeren og du
     ikke endret til $LFS mappen eller <envar>LFS</envar>
-    miljøvariabelen ikke er satt for brukeren &root; vil den ødelegge
+    miljÃ¸variabelen ikke er satt for brukeren &root; vil den Ã¸delegge
     hele vertssystemet ditt. DU ER ADVART.</para></warning>
 
 <screen role="nodump"><computeroutput>cd $LFS
@@ -163,18 +163,18 @@ rm -rf ./*
 tar -xpf $HOME/lfs-temp-tools-&version;.tar.xz</computeroutput></screen>
 
     <para>
-       Igjen, dobbeltsjekk at miljøet er riktig konfigurert
-       og fortsett å bygge resten av systemet.
+       Igjen, dobbeltsjekk at miljÃ¸et er riktig konfigurert
+       og fortsett Ã¥ bygge resten av systemet.
     </para>
 
     <important>
       <para>
-         Hvis du forlot chroot-miljøet for å lage en sikkerhetskopi eller starte byggingen på nytt
-         ved hjelp av en gjenoppretting, husk å sjekke at det virtuelle
+         Hvis du forlot chroot-miljÃ¸et for Ã¥ lage en sikkerhetskopi eller starte byggingen pÃ¥ nytt
+         ved hjelp av en gjenoppretting, husk Ã¥ sjekke at det virtuelle
          filsystemer fortsatt er montert (<command>findmnt | grep
-         $LFS</command>).  Hvis de ikke er montert, monter dem på nytt nå som
-         beskrevet i <xref linkend='ch-tools-kernfs'/> og gå inn i chroot miljøet
-         igjen (se <xref linkend='ch-tools-chroot'/>) før du fortsetter.
+         $LFS</command>).  Hvis de ikke er montert, monter dem pÃ¥ nytt nÃ¥ som
+         beskrevet i <xref linkend='ch-tools-kernfs'/> og gÃ¥ inn i chroot miljÃ¸et
+         igjen (se <xref linkend='ch-tools-chroot'/>) fÃ¸r du fortsetter.
        </para>
     </important>
 

@@ -13,10 +13,10 @@
   <sect2>
      <title>Maskinvare</title>
 
-     <para>LFS redaktørene anbefaler at CPUen har minst
+     <para>LFS redaktÃ¸rene anbefaler at CPUen har minst
      fire kjerner og at systemet har minst 8 GB minne.
      Eldre systemer som ikke oppfyller disse kravene vil fortsatt fungere,
-     men tiden for å bygge pakker vil bli betydelig lengre
+     men tiden for Ã¥ bygge pakker vil bli betydelig lengre
      enn dokumentert.
   </para>
 
@@ -25,33 +25,33 @@
   <sect2>
      <title>Programvare</title>
 
-    <para>Vertssystemet ditt bør ha følgende programvare med
-    minimumsversjoner angitt. Dette burde ikke være et problem for de fleste
-    moderne Linuxdistribusjoner. Vær også oppmerksom på at mange distribusjoner vil
+    <para>Vertssystemet ditt bÃ¸r ha fÃ¸lgende programvare med
+    minimumsversjoner angitt. Dette burde ikke vÃ¦re et problem for de fleste
+    moderne Linuxdistribusjoner. VÃ¦r ogsÃ¥ oppmerksom pÃ¥ at mange distribusjoner vil
     plassere programvaredeklarasjoner i separate pakker, ofte i form av
     <quote>&lt;pakke-navn&gt;-devel</quote> eller
-    <quote>&lt;pakke-navn&gt;-dev</quote>. Pass på å installere disse hvis
+    <quote>&lt;pakke-navn&gt;-dev</quote>. Pass pÃ¥ Ã¥ installere disse hvis
     distribusjonen din har dem.</para>
 
-   <para>Tidligere versjoner av de oppførte programvarepakkene kan fungere, men har
+   <para>Tidligere versjoner av de oppfÃ¸rte programvarepakkene kan fungere, men har
    ikke blitt testet.</para>
 
   <itemizedlist spacing="compact">
 
     <listitem>
       <para><emphasis role="strong">Bash-3.2</emphasis> (/bin/sh
-      bør være en symbolsk eller hard lenke til bash)</para>
+      bÃ¸r vÃ¦re en symbolsk eller hard lenke til bash)</para>
     </listitem>
 
     <listitem>
       <para><emphasis role="strong">Binutils-2.13.1</emphasis> (Versjoner
-      større enn &binutils-version; anbefales ikke ettersom de
+      stÃ¸rre enn &binutils-version; anbefales ikke ettersom de
       ikke har blitt testet)</para>
     </listitem>
 
     <listitem>
       <para><emphasis role="strong">Bison-2.7</emphasis> (/usr/bin/yacc
-      bør være en lenke til bison eller et lite skript som kjører bison)</para>
+      bÃ¸r vÃ¦re en lenke til bison eller et lite skript som kjÃ¸rer bison)</para>
     </listitem>
 
     <!-- In Coreutils-8.1 the nproc program is added.  -->
@@ -69,16 +69,16 @@
 
     <listitem>
       <para><emphasis role="strong">Gawk-4.0.1</emphasis> (/usr/bin/awk
-      bør være en link til gawk)</para>
+      bÃ¸r vÃ¦re en link til gawk)</para>
     </listitem>
 
     <listitem>
       <!-- Pass 1 GCC FTBFS with GCC-5.1 because of
            https://gcc.gnu.org/PR65801. -->
       <para><emphasis role="strong">GCC-5.2</emphasis> inkludert C++
-      kompilatoren, <command>g++</command> (Versjoner større enn &gcc-version; er ikke
+      kompilatoren, <command>g++</command> (Versjoner stÃ¸rre enn &gcc-version; er ikke
       anbefalt da de ikke er testet). C og C++ standard
-      biblioteker (med deklarasjoner) må også være tilstede slik at C++ kompilatoren kan
+      biblioteker (med deklarasjoner) mÃ¥ ogsÃ¥ vÃ¦re tilstede slik at C++ kompilatoren kan
       bygge vertsbaserte programmer</para>
     </listitem>
 
@@ -94,27 +94,27 @@
       <para><emphasis role="strong">Linux Kernel-&min-kernel;</emphasis></para>
 
       <para>Grunnen til kravet om kjerneversjon er at vi spesifiserer
-      den versjonen når du bygger <application>glibc</application> i
+      den versjonen nÃ¥r du bygger <application>glibc</application> i
       <xref linkend="chapter-cross-tools"/> og
-      <xref linkend="chapter-building-system"/>, så løsningene for
+      <xref linkend="chapter-building-system"/>, sÃ¥ lÃ¸sningene for
       eldre kjerner er ikke aktivert og det kompilerte
       <application>glibc</application> er litt raskere og mindre.
       Fra juni 2023, &min-kernel; er den eldste kjerneutgivelsen
-      fortsatt støttet av kjerneutviklerne.</para>
+      fortsatt stÃ¸ttet av kjerneutviklerne.</para>
 
-      <para>Hvis vertskjernen er tidligere enn &min-kernel; du må erstatte
-      kjernen med en mer oppdatert versjon. Det er to måter
-      du kan gjøre dette på. Først, se om din Linux leverandør tilbyr en &min-kernel;
-      eller senere kjernepakke. I så fall kan det være lurt å installere den. Hvis din
-      leverandøren ikke tilbyr en akseptabel kjernepakke, eller du foretrekker å la være å
-      installer den, kan du kompilere en kjerne selv. Instruksjoner for å
+      <para>Hvis vertskjernen er tidligere enn &min-kernel; du mÃ¥ erstatte
+      kjernen med en mer oppdatert versjon. Det er to mÃ¥ter
+      du kan gjÃ¸re dette pÃ¥ FÃ¸rst, se om din Linux leverandÃ¸r tilbyr en &min-kernel;
+      eller senere kjernepakke. I sÃ¥ fall kan det vÃ¦re lurt Ã¥ installere den. Hvis din
+      leverandÃ¸ren ikke tilbyr en akseptabel kjernepakke, eller du foretrekker Ã¥ la vÃ¦re Ã¥
+      installer den, kan du kompilere en kjerne selv. Instruksjoner for Ã¥
       kompilere kjernen og konfigurere oppstartslasteren (forutsatt at verten
       bruker GRUB) er lokalisert i <xref linkend="chapter-bootable"/>.</para>
 	  
-	  <para>Vi krever at vertskjernen støtter UNIX 98 pseudoterminal
-      (PTY). Det bør være aktivert på all distribusjoner, skrivebord eller server med
+	  <para>Vi krever at vertskjernen stÃ¸tter UNIX 98 pseudoterminal
+      (PTY). Det bÃ¸r vÃ¦re aktivert pÃ¥ all distribusjoner, skrivebord eller server med
       Linux &min-kernel; eller en nyere kjerne. Hvis du bygger en egendefinert
-      vertskjerne, sørg for at <option>CONFIG_UNIX98_PTYS</option> er satt til
+      vertskjerne, sÃ¸rg for at <option>CONFIG_UNIX98_PTYS</option> er satt til
       <literal>y</literal> i kjernekonfigurasjonen.</para>
 
     </listitem>
@@ -158,10 +158,10 @@
   </itemizedlist>
 
   <important>
-    <para>Merk at symbollenkene nevnt ovenfor er nødvendige for å bygge et LFS
-    system ved å bruke instruksjonene i denne boken. Symlinker som
-    peker på annen programvare (som dash, mawk osv.) kan fungere, men er ikke
-    testet eller støttet av LFS utviklingsteamet, og kan kreve enten
+    <para>Merk at symbollenkene nevnt ovenfor er nÃ¸dvendige for Ã¥ bygge et LFS
+    system ved Ã¥ bruke instruksjonene i denne boken. Symbollinker som
+    peker pÃ¥ annen programvare (som dash, mawk osv.) kan fungere, men er ikke
+    testet eller stÃ¸ttet av LFS utviklingsteamet, og kan kreve enten
     avvik fra instruksjonene eller tilleggsoppdateringer til noen
     pakker.</para>
   </important>
@@ -173,8 +173,8 @@
   </bridgehead>
   <!--<title> </title>-->
 
-  <para >For å se om vertssystemet ditt har alle de riktige versjonene, og
-  muligheten til å kompilere programmer, kjør følgende:</para>
+  <para >For Ã¥ se om vertssystemet ditt har alle de riktige versjonene, og
+  muligheten til Ã¥ kompilere programmer, kjÃ¸r fÃ¸lgende:</para>
 
 <screen role="nodump"><?dbfo keep-together="auto"?><userinput>cat &gt; version-check.sh &lt;&lt; "EOF"
 <literal>#!/bin/bash

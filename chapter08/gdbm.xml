@@ -25,8 +25,8 @@
 
     <para>GDBM pakken inneholder GNU Database Manager. Det er et bibliotek
     av databasefunksjoner som bruker utvidbar hashing og fungerer lignende som
-    standard UNIX dbm. Biblioteket gir primitiver for lagring av nøkkel/data
-    par, søker og henter dataene etter nøkkelen og sletter en nøkkel
+    standard UNIX dbm. Biblioteket gir primitiver for lagring av nÃ¸kkel/data
+    par, sÃ¸ker og henter dataene etter nÃ¸kkelen og sletter en nÃ¸kkel
     sammen med sine data. </para>
 
     <segmentedlist>
@@ -44,7 +44,7 @@
   <sect2 role="installation">
     <title>Installasjon av GDBM</title>
 <!--
-    <para>Først, fiks et problem først identifisert av gcc-10:</para>
+    <para>FÃ¸rst, fiks et problem fÃ¸rst identifisert av gcc-10:</para>
 
 <screen><userinput remap="pre">sed -r -i '/^char.*parseopt_program_(doc|args)/d' src/parseopt.c</userinput></screen>
 -->
@@ -60,7 +60,7 @@
       <varlistentry>
         <term><envar>--enable-libgdbm-compat</envar></term>
         <listitem>
-          <para>Denne bryteren gjør det mulig å bygge libgdbm kompatibilitetsbiblioteket.
+          <para>Denne bryteren gjÃ¸r det mulig Ã¥ bygge libgdbm kompatibilitetsbiblioteket.
           Noen pakker utenfor LFS kan kreve eldre DBM
           rutiner det gir.</para>
         </listitem>
@@ -71,12 +71,12 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>For å teste resultatene, utsted:</para>
+    <para>For Ã¥ teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 <!--
     <para>
-      En test, <filename>version</filename>, er kjent for å mislykkes.
+      En test, <filename>version</filename>, er kjent for Ã¥ mislykkes.
     </para>
 -->
     <para>Installer pakken:</para>
@@ -136,7 +136,7 @@
       <varlistentry id="libgdbm">
         <term><filename class="libraryfile">libgdbm</filename></term>
         <listitem>
-          <para>Inneholder funksjoner for å manipulere en hashet database</para>
+          <para>Inneholder funksjoner for Ã¥ manipulere en hashet database</para>
           <indexterm zone="ch-system-gdbm libgdbm">
             <primary sortas="c-libgdbm">libgdbm</primary>
           </indexterm>

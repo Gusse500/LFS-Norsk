@@ -23,10 +23,10 @@
   <sect2 role="package">
     <title/>
 
-    <para>Tar pakken gir muligheten til å lage tar arkiver og
-    å utføre forskjellige andre typer arkivmanipulering. Tar kan brukes på
-    tidligere opprettede arkiver for å trekke ut filer, for å lagre flere filer, eller
-    for å oppdatere eller liste filer som allerede er lagret. </para>
+    <para>Tar pakken gir muligheten til Ã¥ lage tar arkiver og
+    Ã¥ utfÃ¸re forskjellige andre typer arkivmanipulering. Tar kan brukes pÃ¥
+    tidligere opprettede arkiver for Ã¥ trekke ut filer, for Ã¥ lagre flere filer, eller
+    for Ã¥ oppdatere eller liste filer som allerede er lagret. </para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -54,12 +54,12 @@
       <varlistentry>
         <term><envar>FORCE_UNSAFE_CONFIGURE=1</envar></term>
         <listitem>
-          <para>Dette tvinger testen for <function>mknod</function> å bli kjørt
+          <para>Dette tvinger testen for <function>mknod</function> Ã¥ bli kjÃ¸rt
           som <systemitem class="username">root</systemitem>.
-          Det anses generelt som farlig å kjøre denne testen som
+          Det anses generelt som farlig Ã¥ kjÃ¸re denne testen som
           the <systemitem class="username">root</systemitem> bruker, men siden
-          den kjøres på et system som kun er
-          delvis bygget, å overstyre det er OK.</para>
+          den kjÃ¸res pÃ¥ et system som kun er
+          delvis bygget, Ã¥ overstyre det er OK.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -68,14 +68,14 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>For å teste resultatene, utsted:</para>
+    <para>For Ã¥ teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>En test, capabilities: binary store/restore, er kjent for å mislykkes hvis den
-    kjøres (på grunn av at LFS mangler selinux), men vil bli hoppet over hvis vertskjernen ikke
-    støtter utvidede attributter eller sikkerhetsetiketter på filsystemet
-    som brukes til å bygge LFS.</para>
+    <para>En test, capabilities: binary store/restore, er kjent for Ã¥ mislykkes hvis den
+    kjÃ¸res (pÃ¥ grunn av at LFS mangler selinux), men vil bli hoppet over hvis vertskjernen ikke
+    stÃ¸tter utvidede attributter eller sikkerhetsetiketter pÃ¥ filsystemet
+    som brukes til Ã¥ bygge LFS.</para>
 
     <para>Installer pakken:</para>
 
@@ -107,7 +107,7 @@ make -C doc install-html docdir=/usr/share/doc/tar-&tar-version;</userinput></sc
         <term><command>tar</command></term>
         <listitem>
           <para>Oppretter, trekker ut filer fra og viser innholdet i arkiver,
-          også kjent som tarballer</para>
+          ogsÃ¥ kjent som tarballer</para>
           <indexterm zone="ch-system-tar tar">
             <primary sortas="b-tar">tar</primary>
           </indexterm>

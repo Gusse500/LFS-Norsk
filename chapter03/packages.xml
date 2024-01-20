@@ -11,21 +11,21 @@
   <title>Alle pakker</title>
 
   <note>
-    <para>Les <ulink url='&secadv;'>sikkerhetsrådene</ulink>
-    før du laster ned pakker for å finne ut om en nyere versjon av noen
-    pakken bør brukes for å unngå sikkerhetssårbarheter.</para>
+    <para>Les <ulink url='&secadv;'>sikkerhetsrÃ¥dene</ulink>
+    fÃ¸r du laster ned pakker for Ã¥ finne ut om en nyere versjon av noen
+    pakken bÃ¸r brukes for Ã¥ unngÃ¥ sikkerhetssÃ¥rbarheter.</para>
 
-    <para>Oppstrøms kilder kan fjerne gamle utgivelser, spesielt når de
-    utgivelser inneholder en sikkerhetssårbarhet. Hvis én URL nedenfor ikke er
-    tilgjengelig, bør du lese sikkerhetsrådene først for å finne ut
-    om en nyere versjon (med sårbarheten fikset) skal brukes. Hvis
-    ikke, prøv å laste ned den fjernede pakken fra et speil. Selv om det er
-    mulig å laste ned en gammel utgivelse fra et speil selv om denne utgivelsen
-    har blitt fjernet på grunn av en sårbarhet, er det ikke en god idé
-    å bruk en utgivelse som er kjent for å være sårbar for å bygge systemet ditt.</para>
+    <para>OppstrÃ¸ms kilder kan fjerne gamle utgivelser, spesielt nÃ¥r de
+    utgivelser inneholder en sikkerhetssÃ¥rbarhet. Hvis en URL nedenfor ikke er
+    tilgjengelig, bÃ¸r du lese sikkerhetsrÃ¥dene fÃ¸rst for Ã¥ finne ut
+    om en nyere versjon (med sÃ¥rbarheten fikset) skal brukes. Hvis
+    ikke, prÃ¸v Ã¥ laste ned den fjernede pakken fra et speil. Selv om det er
+    mulig Ã¥ laste ned en gammel utgivelse fra et speil selv om denne utgivelsen
+    har blitt fjernet pÃ¥ grunn av en sÃ¥rbarhet, er det ikke en god ide
+    Ã¥ bruk en utgivelse som er kjent for Ã¥ vÃ¦re sÃ¥rbar for Ã¥ bygge systemet ditt.</para>
   </note>
 
-  <para>Last ned eller på annen måte skaff deg følgende pakker:</para>
+  <para>Last ned eller pÃ¥ annen mÃ¥te skaff deg fÃ¸lgende pakker:</para>
 
   <variablelist role="materials">
 
@@ -277,9 +277,9 @@
             branch</ulink> som inneholder oppdateringer som anses verdig
             Glibc-&glibc-version; men utviklet seg dessverre etter
             Glibc-&glibc-version; utgivelsen.  LFS redaksjonen vil utstede en
-            sikkerhetsrådgivning hvis noen sikkerhetsfiks legges til i grenen,
-            men ingen handlinger vil bli utført for andre oppdateringer som legges til. Du
-            kan gjennomgå oppdateringene selv og inkludere noen oppdateringer hvis
+            sikkerhetsrÃ¥dgivning hvis noen sikkerhetsfiks legges til i grenen,
+            men ingen handlinger vil bli utfÃ¸rt for andre oppdateringer som legges til. Du
+            kan gjennomgÃ¥ oppdateringene selv og inkludere noen oppdateringer hvis
             du anser dem som viktige.
           </para>
         </note>
@@ -475,15 +475,15 @@
 
         <note>
           <para>Linuxkjernen oppdateres ganske ofte, mange ganger pga
-          oppdagelser av sikkerhetssårbarheter. Den siste tilgjengelige
+          oppdagelser av sikkerhetssÃ¥rbarheter. Den siste tilgjengelige
           <!--&linux-major-version;.&linux-minor-version;.x--> stabile
           kjerneversjonen <!--burde--> kan bli
           brukt, med mindre errata siden sier noe annet.</para>
 
-          <para>For brukere med begrenset hastighet eller dyr båndbredde som ønsker å
+          <para>For brukere med begrenset hastighet eller dyr bÃ¥ndbredde som Ã¸nsker Ã¥
           oppdatere Linux kjernen, en grunnlinjeversjon av pakken og
           oppdateringer kan lastes ned separat. Dette kan spare litt tid eller
-          kostnad for en påfølgende nivåoppgradering av oppdateringer i en mindre utgivelse.
+          kostnad for en pÃ¥fÃ¸lgende nivÃ¥oppgradering av oppdateringer i en mindre utgivelse.
           </para>
         </note>
       </listitem>
@@ -713,8 +713,8 @@
 
         <note>
           <para>Linux From Scratch teamet genererer sin egen tarball av
-          mansider som bruker systemd kilden. Dette gjøres for å unngå
-          unødvendige avhengigheter.</para>
+          mansider som bruker systemd kilden. Dette gjÃ¸res for Ã¥ unngÃ¥
+          unÃ¸dvendige avhengigheter.</para>
         </note>
       </listitem>
     </varlistentry>
@@ -798,8 +798,8 @@
 
         <note>
           <para>Linux From Scratch teamet genererer sin egen tarball av
-          man-sider som bruker util-linux-kilden. Dette gjøres for å unngå
-          unødvendige avhengigheter.</para>
+          man-sider som bruker util-linux-kilden. Dette gjÃ¸res for Ã¥ unngÃ¥
+          unÃ¸dvendige avhengigheter.</para>
         </note>
       </listitem>
     </varlistentry>
@@ -812,7 +812,7 @@
         <para>MD5 sum: <literal>&vim-md5;</literal></para>
         <note>
           <para>
-            Versjonen av vim endres daglig. For å få den nyeste versjonen, gå til
+            Versjonen av vim endres daglig. For Ã¥ fÃ¥ den nyeste versjonen, gÃ¥ til
             <ulink url="https://github.com/vim/vim/releases">
             https://github.com/vim/vim/tags</ulink>.
           </para>
@@ -867,6 +867,6 @@
 
   </variablelist>
 
-  <para>Total størrelse på disse pakkene: ca <returnvalue/></para>
+  <para>Total stÃ¸rrelse pÃ¥ disse pakkene: ca <returnvalue/></para>
 
 </sect1>

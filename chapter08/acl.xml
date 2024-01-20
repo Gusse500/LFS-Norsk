@@ -23,8 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Acl pakken inneholder verktøy for å administrere tilgangskontrolllister,
-    som brukes til å definere mer finmaskede skjønnsmessige tilgangsrettigheter for
+    <para>Acl pakken inneholder verktÃ¸y for Ã¥ administrere tilgangskontrolllister,
+    som brukes til Ã¥ definere mer finmaskede skjÃ¸nnsmessige tilgangsrettigheter for
     filer og mapper.</para>
 
     <segmentedlist>
@@ -52,10 +52,10 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Acl testene må kjøres på et filsystem som støtter tilgangskontroller,
-    men ikke før <application>Coreutils</application> pakken er bygget,
-    ved å bruke <application>Acl</application> biblioteker. Hvis ønskelig, gå tilbake til denne pakken
-    og kjør <command>make check</command> etter at <application>Coreutils</application>
+    <para>Acl testene mÃ¥ kjÃ¸res pÃ¥ et filsystem som stÃ¸tter tilgangskontroller,
+    men ikke fÃ¸r <application>Coreutils</application> pakken er bygget,
+    ved Ã¥ bruke <application>Acl</application> biblioteker. Hvis Ã¸nskelig, gÃ¥ tilbake til denne pakken
+    og kjÃ¸r <command>make check</command> etter at <application>Coreutils</application>
     pakken er bygget.</para>
 
     <para>Installer pakken:</para>
@@ -118,7 +118,7 @@
       <varlistentry id="libacl">
         <term><filename class="libraryfile">libacl</filename></term>
         <listitem>
-          <para>Inneholder bibliotekfunksjonene for å manipulere tilgangskontrolllister</para>
+          <para>Inneholder bibliotekfunksjonene for Ã¥ manipulere tilgangskontrolllister</para>
           <indexterm zone="ch-system-acl libacl">
             <primary sortas="c-libacl">libacl</primary>
           </indexterm>

@@ -8,7 +8,7 @@
 <sect1 id="ch-config-udev">
   <?dbhtml filename="udev.html"?>
 
-  <title>Oversikt over enhets- og modulhåndtering</title>
+  <title>Oversikt over enhets- og modulhÃ¥ndtering</title>
 
   <indexterm zone="ch-config-udev">
     <primary sortas="a-Udev">Udev</primary>
@@ -16,10 +16,10 @@
   </indexterm>
 
   <para>I <xref linkend="chapter-building-system"/>, installerte vi udev
-  nissen når <phrase revision="sysv">udev</phrase>
-  <phrase revision="systemd">systemd</phrase> ble bygget. Før vi går inn i
+  nissen nÃ¥r <phrase revision="sysv">udev</phrase>
+  <phrase revision="systemd">systemd</phrase> ble bygget. FÃ¸r vi gÃ¥r inn i
   detaljer om hvordan dette fungerer, er en kort historie om tidligere metoder for
-  å håndtere utstyr i orden.</para>
+  Ã¥ hÃ¥ndtere utstyr i orden.</para>
 
   <para>Generelt brukte Linux systemer tradisjonelt en statisk enhetsopprettingsmetode
   , hvor mange enhetsnoder ble opprettet under <filename
@@ -30,12 +30,12 @@
   hoved- og mindre enhetsnumre for alle mulige enheter som kan eksistere i
   verden.</para>
 
-  <para>Ved å bruke udev metoden vil bare de enhetene som oppdages av
-  kjernen få enhetsnoder opprettet for dem. Fordi disse enhetsnodene vil være
-  opprettet hver gang systemet starter, vil de bli lagret på et <systemitem
+  <para>Ved Ã¥ bruke udev metoden vil bare de enhetene som oppdages av
+  kjernen fÃ¥ enhetsnoder opprettet for dem. Fordi disse enhetsnodene vil vÃ¦re
+  opprettet hver gang systemet starter, vil de bli lagret pÃ¥ et <systemitem
   class="filesystem">devtmpfs</systemitem> filsystem (et virtuelt filsystem
   som ligger utelukkende i systemminnet). Enhetsnoder krever ikke mye
-  plass, så minnet som brukes er ubetydelig.</para>
+  plass, sÃ¥ minnet som brukes er ubetydelig.</para>
 
   <sect2>
     <title>Historie</title>
@@ -43,18 +43,18 @@
     <para>I februar 2000 ble et nytt filsystem kalt <systemitem
     class="filesystem">devfs</systemitem> flettet inn i 2.3.46-kjernen
      og ble gjort tilgjengelig under 2.4-serien med stabile kjerner. Selv om
-     den var til stede i selve kjernekilden, fikk denne metoden for å lage enheter
-     dynamisk aldri overveldende støtte fra
+     den var til stede i selve kjernekilden, fikk denne metoden for Ã¥ lage enheter
+     dynamisk aldri overveldende stÃ¸tte fra
      kjerneutviklere.</para>
 
-    <para>Hovedproblemet med tilnærmingen vedtatt av <systemitem
-    class="filesystem">devfs</systemitem> var måten den håndterte enheten på
-    ved oppdagelse, opprettelse og navngivning. Det siste problemet enhetsnavnet på
+    <para>Hovedproblemet med tilnÃ¦rmingen vedtatt av <systemitem
+    class="filesystem">devfs</systemitem> var mÃ¥ten den hÃ¥ndterte enheten pÃ¥
+    ved oppdagelse, opprettelse og navngivning. Det siste problemet enhetsnavnet pÃ¥
     en enhetsnode, var kanskje den mest kritiske. Det er generelt akseptert at hvis
-    enhetsnavn kan konfigureres, så skal enhetsnavn politikken
-    være opp til en systemadministrator, og ikke pålagt dem av en
+    enhetsnavn kan konfigureres, sÃ¥ skal enhetsnavn politikken
+    vÃ¦re opp til en systemadministrator, og ikke pÃ¥lagt dem av en
     spesiell(e) utvikler(e). <systemitem
-    class="filesystem">devfs</systemitem> filsystemet led også av kjøreforhold
+    class="filesystem">devfs</systemitem> filsystemet led ogsÃ¥ av kjÃ¸reforhold
     som var iboende i utformingen og ikke kunne fikses uten en
     betydelig revisjon av kjernen. <systemitem class="filesystem">devfs</systemitem>
     ble merket som utdatert i lang
@@ -64,9 +64,9 @@
     <para>Med utviklingen av det ustabile 2.5 kjernetreet, senere utgitt
     som 2.6-serien med stabile kjerner, et nytt virtuelt filsystem kalt
     <systemitem class="filesystem">sysfs</systemitem> ble opprettet. Jobben til
-    <systemitem class="filesystem">sysfs</systemitem> er å eksportere en visning av
+    <systemitem class="filesystem">sysfs</systemitem> er Ã¥ eksportere en visning av
     systemets maskinvarekonfigurasjon til brukerprosesser. Med dette
-    brukersynlige representasjonen, ble det mulig å utvikle et brukerområde
+    brukersynlige representasjonen, ble det mulig Ã¥ utvikle et brukeromrÃ¥de
     erstatning for <systemitem class="filesystem">devfs</systemitem>.</para>
 
   </sect2>
@@ -78,17 +78,17 @@
       <title>Sysfs</title>
 
       <para><systemitem class="filesystem">sysfs</systemitem> filsystemet
-      ble kort nevnt ovenfor. Man kan lure på hvordan <systemitem
-      class="filesystem">sysfs</systemitem> vet om enhetene som finnes på
+      ble kort nevnt ovenfor. Man kan lure pÃ¥ hvordan <systemitem
+      class="filesystem">sysfs</systemitem> vet om enhetene som finnes pÃ¥
       et system og hvilke enhetsnumre som skal brukes for dem. Drivere som
       har blitt kompilert inn i kjernen, registrerer objektene deres direkte med
       <systemitem class="filesystem">sysfs</systemitem> (devtmpfs internt)
-      når de oppdages av kjernen. For drivere kompilert som moduler, vil
-      registreringen skje når modulen blir lastet. Først når <systemitem
-      class="filesystem">sysfs</systemitem> filsystemet er montert (på 
+      nÃ¥r de oppdages av kjernen. For drivere kompilert som moduler, vil
+      registreringen skje nÃ¥r modulen blir lastet. FÃ¸rst nÃ¥r <systemitem
+      class="filesystem">sysfs</systemitem> filsystemet er montert (pÃ¥ 
       <filename class="directory">/sys</filename>),
       data som driverne registrerer med <systemitem
-      class="filesystem">sysfs</systemitem> er tilgjengelig for brukerområdets
+      class="filesystem">sysfs</systemitem> er tilgjengelig for brukeromrÃ¥dets
       prosesser og til udevd for behandling (inkludert modifikasjoner av enhetens
       noder).</para>
 
@@ -99,24 +99,24 @@
 
       <para>Enhetsfiler opprettes av kjernen i <systemitem
       class="filesystem">devtmpfs</systemitem> filsystemet.  Enhver driver som
-      ønsker å registrere en enhetsnode vil bruke <systemitem
-      class="filesystem">devtmpfs</systemitem> (via driverkjernen) for å gjøre det.
-      Når en <systemitem class="filesystem">devtmpfs</systemitem> forekomst er
-      montert på <filename class="directory">/dev</filename>, vil enhetsnoden
+      Ã¸nsker Ã¥ registrere en enhetsnode vil bruke <systemitem
+      class="filesystem">devtmpfs</systemitem> (via driverkjernen) for Ã¥ gjÃ¸re det.
+      NÃ¥r en <systemitem class="filesystem">devtmpfs</systemitem> forekomst er
+      montert pÃ¥ <filename class="directory">/dev</filename>, vil enhetsnoden
       i utgangspunktet bli eksponert for brukerrom med et fast navn, tillatelser og
       eieren.</para>
 
       <para>Kort tid senere vil kjernen sende en uevent til <command>
-      udevd</command>.  Basert på reglene spesifisert i filene i
+      udevd</command>.  Basert pÃ¥ reglene spesifisert i filene i
       <filename class="directory">/etc/udev/rules.d</filename>, <filename
       class="directory">/usr/lib/udev/rules.d</filename>, og <filename
       class="directory">/run/udev/rules.d</filename> mappene, <command>
       udevd</command> vil opprette flere symbolkoblinger til enhetsnoden, eller
       endre tillatelsene, eieren eller gruppen, eller endre den interne
-      <command>udevd</command> databaseoppføring (navn) for det objektet.</para>
+      <command>udevd</command> databaseoppfÃ¸ring (navn) for det objektet.</para>
 
       <para>Reglene i disse tre mappene er nummererte og alle tre
-      mappene slås sammen. Hvis <command>udevd</command> ikke finner en
+      mappene slÃ¥s sammen. Hvis <command>udevd</command> ikke finner en
       regel for enheten den oppretter, vil den opprettholde tillatelsene og
       eierskapet som <systemitem
       class="filesystem">devtmpfs</systemitem> brukte i utgangspunktet.</para> </sect3>
@@ -127,39 +127,39 @@
       <para>Enhetsdrivere kompilert som moduler kan ha innebygde aliaser.
       Aliaser er synlige i utdataene til <command>modinfo</command>
       programmet og er vanligvis relatert til de bussspesifikke identifikatorene til enheter
-      støttet av en modul. For eksempel <emphasis>snd-fm801</emphasis>
-      driveren støtter PCI-enheter med leverandør-ID 0x1319 og enhets-ID 0x0801,
+      stÃ¸ttet av en modul. For eksempel <emphasis>snd-fm801</emphasis>
+      driveren stÃ¸tter PCI-enheter med leverandÃ¸r-ID 0x1319 og enhets-ID 0x0801,
       og har et alias <quote>pci:v00001319d00000801sv*sd*bc04sc01i*</quote>.
       For de fleste enheter eksporterer bussdriveren aliaset til driveren som
-      vil håndtere enheten via <systemitem
+      vil hÃ¥ndtere enheten via <systemitem
       class="filesystem">sysfs</systemitem>. F.eks,
       <filename>/sys/bus/pci/devices/0000:00:0d.0/modalias</filename> filen
       kan inneholde strengen
       <quote>pci:v00001319d00000801sv00001319sd00001319bc04sc01i00</quote>.
-      Standardreglene som følger med udev vil gjøre at <command>udevd</command>
+      Standardreglene som fÃ¸lger med udev vil gjÃ¸re at <command>udevd</command>
       kaller <command>/sbin/modprobe</command> med innholdet i
-      <envar>MODALIAS</envar> uevent miljøvariabel (som skal være
+      <envar>MODALIAS</envar> uevent miljÃ¸variabel (som skal vÃ¦re
       samme som innholdet i <filename>modalias</filename> filen i sysfs),
       laster dermed alle moduler hvis aliaser samsvarer med denne strengen etter jokertegn
       ekspansjonen.</para>
 
       <para>I dette eksemplet betyr dette at i tillegg til
-      <emphasis>snd-fm801</emphasis>, det foreldede (og uønskede)
+      <emphasis>snd-fm801</emphasis>, det foreldede (og uÃ¸nskede)
       <emphasis>forte</emphasis> driveren vil bli lastet hvis den er
-      tilgjengelig. Se nedenfor for måter lasting av uønskede drivere kan
+      tilgjengelig. Se nedenfor for mÃ¥ter lasting av uÃ¸nskede drivere kan
       bli forhindret.</para>
 
-      <para>Kjernen selv er også i stand til å laste moduler for
-      nettverksprotokoller, filsystemer og NLS-støtte på forespørsel.</para>
+      <para>Kjernen selv er ogsÃ¥ i stand til Ã¥ laste moduler for
+      nettverksprotokoller, filsystemer og NLS-stÃ¸tte pÃ¥ forespÃ¸rsel.</para>
 
     </sect3>
 
     <sect3>
-      <title>Håndtering av direktekoblingsbare/dynamiske enheter</title>
+      <title>HÃ¥ndtering av direktekoblingsbare/dynamiske enheter</title>
 
-      <para>Når du kobler til en enhet, for eksempel en Universal Serial Bus (USB) MP3
-      spiller, gjenkjenner kjernen at enheten nå er tilkoblet og
-      genererer en uevent. Denne uevent håndteres deretter av
+      <para>NÃ¥r du kobler til en enhet, for eksempel en Universal Serial Bus (USB) MP3
+      spiller, gjenkjenner kjernen at enheten nÃ¥ er tilkoblet og
+      genererer en uevent. Denne uevent hÃ¥ndteres deretter av
       <command>udevd</command> som beskrevet ovenfor.</para>
 
     </sect3>
@@ -167,40 +167,40 @@
   </sect2>
 
   <sect2>
-    <title>Problemer med å laste moduler og lage enheter</title>
+    <title>Problemer med Ã¥ laste moduler og lage enheter</title>
 
-    <para>Det er noen mulige problemer når det kommer til å automatisk
+    <para>Det er noen mulige problemer nÃ¥r det kommer til Ã¥ automatisk
     opprette enhetsnoder.</para>
 
     <sect3>
       <title>En kjernemodul lastes ikke automatisk</title>
 
       <para>Udev vil bare laste en modul hvis den har et bussspesifikt alias og
-      bussdriveren eksporterer de nødvendige aliasene til <systemitem
-      class="filesystem">sysfs</systemitem>. I andre tilfeller bør man
-      ordne modullasting på andre måter. Med Linux-&linux-version;, udev er
-      kjent for å laste riktig skrevne drivere for INPUT, IDE, PCI, USB, SCSI,
+      bussdriveren eksporterer de nÃ¸dvendige aliasene til <systemitem
+      class="filesystem">sysfs</systemitem>. I andre tilfeller bÃ¸r man
+      ordne modullasting pÃ¥ andre mÃ¥ter. Med Linux-&linux-version;, udev er
+      kjent for Ã¥ laste riktig skrevne drivere for INPUT, IDE, PCI, USB, SCSI,
       SERIO, og FireWire-enheter.</para>
 
-      <para>For å finne ut om enhetsdriveren du trenger har den nødvendige
-      støtten for udev, kjør <command>modinfo</command> med modulnavnet som
-      argument. Prøv nå å finne enhetsmappen under
+      <para>For Ã¥ finne ut om enhetsdriveren du trenger har den nÃ¸dvendige
+      stÃ¸tten for udev, kjÃ¸r <command>modinfo</command> med modulnavnet som
+      argument. PrÃ¸v nÃ¥ Ã¥ finne enhetsmappen under
       <filename class="directory">/sys/bus</filename> og sjekk om det er
       en <filename>modalias</filename> fil der.</para>
 
       <para>Hvis <filename>modalias</filename> filen finnes i <systemitem
-      class="filesystem">sysfs</systemitem>, driveren støtter enheten og
+      class="filesystem">sysfs</systemitem>, driveren stÃ¸tter enheten og
       kan snakke med den direkte, men har ikke aliaset, det er en feil i
       driveren. Last inn driveren uten hjelp fra udev og forvent at problemet
       blir fikset senere.</para>
 
       <para>Hvis det ikke er noen <filename>modalias</filename> fil i den aktuelle
       mappen under <filename class="directory">/sys/bus</filename>, dette
-      betyr at kjerneutviklerne ennå ikke har lagt til støtte for modalias
+      betyr at kjerneutviklerne ennÃ¥ ikke har lagt til stÃ¸tte for modalias
       for denne busstypen. Med Linux-&linux-version;, dette er tilfellet med ISA
-      busser. Forvent at dette problemet blir løst i senere kjerneversjoner.</para>
+      busser. Forvent at dette problemet blir lÃ¸st i senere kjerneversjoner.</para>
 
-      <para>Udev er ikke ment å laste <quote>innpakkede (wrapper)</quote> drivere som f.eks
+      <para>Udev er ikke ment Ã¥ laste <quote>innpakkede (wrapper)</quote> drivere som f.eks
       <emphasis>snd-pcm-oss</emphasis> og ikke-maskinvaredrivere som f.eks
       <emphasis>loop</emphasis> i det hele tatt.</para>
 
@@ -208,36 +208,36 @@
 
     <sect3>
       <title>En kjernemodul lastes ikke automatisk, og udev er ikke
-      beregnet på å laste den</title>
+      beregnet pÃ¥ Ã¥ laste den</title>
 
       <para>Hvis den <quote>innpakkede</quote> modulen bare forbedrer
       funksjonalitet levert av en annen modul (f.eks.,
       <emphasis>snd-pcm-oss</emphasis> forbedrer funksjonaliteten til
-      <emphasis>snd-pcm</emphasis> ved å gjøre lydkortene tilgjengelige for OSS
-      applikasjoner), konfigurer <command>modprobe</command> til å laste inn innpakkningen
-      etter at udev har lastet den innpakkede modulen. For å gjøre dette, legg til en
+      <emphasis>snd-pcm</emphasis> ved Ã¥ gjÃ¸re lydkortene tilgjengelige for OSS
+      applikasjoner), konfigurer <command>modprobe</command> til Ã¥ laste inn innpakkningen
+      etter at udev har lastet den innpakkede modulen. For Ã¥ gjÃ¸re dette, legg til en
       <quote>softdep</quote> linje til den tilsvarende
       <filename>/etc/modprobe.d/<replaceable>&lt;filename&gt;</replaceable>.conf</filename>
       filen. For eksempel:</para>
 
 <screen role="nodump"><literal>softdep snd-pcm post: snd-pcm-oss</literal></screen>
 
-      <para>Merk at <quote>softdep</quote> kommandoen tillater også
+      <para>Merk at <quote>softdep</quote> kommandoen tillater ogsÃ¥
       <literal>pre:</literal> avhengigheter, eller en blanding av begge
-      <literal>(Før) pre:</literal> og <literal>(Etter) post:</literal> avhengigheter.  Se
+      <literal>(FÃ¸r) pre:</literal> og <literal>(Etter) post:</literal> avhengigheter.  Se
       <filename>modprobe.d(5)</filename> manualside for mer informasjon
       om <quote>softdep</quote> syntaks og muligheter.</para>
 
       <para revision="sysv">Hvis den aktuelle modulen ikke er en innpakning og er
       nyttig i seg selv, konfigurer <command>modules</command> oppstartsskriptet til
-      å laste denne modulen ved systemoppstart. For å gjøre dette, legg til modulnavnet i
-      <filename>/etc/sysconfig/modules</filename> filen på en egen linje.
-      Dette fungerer også for innpakningsmoduler, men er ikke optimalt i så fall.</para>
+      Ã¥ laste denne modulen ved systemoppstart. For Ã¥ gjÃ¸re dette, legg til modulnavnet i
+      <filename>/etc/sysconfig/modules</filename> filen pÃ¥ en egen linje.
+      Dette fungerer ogsÃ¥ for innpakningsmoduler, men er ikke optimalt i sÃ¥ fall.</para>
 
     </sect3>
 
     <sect3>
-      <title>Udev laster inn noen uønskede moduler</title>
+      <title>Udev laster inn noen uÃ¸nskede moduler</title>
 
       <para>Enten ikke bygg modulen, eller svarteliste den i en
       <filename>/etc/modprobe.d/blacklist.conf</filename> fil som gjort med
@@ -254,56 +254,56 @@
       <title>Udev oppretter en enhet feil, eller lager en feil symbolkobling</title>
 
       <para>Dette skjer vanligvis hvis en regel uventet samsvarer med en enhet.
-      For eksempel kan en dårlig skrevet regel matche både en SCSI-disk (som ønsket)
-      og den tilsvarende generiske SCSI-enheten (feil) av leverandøren.
-      Finn den krenkende regelen og gjør den mer spesifikk, ved hjelp av
+      For eksempel kan en dÃ¥rlig skrevet regel matche bÃ¥de en SCSI-disk (som Ã¸nsket)
+      og den tilsvarende generiske SCSI-enheten (feil) av leverandÃ¸ren.
+      Finn den krenkende regelen og gjÃ¸r den mer spesifikk, ved hjelp av
       <command>udevadm info</command> kommandoen.</para>
 
     </sect3>
 
     <sect3>
-      <title>Udev regel fungerer upålitelig</title>
+      <title>Udev regel fungerer upÃ¥litelig</title>
 
-      <para>Dette kan være en annen manifestasjon av det forrige problemet. Hvis ikke,
+      <para>Dette kan vÃ¦re en annen manifestasjon av det forrige problemet. Hvis ikke,
       og regelen din bruker <systemitem class="filesystem">sysfs</systemitem>
-      attributter, kan det være et problem med kjernetiming, som bør fikses i senere kjerner.
-      Foreløpig kan du omgå det ved å lage en regel som venter på den brukte
-      <systemitem class="filesystem">sysfs</systemitem> attributten og tilføye
+      attributter, kan det vÃ¦re et problem med kjernetiming, som bÃ¸r fikses i senere kjerner.
+      ForelÃ¸pig kan du omgÃ¥ det ved Ã¥ lage en regel som venter pÃ¥ den brukte
+      <systemitem class="filesystem">sysfs</systemitem> attributten og tilfÃ¸ye
       den til <filename>/etc/udev/rules.d/10-wait_for_sysfs.rules</filename>
       filen (opprett denne filen hvis den ikke eksisterer). Gi beskjed til LFS
-      Utviklingsliste hvis du gjør det, og det hjelper.</para>
+      Utviklingsliste hvis du gjÃ¸r det, og det hjelper.</para>
 
     </sect3>
 
     <sect3>
       <title>Udev oppretter ikke en enhet</title>
 
-      <para>Først må du være sikker på at driveren er innebygd i
+      <para>FÃ¸rst mÃ¥ du vÃ¦re sikker pÃ¥ at driveren er innebygd i
       kjernen eller allerede lastet inn som en modul, og at
       udev ikke oppretter en enhet med feil navn.</para>
 
       <para>Hvis en kjernedriver ikke eksporterer dataene sine til
       <systemitem class="filesystem">sysfs</systemitem>, mangler udev
-      informasjon som trengs for å opprette en enhetsnode. Dette vil mest sannsynlig skje
+      informasjon som trengs for Ã¥ opprette en enhetsnode. Dette vil mest sannsynlig skje
       med tredjepartsdrivere fra utenfor kjernetreet. Lag en statisk
       enhetsnode i <filename>/usr/lib/udev/devices</filename> med
       passende hoved/under nummer (se filen
       <filename>devices.txt</filename> inne i kjernedokumentasjonen eller
-      dokumentasjon levert av tredjeparts driverleverandør). Det statiske
+      dokumentasjon levert av tredjeparts driverleverandÃ¸r). Det statiske
       enhetsnoden vil bli kopiert til <filename class="directory">/dev</filename>
       av <command>udev</command>.</para>
 
     </sect3>
 
     <sect3>
-      <title>Rekkefølgen for enhetsnavn endres tilfeldig etter omstart</title>
+      <title>RekkefÃ¸lgen for enhetsnavn endres tilfeldig etter omstart</title>
 
-      <para>Dette skyldes det faktum at udev, etter design, håndterer uevents og
-      laster moduler parallelt, og dermed i en uforutsigbar rekkefølge. Dette vil
-      aldri bli <quote>fikset</quote>. Du bør ikke stole på at kjerneenhetens
+      <para>Dette skyldes det faktum at udev, etter design, hÃ¥ndterer uevents og
+      laster moduler parallelt, og dermed i en uforutsigbar rekkefÃ¸lge. Dette vil
+      aldri bli <quote>fikset</quote>. Du bÃ¸r ikke stole pÃ¥ at kjerneenhetens
       navn er stabile. Lag heller dine egne regler som lager symbolkoblinger med
-      stabile navn basert på noen stabile attributter til enheten, for eksempel et
-      serienummer eller utdata fra forskjellige *_id-verktøy installert av udev.
+      stabile navn basert pÃ¥ noen stabile attributter til enheten, for eksempel et
+      serienummer eller utdata fra forskjellige *_id-verktÃ¸y installert av udev.
       Se <xref linkend="ch-config-symlinks"/> og
       <xref linkend="ch-config-network"/> for eksempler.</para>
 
@@ -314,7 +314,7 @@
   <sect2>
     <title>Nyttig lesning</title>
 
-    <para>Ytterligere nyttig dokumentasjon er tilgjengelig på følgende
+    <para>Ytterligere nyttig dokumentasjon er tilgjengelig pÃ¥ fÃ¸lgende
     nettsteder:</para>
 
     <itemizedlist>

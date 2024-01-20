@@ -10,19 +10,19 @@
 
   <title>Opprette mapper</title>
 
-  <para>Det er på tide å lage hele strukturen i LFS filsystemet.</para>
+  <para>Det er pÃ¥ tide Ã¥ lage hele strukturen i LFS filsystemet.</para>
 
   <note><para>Noen av mappene nevnt i denne delen kan
-  allerede være opprettet tidligere med eksplisitte instruksjoner eller når du installerer noen
+  allerede vÃ¦re opprettet tidligere med eksplisitte instruksjoner eller nÃ¥r du installerer noen
   pakker. De gjentas nedenfor for fullstendighet.</para></note>
 
-  <para>Lag noen mapper på rotnivå som ikke er i det begrensede settet som
-    kreves i de foregående kapitlene ved å gi følgende kommando:</para>
+  <para>Lag noen mapper pÃ¥ rotnivÃ¥ som ikke er i det begrensede settet som
+    kreves i de foregÃ¥ende kapitlene ved Ã¥ gi fÃ¸lgende kommando:</para>
 
 <screen><userinput>mkdir -pv /{boot,home,mnt,opt,srv}</userinput></screen>
 
-  <para>Lag det nødvendige settet med undermapper under rotnivået ved å
-    utstede følgende kommandoer:</para>
+  <para>Lag det nÃ¸dvendige settet med undermapper under rotnivÃ¥et ved Ã¥
+    utstede fÃ¸lgende kommandoer:</para>
 
 <screen><userinput>mkdir -pv /etc/{opt,sysconfig}
 mkdir -pv /lib/firmware
@@ -42,40 +42,40 @@ install -dv -m 0750 /root
 install -dv -m 1777 /tmp /var/tmp</userinput></screen>
 
   <para>Mapper er som standard opprettet med tillatelsesmodus 755, men
-  dette er ikke ønskelig for alle mapper. I kommandoene ovenfor, to
-  endringer gjøres&mdash;en til hjemmemappen for brukeren <systemitem
+  dette er ikke Ã¸nskelig for alle mapper. I kommandoene ovenfor, to
+  endringer gjÃ¸res&mdash;en til hjemmemappen for brukeren <systemitem
   class="username">root</systemitem>, og en annen til mappene for
   midlertidige filer.</para>
 
-  <para>Den første modusendringen sikrer at ikke hvem som helst kan komme inn i
+  <para>Den fÃ¸rste modusendringen sikrer at ikke hvem som helst kan komme inn i
   <filename class="directory">/root</filename> mappen&mdash;det
   samme som en vanlig bruker ville gjort med sin hjemmemappe. De
-  andre modusendring sørger for at enhver bruker kan skrive til
+  andre modusendring sÃ¸rger for at enhver bruker kan skrive til
   <filename class="directory">/tmp</filename> og <filename
   class="directory">/var/tmp</filename> mappene, men kan ikke fjerne
-  en annen brukers filer fra dem. Sistnevnte er forbudt av den såkalte
-  <quote>låst bit (sticky bit)</quote> den høyeste biten (1) i 1777 bitmasken.</para>
+  en annen brukers filer fra dem. Sistnevnte er forbudt av den sÃ¥kalte
+  <quote>lÃ¥st bit (sticky bit)</quote> den hÃ¸yeste biten (1) i 1777 bitmasken.</para>
 
   <sect2>
     <title>FHS Samsvarsmerknad</title>
 
-    <para>Mappetreet er basert på Filsystemhierarkistandard (Filesystem Hierarchy Standard)
-    (FHS) (tilgjengelig på <ulink
-    url="https://refspecs.linuxfoundation.org/fhs.shtml"/>).  FHS spesifiserer også
-    den valgfrie tilstedeværelsen av noen mapper som f.eks <filename
+    <para>Mappetreet er basert pÃ¥ Filsystemhierarkistandard (Filesystem Hierarchy Standard)
+    (FHS) (tilgjengelig pÃ¥ <ulink
+    url="https://refspecs.linuxfoundation.org/fhs.shtml"/>).  FHS spesifiserer ogsÃ¥
+    den valgfrie tilstedevÃ¦relsen av noen mapper som f.eks <filename
     class="directory">/usr/local/games</filename> og <filename
     class="directory">/usr/share/games</filename>.  I LFS, oppretter vi kun
-    mapper som trengs. Du må imidlertid gjerne lage disse
+    mapper som trengs. Du mÃ¥ imidlertid gjerne lage disse
     mappene.  </para>
 
   <warning>
     <para>
       FHS gir ikke mandat til at mappen
-      <filename class="directory">/usr/lib64</filename> skal eksistere, og LFS redaktørene
-      har bestemt seg for å ikke bruke den. For at instruksjonene i LFS og BLFS skal fungere riktig,
-      er det viktig at denne mappen ikke eksisterer. Fra tid til annen bør du
-      bekrefte at den ikke eksisterer, fordi det er enkelt å lage den
-      utilsiktet, og dette vil sannsynligvis ødelegge systemet ditt.
+      <filename class="directory">/usr/lib64</filename> skal eksistere, og LFS redaktÃ¸rene
+      har bestemt seg for Ã¥ ikke bruke den. For at instruksjonene i LFS og BLFS skal fungere riktig,
+      er det viktig at denne mappen ikke eksisterer. Fra tid til annen bÃ¸r du
+      bekrefte at den ikke eksisterer, fordi det er enkelt Ã¥ lage den
+      utilsiktet, og dette vil sannsynligvis Ã¸delegge systemet ditt.
     </para>
   </warning>
 

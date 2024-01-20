@@ -42,21 +42,21 @@
 
     <note>
       <para>
-        Hvis systemet ditt har UEFI støtte og du ønsker å starte LFS med UEFI,
+        Hvis systemet ditt har UEFI stÃ¸tte og du Ã¸nsker Ã¥ starte LFS med UEFI,
         kan du hoppe over denne pakken i LFS,
-        og installere GRUB med UEFI støtte (og dets avhengigheter) ved å følge
-        instruksjonene på
+        og installere GRUB med UEFI stÃ¸tte (og dets avhengigheter) ved Ã¥ fÃ¸lge
+        instruksjonene pÃ¥
         <ulink url="&blfs-book;postlfs/grub-efi.html">BLFS siden</ulink>.
       </para>
     </note>
 
     <warning>
-      <para>Fjern eventuelle miljøvariabler som kan påvirke bygget:</para>
+      <para>Fjern eventuelle miljÃ¸variabler som kan pÃ¥virke bygget:</para>
 
       <screen><userinput remap='pre'>unset {C,CPP,CXX,LD}FLAGS</userinput></screen>
 
-      <para>Ikke prøv å <quote>optimalisere</quote> denne pakken med tilpassete
-      kompileringsflagg. Denne pakken er en oppstartslaster. Da kan lavnivå
+      <para>Ikke prÃ¸v Ã¥ <quote>optimalisere</quote> denne pakken med tilpassete
+      kompileringsflagg. Denne pakken er en oppstartslaster. Da kan lavnivÃ¥
       operasjonene i kildekoden bli brutt av
       aggressiv optimalisering.</para>
     </warning>
@@ -80,7 +80,7 @@
       <varlistentry>
         <term><parameter>--disable-werror</parameter></term>
         <listitem>
-          <para>Dette gjør at bygget kan fullføres med advarsler
+          <para>Dette gjÃ¸r at bygget kan fullfÃ¸res med advarsler
           fra nyere Flex versjoner.</para>
         </listitem>
       </varlistentry>
@@ -88,8 +88,8 @@
       <varlistentry>
         <term><parameter>--disable-efiemu</parameter></term>
         <listitem>
-          <para>Dette alternativet minimerer det som bygges ved å deaktivere en funksjon og
-          eliminere noen testprogrammer som ikke er nødvendig for LFS.</para>
+          <para>Dette alternativet minimerer det som bygges ved Ã¥ deaktivere en funksjon og
+          eliminere noen testprogrammer som ikke er nÃ¸dvendig for LFS.</para>
         </listitem>
       </varlistentry>
 
@@ -101,14 +101,14 @@
 
     <para>Testpakken for denne pakken anbefales ikke. Mesteparten av
     testene avhenger av pakker som ikke er tilgjengelige i det begrensete
-    LFS miljøet. For å kjøre testene uansett, kjør <command>make check</command>.</para>
+    LFS miljÃ¸et. For Ã¥ kjÃ¸re testene uansett, kjÃ¸r <command>make check</command>.</para>
 
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make install
 mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userinput></screen>
 
-  <para>Å gjøre LFS systemet oppstartbart med GRUB vil bli diskutert i
+  <para>Ã… Ã¸øre LFS systemet oppstartbart med GRUB vil bli diskutert i
   <xref linkend="ch-bootable-grub"/>.</para>
 
   </sect2>
@@ -131,8 +131,8 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
             grub-script-check,
             grub-set-default,     grub-sparc64-setup, og grub-syslinux2cfg</seg>
 
-        <seg>/usr/lib/grub, /etc/grub.d, /usr/share/grub, og /boot/grub (når grub-install
-        kjøres for første gang)</seg>
+        <seg>/usr/lib/grub, /etc/grub.d, /usr/share/grub, og /boot/grub (nÃ¥r grub-install
+        kjÃ¸res for fÃ¸rste gang)</seg>
       </seglistitem>
     </segmentedlist>
 
@@ -154,7 +154,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-editenv">
         <term><command>grub-editenv</command></term>
         <listitem>
-          <para>Et verktøy for å redigere miljøblokken</para>
+          <para>Et verktÃ¸y for Ã¥ redigere miljÃ¸blokken</para>
           <indexterm zone="ch-system-grub grub-editenv">
             <primary sortas="b-grub-editenv">grub-editenv</primary>
           </indexterm>
@@ -174,7 +174,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-fstest">
         <term><command>grub-fstest</command></term>
         <listitem>
-          <para>Verktøy for å feilsøke filsystemdriveren</para>
+          <para>VerktÃ¸y for Ã¥ feilsÃ¸ke filsystemdriveren</para>
           <indexterm zone="ch-system-grub grub-fstest">
             <primary sortas="b-grub-fstest">grub-fstest</primary>
           </indexterm>
@@ -184,7 +184,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-glue-efi">
         <term><command>grub-glue-efi</command></term>
         <listitem>
-          <para>Limer 32-biters og 64-biters binære filer til én enkelt fil (for Apple maskiner)</para>
+          <para>Limer 32-biters og 64-biters binÃ¦re filer til en enkelt fil (for Apple maskiner)</para>
           <indexterm zone="ch-system-grub grub-glue-efi">
             <primary sortas="b-grub-glue-efi">grub-glue-efi</primary>
           </indexterm>
@@ -194,7 +194,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-install">
         <term><command>grub-install</command></term>
         <listitem>
-          <para>Installer GRUB på harddisken din</para>
+          <para>Installer GRUB pÃ¥ harddisken din</para>
           <indexterm zone="ch-system-grub grub-install">
             <primary sortas="b-grub-install">grub-install</primary>
           </indexterm>
@@ -216,7 +216,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
         <term><command>grub-macbless</command></term>
         <listitem>
           <para>Er Mac-style bless for HFS eller HFS+ filsystemer (<command>bless</command>
-          er særegen for Apple-maskiner; det gjør en enhet oppstartbar)</para>
+          er sÃ¦regen for Apple-maskiner; det gjÃ¸r en enhet oppstartbar)</para>
           <indexterm zone="ch-system-grub grub-macbless">
             <primary sortas="b-grub-macbless">grub-macbless</primary>
           </indexterm>
@@ -309,7 +309,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-mkstandalone">
         <term><command>grub-mkstandalone</command></term>
         <listitem>
-          <para>Genererer et frittstående bilde</para>
+          <para>Genererer et frittstÃ¥ende bilde</para>
           <indexterm zone="ch-system-grub grub-mkstandalone">
             <primary sortas="b-grub-mkstandalone">grub-mkstandalone</primary>
           </indexterm>
@@ -329,7 +329,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-probe">
         <term><command>grub-probe</command></term>
         <listitem>
-          <para>Undersøker enhetsinformasjon for en gitt bane eller enhet</para>
+          <para>UndersÃ¸ker enhetsinformasjon for en gitt bane eller enhet</para>
           <indexterm zone="ch-system-grub grub-probe">
             <primary sortas="b-grub-probe">grub-probe</primary>
           </indexterm>
@@ -339,7 +339,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-reboot">
         <term><command>grub-reboot</command></term>
         <listitem>
-          <para>Angir standard oppstartsoppføring for GRUB bare for neste oppstart</para>
+          <para>Angir standard oppstartsoppfÃ¸ring for GRUB bare for neste oppstart</para>
           <indexterm zone="ch-system-grub grub-reboot">
             <primary sortas="b-grub-reboot">grub-reboot</primary>
           </indexterm>
@@ -369,7 +369,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-set-default">
         <term><command>grub-set-default</command></term>
         <listitem>
-          <para>Angir standard oppstartsoppføring for GRUB</para>
+          <para>Angir standard oppstartsoppfÃ¸ring for GRUB</para>
           <indexterm zone="ch-system-grub grub-set-default">
             <primary sortas="b-grub-set-default">grub-set-default</primary>
           </indexterm>

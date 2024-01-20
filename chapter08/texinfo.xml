@@ -51,9 +51,9 @@
       <varlistentry>
         <term><parameter>- -disable-static</parameter></term>
         <listitem>
-          <para>I dette tilfellet vil konfigureringsskriptet på toppnivå klage på at
+          <para>I dette tilfellet vil konfigureringsskriptet pÃ¥ toppnivÃ¥ klage pÃ¥ at
           dette er et ukjent alternativ, men konfigureringsskriptet for
-          XSParagraph gjenkjenner det og bruker det til å deaktivere installering av en statisk
+          XSParagraph gjenkjenner det og bruker det til Ã¥ deaktivere installering av en statisk
           <filename class="libraryfile">XSParagraph.a</filename> til <filename
           class="directory">/usr/lib/texinfo</filename>.</para>
         </listitem>
@@ -66,7 +66,7 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>For å teste resultatene, utsted:</para>
+    <para>For Ã¥ teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
@@ -74,7 +74,7 @@
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>Installer eventuelt komponentene som hører til i en TeX
+    <para>Installer eventuelt komponentene som hÃ¸rer til i en TeX
     installasjon:</para>
     <!-- FIXME: doesn't the TeX installation in BLFS overwrite files there? -->
 
@@ -94,12 +94,12 @@
 
     </variablelist>
 
-    <para>Infodokumentasjonssystemet bruker en ren tekstfil til å holde listen over
-    menyoppføringer. Filen ligger på <filename>/usr/share/info/dir</filename>.
-    Dessverre, på grunn av sporadiske problemer i Makefiles for forskjellige pakker,
-    kan det noen ganger gå ut av synkronisering med infosidene som er installert på systemet.
+    <para>Infodokumentasjonssystemet bruker en ren tekstfil til Ã¥ holde listen over
+    menyoppfÃ¸ringer. Filen ligger pÃ¥ <filename>/usr/share/info/dir</filename>.
+    Dessverre, pÃ¥ grunn av sporadiske problemer i Makefiles for forskjellige pakker,
+    kan det noen ganger gÃ¥ ut av synkronisering med infosidene som er installert pÃ¥ systemet.
     Hvis <filename>/usr/share/info/dir</filename> filen noen gang trenger å bli
-    gjenskapt, vil følgende valgfrie kommandoer utføre oppgaven:</para>
+    gjenskapt, vil fÃ¸lgende valgfrie kommandoer utfÃ¸re oppgaven:</para>
 
 <screen role="nodump"><userinput>pushd /usr/share/info
   rm -v dir
@@ -135,8 +135,8 @@ popd</userinput></screen>
       <varlistentry id="info">
         <term><command>info</command></term>
         <listitem>
-          <para>Brukes til å lese informasjonssider som ligner på mansider, men
-          går ofte mye dypere enn bare å forklare alle tilgjengelige kommandoers
+          <para>Brukes til Ã¥ lese informasjonssider som ligner pÃ¥ mansider, men
+          gÃ¥r ofte mye dypere enn bare Ã¥ forklare alle tilgjengelige kommandoers
           linjealternativer [For eksempel, sammenlign <command>man bison</command> og
           <command>info bison</command>.]</para>
           <indexterm zone="ch-system-texinfo info">
@@ -148,7 +148,7 @@ popd</userinput></screen>
       <varlistentry id="install-info">
         <term><command>install-info</command></term>
         <listitem>
-          <para>Brukes til å installere infosider; den oppdaterer oppføringer i
+          <para>Brukes til Ã¥ installere infosider; den oppdaterer oppfÃ¸ringer i
           <command>info</command> index file</para>
           <indexterm zone="ch-system-texinfo install-info">
             <primary sortas="b-install-info">install-info</primary>
@@ -170,7 +170,7 @@ popd</userinput></screen>
       <varlistentry id="pdftexi2dvi">
         <term><command>pdftexi2dvi</command></term>
         <listitem>
-          <para>Brukes til å formatere det gitte Texinfo dokumentet til en
+          <para>Brukes til Ã¥ formatere det gitte Texinfo dokumentet til en
           flyttbart dokumentformat (PDF) fil</para>
           <indexterm zone="ch-system-texinfo pdftexi2dvi">
             <primary sortas="b-pdftexi2dvi">pdftexi2dvi</primary>
@@ -202,7 +202,7 @@ popd</userinput></screen>
       <varlistentry id="texi2dvi">
         <term><command>texi2dvi</command></term>
         <listitem>
-          <para>Brukes til å formatere det gitte Texinfo dokumentet til en
+          <para>Brukes til Ã¥ formatere det gitte Texinfo dokumentet til en
           enhetsuavhengig fil som kan skrives ut</para>
           <indexterm zone="ch-system-texinfo texi2dvi">
             <primary sortas="b-texi2dvi">texi2dvi</primary>
@@ -213,7 +213,7 @@ popd</userinput></screen>
       <varlistentry id="texi2pdf">
         <term><command>texi2pdf</command></term>
         <listitem>
-          <para>Brukes til å formatere det gitte Texinfo dokumentet til en
+          <para>Brukes til Ã¥ formatere det gitte Texinfo dokumentet til en
           flyttbart dokumentformat (PDF) fil</para>
           <indexterm zone="ch-system-texinfo texi2pdf">
             <primary sortas="b-texi2pdf">texi2pdf</primary>
@@ -224,7 +224,7 @@ popd</userinput></screen>
       <varlistentry id="texindex">
         <term><command>texindex</command></term>
         <listitem>
-          <para>Brukes til å sortere Texinfo indeksfiler</para>
+          <para>Brukes til Ã¥ sortere Texinfo indeksfiler</para>
           <indexterm zone="ch-system-texinfo texindex">
             <primary sortas="b-texindex">texindex</primary>
           </indexterm>

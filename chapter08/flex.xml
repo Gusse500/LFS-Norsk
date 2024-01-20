@@ -23,8 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Flex pakken inneholder et verktøy for å generere programmerer som
-    gjenkjenner mønstre i tekst.</para>
+    <para>Flex pakken inneholder et verktÃ¸y for Ã¥ generere programmerer som
+    gjenkjenner mÃ¸nstre i tekst.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -42,14 +42,14 @@
     <title>Installasjon av Flex</title>
 
 <!--
-    <para>Først, fikse et problem introdusert med glibc-2.26:</para>
+    <para>FÃ¸rst, fikse et problem introdusert med glibc-2.26:</para>
 
 <screen><userinput remap="pre">sed -i "/math.h/a #include &lt;malloc.h&gt;" src/flexdef.h</userinput></screen>
 
     <para>Byggeprosedyren forutsetter at <application>help2man</application>
-    programmet er tilgjengelig for å lage en man side fra den kjørbare filen - -help option.
-    Dette er ikke til stede, så vi bruker en miljøvariabel for å hoppe over denne prosessen.
-    Forbered nå Flex for kompilering:</para> -->
+    programmet er tilgjengelig for Ã¥ lage en man side fra den kjÃ¸rbare filen - -help option.
+    Dette er ikke til stede, sÃ¥ vi bruker en miljÃ¸variabel for Ã¥ hoppe over denne prosessen.
+    Forbered nÃ¥ Flex for kompilering:</para> -->
 
     <para>Forbered Flex for kompilering:</para>
 
@@ -61,7 +61,7 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>For å teste resultatene (ca. 0,5 SBU), utsted:</para>
+    <para>For Ã¥ teste resultatene (ca. 0,5 SBU), utsted:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
@@ -69,11 +69,11 @@
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>Noen få programmer vet ikke om <command>flex</command> ennå og
-    prøver å kjøre forgjengeren, <command>lex</command>. For å støtte de
+    <para>Noen fÃ¥ programmer vet ikke om <command>flex</command> ennÃ¥ og
+    prÃ¸ver Ã¥ kjÃ¸re forgjengeren, <command>lex</command>. For Ã¥ stÃ¸tte de
     programmene, opprett en symbolsk lenke kalt <filename>lex</filename> som
-    kjører <filename>flex</filename> i <command>lex</command>
-    emuleringsmodus, og opprett også mansiden til <command>lex</command> som en
+    kjÃ¸rer <filename>flex</filename> i <command>lex</command>
+    emuleringsmodus, og opprett ogsÃ¥ mansiden til <command>lex</command> som en
     symlenke:</para>
 
 <screen><userinput remap="install">ln -sv flex   /usr/bin/lex
@@ -104,9 +104,9 @@ ln -sv flex.1 /usr/share/man/man1/lex.1</userinput></screen>
       <varlistentry id="flex">
         <term><command>flex</command></term>
         <listitem>
-          <para>Et verktøy for å generere programmer som gjenkjenner mønstre i tekst;
-          det gir mulighet for allsidigheten til å spesifisere reglene for mønstersøking,
-          eliminere behovet for å utvikle et spesialisert program</para>
+          <para>Et verktÃ¸y for Ã¥ generere programmer som gjenkjenner mÃ¸nstre i tekst;
+          det gir mulighet for allsidigheten til Ã¥ spesifisere reglene for mÃ¸nstersÃ¸king,
+          eliminere behovet for Ã¥ utvikle et spesialisert program</para>
           <indexterm zone="ch-system-flex flex">
             <primary sortas="b-flex">flex</primary>
           </indexterm>
@@ -116,7 +116,7 @@ ln -sv flex.1 /usr/share/man/man1/lex.1</userinput></screen>
       <varlistentry id="flexpp">
         <term><command>flex++</command></term>
         <listitem>
-          <para>En utvidelse av flex brukes til å generere C++ kode
+          <para>En utvidelse av flex brukes til Ã¥ generere C++ kode
           og klasser. Det er en symbolsk kobling til <command>flex</command></para>
           <indexterm zone="ch-system-flex flexpp">
             <primary sortas="b-flex++">flex++</primary>
@@ -127,7 +127,7 @@ ln -sv flex.1 /usr/share/man/man1/lex.1</userinput></screen>
       <varlistentry id="lex">
         <term><command>lex</command></term>
         <listitem>
-          <para>En symbolsk lenke som kjører <command>flex</command> i
+          <para>En symbolsk lenke som kjÃ¸rer <command>flex</command> i
           <command>lex</command> emuleringsmodus</para>
           <indexterm zone="ch-system-flex lex">
             <primary sortas="b-lex">lex</primary>

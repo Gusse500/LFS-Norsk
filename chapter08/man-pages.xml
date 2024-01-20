@@ -46,7 +46,7 @@
 
 <screen><userinput remap="pre">rm -v man3/crypt*</userinput></screen>
 
-    <para>Installer Man-pages ved å kjøre:</para>
+    <para>Installer Man-pages ved Ã¥ kjÃ¸re:</para>
 
 <screen><userinput remap="install">make prefix=/usr install</userinput></screen>
 
@@ -71,7 +71,7 @@
       <varlistentry id="man-pages">
         <term><filename>man pages</filename></term>
         <listitem>
-          <para>Beskriver C programmeringsspråksfunksjoner, viktig
+          <para>Beskriver C programmeringssprÃ¥ksfunksjoner, viktig
           enhetsfiler og betydelige konfigurasjonsfiler</para>
           <indexterm zone="ch-system-man-pages man-pages">
             <primary sortas="e-man-pages">man pages</primary>

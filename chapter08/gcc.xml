@@ -41,8 +41,8 @@
   <sect2 role="installation">
     <title>Installasjon av GCC</title>
 <!--
-    <para>Først må du fikse et problem som forhindrer
-    <filename class="libraryfile">libasan.a</filename> å bygge denne pakken
+    <para>FÃ¸rst mÃ¥ du fikse et problem som forhindrer
+    <filename class="libraryfile">libasan.a</filename> Ã¥ bygge denne pakken
     med Glibc-2.34 eller nyere:</para>
 
 <screen><userinput remap="pre">sed -e '/static.*SIGSTKSZ/d' \
@@ -50,11 +50,11 @@
     -i libsanitizer/sanitizer_common/sanitizer_posix_libcdep.cpp</userinput></screen>
 -->
 <!--
-    <para>Først fiks et problem med den nyeste versjonen av glibc:</para>
+    <para>FÃ¸rst fiks et problem med den nyeste versjonen av glibc:</para>
 
     <screen><userinput remap="pre">patch -Np1 -i ../&gcc-upstream-fixes-patch;</userinput></screen>
 -->
-    <para>Hvis du bygger på x86_64, endre standard mappenavn for 64-bit
+    <para>Hvis du bygger pÃ¥ x86_64, endre standard mappenavn for 64-bit
     bibliotekene til <quote>lib</quote>:</para>
 
 <screen><userinput remap="pre">case $(uname -m) in
@@ -64,7 +64,7 @@
   ;;
 esac</userinput></screen>
 
-    <para>GCC dokumentasjonen anbefaler å bygge GCC i en dedikert byggemappe:</para>
+    <para>GCC dokumentasjonen anbefaler Ã¥ bygge GCC i en dedikert byggemappe:</para>
 
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>
@@ -81,10 +81,10 @@ cd       build</userinput></screen>
              --disable-fixincludes    \
              --with-system-zlib</userinput></screen>
 
-    <para>GCC støtter syv forskjellige dataspråk, men
-    forutsetningene for de fleste av dem er ikke installert ennå. Se
+    <para>GCC stÃ¸tter syv forskjellige datasprÃ¥k, men
+    forutsetningene for de fleste av dem er ikke installert ennÃ¥ Se
     <ulink url="&blfs-book;general/gcc.html">BLFS Bokens GCC side</ulink>
-    for instruksjoner om hvordan du bygger alle GCCs støttede språk.</para>
+    for instruksjoner om hvordan du bygger alle GCCs stÃ¸ttede sprÃ¥k.</para>
 
     <variablelist>
       <title>Betydningen av de nye konfigureringsparametrene:</title>
@@ -92,7 +92,7 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>LD=ld</parameter></term>
         <listitem>
-          <para>Denne parameteren gjør at konfigureringsskriptet bruker ld installert
+          <para>Denne parameteren gjÃ¸r at konfigureringsskriptet bruker ld installert
           av binutils bygget tidligere i dette kapittelet, i stedet for
           den kryssbygde versjonen som ellers ville blitt brukt.</para>
         </listitem>
@@ -102,17 +102,17 @@ cd       build</userinput></screen>
         <term><parameter>--disable-fixincludes</parameter></term>
         <listitem>
           <para>Som standard, under installasjonen av GCC noen
-          systemdeklarasjoner vil være <quote>låst</quote> for bruk med GCC. Dette
-          er ikke nødvendig for et moderne Linuxsystem, og potensielt
-          skadelig hvis en pakke installeres på nytt etter installasjon av GCC. Denne
-          bryteren hindrer GCC fra å <quote>låse</quote> deklarasjonene.</para>
+          systemdeklarasjoner vil vÃ¦re <quote>lÃ¥st</quote> for bruk med GCC. Dette
+          er ikke nÃ¸dvendig for et moderne Linuxsystem, og potensielt
+          skadelig hvis en pakke installeres pÃ¥ nytt etter installasjon av GCC. Denne
+          bryteren hindrer GCC fra Ã¥ <quote>lÃ¥se</quote> deklarasjonene.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--with-system-zlib</parameter></term>
         <listitem>
-          <para>Denne bryteren forteller GCC å koble til den systeminstallerte kopien av
+          <para>Denne bryteren forteller GCC Ã¥ koble til den systeminstallerte kopien av
           zlib biblioteket, i stedet for sin egen interne kopi.</para>
         </listitem>
       </varlistentry>
@@ -121,21 +121,21 @@ cd       build</userinput></screen>
     <note>
       <anchor id="pie-ssp-info" xreflabel="note on PIE and SSP"/>
       <para>
-        PIE (position independent executable) er en teknikk for å produsere
-        binære programmer som kan lastes hvor som helst i minnet. Uten PIE,
+        PIE (position independent executable) er en teknikk for Ã¥ produsere
+        binÃ¦re programmer som kan lastes hvor som helst i minnet. Uten PIE,
         sikkerhetsfunksjonen kalt ASLR (Address Space Layout Randomization)
-        kan legges til for de delte bibliotekene, men ikke de kjørbare
-        filen. Aktivering av PIE tillater ASLR for de kjørbare filene i tillegg til
-        de delte bibliotekene, og reduserer noen angrep basert på faste
-        adresser til sensitiv kode eller data i de kjørbare filene.
+        kan legges til for de delte bibliotekene, men ikke de kjÃ¸rbare
+        filen. Aktivering av PIE tillater ASLR for de kjÃ¸rbare filene i tillegg til
+        de delte bibliotekene, og reduserer noen angrep basert pÃ¥ faste
+        adresser til sensitiv kode eller data i de kjÃ¸rbare filene.
       </para>
       <para>
-        SSP (Stack Smashing Protection) er en teknikk for å sikre
-        at parameterstabelen ikke er ødelagt. Stabelkorrupsjon kan
+        SSP (Stack Smashing Protection) er en teknikk for Ã¥ sikre
+        at parameterstabelen ikke er Ã¸delagt. Stabelkorrupsjon kan
         for eksempel endre returadressen til en subrutine,
-        som ville tillate overføring av kontroll til en eller annen farlig kode
+        som ville tillate overfÃ¸ring av kontroll til en eller annen farlig kode
         (som eksisterer i programmet eller delte biblioteker, eller injisert av
-        en angriper på en eller annen måte) i stedet for den originale.
+        en angriper pÃ¥ en eller annen mÃ¥te) i stedet for den originale.
       </para>
     </note>
 
@@ -144,15 +144,15 @@ cd       build</userinput></screen>
 <screen><userinput remap="make">make</userinput></screen>
 
     <important>
-      <para>I denne delen vurderes testpakken for GCC å være
-      viktig, men det tar lang tid. Førstegangsbyggere
-      oppfordres til ikke å hoppe over dette. Tiden for å kjøre testene kan bli
-      redusert betydelig ved å legge til -jx til <command>make -k check</command> kommandoen nedenfor
-      hvor x er antall kjerner på systemet ditt.</para>
+      <para>I denne delen vurderes testpakken for GCC Ã¥ vÃ¦re
+      viktig, men det tar lang tid. FÃ¸rstegangsbyggere
+      oppfordres til ikke Ã¥ hoppe over dette. Tiden for Ã¥ kjÃ¸re testene kan bli
+      redusert betydelig ved Ã¥ legge til -jx til <command>make -k check</command> kommandoen nedenfor
+      hvor x er antall kjerner pÃ¥ systemet ditt.</para>
     </important>
 
-   <para>Et sett med tester i GCC testpakken er kjent for å bruke opp standard
-   stabel (stack), så øk stabelstørrelsen før du kjører testene:</para>
+   <para>Et sett med tester i GCC testpakken er kjent for Ã¥ bruke opp standard
+   stabel (stack), sÃ¥ Ã¸k stabelstÃ¸rrelsen fÃ¸r du kjÃ¸rer testene:</para>
 
 <screen><userinput remap="test">ulimit -s 32768</userinput></screen>
 
@@ -161,52 +161,52 @@ cd       build</userinput></screen>
 <screen><userinput remap="test">chown -Rv tester .
 su tester -c "PATH=$PATH make -k check"</userinput></screen>
 
-    <para>For å trekke ut et sammendrag av resultatene for testpakken, kjør:</para>
+    <para>For Ã¥ trekke ut et sammendrag av resultatene for testpakken, kjÃ¸r:</para>
 
 <screen><userinput remap="test">../contrib/test_summary</userinput></screen>
 
-    <para>For å filtrere ut bare sammendragene, kanaliser utdataene gjennom
+    <para>For Ã¥ filtrere ut bare sammendragene, kanaliser utdataene gjennom
     <userinput>grep -A7 Summ</userinput>.</para>
 
-    <para>Resultatene kan sammenlignes med de som ligger på <ulink
+    <para>Resultatene kan sammenlignes med de som ligger pÃ¥ <ulink
     url="&test-results;"/> og
     <ulink url="https://gcc.gnu.org/ml/gcc-testresults/"/>.</para>
 
  <para><!--To tester navngitt <filename>pr104610.c</filename> og
-    <filename>pr69482-1.c</filename> er kjent for å mislykkes fordi
+    <filename>pr69482-1.c</filename> er kjent for Ã¥ mislykkes fordi
     testfilene ikke tar hensyn til
     <parameter>- -enable-default-ssp</parameter> alternativet.
      https://gcc.gnu.org/PR106375 og https://gcc.gnu.org/PR109353 -->
     To tester navngit <filename>copy.cc</filename> og
-    <filename>pr56837.c</filename> er kjent for å mislykkes.
+    <filename>pr56837.c</filename> er kjent for Ã¥ mislykkes.
     <!-- https://gcc.gnu.org/PR107855#c6 -->
     I tillegg flere tester i
-    <filename class='directory'>vect</filename> mappen er kjent for å mislykkes
-    hvis maskinvaren ikke støtter AVX.</para>
+    <filename class='directory'>vect</filename> mappen er kjent for Ã¥ mislykkes
+    hvis maskinvaren ikke stÃ¸tter AVX.</para>
 
     <para>
       Med Glibc-2.38 er analysatortestene navngitt
       <filename>data-model-4.c</filename> og
       <filename>conftest-1.c</filename> 
-        er kjent for å mislykkes.
+        er kjent for Ã¥ mislykkes.
       I asan testene, flere tester i <filename>asan_test.C</filename> 
-        er kjent for å mislykkes.
+        er kjent for Ã¥ mislykkes.
       Testen med navnet <filename>interception-malloc-test-1.C</filename> 
-        er kjent for å mislykkes.
+        er kjent for Ã¥ mislykkes.
     </para>
 
-    <para>Noen få uventede feil kan ikke alltid unngås. GCC utviklerne
-    er vanligvis klar over disse problemene, men har ikke løst dem ennå.
-    Med mindre testresultatene er svært forskjellige fra de på URLen ovenfor,
-    er det trygt å fortsette.</para>
+    <para>Noen fÃ¥ uventede feil kan ikke alltid unngÃ¥s. GCC utviklerne
+    er vanligvis klar over disse problemene, men har ikke lÃ¸st dem ennÃ¥
+    Med mindre testresultatene er svÃ¦rt forskjellige fra de pÃ¥ URLen ovenfor,
+    er det trygt Ã¥ fortsette.</para>
 
     <!--note><para>
-      På noen kombinasjoner av kjernekonfigurasjon og AMD-prosessorer
-      kan det være mer enn 1100 feil i gcc.target/i386/mpx
-      tester (som er designet for å teste MPX-alternativet på siste
-      Intel-prosessorer). Disse kan trygt ignoreres på AMD
-      prosessorer. Disse testene vil også mislykkes på Intel-prosessorer hvis MPX-støtte
-      er ikke aktivert i kjernen selv om den er tilstede på prosessoren.
+      PÃ¥ noen kombinasjoner av kjernekonfigurasjon og AMD-prosessorer
+      kan det vÃ¦re mer enn 1100 feil i gcc.target/i386/mpx
+      tester (som er designet for Ã¥ teste MPX-alternativet pÃ¥ siste
+      Intel-prosessorer). Disse kan trygt ignoreres pÃ¥ AMD
+      prosessorer. Disse testene vil ogsÃ¥ mislykkes pÃ¥ Intel-prosessorer hvis MPX-stÃ¸tte
+      ikke er aktivert i kjernen selv om den er tilstede pÃ¥ prosessoren.
     </para></note-->
 
     <para>Installer pakken:</para>
@@ -214,8 +214,8 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
 <screen><userinput remap="install">make install</userinput></screen>
 
     <para>GCC byggemappen eies av <systemitem class="username">
-    tester</systemitem> nå og eierskapet til den installerte deklarasjonsmappen
-    (og dens innhold) vil være feil. Endre eierskapet til
+    tester</systemitem> nÃ¥ og eierskapet til den installerte deklarasjonsmappen
+    (og dens innhold) vil vÃ¦re feil. Endre eierskapet til
     <systemitem class="username">root</systemitem> bruker og gruppe:</para>
 
 <screen><userinput remap="install">chown -v -R root:root \
@@ -227,56 +227,56 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
 
 <screen><userinput remap="install">ln -svr /usr/bin/cpp /usr/lib</userinput></screen>
 
-    <para>Mange pakker bruker navnet <command>cc</command> for å kalle C
+    <para>Mange pakker bruker navnet <command>cc</command> for Ã¥ kalle C
     kompilatoren.  Vi har allerede opprettet <command>cc</command> som en symlenke i
     <xref linkend='ch-tools-gcc-pass2'/>, opprette mansiden til den som en symbolkobling
-    også:</para>
+    ogsÃ¥</para>
 
 <screen><userinput remap="install">ln -sv gcc.1 /usr/share/man/man1/cc.1</userinput></screen>
 
-    <para>Legg til en kompatibilitetssymbolkobling for å aktivere byggeprogrammer med
+    <para>Legg til en kompatibilitetssymbolkobling for Ã¥ aktivere byggeprogrammer med
     optimalisering av koblingstid (LTO (Link Time Optimization)):</para>
 
 <screen><userinput remap="install">ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/&gcc-version;/liblto_plugin.so \
         /usr/lib/bfd-plugins/</userinput></screen>
 
-    <para>Nå som vår endelige verktøykjede er på plass, er det viktig å sikre
-    at kompilering og kobling vil fungere som forventet. Dette gjør vi ved å utføre
+    <para>NÃ¥ som vÃ¥r endelige verktÃ¸ykjede er pÃ¥ plass, er det viktig Ã¥ sikre
+    at kompilering og kobling vil fungere som forventet. Dette gjÃ¸r vi ved Ã¥ utfÃ¸re
     noen sunnhetssjekker:</para>
 
 <screen><userinput>echo 'int main(){}' &gt; dummy.c
 cc dummy.c -v -Wl,--verbose &amp;&gt; dummy.log
 readelf -l a.out | grep ': /lib'</userinput></screen>
 
-  <para>Det bør ikke være noen feil,
-  og utdataen av den siste kommandoen vil være (som gir rom for
+  <para>Det bÃ¸r ikke vÃ¦re noen feil,
+  og utdataen av den siste kommandoen vil vÃ¦re (som gir rom for
   plattformspesifikke forskjeller i det dynamiske linkernavnet):</para>
 
 <screen><computeroutput>[Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]</computeroutput></screen>
 
-  <para>Sørg nå for at vi er konfigurert til å bruke de riktige startfilene:</para>
+  <para>SÃ¸rg nÃ¥ for at vi er konfigurert til Ã¥ bruke de riktige startfilene:</para>
 
 <screen><userinput>grep -E -o '/usr/lib.*/S?crt[1in].*succeeded' dummy.log</userinput></screen>
 
-  <para>Utdata fra den siste kommandoen bør være:</para>
+  <para>Utdata fra den siste kommandoen bÃ¸r vÃ¦re:</para>
 
 <screen><computeroutput>/usr/lib/gcc/x86_64-pc-linux-gnu/&gcc-version;/../../../../lib/Scrt1.o succeeded
 /usr/lib/gcc/x86_64-pc-linux-gnu/&gcc-version;/../../../../lib/crti.o succeeded
 /usr/lib/gcc/x86_64-pc-linux-gnu/&gcc-version;/../../../../lib/crtn.o succeeded</computeroutput></screen>
 
-  <para>Avhengig av maskinarkitekturen din, kan ovenstående avvike litt.
-  Forskjellen vil være navnet på mappen
+  <para>Avhengig av maskinarkitekturen din, kan ovenstÃ¥ende avvike litt.
+  Forskjellen vil vÃ¦re navnet pÃ¥ mappen
   etter <filename class="directory">/usr/lib/gcc</filename>. Det viktige
-  å se etter her er det at <command>gcc</command> har funnet alle tre
+  Ã¥ se etter her er det at <command>gcc</command> har funnet alle tre
   <filename>crt*.o</filename> filene under
   <filename class="directory">/usr/lib</filename> mappen.</para>
 
-  <para>Bekreft at kompilatoren søker etter riktige
+  <para>Bekreft at kompilatoren sÃ¸ker etter riktige
   deklarasjonsfiler:</para>
 
 <screen><userinput>grep -B4 '^ /usr/include' dummy.log</userinput></screen>
 
-  <para>Denne kommandoen bør returnere følgende utdata:</para>
+  <para>Denne kommandoen bÃ¸r returnere fÃ¸lgende utdata:</para>
 
 <screen><computeroutput>#include &lt;...&gt; search starts here:
  /usr/lib/gcc/x86_64-pc-linux-gnu/&gcc-version;/include
@@ -284,15 +284,15 @@ readelf -l a.out | grep ': /lib'</userinput></screen>
  /usr/lib/gcc/x86_64-pc-linux-gnu/&gcc-version;/include-fixed
  /usr/include</computeroutput></screen>
 
-   <para>Igjen, mappen oppkalt etter måltripletten kan være
+   <para>Igjen, mappen oppkalt etter mÃ¥ltripletten kan vÃ¦re
    annerledes enn de ovennevnte, avhengig av systemarkitekturen.</para>
 
-  <para>Deretter bekrefter du at den nye linkeren brukes med de riktige søkebanene:</para>
+  <para>Deretter bekrefter du at den nye linkeren brukes med de riktige sÃ¸kebanene:</para>
 
 <screen><userinput>grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'</userinput></screen>
 
-  <para>Referanser til stier som har komponenter med '-linux-gnu' bør
-  ignoreres, men ellers bør utdata fra den siste kommandoen være:</para>
+  <para>Referanser til stier som har komponenter med '-linux-gnu' bÃ¸r
+  ignoreres, men ellers bÃ¸r utdata fra den siste kommandoen vÃ¦re:</para>
 
 <screen><computeroutput>SEARCH_DIR("/usr/x86_64-pc-linux-gnu/lib64")
 SEARCH_DIR("/usr/local/lib64")
@@ -319,26 +319,26 @@ SEARCH_DIR("/usr/lib");</computeroutput></screen>
 
 <screen><userinput>grep "/lib.*/libc.so.6 " dummy.log</userinput></screen>
 
-  <para>Utdata fra den siste kommandoen bør være:</para>
+  <para>Utdata fra den siste kommandoen bÃ¸r vÃ¦re:</para>
 
 <screen><computeroutput>attempt to open /usr/lib/libc.so.6 succeeded</computeroutput></screen>
 
-  <para>Sørg for at GCC bruker riktig dynamisk linker:</para>
+  <para>SÃ¸rg for at GCC bruker riktig dynamisk linker:</para>
 
 <screen><userinput>grep found dummy.log</userinput></screen>
 
-  <para>Utdataen fra den siste kommandoen bør være (som gir rom for
+  <para>Utdataen fra den siste kommandoen bÃ¸r vÃ¦re (som gir rom for
   plattformspesifikke forskjeller i dynamisk linkernavn):</para>
 
 <screen><computeroutput>found ld-linux-x86-64.so.2 at /usr/lib/ld-linux-x86-64.so.2</computeroutput></screen>
 
   <para>Hvis utdataen ikke vises som vist ovenfor eller ikke mottas
-  i det hele tatt, så er det noe alvorlig galt. Undersøk og spor trinn for
-  trinn for å finne ut hvor problemet er og rette det. <!--Det mest sannsynlige
+  i det hele tatt, sÃ¥ er det noe alvorlig galt. UndersÃ¸k og spor trinn for
+  trinn for Ã¥ finne ut hvor problemet er og rette det. <!--Det mest sannsynlige
   grunnen er at noe gikk galt med spesifikasjonsfiljusteringen.--> Eventuelle
-  problemer må løses før du fortsetter med prosessen.</para>
+  problemer mÃ¥ lÃ¸ses fÃ¸r du fortsetter med prosessen.</para>
 
-  <para>Når alt fungerer som det skal, rydd opp i testfilene:</para>
+  <para>NÃ¥r alt fungerer som det skal, rydd opp i testfilene:</para>
 
 <screen><userinput>rm -v dummy.c a.out dummy.log</userinput></screen>
 
@@ -402,7 +402,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="cpp">
         <term><command>cpp</command></term>
         <listitem>
-          <para>C forprosessoren; den brukes av kompilatoren for å utvide
+          <para>C forprosessoren; den brukes av kompilatoren for Ã¥ utvide
           #include, #define og lignende utsagn i kildefilene</para>
           <indexterm zone="ch-system-gcc cpp">
             <primary sortas="b-cpp">cpp</primary>
@@ -435,7 +435,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
         <listitem>
           <para>En innpakning rundt <command>ar</command> som legger til et
           programtillegg til kommandolinjen. Dette programmet brukes kun for
-          å legge til "koblingstidsoptimalisering (link time optimization)" og er ikke nyttig med
+          Ã¥ legge til "koblingstidsoptimalisering (link time optimization)" og er ikke nyttig med
           standard byggealternativer</para>
           <indexterm zone="ch-system-gcc gcc-ar">
             <primary sortas="b-gcc-ar">gc-ar</primary>
@@ -448,7 +448,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
         <listitem>
           <para>En innpakning rundt <command>nm</command> som legger til et
           programtillegg til kommandolinjen. Dette programmet brukes kun
-          for å legge til "koblingstidsoptimalisering (link time optimization)" og er ikke nyttig med
+          for Ã¥ legge til "koblingstidsoptimalisering (link time optimization)" og er ikke nyttig med
           standard byggealternativer</para>
           <indexterm zone="ch-system-gcc gcc-nm">
             <primary sortas="b-gcc-nm">gc-nm</primary>
@@ -461,7 +461,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
         <listitem>
           <para>En innpakning rundt <command>ranlib</command> som legger til et
           programtillegg til kommandolinjen. Dette programmet brukes kun
-          for å legge til "koblingstidsoptimalisering (link time optimization)" og er ikke nyttig med
+          for Ã¥ legge til "koblingstidsoptimalisering (link time optimization)" og er ikke nyttig med
           standard byggealternativer</para>
           <indexterm zone="ch-system-gcc gcc-ranlib">
             <primary sortas="b-gcc-ranlib">gc-ranlib</primary>
@@ -472,8 +472,8 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="gcov">
         <term><command>gcov</command></term>
         <listitem>
-          <para>Et dekningstestverktøy; den brukes til å analysere programmer å
-          bestemme hvor optimaliseringer vil ha størst effekt</para>
+          <para>Et dekningstestverktÃ¸y; den brukes til Ã¥ analysere programmer Ã¥
+          bestemme hvor optimaliseringer vil ha stÃ¸rst effekt</para>
           <indexterm zone="ch-system-gcc gcov">
             <primary sortas="b-gcov">gcov</primary>
           </indexterm>
@@ -483,7 +483,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="gcov-dump">
         <term><command>gcov-dump</command></term>
         <listitem>
-          <para>Frakoblet (offline) gcda og gcno profildumpverktøy</para>
+          <para>Frakoblet (offline) gcda og gcno profildumpverktÃ¸y</para>
           <indexterm zone="ch-system-gcc gcov-dump">
             <primary sortas="b-gcov-dump">gcov-dump</primary>
           </indexterm>
@@ -493,7 +493,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="gcov-tool">
         <term><command>gcov-tool</command></term>
         <listitem>
-          <para>Frakoblet (offline) gcda profilbehandlingsverktøy</para>
+          <para>Frakoblet (offline) gcda profilbehandlingsverktÃ¸y</para>
           <indexterm zone="ch-system-gcc gcov-tool">
             <primary sortas="b-gcov-tool">gcov-tool</primary>
           </indexterm>
@@ -503,7 +503,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="lto-dump">
         <term><command>lto-dump</command></term>
         <listitem>
-          <para>Verktøy for dumping av objektfiler produsert av GCC med LTO
+          <para>VerktÃ¸y for dumping av objektfiler produsert av GCC med LTO
           aktivert</para>
           <indexterm zone="ch-system-gcc lto-dump">
             <primary sortas="b-lto-dump">lto-dump</primary>
@@ -514,7 +514,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="libasan">
         <term><filename class="libraryfile">libasan</filename></term>
         <listitem>
-          <para>Kjøretidsbiblioteket for adresserensing</para>
+          <para>KjÃ¸retidsbiblioteket for adresserensing</para>
           <indexterm zone="ch-system-gcc libasan">
             <primary sortas="b-libasan">libasan</primary>
           </indexterm>
@@ -524,7 +524,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="libatomic">
         <term><filename class="libraryfile">libatomic</filename></term>
         <listitem>
-          <para>GCC atomic innebygde kjøretidsbibliotek</para>
+          <para>GCC atomic innebygde kjÃ¸retidsbibliotek</para>
           <indexterm zone="ch-system-gcc libatomic">
             <primary sortas="b-libatomic">libatomic</primary>
           </indexterm>
@@ -544,7 +544,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="libgcc">
         <term><filename class="libraryfile">libgcc</filename></term>
         <listitem>
-          <para>Inneholder kjøretidsstøtte for <command>gcc</command></para>
+          <para>Inneholder kjÃ¸retidsstÃ¸tte for <command>gcc</command></para>
           <indexterm zone="ch-system-gcc libgcc">
             <primary sortas="c-libgcc">libgcc</primary>
           </indexterm>
@@ -554,8 +554,8 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="libgcov">
         <term><filename class="libraryfile">libgcov</filename></term>
         <listitem>
-          <para>Dette biblioteket er koblet inn i et program når GCC blir instruert
-          om å aktivere profilering</para>
+          <para>Dette biblioteket er koblet inn i et program nÃ¥r GCC blir instruert
+          om Ã¥ aktivere profilering</para>
           <indexterm zone="ch-system-gcc libgcov">
             <primary sortas="c-libgcov">libgcov</primary>
           </indexterm>
@@ -576,7 +576,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="libhwasan">
         <term><filename class="libraryfile">libhwasan</filename></term>
         <listitem>
-          <para>Maskinvareassistert kjøretidsbibliotek for Adresserensing</para>
+          <para>Maskinvareassistert kjÃ¸retidsbibliotek for Adresserensing</para>
           <indexterm zone="ch-system-gcc libhwasan">
             <primary sortas="c-libhwasan">libhwasan</primary>
           </indexterm>
@@ -596,7 +596,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="liblsan">
         <term><filename class="libraryfile">liblsan</filename></term>
         <listitem>
-          <para>Leak Sanitizer kjøretidsbibliotek</para>
+          <para>Leak Sanitizer kjÃ¸retidsbibliotek</para>
           <indexterm zone="ch-system-gcc liblsan">
             <primary sortas="c-liblsan">liblsan</primary>
           </indexterm>
@@ -627,8 +627,8 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="libssp">
         <term><filename class="libraryfile">libssp</filename></term>
         <listitem>
-          <para>Inneholder rutiner som støtter GCCs stabelknusende
-          beskyttelsesfunksjonalitet.  Normalt er det ubrukt fordi glibc også gir
+          <para>Inneholder rutiner som stÃ¸tter GCCs stabelknusende
+          beskyttelsesfunksjonalitet.  Normalt er det ubrukt fordi glibc ogsÃ¥ gir
           disse rutinene</para>
           <indexterm zone="ch-system-gcc libssp">
             <primary sortas="c-libssp">libssp</primary>
@@ -669,8 +669,8 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="libsupc">
         <term><filename class="libraryfile">libsupc++</filename></term>
         <listitem>
-          <para>Gir støttende rutiner for C++
-          programmeringsspråk</para>
+          <para>Gir stÃ¸ttende rutiner for C++
+          programmeringssprÃ¥k</para>
           <indexterm zone="ch-system-gcc libsupc">
             <primary sortas="c-libsupc++">libsupc++</primary>
           </indexterm>
@@ -680,7 +680,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="libtsan">
         <term><filename class="libraryfile">libtsan</filename></term>
         <listitem>
-          <para>Thread Sanitizer kjøretidsbibliotek</para>
+          <para>Thread Sanitizer kjÃ¸retidsbibliotek</para>
           <indexterm zone="ch-system-gcc libtsan">
             <primary sortas="c-libtsan">libtsan</primary>
           </indexterm>
@@ -690,7 +690,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <varlistentry id="libubsan">
         <term><filename class="libraryfile">libubsan</filename></term>
         <listitem>
-          <para>Undefined Behavior Sanitizer kjøretidsbibliotek</para>
+          <para>Undefined Behavior Sanitizer kjÃ¸retidsbibliotek</para>
           <indexterm zone="ch-system-gcc libubsan">
             <primary sortas="c-libubsan">libubsan</primary>
           </indexterm>

@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Automake pakken inneholder programmer for å generere Make filer for bruk
+    <para>Automake pakken inneholder programmer for Ã¥ generere Make filer for bruk
      med Autoconf.</para>
 
     <segmentedlist>
@@ -53,15 +53,15 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para> Å bruke fire parallelle jobber øker hastigheten på testene, selv på systemer med
-     mindre logiske kjerner, på grunn av interne forsinkelser i individuelle tester. Å teste
+    <para> Ã… bruke fire parallelle jobber Ã¸ker hastigheten pÃ¥ testene, selv pÃ¥ systemer med
+     mindre logiske kjerner, pÃ¥ grunn av interne forsinkelser i individuelle tester. Ã… teste
      resultatene, utsted:</para>
 
 <screen><userinput remap="test">make <replaceable>-j$(($(nproc)&gt;4?$(nproc):4))</replaceable> check</userinput></screen>
     <para>Erstatt <replaceable>$((...))</replaceable> med antall
     logiske kjerner du vil bruke, hvis du ikke vil bruke alle.</para>
 
-    <para>Testen t/subobj.sh er kjent for å mislykkes.</para>
+    <para>Testen t/subobj.sh er kjent for Ã¥ mislykkes.</para>
 
     <para>Installer pakken:</para>
 
@@ -93,7 +93,7 @@
       <varlistentry id="aclocal">
         <term><command>aclocal</command></term>
         <listitem>
-          <para>Genererer <filename>aclocal.m4</filename> filer basert på
+          <para>Genererer <filename>aclocal.m4</filename> filer basert pÃ¥
            innholdet i <filename>configure.in</filename> filene</para>
           <indexterm zone="ch-system-automake aclocal">
             <primary sortas="b-aclocal">aclocal</primary>
@@ -114,11 +114,11 @@
       <varlistentry id="automake">
         <term><command>automake</command></term>
         <listitem>
-          <para>Et verktøy for automatisk generering av
+          <para>Et verktly for automatisk generering av
           <filename>Makefile.in</filename> filer fra
-          <filename>Makefile.am</filename> filer [For å lage alle
-          <filename>Makefile.in</filename> filer for en pakke, kjør dette programmet
-           i mappen på øverste nivå. Ved å skanne
+          <filename>Makefile.am</filename> filer [For Ã¥ lage alle
+          <filename>Makefile.in</filename> filer for en pakke, kjlr dette programmet
+           i mappen pÃ¥ Ã¸verste nivÃ¥. Ved Ã¥ skanne
           <filename>configure.in</filename> filen, finner den automatisk hver
            passende <filename>Makefile.am</filename> fil og genererer
            tilsvarende <filename>Makefile.in</filename> fil.]</para>

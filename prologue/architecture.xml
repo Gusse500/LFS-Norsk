@@ -8,42 +8,42 @@
 <sect1 id="pre-architecture">
   <?dbhtml filename="architecture.html"?>
 
-  <title>LFS målarkitekturer</title>
+  <title>LFS mÃ¥larkitekturer</title>
 
-<para>Den primære målarkitekturene til LFS er AMD/Intel x86 (32-bit)
-og x86_64 (64-bit) CPUer. På den annen side er instruksjonene i denne boken
-også kjent for å fungere, med noen modifikasjoner, med Power PC og ARM CPUer. Hovedforutsetningen for å
+<para>Den primÃ¦re mÃ¥larkitekturene til LFS er AMD/Intel x86 (32-bit)
+og x86_64 (64-bit) CPUer. PÃ¥ den annen side er instruksjonene i denne boken
+ogsÃ¥ kjent for Ã¥ fungere, med noen modifikasjoner, med Power PC og ARM CPUer. Hovedforutsetningen for Ã¥
 bygge et system som bruker en av disse CPUene, i
-i tillegg til de på neste side, er et eksisterende Linux-system som f.eks
+i tillegg til de pÃ¥ neste side, er et eksisterende Linux-system som f.eks
 tidligere LFS installasjon, Ubuntu, Red Hat/Fedora, SuSE eller annen distribusjon
-som retter seg mot arkitekturen du har. Vær også oppmerksom på at en 32-bit
-distribusjon kan installeres og brukes som et vertssystem på en 64-bit AMD/Intel
+som retter seg mot arkitekturen du har. VÃ¦r ogsÃ¥ oppmerksom pÃ¥ at en 32-bit
+distribusjon kan installeres og brukes som et vertssystem pÃ¥ en 64-bit AMD/Intel
 datamaskin.</para>
 
-<para>Gevinsten ved å bygge på et 64-bitssystem
+<para>Gevinsten ved Ã¥ bygge pÃ¥ et 64-bitssystem
 sammenlignet med et 32-bits system er minimal.
-For eksempel, i en testbygging av LFS-9.1 på et Core i7-4790 CPU-basert system,
-ved bruk av 4 kjerner ble følgende statistikk målt:</para>
+For eksempel, i en testbygging av LFS-9.1 pÃ¥ et Core i7-4790 CPU-basert system,
+ved bruk av 4 kjerner ble fÃ¸lgende statistikk mÃ¥lt:</para>
 
-<screen><computeroutput>Arkitektur Byggetid     Byggestørrelse
+<screen><computeroutput>Arkitektur Byggetid     ByggestÃ¸rrelse
 32-bit       239.9 minutter  3.6 GB
 64-bit       233.2 minutter  4.4 GB</computeroutput></screen>
 
-<para>Som du kan se, på den samme maskinvaren, er 64-bits bygg bare 3% raskere
-og er 22 % større enn 32-bits bygg. Hvis du planlegger å bruke LFS som en LAMP
-server, eller en brannmur, kan en 32-bits CPU stort sett være tilstrekkelig. På den andre
-siden, trenger flere pakker i BLFS nå mer enn 4 GB RAM for å bygges
-og/eller å kjøre, slik at hvis du planlegger å bruke LFS som skrivebord, så anbefaler LFS forfatterne
-å bygge på et 64-bitssystem.</para>
+<para>Som du kan se, pÃ¥ den samme maskinvaren, er 64-bits bygg bare 3% raskere
+og er 22 % stÃ¸rre enn 32-bits bygg. Hvis du planlegger Ã¥ bruke LFS som en LAMP
+server, eller en brannmur, kan en 32-bits CPU stort sett vÃ¦re tilstrekkelig. PÃ¥ den andre
+siden, trenger flere pakker i BLFS nÃ¥ mer enn 4 GB RAM for Ã¥ bygges
+og/eller Ã¥ kjÃ¸re, slik at hvis du planlegger Ã¥ bruke LFS som skrivebord, sÃ¥ anbefaler LFS forfatterne
+Ã¥ bygge pÃ¥ et 64-bitssystem.</para>
 
 <para>Standard 64-bits bygg som et resultat av LFS regnes som et
-<quote>rent</quote> 64-bits system. Det vil si at den bare støtter 64-biters kjørbare filer
-. Å bygge et <quote>flerarkitekturs</quote> system krever kompilering av mange
-applikasjoner to ganger, én gang for et 32-bitssystem og én gang for et 64-bitssystem.
-Dette støttes ikke direkte i LFS fordi det ville forstyrre
-pedagogisk mål om å gi instruksjonene som trengs for et
-enkelt grunnleggende Linux-system. Noen LFS/BLFS-redaktører opprettholder en forgrening
-av LFS for flerarkitektur, som er tilgjengelig på <ulink
+<quote>rent</quote> 64-bits system. Det vil si at den bare stÃ¸tter 64-biters kjÃ¸rbare filer
+. Ã… bygge et <quote>flerarkitekturs</quote> system krever kompilering av mange
+applikasjoner to ganger, en gang for et 32-bitssystem og en gang for et 64-bitssystem.
+Dette stÃ¸ttes ikke direkte i LFS fordi det ville forstyrre
+pedagogisk mÃ¥l om Ã¥ gi instruksjonene som trengs for et
+enkelt grunnleggende Linux-system. Noen LFS/BLFS-redaktÃ¸rer opprettholder en forgrening
+av LFS for flerarkitektur, som er tilgjengelig pÃ¥ <ulink
 url="https://www.linuxfromscratch.org/~thomas/multilib/index.html"/>. Men det
 er et avansert tema.</para>
 

@@ -49,7 +49,7 @@
 <screen><userinput remap="make">make
 make html</userinput></screen>
 
-    <para>For å teste resultatene, utsted:</para>
+    <para>For Ã¥ teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">chown -Rv tester .
 su tester -c "PATH=$PATH make check"</userinput></screen>

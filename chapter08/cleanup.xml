@@ -10,16 +10,16 @@
 
   <title>Rydde opp</title>
 
-  <para>Til slutt, rydd opp i noen ekstra filer som er igjen etter å ha kjørt testene:</para>
+  <para>Til slutt, rydd opp i noen ekstra filer som er igjen etter Ã¥ ha kjÃ¸rt testene:</para>
 
 <screen><userinput>rm -rf /tmp/*</userinput></screen>
 
-  <para>Det er også flere filer installert i /usr/lib og /usr/libexec
+  <para>Det er ogsÃ¥ flere filer installert i /usr/lib og /usr/libexec
   mappene med filtypen .la. Disse er "libtool arkivfiler".
-  På et moderne Linuxsystem, er libtool .la-filene bare
-  nyttig for libltdl. Ingen biblioteker i LFS forventes å bli lastet av
-  libltdl, og det er kjent at noen .la-filer kan forårsake at BLFS pakker
-  feiler under byggingen. Fjern disse filene nå:</para>
+  PÃ¥ et moderne Linuxsystem, er libtool .la-filene bare
+  nyttig for libltdl. Ingen biblioteker i LFS forventes Ã¥ bli lastet av
+  libltdl, og det er kjent at noen .la-filer kan forÃ¥rsake at BLFS pakker
+  feiler under byggingen. Fjern disse filene nÃ¥:</para>
 
 <screen><userinput>find /usr/lib /usr/libexec -name \*.la -delete</userinput></screen>
 
@@ -29,11 +29,11 @@
 
    <para>Kompilatoren bygd i <xref linkend="chapter-temporary-tools"/> og
    <xref linkend="chapter-chroot-temporary-tools"/> er fortsatt delvis
-   installert og ikke nødvendig lenger. Fjern den med:</para>
+   installert og ikke nldvendig lenger. Fjern den med:</para>
 
 <screen><userinput>find /usr -depth -name $(uname -m)-lfs-linux-gnu\* | xargs rm -rf</userinput></screen>
 
-   <para>Til slutt fjerner du den midlertidige "tester" brukerkontoen som ble opprettet på
+   <para>Til slutt fjerner du den midlertidige "tester" brukerkontoen som ble opprettet pÃ¥
    begynnelsen av forrige kapittel.</para>
 
 <screen><userinput>userdel -r tester</userinput></screen>

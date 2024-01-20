@@ -43,32 +43,32 @@
   <sect2 role="installation">
     <title>Installasjon av Kryss Binutils</title>
 
-    <note><para>Gå tilbake og les notatene i avsnittet med tittelen <xref
+    <note><para>GÃ¥ tilbake og les notatene i avsnittet med tittelen <xref
     linkend="ch-tools-generalinstructions"/>.
-    Å forstå notatene merket som viktig kan spare deg for mange
+    Ã¥ forstÃ¥ notatene merket som viktig kan spare deg for mange
     problemer senere.</para></note>
 
-    <para>Det er viktig at Binutils er den første pakken som blir satt sammen
-    fordi både Glibc og GCC utfører ulike tester på tilgjengelige
-    linker og assembler for å bestemme hvilke av deres egne funksjoner
+    <para>Det er viktig at Binutils er den fÃ¸rste pakken som blir satt sammen
+    fordi bÃ¥de Glibc og GCC utfÃ¸rer ulike tester pÃ¥ tilgjengelige
+    linker og assembler for Ã¥ bestemme hvilke av deres egne funksjoner
     som skal aktiveres.</para>
 
-    <para>Binutils dokumentasjonen anbefaler å bygge Binutils
+    <para>Binutils dokumentasjonen anbefaler Ã¥ bygge Binutils
     i en dedikert byggemappe:</para>
 
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>
 
     <note>
-      <para>For at SBU verdiene som er oppført i resten av boken skal
-      kunne brukes, måler du tiden det tar å bygge denne pakken fra
-      konfigurasjonen, til og med den første installasjonen. For å oppnå
+      <para>For at SBU verdiene som er oppfÃ¸rt i resten av boken skal
+      kunne brukes, mÃ¥ler du tiden det tar Ã¥ bygge denne pakken fra
+      konfigurasjonen, til og med den fÃ¸rste installasjonen. For Ã¥ oppnÃ¥
       dette enkelt, pakk kommandoene inn i en <command>time</command>
       kommando som dette: <userinput>time { ../configure ... &amp;&amp; make
       &amp;&amp; make install; }</userinput>.</para>
     </note>
 
-    <para>Forbered nå Binutils til kompilering:</para>
+    <para>Forbered nÃ¥ Binutils til kompilering:</para>
 
     <screen><userinput remap="configure">../configure --prefix=$LFS/tools \
              --with-sysroot=$LFS \
@@ -84,7 +84,7 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--prefix=$LFS/tools</parameter></term>
         <listitem>
-          <para>Dette forteller konfigurasjonsskriptet å forberede for å installere
+          <para>Dette forteller konfigurasjonsskriptet Ã¥ forberede for Ã¥ installere
           Binutils programmene i <filename
           class="directory">$LFS/tools</filename> mappen.</para>
         </listitem>
@@ -93,8 +93,8 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--with-sysroot=$LFS</parameter></term>
         <listitem>
-          <para>For krysskompilering, dette forteller byggesystemet å søke i
-          $LFS etter målsystembibliotekene etter behov.</para>
+          <para>For krysskompilering, dette forteller byggesystemet Ã¥ sÃ¸ke i
+          $LFS etter mÃ¥lsystembibliotekene etter behov.</para>
         </listitem>
       </varlistentry>
 
@@ -104,31 +104,31 @@ cd       build</userinput></screen>
           <para>Fordi maskinbeskrivelsen i variabelen <envar>LFS_TGT</envar>
           er litt annerledes enn verdien som returneres av
           <command>config.guess</command> skriptet, vil denne bryteren fortelle skriptet
-          <command>configure</command> om å justere Binutils byggesystem
-          for å bygge en tverrlinker.  </para>
+          <command>configure</command> om Ã¥ justere Binutils byggesystem
+          for Ã¥ bygge en tverrlinker.  </para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--disable-nls</parameter></term>
         <listitem>
-          <para>Dette deaktiverer internasjonalisering ettersom i18n ikke er nødvendig for de
-          midlertidige verktøyene.</para>
+          <para>Dette deaktiverer internasjonalisering ettersom i18n ikke er nÃ¸dvendig for de
+          midlertidige verktÃ¸yene.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--enable-gprofng=no</parameter></term>
         <listitem>
-          <para>Dette deaktiverer bygging av gprofng som ikke er nødvendig for
-          midlertidige verktøy.</para>
+          <para>Dette deaktiverer bygging av gprofng som ikke er nÃ¸dvendig for
+          midlertidige verktÃ¸y.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--disable-werror</parameter></term>
         <listitem>
-          <para>Dette forhindrer byggingen i å stoppe i tilfelle det
+          <para>Dette forhindrer byggingen i Ã¥ stoppe i tilfelle det
           er advarsler fra vertens kompilator.</para>
         </listitem>
       </varlistentry>
@@ -136,23 +136,23 @@ cd       build</userinput></screen>
 	  <varlistentry>
         <term><parameter>--enable-default-hash-style=gnu</parameter></term>
         <listitem>
-          <para>Som standard vil linkeren generere både GNU-stil
+          <para>Som standard vil linkeren generere bÃ¥de GNU-stil
           hash tabell og det klassiske ELF-hash tabellen for delte biblioteker og
-          dynamisk koblede kjørbare filer. Hash tabellene er kun ment
-          for en dynamisk linker for å utføre symboloppslag. På LFS er dynamikken at
+          dynamisk koblede kjÃ¸rbare filer. Hash tabellene er kun ment
+          for en dynamisk linker for Ã¥ utfÃ¸re symboloppslag. PÃ¥ LFS er dynamikken at
           linkeren (levert av Glibc-pakken) vil alltid bruke
-          GNU-stil hashtabell som er raskere å spørre. Så klassikeren
-          ELF hash-tabell er helt ubrukelig. Dette gjør at linkeren
-          generer bare hashtabellen i GNU-stil som standard, slik at vi kan unngå
-          å kaste bort tid på å generere den klassiske ELF-hash-tabellen når vi bygger
-          pakkene, eller kaster bort diskplass for å lagre den.</para>
+          GNU-stil hashtabell som er raskere Ã¥ spÃ¸rre. SÃ¥ klassikeren
+          ELF hash-tabell er helt ubrukelig. Dette gjÃ¸r at linkeren
+          generer bare hashtabellen i GNU-stil som standard, slik at vi kan unngÃ¥
+          Ã¥ kaste bort tid pÃ¥ Ã¥ generere den klassiske ELF-hash-tabellen nÃ¥r vi bygger
+          pakkene, eller kaster bort diskplass for Ã¥ lagre den.</para>
         </listitem>
       </varlistentry>
 
 
     </variablelist>
 
-    <para>Fortsett med å kompilere pakken:</para>
+    <para>Fortsett med Ã¥ kompilere pakken:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 

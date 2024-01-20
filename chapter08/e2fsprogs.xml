@@ -23,10 +23,10 @@
   <sect2 role="package">
     <title/>
 
-    <para>E2fsprogs pakken inneholder verktøyene for å håndtere
-    <systemitem class="filesystem">ext2</systemitem> filsystemet. Det støtter
-    også <systemitem class="filesystem">ext3</systemitem> og
-    <systemitem class="filesystem">ext4</systemitem> journalførende
+    <para>E2fsprogs pakken inneholder verktÃ¸yene for Ã¥ hÃ¥ndtere
+    <systemitem class="filesystem">ext2</systemitem> filsystemet. Det stÃ¸tter
+    ogsÃ¥ <systemitem class="filesystem">ext3</systemitem> og
+    <systemitem class="filesystem">ext4</systemitem> journalfÃ¸rende
     filsystemer.</para>
 
     <segmentedlist>
@@ -74,7 +74,7 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--disable-*</parameter></term>
         <listitem>
-          <para>Dette hindrer E2fsprogs fra å bygge og installere
+          <para>Dette hindrer E2fsprogs fra Ã¥ bygge og installere
           <systemitem class="library">libuuid</systemitem> og
           <systemitem class="library">libblkid</systemitem> bibliotekene,
           <systemitem class="daemon">uuidd</systemitem> nissen, og
@@ -89,27 +89,27 @@ cd       build</userinput></screen>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>For å kjøre testene, utsted:</para>
+    <para>For Ã¥ kjÃ¸re testene, utsted:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
     <!-- https://github.com/tytso/e2fsprogs/issues/134 -->
     <para>En test navngitt <filename>m_assume_storage_prezeroed</filename>
-    er kjent for å mislykkes.</para>
+    er kjent for Ã¥ mislykkes.</para>
 
 <!-- This is a ridiculous amount now! And is it still true?
      Does not appear to be true for version 1.46.3.  Time with tests
      26 seconds with tests (With lots of cores and ram and an ssd disk).
 
-    <para>En av e2fsprogs testene vil forsøke å allokere 256 MB minne.
-    Hvis du ikke har betydelig mer RAM enn dette, sørg for å aktivere
+    <para>En av e2fsprogs testene vil forsÃ¸ke Ã¥ allokere 256 MB minne.
+    Hvis du ikke har betydelig mer RAM enn dette, sÃ¸rg for Ã¥ aktivere
     tilstrekkelig vekselminne for testen. Se <xref
     linkend="ch-partitioning-creatingfilesystem"/> og <xref
     linkend="ch-partitioning-mounting"/>
-    for detaljer om å opprette og aktivere vekselminne.</para>
+    for detaljer om Ã¥ opprette og aktivere vekselminne.</para>
 
-    <para>På en spinnende harddisk tar testene litt mer enn 4 SBUer. Det
-    kan være mye kortere på en SSD (ned til ca. 1,5 SBU).</para>
+    <para>PÃ¥ en spinnende harddisk tar testene litt mer enn 4 SBUer. Det
+    kan vÃ¦re mye kortere pÃ¥ en SSD (ned til ca. 1,5 SBU).</para>
 -->
     <para>Installer pakken:</para>
 
@@ -122,14 +122,14 @@ cd       build</userinput></screen>
     <para>Denne pakken installerer en gzipped
     <filename class="extension">.info</filename> filen, men oppdaterer ikke den
     systemomfattende <filename>dir</filename> filen. Pakk ut denne filen og oppdater deretter
-    systemets <filename>dir</filename> fil ved å bruke følgende
+    systemets <filename>dir</filename> fil ved Ã¥ bruke fÃ¸lgende
     kommandoer:</para>
 
 <screen><userinput remap="install">gunzip -v /usr/share/info/libext2fs.info.gz
 install-info --dir-file=/usr/share/info/dir /usr/share/info/libext2fs.info</userinput></screen>
 
-    <para>Hvis ønskelig, opprett og installer litt tilleggsdokumentasjon ved å
-    utstede følgende kommandoer:</para>
+    <para>Hvis Ã¸nskelig, opprett og installer litt tilleggsdokumentasjon ved Ã¥
+    utstede fÃ¸lgende kommandoer:</para>
 
 <screen><userinput remap="install">makeinfo -o      doc/com_err.info ../lib/et/com_err.texinfo
 install -v -m644 doc/com_err.info /usr/share/info
@@ -146,11 +146,11 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
     <para>
       <filename>/etc/mke2fs.conf</filename> inneholder standardverdien til
       ulike kommandolinjealternativer for <command>mke2fs</command>.  Du kan
-      rediger filen for å gjøre standardverdiene egnet for ditt behov.
-      For eksempel kan noen verktøy (ikke i LFS eller BLFS) ikke gjenkjenne en
+      rediger filen for Ã¥ gjÃ¸re standardverdiene egnet for ditt behov.
+      For eksempel kan noen verktÃ¸y (ikke i LFS eller BLFS) ikke gjenkjenne en
       <systemitem class='filesystem'>ext4</systemitem> filsystem med
       <literal>metadata_csum_seed</literal> funksjonen aktivert.
-      <emphasis role='bold'>Hvis</emphasis> du trenger et slikt verktøy, kan du
+      <emphasis role='bold'>Hvis</emphasis> du trenger et slikt verktÃ¸y, kan du
       fjerne funksjonen fra standard
       <systemitem class='filesystem'>ext4</systemitem> funksjonsliste med
       kommandoen:
@@ -193,7 +193,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
       <varlistentry id="badblocks">
         <term><command>badblocks</command></term>
         <listitem>
-          <para>Søker en enhet (vanligvis en diskpartisjon) etter dårlige
+          <para>SÃ¸ker en enhet (vanligvis en diskpartisjon) etter dÃ¥rlige
           blokker</para>
           <indexterm zone="ch-system-e2fsprogs badblocks">
             <primary sortas="b-badblocks">badblocks</primary>
@@ -204,7 +204,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
       <varlistentry id="chattr">
         <term><command>chattr</command></term>
         <listitem>
-          <para>Endrer attributtene til filer på <systemitem
+          <para>Endrer attributtene til filer pÃ¥ <systemitem
           class="filesystem">ext{234}</systemitem> filsystemer</para>
           <indexterm zone="ch-system-e2fsprogs chattr">
             <primary sortas="b-chattr">chattr</primary>
@@ -215,7 +215,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
       <varlistentry id="compile_et">
         <term><command>compile_et</command></term>
         <listitem>
-          <para>En feiltabellkompilator; den konverterer en tabell med navn på
+          <para>En feiltabellkompilator; den konverterer en tabell med navn pÃ¥
           feilkoder og meldinger til en C kildefil som er egnet for bruk med
           <filename class="libraryfile">com_err</filename> biblioteket</para>
           <indexterm zone="ch-system-e2fsprogs compile_et">
@@ -227,7 +227,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
       <varlistentry id="debugfs">
         <term><command>debugfs</command></term>
         <listitem>
-          <para>En feilsøker for filsystemet; den kan brukes til å undersøke og endre
+          <para>En feilsÃ¸ker for filsystemet; den kan brukes til Ã¥ undersÃ¸ke og endre
           tilstanden til <systemitem class="filesystem">ext{234}</systemitem>
           filsystemer</para>
           <indexterm zone="ch-system-e2fsprogs debugfs">
@@ -240,7 +240,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
         <term><command>dumpe2fs</command></term>
         <listitem>
           <para>Skriver ut superblokken og gruppeinformasjon til blokker for
-          filsystemet som finnes på en gitt enhet</para>
+          filsystemet som finnes pÃ¥ en gitt enhet</para>
           <indexterm zone="ch-system-e2fsprogs dumpe2fs">
             <primary sortas="b-dumpe2fs">dumpe2fs</primary>
           </indexterm>
@@ -260,7 +260,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
       <varlistentry id="e2fsck">
         <term><command>e2fsck</command></term>
         <listitem>
-          <para>Brukes til å sjekke, og eventuelt reparere <systemitem
+          <para>Brukes til Ã¥ sjekke, og eventuelt reparere <systemitem
           class="filesystem">ext{234}</systemitem> filsystemer</para>
           <indexterm zone="ch-system-e2fsprogs e2fsck">
             <primary sortas="b-e2fsck">e2fsck</primary>
@@ -271,7 +271,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
       <varlistentry id="e2image">
         <term><command>e2image</command></term>
         <listitem>
-          <para>Brukes til å lagre kritiske <systemitem
+          <para>Brukes til Ã¥ lagre kritiske <systemitem
           class="filesystem">ext{234}</systemitem> filsystemdata til en fil</para>
           <indexterm zone="ch-system-e2fsprogs e2image">
             <primary sortas="b-e2image">e2image</primary>
@@ -282,8 +282,8 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
       <varlistentry id="e2label">
         <term><command>e2label</command></term>
         <listitem>
-          <para>Viser eller endrer filsystemetiketten på et <systemitem
-          class="filesystem">ext{234}</systemitem> filsystem tilstede på en gitt
+          <para>Viser eller endrer filsystemetiketten påÃ¥ et <systemitem
+          class="filesystem">ext{234}</systemitem> filsystem tilstede pÃ¥ en gitt
           enhet</para>
           <indexterm zone="ch-system-e2fsprogs e2label">
             <primary sortas="b-e2label">e2label</primary>
@@ -329,7 +329,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
         <listitem>
           <para>Gjentar angreloggen (undo_log) for et <systemitem
           class="filesystem">ext{234}</systemitem> filsystem
-          funnet på en enhet [Dette kan brukes til å angre en mislykket operasjon av et
+          funnet pÃ¥ en enhet [Dette kan brukes til Ã¥ angre en mislykket operasjon av et
           e2fsprogs program.]</para>
           <indexterm zone="ch-system-e2fsprogs e2undo">
             <primary sortas="b-e2undo">e2undo</primary>
@@ -341,7 +341,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
         <term><command>e4crypt</command></term>
         <listitem>
           <para><systemitem class="filesystem">Ext4</systemitem>
-          filsystem krypteringsverktøy</para>
+          filsystem krypteringsverktÃ¸y</para>
           <indexterm zone="ch-system-e2fsprogs e4crypt">
             <primary sortas="b-e4crypt">e4crypt</primary>
           </indexterm>
@@ -362,7 +362,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
       <varlistentry id="filefrag">
         <term><command>filefrag</command></term>
         <listitem>
-          <para>Rapporter om hvor dårlig fragmentert en bestemt fil kan være</para>
+          <para>Rapporter om hvor dÃ¥rlig fragmentert en bestemt fil kan vÃ¦re</para>
           <indexterm zone="ch-system-e2fsprogs filefrag">
             <primary sortas="b-filefrag">filefrag</primary>
           </indexterm>
@@ -415,7 +415,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
       <varlistentry id="lsattr">
         <term><command>lsattr</command></term>
         <listitem>
-          <para>Viser attributtene til filene på et andre utvidet
+          <para>Viser attributtene til filene pÃ¥ et andre utvidet
            filsystem</para>
           <indexterm zone="ch-system-e2fsprogs lsattr">
             <primary sortas="b-lsattr">lsattr</primary>
@@ -439,7 +439,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
         <term><command>mke2fs</command></term>
         <listitem>
           <para>Oppretter et <systemitem class="filesystem">ext{234}</systemitem>
-          filsystem på den angitte enheten</para>
+          filsystem pÃ¥ den angitte enheten</para>
           <indexterm zone="ch-system-e2fsprogs mke2fs">
             <primary sortas="b-mke2fs">mke2fs</primary>
           </indexterm>
@@ -483,8 +483,8 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
         <term><command>mklost+found</command></term>
         <listitem>
           <para>Oppretter en <filename class="directory">lost+found</filename>
-          mappe på et <systemitem class="filesystem">ext{234}</systemitem> filsystem
-          ; den forhåndstildeler diskblokker til denne katalogen for å lette
+          mappe pÃ¥ et <systemitem class="filesystem">ext{234}</systemitem> filsystem
+          ; den forhÃ¥ndstildeler diskblokker til denne katalogen for Ã¥ lette
           oppgaven til <command>e2fsck</command></para>
           <indexterm zone="ch-system-e2fsprogs mklost-found">
             <primary sortas="b-mklost+found">mklost+found</primary>
@@ -495,7 +495,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
       <varlistentry id="resize2fs">
         <term><command>resize2fs</command></term>
         <listitem>
-          <para>Kan brukes til å forstørre eller krympe et <systemitem
+          <para>Kan brukes til Ã¥ forstÃ¸rre eller krympe et <systemitem
           class="filesystem">ext{234}</systemitem> filsystem</para>
           <indexterm zone="ch-system-e2fsprogs resize2fs">
             <primary sortas="b-resize2fs">resize2fs</primary>
@@ -506,7 +506,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
       <varlistentry id="tune2fs">
         <term><command>tune2fs</command></term>
         <listitem>
-          <para>Justerer justerbare filsystemparametere på et <systemitem
+          <para>Justerer justerbare filsystemparametere pÃ¥ et <systemitem
           class="filesystem">ext{234}</systemitem> filsystem</para>
           <indexterm zone="ch-system-e2fsprogs tune2fs">
             <primary sortas="b-tune2fs">tune2fs</primary>
@@ -538,7 +538,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
       <varlistentry id="libext2fs">
         <term><filename class="libraryfile">libext2fs</filename></term>
         <listitem>
-          <para>Inneholder rutiner for å gjøre det mulig for programmer på brukernivå å manipulere et
+          <para>Inneholder rutiner for Ã¥ gjÃ¸re det mulig for programmer pÃ¥ brukernivÃ¥ Ã¥ manipulere et
           <systemitem class="filesystem">ext{234}</systemitem> filsystem</para>
           <indexterm zone="ch-system-e2fsprogs libext2fs">
             <primary sortas="c-libext2fs">libext2fs</primary>

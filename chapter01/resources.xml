@@ -13,10 +13,10 @@
   <sect2 id="ch-intro-faq">
     <title>FAQ</title>
 
-    <para>Hvis du under byggingen av LFS systemet støter på noen
-    feil, har spørsmål eller tror det er en skrivefeil i boken,
-    vennligst start med å se de vanlige spørsmålene (FAQ)
-    som befinner seg på <ulink url="&faq-root;"/>.</para>
+    <para>Hvis du under byggingen av LFS systemet stÃ¸ter pÃ¥ noen
+    feil, har spÃ¸rsmÃ¥l eller tror det er en skrivefeil i boken,
+    vennligst start med Ã¥ se de vanlige spÃ¸rsmÃ¥lene (FAQ)
+    som befinner seg pÃ¥ <ulink url="&faq-root;"/>.</para>
 
   </sect2>
 
@@ -26,12 +26,12 @@
     <para><systemitem class='domainname'>linuxfromscratch.org</systemitem>
     serveren er vert for en rekke E-post
     lister brukt til utvikling av LFS prosjektet. Disse listene inkluderer
-    hovedutviklings- og støttelister, blant annet. Hvis FAQ ikke løser
-    problemet du har, vil neste trinn være å søke i E-post
-    listene på <ulink url="&lfs-root;search.html"/>.</para>
+    hovedutviklings- og stÃ¸ttelister, blant annet. Hvis FAQ ikke lÃ¸ser
+    problemet du har, vil neste trinn vÃ¦re Ã¥ sÃ¸ke i E-post
+    listene pÃ¥ <ulink url="&lfs-root;search.html"/>.</para>
 
     <para>For informasjon om de forskjellige listene, hvordan abonnere,
-    arkivsteder og tilleggsinformasjon, besøk
+    arkivsteder og tilleggsinformasjon, besÃ¸k
     <ulink url="&lfs-root;mail.html"/>.</para>
 
   </sect2>
@@ -41,12 +41,12 @@
   <sect2 id="ch-intro-newsserver">
     <title>Nyhetsserver</title>
 
-    <para>E-postlistene på <uri>linuxfromscratch.org</uri> er
-    også tilgjengelig via NNTP serveren (Network News Transfer Protocol) server.
+    <para>E-postlistene pÃ¥ <uri>linuxfromscratch.org</uri> er
+    ogsÃ¥ tilgjengelig via NNTP serveren (Network News Transfer Protocol) server.
     Alle meldinger som legges til en E-postliste blir kopiert til den tilsvarende
     nyhetsgruppe, og omvendt.</para>
 
-    <para>Nyhetsserveren er plassert på
+    <para>Nyhetsserveren er plassert pÃ¥
     <uri>news.linuxfromscratch.org</uri>.</para>
 
   </sect2> -->
@@ -54,12 +54,12 @@
   <sect2 id="ch-intro-irc">
     <title>IRC</title>
 
-    <para>Flere medlemmer av LFS fellesskapet tilbyr assistanse på Internett
-    Relay Chat (IRC). Før du bruker denne støtten, sørg for at dine
-    spørsmål ikke allerede er besvart i LFS FAQ eller E-postlistenens
-    arkiv. Du finner IRC-nettverket på
+    <para>Flere medlemmer av LFS fellesskapet tilbyr assistanse pÃ¥ Internett
+    Relay Chat (IRC). FÃ¸r du bruker denne stÃ¸tten, sÃ¸rg for at dine
+    spÃ¸rsmÃ¥l ikke allerede er besvart i LFS FAQ eller E-postlistenens
+    arkiv. Du finner IRC-nettverket pÃ¥
     <systemitem class='domainname'>irc.libera.chat</systemitem>.
-    Støttekanalen heter #lfs-support.</para>
+    StÃ¸ttekanalen heter #lfs-support.</para>
 
   </sect2>
 
@@ -68,7 +68,7 @@
     <title>References</title>
 
     <para>For ytterligere informasjon om pakkene, er nyttige tips
-    tilgjengelig på LFS pakkereferansesiden som ligger på <ulink
+    tilgjengelig pÃ¥ LFS pakkereferansesiden som ligger pÃ¥ <ulink
     url="https://www.linuxfromscratch.org/~matthew/LFS-references.html"/>.</para>
 
   </sect2>  -->
@@ -76,17 +76,17 @@
   <sect2 id="ch-intro-mirrors" xreflabel="Kapittel&nbsp;1 - Speilnettsteder">
     <title>Speilnettsteder</title>
 
-    <para>LFS prosjektet har en rekke verdensomspennende speil for å få tilgang til
-    nettstedet og laste ned de nødvendige pakkene mer praktisk.
-    Besøk LFS nettstedet på <ulink url="&lfs-root;mirrors.html"/> for en liste
-    av nåværende speil.</para>
+    <para>LFS prosjektet har en rekke verdensomspennende speil for Ã¥ fÃ¥ tilgang til
+    nettstedet og laste ned de nÃ¸dvendige pakkene mer praktisk.
+    BesÃ¸k LFS nettstedet pÃ¥ <ulink url="&lfs-root;mirrors.html"/> for en liste
+    av nÃ¥vÃ¦rende speil.</para>
 
   </sect2>
 
   <sect2 id="ch-intro-contactinfo">
     <title>Kontaktinformasjon</title>
 
-    <para>Send alle dine spørsmål og kommentarer til en av LFS
+    <para>Send alle dine spÃ¸rsmÃ¥l og kommentarer til en av LFS
      E-postlister (se ovenfor).</para>
 
   </sect2>

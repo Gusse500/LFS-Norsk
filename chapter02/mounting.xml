@@ -10,16 +10,16 @@
 
   <title>Montering av den nye partisjonen</title>
 
-  <para>Nå som et filsystem er opprettet, må partisjonen
-  monteres slik at vertssystemet kan få tilgang til det. Denne boken forutsetter at
+  <para>NÃ¥ som et filsystem er opprettet, mÃ¥ partisjonen
+  monteres slik at vertssystemet kan fÃ¥ tilgang til det. Denne boken forutsetter at
   filsystemet er montert i katalogen spesifisert av
-  <envar>LFS</envar> miljøvariabel beskrevet i forrige avsnitt.
+  <envar>LFS</envar> miljÃ¸variabel beskrevet i forrige avsnitt.
   </para>
   
   <para>Strengt tatt kan man ikke "montere en partisjon". Man monterer <emphasis>filsystemet
   </emphasis> innebygd i den partisjonen. Men siden en enkelt partisjon ikke kan inneholde
   mer enn ett filsystem, folk snakker ofte om partisjonen og
-  tilhørende filsystem som om de var ett og samme.</para>
+  tilhÃ¸rende filsystem som om de var ett og samme.</para>
 
   <para>Opprett monteringspunktet og monter LFS filsystemet med disse kommandoene:</para>
 
@@ -42,38 +42,38 @@ mount -v -t ext4 /dev/<replaceable>&lt;yyy&gt;</replaceable> $LFS/home</userinpu
   <replaceable>&lt;yyy&gt;</replaceable> med riktige partisjons
   navn.</para>
 
-  <para>Sørg for at de nye partisjonene ikke er montert med tillatelser som er
+  <para>SÃ¸rg for at de nye partisjonene ikke er montert med tillatelser som er
   for restriktiv (som f.eks <option>nosuid</option> eller
-  <option>nodev</option> alternativer). Kjør <command>mount</command> kommandoen
-  uten noen parametere for å se hvilke alternativer som er satt for den monterte LFS
+  <option>nodev</option> alternativer). KjÃ¸r <command>mount</command> kommandoen
+  uten noen parametere for Ã¥ se hvilke alternativer som er satt for den monterte LFS
   partisjonen. Hvis <option>nosuid</option> og/eller <option>nodev</option> er satt,
-  må partisjonene monteres på nytt.</para>
+  mÃ¥ partisjonene monteres pÃ¥ nytt.</para>
 
-  <warning><para>Instruksjonene ovenfor forutsetter at du ikke starter datamaskinen på nytt
-  din gjennom hele LFS prosessen. Hvis du slår av systemet,
-  må du enten montere LFS partisjonen på nytt hver gang du starter byggeprosessen på nytt
-  eller modifisere vertssystemets &fstab; filen til å automatisk
-  monter den på nytt når du starter på nytt. Du kan for eksempel legge til denne linjen i 
+  <warning><para>Instruksjonene ovenfor forutsetter at du ikke starter datamaskinen pÃ¥ nytt
+  din gjennom hele LFS prosessen. Hvis du slÃ¥r av systemet,
+  mÃ¥ du enten montere LFS partisjonen pÃ¥ nytt hver gang du starter byggeprosessen pÃ¥ nytt
+  eller modifisere vertssystemets &fstab; filen til Ã¥ automatisk
+  monter den pÃ¥ nytt nÃ¥r du starter pÃ¥ nytt. Du kan for eksempel legge til denne linjen i 
   &fstab; filen:
 
 <screen role="nodump">/dev/<replaceable>&lt;xxx&gt;</replaceable>  /mnt/lfs ext4   defaults      1     1</screen>
 
-  Hvis du bruker flere valgfrie partisjoner, sørg for å legge dem til også.
+  Hvis du bruker flere valgfrie partisjoner, sÃ¸rg for Ã¥ legge dem til ogsÃ¥
 
   </para></warning>
 
 
   <para>Hvis du bruker en <systemitem
-  class="filesystem">swap</systemitem> partisjon, sørg for at den er aktivert, 
+  class="filesystem">swap</systemitem> partisjon, sÃ¸rg for at den er aktivert, 
   bruk <command>swapon</command> kommandoen:</para>
 
 <screen role="nodump"><userinput>/sbin/swapon -v /dev/<replaceable>&lt;zzz&gt;</replaceable></userinput></screen>
 
-  <para>Erstatt <replaceable>&lt;zzz&gt;</replaceable> med navnet på
+  <para>Erstatt <replaceable>&lt;zzz&gt;</replaceable> med navnet pÃ¥
   <systemitem class="filesystem">swap</systemitem> partisjonen.</para>
 
-  <para>Nå som den nye LFS partisjonen er klar til bruk, er det på tide
-  å laste ned pakkene.</para>
+  <para>NÃ¥ som den nye LFS partisjonen er klar til bruk, er det pÃ¥ tide
+  Ã¥ laste ned pakkene.</para>
 
 </sect1>
 

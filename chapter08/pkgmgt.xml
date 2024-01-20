@@ -8,18 +8,18 @@
 <sect1 id="ch-system-pkgmgt">
   <?dbhtml filename="pkgmgt.html"?>
 
-  <title>Pakkehåndtering</title>
+  <title>PakkehÃ¥ndtering</title>
 
   <para>Pakkebehandling er et ofte etterspurt tillegg til LFS-boken. En
-  pakkebehandler lar deg spore installasjonen av filer som gjør det enkelt å
-  fjerne og oppgradere pakker. En god pakkebehandler vil også håndtere
-  konfigurasjonsfiler spesielt for å beholde brukerkonfigurasjonen når
-  pakken installeres på nytt eller oppgraderes. Før
-  du begynner å lure, NEI&mdash;denne delen vil ikke snakke om eller anbefale
+  pakkebehandler lar deg spore installasjonen av filer som gjÃ¸r det enkelt Ã¥
+  fjerne og oppgradere pakker. En god pakkebehandler vil ogsÃ¥ hÃ¥ndtere
+  konfigurasjonsfiler spesielt for Ã¥ beholde brukerkonfigurasjonen nÃ¥r
+  pakken installeres pÃ¥ nytt eller oppgraderes. FÃ¸r
+  du begynner Ã¥ lure, NEI&mdash;denne delen vil ikke snakke om eller anbefale
   noen spesiell pakkebehandler. Det den gir er en oppsummering av de fleste
-  populære teknikker og hvordan de fungerer. Den perfekte pakkebehandleren for deg vil kanskje
-  være blant disse teknikkene eller kan være en kombinasjon av to eller flere av disse
-  teknikker. Denne delen nevner kort problemer som kan oppstå ved oppgradering av
+  populÃ¦re teknikker og hvordan de fungerer. Den perfekte pakkebehandleren for deg vil kanskje
+  vÃ¦re blant disse teknikkene eller kan vÃ¦re en kombinasjon av to eller flere av disse
+  teknikker. Denne delen nevner kort problemer som kan oppstÃ¥ ved oppgradering av
   pakker.</para>
 
   <para>Noen grunner til at ingen pakkebehandler er nevnt i LFS eller BLFS
@@ -27,194 +27,194 @@
 
   <itemizedlist>
     <listitem>
-      <para>Å håndtere pakkehåndtering fjerner fokus fra målene
-      til disse bøkene&mdash;å lære hvordan et Linux system er bygget.</para>
+      <para>Ã… hÃ¥ndtere pakkehÃ¥ndtering fjerner fokus fra mÃ¥lene
+      til disse bÃ¸kene&mdashÃ¥ lÃ¦re hvordan et Linux system er bygget.</para>
     </listitem>
 
     <listitem>
-      <para>Det er flere løsninger for pakkehåndtering, som hver har
-      dens styrker og ulemper. Inkludere en som tilfredsstiller alle målgrupper
+      <para>Det er flere lÃ¸sninger for pakkehÃ¥ndtering, som hver har
+      dens styrker og ulemper. Inkludere en som tilfredsstiller alle mÃ¥lgrupper
       er vanskelig.</para>
     </listitem>
   </itemizedlist>
 
-  <para>Det er skrevet noen tips om emnet pakkehåndtering. Besøk
+  <para>Det er skrevet noen tips om emnet pakkehÃ¥ndtering. BesÃ¸k
   <ulink url="&hints-root;">Hints Project</ulink> og se om en av dem
   passer ditt behov.</para>
 
   <sect2 id='pkgmgmt-upgrade-issues'>
     <title>Oppgraderingsproblemer</title>
 
-    <para>En Pakkehåndterer gjør det enkelt å oppgradere til nyere versjoner når de
-    blir utgitt. Generelt kan instruksjonene i LFS og BLFS bøkene
-    brukes til å oppgradere til nyere versjoner. Her er noen punkter du bør
-    være oppmerksom på når du oppgraderer pakker, spesielt på et kjørende system.</para>
+    <para>En PakkehÃ¥ndterer gjÃ¸r det enkelt Ã¥ oppgradere til nyere versjoner nÃ¥r de
+    blir utgitt. Generelt kan instruksjonene i LFS og BLFS bÃ¸kene
+    brukes til Ã¥ oppgradere til nyere versjoner. Her er noen punkter du bÃ¸r
+    vÃ¦re oppmerksom pÃ¥ nÃ¥r du oppgraderer pakker, spesielt pÃ¥ et kjÃ¸rende system.</para>
 
     <itemizedlist>
       <listitem>
-        <para>Hvis Linux kjernen må oppgraderes (for eksempel fra
-        5.10.17 til 5.10.18 eller 5.11.1), må ikke noe annet bygges om.
-        Systemet vil fortsette å fungere bra takket være den veldefinerte grensen
-        mellom kjernen og brukerområdet. Nærmere bestemt Linux API-deklarasjoner
-        trenger ikke å (og bør ikke bli, se neste element) oppgraderes
-        ved siden av kjernen. Du må starte systemet på nytt for å bruke
+        <para>Hvis Linux kjernen mÃ¥ oppgraderes (for eksempel fra
+        5.10.17 til 5.10.18 eller 5.11.1), mÃ¥ ikke noe annet bygges om.
+        Systemet vil fortsette Ã¥ fungere bra takket vÃ¦re den veldefinerte grensen
+        mellom kjernen og brukeromrÃ¥det. NÃ¦rmere bestemt Linux API-deklarasjoner
+        trenger ikke Ã¥ (og bÃ¸r ikke bli, se neste element) oppgraderes
+        ved siden av kjernen. Du mÃ¥ starte systemet pÃ¥ nytt for Ã¥ bruke
         den oppgraderte kjernen.</para>
       </listitem>
 
       <listitem>
-        <para>Hvis Linux API-deklarasjoner eller Glibc må oppgraderes til en nyere
-        versjon, (f.eks. fra glibc-2.31 til glibc-2.32), er det tryggere å
+        <para>Hvis Linux API-deklarasjoner eller Glibc mÃ¥ oppgraderes til en nyere
+        versjon, (f.eks. fra glibc-2.31 til glibc-2.32), er det tryggere Ã¥
         gjenoppbygge LFS. Selv om du <emphasis>kanskje</emphasis> kan gjenoppbygge
-        alle pakkene i deres avhengighetsrekkefølge, anbefaler vi ikke
+        alle pakkene i deres avhengighetsrekkefÃ¸lge, anbefaler vi ikke
         det.  </para>
       </listitem>
 
       <listitem>
         <para>Reinstallerer den samme versjonen av Glibc (&glibc-version; for
-        denne utgivelsen av LFS) med oppdateringer bør være trygg når disse oppdateringene
-        ikke endre ABI og API. Når en sikkerhetssårbarhet blir funnet
-        i Glibc må vi ofte bruke en slik oppdatering for å fikse
-        sårbarhet og installer Glibc på nytt. Rådfør
+        denne utgivelsen av LFS) med oppdateringer bÃ¸r vÃ¦re trygg nÃ¥r disse oppdateringene
+        ikke endre ABI og API. NÃ¥r en sikkerhetssÃ¥rbarhet blir funnet
+        i Glibc mÃ¥ vi ofte bruke en slik oppdatering for Ã¥ fikse
+        sÃ¥rbarheten og installer Glibc pÃ¥ nytt. RÃ¥dfÃ¸r
         <ulink url='&lfs-root;lfs/advisories/'>LFS 
-        sikkerhetsråd</ulink> hvis du blir varslet om en publisert Glibc 
-        sikkerhetssårbarhet, men usikker på hva som skal gjøres.</para>
+        sikkerhetsrÃ¥d</ulink> hvis du blir varslet om en publisert Glibc 
+        sikkerhetssÃ¥rbarhet, men usikker pÃ¥ hva som skal gjÃ¸res.</para>
       </listitem>
 
       <listitem> <para>Hvis en pakke som inneholder et delt bibliotek oppdateres, og
-      hvis navnet på biblioteket endres, vil eventuelle pakker dynamisk
-      koblet til biblioteket måtte kompileres på nytt for å kunne kobles mot
+      hvis navnet pÃ¥ biblioteket endres, vil eventuelle pakker dynamisk
+      koblet til biblioteket mÃ¥tte kompileres pÃ¥ nytt for Ã¥ kunne kobles mot
       det nyere biblioteket. (Merk at det ikke er noen sammenheng mellom
-      pakkeversjon og navnet på biblioteket.) Tenk for eksempel på en pakke
+      pakkeversjon og navnet pÃ¥ biblioteket.) Tenk for eksempel pÃ¥ en pakke
       foo-1.2.3 som installerer et delt bibliotek med navn <filename
       class='libraryfile'>libfoo.so.1</filename>. Hvis du oppgraderer pakken til
       en nyere versjon foo-1.2.4 som installerer et delt bibliotek med navn
       <filename class='libraryfile'>libfoo.so.2</filename>. I dette tilfellet, alle
       pakker som er dynamisk koblet til <filename
-      class='libraryfile'>libfoo.so.1</filename> må kompileres på nytt for å lenke
-      imot <filename class='libraryfile'>libfoo.so.2</filename> for å
-      bruke den nye bibliotekversjonen. Du bør ikke fjerne det forrige
+      class='libraryfile'>libfoo.so.1</filename> mÃ¥ kompileres pÃ¥ nytt for Ã¥ lenke
+      imot <filename class='libraryfile'>libfoo.so.2</filename> for Ã¥
+      bruke den nye bibliotekversjonen. Du bÃ¸r ikke fjerne det forrige
       biblioteker med mindre alle de avhengige pakkene er rekompilert.</para>
       </listitem>
 
-      <listitem><para>Hvis en pakke er (direkte eller indirekte) er knyttet til både
+      <listitem><para>Hvis en pakke er (direkte eller indirekte) er knyttet til bÃ¥de
       de gamle og nye navnene av et delt bibliotek (for eksempel pakken
-      lenker til både <filename class='libraryfile'>libfoo.so.2</filename> og
+      lenker til bÃ¥de <filename class='libraryfile'>libfoo.so.2</filename> og
       <filename class='libraryfile'>libbar.so.1</filename>, mens sistnevnte
       linker til <filename class='libraryfile'>libfoo.so.3</filename>),
       pakken kan fungere feil fordi de forskjellige revisjonene av det delte
-      biblioteket presenterer uforenlige definisjoner for noen symbolnavn. Dette kan være
-      forårsaket av rekompilering av noen, men ikke alle, pakkene knyttet til
+      biblioteket presenterer uforenlige definisjoner for noen symbolnavn. Dette kan vÃ¦re
+      forÃ¥rsaket av rekompilering av noen, men ikke alle, pakkene knyttet til
       et gammelt delt bibliotek etter at pakken som gir det delte biblioteket
-      er oppgradert. For å unngå problemet, må brukere gjenoppbygge hver pakke
+      er oppgradert. For Ã¥ unngÃ¥ problemet, mÃ¥ brukere gjenoppbygge hver pakke
       koblet til et delt bibliotek med en oppdatert revisjon (f.eks. libfoo.so.2 til
-      libfoo.so.3) så snart som mulig.
+      libfoo.so.3) sÃ¥ snart som mulig.
       </para></listitem>
 
       <listitem> <para>Hvis en pakke som inneholder et delt bibliotek oppdateres,
-      og navnet på biblioteket ikke endres, men versjonsnummeret til
+      og navnet pÃ¥ biblioteket ikke endres, men versjonsnummeret til
       bibliotek <emphasis role="bold">filen</emphasis> reduseres (f.eks.
-      navnet på biblioteket beholdes ved navn
+      navnet pÃ¥ biblioteket beholdes ved navn
       <filename class='libraryfile'>libfoo.so.1</filename>,
-      men navnet på bibliotekfilen er endret fra
+      men navnet pÃ¥ bibliotekfilen er endret fra
       <filename class='libraryfile'>libfoo.so.1.25</filename> til
       <filename class='libraryfile'>libfoo.so.1.24</filename>),
-      bør du fjerne bibliotekfilen fra den tidligere installerte versjonen
+      bÃ¸r du fjerne bibliotekfilen fra den tidligere installerte versjonen
       (<filename class='libraryfile'>libfoo.so.1.25</filename> i dette tilfellet).
-      Ellers, et <command>ldconfig</command> kommando (påkalt av deg selv fra kommandolinjen
+      Ellers, et <command>ldconfig</command> kommando (pÃ¥kalt av deg selv fra kommandolinjen
       , eller ved installasjon av en pakke) vil tilbakestille symbolkoblingen
-      <filename class='libraryfile'>libfoo.so.1</filename> til å peke på
-      den gamle bibliotekfilen fordi den ser ut til å ha en <quote>nyere</quote>
-      versjon, ettersom versjonsnummeret er større.  Denne situasjonen kan oppstå hvis
-      du må nedgradere en pakke, eller hvis forfatterne endrer versjonsskjema
+      <filename class='libraryfile'>libfoo.so.1</filename> til Ã¥ peke pÃ¥
+      den gamle bibliotekfilen fordi den ser ut til Ã¥ ha en <quote>nyere</quote>
+      versjon, ettersom versjonsnummeret er stÃ¸rre.  Denne situasjonen kan oppstÃ¥ hvis
+      du mÃ¥ nedgradere en pakke, eller hvis forfatterne endrer versjonsskjema
       for bibliotekfiler.</para> </listitem>
 
       <listitem><para>Hvis en pakke som inneholder et delt bibliotek oppdateres,
-      og navnet på biblioteket ikke endres, men et alvorlig problem
-      (spesielt en sikkerhetssårbarhet) er fikset, alle programmer som kjører
-      koblet til det delte biblioteket bør startes på nytt. Følgende
-      kommando, kjørt som <systemitem class="username">root</systemitem> etter
+      og navnet pÃ¥ biblioteket ikke endres, men et alvorlig problem
+      (spesielt en sikkerhetssÃ¥rbarhet) er fikset, alle programmer som kjÃ¸rer
+      koblet til det delte biblioteket bÃ¸r startes pÃ¥ nytt. FÃ¸lgende
+      kommando, kjÃ¸rt som <systemitem class="username">root</systemitem> etter
       oppdateringen, vil liste opp hva som bruker de gamle versjonene av disse bibliotekene
-      (erstatt <replaceable>libfoo</replaceable> med navnet på
+      (erstatt <replaceable>libfoo</replaceable> med navnet pÃ¥
       biblioteket):</para>
 
 <screen role="nodump"><userinput>grep -l '<replaceable>libfoo</replaceable>.*deleted' /proc/*/maps | tr -cd 0-9\\n | xargs -r ps u</userinput></screen>
 
       <para>
         Hvis <application>OpenSSH</application> brukes for tilgang til
-        systemet og det er koblet til det oppdaterte biblioteket, må du
-        omstarte <command>sshd</command> tjenesten, deretter logg ut, logg på igjen,
-        og kjør kommandoen igjen for å bekrefte at ingenting fortsatt bruker
+        systemet og det er koblet til det oppdaterte biblioteket, mÃ¥ du
+        omstarte <command>sshd</command> tjenesten, deretter logg ut, logg pÃ¥ igjen,
+        og kjÃ¸r kommandoen igjen for Ã¥ bekrefte at ingenting fortsatt bruker
         de slettede bibliotekene.
       </para>
 
       <para revision='systemd'>
-        Hvis <command>systemd</command> nissen (kjører som PID 1) er
-        koblet til det oppdaterte biblioteket, kan du starte det på nytt uten å omstarte
-        ved å kjøre <command>systemctl daemon-reexec</command> som
+        Hvis <command>systemd</command> nissen (kjÃ¸rer som PID 1) er
+        koblet til det oppdaterte biblioteket, kan du starte det pÃ¥ nytt uten Ã¥ omstarte
+        ved Ã¥ kjÃ¸re <command>systemctl daemon-reexec</command> som
         <systemitem class='username'>root</systemitem> bruker.
       </para></listitem>
 
       <listitem>
-        <para>Hvis et binært eller et delt bibliotek overskrives, kan prosessene
-        som bruker koden eller dataene i binærfilen eller biblioteket krasje. Den
-        riktige måten å oppdatere et binært eller et delt bibliotek uten å forårsake
-        at prosessen krasjer er å fjerne den først, og deretter installere den nye
+        <para>Hvis et binÃ¦rt eller et delt bibliotek overskrives, kan prosessene
+        som bruker koden eller dataene i binÃ¦rfilen eller biblioteket krasje. Den
+        riktige mÃ¥ten Ã¥ oppdatere et binÃ¦rt eller et delt bibliotek uten Ã¥ forÃ¥rsake
+        at prosessen krasjer er Ã¥ fjerne den fÃ¸rst, og deretter installere den nye
         versjonen. <command>install</command> kommandoen
         levert av <application>coreutils</application> har allerede
-        implementert dette og de fleste pakker bruker det til å installere binærfiler og
+        implementert dette og de fleste pakker bruker det til Ã¥ installere binÃ¦rfiler og
         biblioteker. Dette betyr at du ikke vil bli plaget av dette problemet mesteparten av tiden.
         Imidlertid er installasjonsprosessen for noen pakker (spesielt SpiderMonkey
-        i BLFS) bare å overskrive filen hvis den eksisterer og forårsaker et krasj, så
-        det er tryggere å lagre arbeidet ditt og lukke unødvendige kjørende prosesser
-        før du oppdaterer en pakke.</para> <!-- binary is an adjective, not a noun. -->
+        i BLFS) bare Ã¥ overskrive filen hvis den eksisterer og forÃ¥rsaker et krasj, sÃ¥
+        det er tryggere Ã¥ lagre arbeidet ditt og lukke unÃ¸dvendige kjÃ¸rende prosesser
+        fÃ¸r du oppdaterer en pakke.</para> <!-- binary is an adjective, not a noun. -->
       </listitem>
     </itemizedlist>
 
   </sect2>
 
   <sect2>
-    <title>Pakkehåndteringsteknikker</title>
+    <title>PakkehÃ¥ndteringsteknikker</title>
 
-    <para>Følgende er noen vanlige pakkehåndteringsteknikker. Før du
-    ta en avgjørelse om en pakkeforvalter, gjør litt undersøkelser på de forskjellige
+    <para>FÃ¸lgende er noen vanlige pakkehÃ¥ndteringsteknikker. FÃ¥r du
+    ta en avgjÃ¸relse om en pakkeforvalter, gjÃ¸r litt undersÃ¸kelser pÃ¥ de forskjellige
     teknikkene, spesielt ulempene ved den spesielle ordningen.</para>
 
     <sect3>
       <title>Alt er i hodet mitt!</title>
 
-      <para>Ja, dette er en pakkehåndteringsteknikk. Noen mennesker finner ikke
-      behovet for en pakkehåndterer fordi de kjenner pakkene inngående
+      <para>Ja, dette er en pakkehÃ¥ndteringsteknikk. Noen mennesker finner ikke
+      behovet for en pakkehÃ¥ndterer fordi de kjenner pakkene inngÃ¥ende
       og vet hvilke filer som er installert av hver pakke. Noen brukere trenger heller ikke
-      pakkehåndtering fordi de planlegger å gjenoppbygge hele
-      system når en pakke endres.</para>
+      pakkehÃ¥ndtering fordi de planlegger Ã¥ gjenoppbygge hele
+      system nÃ¥r en pakke endres.</para>
 
     </sect3>
 
     <sect3>
       <title>Installer i separate mapper</title>
 
-      <para>Dette er en forenklet pakkehåndtering som ikke trenger noe ekstra
-      pakke for å administrere installasjonene. Hver pakke er installert i en
+      <para>Dette er en forenklet pakkehÃ¥ndtering som ikke trenger noe ekstra
+      pakke for Ã¥ administrere installasjonene. Hver pakke er installert i en
       egen mappe. For eksempel pakke foo-1.1 er installert i
       <filename class='directory'>/opt/foo-1.1</filename>
       og en symbolkobling er laget fra <filename>/opt/foo</filename> til
-      <filename class='directory'>/opt/foo-1.1</filename>. Når
+      <filename class='directory'>/opt/foo-1.1</filename>. NÃ¥r
       en ny versjon foo-1.2 kommer, blir den installert i
       <filename class='directory'>/opt/foo-1.2</filename> og den forrige
       symbolkoblingen erstattes av en symbolkobling til den nye versjonen.</para>
 
-      <para>Miljøvariabler som f.eks <envar>PATH</envar>,
+      <para>MiljÃ¸variabler som f.eks <envar>PATH</envar>,
       <envar>MANPATH</envar>, <envar>INFOPATH</envar>,
       <envar>PKG_CONFIG_PATH</envar>, <envar>CPPFLAGS</envar>,
       <envar>LDFLAGS</envar>, og konfigurasjonsfilen
-      <filename>/etc/ld.so.conf</filename> må kanskje utvides til
+      <filename>/etc/ld.so.conf</filename> mÃ¥ kanskje utvides til
        inkludere de tilsvarende undermappene i
       <filename class='directory'>/opt/foo-x.y</filename>.</para>
 
       <para>
-        Denne ordningen brukes av BLFS boken for å installere noen veldig store
-        pakker for å gjøre det enklere å oppgradere dem. Hvis du installerer mer
-        enn noen få pakker, blir denne ordningen uhåndterlig. Og noen
+        Denne ordningen brukes av BLFS boken for Ã¥ installere noen veldig store
+        pakker for Ã¥ gjÃ¸re det enklere Ã¥ oppgradere dem. Hvis du installerer mer
+        enn noen fÃ¥ pakker, blir denne ordningen uhÃ¥ndterlig. Og noen
         pakker (for eksempel Linux API deklarasjoner og Glibc) fungerer kanskje ikke bra
         med denne ordningen.
         <emphasis role='bold'>Bruk aldri denne ordningen systemomfattende.</emphasis>
@@ -224,21 +224,21 @@
     <sect3>
       <title>Symlink Style Package Management</title>
 
-      <para>Dette er en variant av den tidligere pakkehåndteringsteknikken.
+      <para>Dette er en variant av den tidligere pakkehÃ¥ndteringsteknikken.
       Hver pakke er installert som i forrige skjema. Men i stedet for
-      å lage symbolkoblingen via et generisk pakkenavn, er hver fil symlinket til
+      Ã¥ lage symbolkoblingen via et generisk pakkenavn, er hver fil symlinket til
       <filename class='directory'>/usr</filename> hierarkiet. Dette fjerner
-      behovet for å utvide miljøvariablene. Selv om symbolkoblingene kan være
-      opprettet av brukeren for å automatisere opprettelsen, har mange pakkeforvaltere
-      blitt skrevet ved hjelp av denne tilnærmingen. Noen av de populære inkluderer Stow,
+      behovet for Ã¥ utvide miljÃ¸variablene. Selv om symbolkoblingene kan vÃ¦re
+      opprettet av brukeren for Ã¥ automatisere opprettelsen, har mange pakkeforvaltere
+      blitt skrevet ved hjelp av denne tilnÃ¦rmingen. Noen av de populÃ¦re inkluderer Stow,
       Epkg, Graft og Depot.</para>
 
-      <para>Installasjonen må forfalskes, slik at pakken tror
-      den er installert i <filename class="directory">/usr</filename> skjønt i
+      <para>Installasjonen mÃ¥ forfalskes, slik at pakken tror
+      den er installert i <filename class="directory">/usr</filename> skjÃ¸nt i
       virkeligheten er den installert i
-      <filename class="directory">/usr/pkg</filename> hierarkiet. Installering på
-      denne måten er vanligvis ikke en triviell oppgave. Tenk for eksempel på at du
-      installerer en pakke libfoo-1.1. Følgende instruksjoner kan gjøre at pakken
+      <filename class="directory">/usr/pkg</filename> hierarkiet. Installering pÃ¥
+      denne mÃ¥ten er vanligvis ikke en triviell oppgave. Tenk for eksempel pÃ¥ at du
+      installerer en pakke libfoo-1.1. FÃ¸lgende instruksjoner kan gjÃ¸re at pakken
       ikke installeres riktig:</para>
 
 <screen role="nodump"><userinput>./configure --prefix=/usr/pkg/libfoo/1.1
@@ -250,17 +250,17 @@ make install</userinput></screen>
       libfoo, kan du legge merke til at den er koblet til
       <filename class='libraryfile'>/usr/pkg/libfoo/1.1/lib/libfoo.so.1</filename>
       i stedet for <filename class='libraryfile'>/usr/lib/libfoo.so.1</filename>
-      som du forventer. Den riktige tilnærmingen er å bruke
-      <envar>DESTDIR</envar> strategien for å forfalske installasjon av pakken. Dette
-      tilnærmingen fungerer som følger:</para>
+      som du forventer. Den riktige tilnÃ¦rmingen er Ã¥ bruke
+      <envar>DESTDIR</envar> strategien for Ã¥ forfalske installasjon av pakken. Denne
+      tilnÃ¦rmingen fungerer som fÃ¸lger:</para>
 
 <screen role="nodump"><userinput>./configure --prefix=/usr
 make
 make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
 
-      <para>De fleste pakker støtter denne tilnærmingen, men det er noen som ikke gjør det.
-      For de ikke-kompatible pakkene kan det hende du må installere pakken manuelt
-      , eller du kan finne ut at det er lettere å installere noen problematiske
+      <para>De fleste pakker stÃ¸tter denne tilnÃ¦rmingen, men det er noen som ikke gjÃ¸r det.
+      For de ikke-kompatible pakkene kan det hende du mÃ¥ installere pakken manuelt
+      , eller du kan finne ut at det er lettere Ã¥ installere noen problematiske
       pakker inn i <filename class='directory'>/opt</filename>.</para>
 
     </sect3>
@@ -268,41 +268,41 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
     <sect3>
       <title>Tidsstempelbasert</title>
 
-      <para>I denne teknikken blir en fil tidsstemplet før installasjonen av
+      <para>I denne teknikken blir en fil tidsstemplet fÃ¸r installasjonen av
       pakken. Etter installasjonen, en enkel bruk av
       <command>find</command> kommandoen med de riktige alternativene kan generere
       en logg over alle filene som er installert etter at tidsstempelfilen ble opprettet. En
-      pakkebehandler skrevet med denne tilnærmingen er install-log.</para>
+      pakkebehandler skrevet med denne tilnÃ¦rmingen er install-log.</para>
 
-      <para>Selv om denne ordningen har fordelen av å være enkel, har den to
+      <para>Selv om denne ordningen har fordelen av Ã¥ vÃ¦re enkel, har den to
       ulemper. Hvis filene under installasjonen er installert med et
       annet tidsstempel enn gjeldende tid, vil disse filene ikke spores av
-      pakkebehandleren. Dessuten kan denne ordningen bare brukes når én pakke
-      installeres om gangen. Loggene er ikke pålitelige hvis to pakker
-      installeres på to forskjellige konsoller.</para>
+      pakkebehandleren. Dessuten kan denne ordningen bare brukes nÃ¥r en pakke
+      installeres om gangen. Loggene er ikke pÃ¥litelige hvis to pakker
+      installeres pÃ¥ to forskjellige konsoller.</para>
 
     </sect3>
 
     <sect3>
       <title>Sporing av installasjonsskript</title>
 
-      <para>I denne tilnærmingen, blir kommandoene som installasjonsskriptene utfører
+      <para>I denne tilnÃ¦rmingen, blir kommandoene som installasjonsskriptene utfÃ¸rer
       registrert. Det er to teknikker man kan bruke:</para>
 
-      <para><envar>LD_PRELOAD</envar> miljøvariabelen kan settes til
-      å peke på et bibliotek som skal forhåndslastes før installasjonen. Under
+      <para><envar>LD_PRELOAD</envar> miljÃ¸variabelen kan settes til
+      Ã¥ peke pÃ¥ et bibliotek som skal forhÃ¥ndslastes fÃ¸r installasjonen. Under
       installasjonen, sporer dette biblioteket pakkene som blir installert og
-      fester seg til ulike kjørbare filer som f.eks <command>cp</command>,
+      fester seg til ulike kjÃ¸rbare filer som f.eks <command>cp</command>,
       <command>install</command>, <command>mv</command> g sporing av systemets
-      anrop som endrer filsystemet. For å få denne tilnærmingen til å virke, alle
-      kjørbare filer må være dynamisk koblet uten suid- eller sgid-biten.
-      Forhåndsinnlasting av biblioteket kan forårsake noen uønskede bivirkninger under
-      installasjon. Derfor anbefales det at man utfører noen tester for å
-      sørge for at pakkebehandlingen ikke bryter noe og logger alle
+      anrop som endrer filsystemet. For Ã¥ fÃ¥ denne tilnÃ¦rmingen til Ã¥ virke, alle
+      kjÃ¦rbare filer mÃ¥ vÃ¦re dynamisk koblet uten suid- eller sgid-biten.
+      ForhÃ¥ndsinnlasting av biblioteket kan forÃ¥rsake noen uÃ¸nskede bivirkninger under
+      installasjon. Derfor anbefales det at man utfÃ¸rer noen tester for Ã¥
+      sÃ¸rge for at pakkebehandlingen ikke bryter noe og logger alle
       passende filer.</para>
 
-      <para>Den andre teknikken er å bruke <command>strace</command>, som
-      logger alle systemanrop som gjøres under utførelse av
+      <para>Den andre teknikken er Ã¥ bruke <command>strace</command>, som
+      logger alle systemanrop som gjÃ¸res under utfÃ¸relse av
       installasjonensskriptet.</para>
     </sect3>
 
@@ -312,24 +312,24 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
       <para>I denne ordningen er pakkeinstallasjonen forfalsket til et separat
       tre som beskrevet i Symlink pakkebehandlingenen. Etter
       installasjon, opprettes et pakkearkiv ved hjelp av de installerte filene.
-      Dette arkivet brukes deretter til å installere pakken enten på den lokale
-      maskin eller kan til og med brukes til å installere pakken på andre maskiner.</para>
+      Dette arkivet brukes deretter til Ã¥ installere pakken enten pÃ¥ den lokale
+      maskin eller kan til og med brukes til Ã¥ installere pakken pÃ¥ andre maskiner.</para>
 
-      <para>Denne tilnærmingen brukes av de fleste pakkebehandlere som finnes i
-      kommersielle distribusjoner. Eksempler på pakkeforvaltere som følger dette
-      tilnærmingen er RPM (som for øvrig kreves av <ulink
+      <para>Denne tilnÃ¦rmingen brukes av de fleste pakkebehandlere som finnes i
+      kommersielle distribusjoner. Eksempler pÃ¥ pakkeforvaltere som fÃ¸lger denne
+      tilnÃ¦rmingen er RPM (som for Ã¸vrig kreves av <ulink
       url="https://refspecs.linuxfoundation.org/lsb.shtml">Linux
-      Standard Base Specification</ulink>), pkg-utils, Debian's apt, og
-      Gentoo's Portage system.  Et hint som beskriver hvordan du adopterer denne stilen av
-      pakkehåndtering for LFS systemer ligger på <ulink
+      Standard Base Specification</ulink>), pkg-utils, Debian sin apt, og
+      Gentoo sin Portage system.  Et hint som beskriver hvordan du adopterer denne stilen av
+      pakkehÃ¥ndtering for LFS systemer ligger pÃ¥ <ulink
       url="&hints-root;fakeroot.txt"/>.</para>
 
       <para>Oppretting av pakkefiler som inkluderer avhengighetsinformasjon er
       kompleks og er utenfor omfanget av LFS.</para>
 
       <para>Slackware bruker et <command>tar</command> basert system for pakke
-      arkiv. Dette systemet håndterer med vilje ikke pakkeavhengigheter
-      som mer komplekse pakkeforvaltere gjør. For detaljer om Slackware
+      arkiv. Dette systemet hÃ¥ndterer med vilje ikke pakkeavhengigheter
+      som mer komplekse pakkeforvaltere gjÃ¸r. For detaljer om Slackware
       pakkebehandling, se <ulink
       url="https://www.slackbook.org/html/package-management.html"/>.</para>
     </sect3>
@@ -340,27 +340,27 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
       <para>Denne ordningen, unik for LFS, ble utviklet av Matthias Benkmann, og er
       tilgjengelig fra <ulink url="&hints-root;">Hints Project</ulink>. I
       denne ordningen, er hver pakke installert som en separat bruker i
-      standardplasseringer. Filer som tilhører en pakke identifiseres enkelt med å
-      sjekke bruker-ID. Funksjonene og manglene ved denne tilnærmingen er
-      for komplisert til å beskrive i denne delen. For detaljer, se
-      hintene på <ulink url="&hints-root;more_control_and_pkg_man.txt"/>.</para>
+      standardplasseringer. Filer som tilhÃ¸rer en pakke identifiseres enkelt med Ã¥
+      sjekke bruker-ID. Funksjonene og manglene ved denne tilnÃ¦rmingen er
+      for komplisert til Ã¥ beskrive i denne delen. For detaljer, se
+      hintene pÃ¥ <ulink url="&hints-root;more_control_and_pkg_man.txt"/>.</para>
 
     </sect3>
 
   </sect2>
 
   <sect2>
-    <title>Distribuere LFS på flere systemer</title>
+    <title>Distribuere LFS pÃ¥ flere systemer</title>
 
     <para>En av fordelene med et LFS system er at det ikke er noen filer som
-    avhenger av plasseringen til filene på et disksystem. Kloning av et LFS bygg til
+    avhenger av plasseringen til filene pÃ¥ et disksystem. Kloning av et LFS bygg til
     en annen datamaskin med samme arkitektur som basissystemet er like
-    enkelt som å bruke <command>tar</command> på LFS partisjonen som inneholder
+    enkelt som Ã¥ bruke <command>tar</command> pÃ¥ LFS partisjonen som inneholder
     rotkatalogen (ca. 900MB ukomprimert for en standard LFS bygg), kopiere
     <!-- D. Bryant created LFS 11.2 in October 2022; 900MB is (roughly) the size of his rsync archive. -->
-    den filen via nettverksoverføring eller CD-ROM til det nye systemet og utvide
-    den. Fra det tidspunktet må noen få konfigurasjonsfiler endres.
-    Konfigurasjonsfiler som kanskje må oppdateres inkluderer:
+    den filen via nettverksoverfÃ¸ring eller CD-ROM til det nye systemet og utvide
+    den. Fra det tidspunktet mÃ¥ noen fÃ¥ konfigurasjonsfiler endres.
+    Konfigurasjonsfiler som kanskje mÃ¥ oppdateres inkluderer:
     <filename>/etc/hosts</filename>,
     <filename>/etc/fstab</filename>,
     <filename>/etc/passwd</filename>,
@@ -378,17 +378,17 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
     </phrase>
     </para>
 
-    <para>En tilpasset kjerne må kanskje bygges for det nye systemet avhengig av
+    <para>En tilpasset kjerne mÃ¥ kanskje bygges for det nye systemet avhengig av
     forskjeller i systemmaskinvare og den originale
     kjernekonfigurasjonen.</para>
 
-    <note><para>Det har vært noen rapporter om problemer ved kopiering mellom
+    <note><para>Det har vÃ¦rt noen rapporter om problemer ved kopiering mellom
     lignende, men ikke identiske arkitekturer. For eksempel instruksjonssettet
     for et Intel-system er ikke identisk med en AMD-prosessor og nyere
     versjoner av enkelte prosessorer kan ha instruksjoner som ikke er tilgjengelige i
     tidligere versjoner.</para></note>
 
-    <para>Til slutt må det nye systemet gjøres oppstartbart via <xref
+    <para>Til slutt mÃ¥ det nye systemet gjÃ¸res oppstartbart via <xref
     linkend="ch-bootable-grub"/>.</para>
 
   </sect2>

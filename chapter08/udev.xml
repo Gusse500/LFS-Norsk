@@ -43,7 +43,7 @@
     <para>Udev er en del av systemd-&systemd-version; pakken. Bruk
     systemd-&systemd-version;.tar.xz file som tarballkilde.</para>
 
-    <para>Fjern to unødvendige grupper,
+    <para>Fjern to unÃ¸dvendige grupper,
     <systemitem class="groupname">render</systemitem> og
     <systemitem class="groupname">sgx</systemitem>, fra standard udev
     regler:</para>
@@ -56,7 +56,7 @@
  <screen><userinput remap="pre">sed '/systemd-sysctl/s/^/#/' -i rules.d/99-systemd.rules.in</userinput></screen>
 
     <para>Juster de hardkodede banene til nettverkskonfigurasjonsfiler for
-    frittstående udev installasjon:</para>
+    frittstÃ¥ende udev installasjon:</para>
 
  <screen><userinput remap="pre">sed '/NETWORK_DIRS/s/systemd/udev/' -i src/basic/path-lookup.h</userinput></screen>
 
@@ -119,15 +119,15 @@ meson setup \
         <term><parameter>-Dlogind=false -Dvconsole=false</parameter></term>
         <listitem>
           <para>Disse alternativene forhindrer generering av flere udev
-          regelfiler som tilhører de andre Systemd komponentene som vi ikke vil
+          regelfiler som tilhÃ¸rer de andre Systemd komponentene som vi ikke vil
           installere.</para>
         </listitem>
       </varlistentry>
     </variablelist>
 
-    <para>Få listen over de sendte Udev hjelperne og lagre den i en
-    miljøvariabel (eksportere den er strengt tatt ikke nødvendig, men den gjør det enklere
-    å bygge som en vanlig bruker eller bruke en pakkebehandling):</para>
+    <para>FÃ¥ listen over de sendte Udev hjelperne og lagre den i en
+    miljÃ¸variabel (eksportere den er strengt tatt ikke nÃ¸dvendig, men den gjÃ¸r det enklere
+    Ã¥ bygge som en vanlig bruker eller bruke en pakkebehandling):</para>
 
     <screen><userinput remap="make">export udev_helpers=$(grep "'name' :" ../src/udev/meson.build | \
                       awk '{print $3}' | tr -d ",'" | grep -v 'udevadm')</userinput></screen>
@@ -158,8 +158,8 @@ install -vm644 hwdb.d/*  ../hwdb.d/{*.hwdb,README} /usr/lib/udev/hwdb.d/
 install -vm755 $udev_helpers                       /usr/lib/udev
 install -vm644 ../network/99-default.link          /usr/lib/udev/network</userinput></screen>
 
-    <para>Installer noen tilpassede regler og støttefiler som er nyttige i et LFS
-    miljø¸:</para>
+    <para>Installer noen tilpassede regler og stÃ¸ttefiler som er nyttige i et LFS
+    miljÃ¸et:</para>
 
 <screen><userinput remap="install">tar -xvf ../../&udev-lfs-version;.tar.xz
 make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
@@ -211,12 +211,12 @@ rm /usr/share/man/man*/systemd*</userinput></screen>
     <filename class="directory">/etc/udev/hwdb.d</filename> og
     <filename class="directory">/usr/lib/udev/hwdb.d</filename> mappene.
     <application>Udev</application> trenger at informasjonen samles
-    inn i en binær database <filename>/etc/udev/hwdb.bin</filename>. Opprett
-    første database:</para>
+    inn i en binÃ¦r database <filename>/etc/udev/hwdb.bin</filename>. Opprett
+    fÃ¸rste database:</para>
 
 <screen><userinput>udev-hwdb update</userinput></screen>
 
-    <para>Denne kommandoen må kjøres hver gang maskinvareinformasjonen er
+    <para>Denne kommandoen mÃ¥ kjÃ¸res hver gang maskinvareinformasjonen er
     oppdatert.</para>
 
   </sect2>
@@ -245,9 +245,9 @@ rm /usr/share/man/man*/systemd*</userinput></screen>
       <varlistentry id="udevadm" revision="sysv">
         <term><command>udevadm</command></term>
         <listitem>
-          <para>Generisk udev administrasjonsverktøy: kontrollerer udevd nissen,
-          gir informasjon fra Udevdatabasen, overvåker uevents, venter på
-          uevents for å fullføre, tester Udevkonfigurasjonen og utløser uevents
+          <para>Generisk udev administrasjonsverktly: kontrollerer udevd nissen,
+          gir informasjon fra Udevdatabasen, overvÃ¥ker uevents, venter pÃ¥
+          uevents for Ã¥ fullfÃ¸re, tester Udevkonfigurasjonen og utlÃ¸ser uevents
           for en gitt enhet</para>
           <indexterm zone="ch-system-udev udevadm">
             <primary sortas="b-udevadm">udevadm</primary>
@@ -258,9 +258,9 @@ rm /usr/share/man/man*/systemd*</userinput></screen>
       <varlistentry id="udevd">
         <term><command>udevd</command></term>
         <listitem>
-          <para>En nisse som lytter etter uevents på netlink socket,
-          oppretter enheter og kjører de konfigurerte eksterne programmene i
-          respons på disse hendelsene</para>
+          <para>En nisse som lytter etter uevents pÃ¥ netlink socket,
+          oppretter enheter og kjÃ¸rer de konfigurerte eksterne programmene i
+          respons pÃ¥ disse hendelsene</para>
           <indexterm zone="ch-system-udev udevd">
             <primary sortas="b-udevd">udevd</primary>
           </indexterm>
@@ -270,7 +270,7 @@ rm /usr/share/man/man*/systemd*</userinput></screen>
       <varlistentry id="udev-hwdb">
         <term><command>udev-hwdb</command></term>
         <listitem>
-          <para>Oppdaterer eller spørrer maskinvaredatabasen.</para>
+          <para>Oppdaterer eller spÃ¸rrer maskinvaredatabasen.</para>
           <indexterm zone="ch-system-udev udev-hwdb">
             <primary sortas="b-udev-hwdb">udev-hwdb</primary>
           </indexterm>

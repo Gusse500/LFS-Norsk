@@ -11,7 +11,7 @@
 
   <title>Anerkjennelser</title>
 
-  <para>Vi vil takke følgende personer og organisasjoner
+  <para>Vi vil takke fÃ¸lgende personer og organisasjoner
   for deres bidrag til Linux From Scratch Project.</para>
 
   <itemizedlist>
@@ -25,7 +25,7 @@
     <listitem>
       <para><ulink url="mailto:bdubbs@linuxfromscratch.org">Bruce
       Dubbs</ulink> &lt;bdubbs@linuxfromscratch.org&gt; &ndash; LFS Administrerende
-      Redaktør</para>
+      RedaktÃ¸r</para>
     </listitem>
 
     <listitem>
@@ -36,22 +36,22 @@
 
     <listitem>
       <para><ulink url="mailto:pierre@linuxfromscratch.org">Pierre Labastie</ulink>
-      &lt;pierre@linuxfromscratch.org&gt; &ndash; BLFS redaktør og ALFS leder</para>
+      &lt;pierre@linuxfromscratch.org&gt; &ndash; BLFS redaktÃ¸r og ALFS leder</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:dj@linuxfromscratch.org">DJ Lucas</ulink>
-      &lt;dj@linuxfromscratch.org&gt; &ndash; LFS og BLFS redaktør</para>
+      &lt;dj@linuxfromscratch.org&gt; &ndash; LFS og BLFS redaktÃ¸r</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:ken@linuxfromscratch.org">Ken Moffat</ulink>
-      &lt;ken@linuxfromscratch.org&gt; &ndash; BLFS redaktør</para>
+      &lt;ken@linuxfromscratch.org&gt; &ndash; BLFS redaktÃ¸r</para>
     </listitem>
 
     <listitem>
-      <para>Utallige andre personer på de ulike LFS og BLFS postlistene
-      som bidro til å gjøre denne boken mulig ved å gi sine forslag, teste
+      <para>Utallige andre personer pÃ¥ de ulike LFS og BLFS postlistene
+      som bidro til Ã¥ gjÃ¸re denne boken mulig ved Ã¥ gi sine forslag, teste
       boken, og sende inn feilrapporter, instruksjoner og deres
       erfaringer med installasjon av ulike pakker.</para>
     </listitem>
@@ -83,7 +83,7 @@
     <listitem>
       <para><ulink url="mailto:jlepiller@linuxfromscratch.org">Julien
       Lepiller </ulink> &lt;jlepiller@linuxfromscratch.org&gt; &ndash; Fransk LFS
-      oversettelsesprosjekt 2017-nåtid</para>
+      oversettelsesprosjekt 2017-nÃ¥tid</para>
     </listitem>
 
     <listitem>
@@ -95,7 +95,7 @@
     <listitem>
       <para><ulink url="mailto:jafesp@gmail.com">Jamenson
       Espindula</ulink> &lt;jafesp@gmail.com&gt; &ndash;
-      Portugisisk LFS oversettelsesprosjekt 2022-nåværende</para>
+      Portugisisk LFS oversettelsesprosjekt 2022-nÃ¥vÃ¦rende</para>
     </listitem>
 
     <listitem>
@@ -146,7 +146,7 @@
 
   </itemizedlist>
 
-  <bridgehead renderas="sect3">Søramerikanske speil</bridgehead>
+  <bridgehead renderas="sect3">SÃ¸ramerikanske speil</bridgehead>
 
   <itemizedlist>
 
@@ -279,20 +279,20 @@
     <listitem>
       <para><ulink url="mailto:theladyskye@linuxfromscratch.org">Christine
       Barczak</ulink> &lt;theladyskye@linuxfromscratch.org&gt; &ndash; LFS
-      Bokredaktør</para>
+      BokredaktÃ¸r</para>
     </listitem>
 
     <listitem>
       <para>Archaic
-      &lt;archaic@linuxfromscratch.org&gt; &ndash; LFS teknisk skribent/redaktør,
-      HLFS-prosjektleder, BLFS-redaktør, Hints and Patches Project
+      &lt;archaic@linuxfromscratch.org&gt; &ndash; LFS teknisk skribent/redaktÃ¸r,
+      HLFS-prosjektleder, BLFS-redaktÃ¸r, Hints and Patches Project
       Maintainer</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:matthew@linuxfromscratch.org">Matthew
       Burgess</ulink> &lt;matthew@linuxfromscratch.org&gt; &ndash;
-      LFS prosjektleder, LFS teknisk skribent/redaktør</para>
+      LFS prosjektleder, LFS teknisk skribent/redaktÃ¸r</para>
     </listitem>
 
     <listitem>
@@ -366,13 +366,13 @@
     <listitem>
       <para><ulink url="mailto:randy@linuxfromscratch.org">Randy
       McMurchy</ulink> &lt;randy@linuxfromscratch.org&gt; &ndash; BLFS
-      Prosjektleder, LFS-redaktør</para>
+      Prosjektleder, LFS-redaktÃ¸r</para>
     </listitem>
 
     <listitem>
       <para><ulink url="mailto:dnicholson@linuxfromscratch.org">Dan
       Nicholson</ulink> &lt;dnicholson@linuxfromscratch.org&gt; &ndash; LFS og
-      BLFS Redaktør</para>
+      BLFS RedaktÃ¸r</para>
     </listitem>
 
     <listitem>
@@ -394,7 +394,7 @@
 
     <listitem>
       <para><ulink url="mailto:renodr@linuxfromscratch.org">Douglas R. Reno</ulink>
-      &lt;renodr@linuxfromscratch.org&gt; &ndash; Systemd Redaktør</para>
+      &lt;renodr@linuxfromscratch.org&gt; &ndash; Systemd RedaktÃ¸r</para>
     </listitem>
 
     <listitem>
@@ -422,7 +422,7 @@
     <listitem>
       <para><ulink url="mailto:tushar@linuxfromscratch.org">Tushar
       Teredesai</ulink> &lt;tushar@linuxfromscratch.org&gt; &ndash; BLFS bok
-      Redaktør, Hints and Patches Prosjekt Leder</para>
+      RedaktÃ¸r, Hints and Patches Prosjekt Leder</para>
     </listitem>
 
     <listitem>
@@ -439,7 +439,7 @@
   </itemizedlist>
 
 <!--
-  <bridgehead renderas="sect2">En veldig spesiell takk til vår
+  <bridgehead renderas="sect2">En veldig spesiell takk til vÃ¦r
   givere</bridgehead>
 
   <itemizedlist>
@@ -451,23 +451,23 @@
 
     <listitem>
       <para><ulink url="mailto:hrx@hrxnet.de">Hagen Herrschaft</ulink>
-      &lt;hrx@hrxnet.de&gt; for donasjon av et 2,2 GHz P4-system, som nå kjører
+      &lt;hrx@hrxnet.de&gt; for donasjon av et 2,2 GHz P4-system, som nÃ¥ kjÃ¸rer
       under navnet Lorien</para>
     </listitem>
 
     <listitem>
       <para><ulink url="http://www.seocompany.ca/">SEO Company Canada</ulink>
-      støtter Open Source-prosjekter og forskjellige Linux-distribusjoner</para>
+      stÃ¸tter Open Source-prosjekter og forskjellige Linux-distribusjoner</para>
     </listitem>
 
     <listitem>
       <para><ulink url="http://www.vasoftware.com">VA Software</ulink> som,
-      på vegne av <ulink url="http://www.linux.com">Linux.com</ulink>,
+      pÃ¥ vegne av <ulink url="http://www.linux.com">Linux.com</ulink>,
       donerte en VA Linux 420 (former StartX SP2) arbeidsstasjon</para>
     </listitem>
 
     <listitem>
-      <para>Mark Stone for å donere Belgarath, den første linuxfromscratch.org
+      <para>Mark Stone for Ã¥ donere Belgarath, den fÃ¸rste linuxfromscratch.org
       serveren</para>
     </listitem>
 

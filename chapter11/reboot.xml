@@ -10,18 +10,18 @@
 
   <title>Omstart av systemet</title>
   <para>
-    Nå som all programvaren er installert, er det på tide å starte datamaskinen din
-    på nytt. Det er imidlertid fortsatt et par ting å sjekke.
+    NÃ¥ som all programvaren er installert, er det pÃ¥ tide Ã¥ starte datamaskinen din
+    pÃ¥ nytt. Det er imidlertid fortsatt et par ting Ã¥ sjekke.
     Her er noen forslag:</para>
 
 
 <!--
   Systemet du
   har skapt i denne boken er ganske minimal, og vil mest sannsynlig ikke ha
-  funksjonaliteten du trenger for å kunne fortsette fremover. Ved å installere
-  noen ekstra pakker fra BLFS boken mens du fortsatt er i det nåværende chroot
-  miljøet, kan du etterlate deg selv i en mye bedre posisjon til å fortsette
-  når du starter på nytt i den nye LFS installasjonen. Her er noen forslag:</para>
+  funksjonaliteten du trenger for Ã¥ kunne fortsette fremover. Ved Ã¥ installere
+  noen ekstra pakker fra BLFS boken mens du fortsatt er i det nÃ¥vÃ¦rende chroot
+  miljÃ¸et, kan du etterlate deg selv i en mye bedre posisjon til Ã¥ fortsette
+  nÃ¥r du starter pÃ¥ nytt i den nye LFS installasjonen. Her er noen forslag:</para>
 -->
   <itemizedlist>
 <!--
@@ -32,13 +32,13 @@
 
     <listitem><para><ulink
     url='&blfs-book;postlfs/make-ca.html'>make-ca</ulink> pakken
-    vil tillate deg å sette opp lokale pålitelige ankersertifikater, slik at
+    vil tillate deg Ã¥ sette opp lokale pÃ¥litelige ankersertifikater, slik at
     systemet kan bekrefte SSL-sertifikater levert av eksterne servere (for
     eksempel et nettsted som bruker HTTPS).</para></listitem>
 
     <listitem><para><ulink
     url='&blfs-book;general/gpm.html'>GPM</ulink> pakken vil tillate
-    deg til å utføre kopier/lim inn handlinger i dine virtuelle
+    deg til Ã¥ utfÃ¸re kopier/lim inn handlinger i dine virtuelle
     terminaler.</para></listitem>
 
     <listitem revision="sysv"><para>
@@ -46,22 +46,22 @@
     ikke oppfyller nettverkskravene dine, installerer en pakke
     som for eksempel <ulink url='&blfs-book;basicnet/dhcpcd.html'>dhcpcd</ulink>
     eller klientdelen av <ulink
-    url='&blfs-book;basicnet/dhcp.html'>dhcp</ulink> kan være
+    url='&blfs-book;basicnet/dhcp.html'>dhcp</ulink> kan vÃ¦re
     nyttig.</para></listitem>
 
     <listitem><para>Installere <ulink
-    url='&blfs-book;postlfs/sudo.html'>sudo</ulink> kan være nyttig for
-    å bygge pakker som en ikke-&root; bruker og enkelt installere
+    url='&blfs-book;postlfs/sudo.html'>sudo</ulink> kan vÃ¦re nyttig for
+    Ã¥ bygge pakker som en ikke-&root; bruker og enkelt installere
     de resulterende pakker i ditt nye system.</para></listitem>
 
-    <listitem><para>Hvis du ønsker å få tilgang til det nye systemet fra et eksternt system
-    i et komfortabelt GUI-miljø, installer <ulink
+    <listitem><para>Hvis du Ã¸nsker Ã¥ fÃ¥ tilgang til det nye systemet fra et eksternt system
+    i et komfortabelt GUI-miljÃ¸, installer <ulink
     url='&blfs-book;postlfs/openssh.html'>openssh</ulink>.</para></listitem>
 
-    <listitem><para>For å gjøre det enklere å hente filer over internett, installer
+    <listitem><para>For Ã¥ gjÃ¸re det enklere Ã¥ hente filer over internett, installer
     <ulink url='&blfs-book;basicnet/wget.html'>wget</ulink>.</para></listitem>
 
-    <listitem><para>For å koble til et trådløst tilgangspunkt for nettverk,
+    <listitem><para>For Ã¥ koble til et trÃ¥dlÃ¸st tilgangspunkt for nettverk,
     installere <ulink
     url='&blfs-book;basicnet/wpa_supplicant.html'>wpa_supplicant</ulink>.
     </para></listitem>
@@ -69,22 +69,22 @@
     <listitem>
       <para>
         Installer evt <ulink
-        url='&blfs-book;postlfs/firmware.html'>firmware</ulink> som er nødvendig hvis
-        kjernedriver for maskinvaren din krever noen fastvarefiler for å fungere
+        url='&blfs-book;postlfs/firmware.html'>firmware</ulink> som er nÃ¸dvendig hvis
+        kjernedriver for maskinvaren din krever noen fastvarefiler for Ã¥ fungere
         skikkelig.
       </para>
     </listitem>
 
     <listitem>
       <para>
-        Sørg for at et passord er angitt for &root; brukeren.
+        SÃ¸rg for at et passord er angitt for &root; brukeren.
       </para>
     </listitem>
 
 	<listitem>
       <para>
-        En gjennomgang av følgende konfigurasjonsfiler
-        er også passende på dette punktet.
+        En gjennomgang av fÃ¸lgende konfigurasjonsfiler
+        er ogsÃ¥ passende pÃ¥ dette punktet.
       </para>
 
       <itemizedlist>
@@ -103,9 +103,9 @@
     </listitem>
   </itemizedlist>
 
-  <para>Nå som vi har sagt det, la oss gå videre til å starte opp vår skinnende nye LFS
-  installasjon for første gang! <emphasis>Først gå ut av 
-  chroot-miljøet</emphasis>:</para>
+  <para>NÃ¥ som vi har sagt det, la oss gÃ¥ videre til Ã¥ starte opp vÃ¥r skinnende nye LFS
+  installasjon for fÃ¸rste gang! <emphasis>FÃ¸rst gÃ¥ ut av 
+  chroot-miljÃ¸et</emphasis>:</para>
 
 <screen><userinput>logout</userinput></screen>
 <!-- We need to show the user the details...-->
@@ -120,7 +120,7 @@ umount -v $LFS/proc
 umount -v $LFS/sys</userinput></screen>
 
   <para>Hvis flere partisjoner ble opprettet, avmonter den andre
-  partisjoner før du demonterer den viktigste, slik som dette:</para>
+  partisjoner fÃ¸r du demonterer den viktigste, slik som dette:</para>
 
 <screen role="nodump"><userinput>umount -v $LFS/home
 umount -v $LFS</userinput></screen>
@@ -129,7 +129,7 @@ umount -v $LFS</userinput></screen>
 
 <screen role="nodump"><userinput>umount -v $LFS</userinput></screen>
 
-  <para>Nå, start nå systemet på nytt.</para>
+  <para>NÃ¥ start nÃ¥ systemet pÃ¥ nytt.</para>
 
 <!-- Commented out because we don't have a host system requirement on
      its init, and different init system may recommend different commands
@@ -137,16 +137,16 @@ umount -v $LFS</userinput></screen>
 <!--<screen role="nodump"><userinput>shutdown -r now</userinput></screen>-->
 
   <para>Forutsatt at GRUB oppstartslasteren ble satt opp som skissert tidligere, er menyen
-  satt til å starte opp <emphasis>LFS &version;</emphasis> automatisk.</para>
+  satt til Ã¥ starte opp <emphasis>LFS &version;</emphasis> automatisk.</para>
 
-   <para>Når omstarten er fullført, er LFS systemet klart til bruk. Hva du
-  vil se er en enkel <quote>login: </quote> ledetekst. På dette tidspunktet kan du
+   <para>NÃ¥r omstarten er fullfÃ¸rt, er LFS systemet klart til bruk. Hva du
+  vil se er en enkel <quote>login: </quote> ledetekst. PÃ¥ dette tidspunktet kan du
   fortsett til <ulink url="&blfs-book;">BLFS boken</ulink> 
   hvor du kan legge til mer programvare som passer dine behov.</para>
 
   <para>
     Hvis omstarten <emphasis role="bold">ikke</emphasis> er vellykket, er det
-    på tide å feilsøke. For tips om hvordan du løser innledende oppstartsproblemer, se
+    pÃ¥ tide Ã¥ feilsÃ¸ke. For tips om hvordan du lÃ¸ser innledende oppstartsproblemer, se
     <ulink url="https://www.linuxfromscratch.org/lfs/troubleshooting.html"/>.
   </para>
 

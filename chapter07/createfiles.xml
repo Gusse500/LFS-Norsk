@@ -37,14 +37,14 @@
   <para>Historisk sett har Linux en liste over de monterte filsystemene i
   filen <filename>/etc/mtab</filename>. Moderne kjerner opprettholder denne listen
   internt og eksponerer det for brukeren via <filename
-  class="directory">/proc</filename> filsystemet. For å tilfredsstille verktøy som
-  forventer å finne <filename>/etc/mtab</filename>, opprett følgende
+  class="directory">/proc</filename> filsystemet. For Ã¥ tilfredsstille verktÃ¸y som
+  forventer Ã¥ finne <filename>/etc/mtab</filename>, opprett fÃ¸lgende
   symbolske lenke:</para>
 
 <screen><userinput>ln -sv /proc/self/mounts /etc/mtab</userinput></screen>
 
   <para>Lag en grunnleggende <filename>/etc/hosts</filename> fil som blir
-  referert til i noen testsuiter, og også i en av Perls konfigurasjonsfiler
+  referert til i noen testsuiter, og ogsÃ¥ i en av Perls konfigurasjonsfiler
   :</para>
 
 <screen><userinput>cat &gt; /etc/hosts &lt;&lt; EOF
@@ -53,11 +53,11 @@
 EOF</userinput></screen>
 
   <para>For at bruker <systemitem class="username">root</systemitem> skal
-  kunne logge inn og for navnet <quote>root</quote> å bli gjenkjent, det
-  må være relevante oppføringer i <filename>/etc/passwd</filename> og
+  kunne logge inn og for navnet <quote>root</quote> Ã¥ bli gjenkjent, det
+  mÃ¥ vÃ¦re relevante oppfÃ¸ringer i <filename>/etc/passwd</filename> og
   <filename>/etc/group</filename> filene.</para>
 
-  <para>Opprett <filename>/etc/passwd</filename> filen ved å kjøre følgende
+  <para>Opprett <filename>/etc/passwd</filename> filen ved Ã¥ kjÃ¸re fÃ¸lgende
   kommando:</para>
 
 <screen revision="sysv"><userinput>cat &gt; /etc/passwd &lt;&lt; "EOF"
@@ -89,7 +89,7 @@ EOF</userinput></screen>
   <para>Selve passordet for <systemitem class="username">root</systemitem>
   settes senere.</para>
 
-  <para>Opprett <filename>/etc/group</filename> filen ved å kjøre følgende
+  <para>Opprett <filename>/etc/group</filename> filen ved Ã¥ kjÃ¸re fÃ¸lgende
   kommando:</para>
 
 <screen revision="sysv"><userinput>cat &gt; /etc/group &lt;&lt; "EOF"
@@ -159,48 +159,48 @@ EOF</userinput></screen>
   delvis bestemt av kravene til Udev konfigurasjonen i kapittel
   9, og delvis etter felles konvensjon brukt av en rekke eksisterende Linux
   distribusjoner. I tillegg er noen testsuiter avhengige av spesifikke brukere eller
-  grupper. Linux Standard Base (LSB, tilgjengelig på <ulink
+  grupper. Linux Standard Base (LSB, tilgjengelig pÃ¥ <ulink
   url="https://refspecs.linuxfoundation.org/lsb.shtml"/>) anbefaler bare at,
   foruten gruppen <systemitem class="groupname">root</systemitem> med en
-  Gruppe ID (GID) på 0, en gruppe <systemitem class="groupname">bin</systemitem>
-  med en GID på 1 å være tilstede. GID på 5 er mye brukt for
+  Gruppe ID (GID) pÃ¥ 0, en gruppe <systemitem class="groupname">bin</systemitem>
+  med en GID pÃ¥ 1 Ã¥ vÃ¦re tilstede. GID pÃ¥ 5 er mye brukt for
   <systemitem class="groupname">tty</systemitem> gruppen, og tallet 5 er
-  også brukt i <phrase revision="systemd">systemd</phrase>
+  ogsÃ¥ brukt i <phrase revision="systemd">systemd</phrase>
   <phrase revision="sysv"><filename>/etc/fstab</filename></phrase> for
   <systemitem class="filesystem">devpts</systemitem> filsystemet.
   Alle andre gruppenavn og GID-er kan velges fritt av systemets
   administrator siden velskrevne programmer ikke er avhengige av GID-nummer,
   men bruk heller gruppens navn.</para>
 
-  <para>ID 65534 brukes av kjernen for NFS og separat brukernavneområder
-  for ikke-tilordnede brukere (de finnes på NFS serveren eller den overordnede
-  brukernavneområde, men <quote>finnes ikke</quote> på den lokale maskinen eller i
+  <para>ID 65534 brukes av kjernen for NFS og separat brukernavneomrÃ¥der
+  for ikke-tilordnede brukere (de finnes pÃ¥ NFS serveren eller den overordnede
+  brukernavneomrÃ¥de, men <quote>finnes ikke</quote> pÃ¥ den lokale maskinen eller i
   det separate navnerommet). Vi tildeler
   <systemitem class="username">nobody</systemitem> og
-  <systemitem class="groupname">nogroup</systemitem> for å unngå en
-  ikke navngitt ID. Men andre distroer kan behandle denne IDen annerledes, så alle
-  flyttbare programmer bør ikke være avhengig av denne tildelingen.</para>
+  <systemitem class="groupname">nogroup</systemitem> for Ã¥ unngÃ¥ en
+  ikke navngitt ID. Men andre distroer kan behandle denne IDen annerledes, sÃ¥ alle
+  flyttbare programmer bÃ¸r ikke vÃ¦re avhengig av denne tildelingen.</para>
 
   <para>Noen tester i <xref linkend="chapter-building-system"/> trenger en vanlig
-  bruker. Vi legger til denne brukeren her og sletter denne kontoen på slutten av det
+  bruker. Vi legger til denne brukeren her og sletter denne kontoen pÃ¥ slutten av det
   kapittelet.</para>
 
 <screen><userinput>echo "tester:x:101:101::/home/tester:/bin/bash" &gt;&gt; /etc/passwd
 echo "tester:x:101:" &gt;&gt; /etc/group
 install -o tester -d /home/tester</userinput></screen>
 
-  <para>For å fjerne <quote>I have no name!</quote> ledetekst, start et nytt
+  <para>For Ã¥ fjerne <quote>I have no name!</quote> ledetekst, start et nytt
   skall. Siden
   <filename>/etc/passwd</filename> og <filename>/etc/group</filename>
-  filer har blitt opprettet, vil brukernavn og gruppenavnoppløsning nå
+  filer har blitt opprettet, vil brukernavn og gruppenavnopplÃ¸sning nÃ¥
   virke:</para>
 
 <screen role="nodump"><userinput>exec /usr/bin/bash --login</userinput></screen>
 
   <para><command>login</command>, <command>agetty</command>, og
   <command>init</command> programmene (og andre) bruker en rekke loggfiler
-  for å registrere informasjon som hvem som var logget inn på systemet og
-  når. Disse programmene vil imidlertid ikke skrive til loggfilene hvis de
+  for Ã¥ registrere informasjon som hvem som var logget inn pÃ¥ systemet og
+  nÃ¥r. Disse programmene vil imidlertid ikke skrive til loggfilene hvis de
   ikke allerede eksisterer. Initialiser loggfilene og gi dem
   riktige tillatelser:</para>
 
@@ -209,15 +209,15 @@ chgrp -v utmp /var/log/lastlog
 chmod -v 664  /var/log/lastlog
 chmod -v 600  /var/log/btmp</userinput></screen>
 
-  <para><filename>/var/log/wtmp</filename> filen registrerer alle pålogginger og
-  utlogginger. <filename>/var/log/lastlog</filename> filen registrerer når hver
-  bruker sist logget på. <filename>/var/log/faillog</filename> filen registrerer
-  mislykkede påloggingsforsøk. <filename>/var/log/btmp</filename> filen registrerer
-  de dårlige påloggingsforsøkene.</para>
+  <para><filename>/var/log/wtmp</filename> filen registrerer alle pÃ¥logginger og
+  utlogginger. <filename>/var/log/lastlog</filename> filen registrerer nÃ¥r hver
+  bruker sist logget pÃ¥ <filename>/var/log/faillog</filename> filen registrerer
+  mislykkede pÃ¥loggingsforsÃ¸k. <filename>/var/log/btmp</filename> filen registrerer
+  de dÃ¥rlige pÃ¥loggingsforsÃ¸kene.</para>
 
   <!-- systemd no longer creates this -->
   <note revision='sysv'><para><filename>/run/utmp</filename> filen
-  registrerer brukerne som for øyeblikket er pålogget. Denne filen er opprettet
+  registrerer brukerne som for Ã¸yeblikket er pÃ¥logget. Denne filen er opprettet
   dynamisk i oppstartsskriptene.</para></note>
 
   <!-- AFAIK they are not vital for system function, users requiring such
@@ -228,9 +228,9 @@ chmod -v 600  /var/log/btmp</userinput></screen>
       <phrase revision='sysv'><filename>utmp</filename>,
       </phrase><filename>wtmp</filename>, <filename>btmp</filename>, og
       <filename>lastlog</filename> filene bruker 32-biters heltall for tidsstempler
-      og de vil være fundamentalt ødelagte etter år 2038. Mange pakker
-      har sluttet å bruke dem og andre pakker kommer til å slutte å bruke
-      dem. Det er sannsynligvis best å betrakte dem som avviklet.
+      og de vil vÃ¦re fundamentalt Ã¸delagte etter Ã¥r 2038. Mange pakker
+      har sluttet Ã¥ bruke dem og andre pakker kommer til Ã¥ slutte Ã¥ bruke
+      dem. Det er sannsynligvis best Ã¥ betrakte dem som avviklet.
     </para>
   </note>
 

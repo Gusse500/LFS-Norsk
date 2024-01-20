@@ -8,13 +8,13 @@
 <sect1 id="ch-materials-patches">
   <?dbhtml filename="patches.html"?>
 
-  <title>Nødvendige oppdateringer</title>
+  <title>NÃ¸dvendige oppdateringer</title>
 
-  <para>I tillegg til pakkene kreves det også flere oppdateringer.
-  Disse oppdateringene retter eventuelle feil i pakkene som skal være
-  fikset av vedlikeholderen. Oppdateringene gjør også små modifikasjoner som
-  gjør pakkene lettere å jobbe med. Følgende oppdateringene vil være
-  nødvendig for å bygge et LFS system:</para>
+  <para>I tillegg til pakkene kreves det ogsÃ¥ flere oppdateringer.
+  Disse oppdateringene retter eventuelle feil i pakkene som skal vÃ¦re
+  fikset av vedlikeholderen. Oppdateringene gjÃ¸r ogsÃ¥ smÃ¥ modifikasjoner som
+  gjÃ¸r pakkene lettere Ã¥ jobbe med. FÃ¸lgende oppdateringene vil vÃ¦re
+  nÃ¸dvendig for Ã¥ bygge et LFS system:</para>
 
   <variablelist role="materials">
 <!--
@@ -172,12 +172,12 @@
 -->
   </variablelist>
 
-  <para>Total størrelse på disse oppdateringene: ca <returnvalue/></para>
+  <para>Total stÃ¸rrelse pÃ¥ disse oppdateringene: ca <returnvalue/></para>
 
-  <para>I tillegg til de ovennevnte nødvendige oppdateringene, finnes det en rekke
+  <para>I tillegg til de ovennevnte nÃ¸dvendige oppdateringene, finnes det en rekke
   valgfrie oppdateringer laget av LFS fellesskapet. Disse valgfrie oppdateringene
-  løser mindre problemer eller aktiverer funksjonalitet som ikke er aktivert som
-  standard. Les gjerne oppdateringsdatabasen som ligger på
+  lÃ¸ser mindre problemer eller aktiverer funksjonalitet som ikke er aktivert som
+  standard. Les gjerne oppdateringsdatabasen som ligger pÃ¥
   <ulink url="&lfs-root;patches/downloads/"/> og anskaffe eventuelle tilleggoppdateringer
   som passer dine systembehov.</para>
 

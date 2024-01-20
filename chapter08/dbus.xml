@@ -23,13 +23,13 @@
   <sect2 role="package">
     <title/>
 
-    <para>D-Bus er et meldingsbusssystem, en enkel måte for applikasjoner å snakke til
-    hverandre. D-Bus leverer både en systemnisse (system daemon) (for hendelser som f.eks
-    "ny maskinvareenhet lagt til" eller "skriverkø endret") og en
-    per brukerpåloggingsøkt nisse (for generelle IPC behov blant brukerens
-    applikasjoner). Dessuten er meldingsbussen bygget på toppen av et generelt en-til-en
-    rammeverk for meldingsoverføring, som kan brukes av to applikasjoner til å
-    kommunisere direkte (uten å gå gjennom meldingsbussnissen).</para>
+    <para>D-Bus er et meldingsbusssystem, en enkel mÃ¥te for applikasjoner Ã¥ snakke til
+    hverandre. D-Bus leverer bÃ¥de en systemnisse (system daemon) (for hendelser som f.eks
+    "ny maskinvareenhet lagt til" eller "skriverkÃ¸ endret") og en
+    per brukerpÃ¥loggingsÃ¸kt nisse (for generelle IPC behov blant brukerens
+    applikasjoner). Dessuten er meldingsbussen bygget pÃ¥ toppen av et generelt en-til-en
+    rammeverk for meldingsoverfÃ¸ring, som kan brukes av to applikasjoner til Ã¥
+    kommunisere direkte (uten Ã¥ gÃ¥ gjennom meldingsbussnissen).</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -68,8 +68,8 @@
           <parameter>--with-system-socket=/run/dbus/system_bus_socket</parameter>
         </term>
         <listitem>
-          <para>Disse gjør at PIDfilen og systembusskontakten
-          vil være i <filename class="directory">/run</filename>, i stedet for
+          <para>Disse gjÃ¸r at PIDfilen og systembusskontakten
+          vil vÃ¦re i <filename class="directory">/run</filename>, i stedet for
           utdaterte <filename class="directory">/var/run</filename>.</para>
         </listitem>
       </varlistentry>
@@ -82,7 +82,7 @@
           <para>Dette sikrer at D-Bus per-bruker service og socket enhetens
           filer er installert for Systemd. De er ikke nyttige (men
           ufarlige) i en grunnleggende LFS installasjon, men de kan brukes
-          når systemd er gjenoppbygd med PAM støtte i BLFS.</para>
+          nÃ¥r systemd er gjenoppbygd med PAM stÃ¸tte i BLFS.</para>
         </listitem>
       </varlistentry>
 
@@ -92,12 +92,12 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>For å teste resultatene, utsted:</para>
+    <para>For Ã¥ teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
     <para>Mange tester er deaktivert fordi de krever tilleggspakker
-    som ikke er inkludert i LFS. Instruksjoner for å kjøre en
+    som ikke er inkludert i LFS. Instruksjoner for Ã¥ kjÃ¸re en
     omfattende testpakke finner du i
     <ulink url="&blfs-book;general/dbus.html">the BLFS book</ulink>.</para>
 
@@ -139,7 +139,7 @@
       <varlistentry id="dbus-cleanup-sockets">
         <term><command>dbus-cleanup-sockets</command></term>
         <listitem>
-          <para>brukes til å fjerne gjenværende socket i en mappe</para>
+          <para>brukes til Ã¥ fjerne gjenvÃ¦rende socket i en mappe</para>
           <indexterm zone="ch-system-dbus dbus-cleanup-sockets">
             <primary sortas="b-dbus-cleanup-sockets">dbus-cleanup-sockets</primary>
           </indexterm>
@@ -170,7 +170,7 @@
       <varlistentry id="dbus-monitor">
         <term><command>dbus-monitor</command></term>
         <listitem>
-          <para>Overvåker meldinger som går gjennom en D-Bus meldingsbuss</para>
+          <para>OvervÃ¥ker meldinger som gÃ¥r gjennom en D-Bus meldingsbuss</para>
           <indexterm zone="ch-system-dbus dbus-monitor">
             <primary sortas="b-dbus-monitor">dbus-monitor</primary>
           </indexterm>
@@ -180,9 +180,9 @@
       <varlistentry id="dbus-run-session">
         <term><command>dbus-run-session</command></term>
         <listitem>
-          <para>Starter en øktbussforekomst av <command>dbus-daemon</command>
+          <para>Starter en Ã¸ktbussforekomst av <command>dbus-daemon</command>
           fra et skallskript og starter et spesifisert program i den
-          økten</para>
+          Ã¸kten</para>
           <indexterm zone="ch-system-dbus dbus-run-session">
             <primary sortas="b-dbus-run-session">dbus-run-session</primary>
           </indexterm>
@@ -202,7 +202,7 @@
       <varlistentry id="dbus-test-tool">
         <term><command>dbus-test-tool</command></term>
         <listitem>
-          <para>Er et verktøy for å hjelpe pakker å teste
+          <para>Er et verktÃ¸y for Ã¥ hjelpe pakker Ã¥ teste
           <application>D-Bus</application></para>
           <indexterm zone="ch-system-dbus dbus-test-tool">
             <primary sortas="b-dbus-test-tool">dbus-test-tool</primary>
@@ -214,8 +214,8 @@
       <varlistentry id="dbus-update-activation-environment">
         <term><command>dbus-update-activation-environment</command></term>
         <listitem>
-          <para>Oppdaterer miljøvariabler som vil bli satt for
-          <application>D-Bus</application> økttjenester</para>
+          <para>Oppdaterer miljÃ¸variabler som vil bli satt for
+          <application>D-Bus</application> Ã¸kttjenester</para>
           <indexterm zone="ch-system-dbus dbus-update-activation-environment">
             <primary sortas="b-dbus-update-activation-environment">dbus-update-activation-environment</primary>
           </indexterm>
@@ -235,7 +235,7 @@
       <varlistentry id="libdbus-1">
         <term><filename class="libraryfile">libdbus-1</filename></term>
         <listitem>
-          <para>Inneholder API funksjoner som brukes til å kommunisere med meldingsbussen
+          <para>Inneholder API funksjoner som brukes til Ã¥ kommunisere med meldingsbussen
           til D-bus</para>
           <indexterm zone="ch-system-dbus libdbus-1">
             <primary sortas="c-libdbus-1">libdbus-1</primary>

@@ -9,7 +9,7 @@
   <?dbhtml dir="chapter10"?>
   <?dbhtml filename="chapter10.html"?>
 
-  <title>Gjøre LFS systemet oppstartbart</title>
+  <title>GjÃ¸re LFS systemet oppstartbart</title>
 
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="introduction.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="fstab.xml"/>

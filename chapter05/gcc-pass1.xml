@@ -49,10 +49,10 @@
     resulterende mappene slik at GCC byggeprosedyrene automatisk
     bruker dem:</para>
 
-    <note><para>Det er hyppige misforståelser om dette kapittelet. Prosedyrene
+    <note><para>Det er hyppige misforstÃ¥elser om dette kapittelet. Prosedyrene
     er de samme som alle andre kapitler som forklart tidligere (<xref
-    linkend='buildinstr'/>).  Først pakker du ut gcc-&gcc-version; tarballen fra kildemappen
-    , og endre deretter til den opprettede mappen. Først da bør du
+    linkend='buildinstr'/>).  FÃ¸rst pakker du ut gcc-&gcc-version; tarballen fra kildemappen
+    , og endre deretter til den opprettede mappen. FÃ¸rst da bÃ¸r du
     fortsett med instruksjonene nedenfor.</para></note>
 
 <screen><userinput remap="pre">tar -xf ../mpfr-&mpfr-version;.tar.xz
@@ -62,7 +62,7 @@ mv -v gmp-&gmp-version; gmp
 tar -xf ../mpc-&mpc-version;.tar.gz
 mv -v mpc-&mpc-version; mpc</userinput></screen>
 
-    <para>På x86_64-verter, sett standard mappenavn for
+    <para>PÃ¥ x86_64-verter, sett standard mappenavn for
     64-bits biblioteker til <quote>lib</quote>:</para>
 
 <screen><userinput remap="pre">case $(uname -m) in
@@ -72,7 +72,7 @@ mv -v mpc-&mpc-version; mpc</userinput></screen>
  ;;
 esac</userinput></screen>
 
-    <para>GCC dokumentasjonen anbefaler å bygge GCC
+    <para>GCC dokumentasjonen anbefaler Ã¥ bygge GCC
     i en dedikert byggemappe:</para>
 
 <screen><userinput remap="pre">mkdir -v build
@@ -107,9 +107,9 @@ cd       build</userinput></screen>
         <term><parameter>--with-glibc-version=&glibc-version;</parameter></term>
         <listitem>
           <para>Dette alternativet spesifiserer versjonen av glibc som vil bli
-          brukt på målet. Det er ikke relevant for vertens libc
-          distribusjon fordi alt kompilert av pass1 gcc vil kjøre i
-          chroot miljøet, som er isolert fra libc til vertens
+          brukt pÃ¥ mÃ¥let. Det er ikke relevant for vertens libc
+          distribusjon fordi alt kompilert av pass1 gcc vil kjÃ¸re i
+          chroot miljÃ¸et, som er isolert fra libc til vertens
           distribusjon.</para>
         </listitem>
       </varlistentry>
@@ -117,19 +117,19 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--with-newlib</parameter></term>
         <listitem>
-          <para>Siden et fungerende C bibliotek ikke er tilgjengelig ennå, sikrer dette
-          at inhibit_libc konstanten blir definert når du bygger libgcc. Dette forhindrer
-          kompilering av kode som krever libc støtte.</para>
+          <para>Siden et fungerende C bibliotek ikke er tilgjengelig ennÃ¥ sikrer dette
+          at inhibit_libc konstanten blir definert nÃ¥r du bygger libgcc. Dette forhindrer
+          kompilering av kode som krever libc stÃ¸tte.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--without-headers</parameter></term>
         <listitem>
-          <para>Når du oppretter en komplett tverrkompilator, krever GCC
-          standarddeklarasjoner som er kompatible med målsystemet. For vårt
-          formål vil disse deklarasjonene ikke være nødvendige. Denne bryteren hindrer
-          GCC i å lete etter dem.</para>
+          <para>NÃ¥r du oppretter en komplett tverrkompilator, krever GCC
+          standarddeklarasjoner som er kompatible med mÃ¥lsystemet. For vÃ¥rt
+          formÃ¥l vil disse deklarasjonene ikke vÃ¦re nÃ¸dvendige. Denne bryteren hindrer
+          GCC i Ã¥ lete etter dem.</para>
         </listitem>
       </varlistentry>
 
@@ -140,9 +140,9 @@ cd       build</userinput></screen>
           <para>Disse bryterne lar GCC kompilere programmer med
 	      noen herdende sikkerhetsfunksjoner (mer informasjon om de
 	      i <xref linkend="pie-ssp-info"/> kapittel 8) som standard. De er
-	      strengt tatt ikke nødvendig på dette stadiet, siden kompilatoren bare vil 
-		  produsere midlertidige kjørbare filer. Men det er renere å ha de 
-		  midlertidige pakkene så nær de endelige som mulig.
+	      strengt tatt ikke nÃ¦dvendig pÃ¥ dette stadiet, siden kompilatoren bare vil 
+		  produsere midlertidige kjÃ¸rbare filer. Men det er renere Ã¥ ha de 
+		  midlertidige pakkene sÃ¥ nÃ¦r de endelige som mulig.
           </para>
         </listitem>
       </varlistentry>
@@ -150,16 +150,16 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--disable-shared</parameter></term>
         <listitem>
-          <para>Denne bryteren tvinger GCC til å koble sine interne biblioteker
+          <para>Denne bryteren tvinger GCC til Ã¥ koble sine interne biblioteker
           statisk. Vi trenger dette fordi de delte bibliotekene krever glibc,
-          som ennå ikke er installert på målsystemet.</para>
+          som ennÃ¥ ikke er installert pÃ¥ mÃ¥lsystemet.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--disable-multilib</parameter></term>
         <listitem>
-          <para>På x86_64 støtter LFS ikke en multilib konfigurasjon.
+          <para>PÃ¥ x86_64 stÃ¸tter LFS ikke en multilib konfigurasjon.
           Denne bryteren er ufarlig for x86.</para>
         </listitem>
       </varlistentry>
@@ -170,11 +170,11 @@ cd       build</userinput></screen>
         --disable-libquadmath, --disable-libssp, --disable-libvtv,
         --disable-libstdcxx</parameter></term>
         <listitem>
-          <para>Disse bryterne deaktiverer støtte for flytende desimal
-          punkter, tråd, libatomic, libgomp, libquadmath, libssp,
+          <para>Disse bryterne deaktiverer stÃ¸tte for flytende desimal
+          punkter, trÃ¥d, libatomic, libgomp, libquadmath, libssp,
           henholdsvis libvtv og C++ standardbiblioteket. Disse funksjonene
-          klarer ikke å kompilere når du bygger en krysskompilator og er ikke
-          nødvendig for oppgaven med å krysskompilere den midlertidige libc.</para>
+          klarer ikke Ã¥ kompilere nÃ¥r du bygger en krysskompilator og er ikke
+          nÃ¸dvendig for oppgaven med Ã¥ krysskompilere den midlertidige libc.</para>
         </listitem>
       </varlistentry>
 
@@ -182,13 +182,13 @@ cd       build</userinput></screen>
         <term><parameter>--enable-languages=c,c++</parameter></term>
         <listitem>
           <para>Dette alternativet sikrer at bare C og C ++ kompilatorene blir bygget.
-          Dette er de eneste språkene som trengs nå.</para>
+          Dette er de eneste sprÃ¥kene som trengs nÃ¥.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Kompiler GCC ved å kjøre:</para>
+    <para>Kompiler GCC ved Ã¥ kjÃ¸re:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
@@ -199,20 +199,20 @@ cd       build</userinput></screen>
     <para>Dette bygget av GCC har installert et par interne
     systemdeklarasjoner.  Normalt vil en av dem, <filename>limits.h</filename>, i sin tur
     inkludere den tilsvarende system <filename>limits.h</filename> systemdeklarasjonen, i
-    dette tilfellet, <filename>$LFS/usr/include/limits.h</filename>. På tidspunktet for
+    dette tilfellet, <filename>$LFS/usr/include/limits.h</filename>. PÃ¥ tidspunktet for
     denne byggingen av GCC eksisterer imidlertid ikke <filename>$LFS/usr/include/limits.h</filename>
-    så den interne deklarasjonen som nettopp har blitt installert er en
+    sÃ¥ den interne deklarasjonen som nettopp har blitt installert er en
     delvis, selvstendig fil og inkluderer ikke de utvidede funksjonene til
-    systemdeklarasjonen. Dette er tilstrekkelig for å bygge glibc, men den fullstendige
-    interne deklarasjonen vil være nødvendig senere. Lag en fullversjon av den interne
-    deklarasjonen ved å bruke en kommando som er identisk med det GCC byggesystemet gjør
+    systemdeklarasjonen. Dette er tilstrekkelig for Ã¥ bygge glibc, men den fullstendige
+    interne deklarasjonen vil vÃ¦re nÃ¸dvendig senere. Lag en fullversjon av den interne
+    deklarasjonen ved Ã¥ bruke en kommando som er identisk med det GCC byggesystemet gjÃ¸r
     under normale omstendigheter:</para>
 
     <note>
-      <para>Kommandoen nedenfor viser et eksempel på nestet kommandoerstatning
-      ved å bruke to metoder: backquotes og a <literal>$()</literal> konstruksjon. 
-      Det kan skrives om ved å bruke samme metode for begge erstatningene,
-      men vises på denne måten for å demonstrere hvordan de kan blandes. Som regel
+      <para>Kommandoen nedenfor viser et eksempel pÃ¥ nestet kommandoerstatning
+      ved Ã¥ bruke to metoder: backquotes og a <literal>$()</literal> konstruksjon. 
+      Det kan skrives om ved Ã¥ bruke samme metode for begge erstatningene,
+      men vises pÃ¥ denne mÃ¥ten for Ã¥ demonstrere hvordan de kan blandes. Som regel
       er <literal>$()</literal> metoden foretrukket.</para>
     </note>
 

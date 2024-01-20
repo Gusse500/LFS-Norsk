@@ -9,7 +9,7 @@
   <?dbhtml dir="chapter07"?>
   <?dbhtml filename="chapter07.html"?>
 
-  <title>Gå inn i Chroot og bygge ytterligere midlertidige verktøy</title>
+  <title>GÃ¥ inn i Chroot og bygge ytterligere midlertidige verktÃ¸y</title>
 
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="introduction.xml"/>
   <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="changingowner.xml"/>

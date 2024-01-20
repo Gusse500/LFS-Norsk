@@ -23,8 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Sysvinit pakken inneholder programmer for å kontrollere oppstarten,
-    kjøring og avslutning av systemet.</para>
+    <para>Sysvinit pakken inneholder programmer for Ã¥ kontrollere oppstarten,
+    kjÃ¸ring og avslutning av systemet.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -42,13 +42,13 @@
     <title>Installasjon av Sysvinit</title>
 
 <!--
-    <para>Når kjørenivåer endres (for eksempel når du stopper
+    <para>NÃ¥r kjÃ¸renivÃ¥er endres (for eksempel nÃ¥r du stopper
     systemet), <command>init</command> sender avslutningssignaler til de
     prosessene som <command>init</command> selv startet og ikke burde
-    kjøre i det nye kjørenivået. Mens du gjør dette,
+    kjÃ¸re i det nye kjÃ¸renivÃ¥et. Mens du gjÃ¸r dette,
     <command>init</command> sender ut meldinger som <quote>Sending processes
-    the TERM signal</quote> som ser ut til å antyde at den sender disse
-    signaler til alle prosesser som kjører. For å unngå dette
+    the TERM signal</quote> som ser ut til Ã¥ antyde at den sender disse
+    signaler til alle prosesser som kjÃ¸rer. For Ã¥ unngÃ¥ dette
     feiltolkning, endre kilden slik at disse meldingene leses som
     <quote>Sending processes configured via /etc/inittab the TERM signal</quote>
     istedet:</para>
@@ -67,8 +67,8 @@
         -e '/mesg/d'       \
         -e 's/= sulogin(\.8)?/=/' src/Makefile</userinput></screen>
 -->
-    <para>Først bruker du en oppdatering som fjerner flere programmer installert av andre
-    pakker, klargjør en melding og fikser en kompilatoradvarsel:</para>
+    <para>FÃ¸rst bruker du en oppdatering som fjerner flere programmer installert av andre
+    pakker, klargjÃ¸r en melding og fikser en kompilatoradvarsel:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&sysvinit-consolidated-patch;</userinput></screen>
 
@@ -115,7 +115,7 @@
       <varlistentry id="fstab-decode">
         <term><command>fstab-decode</command></term>
         <listitem>
-          <para>Kjører en kommando med fstab kodede argumenter</para>
+          <para>KjÃ¸rer en kommando med fstab kodede argumenter</para>
           <indexterm zone="ch-system-sysvinit fstab-decode">
             <primary sortas="b-fstab-decode">fstab-decode</primary>
           </indexterm>
@@ -125,9 +125,9 @@
       <varlistentry id="halt-sysv">
         <term><command>halt</command></term>
         <listitem>
-          <para>Påkaller vanligvis <command>shutdown</command> med
-          <parameter>-h</parameter> alternativet, men når du allerede er på kjørenivå 0,
-          så ber den kjernen om å stoppe systemet; det noterer i
+          <para>PÃ¥kaller vanligvis <command>shutdown</command> med
+          <parameter>-h</parameter> alternativet, men nÃ¥r du allerede er pÃ¥ kjÃ¸renivÃ¥ 0,
+          sÃ¥ ber den kjernen om Ã¥ stoppe systemet; det noterer i
           filen <filename>/var/log/wtmp</filename> at systemet
           stenger ned</para>
           <indexterm zone="ch-system-sysvinit halt-sysv">
@@ -139,7 +139,7 @@
       <varlistentry id="init-sysv">
         <term><command>init</command></term>
         <listitem>
-          <para>Den første prosessen som skal startes når kjernen har initialisert
+          <para>Den fÃ¸rste prosessen som skal startes nÃ¥r kjernen har initialisert
           maskinvaren; den tar over oppstartsprosessen og starter alle
           prosesser spesifisert i konfigurasjonsfilen</para>
           <indexterm zone="ch-system-sysvinit init-sysv">
@@ -152,7 +152,7 @@
         <term><command>killall5</command></term>
         <listitem>
           <para>Sender et signal til alle prosesser, bortsett fra prosessene i sin egen
-          økt; den vil ikke drepe foreldreskallet</para>
+          Ã¸kt; den vil ikke drepe foreldreskallet</para>
           <indexterm zone="ch-system-sysvinit killall5">
             <primary sortas="b-killall5">killall5</primary>
           </indexterm>
@@ -162,7 +162,7 @@
       <varlistentry id="poweroff-sysv">
         <term><command>poweroff</command></term>
         <listitem>
-          <para>Ber kjernen om å stoppe systemet og slå av datamaskinen
+          <para>Ber kjernen om Ã¥ stoppe systemet og slÃ¥ av datamaskinen
           (se <command>halt</command>)</para>
           <indexterm zone="ch-system-sysvinit poweroff-sysv">
             <primary sortas="b-poweroff">poweroff</primary>
@@ -173,7 +173,7 @@
       <varlistentry id="reboot-sysv">
         <term><command>reboot</command></term>
         <listitem>
-          <para>Ber kjernen om å starte systemet på nytt (se
+          <para>Ber kjernen om Ã¥ starte systemet pÃ¥ nytt (se
           <command>halt</command>)</para>
           <indexterm zone="ch-system-sysvinit reboot-sysv">
             <primary sortas="b-reboot">reboot</primary>
@@ -184,8 +184,8 @@
       <varlistentry id="runlevel-sysv">
         <term><command>runlevel</command></term>
         <listitem>
-          <para>Rapporterer forrige og nåværende kjørenivå, som nevnt i
-          siste kjørenivå oppføring i <filename>/run/utmp</filename></para>
+          <para>Rapporterer forrige og nÃ¥vÃ¦rende kjÃ¸renivÃ¥ som nevnt i
+          siste kjÃ¸renivÃ¥ oppfÃ¸ring i <filename>/run/utmp</filename></para>
           <indexterm zone="ch-system-sysvinit runlevel-sysv">
             <primary sortas="b-runlevel">runlevel</primary>
           </indexterm>
@@ -195,8 +195,8 @@
       <varlistentry id="shutdown-sysv">
         <term><command>shutdown</command></term>
         <listitem>
-          <para>Bringer systemet ned på en sikker måte, og signaliserer alle prosesser
-          og varsler alle påloggede brukere</para>
+          <para>Bringer systemet ned pÃ¥ en sikker mÃ¥te, og signaliserer alle prosesser
+          og varsler alle pÃ¥loggede brukere</para>
           <indexterm zone="ch-system-sysvinit shutdown-sysv">
             <primary sortas="b-shutdown">shutdown</primary>
           </indexterm>
@@ -206,7 +206,7 @@
       <varlistentry id="telinit-sysv">
         <term><command>telinit</command></term>
         <listitem>
-          <para>Forteller <command>init</command> hvilket kjørenivå den skal bytte til</para>
+          <para>Forteller <command>init</command> hvilket kjÃ¸renivÃ¥ den skal bytte til</para>
           <indexterm zone="ch-system-sysvinit telinit-sysv">
             <primary sortas="b-telinit">telinit</primary>
           </indexterm>

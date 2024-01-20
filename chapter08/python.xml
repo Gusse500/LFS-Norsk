@@ -23,10 +23,10 @@
   <sect2 role="package">
     <title/>
 
-    <para>Python 3 pakken inneholder Python utviklingsmiljøet. Den
+    <para>Python 3 pakken inneholder Python utviklingsmiljÃ¸et. Den
     er nyttig for objektorientert programmering, skriving av skript, prototyping
     av store programmer, eller utvikle hele applikasjoner. Python er et tolket
-    dataspråk.</para>
+    datasprÃ¥k.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -56,7 +56,7 @@
     <varlistentry>
       <term><parameter>--with-system-expat</parameter></term>
       <listitem>
-        <para>Denne bryteren muliggjør kobling mot systemversjonen av
+        <para>Denne bryteren muliggjÃ¸r kobling mot systemversjonen av
         <application>Expat</application>.</para>
        </listitem>
      </varlistentry>
@@ -64,9 +64,9 @@
     <varlistentry>
       <term><parameter>--enable-optimizations</parameter></term>
       <listitem>
-        <para>Denne bryteren muliggjør omfattende, men tidkrevende, optimaliseringstrinn
-        Tolken bygges to ganger; tester utført på det første
-        bygget brukes til å forbedre den optimaliserte endelige versjonen.</para>
+        <para>Denne bryteren muliggjÃ¸r omfattende, men tidkrevende, optimaliseringstrinn
+        Tolken bygges to ganger; tester utfÃ¸rt pÃ¥ det fÃ¸rste
+        bygget brukes til Ã¥ forbedre den optimaliserte endelige versjonen.</para>
         <!-- This description was drawn from the README.rst file
         in the Python-3.11.0 package. -->
       </listitem>
@@ -78,10 +78,10 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Det anbefales ikke å kjøre testene på dette tidspunktet.
-    Tester er kjent for å henge på ubestemt tid i det delvise LFS miljøet.
-    Om ønskelig kan testene kjøres på nytt på slutten av dette kapittelet eller
-    når Python 3 er reinstallert i BLFS. For å kjøre testene uansett,
+    <para>Det anbefales ikke Ã¥ kjÃ¸re testene pÃ¥ dette tidspunktet.
+    Tester er kjent for Ã¥ henge pÃ¥ ubestemt tid i det delvise LFS miljÃ¸et.
+    Om Ã¸nskelig kan testene kjÃ¸res pÃ¥ nytt pÃ¥ slutten av dette kapittelet eller
+    nÃ¥r Python 3 er reinstallert i BLFS. For Ã¥ kjÃ¸re testene uansett,
     utsted <command>make test</command>.</para>
 
     <para>Installer pakken:</para>
@@ -89,32 +89,32 @@
 <screen><userinput remap="install">make install</userinput></screen>
 
     <para>Vi bruker <command>pip3</command> kommandoen til
-    å installer Python 3 programmer og moduler for alle brukere som
+    Ã¥ installer Python 3 programmer og moduler for alle brukere som
     <systemitem class='username'>root</systemitem> flere steder i denne boken.
-    Dette er i konflikt med Python utviklernes anbefaling: å installere pakker i et
-    virtuelt miljø, eller inn i hjemmemappen til en vanlig bruker (ved å kjøre
+    Dette er i konflikt med Python utviklernes anbefaling: Ã¥ installere pakker i et
+    virtuelt miljÃ¸ eller inn i hjemmemappen til en vanlig bruker (ved Ã¥ kjÃ¸re
     <command>pip3</command> som denne brukeren). En advarsel med flere linjer
-    utløses når <command>pip3</command> er utstedt av
+    utlÃ¸ses nÃ¥r <command>pip3</command> er utstedt av
     <systemitem class='username'>root</systemitem> brukeren.</para>
     
     <para>Hovedgrunnen
-    for anbefalingen er å unngå konflikter med systemets
+    for anbefalingen er Ã¥ unngÃ¥ konflikter med systemets
     pakkeansvarlig (<command>dpkg</command>, for eksempel). LFS har ikke
-    en systemomfattende pakkebehandling, så dette er ikke et problem. Også,
+    en systemomfattende pakkebehandling, sÃ¥ dette er ikke et problem. OgsÃ¥
     <command>pip3</command> vil se etter en ny versjon av
-    seg selv når den kjøres. Siden domenenavnoppløsning ikke er konfigurert ennå
-    i LFS chroot miljøet, <command>pip3</command> kan ikke sjekke
+    seg selv nÃ¥r den kjÃ¸res. Siden domenenavnopplÃ¸sning ikke er konfigurert ennÃ¥
+    i LFS chroot miljÃ¸et, <command>pip3</command> kan ikke sjekke
     for en ny versjon av seg selv, og vil
     produsere en advarsel. </para>
   
     <para>Etter at vi har startet opp LFS systemet og satt opp en nettverkstilkobling,
-    en annen advarsel vil bli gitt, og ber brukeren om å oppdatere <command>pip3</command>
-    fra et forhåndsbygd wheel på PyPI (når en ny versjon er tilgjengelig). Men LFS
-    vurderer <command>pip3</command> å være en del av Python 3, så det burde det ikke
-    oppdateres separat. Dessuten vil en oppdatering fra et forhåndsbygd wheel avvike
-    fra vårt mål: å bygge et Linuxsystem fra kildekoden. Så
-    advarsel om en ny versjon av <command>pip3</command> bør ignoreres om
-    vi vil. Hvis du ønsker det, kan du undertrykke alle disse advarslene ved å kjøre følgende
+    en annen advarsel vil bli gitt, og ber brukeren om Ã¥ oppdatere <command>pip3</command>
+    fra et forhÃ¥ndsbygd wheel pÃ¥ PyPI (nÃ¥r en ny versjon er tilgjengelig). Men LFS
+    vurderer <command>pip3</command> Ã¥ vÃ¦re en del av Python 3, sÃ¥ det burde ikke
+    oppdateres separat. Dessuten vil en oppdatering fra et forhÃ¥ndsbygd wheel avvike
+    fra vÃ¥rt mÃ¥l: Ã¥ bygge et Linuxsystem fra kildekoden. SÃ¥
+    advarsel om en ny versjon av <command>pip3</command> bÃ¸r ignoreres om
+    vi vil. Hvis du Ã¸nsker det, kan du undertrykke alle disse advarslene ved Ã¥ kjÃ¸re fÃ¸lgende
     kommando, som oppretter en konfigurasjonsfil:</para>
 
 <screen><userinput remap="install">cat &gt; /etc/pip.conf &lt;&lt; EOF
@@ -131,27 +131,27 @@ EOF
     <important>
       <para>
         I LFS og BLFS bygger og installerer vi normalt Pythonmoduler med
-        <command>pip3</command> kommandoen.  Vennligst pass på at
-        <command>pip3 install</command> kommandoer i begge bøkene
-        kjøres som &root; brukeren med mindre det er for et virtuelt Python-miljø.
-        Å kjøre en <command>pip3 install</command> som en ikke-&root; bruker kan synes å
-        fungerer fint, men det vil føre til at den installerte modulen blir utilgjengelig av
+        <command>pip3</command> kommandoen.  Vennligst pass pÃ¥ at
+        <command>pip3 install</command> kommandoer i begge bÃ¸kene
+        kjÃ¸res som &root; brukeren med mindre det er for et virtuelt Python-miljÃ¸
+        Ã¥ kjÃ¸re en <command>pip3 install</command> som en ikke-&root; bruker kan synes Ã¥
+        fungerer fint, men det vil fÃ¸re til at den installerte modulen blir utilgjengelig av
         andre brukere.
       </para>
 
       <para>
         <command>pip3 install</command> vil ikke installere en allerede
-        installert modul som standard. Når du bruker <command>pip3 install</command>
-        kommandoen for å oppgradere en modul (for eksempel fra meson-0.61.3 til
+        installert modul som standard. NÃ¥r du bruker <command>pip3 install</command>
+        kommandoen for Ã¥ oppgradere en modul (for eksempel fra meson-0.61.3 til
         meson-0.62.0), sett inn alternativet <parameter>--upgrade</parameter> inn i
-        kommandolinjen. Hvis det virkelig er nødvendig å nedgradere en modul, eller
-        installer samme versjon på nytt av en eller annen grunn, sett inn
+        kommandolinjen. Hvis det virkelig er nÃ¸dvendig Ã¥ nedgradere en modul, eller
+        installer samme versjon pÃ¥ nytt av en eller annen grunn, sett inn
         <parameter>--force-reinstall --no-deps</parameter> inn i
         kommandolinjen.
       </para>
     </important>
 
-    <para>Hvis ønskelig, installer den forhåndsformaterte dokumentasjonen:</para>
+    <para>Hvis Ã¸nskelig, installer den forhÃ¥ndsformaterte dokumentasjonen:</para>
 
 <screen><userinput remap="install">install -v -dm755 /usr/share/doc/python-&python-version;/html
 
@@ -166,9 +166,9 @@ cp -R --no-preserve=mode python-&python-version;-docs-html/* \
     <varlistentry>
       <term><option>--no-same-owner</option> (tar) og <option>--no-preserve=mode</option> (cp)</term>
       <listitem>
-        <para>Sørger for at de installerte filene har riktig eierskap og
+        <para>SÃ¸rger for at de installerte filene har riktig eierskap og
         tillatelser. Uten disse alternativene, <application>tar</application>
-        vil installere pakkefilene med oppstrømsskaperens verdier
+        vil installere pakkefilene med oppstrÃ¸msskaperens verdier
         og filer vil ha restriktive tillatelser.
         </para>
       </listitem>
@@ -212,7 +212,7 @@ cp -R --no-preserve=mode python-&python-version;-docs-html/* \
           <para>
             er et <application>Python</application> program som leser
             <application>Python 2.x</application> kildekoden og bruker en
-            serie reparasjoner for å forvandle den til
+            serie reparasjoner for Ã¥ forvandle den til
             gyldig <application>Python 3.x</application> kode
           </para>
           <indexterm zone="ch-system-Python">
@@ -225,9 +225,9 @@ cp -R --no-preserve=mode python-&python-version;-docs-html/* \
         <term><command>idle3</command></term>
         <listitem>
           <para>
-            er et innpakningsskript som åpner et <application>Python</application>
-            bevisst GUI tekstprogram. For at dette skriptet skal kjøre, må du ha installert
-            <application>Tk</application> før Python slik at Tkinter
+            er et innpakningsskript som Ã¥pner et <application>Python</application>
+            bevisst GUI tekstprogram. For at dette skriptet skal kjÃ¸re, mÃ¥ du ha installert
+            <application>Tk</application> fÃ¸r Python slik at Tkinter
             Pythonmodulen blir bygget.
           </para>
           <indexterm zone="ch-system-Python">
@@ -240,7 +240,7 @@ cp -R --no-preserve=mode python-&python-version;-docs-html/* \
         <term><command>pip3</command></term>
         <listitem>
           <para>
-            Pakkeinstallasjonsprogrammet for Python. Du kan bruke pip til å installere
+            Pakkeinstallasjonsprogrammet for Python. Du kan bruke pip til Ã¥ installere
             pakker fra Python Pakke Indeks og andre indekser
           </para>
           <indexterm zone="ch-system-Python">
@@ -253,7 +253,7 @@ cp -R --no-preserve=mode python-&python-version;-docs-html/* \
         <term><command>pydoc3</command></term>
         <listitem>
           <para>
-            er <application>Python</application> dokumentasjonsverktøy
+            er <application>Python</application> dokumentasjonsverktÃ¸y
           </para>
           <indexterm zone="ch-system-Python">
             <primary sortas="b-pydoc3">pydoc3</primary>
@@ -266,7 +266,7 @@ cp -R --no-preserve=mode python-&python-version;-docs-html/* \
         <listitem>
           <para>
             er tolken for Python, et tolket, interaktiv,
-            objektorientert programmeringsspråk
+            objektorientert programmeringssprÃ¥k
           </para>
           <indexterm zone="ch-system-Python">
             <primary sortas="b-python3">python3</primary>

@@ -11,26 +11,26 @@
   <title>Skifte eierskap</title>
 
   <note>
-    <para>Kommandoene i resten av denne boken må utføres
-     logget på som bruker <systemitem class="username">root</systemitem> og ikke
-     lenger som bruker <systemitem class="username">lfs</systemitem>. Også dobbelt
+    <para>Kommandoene i resten av denne boken mÃ¥ utfÃ¸res
+     logget pÃ¥ som bruker <systemitem class="username">root</systemitem> og ikke
+     lenger som bruker <systemitem class="username">lfs</systemitem>. OgsÃ¥ dobbelt
      sjekk at <envar>$LFS</envar> er satt i <systemitem
-    class="username">root</systemitem> sitt miljø.</para>
+    class="username">root</systemitem> sitt miljÃ¸.</para>
   </note>
 
-  <para>For øyeblikket er hele mappehierarkiet i <filename
+  <para>For Ã¸yeblikket er hele mappehierarkiet i <filename
   class="directory">$LFS</filename>
   eid av brukeren <systemitem class="username">lfs</systemitem>, en bruker
-   som bare eksisterer på vertssystemet. Hvis mappene og filene under <filename
-  class="directory">$LFS</filename> blir holdt som de er, vil de være
+   som bare eksisterer pÃ¥ vertssystemet. Hvis mappene og filene under <filename
+  class="directory">$LFS</filename> blir holdt som de er, vil de vÃ¦re
    eid av en bruker-ID uten en tilsvarende konto. Dette er farlig pga
-   en brukerkonto opprettet senere kan få samme bruker-ID og eie alle
+   en brukerkonto opprettet senere kan fÃ¥ samme bruker-ID og eie alle
    filene under <filename class="directory">$LFS</filename>, dermed eksponere
    disse filene til mulig ondsinnet manipulasjon.</para>
 
-  <para>For å løse dette problemet, endre
+  <para>For Ã¥ lÃ¸se dette problemet, endre
    eierskap til <filename class="directory">$LFS/*</filename> mapper til
-   bruker <systemitem class="username">root</systemitem> ved å kjøre følgende
+   bruker <systemitem class="username">root</systemitem> ved Ã¥ kjÃ¸re fÃ¸lgende
    kommando:</para>
 
 <screen><userinput>chown -R root:root $LFS/{usr,lib,var,etc,bin,sbin,tools}

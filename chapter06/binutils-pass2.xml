@@ -49,11 +49,11 @@
          without-system-zlib.  If the resulted libctf.so still links against
          libz.so (check with readelf -d) despite we are saying
          without-system-zlib, then the issue is still unresolved.  -->
-    <para>Binutils byggesystem er avhengig av en medsendt libtool kopi å lenke mot
+    <para>Binutils byggesystem er avhengig av en medsendt libtool kopi Ã¥ lenke mot
     interne statiske biblioteker, men liberty- og zlib-kopiene sendt
-    i pakken bruker ikke libtool. Denne inkonsekvensen kan forårsake
-    at produserte binærfiler feilaktig kobler mot biblioteker fra vertens
-    distro. Omgå dette problemet:</para>
+    i pakken bruker ikke libtool. Denne inkonsekvensen kan forÃ¥rsake
+    at produserte binÃ¦rfiler feilaktig kobler mot biblioteker fra vertens
+    distro. OmgÃ¥ dette problemet:</para>
 
 <screen><userinput remap="pre">sed '6009s/$add_dir//' -i ltmain.sh</userinput></screen>
 
@@ -90,8 +90,8 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--enable-64-bit-bfd</parameter></term>
         <listitem>
-          <para>Aktiverer 64-biters støtte (på verter med smalere ordstørrelser).
-          Kanskje ikke nødvendig på 64-bits systemer, men skader ikke.</para>
+          <para>Aktiverer 64-biters stÃ¸tte (pÃ¥ verter med smalere ordstÃ¸rrelser).
+          Kanskje ikke nÃ¸dvendig pÃ¥ 64-bits systemer, men skader ikke.</para>
         </listitem>
       </varlistentry>
 
@@ -106,7 +106,7 @@ cd       build</userinput></screen>
 <screen><userinput remap="install">make DESTDIR=$LFS install</userinput></screen>
 
     <para>Fjern libtool arkivfilene fordi de er skadelige for
-    krysskompilering, og fjern unødvendige statiske biblioteker:</para>
+    krysskompilering, og fjern unÃ¸dvendige statiske biblioteker:</para>
 
 <screen><userinput remap="install">rm -v $LFS/usr/lib/lib{bfd,ctf,ctf-nobfd,opcodes,sframe}.{a,la}</userinput></screen>
 

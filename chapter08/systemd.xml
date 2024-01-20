@@ -23,8 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Systemd pakken inneholder programmer for å kontrollere oppstarten,
-    kjøring og avslutning av systemet.</para>
+    <para>Systemd pakken inneholder programmer for Ã¥ kontrollere oppstarten,
+    kjÃ¸ring og avslutning av systemet.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,7 +40,7 @@
   <sect2 role="installation">
     <title>Installasjon av systemd</title>
 
-    <para>Fjern to unødvendige grupper,
+    <para>Fjern to unÃ¸dvendige grupper,
     <systemitem class="groupname">render</systemitem> og
     <systemitem class="groupname">sgx</systemitem>, fra standard udev
     regler:</para>
@@ -49,7 +49,7 @@
        -e 's/GROUP="sgx", //' rules.d/50-udev-default.rules.in</userinput></screen>
 
     <!-- https://github.com/systemd/systemd/pull/30549 -->
-    <para>Nå fiks en sikkerhetssårbarhet i DNSSEC verifiseringen av
+    <para>NÃ¥ fiks en sikkerhetssÃ¥rbarhet i DNSSEC verifiseringen av
     <command>systemd-resolved</command>:</para>
 
 <screen><userinput remap='pre'>sed -e '/return FLAGS_SET.*AUTHENTICATED/s/(t/(dt/' \
@@ -89,14 +89,14 @@ meson setup \
         <listitem>
           <para>Denne bryteren overstyrer standard byggetype
           (<quote>debug</quote>), som ville produsert uoptimaliserte
-          binære filer.</para>
+          binÃ¦re filer.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>-Ddefault-dnssec=no</parameter></term>
         <listitem>
-          <para>Denne bryteren slår av den eksperimentelle DNSSEC støtten.</para>
+          <para>Denne bryteren slÃ¥r av den eksperimentelle DNSSEC stÃ¸tten.</para>
         </listitem>
       </varlistentry>
 
@@ -104,9 +104,9 @@ meson setup \
         <term><parameter>-Dfirstboot=false</parameter></term>
         <listitem>
           <para>Denne bryteren forhindrer installasjon av systemd
-          tjenester ansvarlig for å sette opp systemet for
-          den første gangen. De er ikke nyttige for LFS pga
-          alt gjøres manuelt.</para>
+          tjenester ansvarlig for Ã¥ sette opp systemet for
+          den fÃ¸rste gangen. De er ikke nyttige for LFS pga
+          alt gjÃ¸res manuelt.</para>
         </listitem>
       </varlistentry>
 
@@ -120,10 +120,10 @@ meson setup \
       <varlistentry>
         <term><parameter>-Dldconfig=false</parameter></term>
         <listitem>
-          <para>Denne bryteren forhindrer installasjon av en systemd enhet som kjører
+          <para>Denne bryteren forhindrer installasjon av en systemd enhet som kjÃ¸rer
           <command>ldconfig</command> ved oppstart; dette er ikke nyttig for
-          kildedistribusjoner som LFS, og gjør oppstartstiden lengre. Fjern
-          dette alternativet for å aktivere kjøring av <command>ldconfig</command> ved oppstart.</para>
+          kildedistribusjoner som LFS, og gjÃ¸r oppstartstiden lengre. Fjern
+          dette alternativet for Ã¥ aktivere kjÃ¸ring av <command>ldconfig</command> ved oppstart.</para>
         </listitem>
       </varlistentry>
 
@@ -131,11 +131,11 @@ meson setup \
         <term><parameter>-Dsysusers=false</parameter></term>
         <listitem>
           <para>Denne bryteren forhindrer installasjon av systemd
-          tjenester som er ansvarlige for å sette opp
+          tjenester som er ansvarlige for Ã¥ sette opp
           <filename>/etc/group</filename> og
           <filename>/etc/passwd</filename> filer. Begge filene
           ble opprettet i forrige kapittel. Denne nissen (daemon) er ikke nyttig
-          på et LFS system siden brukerkontoer opprettes manuelt.</para>
+          pÃ¥ et LFS system siden brukerkontoer opprettes manuelt.</para>
         </listitem>
       </varlistentry>
 
@@ -143,7 +143,7 @@ meson setup \
         <term><parameter>-Drpmmacrosdir=no</parameter></term>
         <listitem>
           <para>Denne bryteren deaktiverer installasjon av RPM makroer
-          for bruk med systemd fordi LFS ikke støtter RPM.</para>
+          for bruk med systemd fordi LFS ikke stÃ¸tter RPM.</para>
         </listitem>
       </varlistentry>
 
@@ -159,8 +159,8 @@ meson setup \
       <varlistentry>
         <term><parameter>-Dman=disabled</parameter></term>
         <listitem>
-          <para>Forhindre generering av mansider for å unngå ekstra
-          avhengigheter. Vi vil installere forhåndsgenererte mansider for systemd
+          <para>Forhindre generering av mansider for Ã¥ unngÃ¥ ekstra
+          avhengigheter. Vi vil installere forhÃ¥ndsgenererte mansider for systemd
           fra en tarball senere.</para>
         </listitem>
       </varlistentry>
@@ -168,7 +168,7 @@ meson setup \
       <varlistentry>
         <term><parameter>-Dmode=release</parameter></term>
         <listitem>
-          <para>Deaktiver noen funksjoner som anses som eksperimentelle av oppstrøms.
+          <para>Deaktiver noen funksjoner som anses som eksperimentelle av oppstrÃ¸ms.
           </para>
         </listitem>
       </varlistentry>
@@ -177,7 +177,7 @@ meson setup \
         <term><parameter>-Dpamconfdir=no</parameter></term>
         <listitem>
           <para>Forhindrer installasjon av en PAM-konfigurasjonsfil som ikke
-          er funksjonell på LFS.</para>
+          er funksjonell pÃ¥ LFS.</para>
         </listitem>
       </varlistentry>
 
@@ -185,7 +185,7 @@ meson setup \
         <term><parameter>-Ddev-kvm-mode=0660</parameter></term>
         <listitem>
           <para>Standard udevregler vil tillate alle brukere tilgang til
-          <filename class='devicefile'>/dev/kvm</filename>.  Redaktørene
+          <filename class='devicefile'>/dev/kvm</filename>.  RedaktÃ¸rene
           anser det som farlig. Dette alternativet overstyrer det.</para>
         </listitem>
       </varlistentry>
@@ -202,8 +202,8 @@ meson setup \
         <term><parameter>-Dsysupdate=disabled</parameter></term>
         <listitem>
           <para>Ikke installer <command>systemd-sysupdate</command>
-          verktøyet. Det er designet for automatisk å oppgradere binære distros,
-          Så det er ubrukelig for et grunnleggende Linux system bygget fra grunnen.
+          verktÃ¸yet. Det er designet for automatisk Ã¥ oppgradere binÃ¦re distros,
+          SÃ¥ det er ubrukelig for et grunnleggende Linux system bygget fra grunnen.
           Og det vil rapportere feil ved oppstart hvis det er aktivert, men ikke riktig
           konfigurert.</para>
         </listitem>
@@ -213,7 +213,7 @@ meson setup \
         <term><parameter>-Dukify=disabled</parameter></term>
         <listitem>
           <para>Ikke installer <command>systemd-ukify</command> skriptet.
-          Ved kjøretid krever dette skriptet
+          Ved kjÃ¸retid krever dette skriptet
           <application>pefile</application> Python modulen som verken LFS
           eller BLFS gir. </para>
         </listitem>
@@ -242,14 +242,14 @@ meson setup \
 
 <screen><userinput remap="adjust">systemd-machine-id-setup</userinput></screen>
 
-    <para>Sett opp den grunnleggende målstrukturen:</para>
+    <para>Sett opp den grunnleggende mÃ¥lstrukturen:</para>
 
 <screen><userinput remap="adjust">systemctl preset-all</userinput></screen>
 
 <!-- dev: 50-pid-max.conf is not removed in BLFS, so I commented the following out.
           If it causes any trouble, we can add this back and also copy it into BLFS -->
 <!--
-    <para>Hindre systemd fra å tilbakestille den maksimale PID-verdien som forårsaker
+    <para>Hindre systemd fra Ã¥ tilbakestille den maksimale PID-verdien som forÃ¥rsaker
     noen problemer med pakker og enheter i BLFS:</para>
 
 <screen><userinput remap="adjust">rm -f /usr/lib/sysctl.d/50-pid-max.conf</userinput></screen>
@@ -307,7 +307,7 @@ meson setup \
       <varlistentry id="busctl">
         <term><command>busctl</command></term>
         <listitem>
-          <para>Brukes til å selvransake og overvåke D-Bus bussen</para>
+          <para>Brukes til Ã¥ selvransake og overvÃ¥ke D-Bus bussen</para>
           <indexterm zone="ch-system-systemd busctl">
             <primary sortas="b-busctl">busctl</primary>
           </indexterm>
@@ -317,7 +317,7 @@ meson setup \
       <varlistentry id="coredumpctl">
         <term><command>coredumpctl</command></term>
         <listitem>
-          <para>Brukes til å hente kjernedumper fra systemd journalen</para>
+          <para>Brukes til Ã¥ hente kjernedumper fra systemd journalen</para>
           <indexterm zone="ch-system-systemd coredumpctl">
             <primary sortas="b-coredumpctl">coredumpctl</primary>
           </indexterm>
@@ -328,10 +328,10 @@ meson setup \
         <term><command>halt</command></term>
         <listitem>
           <para>Starter vanligvis <command>shutdown</command> med
-          <parameter>-h</parameter> alternativet, bortsett fra når du allerede er på kjørenivå 0,
-          når den ber kjernen om å stoppe systemet; noterer den i
+          <parameter>-h</parameter> alternativet, bortsett fra nÃ¥r du allerede er pÃ¥ kjÃ¸renivÃ¥ 0,
+          nÃ¥r den ber kjernen om Ã¥ stoppe systemet; noterer den i
           filen <filename>/var/log/wtmp</filename> at systemet blir
-          slått av</para>
+          slÃ¥tt av</para>
           <indexterm zone="ch-system-systemd halt">
             <primary sortas="b-halt">halt</primary>
           </indexterm>
@@ -341,7 +341,7 @@ meson setup \
       <varlistentry id="hostnamectl">
         <term><command>hostnamectl</command></term>
         <listitem>
-          <para>Brukes til å spørre og endre systemets vertsnavn og relaterte
+          <para>Brukes til Ã¥ spÃ¸rre og endre systemets vertsnavn og relaterte
           innstillinger</para>
           <indexterm zone="ch-system-systemd hostnamectl">
             <primary sortas="b-hostnamectl">hostnamectl</primary>
@@ -352,7 +352,7 @@ meson setup \
       <varlistentry id="init">
         <term><command>init</command></term>
         <listitem>
-          <para>Er den første prosessen som startes når kjernen har initialisert
+          <para>Er den fÃ¸rste prosessen som startes nÃ¥r kjernen har initialisert
           maskinvaren; <command>init</command> tar over oppstartsprosessen og starter alle
           prosesser i henhold til sine konfigurasjonsfiler. I dette tilfellet starter den
           systemd</para>
@@ -365,7 +365,7 @@ meson setup \
       <varlistentry id="journalctl">
         <term><command>journalctl</command></term>
         <listitem>
-          <para>Brukes til å spørre om innholdet i systemd journalen</para>
+          <para>Brukes til Ã¥ spÃ¸rre om innholdet i systemd journalen</para>
           <indexterm zone="ch-system-systemd journalctl">
             <primary sortas="b-journalctl">journalctl</primary>
           </indexterm>
@@ -375,8 +375,8 @@ meson setup \
       <varlistentry id="kernel-install">
         <term><command>kernel-install</command></term>
         <listitem>
-          <para>Brukes til å legge til og fjerne kjerne- og initramfs-bilder til og
-          fra /boot. I LFS gjøres dette manuelt</para>
+          <para>Brukes til Ã¥ legge til og fjerne kjerne- og initramfs-bilder til og
+          fra /boot. I LFS gjÃ¸res dette manuelt</para>
           <indexterm zone="ch-system-systemd kernel-install">
             <primary sortas="b-kernel-install">kernel-install</primary>
           </indexterm>
@@ -386,7 +386,7 @@ meson setup \
       <varlistentry id="localectl">
         <term><command>localectl</command></term>
         <listitem>
-          <para>Brukes til å spørre og endre systemlokaliteten og tastaturoppsettets
+          <para>Brukes til Ã¥ spÃ¸rre og endre systemlokaliteten og tastaturoppsettets
           innstillinger</para>
           <indexterm zone="ch-system-systemd localectl">
             <primary sortas="b-localectl">localectl</primary>
@@ -397,8 +397,8 @@ meson setup \
       <varlistentry id="loginctl">
         <term><command>loginctl</command></term>
         <listitem>
-          <para>Brukes til å selvransake og kontrollere tilstanden til systemd
-          påloggingsbehandler</para>
+          <para>Brukes til Ã¥ selvransake og kontrollere tilstanden til systemd
+          pÃ¥loggingsbehandler</para>
           <indexterm zone="ch-system-systemd loginctl">
             <primary sortas="b-loginctl">loginctl</primary>
           </indexterm>
@@ -408,7 +408,7 @@ meson setup \
       <varlistentry id="machinectl">
         <term><command>machinectl</command></term>
         <listitem>
-          <para>Brukes til å selvransake og kontrollere tilstanden til systemd virtuelle
+          <para>Brukes til Ã¥ selvransake og kontrollere tilstanden til systemd virtuelle
           maskin og container registreringsbehandler</para>
           <indexterm zone="ch-system-systemd machinectl">
             <primary sortas="b-machinectl">machinectl</primary>
@@ -419,7 +419,7 @@ meson setup \
       <varlistentry id="networkctl">
         <term><command>networkctl</command></term>
         <listitem>
-          <para>Brukes til å selvransake og konfigurere nettverkets
+          <para>Brukes til Ã¥ selvransake og konfigurere nettverkets
           koblinger konfigurert av systemd-networkd</para>
           <indexterm zone="ch-system-systemd networkctl">
             <primary sortas="b-networkctl">networkctl</primary>
@@ -440,7 +440,7 @@ meson setup \
       <varlistentry id="portablectl">
         <term><command>portablectl</command></term>
         <listitem>
-          <para>Brukes til å koble til eller koble fra bærbare tjenester fra det lokale
+          <para>Brukes til Ã¥ koble til eller koble fra flyttbare tjenester fra det lokale
           systemet</para>
           <indexterm zone="ch-system-systemd portablectl">
             <primary sortas="b-portablectl">portablectl</primary>
@@ -451,7 +451,7 @@ meson setup \
       <varlistentry id="poweroff">
         <term><command>poweroff</command></term>
         <listitem>
-          <para>Instruerer kjernen om å stoppe systemet og slå av datamaskinen
+          <para>Instruerer kjernen om Ã¥ stoppe systemet og slÃ¥ av datamaskinen
          (se <command>halt</command>)</para>
           <indexterm zone="ch-system-systemd poweroff">
             <primary sortas="b-poweroff">poweroff</primary>
@@ -462,7 +462,7 @@ meson setup \
       <varlistentry id="reboot">
         <term><command>reboot</command></term>
         <listitem>
-          <para>Instruerer kjernen om å starte systemet på nytt (se
+          <para>Instruerer kjernen om Ã¥ starte systemet pÃ¥ nytt (se
           <command>halt</command>)</para>
           <indexterm zone="ch-system-systemd reboot">
             <primary sortas="b-reboot">reboot</primary>
@@ -484,8 +484,8 @@ meson setup \
       <varlistentry id="resolvectl">
         <term><command>resolvectl</command></term>
         <listitem>
-          <para>Sender kontrollkommandoer til nettverksnavnoppløsningens
-          behandler, eller løser domenenavn, IPv4- og IPv6-adresser,
+          <para>Sender kontrollkommandoer til nettverksnavnopplÃ¸sningens
+          behandler, eller lÃ¸ser domenenavn, IPv4- og IPv6-adresser,
           DNS poster og tjenester</para>
           <indexterm zone="ch-system-systemd resolvectl">
             <primary sortas="b-resolvectl">resolvectl</primary>
@@ -496,8 +496,8 @@ meson setup \
       <varlistentry id="runlevel">
         <term><command>runlevel</command></term>
         <listitem>
-          <para>Sender ut forrige og gjeldende kjøringsnivå, som nevnt i
-          siste run-level oppføring i <filename>/run/utmp</filename></para>
+          <para>Sender ut forrige og gjeldende kjÃ¸ringsnivÃ¥ som nevnt i
+          siste run-level oppfÃ¸ring i <filename>/run/utmp</filename></para>
           <indexterm zone="ch-system-systemd runlevel">
             <primary sortas="b-runlevel">runlevel</primary>
           </indexterm>
@@ -507,8 +507,8 @@ meson setup \
       <varlistentry id="shutdown">
         <term><command>shutdown</command></term>
         <listitem>
-          <para>Bringer systemet ned på en trygg og sikker måte, signaliserer
-          alle prosesser og varsle alle påloggede brukere</para>
+          <para>Bringer systemet ned pÃ¥ en trygg og sikker mÃ¥te, signaliserer
+          alle prosesser og varsle alle pÃ¥loggede brukere</para>
           <indexterm zone="ch-system-systemd shutdown">
             <primary sortas="b-shutdown">shutdown</primary>
           </indexterm>
@@ -518,7 +518,7 @@ meson setup \
       <varlistentry id="systemctl">
         <term><command>systemctl</command></term>
         <listitem>
-          <para>Brukes til å selvransake og kontrollere tilstanden til systemd system
+          <para>Brukes til Ã¥ selvransake og kontrollere tilstanden til systemd system
           og servicebehandler</para>
           <indexterm zone="ch-system-systemd systemctl">
             <primary sortas="b-systemctl">systemctl</primary>
@@ -530,7 +530,7 @@ meson setup \
         <term><command>systemd-ac-power</command></term>
         <listitem>
           <para>Rapporterer om systemet er koblet til en ekstern
-           strømkilde.</para>
+           strÃ¸mkilde.</para>
           <indexterm zone="ch-system-systemd systemd-ac-power">
             <primary sortas="b-systemd-ac-power">systemd-ac-power</primary>
           </indexterm>
@@ -540,7 +540,7 @@ meson setup \
 	  <varlistentry id="systemd-analyze">
         <term><command>systemd-analyze</command></term>
         <listitem>
-          <para>Brukes til å analysere systemoppstartsytelse,
+          <para>Brukes til Ã¥ analysere systemoppstartsytelse,
           samt identifisere plagsomme systemenheter</para>
           <indexterm zone="ch-system-systemd systemd-analyze">
             <primary sortas="b-systemd-analyze">systemd-analyze</primary>
@@ -551,8 +551,8 @@ meson setup \
       <varlistentry id="systemd-ask-password">
         <term><command>systemd-ask-password</command></term>
         <listitem>
-          <para>Brukes til å spørre om et systempassord eller passordfrase fra brukeren,
-          ved å bruke en spørsmålsmelding spesifisert på kommandolinjen</para>
+          <para>Brukes til Ã¥ spÃ¸rre om et systempassord eller passordfrase fra brukeren,
+          ved Ã¥ bruke en spÃ¸rsmÃ¥lsmelding spesifisert pÃ¥ kommandolinjen</para>
           <indexterm zone="ch-system-systemd systemd-ask-password">
             <primary sortas="b-systemd-ask-password">systemd-ask-password</primary>
           </indexterm>
@@ -562,7 +562,7 @@ meson setup \
       <varlistentry id="systemd-cat">
         <term><command>systemd-cat</command></term>
         <listitem>
-          <para>Brukes til å koble til STDOUT og STDERR utdata til en prosess
+          <para>Brukes til Ã¥ koble til STDOUT og STDERR utdata til en prosess
           med systemd journal
           </para>
           <indexterm zone="ch-system-systemd systemd-cat">
@@ -585,7 +585,7 @@ meson setup \
       <varlistentry id="systemd-cgtop">
         <term><command>systemd-cgtop</command></term>
         <listitem>
-          <para>Viser de øverste kontrollgruppene til den lokale Linux kontrollgruppens
+          <para>Viser de Ã¸verste kontrollgruppene til den lokale Linux kontrollgruppens
           hierarki, sortert etter CPU, minne og disk I/O-belastning</para>
           <indexterm zone="ch-system-systemd systemd-cgtop">
             <primary sortas="b-systemd-cgtop">systemd-cgtop</primary>
@@ -606,7 +606,7 @@ meson setup \
       <varlistentry id="systemd-delta">
         <term><command>systemd-delta</command></term>
         <listitem>
-          <para>Brukes til å identifisere og sammenligne konfigurasjonsfiler i
+          <para>Brukes til Ã¥ identifisere og sammenligne konfigurasjonsfiler i
           <filename class="directory">/etc</filename> som overstyrer standard
           i <filename class="directory">/usr</filename></para>
           <indexterm zone="ch-system-systemd systemd-delta">
@@ -618,8 +618,8 @@ meson setup \
       <varlistentry id="systemd-detect-virt">
         <term><command>systemd-detect-virt</command></term>
         <listitem>
-          <para>Oppdager om systemet kjøres i et virtuelt
-          miljø, og justerer udev deretter</para>
+          <para>Oppdager om systemet kjÃ¸res i et virtuelt
+          miljÃ¸, og justerer udev deretter</para>
           <indexterm zone="ch-system-systemd systemd-detect-virt">
             <primary sortas="b-systemd-detect-virt">systemd-detect-virt</primary>
           </indexterm>
@@ -629,7 +629,7 @@ meson setup \
       <varlistentry id="systemd-dissect">
         <term><command>systemd-dissect</command></term>
         <listitem>
-          <para>Brukes til å inspisere OS diskbilder</para>
+          <para>Brukes til Ã¥ inspisere OS diskbilder</para>
           <indexterm zone="ch-system-systemd systemd-dissect">
             <primary sortas="b-systemd-dissect">systemd-dissect</primary>
           </indexterm>
@@ -650,7 +650,7 @@ meson setup \
       <varlistentry id="systemd-hwdb">
         <term><command>systemd-hwdb</command></term>
         <listitem>
-          <para>Brukes til å administrere maskinvaredatabasen (hwdb)</para>
+          <para>Brukes til Ã¥ administrere maskinvaredatabasen (hwdb)</para>
           <indexterm zone="ch-system-systemd systemd-hwdb">
             <primary sortas="b-systemd-hwdb">systemd-hwdb</primary>
           </indexterm>
@@ -670,9 +670,9 @@ meson setup \
       <varlistentry id="systemd-inhibit">
         <term><command>systemd-inhibit</command></term>
         <listitem>
-          <para>Brukes til å kjøre et program med avstenging, hvilemodus eller inaktiv
-          hemmerlås tatt, forhindrer en handling som for eksempel en systemavslutning
-          til prosessen er fullført</para>
+          <para>Brukes til Ã¥ kjÃ¸re et program med avstenging, hvilemodus eller inaktiv
+          hemmerlÃ¥s tatt, forhindrer en handling som for eksempel en systemavslutning
+          til prosessen er fullfÃ¸rt</para>
           <indexterm zone="ch-system-systemd systemd-inhibit">
             <primary sortas="b-systemd-inhibit">systemd-inhibit</primary>
           </indexterm>
@@ -682,7 +682,7 @@ meson setup \
       <varlistentry id="systemd-machine-id-setup">
         <term><command>systemd-machine-id-setup</command></term>
         <listitem>
-          <para>Brukes av systeminstallasjonsverktøy for å initialisere maskin-ID
+          <para>Brukes av systeminstallasjonsverktÃ¸y for Ã¥ initialisere maskin-ID
           lagret i <filename>/etc/machine-id</filename> ved installasjonstidspunktet med en
           tilfeldig generert ID</para>
           <indexterm zone="ch-system-systemd systemd-machine-id-setup">
@@ -704,7 +704,7 @@ meson setup \
       <varlistentry id="systemd-notify">
         <term><command>systemd-notify</command></term>
         <listitem>
-          <para>Brukes av nisseskript for å varsle init-systemet om status
+          <para>Brukes av nisseskript for Ã¥ varsle init-systemet om status
           endringer</para>
           <indexterm zone="ch-system-systemd systemd-notify">
             <primary sortas="b-systemd-notify">systemd-notify</primary>
@@ -715,7 +715,7 @@ meson setup \
       <varlistentry id="systemd-nspawn">
         <term><command>systemd-nspawn</command></term>
         <listitem>
-          <para>Brukes til å kjøre en kommando eller OS i en lett navneområde
+          <para>Brukes til Ã¥ kjÃ¸re en kommando eller OS i en lett navneomrÃ¥de
           container</para>
           <indexterm zone="ch-system-systemd systemd-nspawn">
             <primary sortas="b-systemd-nspawn">systemd-nspawn</primary>
@@ -736,7 +736,7 @@ meson setup \
       <varlistentry id="systemd-repart">
         <term><command>systemd-repart</command></term>
         <listitem>
-          <para>Brukes til å vokse og legge til partisjoner til en partisjonstabell når
+          <para>Brukes til Ã¥ vokse og legge til partisjoner til en partisjonstabell nÃ¥r
           systemd brukes i et OS bilde (f.eks. en container)</para>
           <indexterm zone="ch-system-systemd systemd-repart">
             <primary sortas="b-systemd-repart">systemd-repart</primary>
@@ -747,7 +747,7 @@ meson setup \
       <varlistentry id="systemd-resolve">
         <term><command>systemd-resolve</command></term>
         <listitem>
-          <para>Brukes til å løse domenenavn, IPV4- og IPv6-adresser, DNS
+          <para>Brukes til Ã¥ lÃ¸se domenenavn, IPV4- og IPv6-adresser, DNS
           ressursposter og tjenester</para>
           <indexterm zone="ch-system-systemd systemd-resolve">
             <primary sortas="b-systemd-resolve">systemd-resolve</primary>
@@ -758,8 +758,8 @@ meson setup \
       <varlistentry id="systemd-run">
         <term><command>systemd-run</command></term>
         <listitem>
-          <para>Brukes til å opprette og starte en forbigående .service eller en .scope
-          enhet og kjøre den angitte kommandoen i den. Dette er nyttig for
+          <para>Brukes til Ã¥ opprette og starte en forbigÃ¥ende .service eller en .scope
+          enhet og kjÃ¸re den angitte kommandoen i den. Dette er nyttig for
           validering av systemenheter</para>
           <indexterm zone="ch-system-systemd systemd-run">
             <primary sortas="b-systemd-run">systemd-run</primary>
@@ -770,7 +770,7 @@ meson setup \
       <varlistentry id="systemd-socket-activate">
         <term><command>systemd-socket-activate</command></term>
         <listitem>
-          <para>Brukes til å lytte på socket enheter og starte en prosess med
+          <para>Brukes til Ã¥ lytte pÃ¥ socket enheter og starte en prosess med
           en vellykket tilkobling til en socket</para>
           <indexterm zone="ch-system-systemd systemd-socket-activate">
             <primary sortas="b-systemd-socket-activate">systemd-socket-activate</primary>
@@ -792,7 +792,7 @@ meson setup \
         <term><command>systemd-tmpfiles</command></term>
         <listitem>
           <para>Oppretter, sletter og rydder opp i flyktige og midlertidige filer og
-          mapper, basert på konfigurasjonsfilformatet og plasseringen
+          mapper, basert pÃ¥ konfigurasjonsfilformatet og plasseringen
           spesifisert i
           <filename class="directory">tmpfiles.d</filename> mappene</para>
           <indexterm zone="ch-system-systemd systemd-tmpfiles">
@@ -814,8 +814,8 @@ meson setup \
       <varlistentry id="systemd-tty-ask-password-agent">
         <term><command>systemd-tty-ask-password-agent</command></term>
         <listitem>
-          <para>Brukes til å liste og/eller behandle ventende systemd passord
-          forespørsler</para>
+          <para>Brukes til Ã¥ liste og/eller behandle ventende systemd passord
+          forespÃ¸rsler</para>
           <indexterm zone="ch-system-systemd systemd-tty-ask-password-agent">
             <primary sortas="b-systemd-tty-ask-password-agent">systemd-tty-ask-password-agent</primary>
           </indexterm>
@@ -825,7 +825,7 @@ meson setup \
       <varlistentry id="telinit">
         <term><command>telinit</command></term>
         <listitem>
-          <para>Forteller <command>init</command> hvilket kjørenivå det skal endres
+          <para>Forteller <command>init</command> hvilket kjÃ¸renivÃ¥ det skal endres
           til</para>
           <indexterm zone="ch-system-systemd telinit">
             <primary sortas="b-telinit">telinit</primary>
@@ -836,7 +836,7 @@ meson setup \
       <varlistentry id="timedatectl">
         <term><command>timedatectl</command></term>
         <listitem>
-          <para>Brukes til å spørre og endre systemklokken og dens innstillinger
+          <para>Brukes til Ã¥ spÃ¸rre og endre systemklokken og dens innstillinger
           </para>
           <indexterm zone="ch-system-systemd timedatectl">
             <primary sortas="b-timedatectl">timedatectl</primary>
@@ -847,10 +847,10 @@ meson setup \
       <varlistentry id="udevadm">
         <term><command>udevadm</command></term>
         <listitem>
-          <para>Er et generisk udev administrasjonsverktøy som kontrollerer udevd
-          nissen, gir informasjon fra Udev maskinvaredatabasen, overvåker
-          uevents, venter på at uevents skal fullføres, tester udev konfigurasjon og
-          utløser uevents for en gitt enhet</para>
+          <para>Er et generisk udev administrasjonsverktÃ¸y som kontrollerer udevd
+          nissen, gir informasjon fra Udev maskinvaredatabasen, overvÃ¥ker
+          uevents, venter pÃ¥ at uevents skal fullfÃ¸res, tester udev konfigurasjon og
+          utlÃ¸ser uevents for en gitt enhet</para>
           <indexterm zone="ch-system-systemd udevadm">
             <primary sortas="b-udevadm">udevadm</primary>
           </indexterm>
@@ -860,7 +860,7 @@ meson setup \
       <varlistentry id="libsystemd">
         <term><filename class="libraryfile">libsystemd</filename></term>
         <listitem>
-          <para>Er det viktigste systemd verktøybiblioteket</para>
+          <para>Er det viktigste systemd verktÃ¸ybiblioteket</para>
           <indexterm zone="ch-system-systemd libsystemd">
             <primary sortas="c-libsystemd">libsystemd</primary>
           </indexterm>
@@ -870,7 +870,7 @@ meson setup \
       <varlistentry id="libudev">
         <term><filename class="libraryfile">libudev</filename></term>
         <listitem>
-          <para>Er et bibliotek for å få tilgang til Udev enhetsinformasjon</para>
+          <para>Er et bibliotek for Ã¥ fÃ¥ tilgang til Udev enhetsinformasjon</para>
           <indexterm zone="ch-system-systemd libudev">
             <primary sortas="c-libudev">libudev</primary>
           </indexterm>

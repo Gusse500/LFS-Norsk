@@ -24,8 +24,8 @@
     <title/>
 
     <para>Pkgconf pakken er en
-    etterfølger til pkg-config og inneholder et verktøy for å sende inkluderingsbanen
-    og/eller bibliotekstier for å bygge verktøy under konfigurerings- og makefasene
+    etterfÃ¸lger til pkg-config og inneholder et verktÃ¸y for Ã¥ sende inkluderingsbanen
+    og/eller bibliotekstier for Ã¥ bygge verktÃ¸y under konfigurerings- og makefasene
     av pakkeinstallasjoner.</para>
 
     <segmentedlist>
@@ -63,7 +63,7 @@
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>For å opprettholde kompatibilitet med den originale Pkg-config oppretter du to
+    <para>For Ã¥ opprettholde kompatibilitet med den originale Pkg-config oppretter du to
     symbolkoblinger:</para>
 
 <screen><userinput remap="install">ln -sv pkgconf   /usr/bin/pkg-config
@@ -117,7 +117,7 @@ ln -sv pkgconf.1 /usr/share/man/man1/pkg-config.1</userinput></screen>
         <term><filename class="libraryfile">libpkgconf</filename></term>
         <listitem>
           <para>Inneholder det meste av pkgconf sin funksjonalitet, mens det tillater
-          andre verktøy som IDEer og kompilatorer å bruke rammeverket</para>
+          andre verktÃ¸y som IDEer og kompilatorer Ã¥ bruke rammeverket</para>
           <indexterm zone="ch-system-pkgconf libpkgconf">
             <primary sortas="c-libpkgconf">libpkgconf</primary>
           </indexterm>

@@ -10,47 +10,47 @@
 
   <title>Typografi</title>
 
-  <para>For å gjøre ting lettere å følge, er noen få typografiske
+  <para>For Ã¥ gjÃ¸re ting lettere Ã¥ fÃ¸lge, er noen fÃ¥ typografiske
   konvensjoner brukt gjennom denne boken. Denne delen inneholder noen
-  eksempler på det typografiske formatet som finnes i hele Linux From
+  eksempler pÃ¥ det typografiske formatet som finnes i hele Linux From
   Scratch.</para>
 
 <screen role="nodump"><userinput>./configure --prefix=/usr</userinput></screen>
 
-  <para>Denne formen for tekst er designet for å skrives nøyaktig slik den er skrevet med mindre
-  noe annet er notert i den omkringliggende teksten. Den brukes også i
-  forklaringsseksjoner for å identifisere hvilke av kommandoene det refereres til.</para>
+  <para>Denne formen for tekst er designet for Ã¥ skrives nÃ¸yaktig slik den er skrevet med mindre
+  noe annet er notert i den omkringliggende teksten. Den brukes ogsÃ¥ i
+  forklaringsseksjoner for Ã¥ identifisere hvilke av kommandoene det refereres til.</para>
 
   <para>I noen tilfeller utvides en logisk linje til to eller flere fysiske linjer
-  med en omvendt skråstrek på slutten av linjen.</para>
+  med en omvendt skrÃ¥strek pÃ¥ slutten av linjen.</para>
 
 <screen role="nodump"><userinput>CC="gcc -B/usr/bin/" ../binutils-2.18/configure \
   --prefix=/tools --disable-nls --disable-werror</userinput></screen>
 
-  <para>Merk at omvendt skråstrek må følges av en umiddelbar retur. Annen
+  <para>Merk at omvendt skrÃ¥strek mÃ¥ fÃ¸lges av en umiddelbar retur. Annen
   mellomromstegn som mellomrom eller tabulatortegn vil lage feil
   resultater.</para>
 
 <screen><computeroutput>install-info: unknown option '--dir-file=/mnt/lfs/usr/info/dir'</computeroutput></screen>
 
   <para>Denne formen for tekst (tekst med fast bredde) viser skjermutdata, vanligvis som
-  resultatet av utstedte kommandoer. Dette formatet brukes også til å vise filnavn,
+  resultatet av utstedte kommandoer. Dette formatet brukes ogsÃ¥ til Ã¥ vise filnavn,
   som for eksempel <filename>/etc/ld.so.conf</filename>.</para>
 
   <note>
-    <para>Vennligst konfigurer nettleseren din til å vise tekst med fast bredde
-    og en god monospace font, så du kan skille tegnvariantene
+    <para>Vennligst konfigurer nettleseren din til Ã¥ vise tekst med fast bredde
+    og en god monospace font, sÃ¥ du kan skille tegnvariantene
     <literal>Il1</literal> eller <literal>O0</literal> helt klart.</para>
   </note>
 
   <para><emphasis>Uthevet</emphasis></para>
 
-  <para>Denne tekstformen brukes til flere formål i boken. Dens viktigste
-  formålet er å understreke viktige punkter eller elementer.</para>
+  <para>Denne tekstformen brukes til flere formÃ¥l i boken. Dens viktigste
+  formÃ¥let er Ã¥ understreke viktige punkter eller elementer.</para>
 
   <para><ulink url="&lfs-root;"/></para>
 
-  <para>Dette formatet brukes for hyperkoblinger både innenfor LFS-fellesskapet og til
+  <para>Dette formatet brukes for hyperkoblinger bÃ¥de innenfor LFS-fellesskapet og til
   eksterne sider. Det inkluderer HOWTOer, nedlastingssteder og nettsteder.</para>
 
 <screen role="nodump"><userinput>cat &gt; $LFS/etc/group &lt;&lt; "EOF"
@@ -59,34 +59,34 @@ bin:x:1:
 ......</literal>
 EOF</userinput></screen>
 
-  <para>Dette formatet brukes når du oppretter konfigurasjonsfiler. Den første kommandoen
+  <para>Dette formatet brukes nÃ¥r du oppretter konfigurasjonsfiler. Den fÃ¸rste kommandoen
   ber systemet lage filen <filename>$LFS/etc/group</filename> fra
-  hva som enn skrives på de følgende linjene til sekvensen End Of File (EOF)
-  er påtruffet. Derfor er hele denne delen vanligvis skrevet som
+  hva som enn skrives pÃ¥ de fÃ¸lgende linjene til sekvensen End Of File (EOF)
+  er pÃ¥truffet. Derfor er hele denne delen vanligvis skrevet som
   det vises.</para>
 
   <para><replaceable>&lt;ERSTATTET TEKST&gt;</replaceable></para>
 
-  <para>Dette formatet brukes til å kapsle inn tekst som ikke skal skrives
+  <para>Dette formatet brukes til Ã¥ kapsle inn tekst som ikke skal skrives
   som det vises eller for kopier-og-lim-operasjoner.</para>
 
   <para><replaceable>[VALGFRI TEKST]</replaceable></para>
 
-  <para>Dette formatet brukes til å kapsle inn tekst som er valgfri.</para>
+  <para>Dette formatet brukes til Ã¥ kapsle inn tekst som er valgfri.</para>
 
   <para><filename>passwd(5)</filename></para>
 
-  <para>Dette formatet brukes til å referere til en spesifikk manualside (manside). Tallet innenfor parentes
+  <para>Dette formatet brukes til Ã¥ referere til en spesifikk manualside (manside). Tallet innenfor parentes
   indikerer en bestemt del i manualene. For eksempel,
   <command>passwd</command> har to mansider. I henhold til LFS installasjonsinstruksjoner,
-  vil disse to mansidene være plassert på
+  vil disse to mansidene vÃ¦re plassert pÃ¥
   <filename>/usr/share/man/man1/passwd.1</filename> og
-  <filename>/usr/share/man/man5/passwd.5</filename>. Når boken bruker <filename>passwd(5)</filename> refererer
+  <filename>/usr/share/man/man5/passwd.5</filename>. NÃ¥r boken bruker <filename>passwd(5)</filename> refererer
   den spesifikt til <filename>/usr/share/man/man5/passwd.5</filename>.
-  <command>man passwd</command> vil skrive ut den første mansiden den finner som
+  <command>man passwd</command> vil skrive ut den fÃ¸rste mansiden den finner som
   stemmer med <quote>passwd</quote>, som vil bli
-  <filename>/usr/share/man/man1/passwd.1</filename>. For dette eksemplet må du
-  kjøre <command>man 5 passwd</command> for å lese siden som
+  <filename>/usr/share/man/man1/passwd.1</filename>. For dette eksemplet mÃ¥ du
+  kjÃ¸re <command>man 5 passwd</command> for Ã¥ lese siden som
   blir spesifisert. Merk at de fleste mansider ikke har duplikate
   sidenavn i forskjellige seksjoner. Derfor er, <command>man <replaceable>&lt;programnavn&gt;
   </replaceable></command> generelt tilstrekkelig.</para>

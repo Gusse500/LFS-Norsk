@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Procps-ng pakken inneholder programmer for overvåking av prosesser.</para>
+    <para>Procps-ng pakken inneholder programmer for overvÃ¥king av prosesser.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -70,7 +70,7 @@
 <screen revision='sysv'><userinput remap="make">make</userinput></screen>
 <screen revision='systemd'><userinput remap="make">make src_w_LDADD='$(LDADD) -lsystemd'</userinput></screen>
 
-    <para> For å kjøre testpakken, kjør:</para>
+    <para> For Ã¥ kjÃ¸re testpakken, kjÃ¸r:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
@@ -104,7 +104,7 @@
       <varlistentry id="free">
         <term><command>free</command></term>
         <listitem>
-          <para>Rapporterer mengden ledig og brukt minne (både fysisk og
+          <para>Rapporterer mengden ledig og brukt minne (bÃ¥de fysisk og
           vekselminne) i systemet</para>
           <indexterm zone="ch-system-procps free">
             <primary sortas="b-free">free</primary>
@@ -115,7 +115,7 @@
       <varlistentry id="pgrep">
         <term><command>pgrep</command></term>
         <listitem>
-          <para>Slår opp prosesser basert på deres navn og andre attributter</para>
+          <para>SlÃ¥r opp prosesser basert pÃ¥ deres navn og andre attributter</para>
           <indexterm zone="ch-system-procps pgrep">
             <primary sortas="b-pgrep">pgrep</primary>
           </indexterm>
@@ -135,7 +135,7 @@
       <varlistentry id="pkill">
         <term><command>pkill</command></term>
         <listitem>
-          <para>Signaliserer prosesser basert på deres navn og andre attributter</para>
+          <para>Signaliserer prosesser basert pÃ¥ deres navn og andre attributter</para>
           <indexterm zone="ch-system-procps pkill">
             <primary sortas="b-pkill">pkill</primary>
           </indexterm>
@@ -165,7 +165,7 @@
       <!-- <varlistentry id="pwait">
         <term><command>pwait</command></term>
         <listitem>
-          <para>Venter til en prosess er ferdig før den utføres.</para>
+          <para>Venter til en prosess er ferdig fÃ¸r den utfÃ¸res.</para>
           <indexterm zone="ch-system-procps pwait">
             <primary sortas="b-pwait">pwait</primary>
           </indexterm>
@@ -196,7 +196,7 @@
       <varlistentry id="sysctl">
         <term><command>sysctl</command></term>
         <listitem>
-          <para>Endrer kjerneparametere under kjøretid</para>
+          <para>Endrer kjerneparametere under kjÃ¸retid</para>
           <indexterm zone="ch-system-procps sysctl">
             <primary sortas="b-sysctl">sysctl</primary>
           </indexterm>
@@ -217,7 +217,7 @@
         <term><command>top</command></term>
         <listitem>
           <para>Viser en liste over de mest CPU intensive prosessene; den
-          gir en kontinuerlig titt på prosessoraktivitet i sanntid</para>
+          gir en kontinuerlig titt pÃ¥ prosessoraktivitet i sanntid</para>
           <indexterm zone="ch-system-procps top">
             <primary sortas="b-top">top</primary>
           </indexterm>
@@ -227,8 +227,8 @@
       <varlistentry id="uptime">
         <term><command>uptime</command></term>
         <listitem>
-          <para>Rapporterer hvor lenge systemet har kjørt, hvor mange brukere det er
-          logget på, og systemets belastningsgjennomsnitt</para>
+          <para>Rapporterer hvor lenge systemet har kjÃ¸rt, hvor mange brukere som er
+          logget pÃ¥ og systemets belastningsgjennomsnitt</para>
           <indexterm zone="ch-system-procps uptime">
             <primary sortas="b-uptime">uptime</primary>
           </indexterm>
@@ -239,7 +239,7 @@
         <term><command>vmstat</command></term>
         <listitem>
           <para>Rapporterer virtuelt minnestatistikk, gir informasjon om
-          prosesser, minne, søking, blokk Input/Output (IO), feller og CPU
+          prosesser, minne, sÃ¸king, blokk Input/Output (IO), feller og CPU
           aktivitet</para>
           <indexterm zone="ch-system-procps vmstat">
             <primary sortas="b-vmstat">vmstat</primary>
@@ -250,8 +250,8 @@
       <varlistentry id="w">
         <term><command>w</command></term>
         <listitem>
-          <para>Viser hvilke brukere som for øyeblikket er pålogget, hvor og siden
-          når</para>
+          <para>Viser hvilke brukere som for Ã¸yeblikket er pÃ¥logget, hvor og siden
+          nÃ¥r</para>
           <indexterm zone="ch-system-procps w">
             <primary sortas="b-w">w</primary>
           </indexterm>
@@ -261,7 +261,7 @@
       <varlistentry id="watch">
         <term><command>watch</command></term>
         <listitem>
-          <para>Kjører en gitt kommando gjentatte ganger, og viser den første
+          <para>KjÃ¸rer en gitt kommando gjentatte ganger, og viser den fÃ¸rste
           skjermen full av utdata; dette lar en bruker se utdataens
           endring over tid</para>
           <indexterm zone="ch-system-procps watch">

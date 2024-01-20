@@ -40,7 +40,7 @@
   <sect2 role="installation">
     <title>Installasjon av M4</title>
 <!--
-    <para>Først gjør du noen rettelser som kreves av glibc-2.28 og senere:</para>
+    <para>FÃ¸rst gjÃ¸r du noen rettelser som kreves av glibc-2.28 og senere:</para>
 
 <screen><userinput remap="pre">sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' lib/*.c
 echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h</userinput></screen>
@@ -53,7 +53,7 @@ echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h</userinput></screen>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>For å teste resultatene, utsted:</para>
+    <para>For Ã¥ teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
@@ -85,12 +85,12 @@ echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h</userinput></screen>
         <listitem>
           <para>Kopierer de gitte filene mens de utvider makroene som de
           inneholder. Disse makroene er enten innebygde eller brukerdefinerte og kan
-          ta et hvilket som helst antall argumenter. Foruten å utføre makroutvidelse,
-          <command>m4</command> har innebygde funksjoner for å inkludere navngitte
-          filer, kjører Unix kommandoer, utføre heltallsaritmetikk,
+          ta et hvilket som helst antall argumenter. Foruten Ã¥ utfÃ¸re makroutvidelse,
+          <command>m4</command> har innebygde funksjoner for Ã¥ inkludere navngitte
+          filer, kjÃ¸rer Unix kommandoer, utfÃ¸re heltallsaritmetikk,
           manipulere tekst, rekursjon osv. <command>m4</command> programmet
           kan brukes enten som en grenseflate til en kompilator eller som en makroprosessor
-          på egen hånd</para>
+          pÃ¥ egen hÃ¥nd</para>
           <indexterm zone="ch-system-m4 m4">
             <primary sortas="b-m4">m4</primary>
           </indexterm>

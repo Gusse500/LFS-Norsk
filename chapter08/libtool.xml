@@ -23,8 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Libtool pakken inneholder GNU generiske bibliotekstøtteskript.
-    Det omslutter kompleksiteten ved å bruke delte biblioteker i en konsistent, overførbart
+    <para>Libtool pakken inneholder GNU generiske bibliotekstÃ¸tteskript.
+    Det omslutter kompleksiteten ved Ã¥ bruke delte biblioteker i en konsistent, overfÃ¸rbart
     grensesnitt.</para>
 
     <segmentedlist>
@@ -50,14 +50,14 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-<para>For å teste resultatene<!--(ca. 11.0 SBU)-->, utsted:</para>
+<para>For Ã¥ teste resultatene<!--(ca. 11.0 SBU)-->, utsted:</para>
 
 <screen><userinput remap="test">make -k check</userinput></screen>
 
-    <para>Fem tester er kjent for å mislykkes i LFS byggemiljøet pga
-    en sirkulær avhengighet, men disse testene består hvis de sjekkes på nytt etter
+    <para>Fem tester er kjent for Ã¥ mislykkes i LFS byggemiljÃ¸et pga
+    en sirkulÃ¦r avhengighet, men disse testene bestÃ¥r hvis de sjekkes pÃ¥ nytt etter
     at automake er installert.  I tillegg, med grep-3.8, vil to tester
-    utløse en advarsel for ikke-POSIX regulære uttrykk og mislykkes.</para>
+    utlÃ¸se en advarsel for ikke-POSIX regulÃ¦re uttrykk og mislykkes.</para>
 
     <para>Installer pakken:</para>
 
@@ -96,7 +96,7 @@
       <varlistentry id="libtool">
         <term><command>libtool</command></term>
         <listitem>
-          <para>Tilbyr generaliserte støttetjenester for bibliotekbygging</para>
+          <para>Tilbyr generaliserte stÃ¸ttetjenester for bibliotekbygging</para>
           <indexterm zone="ch-system-libtool libtool">
             <primary sortas="b-libtool">libtool</primary>
           </indexterm>
@@ -106,8 +106,8 @@
       <varlistentry id="libtoolize">
         <term><command>libtoolize</command></term>
         <listitem>
-          <para>Gir en standard måte å legge til <command>libtool</command>
-          støtte til en pakke</para>
+          <para>Gir en standard mÃ¥te Ã¥ legge til <command>libtool</command>
+          stÃ¸tte til en pakke</para>
           <indexterm zone="ch-system-libtool libtoolize">
             <primary sortas="b-libtoolize">libtoolize</primary>
           </indexterm>
@@ -117,7 +117,7 @@
       <varlistentry id="libltdl">
         <term><filename class="libraryfile">libltdl</filename></term>
         <listitem>
-          <para>Skjuler de ulike vanskelighetene med å åpne dynamisk lastede biblioteker</para>
+          <para>Skjuler de ulike vanskelighetene med Ã¥ Ã¥pne dynamisk lastede biblioteker</para>
           <indexterm zone="ch-system-libtool libltdl">
             <primary sortas="c-libltdl">libltdl</primary>
           </indexterm>

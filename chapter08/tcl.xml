@@ -26,7 +26,7 @@
     <title/>
 
     <para><application>Tcl</application> pakken inneholder Tool Command Language,
-    et robust skriptspråk for generelt bruk. <application>Expect</application> pakken
+    et robust skriptsprÃ¥k for generelt bruk. <application>Expect</application> pakken
     er skrevet i <application>Tcl</application> (uttales "tickle").</para>
 
     <segmentedlist>
@@ -45,10 +45,10 @@
     <title>Installasjon av Tcl</title>
 
     <para>Denne pakken og de to neste (Expect og DejaGNU) er
-    installert for å støtte kjøring av testpakkene for binutils og GCC og andre
-    pakker. Å installere tre pakker for testformål kan virke
-    overdrevent, men det er veldig betryggende, om ikke avgjørende, å vite at
-    de viktigste verktøyene fungerer som de skal.</para>
+    installert for Ã¥ stÃ¸tte kjÃ¸ring av testpakkene for binutils og GCC og andre
+    pakker. Ã… installere tre pakker for testformÃ¥l kan virke
+    overdrevent, men det er veldig betryggende, om ikke avgjÃ¸rende, Ã¥ vite at
+    de viktigste verktÃ¸yene fungerer som de skal.</para>
 
     <para>Forbered Tcl for kompilering:</para>
 
@@ -81,10 +81,10 @@ unset SRCDIR</userinput></screen>
     <para>De ulike <quote>sed</quote> instruksjonene etter
     <quote>make</quote> kommandoen fjerner referanser til byggemappen fra
     konfigurasjonsfilene og erstatter dem med installasjonsmappen.
-    Dette er ikke obligatorisk for resten av LFS, men kan være nødvendig i tilfelle en
+    Dette er ikke obligatorisk for resten av LFS, men kan vÃ¦re nÃ¸dvendig i tilfelle en
     pakke bygget senere bruker Tcl.</para>
 
-    <para>For å teste resultatene, kjør:</para>
+    <para>For Ã¥ teste resultatene, kjÃ¸r:</para>
 
 <screen><userinput remap="test">make test</userinput></screen>
 
@@ -92,7 +92,7 @@ unset SRCDIR</userinput></screen>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>Gjør det installerte biblioteket skrivbart slik at feilsøkingssymboler kan
+    <para>GjÃ¸r det installerte biblioteket skrivbart slik at feilsÃ¸kingssymboler kan
     fjernes senere:</para>
 
 <screen><userinput remap="install">chmod -v u+w /usr/lib/libtcl&tcl-major-version;.so</userinput></screen>
@@ -101,7 +101,7 @@ unset SRCDIR</userinput></screen>
 
 <screen><userinput remap="install">make install-private-headers</userinput></screen>
 
-    <para>Lag nå en nødvendig symbolsk kobling:</para>
+    <para>Lag nÃ¥ en nÃ¸dvendig symbolsk kobling:</para>
 
 <screen><userinput remap="install">ln -sfv tclsh&tcl-major-version; /usr/bin/tclsh</userinput></screen>
 
@@ -109,8 +109,8 @@ unset SRCDIR</userinput></screen>
 
     <screen><userinput remap="install">mv /usr/share/man/man3/{Thread,Tcl_Thread}.3</userinput></screen>
 
-    <para>Eventuelt kan du installere dokumentasjonen ved å utstede
-    følgende kommandoer:</para>
+    <para>Eventuelt kan du installere dokumentasjonen ved Ã¥ utstede
+    fÃ¸lgende kommandoer:</para>
 
 <screen><userinput remap="install">cd ..
 tar -xf ../tcl&tcl-version;-html.tar.gz --strip-components=1

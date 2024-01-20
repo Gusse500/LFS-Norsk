@@ -42,20 +42,20 @@
   <sect2 role="installation">
     <title>Installasjon av Linux API deklarasjoner</title>
 
-    <para>Linux-kjernen må eksponere et applikasjonsprogrammeringsgrensesnitt
+    <para>Linux-kjernen mÃ¥ eksponere et applikasjonsprogrammeringsgrensesnitt
     (Application Programming Interface(API)) som systemets C bibliotek (Glibc i LFS) kan bruke. Dette har blitt gjort
-    ved å rense ulike C deklarasjonsfiler som er i Linux
+    ved Ã¥ rense ulike C deklarasjonsfiler som er i Linux
     sin kjernekilde tarball.</para>
 
-    <para>Sørg for at det ikke er noen gamle filer innebygd i pakken:</para>
+    <para>SÃ¸rg for at det ikke er noen gamle filer innebygd i pakken:</para>
 
 <screen><userinput remap="pre">make mrproper</userinput></screen>
 
-    <para>Trekk nå ut de brukersynlige kjernedeklarasjonene fra kilden.
-    Det anbefalte make målet <quote>headers_install</quote> kan ikke
+    <para>Trekk nÃ¥ ut de brukersynlige kjernedeklarasjonene fra kilden.
+    Det anbefalte make mÃ¥let <quote>headers_install</quote> kan ikke
     brukes, fordi det krever <application>rsync</application>, som kanskje ikke
-    er tilgjengelig. Deklarasjonene plasseres først i
-    <filename class="directory">./usr</filename>, deretter kopiert til nødvendig
+    er tilgjengelig. Deklarasjonene plasseres fÃ¸rst i
+    <filename class="directory">./usr</filename>, deretter kopiert til nÃ¸dvendig
     plassering.</para>
 
 <screen><userinput remap="make">make headers

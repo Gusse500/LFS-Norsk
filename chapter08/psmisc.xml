@@ -23,8 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>Psmisc pakken inneholder programmer for å vise informasjon om
-    kjørende prosesser.</para>
+    <para>Psmisc pakken inneholder programmer for Ã¥ vise informasjon om
+    kjÃ¸rende prosesser.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -49,7 +49,7 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>For å kjøre testpakken, kjør:</para>
+    <para>For Ã¥ kjÃ¸re testpakken, kjÃ¸r:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
@@ -90,7 +90,7 @@
         <term><command>killall</command></term>
         <listitem>
           <para>Dreper prosesser ved navn; den sender et signal til alle prosesser som
-          kjører noen av de gitte kommandoene</para>
+          kjÃ¸rer noen av de gitte kommandoene</para>
           <indexterm zone="ch-system-psmisc killall">
             <primary sortas="b-killall">killall</primary>
           </indexterm>
@@ -100,7 +100,7 @@
       <varlistentry id="peekfd">
         <term><command>peekfd</command></term>
         <listitem>
-          <para>Se på filbeskrivelser for en prosess som kjører, gitt dens
+          <para>Se pÃ¥ filbeskrivelser for en prosess som kjÃ¸rer, gitt dens
           PID</para>
           <indexterm zone="ch-system-psmisc peekfd">
             <primary sortas="b-peekfd">peekfd</primary>
@@ -131,7 +131,7 @@
       <varlistentry id="pstree">
         <term><command>pstree</command></term>
         <listitem>
-          <para>Viser kjørende prosesser som et tre</para>
+          <para>Viser kjÃ¸rende prosesser som et tre</para>
           <indexterm zone="ch-system-psmisc pstree">
             <primary sortas="b-pstree">pstree</primary>
           </indexterm>
@@ -141,8 +141,8 @@
       <varlistentry id="pstree.x11">
         <term><command>pstree.x11</command></term>
         <listitem>
-          <para>Samme som <command>pstree</command>, bortsett fra at den venter på
-          bekreftelse før den avslutter</para>
+          <para>Samme som <command>pstree</command>, bortsett fra at den venter pÃ¥
+          bekreftelse fÃ¸r den avslutter</para>
           <indexterm zone="ch-system-psmisc pstree.x11">
             <primary sortas="b-pstree.x11">pstree.x11</primary>
           </indexterm>

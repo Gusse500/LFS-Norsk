@@ -40,7 +40,7 @@
 
       <para>Hvis du foretrekker en annen tekstredigerer&mdash;som Emacs, Joe, eller
       Nano&mdash;Vennligst se <ulink
-      url="&blfs-book;postlfs/editors.html"/> for foreslåtte
+      url="&blfs-book;postlfs/editors.html"/> for foreslÃ¥tte
       installasjonsinstruksjoner.</para>
     </tip>
 
@@ -49,7 +49,7 @@
   <sect2 role="installation">
     <title>Installasjon av Vim</title>
 
-    <para>Først endrer du standardplasseringen for <filename>vimrc</filename>
+    <para>FÃ¸rst endrer du standardplasseringen for <filename>vimrc</filename>
     konfigurasjonsfil til <filename class="directory">/etc</filename>:</para>
 
 <screen><userinput remap="pre">echo '#define SYS_VIMRC_FILE "/etc/vimrc"' &gt;&gt; src/feature.h</userinput></screen>
@@ -62,20 +62,20 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>For å forberede testene, sørg for at brukeren
+    <para>For Ã¥ forberede testene, sÃ¸rg for at brukeren
     <systemitem class="username">tester</systemitem> kan skrive
     til kildetreet:</para>
 
 <screen><userinput remap="test">chown -Rv tester .</userinput></screen>
 
-    <para>Kjør nå testene som bruker <systemitem
+    <para>KjÃ¸r nÃ¥ testene som bruker <systemitem
     class="username">tester</systemitem>:</para>
 
 <screen><userinput remap="test">su tester -c "LANG=en_US.UTF-8 make -j1 test" &amp;> vim-test.log</userinput></screen>
 
-    <para>Testpakken sender ut mange binære data til skjermen. Dette kan
-    forårsake problemer med innstillingene til gjeldende terminal. Problemet kan
-    unngås ved å omdirigere utdataene til en loggfil som vist ovenfor. En
+    <para>Testpakken sender ut mange binÃ¦re data til skjermen. Dette kan
+    forÃ¥rsake problemer med innstillingene til gjeldende terminal. Problemet kan
+    unngÃ¥s ved Ã¥ omdirigere utdataene til en loggfil som vist ovenfor. En
     vellykket test vil resultere i ordene "ALL DONE" i loggfilen
     ved ferdigstillelse.</para>
 
@@ -84,10 +84,10 @@
 <screen><userinput remap="install">make install</userinput></screen>
 
     <para>Mange brukere skriver refleksivt <command>vi</command> i stedet for
-    <command>vim</command>. For å tillate kjøringen av <command>vim</command>
-    når brukere vanligvis skriver <command>vi</command>, opprett en
-    symbolkobling for både binærsiden og mansiden i det angitte
-    språket:</para>
+    <command>vim</command>. For Ã¥ tillate kjÃ¸ringen av <command>vim</command>
+    nÃ¥r brukere vanligvis skriver <command>vi</command>, opprett en
+    symbolkobling for bÃ¥de binÃ¦rsiden og mansiden i det angitte
+    sprÃ¥ket:</para>
 
 <screen><userinput remap="install">ln -sv vim /usr/bin/vi
 for L in  /usr/share/man/{,*/}man1/vim.1; do
@@ -95,19 +95,19 @@ for L in  /usr/share/man/{,*/}man1/vim.1; do
 done</userinput></screen>
 
     <para>Som standard er vims dokumentasjon installert i <filename
-    class="directory">/usr/share/vim</filename>. Følgende symbolkobling
-    gjør det mulig å få tilgang til dokumentasjonen via <filename
-    class="directory">/usr/share/doc/vim-&vim-version;</filename>, som gjør
+    class="directory">/usr/share/vim</filename>. FÃ¸lgende symbolkobling
+    gjÃ¸r det mulig Ã¥ fÃ¥ tilgang til dokumentasjonen via <filename
+    class="directory">/usr/share/doc/vim-&vim-version;</filename>, som gjÃ¸r
     det i samsvar med plasseringen av dokumentasjonen for andre pakker:</para>
 
 <screen><userinput remap="install">ln -sv ../&vim-docdir;/doc /usr/share/doc/vim-&vim-version;</userinput></screen>
 
-    <para>Hvis et X Window System skal installeres på LFS
-    systemet, kan det være nødvendig å rekompilere vim etter installasjon av X. Vim
+    <para>Hvis et X Window System skal installeres pÃ¥ LFS
+    systemet, kan det vÃ¦re nÃ¸dvendig Ã¥ rekompilere vim etter installasjon av X. Vim
     kommer med en GUI versjon av tekstredigereren som krever X og noen
     flere biblioteker som skal installeres. For mer informasjon om denne
     prosessen, se vim dokumentasjonen og vim installasjonssiden
-    i BLFS boka på <ulink
+    i BLFS boka pÃ¥ <ulink
     url="&blfs-book;postlfs/vim.html"/>.</para>
 
   </sect2>
@@ -119,14 +119,14 @@ done</userinput></screen>
       <primary sortas="e-/etc/vimrc">/etc/vimrc</primary>
     </indexterm>
 
-    <para>Som standard, <command>vim</command> kjører i vi inkompatibel modus.
-    Dette kan være nytt for brukere som har brukt andre tekstredigerere tidligere.
-    <quote>nocompatible</quote> innstillingen er inkludert nedenfor for å fremheve
-    faktum at en ny atferd blir brukt. Det minner også de som vil
-    endre til <quote>compatible</quote> modus at det skal være den første
-    innstilling i konfigurasjonsfilen. Dette er nødvendig fordi det endrer
-    andre innstillinger og overstyringer må komme etter denne innstillingen. Opprett en standard
-    <command>vim</command> konfigurasjonsfil ved å kjøre følgende:</para>
+    <para>Som standard, <command>vim</command> kjÃ¸rer i vi inkompatibel modus.
+    Dette kan vÃ¦re nytt for brukere som har brukt andre tekstredigerere tidligere.
+    <quote>nocompatible</quote> innstillingen er inkludert nedenfor for Ã¥ fremheve
+    faktum at en ny atferd blir brukt. Det minner ogsÃ¥ de som vil
+    endre til <quote>compatible</quote> modus at det skal vÃ¦re den fÃ¸rste
+    innstilling i konfigurasjonsfilen. Dette er nÃ¸dvendig fordi det endrer
+    andre innstillinger og overstyringer mÃ¥ komme etter denne innstillingen. Opprett en standard
+    <command>vim</command> konfigurasjonsfil ved Ã¥ kjÃ¸re fÃ¸lgende:</para>
 
 <screen><userinput>cat &gt; /etc/vimrc &lt;&lt; "EOF"
 <literal>" Begin /etc/vimrc
@@ -146,36 +146,36 @@ endif
 " End /etc/vimrc</literal>
 EOF</userinput></screen>
 
-    <para><parameter>set nocompatible</parameter> innstillingen gjør at
-    <command>vim</command> oppfører seg på en mer nyttig måte (standard) enn
-    en vi kompatibel måte. Fjern <quote>no</quote> for å beholde det gamle
-    <command>vi</command> oppførselen. <parameter>set backspace=2</parameter>
-    innstillingen tillater tilbaketast over linjeskift, autoinnrykk og starten på
+    <para><parameter>set nocompatible</parameter> innstillingen gjÃ¸r at
+    <command>vim</command> oppfÃ¸rer seg pÃ¥ en mer nyttig mÃ¥te (standard) enn
+    en vi kompatibel mÃ¥te. Fjern <quote>no</quote> for Ã¥ beholde det gamle
+    <command>vi</command> oppfÃ¸rselen. <parameter>set backspace=2</parameter>
+    innstillingen tillater tilbaketast over linjeskift, autoinnrykk og starten pÃ¥
     et innlegg. <parameter>syntax on</parameter> parameteren aktiverer vim sin syntaks
     fremheving. <parameter>set mouse=</parameter> innstillingen aktiverer
-    riktig liming av tekst med musen når du jobber i chroot eller over en
-    ekstern tilkobling. Endelig, <emphasis>if</emphasis> erklæring med
+    riktig liming av tekst med musen nÃ¥r du jobber i chroot eller over en
+    ekstern tilkobling. Endelig, <emphasis>if</emphasis> erklÃ¦ring med
     <parameter>set background=dark</parameter> innstillingen korrigerer
     <command>vim</command> sin gjetting om bakgrunnsfargen til en eller annen
-    terminalemulatorer. Dette gir uthevingen et bedre fargevalg for bruk på
+    terminalemulatorer. Dette gir uthevingen et bedre fargevalg for bruk pÃ¥
     svart bakgrunn for disse programmene.</para>
 
-    <para>Dokumentasjon for andre tilgjengelige alternativer kan fås ved å
-    kjøre følgende kommando:</para>
+    <para>Dokumentasjon for andre tilgjengelige alternativer kan fÃ¥s ved Ã¥
+    kjÃ¸re fÃ¸lgende kommando:</para>
 
 <screen role="nodump"><userinput>vim -c ':options'</userinput></screen>
 
     <note>
-      <para>Som standard installerer vim kun stavefiler for det engelske språket.
-      For å installere stavefiler for ditt foretrukne språk, kopier
+      <para>Som standard installerer vim kun stavefiler for det engelske sprÃ¥ket.
+      For Ã¥ installere stavefiler for ditt foretrukne sprÃ¥k, kopier
       <filename class='extension'>.spl</filename> og eventuelt
-      <filename class='extension'>.sug</filename> filer for ditt språk
+      <filename class='extension'>.sug</filename> filer for ditt sprÃ¥k
       og tegnkoding fra
       <filename class='directory'>runtime/spell</filename> til mappen
       <filename class='directory'>
         /usr/share/&vim-docdir;/spell/</filename>.</para>
 
-      <para>For å bruke disse stavefilene, trengs noen konfigurasjoner i
+      <para>For Ã¥ bruke disse stavefilene, trengs noen konfigurasjoner i
       <filename>/etc/vimrc</filename> , f.eks.:</para>
 
 <screen><literal>set spelllang=en,ru
@@ -285,7 +285,7 @@ set spell</literal></screen>
       <varlistentry id="vimtutor">
         <term><command>vimtutor</command></term>
         <listitem>
-          <para>Lærer de grunnleggende tastene og kommandoene til
+          <para>LÃ¦rer de grunnleggende tastene og kommandoene til
           <command>vim</command></para>
           <indexterm zone="ch-system-vim vimtutor">
             <primary sortas="b-vimtutor">vimtutor</primary>
@@ -297,7 +297,7 @@ set spell</literal></screen>
         <term><command>xxd</command></term>
         <listitem>
           <para>Oppretter en hex dump av den gitte filen; den kan
-          også gjøre det motsatte, slik at det kan brukes til binære
+          ogsÃ¥ gjÃ¸re det motsatte, slik at det kan brukes til binÃ¦re
           endringer</para>
           <indexterm zone="ch-system-vim xxd">
             <primary sortas="b-xxd">xxd</primary>

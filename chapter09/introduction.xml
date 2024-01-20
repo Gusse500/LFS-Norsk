@@ -10,28 +10,28 @@
 
   <title>Introduksjon</title>
 
-    <para>Oppstart av et Linux system innebærer flere oppgaver. Prosessen må
-    montere både virtuelle og ekte filsystemer, initialiser enheter, aktivere vekselfilen,
+    <para>Oppstart av et Linux system innebÃ¦rer flere oppgaver. Prosessen mÃ¥
+    montere bÃ¥de virtuelle og ekte filsystemer, initialiser enheter, aktivere vekselfilen,
     sjekke filsystemer for integritet, montere eventuelle byttepartisjoner eller filer, sette
-    systemklokken, få opp nettverk, start alle nisser (daemons) som kreves av
-    systemet, og utføre alle andre tilpassede oppgaver brukeren trenger. Disse
-    prosessene må organiseres for å sikre at oppgavene utføres på riktig måte
-    og utføres så raskt som mulig.</para>
+    systemklokken, fÃ¥ opp nettverk, start alle nisser (daemons) som kreves av
+    systemet, og utfÃ¸re alle andre tilpassede oppgaver brukeren trenger. Disse
+    prosessene mÃ¥ organiseres for Ã¥ sikre at oppgavene utfÃ¸res pÃ¥ riktig mÃ¥te
+    og utfÃ¸res sÃ¥ raskt som mulig.</para>
 
   <sect2 id='sysv-desc'>
     <title>System V</title>
 
     <para>System V er den klassiske oppstartsprosessen som har blitt brukt i Unix og
-    Unix lignende systemer som Linux siden ca 1983. Den består av et lite
+    Unix lignende systemer som Linux siden ca 1983. Den bestÃ¥r av et lite
     program, <command>init</command>, som setter opp grunnleggende programmer som f.eks
-    <command>login</command> (via getty) og kjører et skript. Dette skriptet,
-    vanligvis navngitt <command>rc</command>,  kontrollerer utførelsen av et sett med
-    ekstra skript som utfører oppgavene som kreves for å initialisere
+    <command>login</command> (via getty) og kjÃ¸rer et skript. Dette skriptet,
+    vanligvis navngitt <command>rc</command>,  kontrollerer utfÃ¸relsen av et sett med
+    ekstra skript som utfÃ¸rer oppgavene som kreves for Ã¥ initialisere
     systemet.</para>
 
     <para><command>init</command> programmet er kontrollert av
-    <filename>/etc/inittab</filename> filen og er organisert i kjørenivåer som
-    kan kjøres av brukeren. I LFS brukes de som følgende:</para>
+    <filename>/etc/inittab</filename> filen og er organisert i kjÃ¸renivÃ¥er som
+    kan kjÃ¸res av brukeren. I LFS brukes de som fÃ¸lgende:</para>
 
 <literallayout>0 &mdash; stopp
 1 &mdash; Enkeltbrukermodus
@@ -41,17 +41,17 @@
 5 &mdash; Full flerbrukermodus med skjermbehandler
 6 &mdash; omstart</literallayout>
 
-    <para>Vanlig standard kjørenivå er 3 eller 5.</para>
+    <para>Vanlig standard kjÃ¸renivÃ¥ er 3 eller 5.</para>
 
     <bridgehead renderas="sect3">Fordeler</bridgehead>
 
     <itemizedlist>
       <listitem>
-          <para>Etablert, godt forstått system.</para>
+          <para>Etablert, godt forstÃ¥tt system.</para>
       </listitem>
 
       <listitem>
-          <para>Enkelt å tilpasse.</para>
+          <para>Enkelt Ã¥ tilpasse.</para>
       </listitem>
 
     </itemizedlist>
@@ -61,11 +61,11 @@
 
     <itemizedlist>
       <listitem>
-          <para>Kan være tregere å starte opp. Et middels hastighetsbasert LFS system
-          tar 8-12 sekunder der oppstartstiden måles fra
-          første kjernemelding til login ledeteksten.
+          <para>Kan vÃ¦re tregere Ã¥ starte opp. Et middels hastighetsbasert LFS system
+          tar 8-12 sekunder der oppstartstiden mÃ¥les fra
+          fÃ¸rste kjernemelding til login ledeteksten.
           Nettverkstilkobling er vanligvis etablert ca. 2 sekunder
-          etter påloggingsforespørselen.</para>
+          etter pÃ¥loggingsforespÃ¸rselen.</para>
       </listitem>
 
       <listitem>
@@ -75,12 +75,12 @@
       </listitem>
 
       <listitem>
-          <para>Støtter ikke direkte avanserte funksjoner som
+          <para>StÃ¸tter ikke direkte avanserte funksjoner som
           kontrollgrupper (cgroups) og planlegging av rettferdig andel per bruker.</para>
       </listitem>
 
       <listitem>
-          <para>Å legge til skript krever manuelle, statiske sekvensbeslutninger.</para>
+          <para>Ã… legge til skript krever manuelle, statiske sekvensbeslutninger.</para>
       </listitem>
 
     </itemizedlist>

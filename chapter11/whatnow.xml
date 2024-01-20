@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+5651444444444444444444444<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -10,12 +10,12 @@
 
   <title>Tilleggsressurser</title>
 
-  <para>Takk for at du leste denne LFS boken. Vi håper at du
-  fant denne boken nyttig og har lært mer om systemets
+  <para>Takk for at du leste denne LFS boken. Vi hÃ¥per at du
+  fant denne boken nyttig og har lÃ¦rt mer om systemets
   opprettelsesprosess.</para>
 
-  <para>Nå som LFS systemet er installert, lurer du kanskje på
-  <quote>Hva nå?</quote> For å svare på det spørsmålet har vi satt sammen en
+  <para>NÃ¥ som LFS systemet er installert, lurer du kanskje pÃ¥
+  <quote>Hva nÃ¥?</quote> For Ã¥ svare pÃ¥ det spÃ¸rsmÃ¥let har vi satt sammen en
   liste over ressurser for deg.</para>
 
   <itemizedlist>
@@ -24,25 +24,25 @@
       <para>Vedlikehold</para>
 
       <para>Feil og sikkerhetsmeldinger rapporteres regelmessig for all programvare.
-      Siden et LFS system er kompilert fra kilden, er det opp til deg å holde det
+      Siden et LFS system er kompilert fra kilden, er det opp til deg Ã¥ holde det
       ajour med slike rapporter. Det er flere nettressurser som sporer
       slike rapporter, hvorav noen er vist nedenfor:</para>
 
       <itemizedlist>
 
         <listitem>
-          <para><ulink url="&lfs-root;lfs/advisories/">LFS sikkerhetsråd</ulink></para>
+          <para><ulink url="&lfs-root;lfs/advisories/">LFS sikkerhetsrÃ¥d</ulink></para>
 
-          <para>Dette er en liste over sikkerhetssårbarheter oppdaget i
+          <para>Dette er en liste over sikkerhetssÃ¥rbarheter oppdaget i
           LFS-bok etter at den er utgitt.</para>
         </listitem>
 
         <listitem>
           <para><ulink url="https://seclists.org/oss-sec/">E-postliste for sikkerhet 
-		  med åpen kildekode</ulink></para>
+		  med Ã¥pen kildekode</ulink></para>
 
           <para>Dette er en e-postliste for diskusjon av sikkerhetsfeil,
-          konsepter og praksiser i åpen kildekodefellesskapet.</para>
+          konsepter og praksiser i Ã¥pen kildekodefellesskapet.</para>
         </listitem>
 
       </itemizedlist>
@@ -53,7 +53,7 @@
 
       <para>Boken Beyond Linux From Scratch dekker installasjons
       prosedyrer for et bredt spekter av programvare utenfor omfanget av LFS
-      boken. BLFS prosjektet ligger på <ulink url="&blfs-book;"/>.
+      boken. BLFS prosjektet ligger pÃ¥ <ulink url="&blfs-book;"/>.
       </para>
     </listitem>
 -->
@@ -61,16 +61,16 @@
       <para>LFS Tips</para>
 
       <para>LFS tipsene er en samling pedagogiske dokumenter
-      sendt inn av frivillige i LFS miljøet. Hintene er tilgjengelige
-      på <ulink url="&hints-root;"/>.</para>
+      sendt inn av frivillige i LFS miljÃ¸et. Hintene er tilgjengelige
+      pÃ¥ <ulink url="&hints-root;"/>.</para>
     </listitem>
 
     <listitem>
       <para>E-postlister</para>
 
-      <para>Det er flere LFS E-postlister du kan abonnere på hvis du
-      har behov for hjelp, ønsker å holde deg oppdatert med den siste utviklingen,
-      ønsker å bidra til prosjektet, med mer. Se <xref
+      <para>Det er flere LFS E-postlister du kan abonnere pÃ¥ hvis du
+      har behov for hjelp, Ã¸nsker Ã¥ holde deg oppdatert med den siste utviklingen,
+      Ã¸nsker Ã¥ bidra til prosjektet, med mer. Se <xref
       linkend="ch-intro-maillists"/> for mer
       informasjon.</para>
     </listitem>
@@ -78,9 +78,9 @@
     <listitem>
       <para>Linux dokumentasjonsprosjektet</para>
 
-      <para>Målet med Linux dokumentasjonsprosjektet (TLDP) er å
+      <para>MÃ¥let med Linux dokumentasjonsprosjektet (TLDP) er Ã¥
       samarbeide om alle problemene med Linux dokumentasjon. TLDP funksjonene
-      en stor samling av HOWTOer, guider og mansider. Den ligger på
+      en stor samling av HOWTOer, guider og mansider. Den ligger pÃ¥
       <ulink url="https://tldp.org/"/>.</para>
     </listitem>
 

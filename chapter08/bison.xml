@@ -48,7 +48,7 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>For å teste resultatene (about 5.5 SBU), utsted:</para>
+    <para>For Ã¥ teste resultatene (about 5.5 SBU), utsted:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
@@ -81,7 +81,7 @@
       <varlistentry id="bison">
         <term><command>bison</command></term>
         <listitem>
-          <para>Genererer, fra en rekke regler, et program for å analysere
+          <para>Genererer, fra en rekke regler, et program for Ã¥ analysere
            struktur av tekstfiler; Bison er en erstatning for Yacc (Yet Another
           Compiler Compiler)</para>
           <indexterm zone="ch-system-bison bison">
