@@ -400,7 +400,7 @@
         <listitem>
           <para>Viser innholdet i $MANPATH eller (hvis $MANPATH ikke er angitt)
           en passende søkebane basert på innstillingene i man.conf og
-          brukerens miljø<para>
+          brukerens miljø</para>
           <indexterm zone="ch-system-man-db manpath">
             <primary sortas="b-manpath">manpath</primary>
           </indexterm>

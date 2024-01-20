@@ -98,7 +98,7 @@
     menyoppføringer. Filen ligger på <filename>/usr/share/info/dir</filename>.
     Dessverre, på grunn av sporadiske problemer i Makefiles for forskjellige pakker,
     kan det noen ganger gå ut av synkronisering med infosidene som er installert på systemet.
-    Hvis <filename>/usr/share/info/dir</filename> filen noen gang trenger � bli
+    Hvis <filename>/usr/share/info/dir</filename> filen noen gang trenger å bli
     gjenskapt, vil følgende valgfrie kommandoer utføre oppgaven:</para>
 
 <screen role="nodump"><userinput>pushd /usr/share/info

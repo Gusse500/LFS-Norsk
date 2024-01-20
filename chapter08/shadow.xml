@@ -462,7 +462,7 @@ useradd -D --gid 999</userinput></screen>
       <varlistentry id="login">
         <term><command>login</command></term>
         <listitem>
-          <para>Brukes av systemet for å la brukere logge påpara>
+          <para>Brukes av systemet for å la brukere logge på</para>
           <indexterm zone="ch-system-shadow login">
             <primary sortas="b-login">login</primary>
           </indexterm>
