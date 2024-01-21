@@ -41,6 +41,16 @@
     -->
     
     <listitem>
+      <para>21.01.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Fiks CVE-2024-0684 for coreutils-9.4.  Fikser
+          <ulink url="&lfs-ticket-root;5417">#5417</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>18.01.2024</para>
       <itemizedlist>
         <listitem>
