@@ -528,6 +528,8 @@
 <!ENTITY ncurses-home "&gnu-software;ncurses/">
 <!ENTITY ncurses-tmp-du "51 MB">
 <!ENTITY ncurses-tmp-sbu "0.3 SBU">
+<!ENTITY ncurses-fin-du "45 MB">
+<!ENTITY ncurses-fin-sbu "0.2 SBU">
 
 <!ENTITY ninja-version "1.11.1">
 <!ENTITY ninja-size "225 KB">
