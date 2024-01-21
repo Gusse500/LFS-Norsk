@@ -53,13 +53,13 @@
       uten denne oppdateringen.</para>
     </note>
 
-   <!-- https://bugs.gnu.org/62403 -->
-<!--
-    <para>Rett opp en feil i kontrollsumverktøyet som forårsaker at mislykkede tester ikke
-    rapporteres riktig:</para>
+   <!-- https://seclists.org/oss-sec/2024/q1/30 -->
+    <para>Rett opp en sikkerhetssårbarhet i <command>split</command>
+    verktøyet:</para>
 
-<screen><userinput remap="pre">sed '/if ( ! match/s/ed_checksums//' -i src/digest.c</userinput></screen>
--->
+<screen><userinput remap="pre">sed -e '/n_out += n_hold/,+4 s|.*bufsize.*|//&amp;|' \
+    -i src/split.c</userinput></screen>
+
     <para>Forbered nå Coreutils for kompilering:</para>
 
 <screen><userinput remap="configure">autoreconf -fiv

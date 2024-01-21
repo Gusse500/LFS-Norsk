@@ -45,9 +45,9 @@
     <title>Installasjon av Pkgconf</title>
 
     <!-- https://github.com/pkgconf/pkgconf/issues/317 -->
-    <para>Rett opp en regresjon i pkgconf-2.0.3 som bryter BLFS pakker:</para>
+    <para>Rett opp en regresjon i pkgconf-2.1.0 som bryter BLFS pakker:</para>
 
-    <screen><userinput remap="pre">sed -i 's/str\(cmp.*package\)/strn\1, strlen(pkg-&gt;why)/' cli/main.c</userinput></screen>
+    <screen><userinput remap="pre">patch -Np1 -i ../&pkgconf-upstream-fix-patch;</userinput></screen>
 
     <para>Forbered Pkgconf for kompilering:</para>
 
