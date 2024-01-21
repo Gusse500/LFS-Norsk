@@ -41,6 +41,18 @@
     -->
     
     <listitem>
+      <para>18.01.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Rediger en ncurses deklarasjoner for alltid å bruke
+          wide-character ABI kompatibel med libncursesw.so fordi vi
+          faker 8-biters libncurses.so med den.  Fikser
+          <ulink url="&lfs-ticket-root;5415">#5415</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>09.01.2024</para>
       <itemizedlist>
         <listitem>

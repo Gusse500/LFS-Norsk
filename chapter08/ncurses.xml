@@ -131,11 +131,16 @@
     .  Det kan krasje skallprosessen som bruker kode og data
     fra bibliotekfilen. Installer pakken med
     <literal>DESTDIR</literal>, og bytt ut bibliotekfilen riktig med
-    <command>install</command> kommandoen:</para>
+    <command>install</command> command (deklarasjonen
+    <filename>curses.h</filename> er også redigert for å sikre
+    ABI med wide-character skal brukes som det vi har gjort i
+    <xref linkend='ch-tools-ncurses'/>):</para>
 
 <screen><userinput remap="install">make DESTDIR=$PWD/dest install
 install -vm755 dest/usr/lib/libncursesw.so.&ncurses-version; /usr/lib
 rm -v  dest/usr/lib/libncursesw.so.&ncurses-version;
+sed -e 's/^#if.*XOPEN.*$/#if 1/' \
+    -i dest/usr/include/curses.h
 cp -av dest/* /</userinput></screen>
 
     <para>Mange applikasjoner forventer fortsatt at lenkeren skal kunne finne
