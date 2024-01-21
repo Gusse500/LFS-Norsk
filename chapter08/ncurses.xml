@@ -144,22 +144,22 @@ sed -e 's/^#if.*XOPEN.*$/#if 1/' \
 cp -av dest/* /</userinput></screen>
 
     <para>Mange applikasjoner forventer fortsatt at lenkeren skal kunne finne
-    Ncurses biblioteker med ikke-brede karakterer. Lur slike applikasjoner til å koble til
-    biblioteker med brede tegn ved hjelp av symbolkoblinger og lenkerskript:</para>
+    non-wide-character Ncurses biblioteker. Lure slike applikasjoner til å
+    koble til biblioteker med wide-character ved hjelp av symbolkoblinger
+    (merk at <filename class='extension'>.so</filename> lenker er
+    bare trygt med <filename>curses.h</filename> redigert for alltid å bruke
+    ABI med wide-character):</para>
 
 <screen><userinput remap="install">for lib in ncurses form panel menu ; do
-    rm -vf                    /usr/lib/lib${lib}.so
-    echo "INPUT(-l${lib}w)" &gt; /usr/lib/lib${lib}.so
-    ln -sfv ${lib}w.pc        /usr/lib/pkgconfig/${lib}.pc
+    ln -sfv lib${lib}w.so /usr/lib/lib${lib}.so
+    ln -sfv ${lib}w.pc    /usr/lib/pkgconfig/${lib}.pc
 done</userinput></screen>
 
     <para>Til slutt, sørg for at gamle programmer som ser etter
     <filename class="libraryfile">-lcurses</filename> ved byggetiden fortsatt er
     byggbare:</para>
 
-<screen><userinput remap="install">rm -vf                     /usr/lib/libcursesw.so
-echo "INPUT(-lncursesw)" &gt; /usr/lib/libcursesw.so
-ln -sfv libncurses.so      /usr/lib/libcurses.so</userinput></screen>
+<screen><userinput remap="install">ln -sfv libncursesw.so /usr/lib/libcurses.so</userinput></screen>
 
     <para>Hvis ønskelig, installer Ncurses dokumentasjonen:</para>
 
@@ -211,13 +211,17 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
            tset
         </seg>
         <seg>
-           libcursesw.so (symlenke og lenkerskript til libncursesw.so),
+           libcurses.so (symlenke),
+           libform.so (symlenke),
            libformw.so,
+		   libmenu.so (symlenke),
            libmenuw.so,
+		   libncurses.so (symlenke),
            libncursesw.so,
            libncurses++w.so,
-           libpanelw.so, og deres ikke-brede karaktermotstykker uten "w"
-              i biblioteknavnene.</seg>
+           libpanel.so (symlenke),
+           and libpanelw.so,
+        </seg>
         <seg>
            /usr/share/tabset,
            /usr/share/terminfo, og

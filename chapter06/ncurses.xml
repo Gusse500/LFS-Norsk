@@ -156,7 +156,7 @@ popd</userinput></screen>
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make DESTDIR=$LFS TIC_PATH=$(pwd)/build/progs/tic install
-echo "INPUT(-lncursesw)" > $LFS/usr/lib/libncurses.so
+ln -sv libncursesw.so $LFS/usr/lib/libncurses.so
 sed -e 's/^#if.*XOPEN.*$/#if 1/' \
     -i $LFS/usr/include/curses.h</userinput></screen>
 <!--
@@ -178,12 +178,11 @@ sed -e 's/^#if.*XOPEN.*$/#if 1/' \
       </varlistentry>
 
       <varlistentry>
-        <term><command>echo "INPUT(-lncursesw)" > $LFS/usr/lib/libncurses.so</command></term>
+        <term><command>ln -sv libncursesw.so $LFS/usr/lib/libncurses.so</command></term>
         <listitem>
           <para><filename>libncurses.so</filename> biblioteket trengs av
-          noen få pakker vi skal bygge snart. Vi lager dette lille linkskriptet
-          , da dette er det som gjøres i <xref
-          linkend="chapter-building-system"/>.</para>
+          noen få pakker vi skal bygge snart. Vi lager denne symbolkoblingen for å bruke
+          <filename>libncursesw.so</filename> som en erstatning.</para>
         </listitem>
       </varlistentry>
  
