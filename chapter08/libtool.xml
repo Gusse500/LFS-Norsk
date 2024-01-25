@@ -56,8 +56,9 @@
 
     <para>Fem tester er kjent for å mislykkes i LFS byggemiljøet pga
     en sirkulær avhengighet, men disse testene består hvis de sjekkes på nytt etter
-    at automake er installert.  I tillegg, med grep-3.8, vil to tester
-    utløse en advarsel for ikke-POSIX regulære uttrykk og mislykkes.</para>
+    at automake har blitt installert. I tillegg, med grep-3.8 eller nyere,
+    to tester vil utløse en advarsel for ikke-POSIX regulære uttrykk og
+    mislykkes.</para>
 
     <para>Installer pakken:</para>
 

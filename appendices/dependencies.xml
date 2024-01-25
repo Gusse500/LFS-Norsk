@@ -1047,7 +1047,7 @@
       <segmentedlist id="gettext-optdeps">
         <segtitle>&external;</segtitle>
         <seglistitem>
-          <seg>Ingen</seg>
+          <seg><ulink url='&blfs-book;general/libxml2.html'>libxml2</ulink></seg>
         </seglistitem>
       </segmentedlist>
 

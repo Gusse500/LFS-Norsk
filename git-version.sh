@@ -32,7 +32,7 @@ if ! git status > /dev/null; then
     exit 0
 fi
 
-export LC_ALL=nb.NO.utf8
+export LC_ALL=en_US.utf8
 export TZ=Europe/Oslo
 
 commit_date=$(git show -s --format=format:"%cd" --date=local)
