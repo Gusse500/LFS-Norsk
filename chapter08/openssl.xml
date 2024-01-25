@@ -163,7 +163,7 @@ make MANSUFFIX=ssl install</userinput></screen>
             er et kommandolinjeverktøy for bruk av de ulike kryptografifunksjonene
             til <application>OpenSSL</application> sitt kryptobibliotek fra
             skallet. Den kan brukes til ulike funksjoner som er dokumentert i
-            <filename>openssl(1)</filename>
+            <ulink role='man' url='&man;openssl.1'>openssl(1)</ulink>
           </para>
           <indexterm zone="ch-system-openssl openssl-prog">
             <primary sortas="b-openssl">openssl</primary>
@@ -194,8 +194,9 @@ make MANSUFFIX=ssl install</userinput></screen>
         <listitem>
           <para>
             implementerer protokollen Transport Layer Security (TLS v1).
-            Det gir en rik API, dokumentasjon
-            kan bli funnet i <filename>ssl(7)</filename>
+            Det gir en rik API, dokumentasjonen
+            kan bli funnet i <ulink role='man'
+            url='&man;ssl.7'>ssl(7)</ulink>
           </para>
           <indexterm zone="ch-system-openssl libssl">
             <primary sortas="c-libssl">libssl.so</primary>

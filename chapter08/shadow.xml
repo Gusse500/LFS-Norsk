@@ -203,8 +203,8 @@ make -C man install-man</userinput></screen>
     å sende enten <parameter>-g</parameter> eller <parameter>-N</parameter>
     parameter til <command>useradd</command>, eller endre innstillingen for
     <parameter>USERGROUPS_ENAB</parameter> i
-    <filename>/etc/login.defs</filename>. Se <filename>useradd(8)</filename>
-    for mer informasjon.</para>
+    <filename>/etc/login.defs</filename>. Se <ulink role='man'
+    url='&man;useradd.8'>useradd(8)</ulink> for mer informasjon.</para>
 
     <para>For det andre, for å endre standardparametrene, filen
     <filename>/etc/default/useradd</filename> må lages og skreddersys

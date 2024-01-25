@@ -32,8 +32,9 @@
     <para>SysVinit (som vil bli referert til som <quote>init</quote> fra nå av)
     fungerer ved å bruke en kjørenivåordning. Det er syv (nummerert 0 til 6) kjørenivåer
     (faktisk er det flere kjørenivåer, men de er for spesielle tilfeller og er
-    vanligvis ikke brukt. Se <filename>init(8)</filename> for flere detaljer), og
-    hver av disse tilsvarer handlingene datamaskinen skal utføre
+    vanligvis ikke brukt. Se <ulink role='man'
+    url='&man;init.8'>init(8)</ulink> for flere detaljer).
+    Hver av disse tilsvarer handlingene datamaskinen skal utføre
     når den starter opp. Standard kjørenivå er 3. Her er
     beskrivelser av de ulike kjørenivåene etter hvert som de implementeres i LFS:</para>
 
@@ -341,9 +342,10 @@ EOF</userinput></screen>
   url="https://tldp.org/HOWTO/HOWTO-INDEX/other-lang.html"/>. Hvis du fortsatt er i
   tvil, se i <filename class="directory">/usr/share/keymaps</filename>
   og <filename class="directory">/usr/share/consolefonts</filename> mappene
-  for gyldige tastaturer og skjermfonter. Les <filename>loadkeys(1)</filename> og
-  <filename>setfont(8)</filename> manualsider for å finne de riktige
-  argumenter for disse programmene.</para>
+  for gyldige tastaturer og skjermfonter. Les <ulink role='man'
+  url='&man;loadkeys.1'>loadkeys(1)</ulink> and <ulink role='man'
+  url='&man;setfont.8'>setfont(8)</ulink> manualsider for å finne de
+  riktige argumenter for disse programmene.</para>
 
   <para><filename>/etc/sysconfig/console</filename> filen skal inneholde linjer
   av formen: VARIABLE="verdi". Følgende variabler gjenkjennes:</para>

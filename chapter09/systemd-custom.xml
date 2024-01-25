@@ -21,8 +21,9 @@
     av alternativer for å kontrollere grunnleggende systemoperasjoner. Standardfilen har alle
     oppføringer kommentert med standardinnstillingene angitt. Denne filen er
     hvor loggnivået kan endres, samt noen grunnleggende logginnstillinger.
-    Se <filename>systemd-system.conf(5)</filename> manualside for detaljer
-    om hvert konfigurasjonsalternativ.</para>
+    See the <ulink role='man'
+    url='&man;systemd-system.conf.5'>systemd-system.conf(5)</ulink> manualside
+    for detaljer om hvert konfigurasjonsalternativ.</para>
 
   </sect2>
 
@@ -89,8 +90,8 @@ EOF</userinput></screen>
     <filename class="directory">/etc/tmpfiles.d</filename> overstyrer
     filer med samme navn i
     <filename class="directory">/usr/lib/tmpfiles.d</filename>. Se
-    <filename>tmpfiles.d(5)</filename> manualside for filformat
-    detaljer.</para>
+    <ulink role='man' url='&man;tmpfiles.d.5'>tmpfiles.d(5)</ulink> manualside
+    for filformat detaljer.</para>
 
     <para>
       Merk at syntaksen for
@@ -135,7 +136,8 @@ Restart=always
 RestartSec=30</literal>
 EOF</userinput></screen>
 
-     <para>Se <filename>systemd.unit(5)</filename> manualside for mer
+     <para>Se <ulink role='man'
+     url='&man;systemd.unit.5'>systemd.unit(5)</ulink> manualside for mer
      informasjon. Etter å ha opprettet konfigurasjonsfilen, kjør
      <userinput>systemctl daemon-reload</userinput> og <userinput>systemctl
      restart foobar</userinput> for å aktivere endringene i en tjeneste.</para>
@@ -251,10 +253,11 @@ cat &gt; /etc/systemd/coredump.conf.d/maxuse.conf &lt;&lt; EOF
 MaxUse=5G</literal>
 EOF</userinput></screen>
 
-    <para>Se <filename>systemd-coredump(8)</filename>,
-    <filename>coredumpctl(1)</filename>, og
-    <filename>coredump.conf.d(5)</filename> manualsidene for mer
-    informasjon.</para>
+    <para>Se <ulink role='man' url='&man;systemd-coredump.8'>systemd-coredump(8)</ulink>,
+    <ulink role='man' url='&man;coredumpctl.1'>coredumpctl(1)</ulink>, og
+    <ulink role='man'
+    url='&man;coredump.conf.d.5'>coredump.conf.d(5)</ulink> manualsidene for
+    mer informasjon.</para>
   </sect2>
 
   <sect2>
