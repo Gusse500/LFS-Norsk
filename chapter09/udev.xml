@@ -225,8 +225,9 @@
       <para>Merk at <quote>softdep</quote> kommandoen tillater også
       <literal>pre:</literal> avhengigheter, eller en blanding av begge
       <literal>(Før) pre:</literal> og <literal>(Etter) post:</literal> avhengigheter.  Se
-      <filename>modprobe.d(5)</filename> manualside for mer informasjon
-      om <quote>softdep</quote> syntaks og muligheter.</para>
+      <ulink role='man' url='&man;modprobe.d.5'>modprobe.d(5)</ulink>
+      manualside for mer informasjon om <quote>softdep</quote> syntaks og
+      muligheter.</para>
 
       <para revision="sysv">Hvis den aktuelle modulen ikke er en innpakning og er
       nyttig i seg selv, konfigurer <command>modules</command> oppstartsskriptet til

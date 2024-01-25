@@ -99,6 +99,7 @@ esac</userinput></screen>
   <para><quote><parameter>-</parameter></quote> instruerer
   <command>su</command> å starte et påloggingsskall i motsetning til et ikke-påloggingsskall.
   Forskjellen mellom disse to skjelltypene finner du i detalj i
-  <filename>bash(1)</filename> og <command>info bash</command>.</para>
+  <ulink role='man' url='&man;bash.1'>bash(1)</ulink> og <command>info
+  bash</command>.</para>
 
 </sect1>

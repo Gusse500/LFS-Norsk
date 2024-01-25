@@ -59,8 +59,9 @@ esac</userinput></screen>
       <para>
         Kommandoen ovenfor er riktig. <command>ln</command> kommandoen har
         flere syntaktiske versjoner, så sørg for å sjekke
-        <command>info coreutils ln</command> og <filename>ln(1)</filename>
-        før du rapporterer det som kan se ut til å være en feil.
+        <command>info coreutils ln</command> og <ulink role='man'
+        url='&man;ln.1'>ln(1)</ulink> før du rapporterer hva som kan se ut til å være
+        en feil.
       </para>
     </note>
 

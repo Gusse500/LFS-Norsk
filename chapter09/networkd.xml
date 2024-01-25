@@ -50,9 +50,11 @@
     <filename class="extension">.netdev</filename> og
     <filename class="extension">.network</filename> filene. For detaljert
     beskrivelser og eksempelinnhold i disse konfigurasjonsfilene, se
-    <filename>systemd-link(5)</filename>,
-    <filename>systemd-netdev(5)</filename> og
-    <filename>systemd-network(5)</filename> manualsider.</para>
+    <ulink role='man' url='&man;systemd-link.5'>systemd-link(5)</ulink>,
+    <ulink role='man' url='&man;systemd-netdev.5'>systemd-netdev(5)</ulink>,
+    og <ulink role='man'
+    url='&man;systemd-network.5'>systemd-network(5)</ulink> 
+    manualsider.</para>
 
     <sect3 id="systemd-network-devices">
       <title>Navngivning av nettverksenheter</title>
@@ -113,7 +115,7 @@ Name=ether0</literal>
 EOF</userinput></screen>
 
           <para>
-             Se <filename>systemd.link(5)</filename> for mer informasjon.
+             Se <ulink role='man' url='&man;systemd.link.5'>systemd.link(5)</ulink> for mer informasjon.
           </para>
         </listitem>
 
@@ -357,7 +359,9 @@ EOF</userinput></screen>
      <literal>localhost.localdomain</literal>, eller vertsnavnet (uten
      domene) fordi de håndteres av
      <systemitem class='library'>myhostname</systemitem> NSS modul, les
-     mansiden <filename>nss-myhostname(8)</filename> for detaljer.</para>
+     mansiden <ulink role='man'
+     url='&man;nss-myhostname.8'>nss-myhostname(8)</ulink> for
+     detaljer.</para>
 
      <para>::1 oppføringen er IPv6 motstykket til 127.0.0.1 og representerer
      IPv6 loopback grensesnittet.</para>

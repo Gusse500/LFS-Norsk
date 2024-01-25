@@ -40,7 +40,8 @@
   <filename class="devicefile">/dev/sda</filename> for den primære
   diskstasjonen. Lag en innebygd Linux partisjon og en
   <systemitem class="filesystem">swap</systemitem> partisjon, hvis nødvendig. Vennligst
-  referere til <filename>cfdisk(8)</filename> eller <filename>fdisk(8)</filename> hvis
+  referere til <ulink role='man' url='&man;cfdisk.8'>cfdisk(8)</ulink> eller
+  <ulink role='man' url='&man;fdisk.8'>fdisk(8)</ulink> hvis
   du ennå ikke vet hvordan du bruker programmene.</para>
 
   <note><para>For erfarne brukere er andre partisjoneringsordninger mulig.
