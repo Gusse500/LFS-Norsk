@@ -67,7 +67,7 @@
 
 <screen><computeroutput>ISO-8859-1</computeroutput></screen>
 
-  <para>Dette resulterer i en endelig lokaleinnstilling for <literal>en_GB.ISO-8859-1</literal.
+  <para>Dette resulterer i en endelig lokaleinnstilling for <literal>en_GB.ISO-8859-1</literal>.
   Det er viktig at lokaliteten funnet ved hjelp av heuristikken ovenfor testes på forhånd
   før det legges til Bash oppstartsfilene:</para>
 
