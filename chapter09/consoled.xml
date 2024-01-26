@@ -30,7 +30,7 @@
   mappen for gyldige skjermfonter.</para>
 
   <para><filename>/etc/vconsole.conf</filename> filen skal inneholde linjer
-  av formen: VARIABLE="verdi". Følgende variabler gjenkjennes:</para>
+  av formen: <envar>VARIABLE=value</envar>. Følgende variabler gjenkjennes:</para>
 
   <variablelist>
 

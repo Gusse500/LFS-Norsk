@@ -106,8 +106,9 @@ make html</userinput></screen>
     <caution><para>Koden i gmp er svært optimalisert for prosessoren hvor
     den er bygget. Noen ganger vil koden som oppdager prosessoren feilidentifisere
     systemets evner og det vil være feil i testene eller andre
-    applikasjoner som bruker gmp bibliotekene med meldingen "Illegal
-    instruction". I dette tilfellet bør gmp rekonfigureres med alternativet
+    applikasjoner som bruker gmp bibliotekene med meldingen
+    <computeroutput>Illegal instruction</computeroutput>.
+    I dette tilfellet bør gmp rekonfigureres med alternativet
     <option>--host=none-linux-gnu</option> og gjenoppbygges.</para></caution>
 
     <!-- Some tests PASS on a specific uarch but SKIP on other CPUs.

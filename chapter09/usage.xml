@@ -48,11 +48,11 @@
 
     <note>
        <para>
-          Klassisk ble kjørenivå 2 ovenfor definert som
-          "flerbrukermodus uten nettverk", men dette var bare tilfelle for
-          mange år siden da flere brukere kunne logge på et system koblet via
-          serielle porter. I dagens miljø gir det ingen mening og
-          vi betegner det nå som "reservert".
+         Klassisk ble kjørenivå 2 ovenfor definert som <quote>flerbrukermodus
+         uten nettverk</quote>, men dette var bare tilfelle for
+         mange år siden da flere brukere kunne logge på et system koblet via
+         serielle porter. I dagens miljø gir det ingen mening og
+         vi betegner det nå som <quote>reserved</quote>.
        </para>
     </note>
 
@@ -348,7 +348,7 @@ EOF</userinput></screen>
   riktige argumenter for disse programmene.</para>
 
   <para><filename>/etc/sysconfig/console</filename> filen skal inneholde linjer
-  av formen: VARIABLE="verdi". Følgende variabler gjenkjennes:</para>
+  av formen: <envar>VARIABLE=verdi</envar>. Følgende variabler gjenkjennes:</para>
   <variablelist>
 
     <varlistentry>
@@ -356,7 +356,7 @@ EOF</userinput></screen>
       <listitem>
         <para>Denne variabelen spesifiserer loggnivået for kjernemeldinger som sendes
         til konsollen som angitt av <command>dmesg -n</command>. Gyldige nivåer er
-        fra "1" (ingen meldinger) til "8". Standardnivået er "7".</para>
+        fra <literal>1</literal> (ingen beskjeder) til <literal>8</literal>. Standardnivået er <literal>7</literal>, som er ganske detaljert.</para>
       </listitem>
     </varlistentry>
 
@@ -365,7 +365,7 @@ EOF</userinput></screen>
       <listitem>
         <para>Denne variabelen spesifiserer argumentene for
         <command>loadkeys</command> programmet, vanligvis navnet på tastaturet
-        å laste, f.eks., <quote>it</quote>. Hvis denne variabelen ikke er satt, vil
+        å laste, f.eks., <literal>it</literal>. Hvis denne variabelen ikke er satt, vil
         oppstartsskriptet ikke kjøre <command>loadkeys</command> programmet,
         og standard kjernetastatur vil bli brukt. Merk at noen få tastaturer
         har flere versjoner med samme navn (cz og dens varianter i
@@ -384,7 +384,7 @@ EOF</userinput></screen>
         <command>loadkeys</command> programmet. Dette er nyttig hvis keymap
         ikke helt er tilfredsstillende og en liten justering må gjøres. f.eks.
         å inkludere eurotegnet i et tastatur som vanligvis ikke har det,
-        sett denne variabelen til <quote>euro2</quote>.</para>
+        sett denne variabelen til <literal>euro2</literal>.</para>
       </listitem>
     </varlistentry>
 
@@ -393,12 +393,12 @@ EOF</userinput></screen>
       <listitem>
         <para>Denne variabelen spesifiserer argumentene for
         <command>setfont</command> programmet. Vanligvis inkluderer dette
-        fontnavnet, <quote>-m</quote>, og navnet på programtegnkartet
+        fontnavnet, <literal>-m</literal>, og navnet på programtegnkartet
         som skal lastes. For eksempel for å laste inn <quote>lat1-16</quote> fonten
         sammen med <quote>8859-1</quote> applikasjonskartet
         (som er det passende i USA),
         <!-- because of the copyright sign -->
-        sett denne variabelen til <quote>lat1-16 -m 8859-1</quote>.
+        sett denne variabelen til <literal>lat1-16 -m 8859-1</literal>.
         I UTF-8 modus bruker kjernen applikasjonens tegnkart for
         konvertering av sammensatte 8-bits nøkkelkoder i keymap til UTF-8, og dermed
         argumentet til parameteren "-m" bør settes til kodingen av
@@ -410,8 +410,8 @@ EOF</userinput></screen>
     <varlistentry>
       <term>UNICODE</term>
       <listitem>
-        <para>Sett denne variabelen til <quote>1</quote>, <quote>yes</quote>, eller
-        <quote>true</quote> for å sette
+        <para>Sett denne variabelen til <literal>1</literal>, <literal>yes</literal>, eller
+        <literal>true</literal> for å sette
         konsollen til UTF-8 modus. Dette er nyttig i UTF-8 baserte lokaliteter og
         skadelig ellers.</para>
       </listitem>

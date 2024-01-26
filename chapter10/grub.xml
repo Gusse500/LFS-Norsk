@@ -120,17 +120,6 @@ xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso</userinput></
       kommandoen ovenfor.</para>
     </note>
 
-<!-- This does not seem to be true any more
-    <note><para><application>grub-install</application> er et skript og kaller et annet
-    program, grub-probe, som kan mislykkes med en melding "cannot stat `/dev/root'".
-    I så fall oppretter du en midlertidig symbolsk lenke fra rotpartisjonen din til /dev/root:</para>
-
-<screen role="nodump"><userinput>ln -sv /dev/sda2 /dev/root</userinput></screen>
-
-    <para>Den symbolske lenken vil bare være tilstede til systemet startes på nytt.
-    Koblingen er kun nødvendig for installasjonsprosedyren.
-    </para></note>
--->
   </sect2>
 
   <sect2 id="grub-cfg">
