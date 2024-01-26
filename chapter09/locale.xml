@@ -39,11 +39,11 @@
   </itemizedlist>
 
   <para>Erstatt <replaceable>&lt;ll&gt;</replaceable> nedenfor med koden på to bokstaver
-   for ønsket språk (f.eks., <quote>en</quote>) og
+   for ønsket språk (f.eks., <literal>en</literal>) og
   <replaceable>&lt;CC&gt;</replaceable> med tobokstavskoden for det aktuelle
-   land (f.eks., <quote>GB</quote>). <replaceable>&lt;charmap&gt;</replaceable> bør
+   land (f.eks., <literal>GB</literal>). <replaceable>&lt;charmap&gt;</replaceable> bør
    erstattes med den kanoniske tegntabellen for din valgte lokalitet. Valgfri
-   modifikatorer som f.eks <quote>@euro</quote> kan også være tilstede.</para>
+   modifikatorer som f.eks <literal>@euro</literal> kan også være tilstede.</para>
 
   <para>Listen over alle lokaliteter som støttes av Glibc kan fås ved å kjøre
    følgende kommando:</para>
@@ -53,8 +53,8 @@
   <para>Tegntabellene kan ha en rekke aliaser, f.eks., <quote>ISO-8859-1</quote>
   er også referert til som <quote>iso8859-1</quote> og <quote>iso88591</quote>.
   Noen applikasjoner kan ikke håndtere de forskjellige synonymene riktig (f.eks. krever
-   <quote>UTF-8</quote> er skrevet som <quote>UTF-8</quote>, ikke
-  <quote>utf8</quote>), så det er det sikreste i de fleste
+   <quote>UTF-8</quote> er skrevet som <literal>UTF-8,</literal>, ikke
+  <literal>utf8</literal>), så det er det sikreste i de fleste
    tilfeller å velge det kanoniske navnet for en bestemt lokalitet. å bestemme
    det kanoniske navnet, kjør følgende kommando, hvor <replaceable>&lt;locale
   name&gt;</replaceable> er utdataen gitt av <command>locale -a</command> til
@@ -67,7 +67,7 @@
 
 <screen><computeroutput>ISO-8859-1</computeroutput></screen>
 
-  <para>Dette resulterer i en endelig lokaleinnstilling for <quote>en_GB.ISO-8859-1</quote>.
+  <para>Dette resulterer i en endelig lokaleinnstilling for <literal>en_GB.ISO-8859-1</literal>.
   Det er viktig at lokaliteten funnet ved hjelp av heuristikken ovenfor testes på forhånd
   før det legges til Bash oppstartsfilene:</para>
 
@@ -89,22 +89,6 @@ LC_ALL=&lt;locale name&gt; locale int_prefix</userinput></screen>
   <command>localedef</command> kommando, eller vurder å velge en annen lokalitet.
    Ytterligere instruksjoner forutsetter at det ikke er slike feilmeldinger fra
    Glibc.</para>
-
-  <!-- FIXME: the xlib example will become obsolete in the future.-->
-  <para>Noen pakker utover LFS kan også mangle støtte for din valgte lokalitet. Et
-   eksempel er X-biblioteket (en del av X Window System), som sender ut
-   følgende feilmelding hvis lokaliteten ikke samsvarer nøyaktig med et av tegnkart
-   navn i interne filer:</para>
-
-<screen><computeroutput>Warning: locale not supported by Xlib, locale set to C</computeroutput></screen>
-
-  <para>I flere tilfeller forventer Xlib at karakterkartet vil bli oppført i
-   store bokstaver med kanoniske bindestreker. For eksempel "ISO-8859-1" heller
-   enn "iso88591". Det er også mulig å finne en passende spesifikasjon ved
-   å fjerne tegnkart delen av lokalitetsspesifikasjonen. Dette kan sjekkes
-   ved å kjøre <command>locale charmap</command> kommandoen i begge lokaliteter.
-  For eksempel måtte man endre "de_DE.ISO-8859-15@euro" til
-  "de_DE@euro" for å få denne lokaliteten gjenkjent av Xlib.</para>
 
   <para>Andre pakker kan også fungere feil (men kanskje ikke nødvendigvis
    vise eventuelle feilmeldinger) hvis lokalenavnet ikke oppfyller deres forventninger.

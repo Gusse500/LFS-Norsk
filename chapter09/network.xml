@@ -62,9 +62,9 @@ EOF</userinput></screen>
     <para>Verdiene i kursiv må endres i hver fil for å samsvare
     med riktig oppsett.</para>
 
-    <para>Hvis <envar>ONBOOT</envar> variabelen er satt til <quote>yes</quote>
+    <para>Hvis <envar>ONBOOT</envar> variabelen er satt til <literal>yes</literal>
     System V nettverksskript vil hente opp nettverksgrensesnittkortet (NIC) under
-    systemets oppstartsprosess. Hvis satt til noe annet enn <quote>yes</quote> NIC
+    systemets oppstartsprosess. Hvis satt til noe annet enn <literal>yes</literal> NIC
     vil bli ignorert av nettverksskriptet og ikke automatisk hentet frem.
     Grensesnittet kan startes eller stoppes manuelt med
     <command>ifup</command> og <command>ifdown</command> kommandoene.</para>

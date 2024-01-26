@@ -92,7 +92,7 @@
 <screen><userinput remap="test">make test</userinput></screen>
 
     <para>Hvis en test mislykkes med meldingen
-    <quote><computeroutput>The system has no more ptys.  Ask your system
+    <quote><computeroutput>The system has no more ptys. Ask your system
     administrator to create more</computeroutput></quote>, indikerer det
     at du ikke har montert
     <systemitem class="filesystem">devpts</systemitem> filsystemet

@@ -129,13 +129,13 @@
       programmet og er vanligvis relatert til de bussspesifikke identifikatorene til enheter
       støttet av en modul. For eksempel <emphasis>snd-fm801</emphasis>
       driveren støtter PCI-enheter med leverandør-ID 0x1319 og enhets-ID 0x0801,
-      og har et alias <quote>pci:v00001319d00000801sv*sd*bc04sc01i*</quote>.
+      og har et alias <literal>pci:v00001319d00000801sv*sd*bc04sc01i*</literal>.
       For de fleste enheter eksporterer bussdriveren aliaset til driveren som
       vil håndtere enheten via <systemitem
       class="filesystem">sysfs</systemitem>. F.eks,
       <filename>/sys/bus/pci/devices/0000:00:0d.0/modalias</filename> filen
       kan inneholde strengen
-      <quote>pci:v00001319d00000801sv00001319sd00001319bc04sc01i00</quote>.
+      <literal>pci:v00001319d00000801sv00001319sd00001319bc04sc01i00</literal>.
       Standardreglene som følger med udev vil gjøre at <command>udevd</command>
       kaller <command>/sbin/modprobe</command> med innholdet i
       <envar>MODALIAS</envar> uevent miljøvariabel (som skal være

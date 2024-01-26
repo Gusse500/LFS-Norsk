@@ -159,8 +159,8 @@ cd       build</userinput></screen>
     Gettext pakken som vertsdistribusjonen skal gi.</para>
 
     <note><para>Det har vært rapporter om at denne pakken kan mislykkes når
-    den bygges som en "parallell make". Hvis dette skjer, kjør make kommandoen på nytt
-    med et "-j1" alternativ.</para></note>
+    den bygges som en <quote>parallel make</quote>. Hvis dette skjer, kjør make kommandoen på nytt
+    med et <option>-j1</option> alternativ.</para></note>
 
     <para>Kompiler pakken:</para>
 
