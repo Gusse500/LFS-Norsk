@@ -5,18 +5,25 @@
   %general-entities;
 ]>
 
-<sect1 id="ch-config-locale" revision="systemd">
+<sect1 id="ch-config-locale">
   <?dbhtml filename="locale.html"?>
 
   <title>Konfigurere systemlokaliteten</title>
 
   <indexterm zone="ch-config-locale">
-    <primary sortas="e-etc-locale-conf">/etc/locale.conf</primary>
+    <primary sortas="e-/etc/profile">/etc/profile</primary>
   </indexterm>
 
-  <para><filename>/etc/locale.conf</filename> filen nedenfor setter noen
-  miljøvariabler som er nødvendige for morsmålsstøtte. Å sette
-  dem ordentlig resulterer i:</para>
+  <indexterm zone="ch-config-locale" revision='systemd'>
+    <primary sortas="e-/etc/profile">/etc/locale.conf</primary>
+  </indexterm>
+
+  <para revision='systemd'><filename>/etc/locale.conf</filename> filen
+  nedenfor angir noen miljøvariabler som er nødvendige for morsmål
+  støtte. Å sette dem riktig resulterer i:</para>
+
+  <para>Some environment variables are necessary for native language
+  support. Setting them properly results in:</para>
 
   <itemizedlist>
     <listitem>
@@ -97,30 +104,103 @@ LC_ALL=&lt;locale name&gt; locale int_prefix</userinput></screen>
   I disse tilfellene, undersøke hvordan andre Linux distribusjoner støtter lokaliteten din
   kan gi noe nyttig informasjon.</para>
 
-  <para>Når de riktige lokale innstillingene er bestemt, oppretter du
-  <filename>/etc/locale.conf</filename> filen:</para>
+  <para revision='systemd'>Når de riktige lokale innstillingene er
+  bestemt, opprett <filename>/etc/locale.conf</filename> filen:</para>
 
-<screen><userinput>cat &gt; /etc/locale.conf &lt;&lt; "EOF"
+<screen revision='systemd'><userinput>cat &gt; /etc/locale.conf &lt;&lt; "EOF"
 <literal>LANG=<replaceable>&lt;ll&gt;_&lt;CC&gt;.&lt;charmap&gt;&lt;@modifiers&gt;</replaceable></literal>
 EOF</userinput></screen>
 
-  <para>Merk at du kan endre <filename>/etc/locale.conf</filename> med
+  <para>Skallprogrammet <command>/bin/bash</command> (her etter referert
+  som <quote>skallet</quote>) bruker en samling oppstartsfiler for å hjelpe
+  med å lage miljøet å kjøre i. Hver fil har en bestemt bruk og kan
+  påvirke pålogging og interaktive miljøer ulikt. Filene i
+  <filename class="directory">/etc</filename> mappen gir globale
+  innstillinger. Hvis tilsvarende filer finnes i hjemmemappen,
+  kan de overstyre de globale innstillingene.</para>
+
+  <para>Et interaktivt påloggingsskall startes etter en vellykket pålogging,
+  ved hjelp av <command>/bin/login</command>, ved å lese
+  <filename>/etc/passwd</filename> filen.  Et interaktivt ikke-påloggingsskall er
+  startet på kommandolinjen (f.eks.
+  <prompt>[prompt]$</prompt><command>/bin/bash</command>).  Et
+  ikke-interaktivt skall er vanligvis tilstede når et skallskript kjører.
+  Det er ikke-interaktivt fordi det behandler et skript og ikke venter
+  for brukerinndata mellom kommandoer.</para>
+
+  <para><phrase revision='systemd'>Påloggingsskallene er ofte upåvirket av
+  innstillingene i <filename>/etc/locale.conf</filename>. </phrase>Opprett
+  <filename>/etc/profile</filename>
+  <phrase revision='sysv'>når de riktige lokale innstillingene har blitt
+  bestemt for å angi ønsket lokalitet</phrase><phrase
+  revision='systemd'>for å lese lokalinnstillinger fra
+  <filename>/etc/locale.conf</filename> og eksporter dem</phrase>,
+  men still inn <literal>C</literal> lokalitet i stedet hvis den kjøres i en Linux
+  konsoll (for å hindre programmer fra å skrive ut tegn som Linux
+  konsollen ikke kan gjengi):</para>
+
+<screen revision="systemd"><userinput>cat &gt; /etc/profile &lt;&lt; "EOF"
+<literal># Begin /etc/profile
+
+for i in $(locale); do
+  unset ${i%=*}
+done
+
+if [[ "$TERM" = linux ]]; then
+  export LANG=C
+else
+  source /etc/locale.conf
+
+  for i in $(locale); do
+    key=${i%=*}
+    if [[ -v $key ]]; then
+      export $key
+    fi
+  done
+fi
+
+# End /etc/profile</literal>
+EOF</userinput></screen>
+
+<screen revision="sysv"><userinput>cat &gt; /etc/profile &lt;&lt; "EOF"
+<literal># Begin /etc/profile
+
+for i in $(locale); do
+  unset ${i%=*}
+done
+
+if [[ "$TERM" = linux ]]; then
+  for i in $(locale); do
+    unset ${i%=*}
+  done
+
+  export LANG=C
+else
+  export LANG=<replaceable>&lt;ll&gt;_&lt;CC&gt;.&lt;charmap&gt;&lt;@modifiers&gt;</replaceable>
+fi
+
+# End /etc/profile</literal>
+EOF</userinput></screen>
+
+  <para revision='systemd'>Merk at du kan endre <filename>/etc/locale.conf</filename> med
   systemd <command>localectl</command> verktøyet. For å bruke
   <command>localectl</command> for eksempelet ovenfor, kjør:</para>
 
-<screen role="nodump"><userinput>localectl set-locale LANG="<replaceable>&lt;ll&gt;_&lt;CC&gt;.&lt;charmap&gt;&lt;@modifiers&gt;</replaceable>"</userinput></screen>
+<screen revision='systemd' role="nodump"><userinput>localectl set-locale LANG="<replaceable>&lt;ll&gt;_&lt;CC&gt;.&lt;charmap&gt;&lt;@modifiers&gt;</replaceable>"</userinput></screen>
 
-  <para>Du kan også spesifisere andre språkspesifikke miljøvariabler som f.eks
-  som <envar>LANG</envar>, <envar>LC_CTYPE</envar>, <envar>LC_NUMERIC</envar> eller
-  enhver annen miljøvariabel fra <command>locale</command> utdata. Bare
-  skille dem med et mellomrom. Et eksempel hvor <envar>LANG</envar> er satt som
-  en_US.UTF-8 men <envar>LC_CTYPE</envar> er satt som en_US er:</para>
+  <para revision='systemd'>Du kan også spesifisere andre språkspesifikke
+  miljøvariabler som f.eks <envar>LANG</envar>,
+  <envar>LC_CTYPE</envar>, <envar>LC_NUMERIC</envar> eller noe annen
+  miljøvariabel fra <command>locale</command> utdataen. Bare skill
+  dem med et mellomrom. Et eksempel hvor <envar>LANG</envar> er satt som
+  en_US.UTF-8 men <envar>LC_CTYPE</envar> er satt som bare en_US er:</para>
 
-<screen role="nodump"><userinput>localectl set-locale LANG="en_US.UTF-8" LC_CTYPE="en_US"</userinput></screen>
+<screen revision='systemd' role="nodump"><userinput>localectl set-locale LANG="en_US.UTF-8" LC_CTYPE="en_US"</userinput></screen>
 
-  <note><para>Vær oppmerksom på at <command>localectl</command> kommandoen
-  fungerer ikke i chroot miljøet. Det kan bare
-  brukes etter at LFS systemet er startet opp med systemd.</para></note>
+  <note revision='systemd'><para>Vennligst merk at
+  <command>localectl</command> kommandoen fungerer ikke i chroot
+  miljøet. Den kan bare brukes etter at LFS systemet er startet opp med
+  systemd.</para></note>
 
   <para><literal>C</literal> (standard) og <literal>en_US</literal>
   (den anbefalte for engelske brukere i USA) er
@@ -133,11 +213,5 @@ EOF</userinput></screen>
   <computeroutput>unknown 8-bit</computeroutput>). Det foreslås at du
   bruker <literal>C</literal> lokalitet kun
   hvis du er sikker på at du aldri vil trenge 8-bits tegn.</para>
-
-<!--
-  <para>UTF-8 baserte lokaliteter støttes ikke godt av mange programmer.
-   Det pågår arbeid med å dokumentere og om mulig fikse slike problemer, se
-  <ulink url="&blfs-book;introduction/locale-issues.html"/>.</para>
--->
 
 </sect1>
