@@ -526,7 +526,7 @@ EOF</userinput></screen>
       språk, fordi aksenter legges til ASCII uten aksent
       tegn, eller to ASCII-tegn er satt sammen. Imidlertid, i
       UTF-8-modus er det et problem; f.eks. for det greske språket, hvor man
-      noen ganger trenger å sette en aksent på bokstaven <quote>alpha</quote>.
+      noen ganger trenger å sette en aksent på bokstaven α.
       Løsningen er enten å unngå bruk av UTF-8, eller å installere
       X-vindussystemet som ikke har denne begrensningen i inndata
       håndtering.</para>

@@ -74,7 +74,6 @@
 
     <l:gentext key="description" text="descripción"/>
     <l:gentext key="Bootscripts" text="Guiones de arranque"/>
-    <l:gentext key="Libraries" text="Librer&#237;as"/>
     <l:gentext key="Configuration Files" text="Ficheros de configuración"/>
     <l:gentext key="Kernel Configuration" text="Configuración del núcleo"/>
     <l:gentext key="Libraries" text="Librerías"/>
@@ -100,8 +99,8 @@
     <l:gentext key="Scripts" text="Skripte"/>
 
   </l:l10n>
-  
-  <!-- Norsk -->
+
+  <!-- Norwegian Bokmål -->
   <l:l10n xmlns:l="http://docbook.sourceforge.net/xmlns/l10n/1.0"
           language="nb" english-language-name="Norwegian Bokmål">
 

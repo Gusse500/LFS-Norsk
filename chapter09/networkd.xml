@@ -91,7 +91,8 @@
       <itemizedlist>
         <listitem>
           <para>
-            Masker udev .link filen for standardregler:
+            Masker udev <filename class='extension'>.link</filename> filen 
+			for standardregler:
 <screen role="nodump"><userinput>ln -s /dev/null /etc/systemd/network/99-default.link</userinput></screen>
           </para>
         </listitem>
@@ -101,9 +102,9 @@
             Lag et manuelt navneskjema, for eksempel ved å gi navn til
             grensesnitt med noe som <literal>internet0</literal>,
             <literal>dmz0</literal>, eller <literal>lan0</literal>.
-            For å gjøre det, lag .link filer i /etc/systemd/network/ som
-            velger et eksplisitt navn eller et bedre navneskjema for ditt
-            nettverksgrensesnitt. For eksempel:
+            For å gjøre det, lag <filename class='extension'>.link</filename>
+            filer i /etc/systemd/network/ som velger et eksplisitt navn eller et
+            bedre navneskjema for nettverksgrensesnittene dine. For eksempel:
           </para>
 
 <screen role="nodump"><userinput>cat &gt; /etc/systemd/network/10-ether0.link &lt;&lt; "EOF"

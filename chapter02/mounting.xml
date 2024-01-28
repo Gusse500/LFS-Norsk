@@ -16,7 +16,7 @@
   <envar>LFS</envar> miljøvariabel beskrevet i forrige avsnitt.
   </para>
   
-  <para>Strengt tatt kan man ikke "montere en partisjon". Man monterer <emphasis>filsystemet
+  <para>Strengt tatt kan man ikke <quote>montere en partisjon</quote>. Man monterer <emphasis>filsystemet
   </emphasis> innebygd i den partisjonen. Men siden en enkelt partisjon ikke kan inneholde
   mer enn ett filsystem, folk snakker ofte om partisjonen og
   tilhørende filsystem som om de var ett og samme.</para>

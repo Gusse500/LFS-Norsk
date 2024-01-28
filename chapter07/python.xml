@@ -45,7 +45,7 @@
 
     <note>
       <para>Det er to pakkefiler som navnet begynner med
-      <quote>python</quote>. Den å pakke ut er
+      <quote>python</quote> prefiks . Den å pakke ut er
       <filename>Python-&python-version;.tar.xz</filename> (legg merke til
       stor bokstav først).</para>
     </note>
@@ -84,8 +84,8 @@
       <para>
         Noen Python 3 moduler kan ikke bygges nå på grunn av at avhengighetene
         ikke er installert ennå. For <filename>ssl</filename> modulen,
-        en melding <quote><computeroutput>Python requires a OpenSSL 1.1.1 or
-        newer</computeroutput></quote> sendes ut.
+        en melding <computeroutput>Python requires a OpenSSL 1.1.1 or
+        newer</computeroutput> sendes ut.
         Meldingen bør ignoreres. Bare sørg for toppnivåets
         <command>make</command> kommando ikke har feilet. De valgfrie
         modulene er ikke nødvendig nå, og de vil bli bygget i
