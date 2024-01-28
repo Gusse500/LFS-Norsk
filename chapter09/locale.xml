@@ -15,8 +15,8 @@
   </indexterm>
 
   <para><filename>/etc/locale.conf</filename> filen nedenfor setter noen
-   miljøvariabler som er nødvendige for morsmålsstøtte. Å sette
-   dem ordentlig resulterer i:</para>
+  miljøvariabler som er nødvendige for morsmålsstøtte. Å sette
+  dem ordentlig resulterer i:</para>
 
   <itemizedlist>
     <listitem>
@@ -24,8 +24,8 @@
     </listitem>
     <listitem>
       <para>Riktig klassifisering av tegn i bokstaver, sifre og andre
-       klasser. Dette er nødvendig for <command>bash</command> å akseptere ordentlig
-       ikke-ASCII-tegn i kommandolinjer i ikke-engelske språk</para>
+      klasser. Dette er nødvendig for <command>bash</command> å akseptere ordentlig
+      ikke-ASCII-tegn i kommandolinjer i ikke-engelske språk</para>
     </listitem>
     <listitem>
       <para>Riktig alfabetisk sorteringsrekkefølge for landet</para>
@@ -50,19 +50,21 @@
 
 <screen role="nodump"><userinput>locale -a</userinput></screen>
 
-  <para>Tegntabellene kan ha en rekke aliaser, f.eks., <quote>ISO-8859-1</quote>
-  er også referert til som <quote>iso8859-1</quote> og <quote>iso88591</quote>.
+  <para><para>Tegntabellene kan ha en rekke aliaser, f.eks.,
+  <literal>ISO-8859-1</literal> er også referert til som
+  <literal>iso8859-1</literal> og <literal>iso88591</literal>.
   Noen applikasjoner kan ikke håndtere de forskjellige synonymene riktig (f.eks. krever
-   <quote>UTF-8</quote> er skrevet som <literal>UTF-8,</literal>, ikke
+  at <literal>UTF-8</literal> er skrevet som <literal>UTF-8</literal>, ikke
   <literal>utf8</literal>), så det er det sikreste i de fleste
-   tilfeller å velge det kanoniske navnet for en bestemt lokalitet. å bestemme
-   det kanoniske navnet, kjør følgende kommando, hvor <replaceable>&lt;locale
+  tilfeller å velge det kanoniske navnet for en bestemt lokalitet. å bestemme
+  det kanoniske navnet, kjør følgende kommando, hvor <replaceable>&lt;locale
   name&gt;</replaceable> er utdataen gitt av <command>locale -a</command> til
-   din foretrukne lokalitet (<quote>en_GB.iso88591</quote> i vært eksempel).</para>
+  din foretrukne lokalitet (<literal>en_GB.iso88591</literal> i vært
+  eksempel).</para>
 
 <screen role="nodump"><userinput>LC_ALL=<replaceable>&lt;locale name&gt;</replaceable> locale charmap</userinput></screen>
 
-  <para>For <quote>en_GB.iso88591</quote> lokalitet, kommandoen over
+  <para>For <literal>en_GB.iso88591</literal> lokalitet, kommandoen over
    vil skrive ut:</para>
 
 <screen><computeroutput>ISO-8859-1</computeroutput></screen>
@@ -77,23 +79,23 @@ LC_ALL=&lt;locale name&gt; locale int_curr_symbol
 LC_ALL=&lt;locale name&gt; locale int_prefix</userinput></screen>
 
   <para>Kommandoene ovenfor skal skrive ut språknavnet, tegnkodingen
-   som brukes av lokaliteten, den lokale valutaen og prefikset for å ringe
-   før telefonnummeret for å komme inn i landet. Hvis noen av
-   kommandoene ovenfor mislykkes med en melding som ligner på den som vises nedenfor, betyr dette
-   at lokaliteten din enten ikke ble installert i kapittel&nbsp;8 eller at det ikke
-   støttes av standardinstallasjonen av Glibc.</para>
+  som brukes av lokaliteten, den lokale valutaen og prefikset for å ringe
+  før telefonnummeret for å komme inn i landet. Hvis noen av
+  kommandoene ovenfor mislykkes med en melding som ligner på den som vises nedenfor, betyr dette
+  at lokaliteten din enten ikke ble installert i kapittel&nbsp;8 eller at det ikke
+  støttes av standardinstallasjonen av Glibc.</para>
 
 <screen><computeroutput>locale: Cannot set LC_* to default locale: No such file or directory</computeroutput></screen>
 
   <para>Hvis dette skjer, bør du enten installere ønsket lokalitet ved å bruke
   <command>localedef</command> kommando, eller vurder å velge en annen lokalitet.
-   Ytterligere instruksjoner forutsetter at det ikke er slike feilmeldinger fra
-   Glibc.</para>
+  Ytterligere instruksjoner forutsetter at det ikke er slike feilmeldinger fra
+  Glibc.</para>
 
   <para>Andre pakker kan også fungere feil (men kanskje ikke nødvendigvis
-   vise eventuelle feilmeldinger) hvis lokalenavnet ikke oppfyller deres forventninger.
-   I disse tilfellene, undersøke hvordan andre Linux distribusjoner støtter lokaliteten din
-   kan gi noe nyttig informasjon.</para>
+  vise eventuelle feilmeldinger) hvis lokalenavnet ikke oppfyller deres forventninger.
+  I disse tilfellene, undersøke hvordan andre Linux distribusjoner støtter lokaliteten din
+  kan gi noe nyttig informasjon.</para>
 
   <para>Når de riktige lokale innstillingene er bestemt, oppretter du
   <filename>/etc/locale.conf</filename> filen:</para>
@@ -109,26 +111,28 @@ EOF</userinput></screen>
 <screen role="nodump"><userinput>localectl set-locale LANG="<replaceable>&lt;ll&gt;_&lt;CC&gt;.&lt;charmap&gt;&lt;@modifiers&gt;</replaceable>"</userinput></screen>
 
   <para>Du kan også spesifisere andre språkspesifikke miljøvariabler som f.eks
-   som <envar>LANG</envar>, <envar>LC_CTYPE</envar>, <envar>LC_NUMERIC</envar> eller
+  som <envar>LANG</envar>, <envar>LC_CTYPE</envar>, <envar>LC_NUMERIC</envar> eller
   enhver annen miljøvariabel fra <command>locale</command> utdata. Bare
-   skille dem med et mellomrom. Et eksempel hvor <envar>LANG</envar> er satt som
+  skille dem med et mellomrom. Et eksempel hvor <envar>LANG</envar> er satt som
   en_US.UTF-8 men <envar>LC_CTYPE</envar> er satt som en_US er:</para>
 
 <screen role="nodump"><userinput>localectl set-locale LANG="en_US.UTF-8" LC_CTYPE="en_US"</userinput></screen>
 
   <note><para>Vær oppmerksom på at <command>localectl</command> kommandoen
-   fungerer ikke i chroot miljøet. Det kan bare
-   brukes etter at LFS systemet er startet opp med systemd.</para></note>
+  fungerer ikke i chroot miljøet. Det kan bare
+  brukes etter at LFS systemet er startet opp med systemd.</para></note>
 
-  <para><quote>C</quote> (standard) og <quote>en_US</quote> (det anbefalte
-   for engelske brukere i USA) lokalitetene er forskjellige. <quote>C</quote>
+  <para><literal>C</literal> (standard) og <literal>en_US</literal>
+  (den anbefalte for engelske brukere i USA) er
+  annerledes. <literal>C</literal>
   bruker US-ASCII 7-biters tegnsett, og behandler byte med det høye bitsettet
-   som ugyldige tegn. Det er derfor, f.eks <command>ls</command> kommandoen
-   erstatter dem med spørsmålstegn i det lokalet. Også et forsøk på å sende
-   post med slike tegn fra Mutt eller Pine resulterer i at ikke-RFC-samsvarende
-   meldinger sendes (tegnsettet i den utgående posten er indikert som <quote>ukjent
-  8-bit</quote>). Det foreslås at du bruker <quote>C</quote> lokalitet kun
-   hvis du er sikker på at du aldri vil trenge 8-bits tegn.</para>
+  som ugyldige tegn. Det er derfor, f.eks <command>ls</command> kommandoen
+  erstatter dem med spørsmålstegn i det lokalet. Også et forsøk på å sende
+  post med slike tegn fra Mutt eller Pine resulterer i at ikke-RFC-samsvarende
+  meldinger sendes (tegnsettet i den utgående posten er indikert som
+  <computeroutput>unknown 8-bit</computeroutput>). Det foreslås at du
+  bruker <literal>C</literal> lokalitet kun
+  hvis du er sikker på at du aldri vil trenge 8-bits tegn.</para>
 
 <!--
   <para>UTF-8 baserte lokaliteter støttes ikke godt av mange programmer.
