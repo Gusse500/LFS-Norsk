@@ -29,9 +29,10 @@
     minimumsversjoner angitt. Dette burde ikke være et problem for de fleste
     moderne Linuxdistribusjoner. Vær også oppmerksom på at mange distribusjoner vil
     plassere programvaredeklarasjoner i separate pakker, ofte i form av
-    <quote>&lt;pakke-navn&gt;-devel</quote> eller
-    <quote>&lt;pakke-navn&gt;-dev</quote>. Pass på å installere disse hvis
-    distribusjonen din har dem.</para>
+    <literal><replaceable>&lt;pakkenavn&gt;</replaceable>-devel</literal>
+    eller
+    <literal><replaceable>&lt;pakkenavn&gt;</replaceable>-dev</literal>.
+    Sørg for å installere disse hvis distribusjonen din gir dem.</para>
 
    <para>Tidligere versjoner av de oppførte programvarepakkene kan fungere, men har
    ikke blitt testet.</para>

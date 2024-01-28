@@ -84,8 +84,8 @@
       <para>
         Noen Python 3 moduler kan ikke bygges nå på grunn av at avhengighetene
         ikke er installert ennå. For <filename>ssl</filename> modulen,
-        en melding <quote><computeroutput>Python requires a OpenSSL 1.1.1 or
-        newer</computeroutput></quote> sendes ut.
+        en melding <computeroutput>Python requires a OpenSSL 1.1.1 or
+        newer</computeroutput> sendes ut.
         Meldingen bør ignoreres. Bare sørg for toppnivåets
         <command>make</command> kommando ikke har feilet. De valgfrie
         modulene er ikke nødvendig nå, og de vil bli bygget i

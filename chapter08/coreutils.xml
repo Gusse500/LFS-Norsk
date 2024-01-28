@@ -1261,7 +1261,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="yes">
         <term><command>yes</command></term>
         <listitem>
-          <para>Skriver ut <quote>y</quote>, gjentatte ganger eller en gitt streng til
+          <para>Skriver ut <literal>y</literal>, gjentatte ganger eller en gitt streng til
           den drepes</para>
           <indexterm zone="ch-system-coreutils yes">
             <primary sortas="b-yes">yes</primary>
