@@ -18,12 +18,8 @@
     <primary sortas="e-/etc/profile">/etc/locale.conf</primary>
   </indexterm>
 
-  <para revision='systemd'><filename>/etc/locale.conf</filename> filen
-  nedenfor angir noen miljøvariabler som er nødvendige for morsmål
+  <para>Noen miljøvariabler er nødvendige for morsmål
   støtte. Å sette dem riktig resulterer i:</para>
-
-  <para>Some environment variables are necessary for native language
-  support. Setting them properly results in:</para>
 
   <itemizedlist>
     <listitem>
