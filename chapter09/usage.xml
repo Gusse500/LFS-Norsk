@@ -432,6 +432,35 @@ EOF</userinput></screen>
   <para>Noen eksempler:</para>
 
   <itemizedlist>
+    <listitem>
+      <para>
+        Vi vil bruke <literal>C.UTF-8</literal> som lokalitet for interaktive
+        økter i Linuxkonsollen i <xref role=','
+        linkend='ch-config-locale'/> så vi bør sette
+        <literal>UNICODE</literal> til <literal>1</literal>.  Og den eneste
+        konsollfonten levert av <application>Kbd</application> pakken
+        som inneholder glyfer for alle tegnene fra programmeldingene
+        i <literal>C.UTF-8</literal> lokalitet er
+        <filename>Lat2-Terminus16</filename> (de andre leverte konsollfontene
+        mangler glyffer av noen tegn som Unicode venstre/høyre
+        anførselstegn og Unicode engelsk bindestrek). Så sett
+        <filename>Lat2-Terminus16</filename> som standard
+        konsollfont:
+      </para>
+
+      <!-- We are using 'nodump' for the generic setting, but not for an
+           example (see below).  This is deliberate to keep the
+           compatibility with jhalfs.  -->
+<screen role='nodump'><userinput>cat &gt; /etc/sysconfig/console &lt;&lt; "EOF"
+<literal># Begin /etc/sysconfig/console
+
+UNICODE="1"
+FONT="Lat2-Terminus16"
+
+# End /etc/sysconfig/console</literal>
+EOF</userinput></screen>
+
+    </listitem>
 
     <listitem>
       <para>For et ikke-Unicode oppsett er bare KEYMAP- og FONT-variablene

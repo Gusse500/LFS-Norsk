@@ -131,7 +131,7 @@ EOF</userinput></screen>
   bestemt for å angi ønsket lokalitet</phrase><phrase
   revision='systemd'>for å lese lokalinnstillinger fra
   <filename>/etc/locale.conf</filename> og eksporter dem</phrase>,
-  men still inn <literal>C</literal> lokalitet i stedet hvis den kjøres i en Linux
+  men still inn <literal>C.UTF-8</literal> lokalitet i stedet hvis den kjøres i en Linux
   konsoll (for å hindre programmer fra å skrive ut tegn som Linux
   konsollen ikke kan gjengi):</para>
 
@@ -143,7 +143,7 @@ for i in $(locale); do
 done
 
 if [[ "$TERM" = linux ]]; then
-  export LANG=C
+  export LANG=C.UTF-8
 else
   source /etc/locale.conf
 
@@ -166,7 +166,7 @@ for i in $(locale); do
 done
 
 if [[ "$TERM" = linux ]]; then
-  export LANG=C
+  export LANG=C.UTF-8
 else
   export LANG=<replaceable>&lt;ll&gt;_&lt;CC&gt;.&lt;charmap&gt;&lt;@modifiers&gt;</replaceable>
 fi
