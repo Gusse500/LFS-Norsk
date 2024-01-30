@@ -437,14 +437,19 @@ EOF</userinput></screen>
         Vi vil bruke <literal>C.UTF-8</literal> som lokalitet for interaktive
         økter i Linuxkonsollen i <xref role=','
         linkend='ch-config-locale'/> så vi bør sette
-        <literal>UNICODE</literal> til <literal>1</literal>.  Og den eneste
-        konsollfonten levert av <application>Kbd</application> pakken
+        <literal>UNICODE</literal> til <literal>1</literal>.  Konsollfontene
+        levert av <application>Kbd</application> pakken
         som inneholder glyfer for alle tegnene fra programmeldingene
         i <literal>C.UTF-8</literal> lokalitet er
-        <filename>Lat2-Terminus16</filename> (de andre leverte konsollfontene
-        mangler glyffer av noen tegn som Unicode venstre/høyre
-        anførselstegn og Unicode engelsk bindestrek). Så sett
-        <filename>Lat2-Terminus16</filename> som standard
+        <filename>LatArCyrHeb*.psfu.gz</filename>,
+        <filename>LatGrkCyr*.psfu.gz</filename>,
+        <filename>Lat2-Terminus16.psfu.gz</filename>, og
+        <filename>pancyrillic.f16.psfu.gz</filename> i
+        <filename class='directory'>/usr/share/consolefonts</filename> (de
+        andre leverte konsollfonter mangler glyffer av noen tegn som
+        Unicode venstre/høyre anførselstegn og Unicode engelsk bindestrek).
+        Så sett en av dem, for eksempel
+        <filename>Lat2-Terminus16.psfu.gz</filename> som standard
         konsollfont:
       </para>
 
