@@ -76,13 +76,18 @@
 
   <para>Vi vil bruke <literal>C.UTF-8</literal> som lokalitet for interaktiv
   økter i Linuxkonsollen i <xref role='.'
-  linkend='ch-config-locale'/>  Den eneste konsollfonten levert av
+  linkend='ch-config-locale'/>  Konsollfontene levert av
   <application>Kbd</application> pakken som inneholder glyfer for
   alle tegn fra programmeldingene i <literal>C.UTF-8</literal>
-  lokalitet er <filename>Lat2-Terminus16</filename> (de andre leverte konsollfontene
-  mangler glyffer av noen tegn som Unicode venstre/høyre
-  anførselstegn og Unicode engelsk bindestrek). Så sett
-  <filename>Lat2-Terminus16</filename> som standard konsollfont:</para>
+  lokalitet er <filename>LatArCyrHeb*.psfu.gz</filename>,
+  <filename>LatGrkCyr*.psfu.gz</filename>,
+  <filename>Lat2-Terminus16.psfu.gz</filename>, og
+  <filename>pancyrillic.f16.psfu.gz</filename> i
+  <filename class='directory'>/usr/share/consolefonts</filename> (de andre
+  sendte konsollfonter mangler glyffer av enkelte tegn som Unicode
+  venstre/høyre anførselstegn og Unicode engelsk bindestrek). Så sett en av
+  dem, for eksempel <filename>Lat2-Terminus16.psfu.gz</filename> som
+  standard konsollfont:</para>
 
   <!-- We are using "nodump" for general settings, but not examples.  This
        is ironic, but needed for the compatibility with jhalfs!  -->
