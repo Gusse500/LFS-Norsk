@@ -139,7 +139,7 @@ cd       build</userinput></screen>
     <option>--enable-default-pie</option> og
     <option>--enable-default-ssp</option> alternativene sendes til GCC.</para>
 
-    <para>Tre tester i pakken gprofng er også kjent for å mislykkes.</para>
+<!--    <para>Tre tester i pakken gprofng er også kjent for å mislykkes.</para>-->
 
     <para>Installer pakken:</para>
 
