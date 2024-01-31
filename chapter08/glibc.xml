@@ -102,15 +102,10 @@ cd       build</userinput></screen>
         <listitem>
           <para>Dette alternativet øker systemsikkerheten ved å legge til
           ekstra kode for å se etter bufferoverflyt "buffer overflows", for eksempel stabel (stack)
-          knusende angrep.</para>
-        </listitem>
-      </varlistentry>
-<!-- do we need this one? -->
-      <varlistentry>
-        <term><parameter>--with-headers=/usr/include</parameter></term>
-        <listitem>
-          <para>Dette alternativet forteller byggesystemet hvor det skal finne
-          kjernens API deklarasjoner.</para>
+          knusende angrep.  Merk at Glibc alltid eksplisitt overstyrer
+          standarden til GCC, så dette alternativet er fortsatt nødvendig selv om
+          vi har allerede spesifisert <option>--enable-default-ssp</option> for
+          GCC.</para>
         </listitem>
       </varlistentry>
 
