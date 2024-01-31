@@ -56,13 +56,13 @@
         5.10.17 til 5.10.18 eller 5.11.1), må ikke noe annet bygges om.
         Systemet vil fortsette å fungere bra takket være den veldefinerte grensen
         mellom kjernen og brukerområdet. Nærmere bestemt Linux API-deklarasjoner
-        trenger ikke å (og bør ikke bli, se neste element) oppgraderes
+        trenger ikke å oppgraderes
         ved siden av kjernen. Du må starte systemet på nytt for å bruke
         den oppgraderte kjernen.</para>
       </listitem>
 
       <listitem>
-        <para>Hvis Linux API-deklarasjoner eller Glibc må oppgraderes til en nyere
+        <para>Hvis Glibc må oppgraderes til en nyere
         versjon, (f.eks. fra glibc-2.31 til glibc-2.32), er det tryggere å
         gjenoppbygge LFS. Selv om du <emphasis>kanskje</emphasis> kan gjenoppbygge
         alle pakkene i deres avhengighetsrekkefølge, anbefaler vi ikke
