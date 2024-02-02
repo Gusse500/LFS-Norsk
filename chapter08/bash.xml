@@ -75,7 +75,7 @@
 
     <para>For å forberede testene, sørg for at brukeren <systemitem class="username">tester</systemitem> kan skrive til kildetreet:</para>
 
-<screen><userinput remap="test">chown -Rv tester .</userinput></screen>
+<screen><userinput remap="test">chown -R tester .</userinput></screen>
 
     <para>Testpakken til pakken er designet for å kjøres som en ikke-&root;
     bruker som eier terminalen koblet til standardinngang. For å tilfredsstille

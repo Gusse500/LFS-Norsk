@@ -49,12 +49,12 @@
     lagrer kjøretidsdataene deres på de FHS kompatible stedene:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&glibc-fhs-patch;</userinput></screen>
-
+<!--
     <para>Rett opp to sikkerhetssårbarheter og en regresjon som forårsaker at
     posix_memalign() fungerer veldig sakte under noen forhold:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&glibc-upstream-fixes-patch;</userinput></screen>
-
+-->
     <para>Glibc dokumentasjonen anbefaler å bygge Glibc
     i en dedikert byggemappe:</para>
 
@@ -201,7 +201,122 @@ esac</userinput></screen>
 
 <screen><userinput remap="install">sed '/test-installation/s@$(PERL)@echo not running@' -i ../Makefile</userinput></screen>
 
-    <para>Installer pakken:</para>
+    <important>
+      <para>
+        Hvis du oppgraderer Glibc til en ny mindre versjon (for eksempel fra
+        Glibc-2.36 to Glibc-&glibc-version;) på et kjørende LFS system, må du
+        ta noen ekstra forholdsregler for å unngå å ødelegge systemet:
+      </para>
+
+      <itemizedlist>
+        <listitem>
+          <!-- There are two reasons we don't support this:
+               1. Upgrading on a system with separate /lib and /usr/lib is
+                  tricky.
+               2. With Glibc prior to 2.34 libc.so.6 etc. are symlinks to
+                  libc-2.33.so etc., again causing the upgradation tricky.
+                  The Glibc NEWS file explicit states they no longer use
+                  symlinks for the ABI names to avoid upgradation
+                  issues.  -->
+          <para>
+            Oppgradering av Glibc på et LFS system før 11.0 (eksklusivt) er
+            ikke støttet. Bygg LFS på nytt hvis du kjører et så gammelt LFS
+            system, men du trenger en nyere Glibc.
+          </para>
+        </listitem>
+
+        <!-- https://sourceware.org/pipermail/libc-alpha/2024-January/154095.html -->
+        <listitem>
+          <para>
+            Hvis du oppgraderer på et LFS system før 12.0 (eksklusivt), installer
+            <application>Libxcrypt</application> med å følge
+            <xref role='.' linkend='ch-system-libxcrypt'/>  I tillegg til
+            en normal <application>Libxcrypt</application> installasjon,
+            <emphasis role='bold'>du MÅ følge notatet i Libxcrypt
+            delen for å installere
+            <filename class='libraryfile'>libcrypt.so.1*</filename>
+            (ved å overskrive
+            <filename class='libraryfile'>libcrypt.so.1</filename> fra
+            tidligere Glibc installasjon)</emphasis>.
+          </para>
+        </listitem>
+
+        <!-- Otherwise on lfs-systemd nscd will fail to start on boot,
+             and on both lfs-sysv and lfs-systemd useradd etc. will try
+             to start nscd, then nscd will fail to start as well and
+             produce some spurious error message.  -->
+        <listitem>
+          <para>
+            Hvis du oppgraderer på et LFS-system før 12.1 (eksklusivt),
+            fjern <command>nscd</command> programmet:
+          </para>
+
+          <screen role='nodump'><userinput>rm -f /usr/sbin/nscd</userinput></screen>
+
+          <para>
+            Hvis dette systemet (før LFS 12.1, eksklusivt) er basert på
+            Systemd, det er også nødvendig for å deaktivere og stoppe
+            <command>nscd</command> tjenesten nå:
+          </para>
+
+          <screen revision='systemd' role='nodump'><userinput>systemctl disable --now nscd</userinput></screen>
+        </listitem>
+
+        <listitem>
+          <para>
+            Oppgrader kjernen og start på nytt hvis den er eldre enn &min-kernel;
+            (sjekk gjeldende versjon med <command>uname -r</command>)
+            eller hvis du vil oppgradere den likevel, følg
+            <xref linkend='ch-bootable-kernel' role='.'/>
+          </para>
+        </listitem>
+
+        <listitem>
+          <para>
+            Oppgrader kjerne API deklarasjonene hvis de er eldre enn &min-kernel;
+            (sjekk gjeldende versjon med
+            <command>cat /usr/include/linux/version.h</command>)
+            eller hvis du vil oppgradere den likevel, følg
+            <xref linkend='ch-tools-linux-headers'/> (men fjern
+            <envar>$LFS</envar> fra <command>cp</command> kommandoen).
+          </para>
+        </listitem>
+
+        <!-- This is to ensure we don't start a process at the time point
+             where some Glibc shared libraries are updated but the others
+             are not.  Such mismatches can cause programs crash on startup,
+             esp. a mismatch between ld-linux-x86-64.so.2 and
+             libc.so.6.  Note that a crash in the installation process
+             will leave the system in a state with the mismatch forever,
+             unrecoverable without the help of another distro.  -->
+        <listitem>
+          <para>
+            Utfør en <envar>DESTDIR</envar> installasjon og oppgrader
+            Glibc delte biblioteker på systemet ved hjelp av en enkelt
+            <command>install</command> kommando:
+          </para>
+
+          <screen role='nodump'><userinput>make DESTDIR=$PWD/dest install
+install -vm755 dest/usr/lib/*.so.* /usr/lib</userinput></screen>
+        </listitem>
+      </itemizedlist>
+
+      <para>
+        Det er viktig å strengt følge disse trinnene ovenfor med mindre du
+        forstår helt hva du gjør.
+        <emphasis role='bold'>Ethvert uventet avvik kan gjøre
+        systemet helt ubrukelig. DU ER ADVART.</emphasis>
+      </para>
+
+      <para>
+        Fortsett deretter å kjøre <command>make install</command> kommandoen
+        og <command>sed</command> kommandoen mot
+        <filename>/usr/bin/ldd</filename>.  Når de er ferdige, start systemet
+        på nytt umiddelbart.
+      </para>
+    </important>
+
+	<para>Installer pakken:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
 

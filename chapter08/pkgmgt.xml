@@ -63,21 +63,9 @@
 
       <listitem>
         <para>Hvis Glibc må oppgraderes til en nyere
-        versjon, (f.eks. fra glibc-2.31 til glibc-2.32), er det tryggere å
-        gjenoppbygge LFS. Selv om du <emphasis>kanskje</emphasis> kan gjenoppbygge
-        alle pakkene i deres avhengighetsrekkefølge, anbefaler vi ikke
-        det.  </para>
-      </listitem>
-
-      <listitem>
-        <para>Reinstallerer den samme versjonen av Glibc (&glibc-version; for
-        denne utgivelsen av LFS) med oppdateringer bør være trygg når disse oppdateringene
-        ikke endre ABI og API. Når en sikkerhetssårbarhet blir funnet
-        i Glibc må vi ofte bruke en slik oppdatering for å fikse
-        sårbarheten og installer Glibc på nytt. Rådfør
-        <ulink url='&lfs-root;lfs/advisories/'>LFS 
-        sikkerhetsråd</ulink> hvis du blir varslet om en publisert Glibc 
-        sikkerhetssårbarhet, men usikker på hva som skal gjøres.</para>
+        versjon, (f.eks. fra Glibc-2.36 til Glibc-&glibc-version;),
+        noen ekstra trinn er nødvendig for å unngå å ødelegge systemet.
+        Les <xref linkend='ch-system-glibc'/> for detaljer.</para>
       </listitem>
 
       <listitem> <para>Hvis en pakke som inneholder et delt bibliotek oppdateres, og
