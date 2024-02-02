@@ -44,7 +44,7 @@
       <para>01.02.2024</para>
       <itemizedlist>
         <listitem>
-          <para>[bdubbs] - Oppdatert til openssl-3.2.1. Fikser
+          <para>[bdubbs] - Oppdatert til openssl-3.2.1 (sikkerhetsfiks). Fikser
           <ulink url='&lfs-ticket-root;5425'>#5425</ulink>.</para>
         </listitem>
         <listitem>
