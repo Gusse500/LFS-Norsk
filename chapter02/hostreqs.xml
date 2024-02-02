@@ -100,8 +100,12 @@
       <xref linkend="chapter-building-system"/>, så løsningene for
       eldre kjerner er ikke aktivert og det kompilerte
       <application>glibc</application> er litt raskere og mindre.
-      Fra juni 2023, &min-kernel; er den eldste kjerneutgivelsen
-      fortsatt støttet av kjerneutviklerne.</para>
+      Fra Feb 2024, &min-kernel; er fortsatt den eldste kjerneutgivelsen
+      støttet av kjerneutviklerne. Noen kjerneutgivelser som er eldre enn
+      &min-kernel; kan fortsatt støttes av tredjepartsteam, men de
+      regnes ikke som offisielle oppstrøms kjerneutgivelser; les
+      <ulink url='https://kernel.org/category/releases.html'/> for
+      detaljer.</para>
 
       <para>Hvis vertskjernen er tidligere enn &min-kernel; du må erstatte
       kjernen med en mer oppdatert versjon. Det er to måter
