@@ -309,10 +309,11 @@ install -vm755 dest/usr/lib/*.so.* /usr/lib</userinput></screen>
       </para>
 
       <para>
-        Fortsett deretter å kjøre <command>make install</command> kommandoen
-        og <command>sed</command> kommandoen mot
-        <filename>/usr/bin/ldd</filename>.  Når de er ferdige, start systemet
-        på nytt umiddelbart.
+        Fortsett deretter å kjøre <command>make install</command> kommandoen,
+        <command>sed</command> kommandoen mot
+        <filename>/usr/bin/ldd</filename>, og kommandoene som skal installere
+        lokalitetene. Når de er ferdige, start systemet på nytt
+        med en gang.
       </para>
     </important>
 
