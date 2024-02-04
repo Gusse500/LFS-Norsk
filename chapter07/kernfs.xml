@@ -97,7 +97,8 @@ mount -vt tmpfs tmpfs $LFS/run</userinput></screen>
     </variablelist>
 -->
       <para>I noen vertssystemer, <filename>/dev/shm</filename> er en
-      symbolsk lenke til <filename class="directory">/run/shm</filename>.
+      symbolsk lenke til en mappe, vanligvis
+      <filename class="directory">/run/shm</filename>.
       /run tmpfs ble montert ovenfor, så i dette tilfellet er det bare en
       mappe som må opprettes.</para>
 
@@ -107,7 +108,7 @@ mount -vt tmpfs tmpfs $LFS/run</userinput></screen>
       monterer vi eksplisitt en tmpfs:</para>
 
 <screen><userinput>if [ -h $LFS/dev/shm ]; then
-  (cd $LFS/dev; mkdir $(readlink shm))
+  mkdir -pv $LFS$(realpath /dev/shm)
 else
   mount -vt tmpfs -o nosuid,nodev tmpfs $LFS/dev/shm
 fi</userinput></screen>
