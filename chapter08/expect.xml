@@ -48,6 +48,25 @@
   <sect2 role="installation">
     <title>Installasjon av Expect</title>
 
+    <para>Expect forventer at PTY-er skal fungere. Kontroller at PTY-ene fungerer
+    riktig inne i chroot miljøet ved å utføre en enkel
+    test:</para>
+
+<screen><userinput remap="test">python3 -c 'from pty import spawn; spawn(["echo", "ok"])'</userinput></screen>
+
+    <para>Denne kommandoen skal sende ut <computeroutput>ok</computeroutput>.
+    Hvis i stedet utdataen inkluderer <computeroutput>OSError: out of pty
+    devices</computeroutput>, da er ikke miljøet satt opp for ordentlig
+    PTY operasjon. Du må gå ut av chroot miljøet, les
+    <xref linkend='ch-tools-kernfs'/> igjen, og sørg for at
+    <systemitem class="filesystem">devpts</systemitem> filsystemet (og
+    andre virtuelle kjernefilsystemer) er montert på riktig måte. Gå deretter inn
+    i chroot miljøet igjen ved å følge <xref linkend='ch-tools-chroot'/>.
+    Dette problemet må løses før du fortsetter, ellers vil testpakkene
+    som krever Expect (for eksempel testpakkene til Bash, Binutils, GCC,
+    GDBM, og selvfølgelig Expect seg selv) vil mislykkes katastrofalt, og andre
+    subtile brudd kan også skje.</para>
+
     <para>Forbered Expect for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr           \
@@ -82,26 +101,9 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <important>
-      <para>Testpakken for Expect anses som kritisk.
-      Ikke hopp over den under noen omstendigheter.</para>
-    </important>
-
 	<para>For å teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">make test</userinput></screen>
-
-    <para>Hvis en test mislykkes med meldingen
-    <computeroutput>The system has no more ptys. Ask your system
-    administrator to create more</computeroutput>, indikerer det
-    at du ikke har montert
-    <systemitem class="filesystem">devpts</systemitem> filsystemet
-    riktig. Du må gå ut av chroot miljøet, les
-    <xref linkend='ch-tools-kernfs'/> igjen, og sørg for at
-    <systemitem class="filesystem">devpts</systemitem> filsystemet (og
-    andre virtuelle kjernefilsystemer) er montert på riktig måte. Gå deretter inn i
-    chroot miljøet igjen ved å følge <xref linkend='ch-tools-chroot'/>.
-    Dette problemet må løses før du fortsetter.</para>
 
 	<para>Installer pakken:</para>
 
