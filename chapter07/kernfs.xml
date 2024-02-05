@@ -63,11 +63,14 @@
 
       <para>Monter nå de gjenværende virtuelle kjernefilsystemene:</para>
 
-<screen><userinput>mount -v --bind /dev/pts $LFS/dev/pts
+      <!-- Do not put any option after $LFS/${mountpoint} or jhalfs cannot
+           handle it! -->
+
+<screen><userinput>mount -vt devpts devpts -o gid=5,mode=0620 $LFS/dev/pts
 mount -vt proc proc $LFS/proc
 mount -vt sysfs sysfs $LFS/sys
 mount -vt tmpfs tmpfs $LFS/run</userinput></screen>
-<!--
+
     <variablelist>
       <title>Betydningen av monteringsalternativene for devpts:</title>
 
@@ -95,7 +98,7 @@ mount -vt tmpfs tmpfs $LFS/run</userinput></screen>
       </varlistentry>
 
     </variablelist>
--->
+
       <para>I noen vertssystemer, <filename>/dev/shm</filename> er en
       symbolsk lenke til en mappe, vanligvis
       <filename class="directory">/run/shm</filename>.
