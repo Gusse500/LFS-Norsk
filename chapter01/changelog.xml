@@ -40,6 +40,16 @@
     appropriate for the entry or if needed the entire day's listitem.
     -->
     
+    <listitem revision='systemd'>
+      <para>10.02.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Rett opp en feil i systemd som bryter kjørende
+          systemd-analyze på en instansiert systemd enhet.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
     <listitem>
       <para>02.02.2024</para>
       <itemizedlist>

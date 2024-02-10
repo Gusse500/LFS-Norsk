@@ -50,10 +50,11 @@
 
     <!-- https://github.com/systemd/systemd/pull/30549 -->
     <para>Nå fiks en sikkerhetssårbarhet i DNSSEC verifiseringen av
-    <command>systemd-resolved</command>:</para>
+    <command>systemd-resolved</command> og en feil som bryter kjørende
+    <command>systemd-analyze verify</command> på en instansiert systemd
+    enhet:</para>
 
-<screen><userinput remap='pre'>sed -e '/return FLAGS_SET.*AUTHENTICATED/s/(t/(dt/' \
-    -i src/resolve/resolved-dns-transaction.c</userinput></screen>
+<screen><userinput remap='pre'>patch -Np1 -i ../&systemd-upstream-patch;</userinput></screen>
 
     <para>Forbered systemd for kompilering:</para>
 
