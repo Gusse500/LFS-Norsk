@@ -40,6 +40,44 @@
     appropriate for the entry or if needed the entire day's listitem.
     -->
     
+    <listitem>
+      <para>12.02.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til shadow-4.14.4.  Fikser
+          <ulink url='&lfs-ticket-root;5437'>#5437</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til setuptools-69.1.0 (Python modul).  Fikser
+          <ulink url='&lfs-ticket-root;5439'>#5439</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til python-3.12.2.  Fikser
+          <ulink url='&lfs-ticket-root;5434'>#5434</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til pkgconf-2.1.1.  Fikser
+          <ulink url='&lfs-ticket-root;5432'>#5432</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til MarkupSafe-2.1.5 (Python modul).  Fikser
+          <ulink url='&lfs-ticket-root;5431'>#5431</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til man-pages-6.06.  Fikser
+          <ulink url='&lfs-ticket-root;5438'>#5438</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til expat-2.6.0.  Fikser
+          <ulink url='&lfs-ticket-root;5435'>#5435</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.7.4.  Fikser
+          <ulink url='&lfs-ticket-root;5433'>#5433</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
     <listitem revision='systemd'>
       <para>10.02.2024</para>
       <itemizedlist>
