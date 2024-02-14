@@ -41,6 +41,16 @@
     -->
     
     <listitem>
+      <para>14.02.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til meson-1.3.2.  Fikser
+          <ulink url='&lfs-ticket-root;5442'>#5442</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>12.02.2024</para>
       <itemizedlist>
         <listitem>
