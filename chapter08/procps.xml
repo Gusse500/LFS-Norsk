@@ -74,6 +74,8 @@
 
 <screen><userinput remap="test">make check</userinput></screen>
 
+    <para>En test i "ps" testene er kjent for å mislykkes.</para>
+
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
