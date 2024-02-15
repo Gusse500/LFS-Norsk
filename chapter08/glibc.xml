@@ -163,6 +163,11 @@ esac</userinput></screen>
         er kjent for å mislykkes i LFS chroot miljøet.</para>
       </listitem>
 
+      <listitem>
+        <para>Tre <emphasis>nptl/tst-thread-affinity*</emphasis>
+        tester er kjent for å mislykkes.</para>
+      </listitem>
+
 <!-- Did not fail with glibc-2.38
       <listitem>
         <para><emphasis>misc/tst-ttyname</emphasis>
