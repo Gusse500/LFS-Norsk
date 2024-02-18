@@ -172,47 +172,29 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
     url="&test-results;"/> og
     <ulink url="https://gcc.gnu.org/ml/gcc-testresults/"/>.</para>
 
- <para><!--To tester navngitt <filename>pr104610.c</filename> og
-    <filename>pr69482-1.c</filename> er kjent for å mislykkes fordi
-    testfilene ikke tar hensyn til
-    <parameter>- -enable-default-ssp</parameter> alternativet.
-     https://gcc.gnu.org/PR106375 og https://gcc.gnu.org/PR109353 -->
-    Åtte gcc tester (av over 185 000), data-model-4.c, pr56837.c,
-    og seks "analyzer" tester er kjent for å mislykkes.
+    <para>
+    Åtte gcc tester (av over 185 000):
+    <!-- https://gcc.gnu.org/PR106375 --><filename>pr56837.c</filename>
+    og syv tester i <filename class='directory'>analyzer</filename>
+    mappen er kjent for å mislykkes.
 
-    En libstdc++-test (av over 15000), copy.cc, er kjent for å mislykkes.
+    <!-- https://gcc.gnu.org/PR109353 -->
+    En libstdc++ test (av over 15000), <filename>copy.cc</filename>, er
+    kjent for å mislykkes.
 
-    For g++, 21 tester (av omtrent 250 000), 14 "AddressSanitizer*"
-    tester og 7 interception-malloc-test-1.C tester, er kjent for å mislykkes.
+    For g++, 21 tester (ut av omtrentlig 250,000): 14
+    <quote>AddressSanitizer*</quote>
+    tester og 7 <filename>interception-malloc-test-1.C</filename> tester, er
+    kjent for å mislykkes.
 
     I tillegg flere tester i
     <filename class='directory'>vect</filename> mappen er kjent for å mislykkes
     hvis maskinvaren ikke støtter AVX.</para>
-<!--
-    <para>
-      Med Glibc-2.39 GCC analysatortestene navngitt
-      <filename>data-model-4.c</filename> og
-      <filename>conftest-1.c</filename> 
-        er kjent for å mislykkes.
-      I asan testene, flere tester i <filename>asan_test.C</filename> 
-        er kjent for å mislykkes.
-      Testen med navnet <filename>interception-malloc-test-1.C</filename> 
-        er kjent for å mislykkes.
-    </para>
--->
+
     <para>Noen få uventede feil kan ikke alltid unngås. GCC utviklerne
     er vanligvis klar over disse problemene, men har ikke løst dem ennå
     Med mindre testresultatene er svært forskjellige fra de på URLen ovenfor,
     er det trygt å fortsette.</para>
-
-    <!--note><para>
-      På noen kombinasjoner av kjernekonfigurasjon og AMD-prosessorer
-      kan det være mer enn 1100 feil i gcc.target/i386/mpx
-      tester (som er designet for å teste MPX-alternativet på siste
-      Intel-prosessorer). Disse kan trygt ignoreres på AMD
-      prosessorer. Disse testene vil også mislykkes på Intel-prosessorer hvis MPX-støtte
-      ikke er aktivert i kjernen selv om den er tilstede på prosessoren.
-    </para></note-->
 
     <para>Installer pakken:</para>
 
