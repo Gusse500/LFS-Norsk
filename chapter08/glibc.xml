@@ -182,7 +182,7 @@ esac</userinput></screen>
         For eksempel, <command>TIMEOUTFACTOR=10 make test
         t=nss/tst-nss-files-hosts-multi</command> vil kjøre på nytt
         <emphasis>nss/tst-nss-files-hosts-multi</emphasis> med ti ganger
-        det opprinnelige tidsavbruddet.</para>>
+        det opprinnelige tidsavbruddet.</para>
       </listitem>
 
       <listitem>
