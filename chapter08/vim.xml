@@ -71,10 +71,12 @@
     <para>Kjør nå testene som bruker <systemitem
     class="username">tester</systemitem>:</para>
 
-<screen><userinput remap="test">su tester -c "LANG=en_US.UTF-8 make -j1 test" &amp;> vim-test.log</userinput></screen>
+<screen><userinput remap="test">su tester -c "TERM=xterm-256color LANG=en_US.UTF-8 make -j1 test" \
+   &amp;> vim-test.log</userinput></screen>
 
     <para>Testpakken sender ut mange binære data til skjermen. Dette kan
-    forårsake problemer med innstillingene til gjeldende terminal. Problemet kan
+    forårsake problemer med innstillingene til gjeldende terminal (spesielt mens
+    vi overstyrer <envar>TERM</envar> variabel for å tilfredsstille noen forutsetninger i testpakken). Problemet kan
     unngås ved å omdirigere utdataene til en loggfil som vist ovenfor. En
     vellykket test vil resultere i ordene "ALL DONE" i loggfilen
     ved ferdigstillelse.</para>
