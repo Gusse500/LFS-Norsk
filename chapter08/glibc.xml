@@ -240,9 +240,9 @@ esac</userinput></screen>
             <emphasis role='bold'>du MÅ følge notatet i Libxcrypt
             delen for å installere
             <filename class='libraryfile'>libcrypt.so.1*</filename>
-            (ved å overskrive
+            (ved å erstatte
             <filename class='libraryfile'>libcrypt.so.1</filename> fra
-            tidligere Glibc installasjon)</emphasis>.
+            den tidligere Glibc installasjonen)</emphasis>.
           </para>
         </listitem>
 
