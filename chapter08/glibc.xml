@@ -240,9 +240,9 @@ esac</userinput></screen>
             <emphasis role='bold'>du MÅ følge notatet i Libxcrypt
             delen for å installere
             <filename class='libraryfile'>libcrypt.so.1*</filename>
-            (ved å overskrive
+            (ved å erstatte
             <filename class='libraryfile'>libcrypt.so.1</filename> fra
-            tidligere Glibc installasjon)</emphasis>.
+            den tidligere Glibc installasjonen)</emphasis>.
           </para>
         </listitem>
 
@@ -258,9 +258,9 @@ esac</userinput></screen>
 
           <screen role='nodump'><userinput>rm -f /usr/sbin/nscd</userinput></screen>
 
-          <para>
+          <para revision='systemd'>
             Hvis dette systemet (før LFS 12.1, eksklusivt) er basert på
-            Systemd, det er også nødvendig for å deaktivere og stoppe
+            Systemd, er det også nødvendig å deaktivere og stoppe
             <command>nscd</command> tjenesten nå:
           </para>
 
