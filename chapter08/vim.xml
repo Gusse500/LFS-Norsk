@@ -76,10 +76,11 @@
 
     <para>Testpakken sender ut mange binære data til skjermen. Dette kan
     forårsake problemer med innstillingene til gjeldende terminal (spesielt mens
-    vi overstyrer <envar>TERM</envar> variabel for å tilfredsstille noen forutsetninger i testpakken). Problemet kan
+    vi overstyrer <envar>TERM</envar> variabelen for å tilfredsstille noen
+    forutsetninger for testpakken). Problemet kan
     unngås ved å omdirigere utdataene til en loggfil som vist ovenfor. En
-    vellykket test vil resultere i ordene "ALL DONE" i loggfilen
-    ved ferdigstillelse.</para>
+    vellykket test vil resultere i ordene <computeroutput>ALL
+    DONE</computeroutput> i loggfilen ved ferdigstillelse.</para>
 
     <para>Installer pakken:</para>
 
