@@ -74,7 +74,10 @@
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>En test i "ps" testene er kjent for å mislykkes.</para>
+    <para>En test navngitt
+    <literal>ps with output flag bsdtime,cputime,etime,etimes</literal>
+    er kjent for å mislykkes hvis vertskjernen ikke er bygget med
+    <literal>CONFIG_BSD_PROCESS_ACCT</literal> aktivert.</para>
 
     <para>Installer pakken:</para>
 
