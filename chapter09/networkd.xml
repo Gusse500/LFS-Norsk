@@ -49,11 +49,11 @@
     <filename class="extension">.link</filename>,
     <filename class="extension">.netdev</filename> og
     <filename class="extension">.network</filename> filene. For detaljert
-    beskrivelser og eksempelinnhold i disse konfigurasjonsfilene, se
-    <ulink role='man' url='&man;systemd-link.5'>systemd-link(5)</ulink>,
-    <ulink role='man' url='&man;systemd-netdev.5'>systemd-netdev(5)</ulink>,
-    og <ulink role='man'
-    url='&man;systemd-network.5'>systemd-network(5)</ulink> 
+    beskrivelser og eksempelinnhold i disse konfigurasjonsfilene, 
+    se 
+    <ulink role='man' url='&man;systemd.link.5'>systemd.link(5)</ulink>,
+    <ulink role='man' url='&man;systemd.netdev.5'>systemd.netdev(5)</ulink>, og
+    <ulink role='man' url='&man;systemd.network.5'>systemd.network(5)</ulink>  
     manualsider.</para>
 
     <sect3 id="systemd-network-devices">
