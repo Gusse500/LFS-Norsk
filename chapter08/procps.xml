@@ -72,12 +72,20 @@
 
     <para> For å kjøre testpakken, kjør:</para>
 
-<screen><userinput remap="test">make check</userinput></screen>
+<screen><userinput remap="test">make -k check</userinput></screen>
 
     <para>En test navngitt
     <literal>ps with output flag bsdtime,cputime,etime,etimes</literal>
     er kjent for å mislykkes hvis vertskjernen ikke er bygget med
-    <literal>CONFIG_BSD_PROCESS_ACCT</literal> aktivert.</para>
+    <literal>CONFIG_BSD_PROCESS_ACCT</literal> aktivert.
+    <!-- These two tests just do not work as root but they seem to pass
+         in most time due to some internal hazards of Tcl/Expect/DejaGNU
+         framework.  However the failures have been really observed.
+         TODO: run the test suite as tester after the freeze ends.  -->
+    To tester navngitt
+    <literal>pmap X with unreachable process</literal> og
+    <literal>pmap XX with unreachable process</literal> er kjent for
+    mislykkes av og til.</para>
 
     <para>Installer pakken:</para>
 
