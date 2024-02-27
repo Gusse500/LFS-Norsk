@@ -696,7 +696,8 @@
            <ulink url='&lfs-ticket-root;5330'>#5330</ulink>.</para>
         </listitem>
         <listitem>
-           <para>[bdubbs] - Oppdatert til procps-ng-4.0.4. Fikser
+           <para>[bdubbs] - Update to procps-ng-4.0.4 (sikkerhetsfiks
+           for 32-bit systemer). Fikser
            <ulink url='&lfs-ticket-root;5335'>#5335</ulink>.</para>
         </listitem>
         <listitem>

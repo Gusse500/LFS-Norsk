@@ -2480,7 +2480,7 @@
       <segmentedlist id="perl-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>Iana-Etc, Less. og Procps-ng</seg>
+          <seg>Iana-Etc, Less, og Procps-ng</seg>
         </seglistitem>
       </segmentedlist>
 
