@@ -89,7 +89,7 @@
     Linux kernel moduler) i
     <filename class='directory'>/usr/sbin</filename> i stedet for
     <filename class='directory'>/usr/bin</filename> (hvor byggesystemet
-    vil lage disse symbolkoblingene):</para>
+    vil lage disse symbolkoblingene men vi vil ikke ha dem der):</para>
 
 <screen><userinput remap="install">make install
 
