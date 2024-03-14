@@ -86,10 +86,10 @@
 
     <para>Installer pakken og gjenskap noen symbolkoblinger for
     kompatibilitet med Module-Init-Tools (pakken som tidligere håndterte
-    Linux kernel moduler) i
-    <filename class='directory'>/usr/sbin</filename> i stedet for
-    <filename class='directory'>/usr/bin</filename> (hvor byggesystemet
-    vil lage disse symbolkoblingene men vi vil ikke ha dem der):</para>
+    Linux kernel moduler).  Byggesystemet vil opprette alle disse
+    symbolkoblingene i <filename class='directory'>/usr/bin</filename>, men vi
+    ønsker bare <command>lsmod</command> der og alle andre symbolkoblinger i
+    <filename class='directory'>/usr/sbin</filename> i stedet:</para>
 
 <screen><userinput remap="install">make install
 
