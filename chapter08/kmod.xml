@@ -84,17 +84,19 @@
     (ikke de <quote>sanitiserte</quote> kjernedeklarasonene installert tidligere),
     som er utenfor rammen av LFS.</para>
 
-    <para>Installer pakken og lag symbolkoblinger for
+    <para>Installer pakken og gjenskap noen symbolkoblinger for
     kompatibilitet med Module-Init-Tools (pakken som tidligere håndterte
-    Linux kjernemoduler):</para>
+    Linux kernel moduler).  Byggesystemet vil opprette alle disse
+    symbolkoblingene i <filename class='directory'>/usr/bin</filename>, men vi
+    ønsker bare <command>lsmod</command> der og alle andre symbolkoblinger i
+    <filename class='directory'>/usr/sbin</filename> i stedet:</para>
 
 <screen><userinput remap="install">make install
 
 for target in depmod insmod modinfo modprobe rmmod; do
   ln -sfv ../bin/kmod /usr/sbin/$target
-done
-
-ln -sfv kmod /usr/bin/lsmod</userinput></screen>
+  rm -fv /usr/bin/$target
+done</userinput></screen>
 
   </sect2>
 
