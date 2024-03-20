@@ -2149,7 +2149,7 @@
       <segmentedlist id="man-pages-depends">
         <segtitle>&dependencies;</segtitle>
         <seglistitem>
-         <seg>Bash, Coreutils, og Make</seg>
+         <seg>Bash, Coreutils, Make, og Sed</seg>
         </seglistitem>
       </segmentedlist>
 
