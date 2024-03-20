@@ -41,6 +41,28 @@
     -->
     
     <listitem>
+      <para>19.03.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[renodr] - Oppdatert til iproute2-6.8.0. Fikser
+          <ulink url="&lfs-ticket-root;5458">#5458</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[renodr] - Oppdatert til man-pages-6.7. Fikser
+          <ulink url="&lfs-ticket-root;5464">#5464</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[renodr] - Oppdatert til Linux-6.8.1. Fikser
+          <ulink url="&lfs-ticket-root;5453">#5453</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[renodr] - Lagt LZ4 til boken. Fikser
+          <ulink url="&lfs-ticket-root;5463">#5463</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>15.03.2024</para>
       <itemizedlist>
         <listitem>
