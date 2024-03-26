@@ -41,6 +41,17 @@
     -->
     
     <listitem>
+      <para>25.03.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[timtas] - Oppdatert til sysvinit-3.09. Fikser
+          <ulink url="&lfs-ticket-root;5466">#5466</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+
+    <listitem>
       <para>19.03.2024</para>
       <itemizedlist>
         <listitem>
