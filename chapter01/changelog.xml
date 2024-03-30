@@ -41,6 +41,16 @@
     -->
     
     <listitem>
+      <para>29.03.2024</para>
+      <itemizedlist>
+        <listitem>
+           <para>[bdubbs] - Gå tilbake til xz-5.4.6 på grunn av oppstrøms
+           kompromiss.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>25.03.2024</para>
       <itemizedlist>
         <listitem>
