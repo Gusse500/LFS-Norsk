@@ -41,6 +41,40 @@
     -->
     
     <listitem>
+      <para>31.03.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til iana-etc-20240318. Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til zstd-1.5.6. Fikser
+          <ulink url='&lfs-ticket-root;5468'>#5468</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til util-linux-2.40. Fikser
+          <ulink url='&lfs-ticket-root;5430'>#5430</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til shadow-4.15.1. Fikser
+          <ulink url='&lfs-ticket-root;5465'>#5465</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til pkgconf-2.2.0. Fikser
+          <ulink url='&lfs-ticket-root;5469'>#5469</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.8.2. Fikser
+          <ulink url='&lfs-ticket-root;5467'>#5467</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til coreutils-9.5. Fikser
+          <ulink url='&lfs-ticket-root;5470'>#5470</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>29.03.2024</para>
       <itemizedlist>
         <listitem>

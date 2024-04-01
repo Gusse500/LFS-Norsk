@@ -41,44 +41,47 @@
 
   <sect2 role="installation">
     <title>Installasjon av Util-linux</title>
-
+	
+<!--
     <para>Først deaktiver en problematisk test:</para>
 
     <screen><userinput remap="pre">sed -i '/test_mkfds/s/^/#/' tests/helpers/Makemodule.am</userinput></screen>
-
+-->
     <para>Forbered Util-linux for kompilering:</para>
 
-<screen revision="sysv"><userinput remap="configure">./configure --bindir=/usr/bin    \
-            --libdir=/usr/lib    \
-            --runstatedir=/run   \
-            --sbindir=/usr/sbin  \
-            --disable-chfn-chsh  \
-            --disable-login      \
-            --disable-nologin    \
-            --disable-su         \
-            --disable-setpriv    \
-            --disable-runuser    \
-            --disable-pylibmount \
-            --disable-static     \
-            --without-python     \
-            --without-systemd    \
+<screen revision="sysv"><userinput remap="configure">./configure --bindir=/usr/bin     \
+            --libdir=/usr/lib     \
+            --runstatedir=/run    \
+            --sbindir=/usr/sbin   \
+            --disable-chfn-chsh   \
+            --disable-login       \
+            --disable-nologin     \
+            --disable-su          \
+            --disable-setpriv     \
+            --disable-runuser     \
+            --disable-pylibmount  \
+            --disable-liblastlog2 \
+            --disable-static      \
+            --without-python      \
+            --without-systemd     \
             --without-systemdsystemunitdir        \
             ADJTIME_PATH=/var/lib/hwclock/adjtime \
             --docdir=/usr/share/doc/util-linux-&util-linux-version;</userinput></screen>
 
-<screen revision="systemd"><userinput remap="configure">./configure --bindir=/usr/bin    \
-            --libdir=/usr/lib    \
-            --runstatedir=/run   \
-            --sbindir=/usr/sbin  \
-            --disable-chfn-chsh  \
-            --disable-login      \
-            --disable-nologin    \
-            --disable-su         \
-            --disable-setpriv    \
-            --disable-runuser    \
-            --disable-pylibmount \
-            --disable-static     \
-            --without-python     \
+<screen revision="systemd"><userinput remap="configure">./configure --bindir=/usr/bin     \
+            --libdir=/usr/lib     \
+            --runstatedir=/run    \
+            --sbindir=/usr/sbin   \
+            --disable-chfn-chsh   \
+            --disable-login       \
+            --disable-nologin     \
+            --disable-su          \
+            --disable-setpriv     \
+            --disable-runuser     \
+            --disable-pylibmount  \
+            --disable-liblastlog2 \
+            --disable-static      \
+            --without-python      \
             ADJTIME_PATH=/var/lib/hwclock/adjtime \
             --docdir=/usr/share/doc/util-linux-&util-linux-version;</userinput></screen>
 
@@ -106,14 +109,16 @@
 <screen><userinput remap="test">chown -R tester .
 su tester -c "make -k check"</userinput></screen>
 
-    <para><emphasis>hardlink</emphasis> testene vil mislykkes hvis vertens kjerne
-    ikke har alternativet <option>CONFIG_CRYPTO_USER_API_HASH</option>
-    aktivert eller har ingen alternativer som gir en SHA256 implementering
-    (for eksempel, <option>CONFIG_CRYPTO_SHA256</option>, eller
-    <option>CONFIG_CRYPTO_SHA256_SSSE3</option> hvis CPU støtter
-    Supplemental SSE3) aktivert. I tillegg,
-    to undertester fra misc: mbsencode og en undertest fra script: replay er
-    kjent for å mislykkes.</para>
+    <para> 
+       <emphasis>hardlink</emphasis> tester vil mislykkes hvis vertens kjerne
+       ikke har alternativet<option>CONFIG_CRYPTO_USER_API_HASH</option>
+       aktivert eller har ingen alternativer som gir en SHA256 implementering
+       (for eksempel, <option>CONFIG_CRYPTO_SHA256</option>, eller
+       <option>CONFIG_CRYPTO_SHA256_SSSE3</option> hvis CPU støtter
+       Supplemental SSE3) aktivert. I tillegg vil lsfd: inotify-testen
+       mislykkes hvis kjernealternativet <option>CONFIG_NETLINK_DIAG</option> ikke er
+       aktivert.
+    </para>
 
     <para>Installer pakken:</para>
 

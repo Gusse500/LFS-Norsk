@@ -53,13 +53,6 @@
       uten denne oppdateringen.</para>
     </note>
 
-   <!-- https://seclists.org/oss-sec/2024/q1/30 -->
-    <para>Rett opp en sikkerhetssårbarhet i <command>split</command>
-    verktøyet:</para>
-
-<screen><userinput remap="pre">sed -e '/n_out += n_hold/,+4 s|.*bufsize.*|//&amp;|' \
-    -i src/split.c</userinput></screen>
-
     <para>Forbered nå Coreutils for kompilering:</para>
 
 <screen><userinput remap="configure">autoreconf -fiv
@@ -139,6 +132,11 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
     <para>Fjern den midlertidige gruppen:</para>
 
 <screen><userinput remap="test">groupdel dummy</userinput></screen>
+
+    <para>
+       To tester, tests/cp/preserve-mode.sh og tests/mv/acl.sh, er kjent for å
+       mislykkes i chroot miljøet, men passerer i et komplett system.
+    </para>
 
     <para>Installer pakken:</para>
 
