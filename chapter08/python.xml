@@ -78,11 +78,17 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Det anbefales ikke å kjøre testene på dette tidspunktet.
-    Tester er kjent for å henge på ubestemt tid i det delvise LFS miljøet.
-    Om ønskelig kan testene kjøres på nytt på slutten av dette kapittelet eller
-    når Python 3 er reinstallert i BLFS. For å kjøre testene uansett,
-    utsted <command>make test</command>.</para>
+    <para>Noen tester er kjent for iblant å henge på ubestemt tid. Så for å teste
+    resultatet, kjør testpakken, men sett en tidsbegrensning på 2 minutter for hvert
+    testforsøk:</para>
+
+<screen><userinput remap="test">make test TESTOPTS="--timeout 120"</userinput></screen>
+
+    <para>For et relativt tregt system må du kanskje øke tidsgrensen
+    og 1 SBU (målt når du bygger Binutils passerer 1 med én CPU
+    kjerne) bør være nok. Noen tester er rare, så testpakken vil automatisk
+    kjøre mislykkede tester på nytt. Hvis en test mislyktes, men deretter består
+    når den kjøres på nytt, bør den anses som bestått.</para>
 
     <para>Installer pakken:</para>
 
