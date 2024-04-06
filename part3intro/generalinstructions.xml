@@ -114,7 +114,7 @@
             <para>Ikke bruk noen metode bortsett fra <command>tar</command> kommandoen
               for å trekke ut kildekoden. Spesielt ved å bruke <command>cp -R</command>
               kommandoen for å kopiere
-              kildekodetre et annet sted kan ødelegge lenker og
+              kildekodetre et annet sted kan ødelegge
               tidsstempler i kildetreet, og føre til at byggingen mislykkes.</para>
             </listitem>
             <listitem>
