@@ -78,7 +78,7 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Noen tester er kjent for å henge på ubestemt tid. Så for å teste
+    <para>Noen tester er kjent for iblant å henge på ubestemt tid. Så for å teste
     resultatet, kjør testpakken, men sett en tidsbegrensning på 2 minutter for hvert
     testforsøk:</para>
 
