@@ -90,6 +90,10 @@
     kjøre mislykkede tester på nytt. Hvis en test mislyktes, men deretter består
     når den kjøres på nytt, bør den anses som bestått.</para>
 
+    <para>To tester navngitt <filename>test_xml_etree</filename> og
+    <filename>test_xml_etree_c</filename> er kjent for å mislykkes med expat-2.6.0
+    eller nyere.</para>
+
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
