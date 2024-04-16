@@ -41,6 +41,44 @@
     -->
     
     <listitem>
+      <para>15.04.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til setuptools-69.5.1. Fikser
+          <ulink url='&lfs-ticket-root;5478'>#5478</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til python3-3.12.3. Fikser
+          <ulink url='&lfs-ticket-root;5476'>#5476</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til openssl-3.3.0. Fikser
+          <ulink url='&lfs-ticket-root;5475'>#5475</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til ninja-1.12.0. Fikser
+          <ulink url='&lfs-ticket-root;5477'>#5477</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til man-db-2.12.1. Fikser
+          <ulink url='&lfs-ticket-root;5474'>#5474</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.8.6. Fikser
+          <ulink url='&lfs-ticket-root;5472'>#5472</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til iana-etc-20240412. Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til vim-9.1.0330. Adresserer
+          <ulink url='&lfs-ticket-root;4500'>#4500</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>31.03.2024</para>
       <itemizedlist>
         <listitem>
