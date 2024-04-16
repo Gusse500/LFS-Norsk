@@ -41,6 +41,15 @@
     -->
     
     <listitem>
+      <para>16.04.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Gjør mindre endring i ifup skriptutdatateksten.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>15.04.2024</para>
       <itemizedlist>
         <listitem>
