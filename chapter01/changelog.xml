@@ -41,6 +41,24 @@
     -->
     
     <listitem>
+      <para>01.05.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Legg til sikkerhetsfiks i glibc. Fikser
+          <ulink url='&lfs-ticket-root;5481'>#5481</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til linux-6.8.8. Fikser
+          <ulink url='&lfs-ticket-root;5480'>#5480</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatert til ncurses-6.5. Fikser
+          <ulink url='&lfs-ticket-root;5483'>#5483</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>16.04.2024</para>
       <itemizedlist>
         <listitem>
