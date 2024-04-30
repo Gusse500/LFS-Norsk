@@ -526,7 +526,7 @@
 <!ENTITY mpfr-fin-du "44 MB">
 <!ENTITY mpfr-fin-sbu "0.3 SBU">
 
-<!ENTITY ncurses-release "6.5">
+<!ENTITY ncurses-version "6.5">
 <!ENTITY ncurses-size "2,156 KB">
 <!ENTITY ncurses-url "https://invisible-mirror.net/archives/ncurses/ncurses-&ncurses-version;.tar.gz">
 <!ENTITY ncurses-md5 "ac2d2629296f04c8537ca706b6977687">
