@@ -137,9 +137,9 @@ popd</userinput></screen>
         <term><parameter>--enable-widec</parameter></term>
         <listitem>
           <para>Denne bryteren gjør at biblioteker med brede tegn (wide-character) f.eks., <filename
-          class="libraryfile">libncursesw.so.&ncurses-release;</filename>)
+          class="libraryfile">libncursesw.so.&ncurses-version;</filename>)
           skal bygges i stedet for vanlige (f.eks., <filename
-          class="libraryfile">libncurses.so.&ncurses-release;</filename>).
+          class="libraryfile">libncurses.so.&ncurses-version;</filename>).
           Disse brede tegnbibliotekene er brukbare i både multibyte og
           tradisjonelle 8-biters lokaliteter, mens vanlige biblioteker fungerer som de skal
           bare i 8-biters lokaliteter. Brede karakterer og normale biblioteker er
