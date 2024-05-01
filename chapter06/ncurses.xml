@@ -69,8 +69,7 @@ popd</userinput></screen>
             --with-cxx-shared            \
             --without-debug              \
             --without-ada                \
-            --disable-stripping          \
-            --enable-widec</userinput></screen>
+            --disable-stripping</userinput></screen>
 
     <variablelist>
       <title>Betydningen av de nye konfigureringsalternativene:</title>
@@ -132,9 +131,9 @@ popd</userinput></screen>
           Bruk av vertsverktøy på krysskompilerte programmer kan forårsake feil.</para>
         </listitem>
       </varlistentry>
-
+<!-- this is the default >= 6.5
       <varlistentry>
-        <term><parameter>--enable-widec</parameter></term>
+        <term><parameter>- -enable-widec</parameter></term>
         <listitem>
           <para>Denne bryteren gjør at biblioteker med brede tegn (wide-character) f.eks., <filename
           class="libraryfile">libncursesw.so.&ncurses-version;</filename>)
@@ -146,7 +145,7 @@ popd</userinput></screen>
           kildekompatibel, men ikke binærkompatibel.</para>
         </listitem>
       </varlistentry>
-
+-->
     </variablelist>
 
     <para>Kompiler pakken:</para>
