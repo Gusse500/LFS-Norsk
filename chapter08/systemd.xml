@@ -226,6 +226,18 @@ meson setup \
 
 <screen><userinput remap="make">ninja</userinput></screen>
 
+    <para>Noen tester trenger en grunnleggende <filename>/etc/os-release</filename> fil.
+    For å teste resultatene, utsted:</para>
+
+<screen><userinput remap="test">echo 'NAME="Linux From Scratch"' &gt; /etc/os-release
+ninja test</userinput></screen>
+
+    <!-- This test needs /run/systemd/inaccessible/sock, which only exists
+         after initializing the system with systemd.  -->
+    <para>En test navngitt <literal>systemd:core / test-namespace</literal>
+    er kjent for å mislykkes i LFS chroot miljøet. Noen andre tester kan
+    mislykkes fordi de er avhengige av ulike kjernekonfigurasjonsalternativer.</para>
+
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">ninja install</userinput></screen>
