@@ -40,6 +40,10 @@
   <sect2 role="installation">
     <title>Installasjon av Inetutils</title>
 
+    <para>Først, gjør sånn at pakken bygget med gcc-14.1 eller senere::</para>
+
+<screen><userinput remap="pre">sed -i 's/def HAVE_TERMCAP_TGETENT/ 1/' telnet/telnet.c</userinput></screen>
+
     <para>Forbered Inetutils for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr        \

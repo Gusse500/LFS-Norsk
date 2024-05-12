@@ -41,19 +41,31 @@
     -->
     
     <listitem>
-      <para>01.05.2024</para>
+      <para>11.05.2024</para>
       <itemizedlist>
         <listitem>
-          <para>[bdubbs] - Legg til sikkerhetsfiks i glibc. Fikser
-          <ulink url='&lfs-ticket-root;5481'>#5481</ulink>.</para>
+          <para>[bdubbs] - Oppdater til vim-9.1.0405. Adresserer
+          <ulink url='&lfs-ticket-root;4500'>#4500</ulink>.</para>
         </listitem>
         <listitem>
-          <para>[bdubbs] - Oppdatert til linux-6.8.8. Fikser
-          <ulink url='&lfs-ticket-root;5480'>#5480</ulink>.</para>
+          <para>[bdubbs] - Oppdater til util-linux-2.40.1. Fikser
+          <ulink url='&lfs-ticket-root;5482'>#5482</ulink>.</para>
         </listitem>
         <listitem>
-          <para>[bdubbs] - Oppdatert til ncurses-6.5. Fikser
-          <ulink url='&lfs-ticket-root;5483'>#5483</ulink>.</para>
+          <para>[bdubbs] - Oppdater til linux-6.8.9. Fikser
+          <ulink url='&lfs-ticket-root;5484'>#5484</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til jinja2-3.1.4 (Python modul). Fikser
+          <ulink url='&lfs-ticket-root;5485'>#5485</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iana-etc-20240502. Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til gcc-14.1.0. Fikser
+          <ulink url='&lfs-ticket-root;5486'>#5486</ulink>.</para>
         </listitem>
       </itemizedlist>
     </listitem>

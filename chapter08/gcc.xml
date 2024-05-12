@@ -40,20 +40,7 @@
 
   <sect2 role="installation">
     <title>Installasjon av GCC</title>
-<!--
-    <para>Først må du fikse et problem som forhindrer
-    <filename class="libraryfile">libasan.a</filename> å bygge denne pakken
-    med Glibc-2.34 eller nyere:</para>
 
-<screen><userinput remap="pre">sed -e '/static.*SIGSTKSZ/d' \
-    -e 's/return kAltStackSize/return SIGSTKSZ * 4/' \
-    -i libsanitizer/sanitizer_common/sanitizer_posix_libcdep.cpp</userinput></screen>
--->
-<!--
-    <para>Først fiks et problem med den nyeste versjonen av glibc:</para>
-
-    <screen><userinput remap="pre">patch -Np1 -i ../&gcc-upstream-fixes-patch;</userinput></screen>
--->
     <para>Hvis du bygger på x86_64, endre standard mappenavn for 64-bit
     bibliotekene til <quote>lib</quote>:</para>
 
@@ -76,6 +63,7 @@ cd       build</userinput></screen>
              --enable-languages=c,c++ \
              --enable-default-pie     \
              --enable-default-ssp     \
+             --enable-host-pie        \
              --disable-multilib       \
              --disable-bootstrap      \
              --disable-fixincludes    \
@@ -147,14 +135,22 @@ cd       build</userinput></screen>
       <para>I denne delen vurderes testpakken for GCC å være
       viktig, men det tar lang tid. Førstegangsbyggere
       oppfordres til ikke å hoppe over dette. Tiden for å kjøre testene kan bli
-      redusert betydelig ved å legge til -jx til <command>make -k check</command> kommandoen nedenfor
-      hvor x er antall kjerner på systemet ditt.</para>
+      redusert betydelig ved å legge til -jx til <command>make -k check</command> 
+      kommandoen nedenfor hvor x er antall kjerner på systemet ditt.</para>
     </important>
 
    <para>Et sett med tester i GCC testpakken er kjent for å bruke opp standard
    stabel (stack), så øk stabelstørrelsen før du kjører testene:</para>
 
 <screen><userinput remap="test">ulimit -s 32768</userinput></screen>
+
+    <para>Fjern/fiks nå flere kjente testfeil:</para>
+
+<screen><userinput remap="test">sed -e '/cpython/d'               -i ../gcc/testsuite/gcc.dg/plugin/plugin.exp
+sed -e 's/no-pic /&amp;-no-pie /'     -i ../gcc/testsuite/gcc.target/i386/pr113689-1.c
+sed -e 's/300000/(1|300000)/'     -i ../libgomp/testsuite/libgomp.c-c++-common/pr109062.c
+sed -e 's/{ target nonpic } //' \
+    -e '/GOTPCREL/d'              -i ../gcc/testsuite/gcc.target/i386/fentryname3.c</userinput></screen>
 
     <para>Test resultatene som en ikke-privilegert bruker, men ikke stopp ved feil:</para>
 
@@ -171,14 +167,14 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
     <para>Resultatene kan sammenlignes med de som ligger på <ulink
     url="&test-results;"/> og
     <ulink url="https://gcc.gnu.org/ml/gcc-testresults/"/>.</para>
-
+<!--
     <para>
     Åtte gcc tester (av over 185 000):
-    <!-- https://gcc.gnu.org/PR106375 --><filename>pr56837.c</filename>
+    <!- - https://gcc.gnu.org/PR106375 - -><filename>pr56837.c</filename>
     og syv tester i <filename class='directory'>analyzer</filename>
     mappen er kjent for å mislykkes.
 
-    <!-- https://gcc.gnu.org/PR109353 -->
+    <!- - https://gcc.gnu.org/PR109353 - ->
     En libstdc++ test (av over 15000), <filename>copy.cc</filename>, er
     kjent for å mislykkes.
 
@@ -190,9 +186,9 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
     I tillegg flere tester i
     <filename class='directory'>vect</filename> mappen er kjent for å mislykkes
     hvis maskinvaren ikke støtter AVX.</para>
-
-    <para>Noen få uventede feil kan ikke alltid unngås. GCC utviklerne
-    er vanligvis klar over disse problemene, men har ikke løst dem ennå
+-->
+    <para>Noen få uventede feil kan ikke alltid unngås. <!--GCC utviklerne
+    er vanligvis klar over disse problemene, men har ikke løst dem ennå.-->
     Med mindre testresultatene er svært forskjellige fra de på URLen ovenfor,
     er det trygt å fortsette.</para>
 
