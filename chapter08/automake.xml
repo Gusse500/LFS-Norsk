@@ -61,7 +61,8 @@
     <para>Erstatt <replaceable>$((...))</replaceable> med antall
     logiske kjerner du vil bruke, hvis du ikke vil bruke alle.</para>
 
-    <para>Testen t/subobj.sh er kjent for å mislykkes.</para>
+    <para>Av 2926 tester er 52 kjent for å mislykkes på grunn av inkompatibiliteter i
+    testskriptet med gcc-14.1 eller nyere.</para>
 
     <para>Installer pakken:</para>
 
