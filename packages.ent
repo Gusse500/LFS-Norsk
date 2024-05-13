@@ -351,7 +351,7 @@
 
 <!ENTITY jinja2-version "3.1.4">
 <!ENTITY jinja2-size "235 KB">
-<!ENTITY jinja2-url "&pypi-src;/J/Jinja2/Jinja2-&jinja2-version;.tar.gz">
+<!ENTITY jinja2-url "&pypi-src;/J/Jinja2/jinja2-&jinja2-version;.tar.gz">
 <!ENTITY jinja2-md5 "02ca9a6364c92e83d14b037bef4732bc">
 <!ENTITY jinja2-home "https://jinja.palletsprojects.com/en/3.1.x/">
 <!ENTITY jinja2-fin-du "3.2 MB">
@@ -526,7 +526,7 @@
 <!ENTITY mpfr-fin-du "44 MB">
 <!ENTITY mpfr-fin-sbu "0.3 SBU">
 
-<!ENTITY ncurses-release "6.5">
+<!ENTITY ncurses-version "6.5">
 <!ENTITY ncurses-size "2,156 KB">
 <!ENTITY ncurses-url "https://invisible-mirror.net/archives/ncurses/ncurses-&ncurses-version;.tar.gz">
 <!ENTITY ncurses-md5 "ac2d2629296f04c8537ca706b6977687">
@@ -682,7 +682,7 @@
 <!ENTITY sysvinit-url "&github;/slicer69/sysvinit/releases/download/&sysvinit-version;/sysvinit-&sysvinit-version;.tar.xz">
 <!ENTITY sysvinit-md5 "688074f8642c955469a0b1ecae5c488b">
 <!ENTITY sysvinit-home "&savannah-nongnu;/projects/sysvinit">
-<!ENTITY sysvinit-fin-du "3.5 MB">
+<!ENTITY sysvinit-fin-du "2.5 MB">
 <!ENTITY sysvinit-fin-sbu "less than 0.1 SBU">
 
 <!ENTITY tar-version "1.35">
@@ -732,8 +732,8 @@
 <!ENTITY udev-lfs-md5     "acd4360d8a5c3ef320b9db88d275dae6">
 <!ENTITY udev-lfs-home    " ">
 
-<!ENTITY util-linux-minor "2.40.1">
-<!ENTITY util-linux-version "2.40"> <!-- 2.33.x -->
+<!ENTITY util-linux-minor "2.40">
+<!ENTITY util-linux-version "2.40.1"> <!-- 2.33.x -->
 <!ENTITY util-linux-size "8,617 KB">
 <!ENTITY util-linux-url "&kernel;linux/utils/util-linux/v&util-linux-minor;/util-linux-&util-linux-version;.tar.xz">
 <!ENTITY util-linux-md5 "42ca7b92a3d77087de362f43ac29a3df">
