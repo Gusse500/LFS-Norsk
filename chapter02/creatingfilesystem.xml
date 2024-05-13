@@ -50,7 +50,7 @@
     </varlistentry>
   </variablelist>
 
-  <para>Andre filsystemer, inkludert FAT32, NTFS, ReiserFS, JFS og XFS er
+  <para>Andre filsystemer, inkludert FAT32, NTFS, JFS og XFS er
    nyttig for spesialiserte formål. Mer informasjon om disse filsystemene.
    og mange andre finner du på <ulink
   url="https://en.wikipedia.org/wiki/Comparison_of_file_systems"/>.</para>
