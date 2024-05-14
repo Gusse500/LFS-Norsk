@@ -41,6 +41,18 @@
     -->
     
     <listitem>
+      <para>13.05.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Synkroniser coreutils i18n oppdatering fra Fedora
+          for å fikse en byggefeil på 32-bit x86 og en alarmerende kompilator
+          advarsel på både 32-bit x86 og x86_64 med GCC 14.1 eller
+          seinere.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>11.05.2024</para>
       <itemizedlist>
         <listitem>
