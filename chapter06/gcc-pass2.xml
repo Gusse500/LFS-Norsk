@@ -149,12 +149,10 @@ cd       build</userinput></screen>
         <term><parameter>--disable-libsanitizer</parameter></term>
         <listitem>
           <para>Deaktiver GCC rensende kjøretidsbiblioteker. De er ikke
-          nødvendig for den midlertidige installasjonen. Denne bryteren er nødvendig
-          for å bygge GCC uten
-          <systemitem class='library'>libcrypt</systemitem> installert for
-          målet. I <xref linkend='ch-tools-gcc-pass1'/> det var
-          underforstått ved <parameter>--disable-libstdcxx</parameter>, men nå
-          må vi eksplisitt angi det.</para>
+          nødvendig for den midlertidige installasjonen.  I
+          <xref linkend='ch-tools-gcc-pass1'/> det ble antydet av
+          <parameter>--disable-libstdcxx</parameter>, og nå kan vi
+          gi den eksplisitt.</para>
         </listitem>
       </varlistentry>
 
