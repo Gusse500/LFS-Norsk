@@ -71,9 +71,8 @@
       grensesnittet; denne informasjonen er kun for referanse. Den andre linjen er
       udev regelen som samsvarer med dens NIC og faktisk tildeler det et navn.</para>
 
-      <para>Alle udev regler består av flere nøkler, atskilt med komma og
-      valgfritt mellomrom. Denne regelens nøkler og en forklaring av hver av dem
-      er som følger:</para>
+      <para>Alle udev regler består av flere nøkkelord, atskilt med komma og
+      valgfritt mellomrom. Her er nøkkelordene, og en forklaring på hvert enkelt:</para>
 
       <itemizedlist>
         <listitem>
@@ -124,7 +123,7 @@
       <filename>/usr/lib/udev/network/99-default.link</filename>:</para>
 
 <screen role="nodump"><userinput>sed -e '/^AlternativeNamesPolicy/s/=.*$/=/'  \
-    -i /usr/lib/udev/network/99-default.link \
+       /usr/lib/udev/network/99-default.link \
      > /etc/udev/network/99-default.link</userinput></screen>
     </sect3>
 
