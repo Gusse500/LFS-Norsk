@@ -124,8 +124,8 @@ cd       build</userinput></screen>
           <para>Vi krysskompilerer GCC, så det er umulig å bygge
           målbibliotekene (<filename class="libraryfile">libgcc</filename>
           og <filename class="libraryfile">libstdc++</filename>) med
-          tidligere kompilerte GCC binærfiler&mdash;disse binærfilene vil ikke kjøre på
-          verten. GCC byggesystemet vil forsøke å bruke vertens
+          GCC binærfiler kompilert i dette passet&mdash;disse binærfilene vil ikke kjøre
+          på verten. GCC byggesystemet vil forsøke å bruke verten's
           C og C++ kompilatorer som en standard løsning.
           Å bygge GCC målbibliotekene med en annen
           versjonen av GCC støttes ikke, så bruk av vertens kompilatorer kan føre til
