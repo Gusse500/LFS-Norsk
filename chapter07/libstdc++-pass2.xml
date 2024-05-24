@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -24,11 +24,11 @@
   <sect2 role="package">
     <title/>
 
-    <para>Ved bygging av <xref linkend="ch-tools-gcc-pass2"/> måtte vi utsette
+    <para>Ved bygging av <xref linkend="ch-tools-gcc-pass2"/> mÃ¥tte vi utsette
     installasjonen av C++ standardbiblioteket fordi ingen passende kompilator
-    var tilgjengelig for å kompilere den. Vi kunne ikke bruke den innebygde kompilatoren
-    fordi det er en innebygd kompilator og ikke bør brukes utenfor
-    chroot og risikere å forurense bibliotekene med enkelte vertskomponenter.</para>
+    var tilgjengelig for Ã¥ kompilere den. Vi kunne ikke bruke den innebygde kompilatoren
+    fordi det er en innebygd kompilator og ikke bÃ¸r brukes utenfor
+    chroot og risikere Ã¥ forurense bibliotekene med enkelte vertskomponenter.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -47,15 +47,15 @@
 
     <note>
       <para><application>Libstdc++</application> er en del av GCC kildene.
-      Du bør først pakke ut GCC tarballen og bytte til
+      Du bÃ¸r fÃ¸rst pakke ut GCC tarballen og bytte til
       <filename>gcc-&gcc-version;</filename> mappen.</para>
     </note>
 
-    <para>Lag en lenke som eksisterer når du bygger libstdc++ i gcc treet:</para>
+    <para>Lag en lenke som eksisterer nÃ¥r du bygger libstdc++ i gcc treet:</para>
 
 <screen><userinput remap="pre">ln -s gthr-posix.h libgcc/gthr-default.h</userinput></screen>
 
-    <para>Opprett en egen byggemappe for libstdc++ og skriv gå inn i den:</para>
+    <para>Opprett en egen byggemappe for libstdc++ og skriv gÃ¥ inn i den:</para>
 
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>
@@ -76,7 +76,7 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>CXXFLAGS="-g -O2 -D_GNU_SOURCE"</parameter></term>
         <listitem>
-          <para>Disse flaggene sendes av Makefile på øverste nivå når det bygges
+          <para>Disse flaggene sendes av Makefile pÃ¥ Ã¸verste nivÃ¥ nÃ¥r det bygges
           en komplett versjon av GCC.</para>
         </listitem>
       </varlistentry>
@@ -84,7 +84,7 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--host=$(uname -m)-lfs-linux-gnu</parameter></term>
         <listitem>
-          <para>Vi må etterligne hva som ville skje hvis denne pakken ble bygget
+          <para>Vi mÃ¥ etterligne hva som ville skje hvis denne pakken ble bygget
           som en del av et komplett kompilatorbygg. Denne bryteren vil bli sendt til
           configure av GCCs byggemaskineri.</para>
         </listitem>
@@ -93,14 +93,14 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--disable-libstdcxx-pch</parameter></term>
         <listitem>
-          <para>Denne bryteren forhindrer installasjon av forhåndskompilerte
-          inkluderte filer som ikke er nødvendige på dette stadiet.</para>
+          <para>Denne bryteren forhindrer installasjon av forhÃ¥ndskompilerte
+          inkluderte filer som ikke er nÃ¸dvendige pÃ¥ dette stadiet.</para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Kompiler libstdc++ ved å kjøre:</para>
+    <para>Kompiler libstdc++ ved Ã¥ kjÃ¸re:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 

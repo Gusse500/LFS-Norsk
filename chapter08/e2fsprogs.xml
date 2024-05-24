@@ -485,7 +485,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
         <listitem>
           <para>Oppretter en <filename class="directory">lost+found</filename>
           mappe på et <systemitem class="filesystem">ext{234}</systemitem> filsystem
-          ; den forhåndstildeler diskblokker til denne katalogen for å lette
+          ; den forhåndstildeler diskblokker til denne mappen for å lette
           oppgaven til <command>e2fsck</command></para>
           <indexterm zone="ch-system-e2fsprogs mklost-found">
             <primary sortas="b-mklost+found">mklost+found</primary>
