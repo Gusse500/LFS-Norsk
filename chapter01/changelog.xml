@@ -39,7 +39,55 @@
     <listitem revision="sysv"> or <listitem revision="systemd"> as
     appropriate for the entry or if needed the entire day's listitem.
     -->
-    
+
+    <listitem>
+      <para>31.05.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til meson-1.4.1. Fikser
+          <ulink url='&lfs-ticket-root;5498'>#5498</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til xz-5.6.2. Fikser
+          <ulink url='&lfs-ticket-root;5471'>#5471</ulink>.</para>
+        </listitem>
+        <listitem>
+           <para>[bdubbs] - Legg til linux-6.9.x kompatibilitetsinstruksjoner til 
+           <phrase revision="systemd">systemd</phrase>
+           <phrase revision="sysv">udev</phrase>. 
+           Fikser <ulink url='&lfs-ticket-root;5496'>#5496</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til setuptools-70.0.0 (python modul). Fikser
+          <ulink url='&lfs-ticket-root;5491'>#5491</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til ninja-1.12.1. Fikser
+          <ulink url='&lfs-ticket-root;5489'>#5489</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til man-pages-6.8. Fikser
+          <ulink url='&lfs-ticket-root;5494'>#5494</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.9.3. Fikser
+          <ulink url='&lfs-ticket-root;5491'>#5491</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til libcap-2.70. Fikser
+          <ulink url='&lfs-ticket-root;5493'>#5493</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iproute2-6.9.0. Fikser
+          <ulink url='&lfs-ticket-root;5492'>#5492</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til e2fsprogs-1.47.1. Fikser
+          <ulink url='&lfs-ticket-root;5495'>#5495</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
     <listitem>
       <para>13.05.2024</para>
       <itemizedlist>
