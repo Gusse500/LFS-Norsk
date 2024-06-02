@@ -48,7 +48,7 @@
  <screen><userinput remap="pre">sed -i -e 's/GROUP="render"/GROUP="video"/' \
        -e 's/GROUP="sgx", //' rules.d/50-udev-default.rules.in</userinput></screen>
 
- <para>Deretter fikser du kompatibilitet med linux-6.9 og nyere:</para>
+ <para>Deretter fikser du kompatibilitet med API deklarasjoner fra linux-6.9 og nyere:</para>
 
  <screen><userinput remap="pre">sed -i '/DEVMEM_MAGIC 0/{n;n;a \
 /* cb12fd8e0dabb9a1c8aef55a6a41e2c255fcdf4b (6.8) */
