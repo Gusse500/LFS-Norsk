@@ -55,7 +55,23 @@
 <screen><userinput remap="configure">SRCDIR=$(pwd)
 cd unix
 ./configure --prefix=/usr           \
-            --mandir=/usr/share/man</userinput></screen>
+            --mandir=/usr/share/man \
+            --disable-rpath</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av de nye konfigureringsparametrene:</title>
+
+      <varlistentry>
+        <term><parameter>--disable-rpath</parameter></term>
+        <listitem>
+          <para>Denne parameteren forhindrer hardkoding av biblioteksøkebaner
+          (rpath) inn i de binære kjørbare filene og delte bibliotekene.
+          Denne pakken trenger ikke rpath for en installasjon i
+          standard plassering, og rpath kan noen ganger forårsake uønskede effekter
+          eller til og med sikkerhetsproblemer.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
 
     <para>Bygg pakken:</para>
 
