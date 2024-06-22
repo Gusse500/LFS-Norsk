@@ -86,7 +86,7 @@
          og som <systemitem class="username">root</systemitem>, kjører
          kommandoene i
          <xref linkend='ch-tools-bindmount'/> og
-         <xref linkend='ch-tools-kernfsmount'/>.</para>
+         <xref linkend='ch-tools-kernfsmount' role='.'/></para>
       </listitem>
     </itemizedlist>
   </sect2>

@@ -88,7 +88,8 @@
         sørg for at du har satt <envar>LFS</envar>.
      </para>
      <para>
-        Dette har vært diskutert i <xref linkend='ch-partitioning-aboutlfs'/>.
+        Dette har vært diskutert i 
+       <xref linkend='ch-partitioning-aboutlfs' role='.'/>
       </para>
     </important>
 

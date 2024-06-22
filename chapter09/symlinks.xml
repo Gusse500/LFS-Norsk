@@ -39,7 +39,7 @@
       har ofte flere ethernet-tilkoblinger som heter eth0 og
       wlan0 og er også kandidater for denne metoden. Kommandolinjen
       sendes i GRUB-konfigurasjonsfilen.
-      Se <xref linkend="grub-cfg"/>.</para>
+      Se <xref linkend="grub-cfg" role='.'/></para>
     </sect3>
 
     <sect3>
@@ -219,8 +219,8 @@
 
     <title>Håndtere dupliserte enheter</title>
 
-    <para>Som forklart i <xref linkend="ch-config-udev"/>, rekkefølgen som
-    hvilke enheter med samme funksjon vises i
+    <para>Som forklart i <xref linkend="ch-config-udev" role=','/>
+    rekkefølgen som hvilke enheter med samme funksjon vises i
     <filename class="directory">/dev</filename> er i hovedsak tilfeldig.
     Hvis du for eksempel har et USB-webkamera og en TV-tuner, noen ganger
     <filename>/dev/video0</filename> refererer til kameraet og
@@ -229,8 +229,9 @@
     For alle klasser av maskinvare unntatt lydkort og nettverkskort kan dette
     fikses ved å lage udev-regler for egendefinerte vedvarende symbolkoblinger.
     Tilfellet med nettverkskort dekkes separat i
-    <xref linkend="ch-config-network"/>, og lydkortkonfigurasjon kan
-    finnes i <ulink url="&blfs-book;postlfs/devices.html">BLFS</ulink>.</para>
+    <xref linkend="ch-config-network" role=','/> og lydkortkonfigurasjon 
+    kan finnes i 
+    <ulink url="&blfs-book;postlfs/devices.html">BLFS</ulink>.</para>
 
     <para>For hver av enhetene dine som sannsynligvis vil ha dette problemet
     (selv om problemet ikke eksisterer i din nåvørende Linux distribusjon),

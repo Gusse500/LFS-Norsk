@@ -242,7 +242,8 @@ useradd -D --gid 999</userinput></screen>
           unknown GID 999</computeroutput>,
           selv om kontoen er riktig opprettet. Det er derfor vi har
           opprettet gruppen <systemitem class="groupname">users</systemitem>
-          med denne gruppe-IDen i <xref linkend='ch-tools-createfiles'/>.</para>
+          med denne gruppe-IDen i 
+          <xref linkend='ch-tools-createfiles' role='.'/></para>
 
         </listitem>
       </varlistentry>

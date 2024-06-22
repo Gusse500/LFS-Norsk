@@ -55,8 +55,8 @@
         LFS redaktærene anbefaler at brukere som ikke er kjent med denne prosessen fælger
         prosedyrene nedenfor ganske næye. Målet er å få et
         innledende system til et punkt hvor du kan logge inn på kommandolinjen når
-        du starter på nytt senere i <xref linkend="ch-finish-reboot"/>.  På dette punktet
-        er optimering og tilpasning ikke et mål.
+        du starter på nytt senere i <xref linkend="ch-finish-reboot" role='.'/>  
+        På dette punktet er optimering og tilpasning ikke et mål.
       </para>
 
       
