@@ -26,6 +26,6 @@
   kan gjøre datamaskinen din ubrukelig.
   Hele dette kapittelet må gjøres som bruker <systemitem
   class="username">lfs</systemitem>, med miljøet som beskrevet i
-  <xref linkend="ch-preps-settingenviron"/>.</para>
+  <xref linkend="ch-preps-settingenviron" role='.'/></para>
 
 </sect1>
