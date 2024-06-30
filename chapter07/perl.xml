@@ -45,16 +45,16 @@
 
     <para>Forbered Perl for kompilering:</para>
 
-    <screen><userinput remap="configure">sh Configure -des                                        \
-             -Dprefix=/usr                               \
-             -Dvendorprefix=/usr                         \
-             -Duseshrplib                                \
-             -Dprivlib=/usr/lib/perl5/&perl-version-min;/core_perl     \
-             -Darchlib=/usr/lib/perl5/&perl-version-min;/core_perl     \
-             -Dsitelib=/usr/lib/perl5/&perl-version-min;/site_perl     \
-             -Dsitearch=/usr/lib/perl5/&perl-version-min;/site_perl    \
-             -Dvendorlib=/usr/lib/perl5/&perl-version-min;/vendor_perl \
-             -Dvendorarch=/usr/lib/perl5/&perl-version-min;/vendor_perl</userinput></screen>
+    <screen><userinput remap="configure">sh Configure -des                                         \
+             -D prefix=/usr                               \
+             -D vendorprefix=/usr                         \
+             -D useshrplib                                \
+             -D privlib=/usr/lib/perl5/&perl-version-min;/core_perl     \
+             -D archlib=/usr/lib/perl5/&perl-version-min;/core_perl     \
+             -D sitelib=/usr/lib/perl5/&perl-version-min;/site_perl     \
+             -D sitearch=/usr/lib/perl5/&perl-version-min;/site_perl    \
+             -D vendorlib=/usr/lib/perl5/&perl-version-min;/vendor_perl \
+             -D vendorarch=/usr/lib/perl5/&perl-version-min;/vendor_perl</userinput></screen>
 
     <variablelist>
       <title>Betydningen av konfigureringsalternativene:</title>
@@ -69,7 +69,7 @@
       </varlistentry>
 
 	  <varlistentry>
-        <term><parameter>-Dvendorprefix=/usr</parameter></term>
+        <term><parameter>-D vendorprefix=/usr</parameter></term>
         <listitem>
           <para>Dette sikrer at <command>perl</command> vet hvordan å
           fortelle pakker hvor de skal installere perl modulene sine.</para>
@@ -77,7 +77,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term><parameter>-Duseshrplib</parameter></term>
+        <term><parameter>-D useshrplib</parameter></term>
         <listitem>
           <para>Bygger <systemitem class='library'>libperl</systemitem>
           som trengs av noen perl moduler som et delt bibliotek, i stedet for
@@ -86,7 +86,7 @@
       </varlistentry>
 
       <varlistentry>
-        <term><parameter>-Dprivlib,-Darchlib,-Dsitelib,...</parameter></term>
+        <term><parameter>-D privlib,-D archlib,-D sitelib,...</parameter></term>
         <listitem>
           <para>Disse innstillingene definerer hvor Perl leter etter installerte
           moduler. LFS redaktørene valgte å legge dem i en katalogstruktur

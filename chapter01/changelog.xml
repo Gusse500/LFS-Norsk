@@ -41,6 +41,44 @@
     -->
 
     <listitem>
+      <para>01.07.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iana-etc-20240612. Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til bc-6.7.6. Fikser
+          <ulink url='&lfs-ticket-root;5506'>#5506</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til man-pages-6.9.1. Fikser
+          <ulink url='&lfs-ticket-root;5507'>#5507</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.9.7. Fikser
+          <ulink url='&lfs-ticket-root;5508'>#5508</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til sysklogd-2.5.2. Fikser
+          <ulink url='&lfs-ticket-root;5509'>#5509</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til shadow-4.16.0. Fikser
+          <ulink url='&lfs-ticket-root;5510'>#5510</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til systemd-256.1. Fikser
+          <ulink url='&lfs-ticket-root;5511'>#5511</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til setuptools-70.1.1. Fikser
+          <ulink url='&lfs-ticket-root;5512'>#5512</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>15.06.2024</para>
       <itemizedlist>
         <listitem>

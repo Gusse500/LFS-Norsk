@@ -41,11 +41,12 @@
   <sect2 role="installation">
     <title>Installasjon av Sysklogd</title>
 
-    <para>Først, fiks problemer som forårsaker en segmenteringsfeil under
-     noen forhold i klogd og fiks en foreldet programkonstruksjon:</para>
+    <para>Forbered pakken for kompilering:</para>
 
-<screen><userinput remap="pre">sed -i '/Error loading kernel symbols/{n;n;d}' ksym_mod.c
-sed -i 's/union wait/int/' syslogd.c</userinput></screen>
+<screen><userinput remap="configure">./configure --prefix=/usr      \
+            --sysconfdir=/etc  \
+            --runstatedir=/run \
+            --without-logger</userinput></screen>
 
     <para>Kompiler pakken:</para>
 
@@ -94,10 +95,10 @@ EOF</userinput></screen>
     <title>Innhold i Sysklogd</title>
 
     <segmentedlist>
-      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installert program</segtitle>
 
       <seglistitem>
-        <seg>klogd og syslogd</seg>
+        <seg>syslogd</seg>
       </seglistitem>
     </segmentedlist>
 
@@ -105,16 +106,6 @@ EOF</userinput></screen>
       <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
-
-      <varlistentry id="klogd">
-        <term><command>klogd</command></term>
-        <listitem>
-          <para>En systemnisse (system daemon) for å avskjære og logge kjernemeldinger</para>
-          <indexterm zone="ch-system-sysklogd klogd">
-            <primary sortas="b-klogd">klogd</primary>
-          </indexterm>
-        </listitem>
-      </varlistentry>
 
       <varlistentry id="syslogd">
         <term><command>syslogd</command></term>
