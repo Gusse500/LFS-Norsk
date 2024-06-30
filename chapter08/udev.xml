@@ -65,15 +65,14 @@
 <screen><userinput remap="configure">mkdir -p build
 cd       build
 
-meson setup \
-      --prefix=/usr                 \
-      --buildtype=release           \
-      -Dmode=release                \
-      -Ddev-kvm-mode=0660           \
-      -Dlink-udev-shared=false      \
-	  -Dlogind=false                \
-      -Dvconsole=false              \
-      ..</userinput></screen>
+meson setup ..                  \
+      --prefix=/usr             \
+      --buildtype=release       \
+      -D mode=release           \
+      -D dev-kvm-mode=0660      \
+      -D link-udev-shared=false \
+      -D logind=false           \
+      -D vconsole=false</userinput></screen>
 
     <variablelist>
       <title>Betydningen av mesonalternativene:</title>
@@ -88,7 +87,7 @@ meson setup \
       </varlistentry>
 
       <varlistentry>
-        <term><parameter>-Dmode=release</parameter></term>
+        <term><parameter>-D mode=release</parameter></term>
         <listitem>
           <para>Deaktiver noen funksjoner som anses som eksperimentelle av oppstrøms.
           </para>
@@ -96,7 +95,7 @@ meson setup \
       </varlistentry>
 
       <varlistentry>
-        <term><parameter>-Ddev-kvm-mode=0660</parameter></term>
+        <term><parameter>-D dev-kvm-mode=0660</parameter></term>
         <listitem>
           <para>Standard udev regelen vil tillate alle brukere tilgang til
           <filename class='devicefile'>/dev/kvm</filename>.  Utviklerne
@@ -105,7 +104,7 @@ meson setup \
       </varlistentry>
 
       <varlistentry>
-        <term><parameter>-Dlink-udev-shared=false</parameter></term>
+        <term><parameter>-D link-udev-shared=false</parameter></term>
         <listitem>
           <para>Dette alternativet forhindrer udev fra å koble til det interne
            systemd delte biblioteket,
@@ -116,7 +115,7 @@ meson setup \
       </varlistentry>
 	  
       <varlistentry>
-        <term><parameter>-Dlogind=false -Dvconsole=false</parameter></term>
+        <term><parameter>-D logind=false -Dvconsole=false</parameter></term>
         <listitem>
           <para>Disse alternativene forhindrer generering av flere udev
           regelfiler som tilhører de andre Systemd komponentene som vi ikke vil

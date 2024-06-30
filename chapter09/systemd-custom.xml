@@ -305,7 +305,7 @@ EOF</userinput></screen>
         <para>
           <emphasis>Deaktiver ved byggetid</emphasis>: Du kan deaktivere
           systemforlenging som standard mens du bygger systemd ved å legge til bryteren
-          <parameter>-Ddefault-kill-user-processes=false</parameter> til
+          <parameter>-D default-kill-user-processes=false</parameter> til
           <command>meson</command> kommandoen for systemd. Dette
           deaktiverer helt systemds evne til å drepe brukerprosesser under
           øktslutt.
