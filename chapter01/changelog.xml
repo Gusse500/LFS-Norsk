@@ -44,6 +44,16 @@
       <para>01.07.2024</para>
       <itemizedlist>
         <listitem>
+          <para>[bdubbs] - Oppdater lfs-bootscripts til å bare skrive ut
+          escape-sekvenser til en terminal. </para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>01.07.2024</para>
+      <itemizedlist>
+        <listitem>
           <para>[bdubbs] - Oppdater til iana-etc-20240612. Adresserer
           <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
         </listitem>
