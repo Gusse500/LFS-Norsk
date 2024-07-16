@@ -41,6 +41,48 @@
     -->
 
     <listitem>
+      <para>15.07.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iana-etc-20240701. Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til vim-9.1.0580. Adresserer
+          <ulink url='&lfs-ticket-root;4500'>#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til automake-1.17. Fikser
+          <ulink url='&lfs-ticket-root;5520'>#5520</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til gdbm-1.24. Fikser
+          <ulink url='&lfs-ticket-root;5515'>#5515</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.9.9. Fikser
+          <ulink url='&lfs-ticket-root;5517'>#5517</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til less-661. Fikser
+          <ulink url='&lfs-ticket-root;5513'>#5513</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til meson-1.5.0. Fikser
+          <ulink url='&lfs-ticket-root;5519'>#5519</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til setuptools-70.3.0. Fikser
+          <ulink url='&lfs-ticket-root;5514'>#5514</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til util-linux-2.40.2. Fikser
+          <ulink url='&lfs-ticket-root;5516'>#5516</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>01.07.2024</para>
       <itemizedlist>
         <listitem>
