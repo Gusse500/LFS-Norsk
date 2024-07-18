@@ -12,7 +12,7 @@
 
   <para>Til slutt, rydd opp i noen ekstra filer som er igjen etter å ha kjørt testene:</para>
 
-<screen><userinput>rm -rf /tmp/*</userinput></screen>
+  <screen><userinput>rm -rf /tmp/{*,.*}</userinput></screen>
 
   <para>Det er også flere filer installert i /usr/lib og /usr/libexec
   mappene med filtypen .la. Disse er "libtool arkivfiler".

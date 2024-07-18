@@ -76,6 +76,7 @@ cd       build</userinput></screen>
              --disable-nls       \
              --enable-gprofng=no \
              --disable-werror    \
+             --enable-new-dtags  \
              --enable-default-hash-style=gnu</userinput></screen>
 
     <variablelist>
@@ -132,7 +133,18 @@ cd       build</userinput></screen>
           er advarsler fra vertens kompilator.</para>
         </listitem>
       </varlistentry>
-	  
+
+	       <varlistentry>
+        <term><parameter>--enable-new-dtags</parameter></term>
+        <listitem>
+          <para>Dette gjør at linkeren bruker <quote>runpath</quote> taggen for å
+          bygge inn biblioteksøkestier i kjørbare filer og delte biblioteker,
+          i stedet for det tradisjonelle <quote>rpath</quote> taggen.  Det gjør
+          feilsøking av dynamisk koblede kjørbare filer enklere og fungerer rundt
+          potensielle problemer i testpakken til enkelte pakker.</para>
+        </listitem>
+      </varlistentry>
+ 
 	  <varlistentry>
         <term><parameter>--enable-default-hash-style=gnu</parameter></term>
         <listitem>
