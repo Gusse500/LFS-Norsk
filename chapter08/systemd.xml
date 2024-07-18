@@ -225,7 +225,7 @@ ninja test</userinput></screen>
 
     <!-- test-namespace needs /run/systemd/inaccessible/sock, which only exists
          after initializing the system with systemd.  -->
-    <para><para>En test navngitt <literal>systemd:core / test-namespace</literal>
+    <para>En test navngitt <literal>systemd:core / test-namespace</literal>
     er kjent for å mislykkes i LFS chroot miljøet. Noen andre tester kan
     mislykkes fordi de er avhengige av ulike kjernekonfigurasjonsalternativer.</para>
 
