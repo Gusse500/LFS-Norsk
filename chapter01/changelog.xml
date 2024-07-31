@@ -41,6 +41,52 @@
     -->
 
     <listitem>
+      <para>01.08.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iana-etc-20240723. Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til glibc-2.40. Fikser
+          <ulink url='&lfs-ticket-root;5529'>#5529</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iproute2-6.10.0. Fikser
+          <ulink url='&lfs-ticket-root;5523'>#5523</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.10.2. Fikser
+          <ulink url='&lfs-ticket-root;5521'>#5521</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til lz4-1.10.0. Fikser
+          <ulink url='&lfs-ticket-root;5528'>#5526</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til meson-1.5.1. Fikser
+          <ulink url='&lfs-ticket-root;5527'>#5527</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til setuptools-71.1.0. Fikser
+          <ulink url='&lfs-ticket-root;5524'>#5524</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til sysklogd-2.6.1. Fikser
+          <ulink url='&lfs-ticket-root;5522'>#5522</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til systemd-256.4. Fikser
+          <ulink url='&lfs-ticket-root;5518'>#5518</ulink>.</para>
+        </listitem>
+        <listitem revision='sysv'>
+          <para>[bdubbs] - Oppdater til sysvinit-3.10. Fikser
+          <ulink url='&lfs-ticket-root;5528'>#5528</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>15.07.2024</para>
       <itemizedlist>
         <listitem>
