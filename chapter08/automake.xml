@@ -58,11 +58,9 @@
      resultatene, utsted:</para>
 
 <screen><userinput remap="test">make <replaceable>-j$(($(nproc)&gt;4?$(nproc):4))</replaceable> check</userinput></screen>
+
     <para>Erstatt <replaceable>$((...))</replaceable> med antall
     logiske kjerner du vil bruke, hvis du ikke vil bruke alle.</para>
-
-    <para>Av 2926 tester er 52 kjent for å mislykkes på grunn av inkompatibiliteter i
-    testskriptet med gcc-14.1 eller nyere.</para>
 
     <para>Installer pakken:</para>
 
