@@ -14,16 +14,16 @@
     <address>&sysvinit-url;</address>
   </sect1info>
 
-  <title>Sysvinit-&sysvinit-version;</title>
+  <title>SysVinit-&sysvinit-version;</title>
 
   <indexterm zone="ch-system-sysvinit">
-    <primary sortas="a-Sysvinit">Sysvinit</primary>
+    <primary sortas="a-SysVinit">SysVinit</primary>
   </indexterm>
 
   <sect2 role="package">
     <title/>
 
-    <para>Sysvinit pakken inneholder programmer for å kontrollere oppstarten,
+    <para>SysVinit pakken inneholder programmer for å kontrollere oppstarten,
     kjøring og avslutning av systemet.</para>
 
     <segmentedlist>
@@ -39,7 +39,7 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installasjon av Sysvinit</title>
+    <title>Installasjon av SysVinit</title>
 
 <!--
     <para>Når kjørenivåer endres (for eksempel når du stopper
@@ -59,8 +59,8 @@
     <command>mountpoint</command>, <command>last</command>,
     <command>mesg</command>, <command>sulogin</command>, og
     <command>utmpdump</command> programmer ble installert tidligere av Util-linux.
-    Undertrykk installasjonen av Sysvinits versjoner av disse programmene og
-    mansidene deres:</para>
+    Undertrykk installasjonen av SysVinit sine versjoner av disse programmene og
+    manualsidene deres:</para>
 
 <screen><userinput remap="make">sed -ri -e '/utmpdump/d'   \
         -e '/mountpoint/d' \
@@ -85,7 +85,7 @@
   </sect2>
 
   <sect2 id="contents-sysvinit" role="content">
-    <title>Innhold i Sysvinit</title>
+    <title>Innhold i SysVinit</title>
 
     <segmentedlist>
       <segtitle>Installerte programmer</segtitle>
