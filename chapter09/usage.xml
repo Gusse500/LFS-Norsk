@@ -62,7 +62,7 @@
   <title>Konfigurere Sysvinit</title>
 
   <indexterm zone="conf-sysvinit">
-    <primary sortas="a-Sysvinit">Sysvinit</primary>
+    <primary sortas="a-SysVinit">SysVinit</primary>
     <secondary>configuring</secondary>
   </indexterm>
 

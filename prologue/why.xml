@@ -558,12 +558,12 @@
 
         <para>Denne pakken gir et <application>init</application> program
         og flere ekstra oppstarts- og systemkontrollfunksjoner som et
-        alternativ til Sysvinit. Den brukes av mange kommersielle distribusjoner.
+        alternativ til SysVinit. Den brukes av mange kommersielle distribusjoner.
         </para>
       </listitem>
 
       <listitem revision="sysv">
-        <para>Sysvinit</para>
+        <para>SysVinit</para>
 
         <para>Denne pakken gir <application>init</application>
         programmet, som er overordnet for alle andre prosesser på et Linux
