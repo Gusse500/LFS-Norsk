@@ -193,8 +193,8 @@
       tilfeldig binær fra vertssystemet ved å kjøre: <userinput>readelf -l
       &lt;navn på binær&gt; | grep interpreter</userinput> og legg merke til
       utdataen. Den autoritative referansen som dekker alle plattformer er i
-      <filename>shlib-versions</filename> filen i roten til Glibc
-      kildetreet.</para>
+      <ulink url='https://sourceware.org/glibc/wiki/ABIList'>a Glibc wiki
+      page</ulink>.</para>
     </note>
 
     <para>For å forfalske en krysskompilering i LFS, navnet på vertstripletten
