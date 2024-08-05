@@ -45,7 +45,7 @@
 
     <para>Kompiler pakken:</para>
 
-<screen><userinput remap="make">make BUILD_STATIC=no</userinput></screen>
+<screen><userinput remap="make">make BUILD_STATIC=no PREFIX=/usr</userinput></screen>
 
     <para>For å teste resultatene, utsted:</para>
 
