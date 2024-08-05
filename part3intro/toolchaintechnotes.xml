@@ -359,20 +359,17 @@ checking what linker to use... /mnt/lfs/tools/i686-lfs-linux-gnu/bin/ld</compute
 
     <para>Neste kommer glibc. Det viktigste
     hensynet for å bygge glibc er kompilatoren, binære verktøy og
-    kjernedeklarasjoner. Kompilatoren er generelt ikke et problem siden glibc vil
-    alltid bruke kompilatoren som er relatert til <parameter>--host</parameter>
-    parameteret sendt til konfigureringsskriptet; f.eks. i vårt tilfelle kompilatoren
-    vil være <command>$LFS_TGT-gcc</command>. De binære verktøyene og kjerne
-    deklarasjoner kan være litt mer kompliserte. Derfor tar vi ingen risiko og bruker
-    de tilgjengelige konfigurasjonsbryterne for å fremtvinge de riktige valgene. Etter
+    kjernedeklarasjoner. Kompilatoren og binære verktøy er generelt ikke et problem 
+	siden glibc vil alltid bruke kompilatoren som er relatert til <parameter>--host</parameter>
+    parameteret sendt til konfigureringsskriptet; f.eks. i vårt tilfelle vil kompilatoren
+    være <command>$LFS_TGT-gcc</command> og <command>readelf</command>
+    verktøyet vil være <command>$LFS_TGT-readelf</command>. Kjerne deklarasjonene kan
+    være litt mer komplisert. Derfor tar vi ingen risiko og bruker
+    den tilgjengelige konfigurasjonsbryteren for å fremtvinge riktig valg. Etter
     kjøring av <command>configure</command>, sjekk innholdet i
     <filename>config.make</filename> filen i <filename
     class="directory">build</filename> mappen for alle viktige detaljer.
-    Legg merke til bruken av <parameter>CC="$LFS_TGT-gcc"</parameter> (med
-    <envar>$LFS_TGT</envar> utvidet) for å kontrollere hvilke binære verktøy som brukes
-    og bruken av <parameter>-nostdinc</parameter> og
-    <parameter>-isystem</parameter> flagg for å kontrollere kompilatorens inkluderte
-    søkeveier. Disse elementene fremhever et viktig aspekt ved Glibc
+    Disse elementene fremhever et viktig aspekt ved glibc
     pakken&mdash;en er veldig selvforsynt med tanke på byggemaskineriet
     og er generelt ikke avhengig av standardinnstillinger for verktøykjeder.</para>
 
