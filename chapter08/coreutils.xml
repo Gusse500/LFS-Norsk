@@ -122,7 +122,7 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
          remove < /dev/null.  -->
     <para>Kjør nå testene (ved hjelp av <filename>/dev/null</filename> for
     standard inngang, ellers kan to tester bli brutt hvis du bygger LFS i en
-    grafisk terminal eller en økt i SSH eller GNU Skjerm etc. fordi
+    grafisk terminal eller en økt i SSH eller GNU Skjerm fordi
     standard inngang er koblet til en PTY fra vertsdistro, og enhetsnoden
     for en slik PTY kan ikke nås fra LFS chroot
     miljøet):</para>
