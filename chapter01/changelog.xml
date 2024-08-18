@@ -41,6 +41,28 @@
     -->
 
     <listitem>
+      <para>17.08.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til setuptools-72.2.0. Fikser
+          <ulink url='&lfs-ticket-root;5542'>#5542</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til kmod-33. Fikser
+          <ulink url='&lfs-ticket-root;5540'>#5540</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til binutils-2.43.1. Fikser
+          <ulink url='&lfs-ticket-root;5543'>#5543</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.10.5. Fikser
+          <ulink url='&lfs-ticket-root;5541'>#5541</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>15.08.2024</para>
       <itemizedlist>
         <listitem>
