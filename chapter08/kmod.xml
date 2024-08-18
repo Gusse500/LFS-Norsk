@@ -43,12 +43,13 @@
 
     <para>Forbered Kmod for kompilering:</para>
 
-<screen><userinput remap="configure">./configure --prefix=/usr          \
-            --sysconfdir=/etc      \
-            --with-openssl         \
-            --with-xz              \
-            --with-zstd            \
-            --with-zlib</userinput></screen>
+<screen><userinput remap="configure">./configure --prefix=/usr     \
+            --sysconfdir=/etc \
+            --with-openssl    \
+            --with-xz         \
+            --with-zstd       \
+            --with-zlib       \
+            --disable-manpages</userinput></screen>
 
     <variablelist>
       <title>Betydningen av konfigureringsalternativene:</title>
@@ -71,6 +72,16 @@
         </term>
         <listitem>
           <para>Disse alternativene gjør at Kmod kan håndtere komprimerte kjernemoduler.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>
+          <parameter>--disable-manpages</parameter>
+        </term>
+        <listitem>
+          <para>Dette alternativet deaktiverer generering av manualsider som
+          krever et eksternt program.</para>
         </listitem>
       </varlistentry>
 
