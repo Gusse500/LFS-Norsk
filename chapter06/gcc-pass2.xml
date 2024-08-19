@@ -138,10 +138,11 @@ cd       build</userinput></screen>
         <term><parameter>LDFLAGS_FOR_TARGET=...</parameter></term>
         <listitem>
           <para>Tillat <filename class="libraryfile">libstdc++</filename> å
-          bruke den delte <filename class="libraryfile">libgcc</filename> som ble
-          bygget i dette passet, i stedet for den statiske versjonen bygget i GCC
-          pass 1. Dette er nødvendig for å støtte C++
-          unntakshåndtering.</para>
+          bruke <filename class="libraryfile">libgcc</filename> som ble
+          bygget i dette passet, i stedet for den forrige versjonen innebygd i
+          <xref linkend='ch-tools-gcc-pass1'/>.  Den forrige versjonen kan ikke
+          støtte C++ unntakshåndtering på riktig måte fordi den ble bygget
+          uten libc støtte.</para>
         </listitem>
       </varlistentry>
 	  
