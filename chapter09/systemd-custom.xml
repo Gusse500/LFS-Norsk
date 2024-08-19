@@ -102,7 +102,7 @@ EOF</userinput></screen>
 
 <screen role="nodump">q /tmp 1777 root root 10d</screen>
 
-      Typefeltet, q, diskuterer å lage et undervolum med kvoter som
+      Typefeltet, q, indikerer opprettelsen av et undervolum med kvoter som
       egentlig bare er aktuelt for btrfs filsystemer. Den refererer til type v
       som igjen refererer til type d (mappe). Dette skaper deretter den
       spesifiserte mappen hvis den ikke er til stede og justerer tillatelsene
