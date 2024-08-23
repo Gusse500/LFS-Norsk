@@ -41,6 +41,17 @@
     -->
 
     <listitem>
+      <para>23.08.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Oppdater til lfs-bootscripts-20240823 for å fikse et
+          problem som forårsaker at VT 2-6 ikke påvirkes av FONT= innstillingen i
+          /etc/sysconfig/console.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>17.08.2024</para>
       <itemizedlist>
         <listitem>
