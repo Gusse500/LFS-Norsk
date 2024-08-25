@@ -36,6 +36,32 @@
   for å gi et estimat på hvor lang tid det kan ta å installere en pakke, men
   tall kan variere med så mye som dusinvis av minutter i noen tilfeller.</para>
 
+  <para>Før du måler byggetiden for en pakke (uansett Binutils
+  pass 1 eller en pakke som SBU blir målt av), sørg for at a
+  systemstrømprofil egnet for å få systemet til å kjøre med
+  maksimal ytelse (og maksimalt strømforbruk) er valgt. Ellers vil
+  den målte SBU verdien kan være svært unøyaktig fordi systemet kan
+  operere annerledes enn å bygge Binutils pass 1 og den andre pakken.
+  Vær oppmerksom på at en betydelig unøyaktighet fortsatt kan dukke opp selv om den er den samme
+  profil (bortsett fra en som maksimerer ytelsen) brukes for begge pakkene:
+  systemet kan reagere tregere for å <quote>sparer strømmen</quote> bygge
+  Binutils pass 1, fordi systembelastningen ser ut til å være bare omtrent 25% av belastningen
+  bygge den andre pakken (med <parameter>-j4</parameter>).</para>
+
+  <para>På de fleste distroer kan strømprofilen administreres med enten
+  <command>power-profiles-daemon</command> eller <command>tuned</command>.
+  Hvis distroen kjører <command>power-profiles-daemon</command>, utsted
+  <command>powerprofilesctl set performance</command> kommandoen for å velge
+  <literal>performance</literal> profilen.  Hvis distroen kjører
+  <command>tuned</command>, utsted <command>tuned-adm profile
+  throughput-performance</command> kommandoen for å velge
+  <literal>throughput-performance</literal> profilen.</para>
+
+  <para>Selv om du ikke måler SBU verdiene, er det fortsatt bedre å
+  velge strømprofilen for maksimal ytelse før du bygger LFS, siden
+  å gjøre det kan (åpenbart) gjøre systemet raskere å bygge LFS
+  pakker.</para>
+
   <note>
     <para>Når flere prosessorer brukes på denne måten, vil SBU enhetene i
     boken variere enda mer enn de normalt ville gjort. I noen tilfeller, make
@@ -47,7 +73,6 @@
     <para>Tidene som presenteres her er basert på bruk av fire kjerner (-j4).
     Tidene i kapittel 8 inkluderer også tiden det skal kjøres regresjonstestene for
     pakken med mindre annet er spesifisert.</para>
-
   </note>
 
 </sect1>
