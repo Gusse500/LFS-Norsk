@@ -143,7 +143,7 @@ cd       build</userinput></screen>
     kodemønstre. Som en forholdsregel for vertsdistros med en liten stabelbegrensing,
     angi eksplisitt stabelstørrelsen hard grense til uendelig.
     På de fleste vertsdistroer (og det endelige LFS systemet) er den harde grensen
-    uendelig som standard, men det er ingen skade å angi det eksplisitt uansett.
+    uendelig som standard, men det er ingen skade ved å angi det eksplisitt.
     Det er ikke nødvendig å endre myk grense for stabelstørrelsen fordi GCC vil
     sette den automatisk til en passende verdi, så lenge verdien
     ikke overskrider den harde grensen:</para>
