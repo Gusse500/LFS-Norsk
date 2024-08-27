@@ -139,10 +139,16 @@ cd       build</userinput></screen>
       kommandoen nedenfor hvor x er antall kjerner på systemet ditt.</para>
     </important>
 
-   <para>Et sett med tester i GCC testpakken er kjent for å bruke opp standard
-   stabel (stack), så øk stabelstørrelsen før du kjører testene:</para>
+    <para>GCC kan trenge mer stabelplass for å kompilere noen ekstremt komplekse
+    kodemønstre. Som en forholdsregel for vertsdistros med en liten stabelbegrensing,
+    angi eksplisitt stabelstørrelsen hard grense til uendelig.
+    På de fleste vertsdistroer (og det endelige LFS systemet) er den harde grensen
+    uendelig som standard, men det er ingen skade ved å angi det eksplisitt.
+    Det er ikke nødvendig å endre myk grense for stabelstørrelsen fordi GCC vil
+    sette den automatisk til en passende verdi, så lenge verdien
+    ikke overskrider den harde grensen:</para>
 
-<screen><userinput remap="test">ulimit -s 32768</userinput></screen>
+<screen><userinput remap="test">ulimit -s -H unlimited</userinput></screen>
 
     <para>Fjern/fiks nå flere kjente testfeil:</para>
 
