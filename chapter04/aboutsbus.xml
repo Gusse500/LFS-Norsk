@@ -39,7 +39,7 @@
   <para>På noen nyere systemer er hovedkortet i stand til å kontrollere
   systemets klokkehastighet. Dette kan styres med en kommando som f.eks
   <command>powerprofilesctl</command>. Dette er ikke tilgjengelig i LFS, men
-  kan være tilgjengelig på vertssystemet. Etter at LFS er fullført, kan det bli
+  kan være tilgjengelig på vertsdistroen. Etter at LFS er fullført, kan det bli
   lagt til systemet med prosedyrene på
   <ulink url='&blfs-book;sysutils/power-profiles-daemon.html'>
   BLFS power-profiles-daemon</ulink> siden.
@@ -55,21 +55,16 @@
   Vær oppmerksom på at en betydelig unøyaktighet fortsatt kan dukke opp selv om den samme
   profilen brukes for begge pakkene fordi systemet kan reagere tregere hvis
   systemet er inaktivt når byggeprosedyren startes. Stille inn strømprofilen
-  til "ytelse" vil minimere dette problemet.</para>
+  til <quote>ytelse</quote> vil minimere dette problemet. Og
+  gjøre det vil selvsagt også gjøre at systemet bygger LFS raskere.</para>
 
-  <para>På de fleste distroer kan strømprofilen administreres med enten
-  <command>power-profiles-daemon</command> eller <command>tuned</command>.
-  Hvis distroen kjører <command>power-profiles-daemon</command>, utsted
+  <para>Hvis <command>powerprofilesctl</command> er tilgjengelig, utsted
   <command>powerprofilesctl set performance</command> kommandoen for å velge
-  <literal>performance</literal> profilen.  Hvis distroen kjører
-  <command>tuned</command>, utsted <command>tuned-adm profile
-  throughput-performance</command> kommandoen for å velge
-  <literal>throughput-performance</literal> profilen.</para>
-
-  <para>Selv om du ikke måler SBU verdiene, er det fortsatt bedre å
-  velge strømprofilen for maksimal ytelse før du bygger LFS, siden
-  å gjøre det kan (åpenbart) gjøre systemet raskere å bygge LFS
-  pakker.</para>
+  <literal>performance</literal> profilen.  Noen distroer tilbyr
+  <command>tuned-adm</command> kommandoen for å administrere profilene i stedet for
+  <command>powerprofilesctl</command>, på disse distroene utsted
+  <command>tuned-adm profile throughput-performance</command> kommandoen for å
+  velge <literal>throughput-performance</literal> profilen.</para>
 
   <note>
     <para>Når flere prosessorer brukes på denne måten, vil SBU enhetene i
