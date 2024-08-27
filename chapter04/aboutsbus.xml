@@ -26,9 +26,9 @@
   tidsenheten.</para>
 
   <para>Tenk for eksempel på en pakke hvis kompileringstid er 4,5
-  SBU. Dette betyr at hvis et system tok 10 minutter å kompilere og
+  SBU. Dette betyr at hvis et system tok 4 minutter å kompilere og
   installer det første passet med binutils, vil det ta
-  <emphasis>omtrent</emphasis> 45 minutter å bygge denne eksempelpakken.
+  <emphasis>omtrent</emphasis> 18 minutter å bygge denne eksempelpakken.
   Heldigvis er de fleste byggetidene kortere enn en SBU.</para>
 
   <para>Generelt er ikke SBU helt nøyaktige fordi de er avhengige av mange
@@ -36,17 +36,26 @@
   for å gi et estimat på hvor lang tid det kan ta å installere en pakke, men
   tall kan variere med så mye som dusinvis av minutter i noen tilfeller.</para>
 
-  <para>Før du måler byggetiden for en pakke (uansett Binutils
-  pass 1 eller en pakke som SBU blir målt av), sørg for at a
-  systemstrømprofil egnet for å få systemet til å kjøre med
-  maksimal ytelse (og maksimalt strømforbruk) er valgt. Ellers vil
-  den målte SBU verdien kan være svært unøyaktig fordi systemet kan
-  operere annerledes enn å bygge Binutils pass 1 og den andre pakken.
-  Vær oppmerksom på at en betydelig unøyaktighet fortsatt kan dukke opp selv om den er den samme
-  profil (bortsett fra en som maksimerer ytelsen) brukes for begge pakkene:
-  systemet kan reagere tregere for å <quote>sparer strømmen</quote> bygge
-  Binutils pass 1, fordi systembelastningen ser ut til å være bare omtrent 25% av belastningen
-  bygge den andre pakken (med <parameter>-j4</parameter>).</para>
+  <para>På noen nyere systemer er hovedkortet i stand til å kontrollere
+  systemets klokkehastighet. Dette kan styres med en kommando som f.eks
+  <command>powerprofilesctl</command>. Dette er ikke tilgjengelig i LFS, men
+  kan være tilgjengelig på vertssystemet. Etter at LFS er fullført, kan det bli
+  lagt til systemet med prosedyrene på
+  <ulink url='&blfs-book;sysutils/power-profiles-daemon.html'>
+  BLFS power-profiles-daemon</ulink> siden.
+
+  Før du måler byggetiden til en pakke, anbefales det å bruke en
+  systemeffektprofil satt for maksimal ytelse (og maksimal
+  strømforbruk). 
+
+  Ellers kan den målte SBU verdien være unøyaktig fordi
+  systemet kan reagere forskjellig når du bygger <xref linkend='ch-tools-binutils-pass1'/>
+  eller andre pakker.
+
+  Vær oppmerksom på at en betydelig unøyaktighet fortsatt kan dukke opp selv om den samme
+  profilen brukes for begge pakkene fordi systemet kan reagere tregere hvis
+  systemet er inaktivt når byggeprosedyren startes. Stille inn strømprofilen
+  til "ytelse" vil minimere dette problemet.</para>
 
   <para>På de fleste distroer kan strømprofilen administreres med enten
   <command>power-profiles-daemon</command> eller <command>tuned</command>.
@@ -70,7 +79,9 @@
     sammenflettet. Hvis du får et problem med et byggetrinn, gå tilbake til et
     enkelt prosessorbygg for å analysere feilmeldingene på riktig måte.</para>
 
-    <para>Tidene som presenteres her er basert på bruk av fire kjerner (-j4).
+    <para>Tidene presentert her for alle pakker 
+    (unntatt <xref linkend='ch-tools-binutils-pass1'/> som er basert på én kjerne)
+    er basert på bruk av fire kjerner (-j4).
     Tidene i kapittel 8 inkluderer også tiden det skal kjøres regresjonstestene for
     pakken med mindre annet er spesifisert.</para>
   </note>
