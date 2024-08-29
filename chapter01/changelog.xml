@@ -40,7 +40,7 @@
     appropriate for the entry or if needed the entire day's listitem.
     -->
 
-    <listitem>
+    <listitem revision='sysv'>
       <para>23.08.2024</para>
       <itemizedlist>
         <listitem>
@@ -50,7 +50,7 @@
       </itemizedlist>
     </listitem>
 
-    <listitem>
+    <listitem revision='sysv'>
       <para>23.08.2024</para>
       <itemizedlist>
         <listitem>
@@ -231,7 +231,7 @@
       </itemizedlist>
     </listitem>
 
-    <listitem>
+    <listitem revision='sysv'>
       <para>01.07.2024</para>
       <itemizedlist>
         <listitem>
@@ -260,7 +260,7 @@
           <para>[bdubbs] - Oppdater til linux-6.9.7. Fikser
           <ulink url='&lfs-ticket-root;5508'>#5508</ulink>.</para>
         </listitem>
-        <listitem>
+        <listitem revision='sysv'>
           <para>[bdubbs] - Oppdater til sysklogd-2.5.2. Fikser
           <ulink url='&lfs-ticket-root;5509'>#5509</ulink>.</para>
         </listitem>
