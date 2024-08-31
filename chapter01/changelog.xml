@@ -40,6 +40,15 @@
     appropriate for the entry or if needed the entire day's listitem.
     -->
 
+    <listitem>
+      <para>01.09.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - LFS-12.2 utgitt.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
     <listitem revision='sysv'>
       <para>23.08.2024</para>
       <itemizedlist>
