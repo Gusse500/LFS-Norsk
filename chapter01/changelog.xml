@@ -40,7 +40,55 @@
     appropriate for the entry or if needed the entire day's listitem.
     -->
 
-    <listitem>
+        <listitem>
+      <para>07.09.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til tzdata-2024b. Fikser
+          <ulink url='&lfs-ticket-root;5554'>#5554</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til systemd-256.5. Fikser
+          <ulink url='&lfs-ticket-root;5551'>#5551</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til setuptools-74.1.2. Fikser
+          <ulink url='&lfs-ticket-root;5546'>#5546</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til python3-3.12.6. Fikser
+          <ulink url='&lfs-ticket-root;5555'>#5555</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til openssl-3.3.2. Fikser
+          <ulink url='&lfs-ticket-root;5552'>#5552</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til man-db-2.13.0. Fikser
+          <ulink url='&lfs-ticket-root;5550'>#5550</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.10.8. Fikser
+          <ulink url='&lfs-ticket-root;5545'>#5545</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til libpipeline-1.5.8. Fikser
+          <ulink url='&lfs-ticket-root;5548'>#5548</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til expat-2.6.3. Fikser
+          <ulink url='&lfs-ticket-root;5553'>#5553</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til bc-7.0.1. Fikser
+          <ulink url='&lfs-ticket-root;5547'>#5547</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+
+
+	<listitem>
       <para>01.09.2024</para>
       <itemizedlist>
         <listitem>
