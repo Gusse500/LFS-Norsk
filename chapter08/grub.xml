@@ -105,7 +105,8 @@
     testene avhenger av pakker som ikke er tilgjengelige i det begrensete
     LFS miljøet. For å kjøre testene uansett, kjør <command>make check</command>.</para>
 
-    <para>Installer pakken:</para>
+    <para>Installer pakken, og flytt støttefilen for Bash fullføring til
+    plasseringen anbefalt av Bash fullføringsvedlikeholderne:</para>
 
 <screen><userinput remap="install">make install
 mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userinput></screen>
