@@ -41,6 +41,40 @@
     -->
 
     <listitem>
+      <para>01.10.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til Python3-3.12.7. Fikser
+          <ulink url='&lfs-ticket-root;5571'>#5571</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til tcl9.0.0. Fikser
+          <ulink url='&lfs-ticket-root;5570'>#5570</ulink>.</para>
+        </listitem>
+        <listitem revision="sysv">
+          <para>[bdubbs] - Oppdater til linux-6.11.1. Fikser
+          <ulink url='&lfs-ticket-root;5556'>#5556</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til libtool-2.5.3. Fikser
+          <ulink url='&lfs-ticket-root;5569'>#5569</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iproute2-6.11.0. Fikser
+          <ulink url='&lfs-ticket-root;5561'>#5561</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til bash-5.2.37. Fikser
+          <ulink url='&lfs-ticket-root;5567'>#5567</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til bc-7.0.3. Fikser
+          <ulink url='&lfs-ticket-root;5568'>#5568</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>20.09.2024</para>
       <itemizedlist>
         <listitem>
