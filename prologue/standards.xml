@@ -178,10 +178,10 @@
         <term><emphasis>LSB Skrivebord:</emphasis></term>
         <listitem>
           <para>
-            <filename class='libraryfile'>libgdk-x11-2.0</filename>
+            <filename class='libraryfile'>libgdk-x11-2.0.so</filename>
             (men <filename class='libraryfile'>libgdk-3.so</filename>
             leveres av BLFS GTK+-3 pakken),
-            <filename class='libraryfile'>libgtk-x11-2.0</filename>
+            <filename class='libraryfile'>libgtk-x11-2.0.so</filename>
             (men <filename class='libraryfile'>libgtk-3.so</filename>
             og <filename class='libraryfile'>libgtk-4.so</filename>
             leveres av BLFS GTK+-3 and GTK-4 pakkene),
