@@ -177,7 +177,7 @@ mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions</userin
       <varlistentry id="grub-fstest">
         <term><command>grub-fstest</command></term>
         <listitem>
-          <para>Verktøy for å feilsøke filsystemdriveren</para>
+          <para>Verktøy for å feilsøke fil system driveren</para>
           <indexterm zone="ch-system-grub grub-fstest">
             <primary sortas="b-grub-fstest">grub-fstest</primary>
           </indexterm>
