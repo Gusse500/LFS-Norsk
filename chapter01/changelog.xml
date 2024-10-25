@@ -41,6 +41,60 @@
     -->
 
     <listitem>
+      <para>25.10.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iana-etc-20241015. Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til vim-9.1.0813. Adresserer
+          <ulink url='&lfs-ticket-root;4500'>#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til xz-5.6.3. Fikser
+          <ulink url='&lfs-ticket-root;5572'>#5572</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til sysvinit-3.11. Fikser
+          <ulink url='&lfs-ticket-root;5581'>#5581</ulink>.</para>
+        </listitem>
+        <listitem revision="sysv">
+          <para>[bdubbs] - Oppdater til setuptools-75.2.0. Fikser
+          <ulink url='&lfs-ticket-root;5577'>#5577</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til Python3-3.13.0. Fikser
+          <ulink url='&lfs-ticket-root;5575'>#5575</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til openssl-3.4.0. Fikser
+          <ulink url='&lfs-ticket-root;5582'>#5582</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til meson-1.6.0. Fikser
+          <ulink url='&lfs-ticket-root;5580'>#5580</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til markupsafe-3.0.2. Fikser
+          <ulink url='&lfs-ticket-root;5576'>#5576</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.11.5. Fikser
+          <ulink url='&lfs-ticket-root;5574'>#5574</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til less-668. Fikser
+          <ulink url='&lfs-ticket-root;5578'>#5578</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til elfutils-0.192. Fikser
+          <ulink url='&lfs-ticket-root;5579'>#5579</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>03.10.2024</para>
       <itemizedlist>
         <listitem>

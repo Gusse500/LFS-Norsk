@@ -88,7 +88,8 @@
     og 1 SBU (målt når du bygger Binutils passerer 1 med én CPU
     kjerne) bør være nok. Noen tester er rare, så testpakken vil automatisk
     kjøre mislykkede tester på nytt. Hvis en test mislyktes, men deretter består
-    når den kjøres på nytt, bør den anses som bestått.</para>
+    når den kjøres på nytt, bør den anses som bestått.  En test, test_ssl,
+    er kjent for å mislykkes i chroot miljøet.</para>
 
     <para>Installer pakken:</para>
 
@@ -163,7 +164,7 @@ EOF
 
 tar --no-same-owner \
     -xvf ../python-&python-version;-docs-html.tar.bz2
-cp -R --no-preserve=mode python-&python-minor;-docs-html/* \
+cp -R --no-preserve=mode python-&python-version;-docs-html/* \
     /usr/share/doc/python-&python-version;/html</userinput></screen>
 
     <variablelist>
