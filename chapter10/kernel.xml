@@ -338,8 +338,8 @@
 
     <caution>
       <para>Hvis du har bestemt deg for å bruke et separat &boot-dir; partisjon for
-      LFS systemet (kanskje dele en &boot-dir; partisjon med vertsdistroen
-      ), filene som er kopiert nedenfor, skal gå dit. Den enkleste måten å
+      LFS systemet (kanskje dele en &boot-dir; partisjon med vertsdistroen), 
+      filene som er kopiert nedenfor, skal gå dit. Den enkleste måten å
       gjær det er å opprette oppfæringen for &boot-dir; i &fstab; færst (les
       forrige seksjon for detaljer), utfær deretter fælgende kommando
       som &root; bruker i
