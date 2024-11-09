@@ -44,18 +44,20 @@
     <important>
       <para>
         Hvis du har installert Linux-PAM, bør du følge
-        <ulink url='&blfs-book;postlfs/shadow.xml'>BLFS shadow
-        siden</ulink> i stedet for denne siden for å bygge (eller, gjenoppbygge eller oppgradere)
-        shadow.
+        <ulink url='&blfs-book;postlfs/shadow.html'>BLFS
+        instruksjon</ulink> i stedet for å bygge fra denne siden (eller, gjenoppbygge eller
+        oppgradere) shadow.
       </para>
     </important>
 
     <note>
-      <para>Hvis du ønsker å håndheve bruken av sterke passord, se
-      <ulink url="&blfs-book;postlfs/cracklib.html"/> for installasjon av
-      CrackLib før du bygger Shadow. Legg så til
-      <parameter>--with-libcrack</parameter> til <command>configure</command>
-      kommandoen under.</para>
+      <para>Hvis du ønsker å håndheve bruken av sterke passord,
+      <ulink url='&blfs-book;postlfs/linux-pam.html'>installer og konfigurere
+      Linux-PAM</ulink> først.  Deretter
+      <ulink url='&blfs-book;postlfs/shadow.html'>installer og konfigurere
+      shadow med PAM støtte</ulink>.  Til slutt
+      <ulink url='&blfs-book;postlfs/libpwquality.html'>installer
+      libpwquality og konfigurere PAM til å bruke den</ulink>.</para>
     </note>
 
     <para>Deaktiver installasjonen av <command>groups</command> programmet
@@ -94,11 +96,6 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</userinput></s
     -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                  \
     -i etc/login.defs</userinput></screen>
 
-    <note>
-      <para>Hvis du valgte å bygge Shadow med støtte for Cracklib, kjør følgende:</para>
-
-<screen role="nodump"><userinput>sed -i 's:DICTPATH.*:DICTPATH\t/lib/cracklib/pw_dict:' etc/login.defs</userinput></screen>
-    </note>
 <!--
     <para>Gjør en mindre endring for å lage det første gruppenummeret som genereres
     av useradd til 1000:</para>
