@@ -41,6 +41,12 @@
   <sect2 role="installation">
     <title>Installasjon av Binutils</title>
 
+    <para>Først, bruk en oppdatering for å forhindre en feil som forårsaker
+    unødvendig relinking med pakker som er avhengige av cmake-3.31.0
+    eller nyere:</para>
+
+<screen><userinput remap="pre">patch -Np1 -i ../&binutils-upstream-patch;</userinput></screen>
+
     <para>Binutils dokumentasjonen anbefaler å bygge Binutils
     i en dedikert byggemappe:</para>
 
