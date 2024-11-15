@@ -41,6 +41,36 @@
     -->
 
     <listitem>
+      <para>15.11.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til vim-9.1.0866. Adresserer
+          <ulink url='&lfs-ticket-root;4500'>#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iana-etc-20241024. Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til wheel-0.45.0 (Python Modul). Fikser
+          <ulink url='&lfs-ticket-root;5593'>#5593</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til setuptools-75.5.0 (Python Modul). Fikser
+          <ulink url='&lfs-ticket-root;5595'>#5595</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.11.8. Fikser
+          <ulink url='&lfs-ticket-root;5592'>#5582</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til libcap-2.72. Fikser
+          <ulink url='&lfs-ticket-root;5594'>#5594</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>08.11.2024</para>
       <itemizedlist>
         <listitem>
