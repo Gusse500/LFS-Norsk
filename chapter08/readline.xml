@@ -92,7 +92,6 @@ sed -i '/{OLDSUFF}/c:' support/shlib-install</userinput></screen>
           <filename class="libraryfile">libncursesw</filename> biblioteket.
           For detaljer se <quote>Shared Libraries</quote> seksjonen i
           pannen sin <filename>README</filename> fil.</para>
-
         </listitem>
       </varlistentry>
 
@@ -102,7 +101,7 @@ sed -i '/{OLDSUFF}/c:' support/shlib-install</userinput></screen>
 
     <para>Installer pakken:</para>
 
-<screen><userinput remap="install">make SHLIB_LIBS="-lncursesw" install</userinput></screen>
+<screen><userinput remap="install">make install</userinput></screen>
 
     <para>Hvis ønskelig, installer dokumentasjonen:</para>
 
