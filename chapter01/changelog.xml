@@ -41,6 +41,40 @@
     -->
 
     <listitem>
+      <para>01.12.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iana-etc-20241122. Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til file-5.46. Fikser
+          <ulink url='&lfs-ticket-root;5601'>#5601</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iproute2-6.12.0. Fikser
+          <ulink url='&lfs-ticket-root;5597'>#5597</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til libtool-2.5.4. Fikser
+          <ulink url='&lfs-ticket-root;5598'>#5598</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.12.1. Fikser
+          <ulink url='&lfs-ticket-root;5596'>#5586</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til setuptools-75.6.0 (Python Modul). Fikser
+          <ulink url='&lfs-ticket-root;5599'>#5599</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til wheel-0.45.1 (Python Modul). Fikser
+          <ulink url='&lfs-ticket-root;5600'>#5600</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>15.11.2024</para>
       <itemizedlist>
         <listitem>
