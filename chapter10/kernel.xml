@@ -275,6 +275,71 @@
       <varlistentry>
         <term>
           <parameter>
+            Vis en brukervennlig melding når en kjernepanikk oppstår
+          </parameter>
+        </term>
+        <listitem>
+          <para>Dette vil få kjernen til å vise meldingen riktig
+          i tilfelle kjernepanikk oppstår og en kjørende DRM driver
+          støtter å gjøre det. Uten dette ville det blitt mer
+          vanskelig å diagnostisere panikk: hvis ingen DRM driver kjører,
+          vi ville være på VGA konsollen som bare kan inneholde 24 linjer og
+          den relevante kjernemeldingen skylles ofte bort; hvis en DRM
+          driveren kjører, er skjermen ofte fullstendig rotete
+          i panikk. Fra og med Linux-6.12, ingen av de dedikerte driverne for
+          mainstream GPU modeller støtter virkelig dette, men det støttes av
+          <quote>Simple framebuffer driver</quote> som kjører på
+          VESA (eller EFI) rammebuffer før den dedikerte GPU driveren er
+          lastet. Hvis den dedikerte GPU driveren er bygget som en modul
+          (i stedet for en del av kjernebildet) og ingen initramfs er
+          brukt, vil denne funksjonaliteten fungere helt fint før roten av
+          filsystemet er montert og det er allerede nok for å gi
+          informasjon om de fleste LFS konfigurasjonsfeil som forårsaker en
+          panikk (for eksempel en feil <parameter>root=</parameter>
+          innstilling i <xref linkend='ch-bootable-grub'/>).</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>
+          <parameter>
+            Panikkskjermformater
+          </parameter>
+        </term>
+        <listitem>
+          <para>Still inn denne <literal>kmsg</literal> for å sikre at de siste
+          kjernemeldingslinjer vises når en kjernepanikk oppstår.
+          Standard, <literal>bruker</literal>, ville få kjernen til å vise
+          bare en <quote>brukervennlig</quote> panikkmelding som ikke er
+          nyttig å diagnostikkere. Det tredje valget,
+          <literal>qr_code</literal>, ville få kjernen til å komprimere
+          de siste kjernemeldingslinjene i en QR kode og vise den.
+          QR koden kan inneholde flere meldingslinjer enn ren tekst og den
+          kan dekodes med en ekstern enhet (som en smarttelefon).
+          Men det krever en Rust-kompilator som LFS ikke leverer.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>
+          <parameter>
+            Merk VGA/VBE/EFI FB som generisk systemrammebuffer
+          </parameter> og
+          <parameter>Enkel framebuffer driver</parameter>
+        </term>
+        <listitem>
+          <para>Disse gjør det mulig å bruke VESA rammebufferen (eller EFI
+          framebuffer hvis du starter opp LFS systemet via UEFI) som en DRM enhet.
+          VESA rammebufferen vil bli satt opp av GRUB (eller EFI
+          framebuffer vil bli satt opp av UEFI fastvaren), så DRM panikken
+          handleren kan fungere før den GPU spesifikke DRM driveren er
+          lastet.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>
+          <parameter>
             Aktiver eldre fbdev støtte for modusinnstillingsdriveren
           </parameter> og
           <parameter>Framebuffer Console support</parameter>
@@ -282,8 +347,8 @@
         <listitem>
           <para>Disse er nødvendige for å vise Linux konsollen på en
           GPU drevet av en DRI driver (Direct Rendering Infrastructure).
-          Hvis <option>CONFIG_DRM</option> (Direct Rendering Manager) er
-          aktivert, bør du aktivere disse to alternativene også, ellers vil du se
+          Siden <option>CONFIG_DRM</option> (Direct Rendering Manager) er
+          aktivert, bør vi aktivere disse to alternativene også, ellers får vi se
           en tom skjerm når DRI driveren er lastet inn.</para>
         </listitem>
       </varlistentry>
