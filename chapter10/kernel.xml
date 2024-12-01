@@ -282,8 +282,8 @@
         <listitem>
           <para>Disse er nødvendige for å vise Linux konsollen på en
           GPU drevet av en DRI driver (Direct Rendering Infrastructure).
-          Hvis <option>CONFIG_DRM</option> (Direct Rendering Manager) er
-          aktivert, bør du aktivere disse to alternativene også, ellers vil du se
+          Siden <option>CONFIG_DRM</option> (Direct Rendering Manager) er
+          aktivert, bør vi aktivere disse to alternativene også, ellers får vi se
           en tom skjerm når DRI driveren er lastet inn.</para>
         </listitem>
       </varlistentry>
