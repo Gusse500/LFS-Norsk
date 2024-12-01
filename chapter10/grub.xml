@@ -135,6 +135,7 @@ set timeout=5
 insmod part_gpt
 insmod ext2
 set root=(hd0,2)
+set gfxpayload=1024x768x32
 
 menuentry "GNU/Linux, Linux &linux-version;-lfs-&version;" {
         linux   /boot/vmlinuz-&linux-version;-lfs-&version; root=/dev/sda2 ro
@@ -157,6 +158,14 @@ EOF</userinput></screen>
       modulene allerede innebygd og de to <command>insmod</command>
       kommandoer vil ikke gjøre noe. Men de gjør ingen skade uansett, og det kan
       være nødvendig med noen sjeldne konfigurasjoner.
+    </para>
+
+    <para>
+      <command>set gfxpayload=1024x768x32</command> kommandoen setter
+      oppløsning og fargedybde på VESA rammebufferen som skal sendes til
+      kjernen. Det er nødvendig for kjernens SimpleDRM driver å bruke
+      VESA rammebuffer. Du kan bruke en annen verdi for oppløsning eller fargedybde
+      som passer best for skjermen din.
     </para>
 
     <note><para>Fra <application>GRUB</application> sitt perspektiv, 
