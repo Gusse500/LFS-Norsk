@@ -146,7 +146,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
     <para>
       <filename>/etc/mke2fs.conf</filename> inneholder standardverdien til
       ulike kommandolinjealternativer for <command>mke2fs</command>.  Du kan
-      rediger filen for å gjøre standardverdiene egnet for ditt behov.
+      rediger filen for å gjøre standardverdiene egnet for dine behov.
       For eksempel kan noen verktøy (ikke i LFS eller BLFS) ikke gjenkjenne en
       <systemitem class='filesystem'>ext4</systemitem> filsystem med
       <literal>metadata_csum_seed</literal> funksjonen aktivert.
