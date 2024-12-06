@@ -360,7 +360,7 @@ checking what linker to use... /mnt/lfs/tools/i686-lfs-linux-gnu/bin/ld</compute
     <para>Neste kommer glibc. Det viktigste
     hensynet for å bygge glibc er kompilatoren, binære verktøy og
     kjernedeklarasjoner. Kompilatoren og binære verktøy er generelt ikke et problem 
-	siden glibc vil alltid bruke kompilatoren som er relatert til <parameter>--host</parameter>
+	siden glibc alltid vil bruke kompilatoren som er relatert til <parameter>--host</parameter>
     parameteret sendt til konfigureringsskriptet; f.eks. i vårt tilfelle vil kompilatoren
     være <command>$LFS_TGT-gcc</command> og <command>readelf</command>
     verktøyet vil være <command>$LFS_TGT-readelf</command>. Kjerne deklarasjonene kan
