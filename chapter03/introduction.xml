@@ -21,9 +21,10 @@
   utviklingsversjon av boken.</para>
 
   <para>For noen pakker, utgivelsens tarball og (Git eller SVN)
-  æyeblikksbilde fra depotets tarball for denne utgivelsen kan publiseres med
-  lignende filnavn. En utgivelses tarball inneholder genererte filer (for
-  eksempel, <command>configure</command> skript generert av
+  øyeblikksbilde fra depotets tarball for denne utgivelsen kan publiseres med
+  lignende eller til og med identiske filnavn. Men utgivelsens tarball kan inneholde
+  noen filer som er viktige selv om de ikke er lagret i depotet
+  (for eksempel a <command>configure</command> skript generert av
   <command>autoconf</command>), i tillegg til innholdet i
   tilsvarende øyeblikksbilde av depot. Boken bruker utgivelses tarballer
   når det er mulig. Bruke et øyeblikksbilde av depot i stedet for en utgivelses
