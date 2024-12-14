@@ -466,6 +466,26 @@
       <command>chown -R 0:0</command> på <filename
       class="directory">linux-&linux-version;</filename> mappen å sikre
       at alle filer eies av brukeren <emphasis>root</emphasis>.</para>
+
+      <para>Hvis du oppdaterer konfigurasjonen og gjenoppbygger kjernen
+      fra et beholdt kjernekildetre, bør du normalt
+      <emphasis role='bold'>ikke</emphasis> kjøre
+      <command>make mrproper</command> kommandoen. Kommandoen ville rense
+      <filename>.config</filename> filen og alle
+      <filename class='extension'>.o</filename> filer fra forrige
+      bygg. Til tross for at det er enkelt å gjenopprette <filename>.config</filename> fra
+      kopien i <filename class='directory'>/boot</filename>, å rense alle
+      <filename class='extension'>.o</filename> filer er fortsatt bortkastet:
+      for en enkel konfigurasjonsendring, må ofte bare noen få
+      <filename class='extension'>.o</filename> filer (om)bygges
+      og kjernebyggesystemet vil riktig hoppe over andre
+      <filename class='extension'>.o</filename> filer hvis de ikke er
+      renset.</para>
+
+      <para>På den annen side, hvis du har oppgradert GCC, bør du kjøre
+      <command>make clean</command> for å rense alle
+      <filename class='extension'>.o</filename> filer fra forrige
+      bygg, ellers kan det nye bygget mislykkes.</para>
     </note>
 
     <warning>
