@@ -497,17 +497,6 @@
       fullstendig.</para>
     </warning>
 
-    <warning>
-      <para>Deklarasjonene i systemets <filename
-      class="directory">include</filename> mappe (<filename
-      class="directory">/usr/include</filename>) bør
-      <emphasis>alltid</emphasis> være de som Glibc ble kompilert mot,
-      det vil si de desinfiserte deklarasjonene installert i <xref
-      linkend="ch-tools-linux-headers"/>.  Derfor bør de
-      <emphasis>aldri</emphasis> erstattes av enten de rå kjernedeklarasjonene
-      eller andre kjernerensede deklarasjoner.</para>
-    </warning>
-
   </sect2>
 
   <sect2 id="conf-modprobe" role="configuration">
