@@ -41,6 +41,44 @@
     -->
 
     <listitem>
+      <para>15.12.2024</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til vim-9.1.0927. Adresserer
+          <ulink url='&lfs-ticket-root;4500'>#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iana-etc-20241206. Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til systemd-257. Fikser
+          <ulink url='&lfs-ticket-root;5559'>#5559</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til Python-3.13.1. Fikser
+          <ulink url='&lfs-ticket-root;5605'>#5605</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til libcap-2.73. Fikser
+          <ulink url='&lfs-ticket-root;5504'>#5604</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.12.5. Fikser
+          <ulink url='&lfs-ticket-root;5607'>#5607</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til kbd-2.7. Fikser
+          <ulink url='&lfs-ticket-root;5608'>#5608</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til gettext-0.23. Fikser
+          <ulink url='&lfs-ticket-root;5603'>#5603</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>01.12.2024</para>
       <itemizedlist>
         <listitem>
