@@ -59,7 +59,7 @@
     <para>Juster de hardkodede banene til nettverkskonfigurasjonsfiler for
     frittstående udev installasjon:</para>
 
-  <screen><userinput remap="pre">sed -e '/NETWORK_DIRS/s/systemd/udev/' 
+ <screen><userinput remap="pre">sed -e '/NETWORK_DIRS/s/systemd/udev/' \
     -i src/libsystemd/sd-network/network-util.h</userinput></screen>
 
     <para>Forbered Udev for kompilering:</para>
