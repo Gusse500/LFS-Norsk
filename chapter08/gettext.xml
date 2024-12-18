@@ -43,12 +43,6 @@
   <sect2 role="installation">
     <title>Installasjon av Gettext</title>
 
-    <para>Først fiks noen kompatibilitetsproblemer med andre programmer:</para>
-
-<screen><userinput remap="pre">sed -e '/libxml\/xmlerror.h/i #include &lt;libxml/xmlversion.h&gt;' \
-    -e 's/xmlError *err/const &amp;/'                             \
-    -i gettext-tools/src/its.c</userinput></screen>
-
     <para>Forbered Gettext for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr    \
