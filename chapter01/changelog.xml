@@ -41,6 +41,48 @@
     -->
 
     <listitem>
+      <para>01.01.2025</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iana-etc-20241220. Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til texinfo-7.2. Fikser
+          <ulink url='&lfs-ticket-root;5616'>#5616</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til sysvinit-3.12. Fikser
+          <ulink url='&lfs-ticket-root;5615'>#5615</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til shadow-4.17.0. Fikser
+          <ulink url='&lfs-ticket-root;5616'>#5617</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til procps-ng-4.0.5. Fikser
+          <ulink url='&lfs-ticket-root;5611'>#5611</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til meson-1.6.1. Fikser
+          <ulink url='&lfs-ticket-root;5510'>#5610</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.12.7. Fikser
+          <ulink url='&lfs-ticket-root;5613'>#5613</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til kbd-2.7.1. Fikser
+          <ulink url='&lfs-ticket-root;5608'>#5608</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til jinja2-3.1.5. Fikser
+          <ulink url='&lfs-ticket-root;5614'>#5614</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>15.12.2024</para>
       <itemizedlist>
         <listitem>
