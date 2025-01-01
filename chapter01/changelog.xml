@@ -44,6 +44,14 @@
       <para>01.01.2025</para>
       <itemizedlist>
         <listitem>
+          <para>[renodr] - Oppdater til libxcrypt-4.4.37. Fikser
+          <ulink url="&lfs-ticket-root;5618">#5618</ulink>.</para>
+        </listitem>
+        <listitem revision="systemd">
+          <para>[renodr] - Oppdater til dbus-1.16.0. Fikser
+          <ulink url="&lfs-ticket-root;5609">#5609</ulink>.</para>
+        </listitem>
+        <listitem>
           <para>[bdubbs] - Oppdater til iana-etc-20241220. Adresserer
           <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
         </listitem>
