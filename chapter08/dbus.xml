@@ -48,41 +48,21 @@
 
     <para>Forbered D-Bus for kompilering:</para>
 
-<screen><userinput remap="configure">./configure --prefix=/usr                        \
-            --sysconfdir=/etc                    \
-            --localstatedir=/var                 \
-            --runstatedir=/run                   \
-            --enable-user-session                \
-            --disable-static                     \
-            --disable-doxygen-docs               \
-            --disable-xml-docs                   \
-            --docdir=/usr/share/doc/dbus-&dbus-version; \
-            --with-system-socket=/run/dbus/system_bus_socket</userinput></screen>
+<screen><userinput remap="configure">mkdir build
+cd    build
+
+meson setup --prefix=/usr --buildtype=release --wrap-mode=nofallback ..</userinput></screen>
 
     <variablelist>
-      <title>Betydningen av konfigureringsalternativene:</title>
-
-      <varlistentry>
-        <term>
-          <parameter>--runstatedir=/run</parameter> og
-          <parameter>--with-system-socket=/run/dbus/system_bus_socket</parameter>
-        </term>
-        <listitem>
-          <para>Disse gjør at PIDfilen og systembusskontakten
-          vil være i <filename class="directory">/run</filename>, i stedet for
-          utdaterte <filename class="directory">/var/run</filename>.</para>
-        </listitem>
-      </varlistentry>
+      <title>Betydningen av mesonalternativene:</title>
 
 	  <varlistentry>
         <term>
-          <parameter>--enable-user-session</parameter>
+          <parameter>--wrap-mode=nofallback</parameter>
         </term>
         <listitem>
-          <para>Dette sikrer at D-Bus per-bruker service og socket enhetens
-          filer er installert for Systemd. De er ikke nyttige (men
-          ufarlige) i en grunnleggende LFS installasjon, men de kan brukes
-          når systemd er gjenoppbygd med PAM støtte i BLFS.</para>
+          <para>Denne bryteren hindrer meson i å prøve å laste ned en kopi
+          av Glib pakken for testene.</para>
         </listitem>
       </varlistentry>
 
@@ -90,11 +70,11 @@
 
     <para>Kompiler pakken:</para>
 
-<screen><userinput remap="make">make</userinput></screen>
+<screen><userinput remap="make">ninja</userinput></screen>
 
     <para>For å teste resultatene, utsted:</para>
 
-<screen><userinput remap="test">make check</userinput></screen>
+<screen><userinput remap="test">ninja test</userinput></screen>
 
     <para>Mange tester er deaktivert fordi de krever tilleggspakker
     som ikke er inkludert i LFS. Instruksjoner for å kjøre en
@@ -103,7 +83,7 @@
 
     <para>Installer pakken:</para>
 
-<screen><userinput remap="install">make install</userinput></screen>
+<screen><userinput remap="install">ninja install</userinput></screen>
 
     <para>Lag en symbolkobling slik at D-Bus og systemd kan bruke den samme
     <filename>machine-id</filename> filen:</para>
@@ -149,7 +129,7 @@
       <varlistentry id="dbus-daemon">
         <term><command>dbus-daemon</command></term>
         <listitem>
-          <para>Er D-Bus-meldingsbussnisse</para>
+          <para>er D-Bus-meldingsbussnisse</para>
           <indexterm zone="ch-system-dbus dbus-daemon">
             <primary sortas="b-dbus-daemon">dbus-daemon</primary>
           </indexterm>
@@ -159,7 +139,7 @@
       <varlistentry id="dbus-launch">
         <term><command>dbus-launch</command></term>
         <listitem>
-          <para>Starter <command>dbus-daemon</command> fra et
+          <para>starter <command>dbus-daemon</command> fra et
           skallskript</para>
           <indexterm zone="ch-system-dbus dbus-launch">
             <primary sortas="b-dbus-launch">dbus-launch</primary>
@@ -170,7 +150,7 @@
       <varlistentry id="dbus-monitor">
         <term><command>dbus-monitor</command></term>
         <listitem>
-          <para>Overvåker meldinger som går gjennom en D-Bus meldingsbuss</para>
+          <para>overvåker meldinger som går gjennom en D-Bus meldingsbuss</para>
           <indexterm zone="ch-system-dbus dbus-monitor">
             <primary sortas="b-dbus-monitor">dbus-monitor</primary>
           </indexterm>
@@ -180,7 +160,7 @@
       <varlistentry id="dbus-run-session">
         <term><command>dbus-run-session</command></term>
         <listitem>
-          <para>Starter en øktbussforekomst av <command>dbus-daemon</command>
+          <para>starter en øktbussforekomst av <command>dbus-daemon</command>
           fra et skallskript og starter et spesifisert program i den
           økten</para>
           <indexterm zone="ch-system-dbus dbus-run-session">
@@ -192,7 +172,7 @@
       <varlistentry id="dbus-send">
         <term><command>dbus-send</command></term>
         <listitem>
-          <para>Sender en melding til en D-Bus meldingsbuss</para>
+          <para>sender en melding til en D-Bus meldingsbuss</para>
           <indexterm zone="ch-system-dbus dbus-send">
             <primary sortas="b-dbus-send">dbus-send</primary>
           </indexterm>
@@ -202,7 +182,7 @@
       <varlistentry id="dbus-test-tool">
         <term><command>dbus-test-tool</command></term>
         <listitem>
-          <para>Er et verktøy for å hjelpe pakker å teste
+          <para>er et verktøy for å hjelpe pakker å teste
           <application>D-Bus</application></para>
           <indexterm zone="ch-system-dbus dbus-test-tool">
             <primary sortas="b-dbus-test-tool">dbus-test-tool</primary>
@@ -214,7 +194,7 @@
       <varlistentry id="dbus-update-activation-environment">
         <term><command>dbus-update-activation-environment</command></term>
         <listitem>
-          <para>Oppdaterer miljøvariabler som vil bli satt for
+          <para>oppdaterer miljøvariabler som vil bli satt for
           <application>D-Bus</application> økttjenester</para>
           <indexterm zone="ch-system-dbus dbus-update-activation-environment">
             <primary sortas="b-dbus-update-activation-environment">dbus-update-activation-environment</primary>
