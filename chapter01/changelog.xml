@@ -106,7 +106,7 @@
           <ulink url='&lfs-ticket-root;5559'>#5559</ulink>.</para>
         </listitem>
         <listitem>
-          <para>[bdubbs] - Oppdater til Python-3.13.1. Fikser
+          <para>[bdubbs] - Oppdater til Python-3.13.1 (Sikkerhetsoppdatering). Fikser
           <ulink url='&lfs-ticket-root;5605'>#5605</ulink>.</para>
         </listitem>
         <listitem>
