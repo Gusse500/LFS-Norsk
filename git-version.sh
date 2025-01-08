@@ -32,7 +32,7 @@ if ! git status > /dev/null; then
     exit 0
 fi
 
-export LC_ALL=en_US.utf8
+export LC_ALL=nb_NO.utf8
 export TZ=Europe/Oslo
 
 commit_date=$(git show -s --format=format:"%cd" --date=local)
@@ -49,7 +49,7 @@ case $day in
     * ) suffix="";;
 esac
 
-full_date="$day.$month_digit.$year"
+full_date="$day.$month $year"
 
 sha="$(git describe --abbrev=1)"
 rev=$(echo "$sha" | sed 's/-g[^-]*$//')
