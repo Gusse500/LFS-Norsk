@@ -8,7 +8,7 @@
 <sect1 id="ch-partitioning-aboutlfs">
   <?dbhtml filename="aboutlfs.html"?>
 
-  <title>Stille inn $LFS variabelen</title>
+  <title>Stille inn $LFS variabelen og Umask</title>
 
   <para>Gjennom hele denne boken, vil miljøvariabelen <envar>LFS</envar>
   brukes flere ganger. Du bør sørge for at denne variabelen alltid er definert
@@ -28,8 +28,14 @@
   <quote>/mnt/lfs</quote> (eller hvilken verdi variabelen ble satt til) når den
   behandler kommandolinjen.</para>
 
+  <para>Sett nå masken for opprettelse av filmodus (umask) til
+  <literal>022</literal> i tilfelle vertsdistroen bruker en annen
+  standard:</para>
+
+<screen role="nodump"><userinput>umask 022</userinput></screen>
   <caution>
-  <para>Ikke glem å sjekke at <envar>LFS</envar> er satt når
+  <para>Ikke glem å sjekke at <envar>LFS</envar> er satt og
+  umask er satt til <literal>022</literal> når
   du forlater og går inn i det nåværende arbeidsmiljøet igjen (for eksempel når du gjør en
   <command>su</command> til <systemitem class="username">root</systemitem> eller
   en annen bruker). Sjekk at <envar>LFS</envar> variabelen er satt opp
@@ -39,10 +45,17 @@
 
   <para>Sørg for at utdataene viser banen til LFS systemets
   byggeplassering, som er <filename class="directory">/mnt/lfs</filename> hvis
-  gitt eksempel ble fulgt. Hvis utdaten er feil, bruk kommandoen
+  gitt eksempel ble fulgt.</para>
+
+  <para>Sjekk at umasken er satt opp riktig med:</para>
+
+  <screen role="nodump"><userinput>umask</userinput></screen>
+
+  <para>Utdataen skal være <computeroutput>022</computeroutput>.</para>
+
+  <para>Hvis noen utdata fra disse to kommandoene er feil, bruk kommandoen
   gitt tidligere på denne siden for å sette <envar>$LFS</envar> til det riktige
-  mappenavnet.</para>
-  </caution>
+  mappenavn og sett umask til <literal>022</literal>.</para></caution>
 
   <note><para>En måte å sikre at <envar>LFS</envar> variabelen alltid er
   satt er å redigere <filename>.bash_profile</filename> filen i både din
