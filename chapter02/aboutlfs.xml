@@ -8,7 +8,7 @@
 <sect1 id="ch-partitioning-aboutlfs">
   <?dbhtml filename="aboutlfs.html"?>
 
-  <title>Stille inn $LFS variabelen</title>
+  <title>Stille inn $LFS variabelen og Umask</title>
 
   <para>Gjennom hele denne boken, vil miljøvariabelen <envar>LFS</envar>
   brukes flere ganger. Du bør sørge for at denne variabelen alltid er definert
@@ -28,8 +28,24 @@
   <quote>/mnt/lfs</quote> (eller hvilken verdi variabelen ble satt til) når den
   behandler kommandolinjen.</para>
 
+  <para>Sett nå masken for opprettelse av filmodus (umask) til
+  <literal>022</literal> i tilfelle vertsdistroen bruker en annen
+  standard:</para>
+
+<screen role="nodump"><userinput>umask 022</userinput></screen>
+
+  <para>Å sette umask til 022 sikrer at nyopprettede filer og
+  mapper er skrivbare bare av eieren, men er lesbare og
+  søkbar (bare for mapper) av alle (forutsatt at standardmoduser er
+  brukt av <ulink role='man' url='&man;open.2'>open(2)</ulink> systemkall,
+  vil nye filer ende opp med tillatelsesmodus 644 og mapper med
+  modus 755). En overtillatt standard kan gi sikkerhetshull i
+  LFS systemet, og en overbegrensende standard kan forårsake merkelige problemer
+  under bygging eller bruk av LFS systemet.</para>
+
   <caution>
-  <para>Ikke glem å sjekke at <envar>LFS</envar> er satt når
+  <para>Ikke glem å sjekke at <envar>LFS</envar> er satt og
+  umask er satt til <literal>022</literal> når
   du forlater og går inn i det nåværende arbeidsmiljøet igjen (for eksempel når du gjør en
   <command>su</command> til <systemitem class="username">root</systemitem> eller
   en annen bruker). Sjekk at <envar>LFS</envar> variabelen er satt opp
@@ -39,29 +55,38 @@
 
   <para>Sørg for at utdataene viser banen til LFS systemets
   byggeplassering, som er <filename class="directory">/mnt/lfs</filename> hvis
-  gitt eksempel ble fulgt. Hvis utdaten er feil, bruk kommandoen
-  gitt tidligere på denne siden for å sette <envar>$LFS</envar> til det riktige
-  mappenavnet.</para>
-  </caution>
+  gitt eksempel ble fulgt.</para>
 
-  <note><para>En måte å sikre at <envar>LFS</envar> variabelen alltid er
-  satt er å redigere <filename>.bash_profile</filename> filen i både din
-  personlig hjemmemappe og i  <filename>/root/.bash_profile</filename> og
-  skriv inn export kommandoen ovenfor.  I tillegg, skallet spesifisert i
+  <para>Sjekk at umasken er satt opp riktig med:</para>
+
+  <screen role="nodump"><userinput>umask</userinput></screen>
+
+  <para>Utdataen skal være <computeroutput>022</computeroutput>.</para>
+
+  <para>Hvis noen utdata fra disse to kommandoene er feil, bruk kommandoen
+  gitt tidligere på denne siden for å sette <envar>$LFS</envar> til det riktige
+  mappenavn og sett umask til <literal>022</literal>.</para></caution>
+
+  <note><para>En måte å sikre at <envar>LFS</envar> variabelen og
+  umask alltid er satt riktig er å redigere
+  <filename>.bash_profile</filename> filen i både din personlige hjemmemappe
+  og i  <filename>/root/.bash_profile</filename> og
+  skrive <command>export</command> og <command>umask</command> kommandoene
+  over. I tillegg må skallet spesifisert i
   <filename>/etc/passwd</filename> filen for alle brukere som trenger
-  <envar>LFS</envar> variabelen må være bash for å sikre at
-  <filename>/root/.bash_profile</filename> filen er innlemmet som en del av
+  <envar>LFS</envar> variabelen være bash for å sikre at
+  <filename>.bash_profile</filename> filen er innlemmet som en del av
   påloggingsprosessen.</para>
 
   <para>En annen vurdering er metoden som brukes for å logge på
   vertssystemet. Hvis du logger på via en grafisk skjermbehandler,
   brukerens <filename>.bash_profile</filename> brukes vanligvis ikke når
-  en virtuell terminal startes. I dette tilfellet legger du til export kommandoen til
+  en virtuell terminal startes. I dette tilfellet legger du til kommandoen til
   filen <filename>.bashrc</filename> for brukeren og
   <systemitem class="username">root</systemitem>.  I tillegg,
   noen distribusjoner bruk en "if" test, og kjører ikke de resterende <filename>.bashrc</filename>
   instruksjoner for en ikke-interaktiv bash påkallelse. Pass på å plassere
-  export kommandoen foran testen for ikke interaktiv bruk.</para>
+  kommandoen foran testen for ikke interaktiv bruk.</para>
 
   </note>
 
