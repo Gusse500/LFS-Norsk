@@ -33,6 +33,16 @@
   standard:</para>
 
 <screen role="nodump"><userinput>umask 022</userinput></screen>
+
+  <para>Å sette umask til 022 sikrer at nyopprettede filer og
+  mapper er skrivbare bare av eieren, men er lesbare og
+  søkbar (bare for mapper) av alle (forutsatt at standardmoduser er
+  brukt av <ulink role='man' url='&man;open.2'>open(2)</ulink> systemkall,
+  vil nye filer ende opp med tillatelsesmodus 644 og mapper med
+  modus 755). En overtillatt standard kan gi sikkerhetshull i
+  LFS systemet, og en overbegrensende standard kan forårsake merkelige problemer
+  under bygging eller bruk av LFS systemet.</para>
+
   <caution>
   <para>Ikke glem å sjekke at <envar>LFS</envar> er satt og
   umask er satt til <literal>022</literal> når

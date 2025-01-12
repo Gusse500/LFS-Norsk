@@ -76,11 +76,8 @@ EOF</userinput></screen>
     <varlistentry>
       <term><parameter>umask 022</parameter></term>
       <listitem>
-  <para>Å sette brukerfilopprettingsmasken (umask) til 022 sikrer at nye
-  opprettede filer og mapper bare kan skrives av eieren, men er
-  lesbar og kjørbar av alle (forutsatt at standardmoduser brukes av
-  <ulink role='man' url='&man;open.2'>open(2)</ulink> systemkall, nye filer
-  vil ende opp med tillatelsesmodus 644 og mapper med modus 755).</para>
+        <para>Innstilling av umask som vi allerede har forklart i
+        <xref linkend='ch-partitioning-aboutlfs' role='.'/></para>
       </listitem>
     </varlistentry>
 
