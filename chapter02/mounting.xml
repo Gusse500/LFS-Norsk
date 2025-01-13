@@ -42,6 +42,15 @@ mount -v -t ext4 /dev/<replaceable>&lt;yyy&gt;</replaceable> $LFS/home</userinpu
   <replaceable>&lt;yyy&gt;</replaceable> med riktige partisjons
   navn.</para>
 
+  <para>Angi eier- og tillatelsesmodus for
+  <filename class='directory'>$LFS</filename> mappen (dvs. rotmappen
+  i det nyopprettede filsystemet for LFS-systemet) til
+  &root; og <literal>755</literal> i tilfelle vertsdistroen er
+  konfigurert til å bruke en annen standard for <command>mkfs</command>:</para>
+
+<screen role='nodump'><userinput>chown root:root $LFS
+chmod 755 $LFS</userinput></screen>
+
   <para>Sørg for at de nye partisjonene ikke er montert med tillatelser som er
   for restriktiv (som f.eks <option>nosuid</option> eller
   <option>nodev</option> alternativer). Kjør <command>mount</command> kommandoen
