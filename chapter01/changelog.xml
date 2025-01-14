@@ -41,6 +41,48 @@
     -->
 
     <listitem>
+      <para>15.01.2025</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til vim-9.1.1016. Adresserer
+          <ulink url="&lfs-ticket-root;4500">#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iana-etc-20250108. Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til util-linux-2.40.4. Fikser
+          <ulink url='&lfs-ticket-root;5624'>#5624</ulink>.</para>
+        </listitem>
+        <listitem revision="sysv">
+          <para>[bdubbs] - Oppdater til sysvinit-3.13. Fikser
+          <ulink url='&lfs-ticket-root;5621'>#5621</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til sysklogd-2.7.0. Fikser
+          <ulink url='&lfs-ticket-root;5623'>#5623</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til shadow-4.17.2. Fikser
+          <ulink url='&lfs-ticket-root;5525'>#5625</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til setuptools-75.8.0. Fikser
+          <ulink url='&lfs-ticket-root;5622'>#5622</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.12.9. Fikser
+          <ulink url='&lfs-ticket-root;5620'>#5620</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til gettext-0.23.1. Fikser
+          <ulink url='&lfs-ticket-root;5619'>#5619</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>01.01.2025</para>
       <itemizedlist>
         <listitem>
