@@ -46,7 +46,7 @@
 
     <para>Installer pakken:</para>
 
-<screen><userinput remap="install">pip3 install --no-index --no-user --find-links dist flit_core</userinput></screen>
+<screen><userinput remap="install">pip3 install --no-index --find-links dist flit_core</userinput></screen>
 
     <variablelist>
       <title>Betydningen av pip3 konfigurasjonsalternativene og kommandoene:</title>
