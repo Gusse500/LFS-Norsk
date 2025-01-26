@@ -61,7 +61,9 @@
 
   <screen role="nodump"><userinput>umask</userinput></screen>
 
-  <para>Utdataen skal være <computeroutput>022</computeroutput>.</para>
+  <para>Utdataen kan være <computeroutput>0022</computeroutput> eller
+  <computeroutput>022</computeroutput> (antall innledende nuller avhenger
+  av vertsdistroen).</para>
 
   <para>Hvis noen utdata fra disse to kommandoene er feil, bruk kommandoen
   gitt tidligere på denne siden for å sette <envar>$LFS</envar> til det riktige

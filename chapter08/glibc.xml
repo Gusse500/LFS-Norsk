@@ -495,8 +495,8 @@ for tz in etcetera southamerica northamerica europe africa antarctica  \
 done
 
 cp -v zone.tab zone1970.tab iso3166.tab $ZONEINFO
-zic -d $ZONEINFO -p America/New_York
-unset ZONEINFO</userinput></screen>
+zic -d $ZONEINFO -p Europe/Oslo
+unset ZONEINFO tz</userinput></screen>
 
     <variablelist>
       <title>Betydningen av zic kommandoene:</title>
