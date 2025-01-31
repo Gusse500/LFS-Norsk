@@ -65,7 +65,7 @@
     <para>For å forberede testene, sørg for at brukeren
     <systemitem class="username">tester</systemitem> kan skrive
     til kildetreet og ekskluder én fil som inneholder tester som krever
-    <command>curl</command> eller <command>wget</command>:</para></para>
+    <command>curl</command> eller <command>wget</command>:</para>
 
 <screen><userinput remap="test">chown -R tester .
 sed '/test_glvs/d' -i src/testdir/Make_all.mak</userinput></screen>
