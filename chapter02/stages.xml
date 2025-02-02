@@ -68,7 +68,8 @@
       </listitem>
 
       <listitem>
-        <para>Noen få operasjoner, fra <quote>Skifte eierskap</quote> for å
+        <para>Noen få operasjoner, fra <quote>Forberede det virtuelle
+        kjernefilsystemet</quote> for å
         <quote>Gå inn i Chroot miljøet</quote>, må gjøres som
         <systemitem class="username">root</systemitem> brukeren, med LFS
         miljøvariabel satt for &root; brukeren.</para>

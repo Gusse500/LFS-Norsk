@@ -8,7 +8,7 @@
 <sect1 id="ch-tools-kernfs">
   <?dbhtml filename="kernfs.html"?>
 
-  <title>Forberede det virtuelle kjernefilsystemer</title>
+  <title>Forberede det virtuelle kjernefilsystemet</title>
 
   <indexterm zone="ch-tools-kernfs">
     <primary sortas="e-/dev/">/dev/*</primary>
