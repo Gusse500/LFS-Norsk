@@ -52,11 +52,14 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Acl testene må kjøres på et filsystem som støtter tilgangskontroller,
-    men ikke før <application>Coreutils</application> pakken er bygget,
-    ved å bruke <application>Acl</application> biblioteker. Hvis ønskelig, gå tilbake til denne pakken
-    og kjør <command>make check</command> etter at <application>Coreutils</application>
-    pakken er bygget.</para>
+    <para>Acl testene må kjøres på et filsystem som støtter tilgangskontroller.
+    For å teste resultatene, utsted:</para>
+
+<screen><userinput remap="test">make check</userinput></screen>
+
+    <para>En test navngitt <filename>test/cp.test</filename> er kjent for å
+    feile fordi <application>Coreutils</application> ikke er bygget med
+    <application>Acl</application> støtte enda.</para>
 
     <para>Installer pakken:</para>
 
