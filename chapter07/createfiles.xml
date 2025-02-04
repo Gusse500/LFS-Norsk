@@ -180,7 +180,11 @@ EOF</userinput></screen>
   <systemitem class="groupname">nogroup</systemitem> for å unngå en
   ikke navngitt ID. Men andre distroer kan behandle denne IDen annerledes, så alle
   flyttbare programmer bør ikke være avhengig av denne tildelingen.</para>
+<!--
+  <para>Noen pakker trenger en lokalitet.</para>
 
+<screen><userinput>localedef -i C -f UTF-8 C.UTF-8</userinput></screen>
+-->
   <para>Noen tester i <xref linkend="chapter-building-system"/> trenger en vanlig
   bruker. Vi legger til denne brukeren her og sletter denne kontoen på slutten av det
   kapittelet.</para>
