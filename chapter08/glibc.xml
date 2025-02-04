@@ -317,6 +317,15 @@ install -vm755 dest/usr/lib/*.so.* /usr/lib</userinput></screen>
         lokalitetene. Når de er ferdige, start systemet på nytt
         med en gang.
       </para>
+
+      <para>
+        Når systemet har startet på nytt, hvis du kjører
+        et LFS system før 12.0 (eksklusivt) der GCC ikke ble bygget
+        med <parameter>--disable-fixincludes</parameter> alternativet,
+        fjerne de foreldede <quote>fixed</quote> kopier av Glibc deklarasjonene:
+      </para>
+
+      <screen role='nodump'><userinput>rm -rfv $(dirname $(gcc -print-libgcc-file-name))/include-fixed/*</userinput></screen>
     </important>
 
 	<para>Installer pakken:</para>
