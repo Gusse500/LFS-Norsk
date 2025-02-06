@@ -40,12 +40,7 @@
 
   <sect2 role="installation">
     <title>Installasjon av Perl</title>
-<!--
-    <para>Først bruker du en oppdatering som fikser et problem fremhevet av nylige
-    versjoner av gdbm:</para>
 
-<screen><userinput remap="pre">patch -Np1 -i ../&perl-fix-patch;</userinput></screen>
--->
     <para>Denne versjonen av Perl bygger nå Compress::Raw::Zlib og
     Compress::Raw::BZip2 moduler. Som
     standard vil Perl bruke en intern kopi av kildene for å bygge.

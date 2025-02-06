@@ -55,7 +55,7 @@
     at produserte binærfiler feilaktig kobler mot biblioteker fra vertens
     distro. Omgå dette problemet:</para>
 
-<screen><userinput remap="pre">sed '6009s/$add_dir//' -i ltmain.sh</userinput></screen>
+<screen><userinput remap="pre">sed '6031s/$add_dir//' -i ltmain.sh</userinput></screen>
 
     <para>Opprett en egen byggemappe igjen:</para>
 

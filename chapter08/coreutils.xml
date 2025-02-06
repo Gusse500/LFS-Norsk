@@ -55,7 +55,8 @@
 
     <para>Forbered nå Coreutils for kompilering:</para>
 
-<screen><userinput remap="configure">autoreconf -fiv
+<screen><userinput remap="configure">autoreconf -fv
+automake -af
 FORCE_UNSAFE_CONFIGURE=1 ./configure \
             --prefix=/usr            \
             --enable-no-install-program=kill,uptime</userinput></screen>
@@ -69,6 +70,14 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
           <para>Oppdateringen for internasjonalisering har modifisert
           byggesystemet til pakken, slik at konfigurasjonsfilene må
           bli regenerert.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><command>automake</command></term>
+        <listitem>
+          <para>Omgå et problem med en eldre versjon av autotools.
+          </para>
         </listitem>
       </varlistentry>
 

@@ -41,6 +41,72 @@
     -->
 
     <listitem>
+      <para>02.02.2025</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til vim-9.1.1071. Adresserer
+          <ulink url="&lfs-ticket-root;4500">#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iana-etc-20250123. Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til binutils-2.44.0. Fikser
+          <ulink url='&lfs-ticket-root;5634'>#5634</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til coreutils-9.6. Fikser
+          <ulink url='&lfs-ticket-root;5628'>#5628</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til e2fsprogs-1.47.2. Fikser
+          <ulink url='&lfs-ticket-root;5637'>#5637</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til glibc-2.41. Fikser
+          <ulink url='&lfs-ticket-root;5638'>#5638</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iproute2-6.13.0. Fikser
+          <ulink url='&lfs-ticket-root;5631'>#5631</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til libxcrypt-4.4.38. Fikser
+          <ulink url='&lfs-ticket-root;5626'>#5626</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.13.1. Fikser
+          <ulink url='&lfs-ticket-root;5629'>#5629</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til man-pages-6.10. Fikser
+          <ulink url='&lfs-ticket-root;5632'>#5632</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til meson-1.7.0. Fikser
+          <ulink url='&lfs-ticket-root;5636'>#5636</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til perl-5.40.1. Fikser
+          <ulink url='&lfs-ticket-root;5630'>#5630</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til tcl8.6.16. Fikser
+          <ulink url='&lfs-ticket-root;5635'>#5635</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til tzdata2025a. Fikser
+          <ulink url='&lfs-ticket-root;5627'>#5627</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til xz-5.6.4. Fikser
+          <ulink url='&lfs-ticket-root;5633'>#5633</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>15.01.2025</para>
       <itemizedlist>
         <listitem>

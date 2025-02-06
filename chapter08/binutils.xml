@@ -40,13 +40,13 @@
 
   <sect2 role="installation">
     <title>Installasjon av Binutils</title>
-
+<!--
     <para>Først, bruk en oppdatering for å forhindre en feil som forårsaker
     unødvendig relinking med pakker som er avhengige av cmake-3.31.0
     eller nyere:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&binutils-upstream-patch;</userinput></screen>
-
+-->
     <para>Binutils dokumentasjonen anbefaler å bygge Binutils
     i en dedikert byggemappe:</para>
 
@@ -57,7 +57,6 @@ cd       build</userinput></screen>
 
 <screen><userinput remap="configure">../configure --prefix=/usr       \
              --sysconfdir=/etc   \
-             --enable-gold       \
              --enable-ld=default \
              --enable-plugins    \
              --enable-shared     \
@@ -69,14 +68,6 @@ cd       build</userinput></screen>
 
     <variablelist>
       <title>Betydningen av nye konfigureringsparametrene:</title>
-
-      <varlistentry>
-        <term><parameter>--enable-gold</parameter></term>
-        <listitem>
-          <para>Bygg gold linkeren og installer den som ld.gold (ved siden av
-          standard linker).</para>
-        </listitem>
-      </varlistentry>
 
       <varlistentry>
         <term><parameter>--enable-ld=default</parameter></term>
@@ -142,12 +133,6 @@ cd       build</userinput></screen>
 
 <screen><userinput remap="test">grep '^FAIL:' $(find -name '*.log')</userinput></screen>
 
-    <para>Tolv tester mislykkes i gold testpakken når
-    <option>--enable-default-pie</option> og
-    <option>--enable-default-ssp</option> alternativene sendes til GCC.</para>
-
-<!--    <para>Tre tester i pakken gprofng er også kjent for å mislykkes.</para>-->
-
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make tooldir=/usr install</userinput></screen>
@@ -167,7 +152,7 @@ cd       build</userinput></screen>
       <segtitle>Installert mappe</segtitle>
 
       <seglistitem>
-        <seg>addr2line, ar, as, c++filt, dwp, elfedit, gprof, gprofng, ld, ld.bfd, ld.gold, nm,
+        <seg>addr2line, ar, as, c++filt, dwp, elfedit, gprof, gprofng, ld, ld.bfd, nm,
         objcopy, objdump, ranlib, readelf, size, strings, og strip</seg>
         <seg>libbfd.so, libctf.so, libctf-nobfd.so, libgprofng.so,
         libopcodes.so, og libsframe.so</seg>
@@ -273,17 +258,6 @@ cd       build</userinput></screen>
           symbolreferanser</para>
           <indexterm zone="ch-system-binutils ld">
             <primary sortas="b-ld">ld</primary>
-          </indexterm>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry id="ld.gold">
-        <term><command>ld.gold</command></term>
-        <listitem>
-          <para>En nedskalert versjon av ld som bare støtter
-          objektfil formatet elf</para>
-          <indexterm zone="ch-system-binutils ld.gold">
-            <primary sortas="b-ld.gold">ld.gold</primary>
           </indexterm>
         </listitem>
       </varlistentry>
