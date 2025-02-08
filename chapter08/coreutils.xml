@@ -62,22 +62,28 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
             --enable-no-install-program=kill,uptime</userinput></screen>
 
     <variablelist>
-      <title>Betydningen av konfigureringsalternativene:</title>
+      <title>Betydningen av kommandoene og konfigureringsalternativene:</title>
 
       <varlistentry>
-        <term><command>autoreconf</command></term>
+        <term><command>autoreconf -fv</command></term>
         <listitem>
           <para>Oppdateringen for internasjonalisering har modifisert
           byggesystemet til pakken, slik at konfigurasjonsfilene må
-          bli regenerert.</para>
+          bli regenerert.  Normalt ville vi brukt
+          <parameter>-i</parameter> alternativet for å oppdatere standard
+          hjelpefiler, men for denne pakken fungerer det ikke fordi
+          <filename>configure.ac</filename> spesifiserte en gammel gettext
+          versjon.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
-        <term><command>automake</command></term>
+        <term><command>automake -af</command></term>
         <listitem>
-          <para>Omgå et problem med en eldre versjon av autotools.
-          </para>
+	  <para>Automake hjelpefilene ble ikke oppdatert av
+	  <command>autoreconf</command> på grunn av savnet
+	  <parameter>-i</parameter> alternativ. Denne kommandoen oppdaterer dem
+	  for å forhindre byggefeil.</para>
         </listitem>
       </varlistentry>
 
@@ -142,12 +148,6 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
     <para>Fjern den midlertidige gruppen:</para>
 
 <screen><userinput remap="test">groupdel dummy</userinput></screen>
-
-    <para>
-       To tester, <filename>tests/cp/preserve-mode.sh</filename> og
-       <filename>tests/mv/acl.sh</filename>, er kjent for å
-       mislykkes i chroot miljøet, men passerer i et komplett system.
-    </para>
 
     <para>Installer pakken:</para>
 

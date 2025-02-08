@@ -162,21 +162,21 @@ EOF
 
 <screen><userinput remap="install">install -v -dm755 /usr/share/doc/python-&python-version;/html
 
-tar --no-same-owner \
-    -xvf ../python-&python-version;-docs-html.tar.bz2
-cp -R --no-preserve=mode python-&python-version;-docs-html/* \
-    /usr/share/doc/python-&python-version;/html</userinput></screen>
+tar --strip-components=1  \
+    --no-same-owner       \
+    --no-same-permissions \
+    -C /usr/share/doc/python-&python-version;/html \
+    -xvf ../python-&python-version;-docs-html.tar.bz2</userinput></screen>
 
     <variablelist>
       <title>Betydningen av dokumentasjonsinstallasjons kommandoene:</title>
 
     <varlistentry>
-      <term><option>--no-same-owner</option> (tar) og <option>--no-preserve=mode</option> (cp)</term>
+      <term><option>--no-same-owner</option> og <option>--no-same-permissions</option></term>
       <listitem>
         <para>Sørger for at de installerte filene har riktig eierskap og
         tillatelser. Uten disse alternativene, <application>tar</application>
-        vil installere pakkefilene med oppstrømsskaperens verdier
-        og filer vil ha restriktive tillatelser.
+        vil installere pakkefilene med oppstrømsskaperens verdier.
         </para>
       </listitem>
     </varlistentry>
