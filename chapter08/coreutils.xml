@@ -149,12 +149,6 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
 
 <screen><userinput remap="test">groupdel dummy</userinput></screen>
 
-    <para>
-       To tester, <filename>tests/cp/preserve-mode.sh</filename> og
-       <filename>tests/mv/acl.sh</filename>, er kjent for å
-       mislykkes i chroot miljøet, men passerer i et komplett system.
-    </para>
-
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
