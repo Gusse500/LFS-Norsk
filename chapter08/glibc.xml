@@ -152,7 +152,7 @@ esac</userinput></screen>
 
     <para>Du kan se noen testfeil. Glibc testpakken er
     noe avhengig av vertssystemet. Noen få feil ut av
-    over 5000 tester kan generelt ignoreres. Dette er en liste over
+    over 6000 tester kan generelt ignoreres. Dette er en liste over
     de vanligste problemene som er sett for nyere versjoner av LFS:</para>
 
     <itemizedlist>
