@@ -67,7 +67,7 @@
 
     <para>Bygg Ninja med:</para>
 
-<screen><userinput remap="configure">python3 configure.py --bootstrap</userinput></screen>
+<screen><userinput remap="configure">python3 configure.py --bootstrap --verbose</userinput></screen>
 
     <variablelist>
       <title>Betydningen av byggealternativet:</title>
@@ -80,10 +80,20 @@
         </listitem>
       </varlistentry>
 
+      <varlistentry>
+        <term><parameter>--verbose</parameter></term>
+        <listitem>
+          <para>Denne parameteren gjør at <command>configure.py</command> viser
+          fremdriften under bygging av Ninja.</para>
+        </listitem>
+      </varlistentry>
+
     </variablelist>
 
-    <para>Pakketestene kan ikke kjøres i chroot miljøet. De
-    krever <ulink url="&blfs-book;general/cmake.html">cmake</ulink>.</para>
+    <para>Pakketestene kan ikke kjøres i chroot miljøet. Det krever
+    <ulink url="&blfs-book;general/cmake.html">cmake</ulink>.  Men det grunnleggende
+    funksjonen til denne pakken er allerede testet ved å gjenoppbygge seg selv
+    (med <parameter>--bootstrap</parameter> alternativet).</para>
 <!--
     <para>For å teste resultatene, utsted:</para>
 
