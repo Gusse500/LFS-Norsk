@@ -128,6 +128,11 @@ su tester -c "make -k check"</userinput></screen>
        aktivert.
     </para>
 
+    <para>
+      To andre tester, lsfd: SOURCE column og utmp: last, er kjent for å
+      mislykkes i chroot miljøet.
+    </para>
+
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>

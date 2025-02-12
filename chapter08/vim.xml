@@ -80,9 +80,11 @@ sed '/test_glvs/d' -i src/testdir/Make_all.mak</userinput></screen>
     forårsake problemer med innstillingene til gjeldende terminal (spesielt mens
     vi overstyrer <envar>TERM</envar> variabelen for å tilfredsstille noen
     forutsetninger for testpakken). Problemet kan
-    unngås ved å omdirigere utdataene til en loggfil som vist ovenfor. En
-    vellykket test vil resultere i ordene <computeroutput>ALL
-    DONE</computeroutput> i loggfilen ved ferdigstillelse.</para>
+    unngås ved å omdirigere utdataene til en loggfil som vist ovenfor.</para>
+
+    <para>Fire tester relatert til GetLatestVimScripts er kjent for å mislykkes i
+    chroot miljøet fordi wget eller curl ikke er tilgjengelig for å
+    laste ned de nødvendige testskriptene.</para>
 
     <para>Installer pakken:</para>
 

@@ -41,6 +41,36 @@
     -->
 
     <listitem>
+      <para>13.02.2025</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til vim-9.1.1106. Adresserer
+          <ulink url="&lfs-ticket-root;4500">#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til diffutils-3.11. Fikser
+          <ulink url='&lfs-ticket-root;5639'>#5639</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til libffi-3.4.7. Fikser
+          <ulink url='&lfs-ticket-root;5642'>#5642</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.13.2. Fikser
+          <ulink url='&lfs-ticket-root;5643'>#5643</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til Python3-3.13.2. Fikser
+          <ulink url='&lfs-ticket-root;5640'>#5640</ulink>.</para>
+        </listitem>
+        <listitem revision="sysv">
+          <para>[bdubbs] - Oppdater til sysvinit-3.14. Fikser
+          <ulink url='&lfs-ticket-root;5641'>#5641</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>02.02.2025</para>
       <itemizedlist>
         <listitem>

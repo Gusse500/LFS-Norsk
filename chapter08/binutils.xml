@@ -40,13 +40,7 @@
 
   <sect2 role="installation">
     <title>Installasjon av Binutils</title>
-<!--
-    <para>Først, bruk en oppdatering for å forhindre en feil som forårsaker
-    unødvendig relinking med pakker som er avhengige av cmake-3.31.0
-    eller nyere:</para>
 
-<screen><userinput remap="pre">patch -Np1 -i ../&binutils-upstream-patch;</userinput></screen>
--->
     <para>Binutils dokumentasjonen anbefaler å bygge Binutils
     i en dedikert byggemappe:</para>
 
@@ -137,9 +131,10 @@ cd       build</userinput></screen>
 
 <screen><userinput remap="install">make tooldir=/usr install</userinput></screen>
 
-    <para>Fjern ubrukelige statiske biblioteker:</para>
+    <para>Fjern ubrukelige statiske biblioteker og andre filer:</para>
 
-<screen><userinput remap="install">rm -fv /usr/lib/lib{bfd,ctf,ctf-nobfd,gprofng,opcodes,sframe}.a</userinput></screen>
+<screen><userinput remap="install">rm -rfv /usr/lib/lib{bfd,ctf,ctf-nobfd,gprofng,opcodes,sframe}.a \
+        /usr/share/doc/gprofng/</userinput></screen>
 
   </sect2>
 
