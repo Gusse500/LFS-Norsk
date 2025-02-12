@@ -64,6 +64,7 @@
           <para>Denne bryteren deaktiverer bygging av <command>kill</command>
           kommandoen som vil bli installert av Util-linux pakken.</para>
         </listitem>
+      </varlistentry>
 
       <varlistentry>
         <term><parameter>--enable-watch8bit</parameter></term>
@@ -72,7 +73,6 @@
           <command>watch</command> kommandoen, slik at den kan håndtere 8-bit
           tegn.</para>
         </listitem>
-      </varlistentry>
       </varlistentry>
     </variablelist>
 
