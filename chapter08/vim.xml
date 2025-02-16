@@ -68,7 +68,7 @@
     <command>curl</command> eller <command>wget</command>:</para>
 
 <screen><userinput remap="test">chown -R tester .
-sed '/test_glvs/d' -i src/testdir/Make_all.mak</userinput></screen>
+sed '/test_plugin_glvs/d' -i src/testdir/Make_all.mak</userinput></screen>
 
     <para>Kjør nå testene som bruker <systemitem
     class="username">tester</systemitem>:</para>
