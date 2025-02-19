@@ -41,6 +41,20 @@
     -->
 
     <listitem>
+      <para>19.02.2025</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Oppdater til vim-9.1.1122 (Sikkerhetsoppdatering).
+          Adresserer <ulink url='&lfs-ticket-root;4500'>#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdater til man-pages-6.11.  Fikser
+          <ulink url='&lfs-ticket-root;5646'>#5646</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>13.02.2025</para>
       <itemizedlist>
         <listitem>
