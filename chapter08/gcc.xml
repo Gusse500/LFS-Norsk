@@ -173,26 +173,15 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
     <para>Resultatene kan sammenlignes med de som ligger på <ulink
     url="&test-results;"/> og
     <ulink url="https://gcc.gnu.org/ml/gcc-testresults/"/>.</para>
-<!--
-    <para>
-    Åtte gcc tester (av over 185 000):
-    <!- - https://gcc.gnu.org/PR106375 - -><filename>pr56837.c</filename>
-    og syv tester i <filename class='directory'>analyzer</filename>
-    mappen er kjent for å mislykkes.
 
-    <!- - https://gcc.gnu.org/PR109353 - ->
-    En libstdc++ test (av over 15000), <filename>copy.cc</filename>, er
-    kjent for å mislykkes.
+    <!-- https://github.com/google/sanitizers/issues/1716
+         Affecting any host distro with a large vm.mmap_rnd_bits.
+         The fix is https://github.com/llvm/llvm-project/commit/0784b1eefa36
+         but it's not in GCC 14.  TODO retry with
+             sudo sysctl vm.mmap_rnd_bits=32
+         on the host distro when we update to GCC 15.  -->
+    <para>Tsan testene er kjent for å mislykkes på enkelte vertsdistroer.</para>
 
-    For g++, 21 tester (ut av omtrentlig 250,000): 14
-    <quote>AddressSanitizer*</quote>
-    tester og 7 <filename>interception-malloc-test-1.C</filename> tester, er
-    kjent for å mislykkes.
-
-    I tillegg flere tester i
-    <filename class='directory'>vect</filename> mappen er kjent for å mislykkes
-    hvis maskinvaren ikke støtter AVX.</para>
--->
     <para>Noen få uventede feil kan ikke alltid unngås. <!--GCC utviklerne
     er vanligvis klar over disse problemene, men har ikke løst dem ennå.-->
     Med mindre testresultatene er svært forskjellige fra de på URLen ovenfor,
