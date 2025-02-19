@@ -228,7 +228,11 @@ ninja test</userinput></screen>
          after initializing the system with systemd.  -->
     <para>En test navngitt <literal>systemd:core / test-namespace</literal>
     er kjent for å mislykkes i LFS chroot miljøet. Noen andre tester kan
-    mislykkes fordi de er avhengige av ulike kjernekonfigurasjonsalternativer.</para>
+    mislykkes fordi de er avhengige av ulike kjernekonfigurasjonsalternativer.
+    Testen navngitt <literal>systemd:test / test-copy</literal> kan få tidsavbrudd
+    på grunn av en I/O overbelastning med et stort parallelt jobbnummer, men det
+    ville passert hvis du kjørte alene med
+    <command>meson test test-copy</command>.</para>
 
     <para>Installer pakken:</para>
 
