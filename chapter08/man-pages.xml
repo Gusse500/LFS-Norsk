@@ -48,7 +48,32 @@
 
     <para>Installer Man-pages ved å kjøre:</para>
 
-<screen><userinput remap="install">make prefix=/usr install</userinput></screen>
+<screen><userinput remap="install">make -R GIT=false prefix=/usr install</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av alternativene:</title>
+
+      <!-- TODO: Try if we can remove this when we update make.  -->
+      <varlistentry>
+        <term><parameter>-R</parameter></term>
+        <listitem>
+          <para>Dette hindrer <command>make</command> fra å sette noen
+          innebygde variabler. Byggesystemet for man-pages gjør det at det ikke
+          fungerer bra med innebygde variabler, men foreløpig er det ingen måte
+          å deaktivere dem unntatt å sende <parameter>-R</parameter>
+          eksplisitt via kommandolinjen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>GIT=false</parameter></term>
+        <listitem>
+          <para>Dette hindrer byggesystemet fra å sende ut mange
+          <computeroutput>git: command not found</computeroutput>
+          advarselslinjer.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
 
   </sect2>
 
