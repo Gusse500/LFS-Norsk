@@ -77,8 +77,7 @@
 
     </variablelist>
 -->
-    <para>For å teste resultatene (dette tar lang tid, rundt 3 SBU),
-    utsted:</para>
+    <para>For å teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 

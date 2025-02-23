@@ -50,7 +50,7 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-<para>For å teste resultatene<!--(ca. 11.0 SBU)-->, utsted:</para>
+<para>For å teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
