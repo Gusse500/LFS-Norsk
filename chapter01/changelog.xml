@@ -41,6 +41,48 @@
     -->
 
     <listitem>
+      <para>27.02.2025</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til zstd-1.5.7.  Fikser
+          <ulink url='&lfs-ticket-root;5652'>#5652</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til systemd-257.3.  Fikser
+          <ulink url='&lfs-ticket-root;5612'>#5612</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til shadow-4.17.3.  Fikser
+          <ulink url='&lfs-ticket-root;5660'>#5660</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til setuptools-75.8.1.  Fikser
+          <ulink url='&lfs-ticket-root;5662'>#5662</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.13.4.  Fikser
+          <ulink url='&lfs-ticket-root;5647'>#5647</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til kmod-34.  Fikser
+          <ulink url='&lfs-ticket-root;5657'>#5657</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til inetutils-2.6.  Fikser
+          <ulink url='&lfs-ticket-root;5656'>#5656</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til gettext-0.24.  Fikser
+          <ulink url='&lfs-ticket-root;5661'>#5661</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til flit_core-3.11.0.  Fikser
+          <ulink url='&lfs-ticket-root;5654'>#5654</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>24.02.2025</para>
       <itemizedlist>
         <listitem>

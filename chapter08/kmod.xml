@@ -43,41 +43,20 @@
 
     <para>Forbered Kmod for kompilering:</para>
 
-<screen><userinput remap="configure">./configure --prefix=/usr     \
-            --sysconfdir=/etc \
-            --with-openssl    \
-            --with-xz         \
-            --with-zstd       \
-            --with-zlib       \
-            --disable-manpages</userinput></screen>
+    <screen><userinput remap="configure">mkdir -p build
+cd       build
+
+meson setup --prefix=/usr ..    \
+            --sbindir=/usr/sbin \
+            --buildtype=release \
+            -D manpages=false</userinput></screen>
 
     <variablelist>
       <title>Betydningen av konfigureringsalternativene:</title>
 
       <varlistentry>
         <term>
-          <parameter>--with-openssl</parameter>
-        </term>
-        <listitem>
-          <para>Dette alternativet gjør det mulig for Kmod å håndtere PKCS7 signaturer for
-          kjernemoduler.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>
-          <parameter>--with-xz</parameter>,
-          <parameter>--with-zlib</parameter>, og
-          <parameter>--with-zstd</parameter>
-        </term>
-        <listitem>
-          <para>Disse alternativene gjør at Kmod kan håndtere komprimerte kjernemoduler.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term>
-          <parameter>--disable-manpages</parameter>
+          <parameter>-D manpages=false</parameter>
         </term>
         <listitem>
           <para>Dette alternativet deaktiverer generering av manualsider som
@@ -89,25 +68,15 @@
 
     <para>Kompiler pakken:</para>
 
-<screen><userinput remap="make">make</userinput></screen>
+<screen><userinput remap="make">ninja</userinput></screen>
 
     <para>Testpakken til denne pakken krever rå kjernedeklarasjoner
     (ikke de <quote>sanitiserte</quote> kjernedeklarasonene installert tidligere),
     som er utenfor rammen av LFS.</para>
 
-    <para>Installer pakken og gjenskap noen symbolkoblinger for
-    kompatibilitet med Module-Init-Tools (pakken som tidligere håndterte
-    Linux kernel moduler).  Byggesystemet vil opprette alle disse
-    symbolkoblingene i <filename class='directory'>/usr/bin</filename>, men vi
-    ønsker bare <command>lsmod</command> der og alle andre symbolkoblinger i
-    <filename class='directory'>/usr/sbin</filename> i stedet:</para>
+    <para>Installer nå pakken:</para>
 
-<screen><userinput remap="install">make install
-
-for target in depmod insmod modinfo modprobe rmmod; do
-  ln -sfv ../bin/kmod /usr/sbin/$target
-  rm -fv /usr/bin/$target
-done</userinput></screen>
+<screen><userinput remap="install">ninja install</userinput></screen>
 
   </sect2>
 
