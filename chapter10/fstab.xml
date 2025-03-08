@@ -108,6 +108,8 @@ EOF</userinput></screen>
   <quote>Default iocharset for FAT</quote> (<option>CONFIG_FAT_DEFAULT_IOCHARSET</option>).
   Det er ingen måte å spesifisere disse innstillingene for
   ntfs filsystem på kjernekompileringstidspunktet.</para>
+<!--
+  Obsolete since 2011.  barrier is the default for both ext3 and ext4.
 
   <para>Det er mulig å gjøre ext3 filsystemet pålitelig på tvers av strømfeil
    for enkelte harddisktyper. For å gjøre dette, legg til
@@ -123,5 +125,5 @@ EOF</userinput></screen>
 
   <para>Merk: Logical Volume Management (LVM) baserte partisjoner kan ikke bruke
   <option>barrier</option> valget.</para>
-
+-->
 </sect1>
