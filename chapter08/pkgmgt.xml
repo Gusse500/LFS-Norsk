@@ -370,11 +370,13 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
     forskjeller i systemmaskinvare og den originale
     kjernekonfigurasjonen.</para>
 
-    <note><para>Det har vært noen rapporter om problemer ved kopiering mellom
-    lignende, men ikke identiske arkitekturer. For eksempel instruksjonssettet
-    for et Intel-system er ikke identisk med en AMD-prosessor og nyere
-    versjoner av enkelte prosessorer kan ha instruksjoner som ikke er tilgjengelige i
-    tidligere versjoner.</para></note>
+    <important><para>Hvis du ønsker å distribuere LFS systemet på et system
+ med en annen CPU, når du bygger <xref linkend='ch-system-gmp'/> og
+    <xref linkend='ch-system-libffi'/> du må følge notatene om å
+ overstyre den arkitekturspesifikke optimaliseringen for å produsere biblioteker
+ egnet for både vertssystemet og systemet(e) der du vil distribuere
+ LFS systemet. Ellers får du <computeroutput>Illegal
+    Instruction</computeroutput> feil når du kjører LFS.</para></important>
 
     <para>Til slutt må det nye systemet gjøres oppstartbart via <xref
     linkend="ch-bootable-grub"/>.</para>
