@@ -51,11 +51,14 @@
       <para>I likhet med GMP bygges libffi med spesifikke optimaliseringer
       til prosessoren som er i bruk. Hvis du bygger for et annet system, endre
       verdien av <parameter>--with-gcc-arch=</parameter> parameteren i
-      fålgende kommando til et arkitekturnavn fullt implementert av
-      CPU på det systemet.
+      følgende kommando til et arkitekturnavn fullt implementert av
+      <emphasis role='bold'>både</emphasis> vertens CPU og
+      CPU på det andre systemet.
       Hvis dette ikke gjøres, vil alle applikasjoner som lenker til
       <filename class='libraryfile'>libffi</filename> utløse
-      ulovlige operasjonsfeil (Illegal Operation Errors).</para>
+      ulovlige operasjonsfeil (Illegal Operation Errors).  Hvis du ikke kan finne en verdi
+      trygt for begge CPUene, bytt ut parameteren med
+      <option>--without-gcc-arch</option> for å produsere et generisk bibliotek.</para>
     </note>
 
     <para>Forbered libffi for kompilering:</para>
