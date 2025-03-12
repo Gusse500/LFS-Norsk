@@ -69,10 +69,25 @@
       </listitem>
 
       <listitem> <para>Hvis en pakke som inneholder et delt bibliotek oppdateres, og
-      hvis navnet på biblioteket endres, vil eventuelle pakker dynamisk
+      hvis navnet på biblioteket<footnote><para>Navnet på et delt bibliotek er
+      strengen som er kodet i <constant>DT_SONAME</constant> oppføringen i
+      ELF dynamisk seksjonen. Du kan få det med
+      <command>readelf -d <replaceable>&lt;bibliotekfil&gt;</replaceable>
+      | grep SONAME</command> kommandoen. I de fleste tilfeller er det suffikset med
+      <literal>.so.<replaceable>&lt;et versjons
+      nummer&gt;</replaceable></literal>, men det er noen tilfeller der
+      den inneholder flere tall for versjonskontroll (som
+      <filename>libbz2.so.1.0</filename>), inneholder versjonsnummeret
+      før <filename class='extension'>.so</filename> suffikset (som
+      <filename>libbfd-&binutils-version;</filename>), eller inneholder ikke
+      noe versjonsnummer i det hele tatt (for eksempel
+      <filename>libmemusage.so</filename>).
+      Generelt er det ingen sammenheng mellom pakkeversjonen og
+      versjonsnummer(er) i biblioteknavnet.</para></footnote>
+      endres, så eventuelle pakker dynamisk
       koblet til biblioteket måtte kompileres på nytt for å kunne kobles mot
-      det nyere biblioteket. (Merk at det ikke er noen sammenheng mellom
-      pakkeversjon og navnet på biblioteket.) Tenk for eksempel på en pakke
+      det nyere biblioteket.
+      Tenk for eksempel på en pakke
       foo-1.2.3 som installerer et delt bibliotek med navn <filename
       class='libraryfile'>libfoo.so.1</filename>. Hvis du oppgraderer pakken til
       en nyere versjon foo-1.2.4 som installerer et delt bibliotek med navn
