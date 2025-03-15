@@ -41,6 +41,60 @@
     -->
 
     <listitem>
+      <para>15.03.2025</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til vim-9.1.1202. Adresserer
+          <ulink url='&lfs-ticket-root;4500'>#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iana-etc-20250304. Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til sysklogd-2.7.1. Fikser
+          <ulink url='&lfs-ticket-root;5668'>#5668</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til setuptools-76.0.0. Fikser
+          <ulink url='&lfs-ticket-root;5665'>#5665</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til pkgconf-2.4.3. Fikser
+          <ulink url='&lfs-ticket-root;5672'>#5672</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til man-pages-6.13. Fikser
+          <ulink url='&lfs-ticket-root;5673'>#5673</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.13.7. Fikser
+          <ulink url='&lfs-ticket-root;5664'>#5664</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til libcap-2.75. Fikser
+          <ulink url='&lfs-ticket-root;5667'>#5667</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til kmod-34.1. Fikser
+          <ulink url='&lfs-ticket-root;5671'>#5671</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til jinja2-3.1.6. Fikser
+          <ulink url='&lfs-ticket-root;5670'>#5670</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til expat-2.7.0. Fikser
+          <ulink url='&lfs-ticket-root;5675'>#5675</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til dbus-1.16.2. Fikser
+          <ulink url='&lfs-ticket-root;5663'>#5663</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>05.03.2025</para>
       <itemizedlist>
         <listitem>
