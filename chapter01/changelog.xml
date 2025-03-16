@@ -51,7 +51,7 @@
           <para>[bdubbs] - Oppdater til iana-etc-20250304. Adresserer
           <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
         </listitem>
-        <listitem>
+        <listitem revision='sysv'>
           <para>[bdubbs] - Oppdater til sysklogd-2.7.1. Fikser
           <ulink url='&lfs-ticket-root;5668'>#5668</ulink>.</para>
         </listitem>
@@ -87,7 +87,7 @@
           <para>[bdubbs] - Oppdater til expat-2.7.0. Fikser
           <ulink url='&lfs-ticket-root;5675'>#5675</ulink>.</para>
         </listitem>
-        <listitem>
+        <listitem revision='systemd'>
           <para>[bdubbs] - Oppdater til dbus-1.16.2. Fikser
           <ulink url='&lfs-ticket-root;5663'>#5663</ulink>.</para>
         </listitem>
