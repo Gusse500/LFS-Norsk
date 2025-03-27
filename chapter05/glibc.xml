@@ -177,8 +177,8 @@ cd       build</userinput></screen>
           installert. Hvis den ikke er angitt, er den standard til root (<filename
           class="directory">/</filename>) mappen. Her spesifiserer vi at
           pakken installeres i <filename class="directory">
-          $LFS</filename>, which will become the root directory in <xref linkend=
-          "ch-tools-chroot"/>.</para>
+          $LFS</filename>, som vil bli rotmappen i <xref linkend=
+          "ch-tools-chroot" role='.'/></para>
         </listitem>
       </varlistentry>
 
