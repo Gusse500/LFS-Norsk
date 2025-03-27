@@ -245,7 +245,8 @@
           eksempel, når du bygger et verktøy naturlig, kan dets manualside være
           generert ved å kjøre verktøyet med
           <parameter>--help</parameter> bryteren og behandle utgangen,
-          men generelt er det ikke mulig å gjøre det da verktøyet kan mislykkes
+          men generelt er det ikke mulig å gjøre det for en krysskompilering
+          da verktøyet kan feile
           å kjøre på <quote>bygget</quote>: det er åpenbart umulig å
           kjøre ARM64 maskinkode på en x86 CPU (uten emulator).
         </para>
@@ -253,7 +254,7 @@
           Med et autoconf basert byggesystem er dette kravet
           oppfylt i <quote>krysskompileringsmodusen</quote> hvor
           de valgfrie funksjonene som krever å kjøre maskinkode for
-          <quote>verten</quote> er deaktivert. Når <quote>vertens</quote>
+          <quote>verten</quote> i løpet av byggetiden er deaktivert. Når <quote>vertens</quote>
 		  triplett er eksplisitt spesifisert, <quote>krysskompileringsmodus</quote>
 		  er aktivert hvis og bare hvis enten
           <command>configure</command> skriptet klarer ikke å kjøre et dummy
@@ -302,7 +303,7 @@
     <command>libtool</command>, en <quote>kompatibilitets</quote> innpakning av
     kompilatoren og linkeren for autoconf baserte byggesystemer,
     kan prøve å være for smart og feilaktig sende alternativer som tillater linkeren
-    å finne biblioteker til <quote>verten.</quote>
+    å finne biblioteker til <quote>bygget.</quote>
     For å forhindre denne feilen, må vi slette libtool arkivet
     (<filename class='extension'>.la</filename>) filer og fikse en
     utdatert libtool kopi sendt med Binutils koden.</para>
@@ -360,8 +361,7 @@
     under trinn 2. Som vi har diskutert, kan vi ikke kjøre cc-lfs på pc 
     (vertsdistroen) fordi det kan kreve noe bibliotek, kode eller data som ikke er
     tilgjengelig på <quote>bygget</quote> (vertsdistroen).
-    Så når vi bygger gcc trinn 2, instruerer vi byggesystemet til å
-    gjenoppbygge libgcc og libstdc++ med cc1, men vi overstyrer også bibliotekets
+    Så når vi bygger gcc trinn 2, overstyrer vi bibliotekets
     søkebane for å koble libstdc++ mot den nylig
     gjenoppbygde libgcc i stedet for den gamle, nedgraderte konstruksjonen. Dette gjør den ombygde
     libstdc++ fullt funksjonell.</para>
