@@ -3,6 +3,9 @@
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
   %general-entities;
+
+  <!ENTITY host-triplet
+           "<replaceable>&lt;vertstripletten&gt;</replaceable>">
 ]>
 
 <sect1 id="ch-tools-toolchaintechnotes" xreflabel="Verktøykjedens tekniske merknader">
@@ -43,6 +46,14 @@
         å bygge en kryss (eller lokal) verktøykjede. Ikke bruk kommandoen i
         boken for en kryssverktøykjede som skal brukes til andre formål
         enn å bygge LFS, med mindre du virkelig forstår hva du gjør.
+      </para>
+
+      <para>
+        Det er kjent at installasjon av GCC pass 2 vil bryte verktøykjeden.
+        Vi anser det ikke som en feil fordi GCC pass 2 er den siste pakken som
+        skal krysskompileres i boken, og vi vil ikke <quote>fikse</quote>
+        det til vi virkelig trenger å krysskompilere en pakke etter GCC
+        pass 2 i fremtiden.
       </para>
     </note>
 
@@ -197,14 +208,104 @@
       page</ulink>.</para>
     </note>
 
-    <para>For å forfalske en krysskompilering i LFS, navnet på vertstripletten
-    justeres litt ved å endre &quot;vendor&quot; feltet i
-    <envar>LFS_TGT</envar> variabel så det står &quot;lfs&quot;. Vi bruker også
-    <parameter>--with-sysroot</parameter> alternativet når du bygger krysslenkeren og
-    krysskompilatoren for å fortelle dem hvor de skal finne de nødvendige vertsfilene. Dette
-    sikrer at ingen av de andre programmene bygget i <xref
-    linkend="chapter-temporary-tools"/> kan lenke til biblioteker på
-    byggemaskinen. Kun to trinn er obligatoriske, og ett til for tester:</para>
+    <para>
+      Det er to hovedpunkter for en krysskompilering:
+    </para>
+
+    <itemizedlist>
+      <listitem>
+        <para>
+          Ved produksjon og bearbeiding skal maskinkoden bli
+          utført på <quote>verten,</quote> kryssverktøykjeden må bli
+          brukt. Merk at den opprinnelige verktøykjeden fra <quote>bygget</quote>
+          kan fortsatt påkalles for å generere maskinkode som skal bli
+          brukt på <quote>bygget.</quote>  For eksempel byggesystemet
+          kan kompilere en generator med den opprinnelige verktøykjeden, og deretter generere
+          en C kildefil med generatoren, og kompiler til slutt C
+          kildefilen med kryssverktøykjeden slik at den genererte koden vil
+          kunne kjøre på <quote>verten.</quote>
+        </para>
+        <para>
+          Med et autoconf basert byggesystem er dette kravet sikret
+          ved å bruke <parameter>--host</parameter> parameteren for å spesifisere
+          <quote>vertens</quote> triplett. Med denne bryteren byggesystemet
+          vil bruke verktøykjedekomponentene med prefiks
+          <literal>&host-triplet;</literal>
+          for å generere og behandle maskinkoden for
+          <quote>verten</quote>; f.eks. kompilatoren vil være
+          <command>&host-triplet;-gcc</command> og
+          <command>readelf</command> verktøyet vil være
+          <command>&host-triplet;-readelf</command>.
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          Byggesystemet skal ikke prøve å kjøre en generert maskinkode
+          som skal kjøres på <quote>verten.</quote>  For
+          eksempel, når du bygger et verktøy naturlig, kan dets manualside være
+          generert ved å kjøre verktøyet med
+          <parameter>--help</parameter> bryteren og behandle utgangen,
+          men generelt er det ikke mulig å gjøre det da verktøyet kan mislykkes
+          å kjøre på <quote>bygget</quote>: det er åpenbart umulig å
+          kjøre ARM64 maskinkode på en x86 CPU (uten emulator).
+        </para>
+        <para>
+          Med et autoconf basert byggesystem er dette kravet
+          oppfylt i <quote>krysskompileringsmodusen</quote> hvor
+          de valgfrie funksjonene som krever å kjøre maskinkode for
+          <quote>verten</quote> er deaktivert. Når <quote>vertens</quote>
+		  triplett er eksplisitt spesifisert, <quote>krysskompileringsmodus</quote>
+		  er aktivert hvis og bare hvis enten
+          <command>configure</command> skriptet klarer ikke å kjøre et dummy
+          program kompilert inn i <quote>vertens</quote> maskinkode, eller
+          <quote>byggets</quote> triplett er eksplisitt spesifisert via
+          <parameter>--build</parameter> bryteren og den er forskjellig fra
+          <quote>vertens</quote> triplett.
+        </para>
+      </listitem>
+    </itemizedlist>
+
+    <para>For å krysskompilere en pakke for det midlertidige LFS systemet,
+    navnet på systemtripletten justeres litt ved å endre
+    &quot;vendor&quot; feltet i <envar>LFS_TGT</envar> variabel så det
+    sier &quot;lfs&quot; og <envar>LFS_TGT</envar> er da spesifisert som
+    <quote>vertens</quote> triplett via <parameter>--host</parameter>, så
+    kryssverktøykjeden vil bli brukt til å generere og behandle
+    maskinkode som kjører som en del av det midlertidige LFS systemet. Og vi
+    må også aktivere <quote>krysskompileringsmodusen</quote>: til tross for at
+    <quote>vertens</quote> maskinkode, dvs. maskinkoden for LFS sitt
+    midlertidig system, er i stand til å kjøre på gjeldende CPU, kan det referere
+    til et bibliotek som ikke er tilgjengelig på <quote>bygget</quote> (vertens
+    distro), eller noen kode eller data eksisterer ikke eller definert annerledes i
+    biblioteket selv om det tilfeldigvis er tilgjengelig. Når du krysskompilerer en
+    pakke for det midlertidige LFS systemet, kan vi ikke stole på
+    <command>configure</command> skript for å oppdage dette problemet med
+    dummy program: dummyen bruker bare noen få komponenter i
+    <systemitem class='library'>libc</systemitem> som vertsdistro sin
+    <systemitem class='library'>libc</systemitem> sannsynligvis gir (med mindre,
+    vertsdistroen bruker en annen
+    <systemitem class='library'>libc</systemitem> implementering som Musl),
+    så det vil ikke mislykkes som de virkelig nyttige programmene trolig ville.
+    Derfor må vi spesifisere eksplisitt <quote>byggets</quote> triplett for å
+    aktivere <quote>krysskompileringsmodusen.</quote>  Verdien vi bruker er
+    bare standard, dvs. den originale systemtripletten fra
+    <command>config.guess</command> utdata, men <quote>krysskompileringsmodusen</quote>
+	avhenger av en eksplisitt spesifikasjon som vi har
+    diskutert.</para>
+
+    <para>Vi bruker <parameter>--with-sysroot</parameter> alternativet når vi
+    bygger krysslinkeren og krysskompilatoren for å fortelle dem hvor de skal finne
+    de nødvendige filene for <quote>verten.</quote> Dette sikrer at nesten
+    ingen av de andre programmene bygget i
+    <xref linkend="chapter-temporary-tools"/> kan lenke til biblioteker på
+    <quote>bygget.</quote> Ordet <quote>nesten</quote> brukes pga
+    <command>libtool</command>, en <quote>kompatibilitets</quote> innpakning av
+    kompilatoren og linkeren for autoconf baserte byggesystemer,
+    kan prøve å være for smart og feilaktig sende alternativer som tillater linkeren
+    å finne biblioteker til <quote>verten.</quote>
+    For å forhindre denne feilen, må vi slette libtool arkivet
+    (<filename class='extension'>.la</filename>) filer og fikse en
+    utdatert libtool kopi sendt med Binutils koden.</para>
 
     <informaltable align="center">
       <tgroup cols="5">
@@ -228,7 +329,7 @@
           </row>
           <row>
             <entry>3</entry><entry>lfs</entry><entry>lfs</entry><entry>lfs</entry>
-            <entry>Bygge om og teste cc-lfs ved å bruke seg selv på lfs</entry>
+            <entry>Bygge om (og kanskje teste) cc-lfs ved å bruke seg selv på lfs</entry>
           </row>
         </tbody>
       </tgroup>
@@ -256,30 +357,12 @@
     <para>Resultatet av det foregående avsnittet er at cc1 ikke er i stand til å
     bygge et fullt funksjonell libstdc++ med den nedgraderte libgcc, men cc1
     er den eneste kompilatoren som er tilgjengelig for å bygge C/C++-bibliotekene
-    under fase 2. Det er to grunner til at vi ikke umiddelbart bruker
-    kompilator bygget i trinn 2, cc-lfs, for å bygge disse bibliotekene.</para>
-
-    <itemizedlist>
-      <listitem>
-        <para>
-          Generelt sett kan ikke cc-lfs kjøre på pc (vertssystemet). Selv om
-          triplettene for pc og lfs er kompatible med hverandre, en kjørbar fil
-          for lfs må avhenge av glibc-&glibc-version;; vertsdistroen
-          kan bruke en annen implementering av libc (for eksempel musl), eller
-          en tidligere utgivelse av glibc (for eksempel, glibc-2.13).
-        </para>
-      </listitem>
-      <listitem>
-        <para>
-          Selv om cc-lfs kan kjøre på pc, vil det å bruke det på pc skape
-          en risiko for å koble til pc-bibliotekene, siden cc-lfs er en lokal
-          kompilator.
-        </para>
-      </listitem>
-    </itemizedlist>
-
-    <para>Så når vi bygger gcc trinn 2, instruerer vi byggesystemet til
-    å gjenoppbygge libgcc og libstdc++ med cc1, men vi kobler libstdc++ til den nye
+    under trinn 2. Som vi har diskutert, kan vi ikke kjøre cc-lfs på pc 
+    (vertsdistroen) fordi det kan kreve noe bibliotek, kode eller data som ikke er
+    tilgjengelig på <quote>bygget</quote> (vertsdistroen).
+    Så når vi bygger gcc trinn 2, instruerer vi byggesystemet til å
+    gjenoppbygge libgcc og libstdc++ med cc1, men vi overstyrer også bibliotekets
+    søkebane for å koble libstdc++ mot den nylig
     gjenoppbygde libgcc i stedet for den gamle, nedgraderte konstruksjonen. Dette gjør den ombygde
     libstdc++ fullt funksjonell.</para>
 
@@ -290,12 +373,11 @@
     på et fullført LFS system, det reinstallerte innholdet i pakken
     skal være det samme som innholdet i den samme pakken når den først installeres i
     &ch-final;.  De midlertidige pakkene installert i &ch-tmp-cross; eller
-    &ch-tmp-chroot; kan ikke tilfredsstille dette kravet, fordi noen av dem
-    er bygget uten valgfrie avhengigheter, og autoconf kan ikke
-    utføre noen funksjonsinnsjekker &ch-tmp-cross; på grunn av krysskompilering,
-    forårsaker at de midlertidige pakkene mangler valgfrie funksjoner,
-    eller bruker suboptimale koderutiner. I tillegg en mindre grunn til
-    gjenoppbygging av pakkene er å kjøre testpakkene.</para>
+    &ch-tmp-chroot; kan ikke tilfredsstille dette kravet, fordi noen valgfrie
+    funksjoner til dem er deaktivert på grunn av enten de manglende
+    avhengigheter eller <quote>krysskompileringsmodus.</quote>
+    I tillegg er en mindre grunn til å gjenoppbygge pakkene å kjøre
+    testpakker.</para>
 
   </sect2>
 
@@ -359,11 +441,10 @@ checking what linker to use... /mnt/lfs/tools/i686-lfs-linux-gnu/bin/ld</compute
 
     <para>Neste kommer glibc. Det viktigste
     hensynet for å bygge glibc er kompilatoren, binære verktøy og
-    kjernedeklarasjoner. Kompilatoren og binære verktøy er generelt ikke et problem 
-	siden glibc alltid vil bruke kompilatoren som er relatert til <parameter>--host</parameter>
-    parameteret sendt til konfigureringsskriptet; f.eks. i vårt tilfelle vil kompilatoren
-    være <command>$LFS_TGT-gcc</command> og <command>readelf</command>
-    verktøyet vil være <command>$LFS_TGT-readelf</command>. Kjerne deklarasjonene kan
+    kjernedeklarasjoner. Kompilatoren og binærverktøyene er ikke et problem
+    siden <parameter>--host=$LFS_TGT</parameter> gjør at byggesystemet bruker
+    de verktøyene som er prefiksert med <literal>$LFS_TGT-</literal> som vi har
+    diskutert. kjernedeklarasjonene kan
     være litt mer komplisert. Derfor tar vi ingen risiko og bruker
     den tilgjengelige konfigurasjonsbryteren for å fremtvinge riktig valg. Etter
     kjøring av <command>configure</command>, sjekk innholdet i
@@ -384,12 +465,7 @@ checking what linker to use... /mnt/lfs/tools/i686-lfs-linux-gnu/bin/ld</compute
     lfs kompilatoren er installert. Første binutils-pass2 blir bygget,
     med den samme <envar>DESTDIR</envar> mappen som de andre programmene,
     deretter konstrueres den andre passeringen av GCC, og utelater libstdc++
-    og andre ikke-viktige biblioteker. På grunn av en merkelig logikk i GCC
-    konfigureringsskript, <envar>CC_FOR_TARGET</envar> ender opp som
-    <command>cc</command> når verten er den samme som målet, men er
-    forskjellig fra byggesystemet. Det er derfor
-    <parameter>CC_FOR_TARGET=$LFS_TGT-gcc</parameter> er erklært eksplisitt
-    som et av konfigurasjonsalternativene.</para>
+    og andre ikke-viktige biblioteker.</para>
 
     <para>Når du kommer inn i chroot-miljøet i <xref
     linkend="chapter-chroot-temporary-tools"/>,
