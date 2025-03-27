@@ -182,7 +182,8 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
          on the host distro when we update to GCC 15.  -->
     <para>Tsan testene er kjent for å mislykkes på enkelte vertsdistroer.</para>
 
-    <para>Noen få uventede feil kan ikke alltid unngås. <!--GCC utviklerne
+    <para>Noen få uventede feil kan ikke alltid unngås. I noen tilfeller
+    testfeil avhenger av den spesifikke maskinvaren til systemet.<!--GCC utviklerne
     er vanligvis klar over disse problemene, men har ikke løst dem ennå.-->
     Med mindre testresultatene er svært forskjellige fra de på URLen ovenfor,
     er det trygt å fortsette.</para>
@@ -222,8 +223,7 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
     at kompilering og kobling vil fungere som forventet. Dette gjør vi ved å utføre
     noen sunnhetssjekker:</para>
 
-<screen><userinput>echo 'int main(){}' &gt; dummy.c
-cc dummy.c -v -Wl,--verbose &amp;&gt; dummy.log
+<screen><userinput>echo 'int main(){}' | cc dummy.c -x c - -v -Wl,--verbose &amp;&gt; dummy.log
 readelf -l a.out | grep ': /lib'</userinput></screen>
 
   <para>Det bør ikke være noen feil,
@@ -318,7 +318,7 @@ SEARCH_DIR("/usr/lib");</computeroutput></screen>
 
   <para>Når alt fungerer som det skal, rydd opp i testfilene:</para>
 
-<screen><userinput>rm -v dummy.c a.out dummy.log</userinput></screen>
+<screen><userinput>rm -v a.out dummy.log</userinput></screen>
 
     <para>Til slutt flytter du en feilplassert fil:</para>
 

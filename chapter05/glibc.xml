@@ -91,7 +91,6 @@ cd       build</userinput></screen>
       --host=$LFS_TGT                    \
       --build=$(../scripts/config.guess) \
       --enable-kernel=&min-kernel;               \
-      --with-headers=$LFS/usr/include    \
       --disable-nscd                     \
       libc_cv_slibdir=/usr/lib</userinput></screen>
 
@@ -113,16 +112,6 @@ cd       build</userinput></screen>
           <para>Dette forteller Glibc å kompilere biblioteket med støtte
           for &min-kernel; og senere Linux kjerner.  Løsninger for eldre
           kjerner er ikke aktivert.</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term><parameter>--with-headers=$LFS/usr/include</parameter></term>
-        <listitem>
-          <para>Dette forteller Glibc å kompilere seg selv mot deklarasjonene
-          nylig installert i mappen $LFS/usr/include, slik at
-          den vet nøyaktig hvilke funksjoner kjernen har og kan optimalisere
-          seg selv deretter.</para>
         </listitem>
       </varlistentry>
 
@@ -188,44 +177,110 @@ cd       build</userinput></screen>
           installert. Hvis den ikke er angitt, er den standard til root (<filename
           class="directory">/</filename>) mappen. Her spesifiserer vi at
           pakken installeres i <filename class="directory">
-          $LFS</filename>, which will become the root directory in <xref linkend=
-          "ch-tools-chroot"/>.</para>
+          $LFS</filename>, som vil bli rotmappen i <xref linkend=
+          "ch-tools-chroot" role='.'/></para>
         </listitem>
       </varlistentry>
 
     </variablelist>
 
-    <para>Fiks en hardkodet bane til den kjørbare lasteren i
+    <para>Fiks en hardkodet sti til den kjørbare lasteren i
     <command>ldd</command> skriptet:</para>
 
 <screen><userinput remap="install">sed '/RTLDLIST=/s@/usr@@g' -i $LFS/usr/bin/ldd</userinput></screen>
 
-    <caution>
-      <para>På dette tidspunktet er det viktig å stoppe og sikre at de grunnleggende
-      funksjoner (kompilering og lenker) til den nye verktøykjeden fungerer som
-      forventet. For å utføre en tilregnelighetssjekk, kjør følgende kommandoer:</para>
+    <para>Nå som vår kryssverktøykjede er på plass, er det viktig å sikre
+    at kompilering og linking vil fungere som forventet. Dette gjør vi ved å gjøre
+    noen sunnhetssjekker:</para>
 
-<screen><userinput>echo 'int main(){}' | $LFS_TGT-gcc -xc -
-readelf -l a.out | grep ld-linux</userinput></screen>
+<screen><userinput>echo 'int main(){}' | $LFS_TGT-gcc -x c - -v -Wl,--verbose &amp;&gt; dummy.log
+readelf -l a.out | grep ': /lib'</userinput></screen>
 
-      <para>Hvis alt fungerer som det skal, skal det ikke være noen feil,
-      og utdata fra den siste kommandoen vil være av formen:</para>
+  <para>Det skal ikke være noen feil,
+  og utdataen av den siste kommandoen vil være (som gir rom for
+  plattformspesifikke forskjeller i det dynamiske linkernavnet):</para>
 
 <screen><computeroutput>[Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]</computeroutput></screen>
 
-      <para>Merk at for 32-bits maskiner vil fortolkenavnet være
-      <filename>/lib/ld-linux.so.2</filename>.</para>
+  <para>Merk at denne stien ikke skal inneholde
+  <filename class='directory'>/mnt/lfs</filename> (eller verdien av
+  <envar>LFS</envar> variabelen hvis du brukte en annen). Stien blir
+  løst når det kompilerte programmet kjøres, og det skal bare skje
+  etter at vi går inn i chroot miljøet der kjernen vil vurdere
+  <filename class='directory'>$LFS</filename> som rotmappen
+  (<filename class='directory'>/</filename>).</para>
 
-      <para>Hvis utdataen ikke vises som ovenfor eller det ikke var noen utdata i det hele tatt,
-      da er det noe galt. Undersøk og følg trinnene for å finne ut
-      hvor problemet er og korriger det. Dette problemet må løses før du
-      fortsetter.</para>
+  <para>Sørg nå for at vi er konfigurert til å bruke de riktige startfilene:</para>
 
-      <para>Når alt er bra, rydd opp i testfilene:</para>
+<screen><userinput>grep -E -o "$LFS/lib.*/S?crt[1in].*succeeded" dummy.log</userinput></screen>
 
-<screen><userinput>rm -v a.out</userinput></screen>
+  <para>Utdata fra den siste kommandoen skal være:</para>
 
-    </caution>
+<screen><computeroutput>/mnt/lfs/lib/../lib/Scrt1.o succeeded
+/mnt/lfs/lib/../lib/crti.o succeeded
+/mnt/lfs/lib/../lib/crtn.o succeeded</computeroutput></screen>
+
+  <para>Kontroller at kompilatoren søker etter riktige
+  deklarasjonsfiler:</para>
+
+<screen><userinput>grep -B3 "^ $LFS/usr/include" dummy.log</userinput></screen>
+
+  <para>Denne kommandoen skal returnere følgende utdata:</para>
+
+<screen><computeroutput>#include &lt;...&gt; search starts here:
+ /mnt/lfs/tools/lib/gcc/x86_64-lfs-linux-gnu/&gcc-version;/include
+ /mnt/lfs/tools/lib/gcc/x86_64-lfs-linux-gnu/&gcc-version;/include-fixed
+ /mnt/lfs/usr/include</computeroutput></screen>
+
+   <para>Igjen, mappen oppkalt etter måltripletten kan være
+   annerledes enn de ovennevnte, avhengig av systemarkitekturen.</para>
+
+  <para>Deretter kontrollerer du at den nye linkeren brukes med de riktige søkestiene:</para>
+
+<screen><userinput>grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'</userinput></screen>
+
+  <para>Referanser til stier som har komponenter med '-linux-gnu' skal
+ ignoreres, men ellers skal utdataene fra den siste kommandoen være:</para>
+
+<screen><computeroutput>SEARCH_DIR("=/mnt/lfs/tools/x86_64-lfs-linux-gnu/lib64")
+SEARCH_DIR("=/usr/local/lib64")
+SEARCH_DIR("=/lib64")
+SEARCH_DIR("=/usr/lib64")
+SEARCH_DIR("=/mnt/lfs/tools/x86_64-lfs-linux-gnu/lib")
+SEARCH_DIR("=/usr/local/lib")
+SEARCH_DIR("=/lib")
+SEARCH_DIR("=/usr/lib");</computeroutput></screen>
+
+   <para>Et 32-bits system kan bruke noen få andre mapper, men uansett
+   den viktige fasiten her er at alle stiene skal begynne med et likhetstegn
+   (<literal>=</literal>), som ville bli erstattet med systemrotmappen
+   som vi har konfigurert for linkeren.</para>
+
+  <para>Deretter må du kontrollere at vi bruker riktig libc:</para>
+
+<screen><userinput>grep "/lib.*/libc.so.6 " dummy.log</userinput></screen>
+
+  <para>Utdata fra den siste kommandoen skal være:</para>
+
+<screen><computeroutput>attempt to open /mnt/lfs/usr/lib/libc.so.6 succeeded</computeroutput></screen>
+
+  <para>Sørg for at GCC bruker riktig dynamisk linker:</para>
+
+<screen><userinput>grep found dummy.log</userinput></screen>
+
+  <para>Utdataene fra den siste kommandoen skal være (tillater
+  plattformspesifikke forskjeller i dynamisk linkernavn):</para>
+
+<screen><computeroutput>found ld-linux-x86-64.so.2 at /mnt/lfs/usr/lib/ld-linux-x86-64.so.2</computeroutput></screen>
+
+  <para>Hvis utdataen ikke vises som vist ovenfor eller ikke mottas
+  i det hele tatt, så er det noe alvorlig galt. Undersøk og spor trinn for
+  trinn for å finne ut hvor problemet er og rette det. Alle
+  problemer bør løses før du fortsetter med prosessen.</para>
+
+  <para>Når alt fungerer som det skal, rydd opp i testfilene:</para>
+
+<screen><userinput>rm -v a.out dummy.log</userinput></screen>
 
     <note><para>Byggingen av pakkene i neste kapittel vil fungere som en
     ekstra sjekk at verktøykjeden er riktig bygget. Hvis noen
