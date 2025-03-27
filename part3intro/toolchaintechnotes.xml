@@ -439,27 +439,19 @@ checking what linker to use... /mnt/lfs/tools/i686-lfs-linux-gnu/bin/ld</compute
     standard C-bibliotek (Glibc) å bruke funksjoner som Linux
     kjernen vil gi.</para>
 
-    <para>Neste kommer glibc. Det viktigste
-    hensynet for å bygge glibc er kompilatoren, binære verktøy og
-    kjernedeklarasjoner. Kompilatoren og binærverktøyene er ikke et problem
-    siden <parameter>--host=$LFS_TGT</parameter> gjør at byggesystemet bruker
-    de verktøyene som er prefiksert med <literal>$LFS_TGT-</literal> som vi har
-    diskutert. kjernedeklarasjonene kan
-    være litt mer komplisert. Derfor tar vi ingen risiko og bruker
-    den tilgjengelige konfigurasjonsbryteren for å fremtvinge riktig valg. Etter
-    kjøring av <command>configure</command>, sjekk innholdet i
-    <filename>config.make</filename> filen i <filename
-    class="directory">build</filename> mappen for alle viktige detaljer.
-    Disse elementene fremhever et viktig aspekt ved glibc
-    pakken&mdash;en er veldig selvforsynt med tanke på byggemaskineriet
-    og er generelt ikke avhengig av standardinnstillinger for verktøykjeder.</para>
+    <para>Neste kommer glibc. Dette er den første pakken vi krysskompilerer.
+    Vi bruker <parameter>--host=$LFS_TGT</parameter> alternativet for å få
+    byggesystemet til å bruke verktøyene med prefiks
+    <literal>$LFS_TGT-</literal>, og
+    <parameter>--build=$(../scripts/config.guess)</parameter> alternativet for å
+    aktivere <quote>krysskompileringsmodusen</quote> som vi har diskutert.
+    <envar>DESTDIR</envar> variabelen brukes til å tvinge installasjonen inn i
+    LFS filsystemet.</para>
 
     <para>Som nevnt ovenfor, blir standard C++-biblioteket kompilert som neste, etterfulgt i
     <xref linkend="chapter-temporary-tools"/> av andre programmer som må
     krysskompileres for å bryte sirkulære avhengigheter på byggetidspunktet.
-    Installasjonstrinnet for alle disse pakkene bruker
-    <envar>DESTDIR</envar> variabel for å tvinge installasjonen
-    inn i LFS filsystemet.</para>
+    Trinnene for disse pakkene ligner på trinnene for glibc.</para>
 
     <para>Ved slutten av <xref linkend="chapter-temporary-tools"/> den lokale
     lfs kompilatoren er installert. Første binutils-pass2 blir bygget,
