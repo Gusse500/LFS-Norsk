@@ -223,7 +223,7 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
     at kompilering og kobling vil fungere som forventet. Dette gjør vi ved å utføre
     noen sunnhetssjekker:</para>
 
-<screen><userinput>echo 'int main(){}' | cc dummy.c -x c - -v -Wl,--verbose &amp;&gt; dummy.log
+<screen><userinput>echo 'int main(){}' | cc -x c - -v -Wl,--verbose &amp;&gt; dummy.log
 readelf -l a.out | grep ': /lib'</userinput></screen>
 
   <para>Det bør ikke være noen feil,
