@@ -39,7 +39,63 @@
     <listitem revision="sysv"> or <listitem revision="systemd"> as
     appropriate for the entry or if needed the entire day's listitem.
     -->
-
+    <listitem>
+      <para>2025-04-01</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til vim-9.1.1263. Adresserer
+          <ulink url='&lfs-ticket-root;4500'>#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iana-etc-20250328. Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til xz-5.8.0. Fikser
+          <ulink url='&lfs-ticket-root;5684'>#5684</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til util-linux-2.41. Fikser
+          <ulink url='&lfs-ticket-root;5648'>#5648</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til tzdata-2025b. Fikser
+          <ulink url='&lfs-ticket-root;5681'>#5681</ulink>.</para>
+        </listitem>
+        <listitem revision='sysv'>
+          <para>[bdubbs] - Oppdater til shadow-4.17.4. Fikser
+          <ulink url='&lfs-ticket-root;5678'>#5678</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til setuptools-78.1.0. Fikser
+          <ulink url='&lfs-ticket-root;5676'>#5676</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til patch-2.8. Fikser
+          <ulink url='&lfs-ticket-root;5689'>#5689</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til mpfr-4.2.2. Fikser
+          <ulink url='&lfs-ticket-root;5677'>#5677</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til kmod-34.2. Fikser
+          <ulink url='&lfs-ticket-root;5688'>#5688</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til gdbm-1.25. Fikser
+          <ulink url='&lfs-ticket-root;5679'>#5679</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til flit_core-3.12.0. Fikser
+          <ulink url='&lfs-ticket-root;5683'>#5683</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til expat-2.7.1. Fikser
+          <ulink url='&lfs-ticket-root;5685'>#5685</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
     <listitem>
       <para>15.03.2025</para>
       <itemizedlist>
