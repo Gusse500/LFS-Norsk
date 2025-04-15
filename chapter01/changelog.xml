@@ -40,7 +40,85 @@
     appropriate for the entry or if needed the entire day's listitem.
     -->
     <listitem>
-      <para>2025-04-01</para>
+      <para>15.04.2025</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til libcap-2.76. Fikser
+          <ulink url='&lfs-ticket-root;5704'>#5704</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til perl-5.40.2 (Sikkerhetsoppdatering). Fikser
+          <ulink url='&lfs-ticket-root;5703'>#5703</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Legg til packaging-24.2 (Python modul). Påkrevd for wheel.
+          </para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til xz-5.8.1. Fikser
+          <ulink url='&lfs-ticket-root;5694'>#5694</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til wheel-0.46.1 (Python Modul). Fikser
+          <ulink url='&lfs-ticket-root;5693'>#5693</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til sysklogd-2.7.2. Fikser
+          <ulink url='&lfs-ticket-root;5690'>#5690</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til Python3-3.13.3. Fikser
+          <ulink url='&lfs-ticket-root;5697'>#5697</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til openssl-3.5.0. Fikser
+          <ulink url='&lfs-ticket-root;5701'>#5701</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til meson-1.7.2. Fikser
+          <ulink url='&lfs-ticket-root;5691'>#5691</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.14.2. Fikser
+          <ulink url='&lfs-ticket-root;5680'>#5680</ulink>.</para>
+        </listitem>
+        <listitem revision='sysv'>
+          <para>[bdubbs] - Oppdater til libffi-3.4.8. Fikser
+          <ulink url='&lfs-ticket-root;5700'>#5700</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iproute2-6.14.0. Fikser
+          <ulink url='&lfs-ticket-root;5682'>#5682</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til gzip-1.14. Fikser
+          <ulink url='&lfs-ticket-root;5699'>#5699</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til grep-3.12. Fikser
+          <ulink url='&lfs-ticket-root;5702'>#5702</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til gperf-3.2.1. Fikser
+          <ulink url='&lfs-ticket-root;5695'>#5695</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til gawk-5.3.2. Fikser
+          <ulink url='&lfs-ticket-root;5692'>#5692</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til diffutils-3.12. Fikser
+          <ulink url='&lfs-ticket-root;5696'>#5696</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til coreutils-9.7. Fikser
+          <ulink url='&lfs-ticket-root;5698'>#5698</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>01.04.2025</para>
       <itemizedlist>
         <listitem>
           <para>[bdubbs] - Oppdater til vim-9.1.1263. Adresserer
