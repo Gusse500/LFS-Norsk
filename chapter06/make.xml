@@ -45,22 +45,8 @@
     <para>Forbered Make for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr   \
-            --without-guile \
             --host=$LFS_TGT \
             --build=$(build-aux/config.guess)</userinput></screen>
-
-    <variablelist>
-      <title>Betydningen av det nye konfigureringsalternativet:</title>
-
-      <varlistentry>
-        <term><parameter>--without-guile</parameter></term>
-        <listitem>
-          <para>Selv om vi krysskompilerer, prøver configure å bruke
-          guile fra byggeverten hvis den finner det. Dette gjør at kompileringen
-          mislykkes, så denne bryteren forhindrer bruk av den.</para>
-        </listitem>
-      </varlistentry>
-    </variablelist>
 
     <para>Kompiler pakken:</para>
 
