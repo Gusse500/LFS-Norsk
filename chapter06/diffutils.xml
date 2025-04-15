@@ -43,20 +43,39 @@
   <sect2 role="installation">
     <title>Installasjon av Diffutils</title>
 
-    <para>Når Diffutils konfigureres, sjekker den om den
-    blir krysskompilert. Hvis den er det, mislykkes konfigurasjonen. Siden vi
-    krysskompilerer, kommenter de spesifikke linjene som utfører
-    testene nå:</para>
-
-    <screen><userinput remap="pre">sed -e '46252,+3 s/^/#/' \
-    -e '46596,+3 s/^/#/' \
-    -i configure</userinput></screen>
-
     <para>Forbered Diffutils for kompilering:</para>
 
     <screen><userinput remap="configure">./configure --prefix=/usr   \
             --host=$LFS_TGT \
+            gl_cv_func_strcasecmp_works=y \
             --build=$(./build-aux/config.guess)</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av konfigureringsalternativene:</title>
+
+      <varlistentry>
+        <!-- https://git.savannah.gnu.org/cgit/gnulib.git/commit/?id=d9083a4cc638cf9c7dfc3cc534a7c6b4debf50ab -->
+        <term><parameter>gl_cv_func_strcasecmp_works=y</parameter></term>
+        <listitem>
+          <para>Dette alternativet spesifiserer resultatet av en sjekk for
+          <function>strcasecmp</function>.  Sjekken krever å kjøre et
+          kompilert C program, og dette er umulig under
+          krysskompilering fordi generelt et krysskompilert program
+          kan ikke kjøres på vertsdistroen. Normalt for en slik sjekk,
+          <command>configure</command> skriptet vil bruke en reserveverdi
+          for krysskompilering, men reserveverdien for denne sjekken er
+          fraværende og <command>configure</command> skriptet vil ikke ha noen
+          verdi å bruke og vil feile.  Oppstrøms har allerede fikset
+          problemet, men for å bruke løsningen må vi kjøre
+          <command>autoconf</command> som vertsdistroen kan mangle. Så
+          vi spesifiserer bare sjekkresultatet (<literal>y</literal> siden vi vet
+          at <function>strcasecmp</function> funksjonen i
+          Glibc-&glibc-version; fungerer fint) i stedet,
+          <command>configure</command> vil bruke den angitte verdien og
+          hoppe over sjekken.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
 
     <para>Kompiler pakken:</para>
 
