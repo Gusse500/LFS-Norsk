@@ -1196,7 +1196,7 @@
       <segmentedlist id="groff-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>Ingen testpakke tilgjengelig</seg>
+          <seg>Ingen</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1598,7 +1598,7 @@
       <segmentedlist id="less-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>Ingen testpakke tilgjengelig</seg>
+          <seg>Ingen</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2647,7 +2647,7 @@
       <segmentedlist id="psmisc-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
-          <seg>Ingen testpakke tilgjengelig</seg>
+          <seg>Expect</seg>
         </seglistitem>
       </segmentedlist>
 
