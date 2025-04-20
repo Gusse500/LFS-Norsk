@@ -62,7 +62,6 @@
       <segtitle>Installerte mapper</segtitle>
 
       <seglistitem>
-        <seg>packaging</seg>
         <seg>
            /usr/lib/python&python-minor;/site-packages/packaging og
            /usr/lib/python&python-minor;/site-packages/packaging-&packaging-version;.dist-info
