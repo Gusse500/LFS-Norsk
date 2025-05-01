@@ -44,8 +44,8 @@
 
     <para>Forbered Acl for kompilering:</para>
 
-<screen><userinput remap="configure">./configure --prefix=/usr         \
-            --disable-static      \
+<screen><userinput remap="configure">./configure --prefix=/usr    \
+            --disable-static \
             --docdir=/usr/share/doc/acl-&acl-version;</userinput></screen>
 
     <para>Kompiler pakken:</para>

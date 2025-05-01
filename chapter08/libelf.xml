@@ -46,8 +46,8 @@
 
     <para>Forbered Libelf for kompilering:</para>
 
-    <screen><userinput remap="configure">./configure --prefix=/usr                \
-            --disable-debuginfod         \
+    <screen><userinput remap="configure">./configure --prefix=/usr        \
+            --disable-debuginfod \
             --enable-libdebuginfod=dummy</userinput></screen>
 
     <para>Kompiler pakken:</para>
@@ -57,6 +57,9 @@
     <para>For å teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
+
+    <para>To tester er kjent for å mislykkes, dwarf_srclang_check og 
+    run-backtrace-native-core.sh.</para>
 
     <para>Installer kun Libelf:</para>
 

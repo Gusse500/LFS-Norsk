@@ -45,8 +45,8 @@
 
     <para>Forbered Tar for kompilering:</para>
 
-<screen><userinput remap="configure">./configure --prefix=/usr                     \
-            --host=$LFS_TGT                   \
+<screen><userinput remap="configure">./configure --prefix=/usr   \
+            --host=$LFS_TGT \
             --build=$(build-aux/config.guess)</userinput></screen>
 
     <para>Kompiler pakken:</para>
