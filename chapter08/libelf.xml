@@ -46,8 +46,8 @@
 
     <para>Forbered Libelf for kompilering:</para>
 
-    <screen><userinput remap="configure">./configure --prefix=/usr                \
-            --disable-debuginfod         \
+    <screen><userinput remap="configure">./configure --prefix=/usr        \
+            --disable-debuginfod \
             --enable-libdebuginfod=dummy</userinput></screen>
 
     <para>Kompiler pakken:</para>
