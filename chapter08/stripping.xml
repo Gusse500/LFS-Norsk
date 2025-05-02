@@ -29,10 +29,12 @@
   og ikke er nødvendig for linkeren (for statiske biblioteker) eller dynamisk linker (for
   dynamisk koblede binærfiler og delte biblioteker). Å bruke
   <parameter>--strip-debug</parameter> fjerner ikke symboltabelloppføringer
-  som kan være nødvendig for noen applikasjoner. Forskjellen mellom "unneeded"
-  og "debug" er veldig liten. For eksempel er en unstrippet libc.a 22,4 MB.
-  Etter stripping med --strip-debug er den 5,9 MB. Bruker kun --strip-uneeded
-  reduserer størrelsen ytterligere til bare 5,8 MB.</para>
+  som kan være nødvendig for noen applikasjoner. Forskjellen mellom
+  <literal>unneeded</literal> og <literal>debug</literal> er veldig liten.
+  For eksempel en ustrippet <filename class='libraryfile'>libc.a</filename>
+  er 22.4 MB. Etter stripping med <parameter>--strip-debug</parameter> er
+  den 5.9 MB. Bruk av <parameter>--strip-unneeded</parameter> reduserer bare 
+  størrelsen ytterligere til 5.8 MB.</para>
 
   <para>Feilsøkingssymbolene fra utvalgte biblioteker komprimeres med
   <application>Zstd</application> og lagres i separate filer. Denne
