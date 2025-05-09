@@ -43,17 +43,31 @@
   <sect2 role="installation">
     <title>Installasjon av Cross GCC</title>
 
-    <para>GCC krever GMP, MPFR og MPC pakkene. Siden disse pakkene kanskje ikke
-    er inkludert i vertsdistribusjonen din, blir de bygget med
-    GCC.  Pakk ut hver pakke i GCC kildemappen, og gi nytt navn til de
-    resulterende mappene slik at GCC byggeprosedyrene automatisk
-    bruker dem:</para>
+     <note><para>GCC-15: Faktisk (slutten av april 2025) er multilib grenen 
+	 forskjellig fra trunk (hovedgrenen for LFS utvikling) ettersom multilib 
+	 grenen inkluderer gcc-15. Siden gcc bruker en ny C standard (C23) som standard, 
+	 kan det være noen pakker som ikke kompilerer med denne 
+	 versjonen av gcc.</para>
+      <para>Det er noen justeringer i noen pakker, og noen pakker 
+	  er kandidater for tidlig utgivelse (-rc1). Oppstrøms (LFS trunken) vil 
+	  vente med å oppgradere til gcc-15 til disse pakkene offisielt 
+	  er utgitt. Det kan vare i noen dager..</para>
+      <para>Merk at BLFS vil inneholde pakker som kanskje ikke bygger med gcc-15 
+	  for øyeblikket. Vi oppgraderte multilib grenen til gcc-15 for folk 
+	  som er interessert i å løse disse problemene..</para>
+    </note>
 
-    <note><para>Det er hyppige misforståelser om dette kapittelet. Prosedyrene
-    er de samme som alle andre kapitler som forklart tidligere (<xref
-    linkend='buildinstr'/>).  Først pakker du ut gcc-&gcc-version; tarballen fra kildemappen
-    , og endre deretter til den opprettede mappen. Først da bør du
-    fortsett med instruksjonene nedenfor.</para></note>
+    <para>GCC krever pakkene GMP, MPFR og MPC. Siden disse pakkene kanskje 
+	ikke er inkludert i vertsdistribusjonen din, vil de bli bygget med 
+	GCC. Pakk ut hver pakke i GCC kildemappen og gi nytt navn til de 
+	resulterende mappene slik at GCC byggeprosedyrene automatisk 
+	bruker dem.:</para>
+
+    <note><para>Det er ofte misforståelser om dette kapittelet. 
+	Fremgangsmåtene er de samme som i alle andre kapitler, som forklart tidligere. (<xref
+    linkend='buildinstr'/>).  Først, pakk ut gcc-&gcc-version; tarballen fra kildemappen,
+    og deretter bytte til den opprettede mappen. Først da bør du 
+	fortsette med instruksjonene nedenfor.</para></note>
 
 <screen><userinput remap="pre">tar -xf ../mpfr-&mpfr-version;.tar.xz
 mv -v mpfr-&mpfr-version; mpfr
@@ -65,22 +79,60 @@ mv -v mpc-&mpc-version; mpc</userinput></screen>
     <para>På x86_64-verter, sett standard mappenavn for
     64-bits biblioteker til <quote>lib</quote>:</para>
 
-<screen><userinput remap="pre">case $(uname -m) in
+<screen arch="default"><userinput remap="pre">case $(uname -m) in
   x86_64)
     sed -e '/m64=/s/lib64/lib/' \
         -i.orig gcc/config/i386/t-linux64
  ;;
 esac</userinput></screen>
 
-    <para>GCC dokumentasjonen anbefaler å bygge GCC
-    i en dedikert byggemappe:</para>
+    <para arch="ml_32,ml_x32,ml_all">Endre standard mappenavn for 
+	biblioteker:</para>
 
+<screen arch="ml_32,ml_x32,ml_all"><userinput remap="pre">sed -e '/m64=/s/lib64/lib/' \
+    -e '/m32=/s/m32=.*/m32=..\/lib32$(call if_multiarch,:i386-linux-gnu)/' \
+    -i.orig gcc/config/i386/t-linux64
+</userinput></screen>
+
+    <para arch="ml_32,ml_all">Gjør <literal>-mstackrealign</literal>
+      som standard for 32bit objekter:</para>
+
+<screen arch="ml_32,ml_all"><userinput remap="pre">sed '/STACK_REALIGN_DEFAULT/s/0/(!TARGET_64BIT \&amp;\&amp; TARGET_SSE)/' \
+      -i gcc/config/i386/i386.h</userinput></screen>
+
+    <note arch="ml_32,ml_all">
+      <para>Å legge til <literal>-mstackrealign</literal> flagget som standard
+        hjelper med å løse problemer med gamle binærfiler som ikke kan 
+		kompileres på nytt på det faktiske operativsystemet.</para>
+
+      <!-- Thanks to xry111 for explaining the technical background: -->
+
+      <para>I dag krever x86-32 SysV psABI (brukt av alle Linux-programmer) 
+	    en 16-byte justering av stakkrammen, så rutinene 
+		som bruker SSE vil lagre/laste SSE-vektorer på/fra stakken ved hjelp av en
+        <literal>movaps</literal> instruksjon (som bare fungerer med 
+		justerte adresser, men raskere enn motparten som tillater 
+		ujusterte adresser, <literal>movups</literal>).</para>
+
+      <para>Men noen virkelig gamle x86-32 Linux-binærfiler (kompilert for 
+	    omtrent 15 år siden), og alle Windows x86-32-binærfiler som kan 
+		kjøres via <application>Wine</application> eller <application>Steam</application>
+        justerer bare 
+		stakkrammen til 4 byte. Dermed, når den kaller en SSE rutine i LFS 
+		bygget uten <literal>-mstackrealign</literal>,
+        <literal>movdqa</literal> instruksjonen mislykkes med en General
+		Protection Error, og Linux-kjernen avslutter prosessen 
+		med en SIGSEGV.</para>
+    </note>
+
+    <para>The GCC documentation recommends building GCC
+    in a dedicated build directory:</para>
 <screen><userinput remap="pre">mkdir -v build
 cd       build</userinput></screen>
 
     <para>Forbered GCC for kompilering:</para>
 
-<screen><userinput remap="configure">../configure                  \
+<screen arch="default"><userinput remap="configure">../configure  
     --target=$LFS_TGT         \
     --prefix=$LFS/tools       \
     --with-glibc-version=&glibc-version; \
@@ -99,6 +151,32 @@ cd       build</userinput></screen>
     --disable-libssp          \
     --disable-libvtv          \
     --disable-libstdcxx       \
+    --enable-languages=c,c++</userinput></screen>
+<screen arch="ml_32,ml_x32,ml_all"><userinput remap="configure" 
+    arch="ml_32">mlist=m64,m32</userinput><userinput remap="configure"
+    arch="ml_x32">mlist=m64,mx32</userinput><userinput remap="configure"
+    arch="ml_all">mlist=m64,m32,mx32</userinput>
+<userinput remap="configure">../configure                  \
+    --target=$LFS_TGT                              \
+    --prefix=$LFS/tools                            \
+    --with-glibc-version=&glibc-version;                      \
+    --with-sysroot=$LFS                            \
+    --with-newlib                                  \
+    --without-headers                              \
+    --enable-default-pie                           \
+    --enable-default-ssp                           \
+    --enable-initfini-array                        \
+    --disable-nls                                  \
+    --disable-shared                               \
+    --enable-multilib --with-multilib-list=$mlist  \
+    --disable-decimal-float                        \
+    --disable-threads                              \
+    --disable-libatomic                            \
+    --disable-libgomp                              \
+    --disable-libquadmath                          \
+    --disable-libssp                               \
+    --disable-libvtv                               \
+    --disable-libstdcxx                            \
     --enable-languages=c,c++</userinput></screen>
     <variablelist>
       <title>Betydningen av konfigurasjonsalternativene:</title>
@@ -156,11 +234,18 @@ cd       build</userinput></screen>
         </listitem>
       </varlistentry>
 
-      <varlistentry>
+      <varlistentry arch="default">
         <term><parameter>--disable-multilib</parameter></term>
         <listitem>
           <para>På x86_64 støtter LFS ikke en multilib konfigurasjon.
           Denne bryteren er ufarlig for x86.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry arch="ml_32,ml_x32,ml_all">
+        <term><parameter>--enable-multilib --with-multilib-list=...</parameter></term>
+        <listitem>
+          <para>LFS kan brukes til å støtte multilib. Hvilke de er 
+		  er spesifisert i multilib listen.</para>											
         </listitem>
       </varlistentry>
 
@@ -170,11 +255,11 @@ cd       build</userinput></screen>
         --disable-libquadmath, --disable-libssp, --disable-libvtv,
         --disable-libstdcxx</parameter></term>
         <listitem>
-          <para>Disse bryterne deaktiverer støtte for flytende desimal
-          punkter, tråd, libatomic, libgomp, libquadmath, libssp,
-          henholdsvis libvtv og C++ standardbiblioteket. Disse funksjonene
-          klarer ikke å kompilere når du bygger en krysskompilator og er ikke
-          nødvendig for oppgaven med å krysskompilere den midlertidige libc.</para>
+          <para>Disse bryterne deaktiverer støtte for henholdsvis 
+		  threading, libatomic, libgomp, libquadmath, libssp, 
+		  libvtv og C++ standardbiblioteket. Disse funksjonene 
+		  kan mislykkes i kompilering når man bygger en krysskompilator, og er ikke 
+		  nødvendige for oppgaven med å krysskompilere den midlertidige libc.</para>
         </listitem>
       </varlistentry>
 
