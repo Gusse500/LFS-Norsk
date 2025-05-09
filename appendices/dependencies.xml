@@ -1007,7 +1007,7 @@
             <ulink url='&blfs-book;general/libunistring.html'>
               libunistring
             </ulink>
-            and
+            og
             <ulink url='&blfs-book;general/libxml2.html'>
               libxml2
             </ulink>
@@ -1232,7 +1232,7 @@
       <segmentedlist id="grub-rundeps">
         <segtitle>&runtime;</segtitle>
         <seglistitem>
-          <seg>Bash, GCC, Gettext, Glibc, Xz, and Sed</seg>
+          <seg>Bash, GCC, Gettext, Glibc, Xz, og Sed</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1946,7 +1946,7 @@
       <segmentedlist id="lz4-depends">
         <segtitle>&dependencies;</segtitle>
         <seglistitem>
-          <seg>Bash, Binutils, Coreutils, GCC, Glibc, and Make</seg>
+          <seg>Bash, Binutils, Coreutils, GCC, Glibc, og Make</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1967,14 +1967,14 @@
       <segmentedlist id="lz4-before">
         <segtitle>&before;</segtitle>
         <seglistitem>
-          <seg>Zstd <phrase revision="systemd">and Systemd</phrase></seg>
+          <seg>Zstd <phrase revision="systemd">og Systemd</phrase></seg>
         </seglistitem>
       </segmentedlist>
 
       <segmentedlist id="lz4-optdeps">
         <segtitle>&external;</segtitle>
         <seglistitem>
-          <seg>None</seg>
+          <seg>Ingen</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2570,7 +2570,7 @@
           <phrase revision='systemd'>D-Bus, </phrase>
           E2fsprogs, IProute2, Kmod, Man-DB, Procps-ng, Python,
           &systemd-udev;, 
-          and Util-linux</seg>
+          og Util-linux</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -3003,7 +3003,7 @@
               tpm2-tss</ulink>,
             <ulink url="&blfs-book;general/valgrind.html">Valgrind</ulink>,
             <ulink url="https://xenproject.org">Xen</ulink>,
-            and
+            og
             <ulink url="&blfs-book;postlfs/zsh.html">zsh</ulink>
           </seg>
         </seglistitem>
@@ -3464,7 +3464,7 @@
       <segmentedlist id="zstd-depends">
         <segtitle>&dependencies;</segtitle>
         <seglistitem>
-          <seg>Binutils, Coreutils, GCC, Glibc, Gzip, Lz4, Make, Xz, and Zlib</seg>
+          <seg>Binutils, Coreutils, GCC, Glibc, Gzip, Lz4, Make, Xz, og Zlib</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -3485,7 +3485,7 @@
       <segmentedlist id="zstd-before">
         <segtitle>&before;</segtitle>
         <seglistitem>
-          <seg>Binutils, GCC, Libelf, and &systemd-udev;</seg>
+          <seg>Binutils, GCC, Libelf, og &systemd-udev;</seg>
         </seglistitem>
       </segmentedlist>
 
