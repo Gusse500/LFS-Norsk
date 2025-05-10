@@ -60,7 +60,7 @@
 
     <itemizedlist>
       <listitem>
-        <para>Versjonen av boken som brukes (i dette tilfellet &version;)</para>
+        <para>Versjonen av boken som brukes (i dette tilfellet &version;<phrase arch="ml_32,ml_x32,ml_all">-multilib</phrase>)</para>
       </listitem>
       <listitem>
         <para>Vertsdistribusjonen og versjonen som brukes til å lage LFS</para>

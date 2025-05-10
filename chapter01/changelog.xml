@@ -10,7 +10,7 @@
 
   <title>Endringslogg</title>
 
-  <para>Dette er versjon &version; av Linux From Scratch-boken, datert
+  <para>Dette er versjon &version;<phrase arch="ml_32,ml_x32,ml_all">-multilib</phrase> av Linux From Scratch-boken, datert
   &releasedate;. Hvis denne boken er mer enn seks måneder gammel, er en nyere og bedre
   versjonen sannsynligvis allerede tilgjengelig. For å finne ut, vennligst sjekk et av
   speilene via <ulink url="&lfs-root;mirrors.html"/>.</para>
@@ -262,15 +262,6 @@
         <listitem revision='systemd'>
           <para>[bdubbs] - Oppdater til dbus-1.16.2. Fikser
           <ulink url='&lfs-ticket-root;5663'>#5663</ulink>.</para>
-        </listitem>
-      </itemizedlist>
-    </listitem>
-
-    <listitem>
-      <para>05.03.2025</para>
-      <itemizedlist>
-        <listitem>
-          <para>[bdubbs] - LFS-12.3 utgitt.</para>
         </listitem>
       </itemizedlist>
     </listitem>
