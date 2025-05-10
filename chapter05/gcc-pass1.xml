@@ -76,7 +76,7 @@ mv -v gmp-&gmp-version; gmp
 tar -xf ../mpc-&mpc-version;.tar.gz
 mv -v mpc-&mpc-version; mpc</userinput></screen>
 
-    <para>På x86_64-verter, sett standard mappenavn for
+    <para arch="default">På x86_64-verter, sett standard mappenavn for
     64-bits biblioteker til <quote>lib</quote>:</para>
 
 <screen arch="default"><userinput remap="pre">case $(uname -m) in

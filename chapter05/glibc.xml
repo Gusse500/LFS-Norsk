@@ -312,7 +312,7 @@ SEARCH_DIR("=/usr/lib");</computeroutput></screen>
 	brukes på nytt, men må renses før du installerer m32 
 	versjonen av Glibc..</para>
 
-    <para>Tøm byggemappen og fjern artefakter 
+    <para>Rensk byggemappen og fjern artefakter 
 	fra forrige bygg:</para>
       
 <screen><userinput remap="pre">make clean
@@ -384,7 +384,7 @@ readelf -l a.out | grep '/ld-linux'</userinput></screen>
 	brukes på nytt, men må renses før du installerer mx32 
 	versjonen av Glibc.</para>
 
-    <para>Tøm byggemappen og fjern artefakter 
+    <para>Rensk byggemappen og fjern artefakter 
 	fra forrige bygg:</para>
       
 <screen><userinput remap="pre">make clean

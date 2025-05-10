@@ -38,7 +38,7 @@ EOF</userinput></screen>
   <filename>.bashrc</filename> filen istedet. Opprett
   <filename>.bashrc</filename> filen nå</para>
 
-<screen><userinput>cat &gt; ~/.bashrc &lt;&lt; "EOF"
+<screen arch="default"><userinput>cat &gt; ~/.bashrc &lt;&lt; "EOF"
 <literal>set +h
 umask 022
 LFS=/mnt/lfs
