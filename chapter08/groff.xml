@@ -51,7 +51,7 @@
 
     <para>Forbered Groff for kompilering:</para>
 
-<screen><userinput remap="configure">PAGE=<replaceable>&lt;paper_size&gt;</replaceable> ./configure --prefix=/usr</userinput></screen>
+<screen><userinput remap="configure">PAGE=<replaceable>&lt;papirstørrelse&gt;</replaceable> ./configure --prefix=/usr</userinput></screen>
 
     <para>Bygg pakken:</para>
 

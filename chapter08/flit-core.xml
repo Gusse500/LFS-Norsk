@@ -84,7 +84,7 @@
 
       <varlistentry>
         <term><parameter>--no-build-isolation</parameter>,
-              <parameter>--no-deps</parameter>, and
+              <parameter>--no-deps</parameter>, og
               <parameter>--no-index</parameter></term>
         <listitem>
           <para>Disse alternativene forhindrer henting av filer fra nettets
