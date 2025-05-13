@@ -211,15 +211,15 @@ cp -av lib/lib*.so.5* /usr/lib</userinput></screen>
            tset
         </seg>
         <seg>
-           libcurses.so (symlenke),
-           libform.so (symlenke),
+           libcurses.so (symbolkobling),
+           libform.so (symbolkobling),
            libformw.so,
-		   libmenu.so (symlenke),
+		   libmenu.so (symbolkobling),
            libmenuw.so,
-		   libncurses.so (symlenke),
+		   libncurses.so (symbolkobling),
            libncursesw.so,
            libncurses++w.so,
-           libpanel.so (symlenke),
+           libpanel.so (symbolkobling),
            and libpanelw.so,
         </seg>
         <seg>

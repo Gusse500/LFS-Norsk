@@ -620,7 +620,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <seglistitem>
         <seg>gencat, getconf, getent, iconv, iconvconfig, ldconfig,
         ldd, lddlibc4,
-        ld.so (symlenke til ld-linux-x86-64.so.2 or ld-linux.so.2),
+        ld.so (symbolsk lenke til ld-linux-x86-64.so.2 or ld-linux.so.2),
         locale, localedef, makedb, mtrace,
         pcprofiledump, pldd, sln, sotruss, sprof, tzselect, xtrace,
         zdump, og zic</seg>

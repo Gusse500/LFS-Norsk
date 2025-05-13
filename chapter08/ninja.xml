@@ -101,8 +101,6 @@
 ./ninja_test - -gtest_filter=-SubprocessTest.SetWithLots</userinput></screen>
 -->
 
-    <para>Install the package:</para>
-
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">install -vm755 ninja /usr/bin/
