@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='ISO-8859-1'?>
+<?xml version='1.0' encoding='UTF-8'?>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns="http://www.w3.org/1999/xhtml"
@@ -23,7 +23,7 @@
   <xsl:include href="xhtml/lfs-mixed.xsl"/>
   <xsl:include href="xhtml/lfs-sections.xsl"/>
   <xsl:include href="xhtml/lfs-toc.xsl"/>
-<!--  <xsl:include href="xhtml/lfs-xref.xsl"/> -->
+  <xsl:include href="xhtml/lfs-xref.xsl"/>
 
   <!-- Control generation of ToCs and LoTs -->
   <xsl:param name="generate.toc">

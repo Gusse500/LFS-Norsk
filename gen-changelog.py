@@ -117,4 +117,4 @@ for (s, act) in [(upd, "Update to "), (add, "Add ")]:
             out += pkg_ticket + "</ulink>."
         out += "</para>"
         print(out)
-        print('        </listitem>')
+       print('        </listitem>')
