@@ -56,7 +56,7 @@ case "${1}" in
 
       # Now wait for udevd to process the uevents we triggered
       if ! is_true "$OMIT_UDEV_SETTLE"; then
-         /sbin/udevadm settle
+         /bin/udevadm settle
       fi
 
       # If any LVM based partitions are on the system, ensure they

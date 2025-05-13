@@ -107,8 +107,8 @@
     fra <command>configure</command> skriptet og <command>make</command>
     kjøringen kan være nyttig. Det er ikke nødvendig å inkludere hele utdataen, men
     inkludere nok av relevant informasjon. Nedenfor er et eksempel på
-    type informasjon som skal inkluderes fra skjermens utdata fra
-    <command>make</command>.</para>
+    type informasjon som skal inkluderes fra fra <command>make</command>.</para> skjermens 
+	utdata
 
 <screen><computeroutput>gcc -D ALIASPATH=\"/mnt/lfs/usr/share/locale:.\"
 -D LOCALEDIR=\"/mnt/lfs/usr/share/locale\"
