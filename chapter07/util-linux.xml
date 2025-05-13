@@ -51,7 +51,7 @@
 
     <para>Forbered Util-linux for kompilering:</para>
 
-<screen><userinput remap="configure">./configure --libdir=/usr/lib     \
+    <screen><userinput remap="configure">./configure --libdir=/usr/lib     \
             --runstatedir=/run    \
             --disable-chfn-chsh   \
             --disable-login       \
