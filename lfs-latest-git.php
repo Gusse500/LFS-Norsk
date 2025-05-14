@@ -4,7 +4,7 @@ $dirs = array();
 $vers = array();
 
 date_default_timezone_set( "GMT" );
-$date = date( "d. m Y H:i:s" );
+$date = date( "d.m.Y H:i:s" );
 
 // Special cases
 $exceptions = array();
