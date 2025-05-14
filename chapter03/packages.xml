@@ -722,7 +722,7 @@
 
         <note>
           <para>Linux From Scratch teamet genererer sin egen tarball av
-          mansider som bruker systemd kilden. Dette gjøres for å unngå
+          manualsider som bruker systemd kilden. Dette gjøres for å unngå
           unødvendige avhengigheter.</para>
         </note>
       </listitem>

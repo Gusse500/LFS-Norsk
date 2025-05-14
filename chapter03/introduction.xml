@@ -17,14 +17,14 @@
   kommandoer for en versjon kanskje ikke fungerer med en annen versjon, med mindre
   annen versjon er spesifisert av en LFS errata eller sikkerhetsrådgivning.
   De nyeste pakkeversjonene kan også ha problemer som krever
-  læsninger. Disse læsningene vil bli utviklet og stabilisert i
+  løsninger. Disse løsningene vil bli utviklet og stabilisert i
   utviklingsversjon av boken.</para>
 
   <para>For noen pakker, utgivelsens tarball og (Git eller SVN)
   øyeblikksbilde fra depotets tarball for denne utgivelsen kan publiseres med
   lignende eller til og med identiske filnavn. Men utgivelsens tarball kan inneholde
   noen filer som er viktige selv om de ikke er lagret i depotet
-  (for eksempel a <command>configure</command> skript generert av
+  (for eksempel et <command>configure</command> skript generert av
   <command>autoconf</command>), i tillegg til innholdet i
   tilsvarende øyeblikksbilde av depot. Boken bruker utgivelses tarballer
   når det er mulig. Bruke et øyeblikksbilde av depot i stedet for en utgivelses

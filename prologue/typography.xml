@@ -76,23 +76,23 @@ EOF</userinput></screen>
 
   <para><ulink role='man' url='&man;passwd.5'>passwd(5)</ulink></para>
 
-  <para>Dette formatet brukes til å referere til en spesifikk manual (manside). Tallet innenfor parentes
+  <para>Dette formatet brukes til å referere til en spesifikk manual (manualside). Tallet innenfor parentes
   indikerer en bestemt del i håndbøkene. For eksempel,
-  <command>passwd</command> har to mansider. I henhold til LFS installasjonsinstruksjoner,
-  disse to mansidene vil være plassert på
+  <command>passwd</command> har to manualsider. I henhold til LFS installasjonsinstruksjoner,
+  disse to manualsidene vil være plassert på
   <filename>/usr/share/man/man1/passwd.1</filename> og
   <filename>/usr/share/man/man5/passwd.5</filename>. Når boken bruker
   <ulink role='man' url='&man;/passwd.5'>passwd(5)</ulink> refererer
   den spesifikt til <filename>/usr/share/man/man5/passwd.5</filename>.
-  <command>man passwd</command> vil skrive ut den første mansiden den finner som
+  <command>man passwd</command> vil skrive ut den første manualsidene den finner som
   stemmer med <quote>passwd</quote>, som vil bli
   <filename>/usr/share/man/man1/passwd.1</filename>. For dette eksemplet
   trenger du å kjøre <command>man 5 passwd</command> for å lese siden
-  som blir spesifisert. Merk at de fleste mansider ikke har duplikate
+  som blir spesifisert. Merk at de fleste manualsidene ikke har duplikate
   sidenavn i forskjellige seksjoner. Derfor, <command>man <replaceable>
   &lt;programnavn&gt;</replaceable></command> er generelt tilstrekkelig. I LFS
-  boken er disse referansene til mansider også hyperkoblinger, så klikk på
-  en slik referanse vil åpne mansiden gjengitt i HTML fra
+  boken er disse referansene til manualsidene også hyperkoblinger, så klikk på
+  en slik referanse vil åpne manualsidene gjengitt i HTML fra
   <ulink url='https://man.archlinux.org/'>Arch Linux manual
   pages</ulink>.</para>
 

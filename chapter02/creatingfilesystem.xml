@@ -12,8 +12,8 @@
 
   <para>En partisjon er bare en rekke sektorer på en diskstasjon, avgrenset med
   grenser satt i en partisjonstabell. Før operativsystemet kan bruke
-  en partisjon for å lagre alle filer, må partisjonen formateres til å inneholde et filsystem
-  , vanligvis bestående av en etikett, katalogblokker, datablokker og
+  en partisjon for å lagre alle filer, må partisjonen formateres til å inneholde et filsystem,
+  vanligvis bestående av en etikett, katalogblokker, datablokker og
   et indekseringsskjema for å finne en bestemt fil på forespørsel. Filsystemet
   hjelper også OS med å holde styr på ledig plass på partisjonen, reservere
   nødvendige sektorer når en ny fil opprettes eller en eksisterende fil utvides,
@@ -55,9 +55,9 @@
    og mange andre finner du på <ulink
   url="https://en.wikipedia.org/wiki/Comparison_of_file_systems"/>.</para>
 
-  <para>LFS antar at rotfilsystemet (/) er av typen ext4. å lage
+  <para>LFS antar at rotfilsystemet (/) er av typen ext4. for å lage
   et <systemitem class="filesystem">ext4</systemitem> filsystemet på LFS
-  partisjonen, utsted fælgende kommando:</para>
+  partisjonen, utsted følgende kommando:</para>
 
 <screen role="nodump"><userinput>mkfs -v -t ext4 /dev/<replaceable>&lt;xxx&gt;</replaceable></userinput></screen>
 

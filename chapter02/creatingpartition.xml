@@ -36,7 +36,7 @@
 
   <para>Start et diskpartisjoneringsprogram som f.eks <command>cfdisk</command>
   eller <command>fdisk</command> med et kommandolinjealternativ som navngir harddisken
-  som den nye partisjonen vil bli opprettet påmdash;for eksempel
+  som den nye partisjonen vil bli opprettet på&mdash;for eksempel
   <filename class="devicefile">/dev/sda</filename> for den primære
   diskstasjonen. Lag en innebygd Linux partisjon og en
   <systemitem class="filesystem">swap</systemitem> partisjon, hvis nødvendig. Vennligst
@@ -89,7 +89,7 @@
     diskveksling.</para>
 
     <para>Hvis du vil bruke dvalefunksjonen (suspend-to-disk) i Linux,
-    den skriver ut innholdet i RAM til vekselminnepartisjonen får den slår av
+    den skriver ut innholdet i RAM til vekselminnepartisjonen før den slår av
     maskinen. I dette tilfellet bør størrelsen på vekselminnepartisjonen være
     minst like stor som systemets installerte RAM.</para>
 

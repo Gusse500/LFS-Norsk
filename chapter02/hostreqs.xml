@@ -70,7 +70,7 @@
 
     <listitem>
       <para><emphasis role="strong">Gawk-4.0.1</emphasis> (/usr/bin/awk
-      bør være en link til gawk)</para>
+      bør være en lenke til gawk)</para>
     </listitem>
 
     <listitem>
@@ -107,7 +107,7 @@
       <ulink url='https://kernel.org/category/releases.html'/> for
       detaljer.</para>
 
-      <para>Hvis vertskjernen er tidligere enn &min-kernel; du må erstatte
+      <para>Hvis vertskjernen er tidligere enn &min-kernel; må du erstatte
       kjernen med en mer oppdatert versjon. Det er to måter
       du kan gjøre dette på Først, se om din Linux leverandør tilbyr en &min-kernel;
       eller senere kjernepakke. I så fall kan det være lurt å installere den. Hvis din
@@ -117,7 +117,7 @@
       bruker GRUB) er lokalisert i <xref linkend="chapter-bootable"/>.</para>
 
 	  <para>Vi krever at vertskjernen støtter UNIX 98 pseudoterminal
-      (PTY). Det bør være aktivert på all distribusjoner, skrivebord eller server med
+      (PTY). Det bør være aktivert på alle distribusjoner, skrivebord eller server med
       Linux &min-kernel; eller en nyere kjerne. Hvis du bygger en egendefinert
       vertskjerne, sørg for at <option>CONFIG_UNIX98_PTYS</option> er satt til
       <literal>y</literal> i kjernekonfigurasjonen.</para>								  
@@ -164,7 +164,7 @@
 
   <important>
     <para>Merk at symbollenkene nevnt ovenfor er nødvendige for å bygge et LFS
-    system ved å bruke instruksjonene i denne boken. Symbollinker som
+    system ved å bruke instruksjonene i denne boken. Symbollenker som
     peker på annen programvare (som dash, mawk osv.) kan fungere, men er ikke
     testet eller støttet av LFS utviklingsteamet, og kan kreve enten
     avvik fra instruksjonene eller tilleggsoppdateringer til noen

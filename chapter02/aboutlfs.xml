@@ -86,7 +86,7 @@
   en virtuell terminal startes. I dette tilfellet legger du til kommandoen til
   filen <filename>.bashrc</filename> for brukeren og
   <systemitem class="username">root</systemitem>.  I tillegg,
-  noen distribusjoner bruk en "if" test, og kjører ikke de resterende <filename>.bashrc</filename>
+  noen distribusjoner bruker en "if" test, og kjører ikke de resterende <filename>.bashrc</filename>
   instruksjoner for en ikke-interaktiv bash påkallelse. Pass på å plassere
   kommandoen foran testen for ikke interaktiv bruk.</para>
 
