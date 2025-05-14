@@ -239,7 +239,7 @@
         <para>Groff</para>
 
         <para>Denne pakken inneholder programmer for behandling og formatering av tekst.
-        En viktig funksjon av disse programmene er å formatere mansider.</para>
+        En viktig funksjon av disse programmene er å formatere manualsider.</para>
       </listitem>
 
       <listitem>
@@ -368,10 +368,10 @@
         <para>Libxcrypt</para>
 
         <para>Denne pakken gir
-        <systemitem class='library'>libcrypt</systemitem> bibliotek
-        nødvendig av forskjellige pakker (spesielt Shadow) for hashing av passord.
+        <systemitem class='library'>libcrypt</systemitem> biblioteket som
+        er nødvendig for forskjellige pakker (spesielt Shadow) for hashing av passord.
         Den erstatter det foreldede
-        <systemitem class='library'>libcrypt</systemitem> implementering i
+        <systemitem class='library'>libcrypt</systemitem> implementeringen i
         Glibc.</para>
       </listitem>
 
@@ -406,7 +406,7 @@
       <listitem>
         <para>Man-DB</para>
 
-        <para>Denne pakken inneholder programmer for å finne og vise mansider.
+        <para>Denne pakken inneholder programmer for å finne og vise manualsider.
         Det ble valgt i stedet for <application>man</application> pakken
         på grunn av overlegne internasjonaliseringsevner. Det leverer
         man programmet.</para>
@@ -416,7 +416,7 @@
         <para>Man-pages</para>
 
         <para>Denne pakken inneholder det faktiske innholdet i grunnleggende
-        mansider for Linux.</para>
+        manualsider for Linux.</para>
       </listitem>
 
       <listitem>
@@ -518,8 +518,8 @@
       <listitem>
         <para>Python 3</para>
 
-        <para>Denne pakken gir et tolkeprogram som har en design
-        filosofi som legger vekt på kodelesbarhet.</para>
+        <para>Denne pakken gir et tolkeprogram som har en 
+        designfilosofi som legger vekt på kodelesbarhet.</para>
 
       </listitem>
 
