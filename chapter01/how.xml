@@ -11,7 +11,7 @@
   <title>Hvordan bygge et LFS-system</title>
 
   <para>LFS systemet vil bli bygget ved å bruke en allerede installert
-  Linuxdistribusjon (som Debian, OpenMandriva, Fedora eller openSUSE). Denne
+  Linuxdistribusjon (som Debian, OpenMandriva, Fedora eller openSUSE). Dette
   eksisterende Linuxsystemet (verten) vil bli brukt som utgangspunkt for
   å gi nødvendige programmer, inkludert en kompilator, linker og skall,
   for å bygge det nye systemet. Velg <quote>development</quote> alternativet
@@ -34,7 +34,7 @@
   </note> -->
 
   <para><xref linkend="chapter-partitioning"/> i denne boken beskriver hvordan
-  lage en ny Linuxpartisjon og et nytt filsystem. Dette er stedet
+  en ny Linuxpartisjon og et nytt filsystem lages. Dette er stedet
   hvor det nye LFS systemet skal kompileres og installeres. <xref
   linkend="chapter-getting-materials"/> forklarer hvilke pakker og
   oppdateringer som må lastes ned for å bygge et LFS system og hvordan lagre

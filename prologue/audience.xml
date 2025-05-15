@@ -16,10 +16,10 @@ bygge et Linux system fra bunnen av når du bare kan laste ned og installere
 en eksisterende?</quote></para>
 
 <para>En viktig grunn til dette prosjektets eksistens er å hjelpe deg med å lære
-hvordan et Linux system fungerer fra innsiden og ut. å bygge et LFS system hjelper å
+hvordan et Linux-system fungerer fra innsiden og ut. å bygge et LFS-system hjelper å
 demonstrere hva som får Linux til å virke, og hvordan ting fungerer sammen og avhenger av
 hverandre. Noe av det beste denne læringsopplevelsen kan gi er
-muligheten til å tilpasse et Linux system for å passe dine egne unike behov.</para>
+muligheten til å tilpasse et Linux-system for å passe dine egne unike behov.</para>
 
 <para>En annen viktig fordel med LFS er at den lar deg ha mer kontroll
 over systemet uten å stole på andres Linux implementering. Med
@@ -35,22 +35,22 @@ begrenset av størrelseshensyn om ikke annet. Tenk på oppstartbar
 CDer, USB-pinner og innebygde systemer. Det er områder hvor LFS kan være
 gunstig.</para>
 
-<para>En annen fordel med et spesialbygd Linux system er sikkerhet. Ved å kompilere
+<para>En annen fordel med et spesialbygd Linux-system er sikkerhet. Ved å kompilere
 hele systemet fra kildekoden, har du fullmakt til å revidere alt
-og bruk alle sikkerhetsoppdateringene du ønsker. Det er ikke lenger nødvendig
+og bruke alle sikkerhetsoppdateringene du ønsker. Det er ikke lenger nødvendig
 å vente på at noen andre skal kompilere binære pakker som fikser et sikkerhetshull.
 Med mindre du undersøker oppdateringen og implementerer den selv, har du ingen
-garantier på at den nye binære pakken ble bygget riktig og løser problemet
+garantier for at den nye binære pakken ble bygget riktig og løser problemet
 tilstrekkelig.</para>
 
 <para>Målet med Linux From Scratch er å bygge en komplett og brukbart
-system på fundamentnivå Hvis du ikke ønsker å bygge ditt eget Linux system
+system på fundamentnivå Hvis du ikke ønsker å bygge ditt eget Linux-system
 fra bunnen av kan du likevel ha nytte av informasjonen i denne
 boken.</para>
 
 <para>Det er for mange andre gode grunner til å bygge ditt eget LFS-system til
 liste dem alle her. Til syvende og sist er utdanning den desidert mest kraftfulle av
-grunner. Når du fortsetter i LFS-opplevelsen din, vil du oppdage kraften
+grunnene. Når du fortsetter i LFS-opplevelsen din, vil du oppdage kraften
 som informasjon og kunnskap virkelig gir.</para>
 
 </sect1>

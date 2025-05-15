@@ -591,8 +591,8 @@
     <varlistentry>
       <term>Packaging (&packaging-version;) - <token>&packaging-size;</token>:</term>
       <listitem>
-        <para>Home page: <ulink url="&packaging-home;"/></para>
-        <para>Download: <ulink url="&packaging-url;"/></para>
+        <para>Hjemmeside: <ulink url="&packaging-home;"/></para>
+        <para>Nedlasting: <ulink url="&packaging-url;"/></para>
         <para>MD5 sum: <literal>&packaging-md5;</literal></para>
       </listitem>
     </varlistentry>
@@ -722,7 +722,7 @@
 
         <note>
           <para>Linux From Scratch teamet genererer sin egen tarball av
-          mansider som bruker systemd kilden. Dette gjøres for å unngå
+          manualsider som bruker systemd kilden. Dette gjøres for å unngå
           unødvendige avhengigheter.</para>
         </note>
       </listitem>

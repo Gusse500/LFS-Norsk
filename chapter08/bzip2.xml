@@ -112,9 +112,9 @@ done</userinput></screen>
       <segtitle>Installert mappe</segtitle>
 
       <seglistitem>
-        <seg>bunzip2 (linker til bzip2), bzcat (linker til bzip2), bzcmp (linker til
-        bzdiff), bzdiff, bzegrep (linker til bzgrep), bzfgrep (linker til bzgrep),
-        bzgrep, bzip2, bzip2recover, bzless (linker til bzmore), og bzmore</seg>
+        <seg>bunzip2 (lenker til bzip2), bzcat (linker til bzip2), bzcmp (lenker til
+        bzdiff), bzdiff, bzegrep (lenker til bzgrep), bzfgrep (lenker til bzgrep),
+        bzgrep, bzip2, bzip2recover, bzless (lenker til bzmore), og bzmore</seg>
         <seg>libbz2.so</seg>
         <seg>/usr/share/doc/bzip2-&bzip2-version;</seg>
       </seglistitem>
