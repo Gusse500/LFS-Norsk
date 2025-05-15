@@ -18,7 +18,7 @@
   plassering. Vi gjør dette slik at de midlertidige programmene vil bli overskrevet når
   de endelige versjonene bygges i <xref linkend="chapter-building-system"/>.</para>
 
-  <para>Opprett det nødvendige mappeoppsettet ved å bruke følgende kommandoer som
+  <para>Create the required directory layout by issuing the following commands as
   <systemitem class="username">root</systemitem>:</para>
 
 <screen><userinput>mkdir -pv $LFS/{etc,var} $LFS/usr/{bin,lib,sbin}

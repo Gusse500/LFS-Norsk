@@ -23,7 +23,7 @@
     TERM="$TERM"                \
     PS1='(lfs chroot) \u:\w\$ ' \
     PATH=/usr/bin:/usr/sbin     \
-    MAKEFLAGS="-j<replaceable>$(nproc)</replaceable>"      \
+	MAKEFLAGS="-j<replaceable>$(nproc)</replaceable>"      \
     TESTSUITEFLAGS="-j<replaceable>$(nproc)</replaceable>" \
     /bin/bash --login</userinput></screen>
 
