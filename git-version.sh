@@ -69,3 +69,5 @@ echo "<!ENTITY version          \"$versiond\">"            >> version.ent
 echo "]]>"                                                 >> version.ent
 echo "<!ENTITY releasedate       \"$full_date\">"          >> version.ent
 echo "<!ENTITY copyrightdate     \"1999-$year\">"          >> version.ent
+
+[ -z "$DIST" ] || echo $version > "$DIST"
