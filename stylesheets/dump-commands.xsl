@@ -79,9 +79,9 @@
   </xsl:template>
 
   <xsl:template match="replaceable">
-    <xsl:text>**REDIGERINGMEG</xsl:text>
+    <xsl:text>**REDIGERMEG</xsl:text>
     <xsl:apply-templates/>
-    <xsl:text>REDIGERINGMEG**</xsl:text>
+    <xsl:text>REDIGERMEG**</xsl:text>
   </xsl:template>
 
 </xsl:stylesheet>
