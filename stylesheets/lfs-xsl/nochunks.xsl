@@ -23,7 +23,7 @@
   <xsl:include href="xhtml/lfs-mixed.xsl"/>
   <xsl:include href="xhtml/lfs-sections.xsl"/>
   <xsl:include href="xhtml/lfs-toc.xsl"/>
-  <xsl:include href="xhtml/lfs-xref.xsl"/>
+  <!--<xsl:include href="xhtml/lfs-xref.xsl"/>-->
 
   <!-- Control generation of ToCs and LoTs -->
   <xsl:param name="generate.toc">
