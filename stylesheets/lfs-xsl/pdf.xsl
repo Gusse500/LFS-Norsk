@@ -25,7 +25,7 @@
   <xsl:include href="pdf/lfs-lists.xsl"/>
   <xsl:include href="pdf/lfs-mixed.xsl"/>
   <xsl:include href="pdf/lfs-pagesetup.xsl"/>
-  <!--<xsl:include href="pdf/lfs-xref.xsl"/>-->
+  <xsl:include href="pdf/lfs-xref.xsl"/>
 
   <!-- Activate FOP-1 extensions. We use FOP-0.93 as the FO processor. -->
   <xsl:param name="fop1.extensions" select="1"/>

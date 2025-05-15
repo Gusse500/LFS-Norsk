@@ -25,7 +25,7 @@
   <xsl:include href="xhtml/lfs-sections.xsl"/>
   <xsl:include href="xhtml/lfs-titles.xsl"/>
   <xsl:include href="xhtml/lfs-toc.xsl"/>
-  <!--<xsl:include href="xhtml/lfs-xref.xsl"/>-->
+  <xsl:include href="xhtml/lfs-xref.xsl"/>
 
   <xsl:param name="html.stylesheet" select="'stylesheets/lfs.css'"/>
   <!-- Print CSS Stylesheet -->
