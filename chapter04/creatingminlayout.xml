@@ -12,7 +12,7 @@
 
   <para>I denne delen begynner vi å fylle LFS filsystemet med
   deler som vil utgjøre det endelige Linuxsystemet. Det første trinnet er å
-  opprette et begrenset kataloghierarki, slik at programmene som kompileres i <xref
+  opprette et begrenset mappehierarki, slik at programmene som kompileres i <xref
   linkend="chapter-temporary-tools"/> (i tillegg til glibc og libstdc++ i <xref
   linkend="chapter-cross-tools"/>) kan installeres i deres endelige
   plassering. Vi gjør dette slik at de midlertidige programmene vil bli overskrevet når
@@ -34,7 +34,7 @@ esac</userinput></screen>
   <para>Programmer i <xref linkend="chapter-temporary-tools"/> vil bli kompilert
   med en krysskompilator (mer detaljer kan bli funnet i avsnitt <xref
   linkend="ch-tools-toolchaintechnotes"/>). Denne krysskompilatoren vil bli installert
-  i en spesiell katalog for å skille den fra de andre programmene. Fortsatt som
+  i en spesiell mappe for å skille den fra de andre programmene. Fortsatt som
   &root;, lag den mappen med denne kommandoen:</para>
 
 <screen><userinput>mkdir -pv $LFS/tools</userinput></screen>
@@ -43,11 +43,11 @@ esac</userinput></screen>
     <para>
       LFS redaksjonen har bevisst besluttet å ikke bruke en
       <filename class="directory">/usr/lib64</filename> mappe.  Flere
-      skritt tas for å være sikker på at verktøykjeden ikke vil bruke den. Hvis for noen
-      grunn denne katalogen vises (enten fordi du gjorde en feil når
+      skritt tas for å være sikker på at verktøykjeden ikke vil bruke den. Hvis av en eller annen
+      grunn denne mappen vises (enten fordi du gjorde en feil når
       du fulgte instruksjonene, eller fordi du installerte en binær pakke som
       opprettet det etter å ha fullført LFS), kan det ødelegge systemet ditt.
-      Du bør alltid være sikker på at denne katalogen ikke eksisterer.
+      Du bør alltid være sikker på at denne mappen ikke eksisterer.
     </para>
   </note>
 

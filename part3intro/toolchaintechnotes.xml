@@ -257,7 +257,7 @@
           <quote>verten</quote> i løpet av byggetiden er deaktivert. Når <quote>vertens</quote>
 		  triplett er eksplisitt spesifisert, <quote>krysskompileringsmodus</quote>
 		  er aktivert hvis og bare hvis enten
-          <command>configure</command> skriptet klarer ikke å kjøre et dummy
+          <command>configure</command> skriptet ikke klarer å kjøre et dummy
           program kompilert inn i <quote>vertens</quote> maskinkode, eller
           <quote>byggets</quote> triplett er eksplisitt spesifisert via
           <parameter>--build</parameter> bryteren og den er forskjellig fra
@@ -268,7 +268,7 @@
 
     <para>For å krysskompilere en pakke for det midlertidige LFS systemet,
     navnet på systemtripletten justeres litt ved å endre
-    &quot;vendor&quot; feltet i <envar>LFS_TGT</envar> variabel så det
+    &quot;vendor&quot; feltet i <envar>LFS_TGT</envar> variabelen så det
     sier &quot;lfs&quot; og <envar>LFS_TGT</envar> er da spesifisert som
     <quote>vertens</quote> triplett via <parameter>--host</parameter>, så
     kryssverktøykjeden vil bli brukt til å generere og behandle
@@ -366,8 +366,8 @@
     gjenoppbygde libgcc i stedet for den gamle, nedgraderte konstruksjonen. Dette gjør den ombygde
     libstdc++ fullt funksjonell.</para>
 
-    <para>I &ch-final; (eller <quote>stage 3</quote>), alle pakkene som trengs for
-    LFS systemet er bygget. Selv om en pakke allerede er installert i
+    <para>I &ch-final; (eller <quote>stage 3</quote>), blir alle pakkene som trengs for
+    LFS systemet bygget. Selv om en pakke allerede er installert i
     LFS systemet i et tidligere kapittel, bygger vi fortsatt pakken på nytt. Hovedårsaken til
     å gjenoppbygge disse pakkene er å gjøre dem stabile: hvis vi installerer en LFS pakke på nytt
     på et fullført LFS system, det reinstallerte innholdet i pakken

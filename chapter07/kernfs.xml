@@ -80,8 +80,8 @@ mount -vt tmpfs tmpfs $LFS/run</userinput></screen>
           <para>Dette sikrer at alle devpts opprettede enhetsnoder eies av
           gruppe ID 5. Dette er IDen vi skal bruke senere for <systemitem
           class="groupname">tty</systemitem> gruppen.  Vi bruker gruppe-ID i stedet
-          for et navn, siden vertssystemet kan bruke en annen ID for sitt
-          <systemitem class="groupname">tty</systemitem> gruppen.</para>
+          for et navn, siden vertssystemet kan bruke en annen ID for sin
+          <systemitem class="groupname">tty</systemitem> gruppe.</para>
         </listitem>
       </varlistentry>
 
@@ -92,7 +92,7 @@ mount -vt tmpfs tmpfs $LFS/run</userinput></screen>
           (bruker lesbar og skrivbar, gruppeskrivbar). Sammen med
           alternativet ovenfor, sikrer dette at devpts vil opprette enhetsnoder som
           oppfylle kravene til grantpt(), som betyr Glibc
-          <command>pt_chown</command> hjelper binær (som ikke er installert som
+          <command>pt_chown</command> binærhjelper (som ikke er installert som
           standard) ikke er nødvendig.</para>
         </listitem>
       </varlistentry>

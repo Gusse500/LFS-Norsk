@@ -41,7 +41,7 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installasjon av Cross GCC</title>
+    <title>Installasjon av Kryss GCC</title>
 
     <para>GCC krever GMP, MPFR og MPC pakkene. Siden disse pakkene kanskje ikke
     er inkludert i vertsdistribusjonen din, blir de bygget med

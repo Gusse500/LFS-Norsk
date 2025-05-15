@@ -45,7 +45,7 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installasjon av Target Libstdc++</title>
+    <title>Installasjon av målet Libstdc++</title>
 
     <note>
       <para><application>Libstdc++</application> er en del av GCC kildene.

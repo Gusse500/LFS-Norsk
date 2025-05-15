@@ -24,7 +24,7 @@
     <title/>
 
     <para>Findutils pakken inneholder programmer for å finne filer. Programmer
-    er tilgjengelig for å søke gjennom alle filene i et katalogtre og til
+    er tilgjengelig for å søke gjennom alle filene i et mappetre og til
     opprette, vedlikeholde og søke i en database (ofte raskere enn den rekursive
     find, men upålitelig med mindre databasen nylig har blitt oppdatert).
     Findutils leverer også <command>xargs</command> programmet, som

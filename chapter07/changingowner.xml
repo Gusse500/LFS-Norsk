@@ -29,7 +29,7 @@
    disse filene til mulig ondsinnet manipulasjon.</para>
 
   <para>For å løse dette problemet, endre
-   eierskap til <filename class="directory">$LFS/*</filename> mapper til
+   eierskap til <filename class="directory">$LFS/*</filename> mappene til
    bruker <systemitem class="username">root</systemitem> ved å kjøre følgende
    kommando:</para>
 

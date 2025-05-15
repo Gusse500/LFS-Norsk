@@ -158,7 +158,7 @@ cd       build</userinput></screen>
     <para>Installer pakken:</para>
 
     <warning><para>Hvis <envar>LFS</envar> ikke er riktig innstilt, og til tross for
-    anbefalinger, bygger du som
+    anbefalinger, og du bygger som
     <systemitem class="username">root</systemitem>, neste kommando vil
     installer den nybygde glibc til vertssystemet ditt, som mest sannsynlig
     vil gjøre det ubrukelig. Så dobbeltsjekk at miljøet er

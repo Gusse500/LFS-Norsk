@@ -24,7 +24,7 @@
   avstå fra å skrive dem blindt som vist, men les heller dokumentasjon når
   det er noe du ikke forstår. Hold også styr på skrivingen din
   og utdata av kommandoer, ved å bruke <command>tee</command> verktøyet
-  for å sende terminalutdataen til en fil. Dette gjør feilsøkingen enklere
+  til å sende terminalutdataen til en fil. Dette gjør feilsøkingen enklere
   hvis noe går galt.</para></important>
 
   <para>Den neste delen er en teknisk introduksjon til byggeprosessen,

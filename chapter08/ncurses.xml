@@ -24,7 +24,7 @@
     <title/>
 
     <para>Ncurses pakken inneholder biblioteker for terminaluavhengig
-    håndtering av karakterskjermer.</para>
+    håndtering av tegnskjermbilder.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>

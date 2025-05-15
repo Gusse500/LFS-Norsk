@@ -26,7 +26,7 @@
 <screen><userinput>find /usr/{lib,libexec} -name \*.la -delete</userinput></screen>
 
     <para>
-      Den nøværende systemstørrelsen er nå omtrent 3 GB,
+      Den nåværende systemstørrelsen er nå omtrent 3 GB,
       /tools mappen er ikke lenger nødvendig. Den bruker ca
       1 GB diskplass. Slett den nå
     </para>
@@ -93,7 +93,7 @@
       </para>
     </important>
 
-    <para>Får du lager en sikkerhetskopi, avmonter det virtuelle filsystemet:</para>
+    <para>Før du lager en sikkerhetskopi, avmonter det virtuelle filsystemet:</para>
 
 <screen role="nodump"><userinput>mountpoint -q $LFS/dev/shm &amp;&amp; umount $LFS/dev/shm
 umount $LFS/dev/pts
