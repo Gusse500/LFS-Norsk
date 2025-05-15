@@ -4,23 +4,7 @@ $dirs = array();
 $vers = array();
 
 date_default_timezone_set( "GMT" );
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 $date = date( "d.m.Y H:i:s" );
-=======
-$date = date( "d.m Y H:i:s" );
->>>>>>> parent of 14ac7e4 (Rettelser)
-=======
-$date = date( "d.m Y H:i:s" );
->>>>>>> parent of 14ac7e4 (Rettelser)
-=======
-$date = date( "d.m Y H:i:s" );
->>>>>>> parent of 14ac7e4 (Rettelser)
-=======
-$date = date( "d.m Y H:i:s" );
->>>>>>> parent of 14ac7e4 (Rettelser)
 
 // Special cases
 $exceptions = array();

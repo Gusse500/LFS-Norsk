@@ -100,9 +100,6 @@
      Keep an extra whitespace here to align the trailing "\" in glibc
      configure command if y < 10 in x.y.  -->
 <!ENTITY min-kernel      "5.4 ">
-<!-- 4.19 EOL is Dec 2024
-     so for LFS 12.3 we may consider moving to 5.4 -->
-<!ENTITY min-kernel      "4.19">
 
 <!--
 <!ENTITY patches-rootd   "&lfs-root;patches/lfs/&generic-versiond;/">
@@ -134,10 +131,11 @@
 <!ENTITY pypi-home       "https://pypi.org/project">
 <!ENTITY pypi-src        "https://pypi.org/packages/source">
 <!ENTITY man             "https://man.archlinux.org/man/">
-<!ENTITY lfs-username    "<userinput remap='user'>lfs</userinput>">
-<!ENTITY lfs-groupname   "<userinput remap='group'>lfs</userinput>">
+
 <!ENTITY root            "<systemitem class='username'>root</systemitem>">
 <!ENTITY lfs-user        "<systemitem class='username'>lfs</systemitem>">
+<!ENTITY lfs-username    "<userinput remap='user'>lfs</userinput>">
+<!ENTITY lfs-groupname   "<userinput remap='group'>lfs</userinput>">
 <!ENTITY devtmpfs        "<systemitem class='filesystem'>devtmpfs</systemitem>">
 <!ENTITY fstab           "<filename>/etc/fstab</filename>">
 <!ENTITY boot-dir        "<filename class='directory'>/boot</filename>">

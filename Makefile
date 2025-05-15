@@ -26,7 +26,7 @@ ifeq ($(REV), sysv)
   NOCHUNKS_OUTPUT ?= LFS-BOOK.html
   DUMPDIR         ?= $(HOME)/lfs-commands
 else
-  BASEDIR         ?= ~/public_html/lfs-systemd
+  BASEDIR         ?= $(HOME)/public_html/lfs-systemd
   PDF_OUTPUT      ?= LFS-SYSD-BOOK.pdf
   NOCHUNKS_OUTPUT ?= LFS-SYSD-BOOK.html
   DUMPDIR         ?= $(HOME)/lfs-sysd-commands
@@ -124,7 +124,7 @@ validate: tmpdir version
 	$(Q)xsltproc --nonet                               \
                 --xinclude                            \
                 --stringparam profile.revision $(REV) \
-				--output $(RENDERTMP)/lfs-html2.xml   \
+                --output $(RENDERTMP)/lfs-html2.xml   \
                 stylesheets/lfs-xsl/profile.xsl       \
                 index.xml
 
