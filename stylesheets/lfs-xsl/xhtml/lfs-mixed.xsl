@@ -306,7 +306,7 @@
         <xsl:when test="$numcols &gt; 3">
         <!-- The space between <td> and </td> is a non breakable
              space (unicode A0) encoded in utf-8.-->
-          <td> </td>
+          <td> </td>
         </xsl:when>
         <xsl:otherwise/>
       </xsl:choose>

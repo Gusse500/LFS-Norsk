@@ -8,28 +8,28 @@
        header content and titles size. -->
 
     <!-- The inner page margin. -->
-  <xsl:param name="page.margin.inner" select="'0.81cm'"/>
+  <xsl:param name="page.margin.inner" select="'0.32in'"/>
 
     <!-- The outer page margin. -->
-  <xsl:param name="page.margin.outer" select="'0.81cm'"/>
+  <xsl:param name="page.margin.outer" select="'0.32in'"/>
 
     <!-- The bottom margin of the page. -->
-  <xsl:param name="page.margin.bottom" select="'0.89cm'"/>
+  <xsl:param name="page.margin.bottom" select="'0.35in'"/>
 
     <!-- The top margin of the page. -->
-  <xsl:param name="page.margin.top" select="'0.89cm'"/>
+  <xsl:param name="page.margin.top" select="'0.35in'"/>
 
     <!-- The bottom margin of the body text. -->
-  <xsl:param name="body.margin.bottom" select="'1.02cm'"/>
+  <xsl:param name="body.margin.bottom" select="'0.4in'"/>
 
     <!-- The top margin of the body text. -->
-  <xsl:param name="body.margin.top" select="'1.02cm'"/>
+  <xsl:param name="body.margin.top" select="'0.4in'"/>
 
     <!-- Specifies the height of the header. -->
-  <xsl:param name="region.before.extent" select="'0.64cm'"/>
+  <xsl:param name="region.before.extent" select="'0.25in'"/>
 
     <!-- Specifies the height of the footer. -->
-  <xsl:param name="region.after.extent" select="'0.64cm'"/>
+  <xsl:param name="region.after.extent" select="'0.25in'"/>
 
     <!-- The start-indent for the body text. -->
   <xsl:param name="body.start.indent" select="'0pc'"/>

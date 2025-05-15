@@ -21,6 +21,3 @@ s-kernel-version:
 
 %.xml.tmp: %.toml kernel-config.py kernel_version.py kernel.version
 	./kernel-config.py $(KERNEL_TREE) $< > $@
-
-%.xml: %.xml.tmp
-	mv $< $@
