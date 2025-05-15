@@ -16,11 +16,11 @@
       Under en utviklingssyklus av LFS er instruksjonene i boken
       ofte modifisert for å tilpasse seg en pakkeoppdatering eller dra nytte av
       nye funksjoner fra oppdaterte pakker. Å blande sammen instruksjonene til
-      forskjellige versjoner av LFS boken kan fororsake subtile brudd. Denne
+      forskjellige versjoner av LFS boken kan forårsake subtile brudd. Denne
       typen problem er vanligvis et resultat av gjenbruk av et eller annet opprettet skript
       for en tidligere LFS utgivelse. Slik gjenbruk frarodes sterkt. Hvis
       du gjenbruker skript for en tidligere LFS utgivelse av en eller annen grunn,
-      mo du være veldig forsiktig med o oppdatere skriptene for o matche gjeldende versjon
+      mo du være veldig forsiktig med å oppdatere skriptene for å matche gjeldende versjon
       av LFS boken.
     </para>
   </caution>
@@ -30,9 +30,9 @@
   <itemizedlist>
 
   <listitem>
-    <para>Flere pakker oppdateres før kompilering, men bare nor
-    oppdateringen er nødvendig for o omgo et problem. En oppdatering er ofte nødvendig i
-    bode gjeldende og følgende kapitler, men noen ganger, nor den samme pakken
+    <para>Flere pakker oppdateres før kompilering, men bare når
+    oppdateringen er nødvendig for å omgå et problem. En oppdatering er ofte nødvendig i
+    både gjeldende og følgende kapitler, men noen ganger, når den samme pakken
     er bygget mer enn en gang, er ikke oppdateringen nødvendig med en gang.
     Vær derfor ikke bekymret hvis instruksjoner for en nedlastet oppdatering vises
     å være savnet. Advarselsmeldinger om <emphasis>offset</emphasis> eller
@@ -56,8 +56,8 @@
 
 <screen role="nodump"><userinput>echo $LFS</userinput></screen>
 
-    <para>Sørg for at utdataen viser banen til LFS partisjonens monterings
-    punkt, som er <filename class="directory">/mnt/lfs</filename>, ved bruken av vårt
+    <para>Sørg for at utdataen viser banen til LFS partisjonens monteringspunkt,
+    som er <filename class="directory">/mnt/lfs</filename>, ved bruken av vårt
     eksempel.</para>
   </listitem>
 
@@ -103,7 +103,7 @@
         <listitem>
           <para>Bytt til <filename class="directory">/mnt/lfs/sources/</filename> mappen.</para>
         </listitem>
-        <listitem id='buildinstr' xreflabel='Package build instructions'>
+        <listitem id='buildinstr' xreflabel='Instruksjoner for pakkebygging'>
           <para>For hver pakke:</para>
           <orderedlist numeration="loweralpha" spacing="compact">
             <listitem>
