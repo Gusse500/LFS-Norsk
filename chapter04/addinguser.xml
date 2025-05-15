@@ -18,7 +18,7 @@
   class="username">lfs</systemitem> som medlem av en ny gruppe (også kalt
   <systemitem class="groupname">lfs</systemitem>) og kjøre kommandoer som &lfs-user; under
   installasjonsprosessen. Som <systemitem class="username">root</systemitem>,
-  utflr fllgende kommandoer for å legge til den nye brukeren:</para>
+  utfør følgende kommandoer for å legge til den nye brukeren:</para>
 
 <screen><userinput>groupadd &lfs-groupname;
 useradd -s /bin/bash -g &lfs-groupname; -m -k /dev/null &lfs-username;</userinput></screen>
@@ -76,7 +76,7 @@ useradd -s /bin/bash -g &lfs-groupname; -m -k /dev/null &lfs-username;</userinpu
 
 <screen role="nodump"><userinput>passwd &lfs-username;</userinput></screen>
 
-  <para>Bevilg <systemitem class="username">lfs</systemitem> full tilgang til
+  <para>Gi <systemitem class="username">lfs</systemitem> full tilgang til
   alle mapper under <filename class="directory">$LFS</filename> ved å gjøre
   <systemitem class="username">lfs</systemitem> eieren:</para>
 
@@ -98,7 +98,7 @@ esac</userinput></screen>
 
   <para><quote><parameter>-</parameter></quote> instruerer
   <command>su</command> å starte et påloggingsskall i motsetning til et ikke-påloggingsskall.
-  Forskjellen mellom disse to skjelltypene finner du i detalj i
+  Forskjellen mellom disse to skalltypene finner du i detalj i
   <ulink role='man' url='&man;bash.1'>bash(1)</ulink> og <command>info
   bash</command>.</para>
 

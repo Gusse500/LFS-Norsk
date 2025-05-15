@@ -22,7 +22,7 @@ EOF</userinput></screen>
   <para>Når du er pålogget som bruker <systemitem class="username">lfs</systemitem>,
   eller når du bytter til &lfs-user; bruker med en <command>su</command> kommando
   med <quote><parameter>-</parameter></quote> alternativet,
-  det første skallet er et <emphasis>login</emphasis> skall som leser
+  er det første skallet et <emphasis>login</emphasis> skall som leser
   <filename>/etc/profile</filename> til verten (som sannsynligvis inneholder noen
   innstillinger og miljøvariabler) og deretter <filename>.bash_profile</filename>.
   <command>exec env -i.../bin/bash</command> kommandoen i
@@ -93,7 +93,7 @@ EOF</userinput></screen>
       <term><parameter>LC_ALL=POSIX</parameter></term>
       <listitem>
   <para><envar>LC_ALL</envar> variabelen styrer lokaliseringen av visse
-  programmer, slik at meldingene deres fllger konvensjonene i et spesifisert land.
+  programmer, slik at meldingene deres følger konvensjonene i et spesifisert land.
   Innstillingen <envar>LC_ALL</envar> til <quote>POSIX</quote> eller <quote>C</quote>
   (de to er likeverdige) sikrer at alt fungerer som forventet i
   chroot miljlet.</para>
@@ -103,7 +103,7 @@ EOF</userinput></screen>
     <varlistentry>
       <term><parameter>LFS_TGT=$(uname -m)-lfs-linux-gnu</parameter></term>
       <listitem>
-  <para>The <envar>LFS_TGT</envar> variabel setter en ikkestandard, men kompatibel
+  <para><envar>LFS_TGT</envar> variabelen setter en ikke-standard, men kompatibel
   maskinbeskrivelse for bruk når du bygger vår krysskompiler og linker og når du krysskompiler
   vår midlertidige verktøykjede. Mer informasjon finnes i
   <xref linkend="ch-tools-toolchaintechnotes" role=""/>.</para>
