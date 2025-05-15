@@ -437,11 +437,11 @@
  The disk usage is the sum of the size of linux-6.10.1 directory.  
  It does not include an installed kernel or any modules.
 -->
-<!ENTITY linux-knl-du "1.7 - 14 GB (typically about 2.3 GB)">
-<!ENTITY linux-knl-sbu "0.4 - 32 SBU (typically about 2.5 SBU)">
+<!ENTITY linux-knl-du "1.7 - 14 GB (vanligvis omtrent 2.3 GB)">
+<!ENTITY linux-knl-sbu "0.4 - 32 SBU (vanligvis omtrent 2.5 SBU)">
 
 <!ENTITY linux-headers-tmp-du "1.6 GB">
-<!ENTITY linux-headers-tmp-sbu "less than 0.1 SBU">
+<!ENTITY linux-headers-tmp-sbu "mindre enn 0.1 SBU">
 
 <!ENTITY lz4-version "1.10.0">
 <!ENTITY lz4-size "379 KB">

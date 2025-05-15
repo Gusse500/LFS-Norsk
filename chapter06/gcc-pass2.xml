@@ -125,7 +125,7 @@ cd       build</userinput></screen>
           målbibliotekene (<filename class="libraryfile">libgcc</filename>
           og <filename class="libraryfile">libstdc++</filename>) med
           GCC binærfiler kompilert i dette passet&mdash;disse binærfilene vil ikke kjøre
-          på verten. GCC byggesystemet vil forsøke å bruke verten's
+          på verten. GCC byggesystemet vil forsøke å bruke verten sin
           C og C++ kompilatorer som en standard løsning.
           Å bygge GCC målbibliotekene med en annen
           versjonen av GCC støttes ikke, så bruk av vertens kompilatorer kan føre til
@@ -151,7 +151,7 @@ cd       build</userinput></screen>
         <listitem>
           <para>Deaktiver GCC rensende kjøretidsbiblioteker. De er ikke
           nødvendig for den midlertidige installasjonen.  I
-          <xref linkend='ch-tools-gcc-pass1'/> det ble antydet av
+          <xref linkend='ch-tools-gcc-pass1'/> ble det antydet av
           <parameter>--disable-libstdcxx</parameter>, og nå kan vi
           gi den eksplisitt.</para>
         </listitem>
