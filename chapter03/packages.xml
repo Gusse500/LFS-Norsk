@@ -591,8 +591,8 @@
     <varlistentry>
       <term>Packaging (&packaging-version;) - <token>&packaging-size;</token>:</term>
       <listitem>
-        <para>Hjemmeside: <ulink url="&packaging-home;"/></para>
-        <para>Nedlasting: <ulink url="&packaging-url;"/></para>
+        <para>Home page: <ulink url="&packaging-home;"/></para>
+        <para>Download: <ulink url="&packaging-url;"/></para>
         <para>MD5 sum: <literal>&packaging-md5;</literal></para>
       </listitem>
     </varlistentry>
