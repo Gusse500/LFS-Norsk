@@ -275,24 +275,24 @@ ninja test</userinput></screen>
       <segtitle>Installerte mapper</segtitle>
 
       <seglistitem>
-        <seg>busctl, coredumpctl, halt (symbolsk lenke til systemctl),
+        <seg>busctl, coredumpctl, halt (symlenke til systemctl),
         hostnamectl, init, journalctl, kernel-install, localectl, loginctl,
-        machinectl, mount.ddi (symbolsk lenke til systemd-dissect), networkctl,
-        oomctl, portablectl, poweroff (symbolsk lenke til
-        systemctl), reboot (symbolsk lenke til systemctl), resolvconf (symbolsk lenke til
-        resolvectl), resolvectl, runlevel (symbolsk lenke til systemctl), shutdown
-        (symbolsk lenke til systemctl), systemctl, systemd-ac-power, systemd-analyze,
+        machinectl, mount.ddi (symlenke til systemd-dissect), networkctl,
+        oomctl, portablectl, poweroff (symlenke til
+        systemctl), reboot (symlenke til systemctl), resolvconf (symlenke til
+        resolvectl), resolvectl, runlevel (symlenke til systemctl), shutdown
+        (symlenke til systemctl), systemctl, systemd-ac-power, systemd-analyze,
         systemd-ask-password, systemd-cat, systemd-cgls, systemd-cgtop,
-        systemd-confext (symbolsk lenke til systemd-sysext), systemd-creds,
+        systemd-confext (symlenke til systemd-sysext), systemd-creds,
         systemd-delta, systemd-detect-virt,
         systemd-dissect, systemd-escape, systemd-hwdb, systemd-id128,
         systemd-inhibit, systemd-machine-id-setup,
         systemd-mount, systemd-notify, systemd-nspawn, systemd-path,
         systemd-repart, systemd-resolve (symlenke til resolvectl), systemd-run,
-        systemd-socket-activate, systemd-stsymbolsk lenkedio-bridge, systemd-sysext,
+        systemd-socket-activate, systemd-stdio-bridge, systemd-sysext,
         systemd-tmpfiles, systemd-tty-ask-password-agent,
-        systemd-umount (symbolsk lenke til systemd-mount),
-        telinit (symbolsk lenke til systemctl), timedatectl, og udevadm</seg>
+        systemd-umount (symlenke til systemd-mount),
+        telinit (symlenke til systemctl), timedatectl, og udevadm</seg>
         <seg>libnss_myhostname.so.2, libnss_mymachines.so.2,
         libnss_resolve.so.2, libnss_systemd.so.2,
         libsystemd.so, libsystemd-shared-&systemd-version;.so (in /usr/lib/systemd),

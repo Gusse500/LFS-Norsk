@@ -69,9 +69,9 @@
 
       <seglistitem>
         <seg>lz4,
-             lz4c (lenker til lz4),
-             lz4cat (lenker til lz4), og
-             unlz4 (lenker til lz4)
+             lz4c (lenke til lz4),
+             lz4cat (lenke til lz4), og
+             unlz4 (lenke til lz4)
         </seg>
 
         <seg>liblz4.so</seg>
