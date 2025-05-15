@@ -56,7 +56,7 @@ rev=$(echo "$sha" | sed 's/-g[^-]*$//')
 version="$rev"
 versiond="$rev-systemd"
 
-if [ $(git diff HEAD | wc -l) != 0 ]; then
+if [ "$(git diff HEAD | wc -l)" != "0" ]; then
     version="$version-wip"
     versiond="$versiond-wip"
 fi
