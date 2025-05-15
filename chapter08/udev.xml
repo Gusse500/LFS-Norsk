@@ -170,7 +170,7 @@ make -f &udev-lfs-version;/Makefile.lfs install</userinput></screen>
     <!-- Please make sure systemd man pages tarball has a common leading
          component in the path.  -->
 <screen><userinput remap="install">tar -xf ../../systemd-man-pages-&systemd-man-version;.tar.xz                            \
-    --no-same-owner --strip-components=1 
+    --no-same-owner --strip-components=1                              \
     -C /usr/share/man --wildcards '*/udev*' '*/libudev*'              \
                                   '*/systemd.link.5'                  \
                                   '*/systemd-'{hwdb,udevd.service}.8
