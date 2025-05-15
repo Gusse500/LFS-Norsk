@@ -44,7 +44,7 @@
 <screen><userinput>ln -sv /proc/self/mounts /etc/mtab</userinput></screen>
 
   <para>Lag en grunnleggende <filename>/etc/hosts</filename> fil som blir
-  referert til i noen testsuiter, og også i en av Perls konfigurasjonsfiler
+  referert til i noen testpakker, og også i en av Perls konfigurasjonsfiler
   :</para>
 
 <screen><userinput>cat &gt; /etc/hosts &lt;&lt; EOF
@@ -53,8 +53,8 @@
 EOF</userinput></screen>
 
   <para>For at bruker <systemitem class="username">root</systemitem> skal
-  kunne logge inn og for navnet <quote>root</quote> å bli gjenkjent, det
-  må være relevante oppføringer i <filename>/etc/passwd</filename> og
+  kunne logge inn og for navnet <quote>root</quote> skal bli gjenkjent, må
+  det være relevante oppføringer i <filename>/etc/passwd</filename> og
   <filename>/etc/group</filename> filene.</para>
 
   <para>Opprett <filename>/etc/passwd</filename> filen ved å kjøre følgende
@@ -158,7 +158,7 @@ EOF</userinput></screen>
   <para>De opprettede gruppene er ikke en del av noen standard&mdash;de er grupper
   delvis bestemt av kravene til Udev konfigurasjonen i kapittel
   9, og delvis etter felles konvensjon brukt av en rekke eksisterende Linux
-  distribusjoner. I tillegg er noen testsuiter avhengige av spesifikke brukere eller
+  distribusjoner. I tillegg er noen testpakker avhengige av spesifikke brukere eller
   grupper. Linux Standard Base (LSB, tilgjengelig på <ulink
   url="https://refspecs.linuxfoundation.org/lsb.shtml"/>) anbefaler bare at,
   foruten gruppen <systemitem class="groupname">root</systemitem> med en
@@ -170,7 +170,7 @@ EOF</userinput></screen>
   <systemitem class="filesystem">devpts</systemitem> filsystemet.
   Alle andre gruppenavn og GID-er kan velges fritt av systemets
   administrator siden velskrevne programmer ikke er avhengige av GID-nummer,
-  men bruk heller gruppens navn.</para>
+  men bruker heller gruppens navn.</para>
 
   <para>ID 65534 brukes av kjernen for NFS og separat brukernavneområder
   for ikke-tilordnede brukere (de finnes på NFS serveren eller den overordnede

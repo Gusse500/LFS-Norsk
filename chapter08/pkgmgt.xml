@@ -84,8 +84,8 @@
       <filename>libmemusage.so</filename>).
       Generelt er det ingen sammenheng mellom pakkeversjonen og
       versjonsnummer(er) i biblioteknavnet.</para></footnote>
-      endres, så eventuelle pakker dynamisk
-      koblet til biblioteket måtte kompileres på nytt for å kunne kobles mot
+      endres, så må eventuelle pakker dynamisk
+      koblet til biblioteket kompileres på nytt for å kunne kobles mot
       det nyere biblioteket.
       Tenk for eksempel på en pakke
       foo-1.2.3 som installerer et delt bibliotek med navn <filename
@@ -296,7 +296,7 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
       å peke på et bibliotek som skal forhåndslastes før installasjonen. Under
       installasjonen, sporer dette biblioteket pakkene som blir installert og
       fester seg til ulike kjørbare filer som f.eks <command>cp</command>,
-      <command>install</command>, <command>mv</command> g sporing av systemets
+      <command>install</command>, <command>mv</command> og sporing av systemets
       anrop som endrer filsystemet. For å få denne tilnærmingen til å virke, alle
       kjærbare filer må være dynamisk koblet uten suid- eller sgid-biten.
       Forhåndsinnlasting av biblioteket kan forårsake noen uønskede bivirkninger under
@@ -387,7 +387,7 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
 
     <important><para>Hvis du ønsker å distribuere LFS systemet på et system
  med en annen CPU, når du bygger <xref linkend='ch-system-gmp'/> og
-    <xref linkend='ch-system-libffi'/> du må følge notatene om å
+    <xref linkend='ch-system-libffi'/> må du følge notatene om å
  overstyre den arkitekturspesifikke optimaliseringen for å produsere biblioteker
  egnet for både vertssystemet og systemet(e) der du vil distribuere
  LFS systemet. Ellers får du <computeroutput>Illegal
