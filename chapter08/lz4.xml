@@ -23,10 +23,10 @@
   <sect2 role="package">
     <title/>
 
-    <para>Lz4 er en tapsfri komprimeringsalgoritme som gir kompresjonshastighet
-    mer enn 500 MB/s per kjerne. Den har en ekstremt rask dekoder, med
-    hastighet i flere GB/s per kjerne. Lz4 kan fungere med Zstandard for å tillate begge
-    algoritmene for å komprimere data raskere.</para>
+    <para>Lz4 er en tapsfri komprimeringsalgoritme som gir en kompresjonshastighet
+    på mer enn 500 MB/s per kjerne. Den har en ekstremt rask dekoder, med
+    hastighet på flere GB/s per kjerne. Lz4 kan fungere med Zstandard for å tillate at begge
+    algoritmene komprimerer data raskere.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>

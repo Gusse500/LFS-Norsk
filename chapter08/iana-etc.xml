@@ -54,7 +54,7 @@
       <segtitle>Installerte filer</segtitle>
 
       <seglistitem>
-        <seg>/etc/protocols and /etc/services</seg>
+        <seg>/etc/protocols og /etc/services</seg>
       </seglistitem>
     </segmentedlist>
 
