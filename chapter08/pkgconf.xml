@@ -75,7 +75,7 @@ ln -sv pkgconf.1 /usr/share/man/man1/pkg-config.1</userinput></screen>
       <segtitle>Installert mappe</segtitle>
 
       <seglistitem>
-        <seg>pkgconf, pkg-config (linker til pkgconf), og bomtool</seg>
+        <seg>pkgconf, pkg-config (lenker til pkgconf), og bomtool</seg>
         <seg>libpkgconf.so</seg>
         <seg>/usr/share/doc/pkgconf-&pkgconf-version;</seg>
       </seglistitem>

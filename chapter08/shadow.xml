@@ -61,8 +61,8 @@
     </note>
 
     <para>Deaktiver installasjonen av <command>groups</command> programmet
-    og mansidene, ettersom Coreutils gir en bedre versjon. Også
-    forhindre installasjon av mansider som allerede var installert i
+    og manualsidene, ettersom Coreutils gir en bedre versjon. Også
+    forhindre installasjon av manualsider som allerede var installert i
     <xref linkend="ch-system-man-pages"/>:</para>
 
 <screen><userinput remap="pre">sed -i 's/groups$(EXEEXT) //' src/Makefile.in
@@ -74,7 +74,7 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</userinput></s
     <emphasis>crypt</emphasis> metoden, bruk den mye sikrere
     <emphasis>YESCRYPT</emphasis> metode for passordkryptering, som også
     tillater passord lengre enn 8 tegn.
-    It is also necessary to change
+    Det er også nødvendig å endre
     det foreldede <filename class="directory">/var/spool/mail</filename> plasseringen
     for brukerpostbokser som Shadow bruker som standard til <filename
     class="directory">/var/mail</filename> stedet som brukes for øyeblikket. Og,
@@ -204,7 +204,7 @@ make -C man install-man</userinput></screen>
     handling for <command>useradd</command> verktøyet er å lage brukeren og
     en gruppe med samme navn som brukeren. Som standard begynner brukerID (UID) og
     gruppeID numre (GID) med 1000. Dette betyr at hvis du ikke sender
-    parametere til <command>useradd</command>, hver bruker vil være medlem av en
+    parametere til <command>useradd</command>, vil hver bruker være medlem av en
     unik gruppe på systemet. Hvis denne oppførselen er uønsket, trenger du
     å sende enten <parameter>-g</parameter> eller <parameter>-N</parameter>
     parameter til <command>useradd</command>, eller endre innstillingen for
@@ -230,7 +230,7 @@ useradd -D --gid 999</userinput></screen>
           kommer fra <parameter>--gid</parameter> parameteren ovenfor. Du kan
           endre den til alt du ønsker.
 
-          Merk at <command>useradd</command> vil aldri gjenbruke en UID eller GID.
+          Merk at <command>useradd</command> aldri vil gjenbruke en UID eller GID.
           Hvis nummeret som er identifisert i denne parameteren brukes, vil den bruke
           neste ledige nummer. Merk også at hvis du ikke har en gruppe med
           en ID lik dette nummeret på systemet ditt første gang du bruker

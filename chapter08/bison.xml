@@ -93,7 +93,7 @@
       <varlistentry id="yacc">
         <term><command>yacc</command></term>
         <listitem>
-          <para>En innpakning for <command>bison</command>,ment for programmer som
+          <para>En innpakning for <command>bison</command>, ment for programmer som
            fortsatt kaller <command>yacc</command> i stedet for <command>bison</command>;
           den kaller <command>bison</command> med <parameter>-y</parameter>
           alternativet</para>

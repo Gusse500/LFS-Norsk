@@ -23,8 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para><application>DejaGnu</application> pakken inneholder et rammeverk for å kjøre test
-       pakker på GNU verktæy. Det er skrevet i <command>expect</command>, som selv
+    <para><application>DejaGnu</application> pakken inneholder et rammeverk for å kjøre testpakker
+       på GNU verktøy. Det er skrevet i <command>expect</command>, som selv
        bruker <application>Tcl</application> verktøykommandospråk (Tool Command Language).</para>
 
     <segmentedlist>
@@ -42,7 +42,7 @@
   <sect2 role="installation">
     <title>Installasjon av DejaGNU</title>
 
-    <para>Upstream anbefaler å bygge DejaGNU i en dedikert byggemappe
+    <para>Oppstrøms anbefaler å bygge DejaGNU i en dedikert byggemappe
      :</para>
 
 <screen><userinput remap="pre">mkdir -v build

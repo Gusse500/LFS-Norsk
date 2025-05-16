@@ -28,7 +28,7 @@
     <command>telnet</command>, <command>ftp</command>,
     <command>passwd</command>, <command>fsck</command>,
     <command>rlogin</command>, og <command>tip</command>.
-    <application>Expect</application> er også nyttig for å teste disse samme
+    <application>Expect</application> er også nyttig for å teste de samme
     applikasjoner i tillegg til å lette alle slags oppgaver som er uoverkommelige
     vanskelig med noe annet. <application>DejaGnu</application>
     rammeverket er skrevet i <application>Expect</application>.</para>
@@ -64,10 +64,10 @@
     i chroot miljøet igjen ved å følge <xref linkend='ch-tools-chroot'/>.
     Dette problemet må løses før du fortsetter, ellers vil testpakkene
     som krever Expect (for eksempel testpakkene til Bash, Binutils, GCC,
-    GDBM, og selvfølgelig Expect seg selv) vil mislykkes katastrofalt, og andre
+    GDBM, og selvfølgelig Expect seg selv) mislykkes katastrofalt, og andre
     subtile brudd kan også skje.</para>
 
-    <para>Gjør nå noen endringer for å tillate pakken med gcc-14.1 eller nyere:</para>
+    <para>Gjør nå noen endringer for å tillate bygging av pakken med gcc-14.1 eller nyere:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../expect-&expect-version;-gcc14-1.patch</userinput></screen>
 

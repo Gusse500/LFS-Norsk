@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Flex pakken inneholder et verktøy for å generere programmerer som
+    <para>Flex pakken inneholder verktøy for å generere programmerer som
     gjenkjenner mønstre i tekst.</para>
 
     <segmentedlist>
@@ -70,11 +70,11 @@
 <screen><userinput remap="install">make install</userinput></screen>
 
     <para>Noen få programmer vet ikke om <command>flex</command> ennå og
-    prøver å kjøre forgjengeren, <command>lex</command>. For å støtte de
+    prøver å kjøre forgjengeren, <command>lex</command>. For å støtte disse
     programmene, opprett en symbolsk lenke kalt <filename>lex</filename> som
     kjører <filename>flex</filename> i <command>lex</command>
-    emuleringsmodus, og opprett også mansiden til <command>lex</command> som en
-    symlenke:</para>
+    emuleringsmodus, og opprett også manualsiden til <command>lex</command> som en
+    symbolsk lenke:</para>
 
 <screen><userinput remap="install">ln -sv flex   /usr/bin/lex
 ln -sv flex.1 /usr/share/man/man1/lex.1</userinput></screen>

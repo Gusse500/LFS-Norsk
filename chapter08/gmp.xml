@@ -113,7 +113,7 @@ make html</userinput></screen>
 
     <!-- Some tests PASS on a specific uarch but SKIP on other CPUs.
          For example on K8 the following command outputs 200.  -->
-    <para>Sørg for at minst 199 tester i testpakken besto.
+    <para>Sørg for at minst 199 tester i testpakken består.
     Sjekk resultatene ved å gi følgende kommando:</para>
 
 <screen><userinput remap="test">awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log</userinput></screen>

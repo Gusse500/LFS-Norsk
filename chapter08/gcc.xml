@@ -207,8 +207,8 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
 <screen><userinput remap="install">ln -svr /usr/bin/cpp /usr/lib</userinput></screen>
 
     <para>Mange pakker bruker navnet <command>cc</command> for å kalle C
-    kompilatoren.  Vi har allerede opprettet <command>cc</command> som en symlenke i
-    <xref linkend='ch-tools-gcc-pass2'/>, opprette mansiden til den som en symbolkobling
+    kompilatoren.  Vi har allerede opprettet <command>cc</command> som en symbolsk lenke i
+    <xref linkend='ch-tools-gcc-pass2'/>, opprett manualsiden til den som en symbolkobling
     også</para>
 
 <screen><userinput remap="install">ln -sv gcc.1 /usr/share/man/man1/cc.1</userinput></screen>
@@ -336,7 +336,7 @@ mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib</userinput></screen>
       <segtitle>Installerte mapper</segtitle>
 
       <seglistitem>
-        <seg>c++, cc (link to gcc), cpp, g++, gcc,
+        <seg>c++, cc (lenke til gcc), cpp, g++, gcc,
         gcc-ar, gcc-nm, gcc-ranlib, gcov, gcov-dump, gcov-tool,
         og lto-dump</seg>
 

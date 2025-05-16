@@ -119,7 +119,7 @@ EOF</userinput></screen>
       <segtitle>Installerte mapper</segtitle>
 
       <seglistitem>
-        <seg>bash, bashbug, og sh (link to bash)</seg>
+        <seg>bash, bashbug, og sh (lenke til bash)</seg>
         <seg>/usr/include/bash, /usr/lib/bash, og
         /usr/share/doc/bash-&bash-version;</seg>
       </seglistitem>

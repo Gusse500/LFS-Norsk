@@ -213,7 +213,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="msgconv">
         <term><command>msgconv</command></term>
         <listitem>
-          <para>Konverterer en oversettelseskatalog til en annet
+          <para>Konverterer en oversettelsesmappe til en annet
           tegnkoding</para>
           <indexterm zone="ch-system-gettext msgconv">
             <primary sortas="b-msgconv">msgconv</primary>
@@ -224,7 +224,7 @@ chmod -v 0755 /usr/lib/preloadable_libintl.so</userinput></screen>
       <varlistentry id="msgen">
         <term><command>msgen</command></term>
         <listitem>
-          <para>Oppretter en engelsk oversettelseskatalog</para>
+          <para>Oppretter en engelsk oversettelsesmappe</para>
           <indexterm zone="ch-system-gettext msgen">
             <primary sortas="b-msgen">msgen</primary>
           </indexterm>
