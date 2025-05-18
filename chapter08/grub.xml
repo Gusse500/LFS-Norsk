@@ -43,7 +43,7 @@
     <note>
       <para>
         Hvis systemet ditt har UEFI støtte og du ønsker å starte LFS med UEFI,
-        du må installere GRUB med UEFI støtte (og dets avhengigheter) med å
+        må du installere GRUB med UEFI støtte (og dets avhengigheter) med å
         følge instruksjonene på
         <ulink url="&blfs-book;postlfs/grub-efi.html">BLFS siden</ulink>.
 		Du kan hoppe over denne pakken, eller installere denne pakken og BLFS

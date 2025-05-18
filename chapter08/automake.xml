@@ -113,10 +113,10 @@
       <varlistentry id="automake">
         <term><command>automake</command></term>
         <listitem>
-          <para>Et verktly for automatisk generering av
+          <para>Et verktøy for automatisk generering av
           <filename>Makefile.in</filename> filer fra
           <filename>Makefile.am</filename> filer [For å lage alle
-          <filename>Makefile.in</filename> filer for en pakke, kjlr dette programmet
+          <filename>Makefile.in</filename> filer for en pakke, kjør dette programmet
            i mappen på øverste nivå. Ved å skanne
           <filename>configure.in</filename> filen, finner den automatisk hver
            passende <filename>Makefile.am</filename> fil og genererer

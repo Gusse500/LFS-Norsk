@@ -91,7 +91,7 @@ sed '/test_plugin_glvs/d' -i src/testdir/Make_all.mak</userinput></screen>
     <para>Mange brukere skriver refleksivt <command>vi</command> i stedet for
     <command>vim</command>. For å tillate kjøringen av <command>vim</command>
     når brukere vanligvis skriver <command>vi</command>, opprett en
-    symbolkobling for både binærsiden og mansiden i det angitte
+    symbolkobling for både binærsiden og manualsiden i det angitte
     språket:</para>
 
 <screen><userinput remap="install">ln -sv vim /usr/bin/vi

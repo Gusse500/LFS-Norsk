@@ -134,8 +134,8 @@
         <term><command>autoscan</command> </term>
         <listitem>
           <para>Hjelper med å lage en <filename>configure.in</filename> fil for en
-          programvarepakke; den underslker kildefilene i et mappetre,
-          slker etter vanlige problemer med portabilitet, og oppretter en
+          programvarepakke; den undersøker kildefilene i et mappetre,
+          søker etter vanlige problemer med portabilitet, og oppretter en
           <filename>configure.scan</filename> fil som fungerer som en
           innledende <filename>configure.in</filename> fil for en
           pakke</para>

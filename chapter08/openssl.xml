@@ -78,7 +78,7 @@
 <screen><userinput remap="install">sed -i '/INSTALL_LIBS/s/libcrypto.a libssl.a//' Makefile
 make MANSUFFIX=ssl install</userinput></screen>
 
-    <para>Legg til versjonen i dokumentasjonskatalognavnet, for å være
+    <para>Legg til versjonen i dokumentasjonsmappenavnet, for å være
     i samsvarer med andre pakker:</para>
 
 <screen><userinput remap="install">mv -v /usr/share/doc/openssl /usr/share/doc/openssl-&openssl-version;</userinput></screen>

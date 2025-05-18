@@ -43,7 +43,7 @@
 
     <para><command>arpd</command> programmet inkludert i denne pakken vil ikke
     bygges siden den er avhengig av Berkeley DB, som ikke er installert i
-    LFS. Men en mappe og en manside for <command>arpd</command> vil fortsatt
+    LFS. Men en mappe og en manualside for <command>arpd</command> vil fortsatt
     bli installert. Forhindre dette ved å kjøre kommandoene nedenfor.
     </para>
 
