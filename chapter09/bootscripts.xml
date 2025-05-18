@@ -85,7 +85,7 @@
         <term><command>cleanfs</command></term>
         <listitem>
           <para>Fjerner filer som ikke skal bevares mellom omstart, for eksempel
-          som de i <filename class="directory">/run/</filename> og
+          de i <filename class="directory">/run/</filename> og
           <filename class="directory">/var/lock/</filename>; det gjenskaper
           <filename>/run/utmp</filename> og fjerner de mulige tilstedeværende
           <filename>/etc/nologin</filename>, <filename>/fastboot</filename>, og
@@ -161,7 +161,7 @@
       <varlistentry id="modules-bootscripts">
         <term><command>modules</command></term>
         <listitem>
-          <para>Laster inn kjernemoduler som er oppflrt i
+          <para>Laster inn kjernemoduler som er oppført i
           <filename>/etc/sysconfig/modules</filename>, ved å bruke argumenter
           som også er gitt der</para>
           <indexterm zone="ch-config-bootscripts modules-bootscripts">

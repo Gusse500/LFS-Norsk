@@ -24,7 +24,7 @@
     <title/>
 
     <para>Sysklogd pakken inneholder programmer for logging av systemmeldinger,
-    slik som de kjernen gir når uvanlige ting skjer.</para>
+    slik som kjernen gir når uvanlige ting skjer.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -116,7 +116,7 @@ EOF</userinput></screen>
         <term><command>syslogd</command></term>
         <listitem>
           <para>Logger meldingene for systemprogrammer som tilbyr logging [Hver
-          logget melding inneholder minst et datostempel og et vertsnavn, og
+          loggmelding inneholder minst et datostempel og et vertsnavn, og
           normalt programmets navn også men det avhenger av hvor tillitsfull
           loggingnissen blir fortalt å være.]</para>
           <indexterm zone="ch-system-sysklogd syslogd">
