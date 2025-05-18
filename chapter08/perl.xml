@@ -86,7 +86,7 @@ export BUILD_BZIP2=0</userinput></screen>
         -D man3dir=/usr/share/man/man3</parameter></term>
         <listitem>
           <para>Siden Groff ikke er installert ennå vil ikke <command>Configure</command>
-          opprette mansider for Perl.  Disse
+          opprette manualsider for Perl.  Disse
           parameterene overstyrer denne oppførselen.</para>
         </listitem>
       </varlistentry>

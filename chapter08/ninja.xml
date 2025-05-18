@@ -56,7 +56,7 @@
     vil begrense <command>ninja</command> til fire parallelle prosesser.</para>
 
     <para>Om ønskelig, la <command>ninja</command> gjenkjenne miljøvariabelen
-    NINJAJOBS ved å kjøre strømredigeringsprogrammet:</para>
+    NINJAJOBS ved å kjøre strømmeredigeringsprogrammet:</para>
 
 <screen><userinput remap="pre">sed -i '/int Guess/a \
   int   j = 0;\

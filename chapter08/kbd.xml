@@ -53,7 +53,7 @@
     <para>Fjern det overflødige <command>resizecons</command> programmet (det krever
     den nedlagte svgalib for å gi videomodusfilene - for normal bruk
     <command>setfont</command> gjør størrelsen på konsollen passende) sammen med dens
-    manside.</para>
+    manualside.</para>
 
 <screen><userinput remap="pre">sed -i '/RESIZECONS_PROGS=/s/yes/no/' configure
 sed -i 's/resizecons.8 //' docs/man/man8/Makefile.in</userinput></screen>

@@ -131,7 +131,7 @@
     .  Det kan krasje skallprosessen som bruker kode og data
     fra bibliotekfilen. Installer pakken med
     <literal>DESTDIR</literal>, og bytt ut bibliotekfilen riktig med
-    <command>install</command> command (deklarasjonen
+    <command>install</command> kommandoen (deklarasjonen
     <filename>curses.h</filename> er også redigert for å sikre
     ABI med wide-character skal brukes som det vi har gjort i
     <xref linkend='ch-tools-ncurses'/>):</para>

@@ -145,7 +145,7 @@
     <para>For det første kan skriptet operere i <quote>by-path</quote> modus (brukes som
     standard for USB- og FireWire-enheter), der reglene den oppretter avhenger av
     den fysiske banen til CD- eller DVD-enheten. For det andre kan den operere i
-    <quote>by-id</quote> modus (standard for IDE- og SCSI-enheter), de
+    <quote>by-id</quote> modus (standard for IDE- og SCSI-enheter), der
     reglene den oppretter avhenger av identifikasjonsstrenger som er lagret på selve CD eller DVD
     enheten. Banen bestemmes av udev sitt <command>path_id</command>
     skript, og identifikasjonsstrengene leses fra maskinvaren av

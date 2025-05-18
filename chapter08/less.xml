@@ -51,8 +51,8 @@
         <term><parameter>--sysconfdir=/etc</parameter></term>
         <listitem>
           <para>Dette alternativet forteller at programmene som er opprettet av pakken, skal se
-           i <filename class="directory">/etc</filename> for konfigurasjonen
-           filer.</para>
+           i <filename class="directory">/etc</filename> for 
+           konfigurasjonsfiler.</para>
         </listitem>
       </varlistentry>
 

@@ -29,7 +29,7 @@
 
    <para>Kompilatoren bygd i <xref linkend="chapter-temporary-tools"/> og
    <xref linkend="chapter-chroot-temporary-tools"/> er fortsatt delvis
-   installert og ikke nldvendig lenger. Fjern den med:</para>
+   installert og er ikke nødvendig lenger. Fjern den med:</para>
 
 <screen><userinput>find /usr -depth -name $(uname -m)-lfs-linux-gnu\* | xargs rm -rf</userinput></screen>
 

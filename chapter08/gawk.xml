@@ -70,15 +70,15 @@ make install</userinput></screen>
         <listitem>
            <para>Byggesystemet vil ikke gjenskape den harde lenken
            <filename>gawk-&gawk-version;</filename> hvis den allerede eksisterer.
-           Fjern den for å sikre at den forrige hardlinken installert
+           Fjern den for å sikre at den forrige harde lenken installert
            i <xref linkend='ch-tools-gawk'/> er oppdatert her.</para>
        </listitem>
       </varlistentry>
    </variablelist>
 
     <para>Installasjonsprosessen har allerede opprettet <command>awk</command>
-    som en symlenke til <command>gawk</command>, opprette mansiden til den som en
-    symlenke også</para>
+    som en symlenke til <command>gawk</command>, opprette manualsiden til den som en
+    symbolsk lenke også</para>
 
 <screen><userinput remap="install">ln -sv gawk.1 /usr/share/man/man1/awk.1</userinput></screen>
 

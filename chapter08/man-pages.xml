@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Man-pages pakken inneholder over 2400 mansider..</para>
+    <para>Man-pages pakken inneholder over 2400 manualsider..</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -40,9 +40,9 @@
   <sect2 role="installation">
     <title>Installasjon av Man-pages</title>
 
-    <para>Fjern to mansider for passordhashingsfunksjoner.
+    <para>Fjern to manualsider for passordhashingsfunksjoner.
     <application>Libxcrypt</application> vil gi en bedre versjon
-    av disse mansidene:</para>
+    av disse manualsidene:</para>
 
 <screen><userinput remap="pre">rm -v man3/crypt*</userinput></screen>
 

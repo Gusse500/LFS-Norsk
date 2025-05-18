@@ -206,7 +206,7 @@ esac</userinput></screen>
     <important>
       <para>
         Hvis du oppgraderer Glibc til en ny mindre versjon (for eksempel fra
-        Glibc-2.36 to Glibc-&glibc-version;) på et kjørende LFS system, må du
+        Glibc-2.36 til Glibc-&glibc-version;) på et kjørende LFS system, må du
         ta noen ekstra forholdsregler for å unngå å ødelegge systemet:
       </para>
 
@@ -234,7 +234,7 @@ esac</userinput></screen>
             <application>Libxcrypt</application> med å følge
             <xref role='.' linkend='ch-system-libxcrypt'/>  I tillegg til
             en normal <application>Libxcrypt</application> installasjon,
-            <emphasis role='bold'>du MÅ følge notatet i Libxcrypt
+            <emphasis role='bold'>MÅ du følge notatet i Libxcrypt
             delen for å installere
             <filename class='libraryfile'>libcrypt.so.1*</filename>
             (ved å erstatte
@@ -498,7 +498,7 @@ for tz in etcetera southamerica northamerica europe africa antarctica  \
 done
 
 cp -v zone.tab zone1970.tab iso3166.tab $ZONEINFO
-zic -d $ZONEINFO -p Europe/Oslo
+zic -d $ZONEINFO -p America/New_York
 unset ZONEINFO tz</userinput></screen>
 
     <variablelist>
@@ -575,10 +575,10 @@ unset ZONEINFO tz</userinput></screen>
     class="libraryfile">/lib/ld-linux.so.2</filename>) søker gjennom
     <filename class="directory">/usr/lib</filename> for dynamiske biblioteker
     som trengs av programmer når de kjøres. Imidlertid, hvis det er
-    biblioteker i andre kataloger enn
+    biblioteker i andre mapper enn
     <filename class="directory">/usr/lib</filename>, må disse legges til
     <filename>/etc/ld.so.conf</filename> filen for at den
-    dynamiske lasteren skal finne dem. To kataloger som er allment kjent
+    dynamiske lasteren skal finne dem. To mapper som er allment kjent
     å inneholde flere biblioteker er <filename
     class="directory">/usr/local/lib</filename> og <filename
     class="directory">/opt/lib</filename>, så legg disse mappene til

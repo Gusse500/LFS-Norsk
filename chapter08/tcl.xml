@@ -65,7 +65,7 @@ cd unix
         <term><parameter>--disable-rpath</parameter></term>
         <listitem>
           <para>Denne parameteren forhindrer hardkoding av biblioteksøkebaner
-          (rpath) inn i de binære kjørbare filene og delte bibliotekene.
+          (rpath) inn i de binære kjørbare filene og delte biblioteker.
           Denne pakken trenger ikke rpath for en installasjon i
           standard plassering, og rpath kan noen ganger forårsake uønskede effekter
           eller til og med sikkerhetsproblemer.</para>
@@ -98,7 +98,7 @@ unset SRCDIR</userinput></screen>
     <quote>make</quote> kommandoen fjerner referanser til byggemappen fra
     konfigurasjonsfilene og erstatter dem med installasjonsmappen.
     Dette er ikke obligatorisk for resten av LFS, men kan være nødvendig i tilfelle en
-    pakke bygget senere bruker Tcl.</para>
+    pakke som blir bygget senere bruker Tcl.</para>
 
     <para>For å teste resultatene, kjør:</para>
 
@@ -121,7 +121,7 @@ unset SRCDIR</userinput></screen>
 
 <screen><userinput remap="install">ln -sfv tclsh&tcl-major-version; /usr/bin/tclsh</userinput></screen>
 
-    <para>Gi nytt navn til en manside som er i konflikt med en manside for Perl:</para>
+    <para>Gi nytt navn til en manualside som er i konflikt med en manualside for Perl:</para>
 
     <screen><userinput remap="install">mv /usr/share/man/man3/{Thread,Tcl_Thread}.3</userinput></screen>
 

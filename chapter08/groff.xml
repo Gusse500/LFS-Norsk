@@ -236,7 +236,7 @@
       <varlistentry id="groffer">
         <term><command>groffer</command></term>
         <listitem>
-          <para>Viser groff filer og mansider på X og tty terminaler</para>
+          <para>Viser groff filer og manualsider på X og tty terminaler</para>
           <indexterm zone="ch-system-groff groffer">
             <primary sortas="b-groffer">groffer</primary>
           </indexterm>

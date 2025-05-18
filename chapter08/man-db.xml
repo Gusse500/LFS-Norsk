@@ -24,7 +24,7 @@
     <title/>
 
     <para>Man-DB pakken inneholder programmer for å finne og se på
-    mansider.</para>
+    manualsider.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -91,7 +91,7 @@
           konverterer programkilder til Groff inndata, og <command>grap</command>
           er nyttig for å sette grafer i Groff dokumenter.
           <command>vgrind</command> og <command>grap</command> programmer er
-          vanligvis ikke nødvendig for å vise mansider. De er ikke en del av
+          vanligvis ikke nødvendig for å vise manualsider. De er ikke en del av
           LFS eller BLFS, men du bør kunne installere dem selv etter at du har
           fullført LFS hvis du ønsker å gjøre det.</para>
         </listitem>

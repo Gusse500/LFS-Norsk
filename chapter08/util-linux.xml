@@ -99,7 +99,7 @@
          the creation of /etc/fstab unless you've tested it with such a
          host distro (for example LFS systemd or Debian).  -->
     <para>Hvis ønskelig, lag en dummy <filename>/etc/fstab</filename> fil
-    å tilfredsstille to tester og kjør testpakken som en ikke-&root;
+    for å tilfredsstille to tester og kjør testpakken som en ikke-&root;
     bruker:</para>
 
     <warning><para>Å kjøre testpakken som
@@ -123,7 +123,7 @@ su tester -c "make -k check"</userinput></screen>
        aktivert eller har ingen alternativer som gir en SHA256 implementering
        (for eksempel, <option>CONFIG_CRYPTO_SHA256</option>, eller
        <option>CONFIG_CRYPTO_SHA256_SSSE3</option> hvis CPU støtter
-       Supplemental SSE3) aktivert. I tillegg vil lsfd: inotify-testen
+       Supplemental SSE3) aktivert. I tillegg vil lsfd: inotify testen
        mislykkes hvis kjernealternativet <option>CONFIG_NETLINK_DIAG</option> ikke er
        aktivert.
     </para>
@@ -444,7 +444,7 @@ su tester -c "make -k check"</userinput></screen>
       <varlistentry id="flock">
         <term><command>flock</command></term>
         <listitem>
-          <para>Setter en fillås og utfprer deretter en kommando med låsen
+          <para>Setter en fillås og utfører deretter en kommando med låsen
           holdt</para>
           <indexterm zone="ch-system-util-linux flock">
             <primary sortas="b-flock">flock</primary>
@@ -883,7 +883,7 @@ su tester -c "make -k check"</userinput></screen>
       <varlistentry id="more">
         <term><command>more</command></term>
         <listitem>
-          <para>Et filter for å bla gjennom tekst et skjermbilde om gangen</para>
+          <para>Et filter for å bla gjennom tekst, et skjermbilde om gangen</para>
           <indexterm zone="ch-system-util-linux more">
             <primary sortas="b-more">more</primary>
           </indexterm>
@@ -1068,7 +1068,7 @@ su tester -c "make -k check"</userinput></screen>
       <varlistentry id="setarch">
         <term><command>setarch</command></term>
         <listitem>
-          <para>Endringer rapportert arkitektur i et nytt programmiljø og
+          <para>Endrer rapportert arkitektur i et nytt programmiljø og
           setter personlighetsflagg</para>
           <indexterm zone="ch-system-util-linux setarch">
             <primary sortas="b-setarch">setarch</primary>
@@ -1291,7 +1291,7 @@ su tester -c "make -k check"</userinput></screen>
       <varlistentry id="whereis">
         <term><command>whereis</command></term>
         <listitem>
-          <para>Rapporterer plasseringen av binær, kilde og mansiden
+          <para>Rapporterer plasseringen av binær, kilde og manualsiden
           for den gitte kommandoen</para>
           <indexterm zone="ch-system-util-linux whereis">
             <primary sortas="b-whereis">whereis</primary>

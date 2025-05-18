@@ -74,7 +74,7 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--enable-plugins</parameter></term>
         <listitem>
-          <para>Aktiverer stltte for programtillegg for linkeren.</para>
+          <para>Aktiverer støtte for programtillegg for linkeren.</para>
         </listitem>
       </varlistentry>
 

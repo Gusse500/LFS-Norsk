@@ -231,7 +231,7 @@ rm /usr/share/man/man*/systemd*</userinput></screen>
       <segtitle>Installerte mapper</segtitle>
 
       <seglistitem>
-        <seg>udevadm, udevd (symlenke til udevadm), og udev-hwdb</seg>
+        <seg>udevadm, udevd (symbolsk lenke til udevadm), og udev-hwdb</seg>
 
         <seg>libudev.so</seg>
 
@@ -246,7 +246,7 @@ rm /usr/share/man/man*/systemd*</userinput></screen>
       <varlistentry id="udevadm" revision="sysv">
         <term><command>udevadm</command></term>
         <listitem>
-          <para>Generisk udev administrasjonsverktly: kontrollerer udevd nissen,
+          <para>Generisk udev administrasjonsverktøy: kontrollerer udevd nissen,
           gir informasjon fra Udevdatabasen, overvåker uevents, venter på
           uevents for å fullføre, tester Udevkonfigurasjonen og utløser uevents
           for en gitt enhet</para>

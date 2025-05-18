@@ -505,7 +505,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="false">
         <term><command>false</command></term>
         <listitem>
-          <para>Gjør ingenting, mislykket; den avsluttes alltid med en statuskode
+          <para>Gjør ingenting, mislykket; avsluttes den alltid med en statuskode
           som indikerer feil</para>
           <indexterm zone="ch-system-coreutils false">
             <primary sortas="b-false">false</primary>
@@ -1139,7 +1139,7 @@ sed -i 's/"1"/"8"/' /usr/share/man/man8/chroot.8</userinput></screen>
       <varlistentry id="true">
         <term><command>true</command></term>
         <listitem>
-          <para>Gjør ingenting, vellykket; den avsluttes alltid med en statuskode
+          <para>Gjør ingenting, vellykket; avsluttes den alltid med en statuskode
           som indikerer suksess</para>
           <indexterm zone="ch-system-coreutils true">
             <primary sortas="b-true">true</primary>

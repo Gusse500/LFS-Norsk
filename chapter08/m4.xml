@@ -85,7 +85,7 @@ echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h</userinput></screen>
         <listitem>
           <para>Kopierer de gitte filene mens de utvider makroene som de
           inneholder. Disse makroene er enten innebygde eller brukerdefinerte og kan
-          ta et hvilket som helst antall argumenter. Foruten å utføre makroutvidelse,
+          ha et hvilket som helst antall argumenter. Foruten å utføre makroutvidelse,
           <command>m4</command> har innebygde funksjoner for å inkludere navngitte
           filer, kjører Unix kommandoer, utføre heltallsaritmetikk,
           manipulere tekst, rekursjon osv. <command>m4</command> programmet

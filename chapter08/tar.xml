@@ -57,7 +57,7 @@
           <para>Dette tvinger testen for <function>mknod</function> å bli kjørt
           som <systemitem class="username">root</systemitem>.
           Det anses generelt som farlig å kjøre denne testen som
-          the <systemitem class="username">root</systemitem> bruker, men siden
+          <systemitem class="username">root</systemitem> bruker, men siden
           den kjøres på et system som kun er
           delvis bygget, å overstyre det er OK.</para>
         </listitem>

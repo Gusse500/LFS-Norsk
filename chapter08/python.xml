@@ -85,7 +85,7 @@
 <screen><userinput remap="test">make test TESTOPTS="--timeout 120"</userinput></screen>
 
     <para>For et relativt tregt system må du kanskje øke tidsgrensen
-    og 1 SBU (målt når du bygger Binutils passerer 1 med én CPU
+    og 1 SBU (målt når du bygger Binutils pass 1 med én CPU
     kjerne) bør være nok. Noen tester er rare, så testpakken vil automatisk
     kjøre mislykkede tester på nytt. Hvis en test mislyktes, men deretter består
     når den kjøres på nytt, bør den anses som bestått.  En test, test_ssl,
@@ -121,7 +121,7 @@
     oppdateres separat. Dessuten vil en oppdatering fra et forhåndsbygd wheel avvike
     fra vårt mål: å bygge et Linuxsystem fra kildekoden. Så
     advarsel om en ny versjon av <command>pip3</command> bør ignoreres om
-    vi vil. Hvis du ønsker det, kan du undertrykke alle disse advarslene ved å kjøre følgende
+    du vil. Hvis du ønsker det, kan du undertrykke alle disse advarslene ved å kjøre følgende
     kommando, som oppretter en konfigurasjonsfil:</para>
 
 <screen><userinput remap="install">cat &gt; /etc/pip.conf &lt;&lt; EOF

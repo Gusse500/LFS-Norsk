@@ -18,8 +18,8 @@
   <para>I <xref linkend="chapter-building-system"/>, installerte vi udev
   nissen når <phrase revision="sysv">udev</phrase>
   <phrase revision="systemd">systemd</phrase> ble bygget. Før vi går inn i
-  detaljer om hvordan dette fungerer, er en kort historie om tidligere metoder for
-  å håndtere utstyr i orden.</para>
+  detaljer om hvordan dette fungerer, kan en kort historie om tidligere metoder for
+  å håndtere utstyr være nyttig.</para>
 
   <para>Generelt brukte Linux systemer tradisjonelt en statisk enhetsopprettingsmetode
   , hvor mange enhetsnoder ble opprettet under <filename
@@ -189,15 +189,15 @@
       en <filename>modalias</filename> fil der.</para>
 
       <para>Hvis <filename>modalias</filename> filen finnes i <systemitem
-      class="filesystem">sysfs</systemitem>, driveren støtter enheten og
+      class="filesystem">sysfs</systemitem>, støtter driveren enheten og
       kan snakke med den direkte, men har ikke aliaset, det er en feil i
       driveren. Last inn driveren uten hjelp fra udev og forvent at problemet
       blir fikset senere.</para>
 
       <para>Hvis det ikke er noen <filename>modalias</filename> fil i den aktuelle
-      mappen under <filename class="directory">/sys/bus</filename>, dette
-      betyr at kjerneutviklerne ennå ikke har lagt til støtte for modalias
-      for denne busstypen. Med Linux-&linux-version;, dette er tilfellet med ISA
+      mappen under <filename class="directory">/sys/bus</filename>, betyr dette
+      at kjerneutviklerne ennå ikke har lagt til støtte for modalias
+      for denne busstypen. Med Linux-&linux-version;, er dette tilfellet med ISA
       busser. Forvent at dette problemet blir løst i senere kjerneversjoner.</para>
 
       <para>Udev er ikke ment å laste <quote>innpakkede (wrapper)</quote> drivere som f.eks
@@ -233,7 +233,7 @@
       nyttig i seg selv, konfigurer <command>modules</command> oppstartsskriptet til
       å laste denne modulen ved systemoppstart. For å gjøre dette, legg til modulnavnet i
       <filename>/etc/sysconfig/modules</filename> filen på en egen linje.
-      Dette fungerer også for innpakningsmoduler, men er ikke optimalt i så fall.</para>
+      Dette fungerer også for innpakningsmoduler, men er ikke i så fall optimalt.</para>
 
     </sect3>
 
@@ -286,7 +286,7 @@
       <para>Hvis en kjernedriver ikke eksporterer dataene sine til
       <systemitem class="filesystem">sysfs</systemitem>, mangler udev
       informasjon som trengs for å opprette en enhetsnode. Dette vil mest sannsynlig skje
-      med tredjepartsdrivere fra utenfor kjernetreet. Lag en statisk
+      med tredjepartsdrivere utenfor kjernetreet. Lag en statisk
       enhetsnode i <filename>/usr/lib/udev/devices</filename> med
       passende hoved/under nummer (se filen
       <filename>devices.txt</filename> inne i kjernedokumentasjonen eller
