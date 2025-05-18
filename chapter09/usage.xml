@@ -52,7 +52,7 @@
          uten nettverk</quote>, men dette var bare tilfelle for
          mange år siden da flere brukere kunne logge på et system koblet via
          serielle porter. I dagens miljø gir det ingen mening og
-         vi betegner det nå som <quote>reserved</quote>.
+         vi betegner det nå som <quote>reservert</quote>.
        </para>
     </note>
 
@@ -105,7 +105,7 @@ s1:1:respawn:/sbin/sulogin
 # End /etc/inittab</literal>
 EOF</userinput></screen>
 
-  <para>En forklaring av denne initialiseringsfilen er på mansiden for
+  <para>En forklaring av denne initialiseringsfilen er på manualsiden for
   <emphasis>inittab</emphasis>.  I LFS, nøkkelkommandoen er
   <command>rc</command>. Initialiseringsfilen ovenfor instruerer
   <command>rc</command> å kjøre alle skriptene som starter med en S i
@@ -114,12 +114,12 @@ EOF</userinput></screen>
   class="directory">/etc/rc.d/rc?.d</filename> mappen hvor spørsmålstegnet
   er spesifisert av initdefault verdien.</para>
 
-  <para>Som en bekvemmelighet <command>rc</command> skriptet leser et bibliotek av
+  <para>Som en bekvemmelighet leser <command>rc</command> skriptet et bibliotek av
   funksjoner i <filename class="directory">/lib/lsb/init-functions</filename>.
   Dette biblioteket leser også en valgfri konfigurasjonsfil,
   <filename>/etc/sysconfig/rc.site</filename>.  Hvilket som helst av systemets
-  konfigurasjonsfilparametere beskrevet i påfølgende avsnitt kan være
-  alternativt plassert i denne filen som tillater konsolidering av alle systemets
+  konfigurasjonsfilparametere beskrevet i påfølgende avsnitt kan alternativt
+  være plassert i denne filen som tillater konsolidering av alle systemets
   parametere i denne ene filen.</para>
 
   <para>Som en bekvemmelighet for feilsøking logger funksjonsskriptet også all utdata
@@ -148,8 +148,8 @@ EOF</userinput></screen>
   forbokstaven. K betyr å stoppe (drepe) en tjeneste og S betyr å starte en
   tjeneste. Tallene bestemmer rekkefølgen skriptene kjøres i, fra 00
   til 99&mdash;jo lavere tall, desto tidligere blir det utført. Når
-  <command>init</command> bytter til et annet kjørenivå de aktuelle tjenestene
-  er enten startet eller stoppet, avhengig av valgt kjørenivå.</para>
+  <command>init</command> bytter til et annet kjørenivå er de aktuelle tjenestene
+  enten startet eller stoppet, avhengig av valgt kjørenivå.</para>
 
   <para>De virkelige skriptene er i <filename
   class="directory">/etc/rc.d/init.d</filename>. De gjør selve jobben, og
@@ -221,7 +221,7 @@ EOF</userinput></screen>
   </variablelist>
 
   <para>Du kan gjerne endre måten oppstartsprosessen fungerer på (tross alt,
-  det er ditt eget LFSsystem). Filene gitt her er et eksempel på hvordan
+  det er ditt eget LFS system). Filene gitt her er et eksempel på hvordan
   det kan gjøres.</para>
 
   </sect3>
@@ -274,8 +274,8 @@ EOF</userinput></screen>
     må konfigureres manuelt.</para>
 
     <para><command>setclock</command> programmet kjøres via
-    <application>udev</application> når kjernen oppdager maskinvare
-    kapasiteten ved oppstart. Den kan også kjøres manuelt med stop parameteren til
+    <application>udev</application> når kjernen oppdager maskinvarekapasiteten
+    ved oppstart. Den kan også kjøres manuelt med stop parameteren til
     å lagre systemtiden til CMOS-klokken.</para>
 
     <para>Hvis du ikke husker om maskinvareklokken er satt til UTC eller ikke,
@@ -336,8 +336,8 @@ EOF</userinput></screen>
   <command>console</command> vil ikke oppstartsskriptet gjøre noe.</para>
 
   <para><command>console</command> skriptet leser
-  <filename>/etc/sysconfig/console</filename> filen for konfigurasjons
-  informasjon. Bestem hvilket tastatur og skjermskrift som skal brukes. Diverse
+  <filename>/etc/sysconfig/console</filename> filen for konfigurasjonsinformasjon.
+  Bestem hvilket tastatur og skjermskrift som skal brukes. Diverse
   språkspesifikke HOWTOer kan også hjelpe med dette, se <ulink
   url="https://tldp.org/HOWTO/HOWTO-INDEX/other-lang.html"/>. Hvis du fortsatt er i
   tvil, se i <filename class="directory">/usr/share/keymaps</filename>
@@ -515,9 +515,9 @@ EOF</userinput></screen>
 
     <listitem>
       <para>På grunn av bruken av en 512-glyph LatArCyrHeb-16 font i forrige eksempel,
-      lyse farger er ikke lenger tilgjengelig på Linux konsollen med mindre
+      er lyse farger ikke lenger tilgjengelig på Linuxkonsollen med mindre
       en rammebuffer brukes. Hvis man ønsker å ha lyse farger uten en
-      rammebuffer og kan leve uten karakterer som ikke tilhører språket hans,
+      rammebuffer og kan leve uten karakterer som ikke tilhører språket som brukes,
       er det fortsatt mulig å bruke en språkspesifikk font med 256 glyffer, som
       illustrert nedenfor:</para>
 
@@ -567,8 +567,8 @@ EOF</userinput></screen>
     </listitem>
 
     <listitem>
-      <para>For kinesisk, japansk, koreansk og noen andre språk, Linux
-      konsollen kan ikke konfigureres til å vise de nødvendige tegnene. Brukere
+      <para>For kinesisk, japansk, koreansk og noen andre språk, kan ikke
+      Linuxkonsollen konfigureres til å vise de nødvendige tegnene. Brukere
       som trenger slike språk bør installere et X Window System, fonter som
       dekker de nødvendige tegnområdene og den riktige inndatametoden (f.eks.
       SCIM, støtter et bredt utvalg av språk).</para>
@@ -580,7 +580,7 @@ EOF</userinput></screen>
   to blfs-support list -->
   <note>
     <para><filename>/etc/sysconfig/console</filename> filen kontroller kun
-    lokaliseringen av Linux-tekstkonsollen. Det har ingenting med innstilling å gjøre
+    lokaliseringen av Linux-tekstkonsollen. Det har ingenting med innstilling med
     riktig tastaturoppsett og terminalfonter i X Window System, med
     ssh økter, eller med en seriell konsoll. I slike situasjoner, begrensninger
     nevnt i de to siste listepunktene ovenfor gjelder ikke.</para>
