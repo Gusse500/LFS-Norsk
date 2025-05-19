@@ -47,13 +47,13 @@
 
     <important>
       <para>
-        Å bygge Linuxkjernen for færste gang er en av de mest
+        Å bygge Linuxkjernen for første gang er en av de mest
         utfordrende oppgaver i LFS. Å få det riktig avhenger av den spesifikke
         maskinvaren for målsystemet og dine spesifikke behov. Det er
         nesten 12 000 konfigurasjonselementer som er tilgjengelige for kjernen,
-        selv om bare en tredjedel av dem er nædvendig for de fleste datamaskiner.
-        LFS redaktærene anbefaler at brukere som ikke er kjent med denne prosessen fælger
-        prosedyrene nedenfor ganske næye. Målet er å få et
+        selv om bare en tredjedel av dem er nødvendig for de fleste datamaskiner.
+        LFS redaktøene anbefaler at brukere som ikke er kjent med denne prosessen følger
+        prosedyrene nedenfor ganske nøye. Målet er å få et
         innledende system til et punkt hvor du kan logge inn på kommandolinjen når
         du starter på nytt senere i <xref linkend="ch-finish-reboot" role='.'/>  
         På dette punktet er optimering og tilpasning ikke et mål.
@@ -258,8 +258,8 @@
         <listitem>
           <para>Dette vil opprette automatiserte enhetsnoder som er befolket av
           kjerne, selv uten at Udev kjører. Udev kjører så på toppen av dette,
-          administrere tillatelser og legge til symbolkoblinger. Denne konfigurasjonen
-          element er nødvendig for alle brukere av Udev.</para>
+          administrere tillatelser og legger til symbolkoblinger. Dette
+          konfigurasjonselement er nødvendig for alle brukere av Udev.</para>
         </listitem>
       </varlistentry>
 
@@ -275,7 +275,7 @@
       <varlistentry>
         <term>
           <parameter>
-            Vis en brukervennlig melding når en kjernepanikk oppstår
+            Display a user-friendly message when a kernel panic occurs
           </parameter>
         </term>
         <listitem>
@@ -283,7 +283,7 @@
           i tilfelle kjernepanikk oppstår og en kjørende DRM driver
           støtter å gjøre det. Uten dette ville det blitt mer
           vanskelig å diagnostisere panikk: hvis ingen DRM driver kjører,
-          vi ville være på VGA konsollen som bare kan inneholde 24 linjer og
+          ville vi være på VGA konsollen som bare kan inneholde 24 linjer og
           den relevante kjernemeldingen skylles ofte bort; hvis en DRM
           driveren kjører, er skjermen ofte fullstendig rotete
           i panikk. Fra og med Linux-6.12, ingen av de dedikerte driverne for
@@ -303,13 +303,13 @@
       <varlistentry>
         <term>
           <parameter>
-            Panikkskjermformater
+            Panic screen formatter
           </parameter>
         </term>
         <listitem>
           <para>Still inn denne <literal>kmsg</literal> for å sikre at de siste
           kjernemeldingslinjer vises når en kjernepanikk oppstår.
-          Standard, <literal>bruker</literal>, ville få kjernen til å vise
+          Standard, <literal>user</literal>, ville få kjernen til å vise
           bare en <quote>brukervennlig</quote> panikkmelding som ikke er
           nyttig å diagnostikkere. Det tredje valget,
           <literal>qr_code</literal>, ville få kjernen til å komprimere
@@ -323,15 +323,15 @@
       <varlistentry>
         <term>
           <parameter>
-            Merk VGA/VBE/EFI FB som generisk systemrammebuffer
+            Mark VGA/VBE/EFI FB as generic system framebuffer
           </parameter> og
-          <parameter>Enkel framebuffer driver</parameter>
+          <parameter>Simple framebuffer driver</parameter>
         </term>
         <listitem>
           <para>Disse gjør det mulig å bruke VESA rammebufferen (eller EFI
-          framebuffer hvis du starter opp LFS systemet via UEFI) som en DRM enhet.
+          rammebuffer hvis du starter opp LFS systemet via UEFI) som en DRM enhet.
           VESA rammebufferen vil bli satt opp av GRUB (eller EFI
-          framebuffer vil bli satt opp av UEFI fastvaren), så DRM panikken
+          rammebuffer vil bli satt opp av UEFI fastvaren), så DRM panikk
           handleren kan fungere før den GPU spesifikke DRM driveren er
           lastet.</para>
         </listitem>
@@ -340,7 +340,7 @@
       <varlistentry>
         <term>
           <parameter>
-            Aktiver eldre fbdev støtte for modusinnstillingsdriveren
+            Enable legacy fbdev support for your modesetting driver
           </parameter> og
           <parameter>Framebuffer Console support</parameter>
         </term>
@@ -371,7 +371,7 @@
     hensiktsmessig i noen situasjoner. Se <filename>README</filename>
     filen for mer informasjon.</para>
 
-    <para>Hvis ænskelig, hopp over kjernekonfigurasjonen ved å kopiere kjernens
+    <para>Hvis ønskelig, hopp over kjernekonfigurasjonen ved å kopiere kjernens
     konfigurasjonsfil, <filename>.config</filename>, fra vertssystemet
     (forutsatt at den er tilgjengelig) til den utpakkede <filename
     class="directory">linux-&linux-version;</filename> mappen. Derimot,
@@ -384,7 +384,7 @@
 <screen><userinput remap="make">make</userinput></screen>
 
     <para>Hvis du bruker kjernemoduler, modulkonfigurasjon i <filename
-    class="directory">/etc/modprobe.d</filename> kan være nædvendig.
+    class="directory">/etc/modprobe.d</filename> kan være nødvendig.
     Informasjon knyttet til moduler og kjernekonfigurasjon er
     lokalisert i <xref linkend="ch-config-udev"/> og kjerne
     dokumentasjon i <filename
@@ -392,23 +392,23 @@
     Også, <ulink role='man' url='&man;modprobe.d.5'>modprobe.d(5)</ulink>
     kan være av interesse.</para>
 
-    <para>Med mindre modulstætte er deaktivert i kjernekonfigurasjonen,
+    <para>Med mindre modulstøtte er deaktivert i kjernekonfigurasjonen,
     installere modulene med:</para>
 
 <screen><userinput remap="install">make modules_install</userinput></screen>
 
-    <para>Etter at kjernekompileringen er fullfært, er flere trinn
-    nædvendig for å fullfære installasjonen. Noen filer må kopieres til
+    <para>Etter at kjernekompileringen er fullført, er flere trinn
+    nødvendig for å fullføre installasjonen. Noen filer må kopieres til
     <filename class="directory">/boot</filename> mappen.</para>
 
     <caution>
       <para>Hvis du har bestemt deg for å bruke et separat &boot-dir; partisjon for
       LFS systemet (kanskje dele en &boot-dir; partisjon med vertsdistroen), 
       filene som er kopiert nedenfor, skal gå dit. Den enkleste måten å
-      gjær det er å opprette oppfæringen for &boot-dir; i &fstab; færst (les
-      forrige seksjon for detaljer), utfær deretter fælgende kommando
+      gjøre det er å opprette oppføringen for &boot-dir; i &fstab; først (les
+      forrige seksjon for detaljer), utfør deretter følgende kommando
       som &root; bruker i
-      <emphasis>chroot environment</emphasis>:</para>
+      <emphasis>chroot miljøet</emphasis>:</para>
 
 <screen role="nodump"><userinput>mount /boot</userinput></screen>
 
@@ -447,7 +447,7 @@
     <para>Det er viktig å merke seg at filene i kjernekildens
     mappen ikke eies av <emphasis>root</emphasis>. Når en
     pakke pakkes ut som bruker <emphasis>root</emphasis> (som vi gjorde
-    inne i chroot), filene har bruker- og gruppe-IDer for hva som helst
+    inne i chroot), har filene bruker- og gruppe-IDer for hva som helst
     de var på pakkerens datamaskin. Dette er vanligvis ikke et problem
     for enhver pakke som skal installeres fordi kildetreet blir
     fjernet etter installasjonen. Imidlertid er Linux kildetreet

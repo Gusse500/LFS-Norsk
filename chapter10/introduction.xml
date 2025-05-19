@@ -11,8 +11,8 @@
   <title>Introduksjon</title>
 
   <para>Det er på tide å gjøre LFS systemet oppstartbart. Dette kapittelet
-   diskuterer å opprette <filename>/etc/fstab</filename> filen, bygge en
+   diskuterer oppretting av filen <filename>/etc/fstab</filename>, bygge en
    kjerne for det nye LFS systemet, og installere GRUB oppstartslasteren slik
-   at LFS systemet kan velges for oppstart ved oppstart.</para>
+   at LFS systemet kan velges for oppstart ved start.</para>
 
 </sect1>

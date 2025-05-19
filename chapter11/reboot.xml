@@ -141,7 +141,7 @@ umount -v $LFS</userinput></screen>
 
    <para>Når omstarten er fullført, er LFS systemet klart til bruk. Hva du
   vil se er en enkel <quote>login: </quote> ledetekst. På dette tidspunktet kan du
-  fortsett til <ulink url="&blfs-book;">BLFS boken</ulink> 
+  fortsette til <ulink url="&blfs-book;">BLFS boken</ulink> 
   hvor du kan legge til mer programvare som passer dine behov.</para>
 
   <para>

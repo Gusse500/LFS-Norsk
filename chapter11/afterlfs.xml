@@ -148,16 +148,16 @@ EOF</command></screen>
 
     <para>
         Skriptet kan kjøres med <command>bash ~/mount-virt.sh</command> som
-        enten en vanlig bruker (anbefalt) eller som &root;. Hvis du kjører som vanlig
+        enten en vanlig bruker (anbefalt) eller som &root;. Hvis du kjører som en vanlig
         bruker, er sudo nødvendig på vertssystemet.
     </para>
 
     <para>
         Et annet problem påpekt av skriptet er hvor du skal lagre nedlastede
         pakkefiler. Denne plasseringen er vilkårlig. Det kan være i en vanlig
-        brukers hjemmekatalog som ~/sources eller på en global plassering som
-        /usr/src. Vær anbefaling er å ikke blande BLFS kilder og LFS kilder
-        i (fra chroot-miljøet) /sources. I alle fall, pakkene
+        brukers hjemmemappe som ~/sources eller på en global plassering som
+        /usr/src. Vår anbefaling er å ikke blande BLFS kilder og LFS kilder
+        i /sources (fra chroot-miljøet). I alle fall, pakkene
         må være tilgjengelig inne i chroot-miljøet.
     </para>
 
