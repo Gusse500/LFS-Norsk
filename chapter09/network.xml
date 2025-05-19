@@ -28,9 +28,9 @@
     filnavnet er <emphasis>ifconfig</emphasis>.</para>
 
     <note>
-      <para>Hvis prosedyren i forrige avsnitt ikke ble brukt, udev
-      vil tildele nettverkskortgrensesnittnavn basert på systemets fysiske
-      egenskaper som enp2s1. Hvis du ikke er sikker på hva grensesnittetnavnet ditt
+      <para>Hvis prosedyren i forrige avsnitt ikke ble brukt, vil udev
+      tildele nettverkskortgrensesnittnavn basert på systemets fysiske
+      egenskaper som enp2s1. Hvis du ikke er sikker på hva grensesnittnavnet ditt
       er, kan du alltid kjøre <command>ip link</command> eller <command>ls
       /sys/class/net</command> etter at du har startet opp systemet.
       </para>
@@ -64,19 +64,19 @@ EOF</userinput></screen>
 
     <para>Hvis <envar>ONBOOT</envar> variabelen er satt til <literal>yes</literal>
     System V nettverksskript vil hente opp nettverksgrensesnittkortet (NIC) under
-    systemets oppstartsprosess. Hvis satt til noe annet enn <literal>yes</literal> NIC
-    vil bli ignorert av nettverksskriptet og ikke automatisk hentet frem.
+    systemets oppstartsprosess. Hvis satt til noe annet enn <literal>yes</literal> vil NIC
+    bli ignorert av nettverksskriptet og ikke automatisk hentet frem.
     Grensesnittet kan startes eller stoppes manuelt med
     <command>ifup</command> og <command>ifdown</command> kommandoene.</para>
 
     <para><envar>IFACE</envar> variabelen definerer grensesnittnavnet,
-    for eksempel eth0. Det kreves for all konfigurasjon av nettverksenhets
-    filer. Filnavnet må samsvare med denne verdien.</para>
+    for eksempel eth0. Det kreves for all konfigurasjon av 
+    nettverksenhetsfiler. Filnavnet må samsvare med denne verdien.</para>
 
     <para><envar>SERVICE</envar> variabelen definerer metoden som brukes for
     få IP adressen. LFS-Bootscripts pakken har en modulær IP
     tildelingsformat, og oppretter flere filer i <filename
-    class="directory">/lib/services/</filename> katalogen tillater annen IP
+    class="directory">/lib/services/</filename> mappen som tillater annen IP
     tildelingsmetoder. Dette brukes ofte for dynamisk vertskonfigurasjon
     Protokoll (DHCP), som er adressert i BLFS boken.</para>
 
@@ -104,7 +104,7 @@ EOF</userinput></screen>
       <primary sortas="e-/etc/resolv.conf">/etc/resolv.conf</primary>
     </indexterm>
 
-    <para>Systemet vil trenge noen midler for å få domenenavntjeneste
+    <para>Systemet vil trenge noen metoder for å få domenenavntjeneste
     (DNS) navneoppløsning for å løse Internett domenenavn til IP adresser, og
     omvendt. Dette oppnås best ved å plassere IP adressen til DNS
     server, tilgjengelig fra Internett leverandøren eller nettverksadministratoren, til
@@ -122,7 +122,7 @@ nameserver <replaceable>&lt;IP adressen til din sekundære navneserver&gt;</repl
 EOF</userinput></screen>
 
     <para><varname>domain</varname> erklæringen kan utelates
-    eller erstattet med en <varname>search</varname> erklæring.  Se mansiden for
+    eller erstattet med en <varname>search</varname> erklæring.  Se manualsiden til
     resolv.conf for flere detaljer.</para>
 
     <para>Erstatt <replaceable>&lt;IP adressen til din navneserver&gt;</replaceable>

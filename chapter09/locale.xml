@@ -18,8 +18,8 @@
     <primary sortas="e-/etc/profile">/etc/locale.conf</primary>
   </indexterm>
 
-  <para>Noen miljøvariabler er nødvendige for morsmål
-  støtte. Å sette dem riktig resulterer i:</para>
+  <para>Noen miljøvariabler er nødvendige for morsmålstøtte.
+  Å sette dem riktig resulterer i:</para>
 
   <itemizedlist>
     <listitem>
@@ -91,7 +91,7 @@ LC_ALL=&lt;locale name&gt; locale int_prefix</userinput></screen>
 <screen><computeroutput>locale: Cannot set LC_* to default locale: No such file or directory</computeroutput></screen>
 
   <para>Hvis dette skjer, bør du enten installere ønsket lokalitet ved å bruke
-  <command>localedef</command> kommando, eller vurder å velge en annen lokalitet.
+  <command>localedef</command> kommandoen, eller vurder å velge en annen lokalitet.
   Ytterligere instruksjoner forutsetter at det ikke er slike feilmeldinger fra
   Glibc.</para>
 

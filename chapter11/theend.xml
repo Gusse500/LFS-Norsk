@@ -63,6 +63,6 @@ RELEASE_TYPE="&os-release-type;"
 EOF</userinput></screen>
 
   <para>Pass på å tilpasse feltene 'DISTRIB_CODENAME' og
-  'VERSION_CODENAME' for å gjøre systemet unikt ditt.</para>
+  'VERSION_CODENAME' for å gjøre systemet unikt for deg.</para>
 
 </sect1>

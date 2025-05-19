@@ -17,13 +17,13 @@
   <para>Hver pakke bygget i LFS er avhengig av en eller flere andre pakker
   for å bygges og installeres riktig. Noen pakker deltar til og med i
   sirkulære avhengigheter, det vil si at den første pakken avhenger av den andre
-  i sin tur avhenger av den færste. På grunn av disse avhengighetene er rekkefølgen som
+  i sin tur avhenger av den første. På grunn av disse avhengighetene er rekkefølgen som
   pakkene bygges i LFS veldig viktig. Formålet med denne siden
   er å dokumentere avhengighetene til hver pakke bygget i LFS.</para>
 
   <para>For hver pakke som bygges er det tre, og noen ganger opptil
   fem typer avhengigheter oppført nedenfor. Den første viser hvilke andre pakker
-  må være tilgjengelig for å kompilere og installere den aktuelle pakken.
+  som må være tilgjengelig for å kompilere og installere den aktuelle pakken.
   Den andre viser pakkene som må være tilgjengelige når noen programmer eller
   biblioteker fra pakken brukes under kjøring. Den tredje viser hvilke pakker,
   i tillegg til de på den første listen, som må være tilgjengelige for å kjøre

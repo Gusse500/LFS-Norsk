@@ -104,7 +104,7 @@ EOF</userinput></screen>
   er navngitt
   <quote>Default NLS Option</quote> (<option>CONFIG_NLS_DEFAULT)</option>,
   <quote>Default Remote NLS Option</quote> (<option>CONFIG_SMB_NLS_DEFAULT</option>),
-  <quote>Default codepage for FAT</quote> (<option>CONFIG_FAT_DEFAULT_CODEPAGE</option>), and
+  <quote>Default codepage for FAT</quote> (<option>CONFIG_FAT_DEFAULT_CODEPAGE</option>), og
   <quote>Default iocharset for FAT</quote> (<option>CONFIG_FAT_DEFAULT_IOCHARSET</option>).
   Det er ingen måte å spesifisere disse innstillingene for
   ntfs filsystem på kjernekompileringstidspunktet.</para>
