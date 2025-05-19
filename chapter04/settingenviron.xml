@@ -119,7 +119,7 @@ EOF</userinput></screen>
   <envar>PATH</envar> variabel burde settes til <filename
   class="directory">/usr/bin/</filename> for <xref
   linkend="chapter-temporary-tools"/> miljøet. Når dette ikke er
-  tilfelle, legger følgende linje <filename class="directory">/bin</filename>
+  tilfelle, legg følgende linje <filename class="directory">/bin</filename>
   til stien.</para>
       </listitem>
     </varlistentry>
@@ -198,7 +198,7 @@ EOF</userinput></screen>
     make" ved å fortelle make programmet hvor mange prosessorer som er tilgjengelige via
     et kommandolinjealternativ eller en miljøvariabel. For eksempel en Intel
     Core i9-13900K-prosessor har 8 P (ytelse) kjerner og
-    16 E (effektivitet) kjerner, og en P-kjerne kan kjøre to tråder samtidig
+    16 E (effektive) kjerner, og en P-kjerne kan kjøre to tråder samtidig
     så hver P-kjerne er modellert som to logiske kjerner av Linuxkjernen.
     Som et resultat er det totalt 32 logiske kjerner. En åpenbar måte å
     bruke alle disse logiske kjernene er å tillate <command>make</command> å gjøre

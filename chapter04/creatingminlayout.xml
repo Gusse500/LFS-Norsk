@@ -32,7 +32,7 @@ case $(uname -m) in
 esac</userinput></screen>
 
   <para>Programmer i <xref linkend="chapter-temporary-tools"/> vil bli kompilert
-  med en krysskompilator (mer detaljer kan bli funnet i avsnitt <xref
+  med en krysskompilator (mer detaljer kan bli funnet i avsnittet <xref
   linkend="ch-tools-toolchaintechnotes"/>). Denne krysskompilatoren vil bli installert
   i en spesiell mappe for å skille den fra de andre programmene. Fortsatt som
   &root;, lag den mappen med denne kommandoen:</para>

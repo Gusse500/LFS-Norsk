@@ -79,7 +79,7 @@
       <varlistentry><term>mål</term><listitem>
         <para>brukes kun for kompilatorer. Det er maskinen kompilatoren
         produserer kode for. Det kan være forskjellig fra både bygg og
-        vertent.</para></listitem>
+        verten.</para></listitem>
       </varlistentry>
 
     </variablelist>
@@ -88,7 +88,7 @@
     referert til som <quote>Canadian Cross</quote>). vi har en
     kompilator bare på en treg maskin, la oss kalle det maskin A, og kompilatoren
     ccA. Vi kan også ha en rask maskin (B), men uten kompilator, og vi
-    ønsker å produsere kode for en annen treg maskin (C). Å bygge en
+    ønsker å produsere kode for en annen treg maskin (C). For å bygge en
     kompilator for maskin C, ville vi ha tre trinn:</para>
 
     <informaltable align="center">
