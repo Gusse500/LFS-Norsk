@@ -84,7 +84,7 @@
       <listitem>
          <para> De virtuelle filsystemene må være montert. Dette kan gjøres
          før eller etter at chroot er gått inn i, ved å bytte til en virtuell vertsterminal
-         og som <systemitem class="username">root</systemitem>, kjører
+         og som <systemitem class="username">root</systemitem>, kjøre
          kommandoene i
          <xref linkend='ch-tools-bindmount'/> og
          <xref linkend='ch-tools-kernfsmount' role='.'/></para>

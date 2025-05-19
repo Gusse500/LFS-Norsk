@@ -25,7 +25,7 @@
 
         <para>Denne pakken inneholder verktøy for å administrere
         tilgangskontrolllister, som brukes til å definere mer finkornet
-        skjønnsmessige tilgangsrettigheter for filer og kataloger.
+        skjønnsmessige tilgangsrettigheter for filer og mapper.
         </para>
       </listitem>
 
@@ -254,7 +254,7 @@
         <para>Gzip</para>
 
         <para>Denne pakken inneholder programmer for komprimering og
-        dekomprimere av filer. Det er nædvendig for å dekomprimere mange pakker
+        dekomprimere av filer. Det er nødvendig for å dekomprimere mange pakker
         i LFS.</para>
       </listitem>
 
@@ -262,7 +262,7 @@
         <para>Iana-etc</para>
 
         <para>Denne pakken gir data for nettverkstjenester og protokoller.
-        Det er nædvendig for å aktivere riktige nettverksfunksjoner.</para>
+        Det er nødvendig for å aktivere riktige nettverksfunksjoner.</para>
       </listitem>
 
       <listitem>
@@ -275,7 +275,7 @@
       <listitem>
         <para>Intltool</para>
 
-        <para>Denne pakken inneholder verktæy for å trekke ut oversettbare
+        <para>Denne pakken inneholder verktøy for å trekke ut oversettbare
         strenger fra kildefiler.</para>
       </listitem>
 
@@ -284,7 +284,7 @@
 
         <para>Denne pakken inneholder programmer for grunnleggende og avansert IPv4 og
         IPv6 nettverk. Det ble valgt fremfor den andre vanlige
-        verktæypakken for nettverk (net-tools) for sine IPv6-funksjoner.  </para>
+        verktøypakken for nettverk (net-tools) for sine IPv6-funksjoner.  </para>
       </listitem>
 
       <listitem revision="systemd">

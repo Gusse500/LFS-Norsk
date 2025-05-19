@@ -18,7 +18,7 @@
   
   <para>Strengt tatt kan man ikke <quote>montere en partisjon</quote>. Man monterer <emphasis>filsystemet
   </emphasis> innebygd i den partisjonen. Men siden en enkelt partisjon ikke kan inneholde
-  mer enn ett filsystem, folk snakker ofte om partisjonen og
+  mer enn ett filsystem, snakker folk ofte om partisjonen og
   tilhørende filsystem som om de var ett og samme.</para>
 
   <para>Opprett monteringspunktet og monter LFS filsystemet med disse kommandoene:</para>
@@ -39,8 +39,8 @@ mkdir -v $LFS/home
 mount -v -t ext4 /dev/<replaceable>&lt;yyy&gt;</replaceable> $LFS/home</userinput></screen>
 
   <para>Erstatt <replaceable>&lt;xxx&gt;</replaceable> og
-  <replaceable>&lt;yyy&gt;</replaceable> med riktige partisjons
-  navn.</para>
+  <replaceable>&lt;yyy&gt;</replaceable> med riktige
+  partisjonsnavn.</para>
 
   <para>Angi eier- og tillatelsesmodus for
   <filename class='directory'>$LFS</filename> mappen (dvs. rotmappen
