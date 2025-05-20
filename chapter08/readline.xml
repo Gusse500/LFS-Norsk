@@ -42,8 +42,8 @@
     <title>Installasjon av Readline</title>
 
     <para>Å installere Readline på nytt vil føre til at de gamle bibliotekene flyttes til
-    &lt;libraryname&gt;.old. Selv om dette normalt ikke er et problem, i noen tilfeller
-    kan det utløse en koblingsfeil i <command>ldconfig</command>. Dette kan
+    &lt;libraryname&gt;.old. Selv om dette normalt ikke er et problem, kan det i noen
+    tilfeller utløse en koblingsfeil i <command>ldconfig</command>. Dette kan
     unngås ved å utstede følgende to seds:</para>
 
 <screen><userinput remap="pre">sed -i '/MV.*old/d' Makefile.in

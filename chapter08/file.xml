@@ -82,8 +82,8 @@
         <term><command>file</command></term>
         <listitem>
           <para>Prøver å klassifisere hver gitt fil; den gjør dette ved å utføre
-          flere tester&mdash;filsystemtester, magiske talltester og språk
-          tester</para>
+          flere tester&mdash;filsystemtester, magiske talltester og 
+          språktester</para>
           <indexterm zone="ch-system-file file">
             <primary sortas="b-file">file</primary>
           </indexterm>
