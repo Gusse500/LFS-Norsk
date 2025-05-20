@@ -69,7 +69,7 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Install the package:</para>
+    <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make DESTDIR=$LFS install</userinput></screen>
 <!--

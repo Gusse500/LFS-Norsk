@@ -225,7 +225,7 @@
     </sect3>
 
     <sect3>
-      <title>Symlink Style Package Management</title>
+      <title>Symbolsk Linking Pakkehåndtering Stil</title>
 
       <para>Dette er en variant av den tidligere pakkehåndteringsteknikken.
       Hver pakke er installert som i forrige skjema. Men i stedet for
@@ -297,8 +297,8 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
       installasjonen, sporer dette biblioteket pakkene som blir installert og
       fester seg til ulike kjørbare filer som f.eks <command>cp</command>,
       <command>install</command>, <command>mv</command> og sporing av systemets
-      anrop som endrer filsystemet. For å få denne tilnærmingen til å virke, alle
-      kjærbare filer må være dynamisk koblet uten suid- eller sgid-biten.
+      anrop som endrer filsystemet. For å få denne tilnærmingen til å virke, må alle
+      kjørbare filer være dynamisk koblet uten suid- eller sgid-biten.
       Forhåndsinnlasting av biblioteket kan forårsake noen uønskede bivirkninger under
       installasjon. Derfor anbefales det at man utfører noen tester for å
       sørge for at pakkebehandlingen ikke bryter noe og logger alle
@@ -313,7 +313,7 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
       <title>Opprette pakkearkiver</title>
 
       <para>I denne ordningen er pakkeinstallasjonen forfalsket til et separat
-      tre som beskrevet i Symlink pakkebehandlingenen. Etter
+      tre som beskrevet i Symbolsk Linking Pakkehåndtering Stil. Etter
       installasjon, opprettes et pakkearkiv ved hjelp av de installerte filene.
       Dette arkivet brukes deretter til å installere pakken enten på den lokale
       maskin eller kan til og med brukes til å installere pakken på andre maskiner.</para>
@@ -330,8 +330,8 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
       <para>Oppretting av pakkefiler som inkluderer avhengighetsinformasjon er
       kompleks og er utenfor omfanget av LFS.</para>
 
-      <para>Slackware bruker et <command>tar</command> basert system for pakke
-      arkiv. Dette systemet håndterer med vilje ikke pakkeavhengigheter
+      <para>Slackware bruker et <command>tar</command> basert system for pakkearkiv.
+      Dette systemet håndterer med vilje ikke pakkeavhengigheter
       som mer komplekse pakkeforvaltere gjør. For detaljer om Slackware
       pakkebehandling, se <ulink
       url="https://www.slackbook.org/html/package-management.html"/>.</para>
