@@ -68,7 +68,7 @@ cd       build</userinput></screen>
       &amp;&amp; make install; }</userinput>.</para>
     </note>
 
-    <para>Forbered nå Binutils til kompilering:</para>
+    <para>Forbered nå Binutils for kompilering:</para>
 
     <screen><userinput remap="configure">../configure --prefix=$LFS/tools \
              --with-sysroot=$LFS \
@@ -129,7 +129,7 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--disable-werror</parameter></term>
         <listitem>
-          <para>Dette forhindrer byggingen i å stoppe i tilfelle det
+          <para>Dette forhindrer at byggingen stopper i tilfelle det
           er advarsler fra vertens kompilator.</para>
         </listitem>
       </varlistentry>
@@ -139,7 +139,7 @@ cd       build</userinput></screen>
         <listitem>
           <para>Dette gjør at linkeren bruker <quote>runpath</quote> taggen for å
           bygge inn biblioteksøkestier i kjørbare filer og delte biblioteker,
-          i stedet for det tradisjonelle <quote>rpath</quote> taggen.  Det gjør
+          i stedet for den tradisjonelle <quote>rpath</quote> taggen.  Det gjør
           feilsøking av dynamisk koblede kjørbare filer enklere og fungerer rundt
           potensielle problemer i testpakken til enkelte pakker.</para>
         </listitem>
@@ -152,7 +152,7 @@ cd       build</userinput></screen>
           hash tabell og det klassiske ELF-hash tabellen for delte biblioteker og
           dynamisk koblede kjørbare filer. Hash tabellene er kun ment
           for en dynamisk linker for å utføre symboloppslag. På LFS er dynamikken at
-          linkeren (levert av Glibc-pakken) vil alltid bruke
+          linkeren (levert av Glibc-pakken) alltid vil  bruke
           GNU-stil hashtabell som er raskere å spørre. Så klassikeren
           ELF hash-tabell er helt ubrukelig. Dette gjør at linkeren
           generer bare hashtabellen i GNU-stil som standard, slik at vi kan unngå
