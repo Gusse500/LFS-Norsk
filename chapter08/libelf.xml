@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Libelf er et bibliotek for håndtering av ELF (kjørbare og linkbare formater)
+    <para>Libelf er et bibliotek for håndtering av ELF (kjørbare og linkbare format)
     filer.</para>
 
     <segmentedlist>
