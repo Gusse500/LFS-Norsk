@@ -152,8 +152,8 @@ meson setup ..                \
       <varlistentry>
         <term><parameter>-D man=disabled</parameter></term>
         <listitem>
-          <para>Forhindre generering av mansider for å unngå ekstra
-          avhengigheter. Vi vil installere forhåndsgenererte mansider for systemd
+          <para>Forhindre generering av manualsider for å unngå ekstra
+          avhengigheter. Vi vil installere forhåndsgenererte manualsider for systemd
           fra en tarball senere.</para>
         </listitem>
       </varlistentry>
@@ -238,7 +238,7 @@ ninja test</userinput></screen>
 
 <screen><userinput remap="install">ninja install</userinput></screen>
 
-    <para>Installer mansidene:</para>
+    <para>Installer manualsidene:</para>
 
     <!-- Please make sure systemd man pages tarball has a common leading
          component in the path.  -->
@@ -735,7 +735,7 @@ ninja test</userinput></screen>
       <varlistentry id="systemd-path">
         <term><command>systemd-path</command></term>
         <listitem>
-          <para>Is used to query system and user paths</para>
+          <para>Brukes til å spørre system og bruker stier</para>
           <indexterm zone="ch-system-systemd systemd-path">
             <primary sortas="b-systemd-path">systemd-path</primary>
           </indexterm>

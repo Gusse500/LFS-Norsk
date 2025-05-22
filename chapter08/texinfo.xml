@@ -23,7 +23,7 @@
   <sect2 role="package">
     <title/>
 
-    <para>Texinfo pakken inneholder programmer for lesing, skriving og
+    <para>Texinfo pakken inneholder programmer for å lese, skrive og
     konvertere informasjonssider.</para>
 
     <segmentedlist>
@@ -149,7 +149,7 @@ popd</userinput></screen>
         <term><command>install-info</command></term>
         <listitem>
           <para>Brukes til å installere infosider; den oppdaterer oppføringer i
-          <command>info</command> index file</para>
+          <command>info</command> index filen</para>
           <indexterm zone="ch-system-texinfo install-info">
             <primary sortas="b-install-info">install-info</primary>
           </indexterm>

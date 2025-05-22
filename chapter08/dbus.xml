@@ -79,7 +79,7 @@ meson setup --prefix=/usr --buildtype=release --wrap-mode=nofallback ..</userinp
     <para>Mange tester er deaktivert fordi de krever tilleggspakker
     som ikke er inkludert i LFS. Instruksjoner for å kjøre en
     omfattende testpakke finner du i
-    <ulink url="&blfs-book;general/dbus.html">the BLFS book</ulink>.</para>
+    <ulink url="&blfs-book;general/dbus.html">BLFS boken</ulink>.</para>
 
     <para>Installer pakken:</para>
 
