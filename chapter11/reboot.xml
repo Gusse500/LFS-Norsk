@@ -129,7 +129,7 @@ umount -v $LFS</userinput></screen>
 
 <screen role="nodump"><userinput>umount -v $LFS</userinput></screen>
 
-  <para>Nå start nå systemet på nytt.</para>
+  <para>Nå start systemet på nytt.</para>
 
 <!-- Commented out because we don't have a host system requirement on
      its init, and different init system may recommend different commands
