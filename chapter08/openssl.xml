@@ -145,7 +145,7 @@ make MANSUFFIX=ssl install</userinput></screen>
         <listitem>
           <para>
             er et <application>Perl</application> skript som
-            skanner alle filer i en katalog og legger til symbolske lenker til deres
+            skanner alle filer i en mappe og legger til symbolske lenker til deres
             hash-verdier. Bruk av <command>c_rehash</command> vurderes
             foreldet og bør erstattes av
             <command>openssl rehash</command> kommandoen

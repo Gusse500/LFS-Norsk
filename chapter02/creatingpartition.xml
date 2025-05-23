@@ -110,7 +110,7 @@
     <para>Hvis <emphasis>boot disk</emphasis> har blitt partisjonert med en
     GUID Partisjons Tabell (GPT), da må en liten, vanligvis 1 MB, partisjon bli
     opprettet hvis den ikke eksisterer allerede. Denne partisjonen er ikke formatert, men
-    må være tilgjengelig for GRUB for å bruke under installasjonen av
+    må være tilgjengelig for GRUB for bruk under installasjonen av
     oppstartslasteren. Denne partisjonen vil normalt være merket 'BIOS Boot' hvis den opprettes av
     <command>fdisk</command> eller har en kode på <emphasis>EF02</emphasis> hvis du
     bruker <command>gdisk</command> kommandoen.</para>

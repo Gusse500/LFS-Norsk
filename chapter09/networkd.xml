@@ -150,8 +150,8 @@ Domains=<replaceable>&lt;Your Domain Name&gt;</replaceable></literal>
 EOF</userinput></screen>
 
       <para>Flere DNS oppføringer kan legges til hvis du har mer enn en DNS
-      server. Ikke inkluder DNS- eller Domainsoppføringer hvis du har tenkt å bruke den
-      statiske filen <filename>/etc/resolv.conf</filename> file.</para>
+      server. Ikke inkluder DNS eller Domains oppføringer hvis du har tenkt å bruke den
+      statiske filen <filename>/etc/resolv.conf</filename> filen.</para>
 
     </sect3>
 
@@ -238,7 +238,7 @@ nameserver <replaceable>&lt;IP address of your secondary nameserver&gt;</replace
 EOF</userinput></screen>
 
       <para><varname>domain</varname> erklæringen kan utelates
-      eller erstattet med en <varname>search</varname> erklæring.  Se mansiden
+      eller erstattet med en <varname>search</varname> erklæring. Se manualsiden
       for resolv.conf for flere detaljer.</para>
 
       <para>Erstatt
@@ -360,8 +360,8 @@ EOF</userinput></screen>
      for <literal>localhost</literal>,
      <literal>localhost.localdomain</literal>, eller vertsnavnet (uten
      domene) fordi de håndteres av
-     <systemitem class='library'>myhostname</systemitem> NSS modul, les
-     mansiden <ulink role='man'
+     <systemitem class='library'>myhostname</systemitem> NSS modulen, les
+     manualsiden <ulink role='man'
      url='&man;nss-myhostname.8'>nss-myhostname(8)</ulink> for
      detaljer.</para>
 

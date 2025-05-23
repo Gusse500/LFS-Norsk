@@ -13,8 +13,8 @@
   <sect2>
     <title>Rydde opp</title>
 
-    <para>Fjern først den installerte dokumentasjonen for å forhindre dem
-    fra å havne i det endelige systemet, og å spare ca 35 MB:</para>
+    <para>Fjern først den installerte dokumentasjonen for å forhindre at
+    de havner i det endelige systemet, og å spare ca 35 MB:</para>
 
 <screen><userinput>rm -rf /usr/share/{info,man,doc}/*</userinput></screen>
 
@@ -44,7 +44,7 @@
       kapitler, viser det seg ofte at å fjerne alt og starte på nytt
       (mer forsiktig) er det beste alternativet for å gjenopprette. Dessverre, alle
       midlertidige filer vil også bli fjernet. For å unngå å bruke ekstra tid på
-      gjære om noe som har blitt bygget vellykket, det og lage en sikkerhetskopi av
+      gjøre om noe som har blitt vellykket bygget, det og lage en sikkerhetskopi av
       det nåværende LFS systemet kan vise seg å være nyttig.
     </para>
 

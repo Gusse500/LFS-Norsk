@@ -98,8 +98,8 @@ cd       build</userinput></screen>
           (<command>$LFS_TGT-g++</command>) vil søke etter
           standard C++ include filer. I en normal konstruksjon, sendes denne informasjonen
           automatisk til libstdc++ <command>configure</command>
-          alternativer fra toppnivåmappen. I vårt tilfelle, denne informasjonen
-          må gis eksplisitt.
+          alternativer fra toppnivåmappen. I vårt tilfelle, må denne 
+          informasjonen gis eksplisitt.
           C++ kompilatoren vil legge til sysroot banen
           <filename class="directory">$LFS</filename> (spesifisert når
           GCC pass 1 ble bygget) til å inkludere filsøkebanen, så den vil faktisk

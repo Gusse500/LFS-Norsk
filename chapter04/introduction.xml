@@ -13,7 +13,7 @@
   <para>I dette kapittelet vil vi utføre noen tilleggsoppgaver for å forberede
   byggingen av det midlertidige systemet. Vi vil lage et sett med mapper i
   <filename class="directory">$LFS</filename> (hvor vi vil installere
-  midlertidige verktøy, legg til en uprivilegert bruker,
+  midlertidige verktøy, legge til en uprivilegert bruker,
   og forklare tidsenhetene (<quote>SBU</quote>) som vi bruker til å måle hvor
   lang tid det tar å bygge LFS pakker, og gi litt informasjon om testpakkene															 
   til pakkene.</para>

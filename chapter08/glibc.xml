@@ -68,12 +68,12 @@ cd       build</userinput></screen>
 
     <para>Forbered Glibc for kompilering:</para>
 
-<screen><userinput remap="configure">../configure --prefix=/usr       \
-             --disable-werror    \
-             --disable-nscd      \
-             --enable-kernel=&min-kernel;\
-             libc_cv_slibdir=/usr/lib \
-             --enable-stack-protector=strong</userinput></screen>
+<screen><userinput remap="configure">../configure --prefix=/usr                   \
+             --disable-werror                \
+             --disable-nscd                  \
+             libc_cv_slibdir=/usr/lib        \
+             --enable-stack-protector=strong \
+             --enable-kernel=&min-kernel;</userinput></screen>
 
     <variablelist>
       <title>Betydningen av konfigureringsalternativene:</title>
@@ -526,7 +526,7 @@ unset ZONEINFO tz</userinput></screen>
           <para>Dette skaper riktige tidssoner, inkludert skuddsekunder. På en
           innebygd system, hvor det er trangt om plass og du ikke har tenkt å oppdatere
           tidssonene noen gang, eller ikke bryr deg om riktig tid, kan du
-          spar 1,9 MB ved å utelate <filename class="directory">right</filename>
+          spare 1,9 MB ved å utelate <filename class="directory">right</filename>
           mappen.</para>
         </listitem>
       </varlistentry>
@@ -716,7 +716,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
         <term><command>ldd</command></term>
         <listitem>
           <para>Rapporter hvilke delte biblioteker som kreves
-          av hvert gitt program eller delte bibliotek</para>
+          av hvert gitt program eller delt bibliotek</para>
           <indexterm zone="ch-system-glibc ldd">
             <primary sortas="b-ldd">ldd</primary>
           </indexterm>
@@ -1014,7 +1014,7 @@ mkdir -pv /etc/ld.so.conf.d</userinput></screen>
       <varlistentry id="libpcprofile">
         <term><filename class="libraryfile">libpcprofile</filename></term>
         <listitem>
-          <para>Kan forhåndslastes til PC profile en kjørbar fil</para>
+          <para>Kan forhåndslaste til PC profile en kjørbar fil</para>
           <indexterm zone="ch-system-glibc libpcprofile">
             <primary sortas="c-libpcprofile">libpcprofile</primary>
           </indexterm>

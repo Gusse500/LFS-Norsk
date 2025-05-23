@@ -71,8 +71,8 @@
 	  <varlistentry>
         <term><parameter>-D vendorprefix=/usr</parameter></term>
         <listitem>
-          <para>Dette sikrer at <command>perl</command> vet hvordan å
-          fortelle pakker hvor de skal installere perl modulene sine.</para>
+          <para>Dette sikrer at <command>perl</command> vet hvordan den
+          forteller pakker hvor de skal installere perl modulene sine.</para>
         </listitem>
       </varlistentry>
 

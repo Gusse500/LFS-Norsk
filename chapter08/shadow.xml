@@ -629,7 +629,7 @@ useradd -D --gid 999</userinput></screen>
         <term><command>usermod</command></term>
         <listitem>
           <para>Brukes til å endre den gitte brukerens påloggingsnavn, bruker
-          identifikasjon (UID), skall, startgruppe, hjemmekatalog, etc.</para>
+          identifikasjon (UID), skall, startgruppe, hjemmemappe, etc.</para>
           <indexterm zone="ch-system-shadow usermod">
             <primary sortas="b-usermod">usermod</primary>
           </indexterm>

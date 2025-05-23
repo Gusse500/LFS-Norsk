@@ -44,8 +44,8 @@
     <title>Installasjon av Python</title>
 
     <note>
-      <para>Det er to pakkefiler som navnet begynner med
-      <quote>python</quote> prefiks . Den å pakke ut er
+      <para>Det er to pakkefiler hvor navnet begynner med
+      <quote>python</quote> prefikset. Den å pakke ut er
       <filename>Python-&python-version;.tar.xz</filename> (legg merke til
       stor bokstav først).</para>
     </note>

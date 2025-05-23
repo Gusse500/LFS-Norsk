@@ -18,7 +18,7 @@
       nye funksjoner fra oppdaterte pakker. Å blande sammen instruksjonene til
       forskjellige versjoner av LFS boken kan forårsake subtile brudd. Denne
       typen problem er vanligvis et resultat av gjenbruk av et eller annet opprettet skript
-      for en tidligere LFS utgivelse. Slik gjenbruk frarodes sterkt. Hvis
+      for en tidligere LFS utgivelse. Slik gjenbruk frarådes sterkt. Hvis
       du gjenbruker skript for en tidligere LFS utgivelse av en eller annen grunn,
       mo du være veldig forsiktig med å oppdatere skriptene for å matche gjeldende versjon
       av LFS boken.
@@ -42,8 +42,8 @@
   </listitem>
 
   <listitem>
-    <para>Under kompileringen av de fleste pakkene, noen
-    advarsler vil rulle forbi på skjermen. Disse er normale og kan trygt bli
+    <para>Under kompileringen av de fleste pakkene, vil noen
+    advarsler rulle forbi på skjermen. Disse er normale og kan trygt bli
     ignorert. Disse advarslene handler vanligvis om
     utdatert, men ikke ugyldig, bruk av C- eller C++-syntaksen. C-standardene endres
     ganske ofte, og noen pakker er ennå ikke oppdatert. Dette er ikke et
@@ -107,14 +107,14 @@
           <para>For hver pakke:</para>
           <orderedlist numeration="loweralpha" spacing="compact">
             <listitem>
-              <para>Bruk <command>tar</command> programmet, pakke ut pakken
+              <para>Bruk <command>tar</command> programmet, pakk ut pakken
               som skal bygges. I <xref linkend="chapter-cross-tools"/> og
               <xref linkend="chapter-temporary-tools"/>, sikre at du er
               <emphasis>lfs</emphasis> brukeren når du pakker ut pakken.</para>
             <para>Ikke bruk noen metode bortsett fra <command>tar</command> kommandoen
-              for å trekke ut kildekoden. Spesielt ved å bruke <command>cp -R</command>
+              for å trekke ut kildekoden. Spesielt å bruke <command>cp -R</command>
               kommandoen for å kopiere
-              kildekodetre et annet sted kan ødelegge
+              kildekodetreet fra et annet sted kan ødelegge
               tidsstempler i kildetreet, og føre til at byggingen mislykkes.</para>
             </listitem>
             <listitem>
