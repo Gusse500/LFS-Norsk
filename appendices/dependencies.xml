@@ -3,8 +3,8 @@
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
   %general-entities;
-<!-- Convenient entity for "Systemd" or "Udev" -->
-<!ENTITY systemd-udev "<phrase revision='systemd'>Systemd</phrase><phrase revision='sysv'>Udev</phrase>">
+  <!-- Convenient entity for "Systemd" or "Udev" -->
+  <!ENTITY systemd-udev "<phrase revision='systemd'>Systemd</phrase><phrase revision='sysv'>Udev</phrase>">
   <!ENTITY bdb "<ulink url='https://www.oracle.com/database/technologies/related/berkeleydb.html'>Berkeley DB</ulink>">
 ]>
 
@@ -388,7 +388,7 @@
       <segmentedlist id="bzip2-before">
         <segtitle>&before;</segtitle>
         <seglistitem>
-          <seg>File og Libel</seg>
+          <seg>File and Libelf</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -1460,7 +1460,7 @@
 <!-- Begin Jinja2 dependency info -->
   <bridgehead renderas="sect2" id="jinja2-dep">Jinja2</bridgehead>
 
-      <segmentedlist id="jinja2-depends" revision='systemd'>
+      <segmentedlist id="jinja2-depends">
         <segtitle>&dependencies;</segtitle>
         <seglistitem>
           <seg>MarkupSafe, Python, Setuptools, og Wheel</seg>
@@ -2539,9 +2539,9 @@
       </segmentedlist>
 
 <!-- Begin Pkg-config dependency info -->
-  <bridgehead renderas="sect2" id="Pkgconf-dep">Pkgconf</bridgehead>
+  <bridgehead renderas="sect2" id="pkgconf-dep">Pkgconf</bridgehead>
 
-      <segmentedlist id="Pkgconf-depends">
+      <segmentedlist id="pkgconf-depends">
         <segtitle>&dependencies;</segtitle>
         <seglistitem>
           <seg>Bash, Binutils, Coreutils, Gawk, GCC, Glibc, Grep, Make,
@@ -2549,21 +2549,21 @@
         </seglistitem>
       </segmentedlist>
 
-      <segmentedlist id="Pkgconf-rundeps">
+      <segmentedlist id="pkgconf-rundeps">
         <segtitle>&runtime;</segtitle>
         <seglistitem>
           <seg>Glibc</seg>
         </seglistitem>
       </segmentedlist>
 
-      <segmentedlist id="Pkgconf-testdeps">
+      <segmentedlist id="pkgconf-testdeps">
         <segtitle>&testsuites;</segtitle>
         <seglistitem>
           <seg>Ingen</seg>
         </seglistitem>
       </segmentedlist>
 
-      <segmentedlist id="Pkgconf-before">
+      <segmentedlist id="pkgconf-before">
         <segtitle>&before;</segtitle>
         <seglistitem>
           <seg>Binutils,
@@ -2574,7 +2574,7 @@
         </seglistitem>
       </segmentedlist>
 
-      <segmentedlist id="Pkgconf-optdeps">
+      <segmentedlist id="pkgconf-optdeps">
         <segtitle>&external;</segtitle>
         <seglistitem>
           <seg>Ingen</seg>
@@ -3309,7 +3309,7 @@
       <segmentedlist id="wheel-depends">
         <segtitle>&dependencies;</segtitle>
         <seglistitem>
-          <seg>Python og Flit-core</seg>
+          <seg>Python, Flit-core, og packaging</seg>
         </seglistitem>
       </segmentedlist>
 

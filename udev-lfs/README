@@ -1,30 +1,30 @@
-The udev-lfs set of files is a customization of systemd.
-In 2012, udev was merged with systemd and a build methodology
-incompatible with LFS.  These files add custom udev rules
+Filsettet udev-lfs er en tilpasning av systemd.
+I 2012 ble udev slått sammen med systemd og en byggemetodikk
+som ikke er kompatibel med LFS. Disse filene legger til tilpassede udev-regler
 for LFS.
 
-These files are distributed in the form of a tar file available
-from the LFS file mirrors.  The tarball is created with:
+Disse filene distribueres i form av en tar-fil tilgjengelig 
+fra LFS-filspeilene. Tar-filen opprettes med:
 
 mkdir /tmp/udev-lfs-$VERSION
 cp -av * /tmp/udev-lfs-$VERSION
 tar -jcf /tmp/udev-lfs-$VERSION.tar.bz2 -C /tmp udev-lfs-$VERSION
 
-Makefile.lfs         - The LFS Makefile.  Installs udev rules for LFS.
+Makefile.lfs         - LFS sin Makefile.  Installerer udev regler for LFS.
 
-contrib              - Useful rules from debian
+contrib              - Nyttige regler fra Debian
 contrib/debian
 contrib/debian/write_cd_aliases
 
-55-lfs.rules         - LFS custom rules
-write_net_rules      - Scripts for LFS rules
+55-lfs.rules         - Tilpassede LFS regler
+write_net_rules      - Skript for LFS regler
 write_cd_rules
 rule_generator.functions
 
-55-lfs.txt           - Documentation for LFS installed rules
+55-lfs.txt           - Dokumentasjon for LFS installerte regler
 
-ChangeLog            - Log of changes to 55-lfs-rules
+ChangeLog            - Logg over endringer i 55-lfs-rules
 
-init-net-rules.sh    - A script for establishing persistent network
-                       rules before the first LFS boot
+init-net-rules.sh    - Et skript for å etablere vedvarende 
+                       nettverksregler før første LFS-oppstart
 

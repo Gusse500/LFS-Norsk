@@ -170,9 +170,9 @@ cd       build</userinput></screen>
         --disable-libquadmath, --disable-libssp, --disable-libvtv,
         --disable-libstdcxx</parameter></term>
         <listitem>
-          <para>Disse bryterne deaktiverer støtte for flytende desimal
-          punkter, threads, libatomic, libgomp, libquadmath, libssp,
-          henholdsvis libvtv og C++ standardbiblioteket. Disse funksjonene
+          <para>Disse bryterne deaktiverer støtte for
+          threading, libatomic, libgomp, libquadmath, libssp,
+          libvtv og C++ standardbiblioteket. Disse funksjonene
           klarer ikke å kompilere når du bygger en krysskompilator og er ikke
           nødvendig for oppgaven med å krysskompilere den midlertidige libc.</para>
         </listitem>

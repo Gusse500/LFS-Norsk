@@ -221,7 +221,7 @@ esac</userinput></screen>
                   symlinks for the ABI names to avoid upgradation
                   issues.  -->
           <para>
-            Oppgradering av Glibc på et LFS system før 11.0 (eksklusivt) er
+            Oppgradering av Glibc på et LFS system før 11.0 (eksklusiv) er
             ikke støttet. Bygg LFS på nytt hvis du kjører et så gammelt LFS
             system, men du trenger en nyere Glibc.
           </para>
@@ -230,7 +230,7 @@ esac</userinput></screen>
         <!-- https://sourceware.org/pipermail/libc-alpha/2024-January/154095.html -->
         <listitem>
           <para>
-            Hvis du oppgraderer på et LFS system før 12.0 (eksklusivt), installer
+            Hvis du oppgraderer på et LFS system før 12.0 (eksklusiv), installer
             <application>Libxcrypt</application> med å følge
             <xref role='.' linkend='ch-system-libxcrypt'/>  I tillegg til
             en normal <application>Libxcrypt</application> installasjon,
@@ -249,7 +249,7 @@ esac</userinput></screen>
              produce some spurious error message.  -->
         <listitem>
           <para>
-            Hvis du oppgraderer på et LFS-system før 12.1 (eksklusivt),
+            Hvis du oppgraderer på et LFS-system før 12.1 (eksklusiv),
             fjern <command>nscd</command> programmet:
           </para>
 
@@ -320,7 +320,7 @@ install -vm755 dest/usr/lib/*.so.* /usr/lib</userinput></screen>
 
       <para>
         Når systemet har startet på nytt, hvis du kjører
-        et LFS system før 12.0 (eksklusivt) der GCC ikke ble bygget
+        et LFS system før 12.0 (eksklusiv) der GCC ikke ble bygget
         med <parameter>--disable-fixincludes</parameter> alternativet,
         flytt to GCC deklarasjoner til en bedre plassering og
         fjerne de foreldede <quote>fixed</quote> kopier av Glibc deklarasjonene:

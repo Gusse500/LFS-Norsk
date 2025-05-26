@@ -36,7 +36,7 @@
   brukt til byggingen. Men krysskompilering har den store fordelen at
   alt som er krysskompilert ikke avhenger av vertsmiljøet.</para>
 
-  <sect2 id="cross-compile" xreflabel="About Cross-Compilation">
+  <sect2 id="cross-compile" xreflabel="Om krysskompilering">
 
     <title>Om Krysskompilering</title>
 

@@ -483,8 +483,8 @@
     <varlistentry>
       <term>Lz4 (&lz4-version;) - <token>&lz4-size;</token>:</term>
       <listitem>
-        <para>Home page: <ulink url="&lz4-home;"/></para>
-        <para>Download: <ulink url="&lz4-url;"/></para>
+        <para>Hjemmeside: <ulink url="&lz4-home;"/></para>
+        <para>Nedlasting: <ulink url="&lz4-url;"/></para>
         <para>MD5 sum: <literal>&lz4-md5;</literal></para>
       </listitem>
     </varlistentry>

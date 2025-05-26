@@ -400,7 +400,7 @@
         <para>MarkupSafe</para>
 
         <para>Denne pakken er en Python modul for å behandle strenger i
-        HTML/XHTML/XML trygt. Jinja2 krever denne pakken.</para>
+        HTML/XHTML/XML trygt.  Jinja2 krever denne pakken.</para>
       </listitem>
 
       <listitem>
@@ -441,7 +441,7 @@
         <para>MPFR</para>
 
         <para>Denne pakken inneholder funksjoner for multipresisjons
-        aritmetikk. Det kreves av GCC.</para>
+        aritmetikk.  Det kreves av GCC.</para>
       </listitem>
 
       <listitem>
@@ -575,8 +575,8 @@
 
         <para>Denne pakken er en enhetsbehandler. Den styrer dynamisk eierskapet,
         tillatelser, navn og symbolske lenker til enheter i /dev mappen mens
-        enheter legges til eller fjernes fra systemet.
-        </para>
+        enheter legges til eller fjernes fra 
+		systemet.</para>
       </listitem>
 
       <listitem>

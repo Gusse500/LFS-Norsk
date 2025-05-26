@@ -113,7 +113,7 @@ cd       build</userinput></screen>
 
     </variablelist>
 
-    <para>Kompiler libstdc++ ved å kjøre:</para>
+    <para>Kompiler Libstdc++ ved å kjøre:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
 
