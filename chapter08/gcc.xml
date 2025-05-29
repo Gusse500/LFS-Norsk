@@ -21,7 +21,6 @@
   </indexterm>
 
   <sect2 role="package">
-    <title/>
 
     <para>GCC pakken inneholder GNU kompilatorsamlingen, som inkluderer
     C og C++ kompilatorene.</para>
