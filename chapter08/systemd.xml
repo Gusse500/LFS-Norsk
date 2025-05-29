@@ -266,6 +266,132 @@ ninja test</userinput></screen>
 
   </sect2>
 
+  <!-- - - - - - - - - - -->
+  <!-- Multilib - 32bit  -->
+  <!-- - - - - - - - - - -->
+  
+  <sect2 arch="ml_32,ml_all" role="installation">
+    <title>Installasjon av systemd - 32-bit</title>
+
+    <para>Rens forrige bygg:</para>
+
+<screen><userinput remap="pre">rm -rf *</userinput></screen>
+
+<!-- Remove the symlink to work around missing xsltproc
+     Man page generation will be properly supressed in meson options -->
+
+    <!-- para>Opprett en symbolkobling for å omgå manglende xsltproc:</para -->
+
+<!-- screen><userinput remap="pre">ln -sf /tools/bin/true /usr/bin/xsltproc</userinput></screen -->
+<!-- screen><userinput remap="pre">ln -sf /bin/true /usr/bin/xsltproc</userinput></screen -->
+
+<!-- with cross-LFS we have util-linux in place:
+    <para>Siden vi ennå ikke har installert den endelige versjonen av Util-Linux,
+	må du opprette lenker til bibliotekene på riktig sted:</para>
+
+<screen><userinput remap="pre">for file in /tools/lib32/lib{blkid,mount,uuid}*; do
+    ln -sf $file /usr/lib32/
+done</userinput></screen>
+-->
+
+<!-- Match config switch style (-Dxxx -> -D xxx) to initial build above
+     Properly supress man page generation (-D man=disabled)
+        (Removes need for xsltproc symlink)
+     Remove deprecated switches that are duplicates/not needed
+        (-Drootlibdir deprecated, covered by libdir= option)
+        (-Db_lto not found in meson-options.txt, lto handled by mode switch)
+        (-Dblkid deprecated) -->
+    <para>Klargjør systemd for kompilering:</para>
+
+    <screen><userinput remap="configure">PKG_CONFIG_PATH="/usr/lib32/pkgconfig" \
+CC="gcc -m32"                        \
+CXX="g++ -m32"                       \
+LANG=en_US.UTF-8                     \
+meson setup ..                       \
+      --prefix=/usr                  \
+      --libdir=/usr/lib32            \
+      --buildtype=release            \
+      -D default-dnssec=no           \
+      -D firstboot=false             \
+      -D install-tests=false         \
+      -D ldconfig=false              \
+      -D sysusers=false              \
+      -D rpmmacrosdir=no             \
+      -D homed=disabled              \
+      -D userdb=false                \
+      -D man=disabled                \
+      -D mode=release </userinput></screen>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">LANG=en_US.UTF-8 ninja</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<!-- Only install needed libs from lib32 as opposed to installing all libs
+     Needed libs: libudev.so*
+                  libsystemd.so*
+     Also install pkgconfig files -->
+<screen><userinput remap="install">LANG=en_US.UTF-8 DESTDIR=$PWD/DESTDIR ninja install
+cp -av DESTDIR/usr/lib32/libsystemd.so* /usr/lib32/
+cp -av DESTDIR/usr/lib32/libudev.so* /usr/lib32/
+cp -v  DESTDIR/usr/lib32/pkgconfig/* /usr/lib32/pkgconfig/
+rm -rf DESTDIR</userinput></screen>
+
+  </sect2><!-- m32 -->
+
+  <!-- - - - - - - - - - -->
+  <!-- Multilib - x32bit -->
+  <!-- - - - - - - - - - -->
+  
+  <sect2 arch="ml_x32,ml_all" role="installation">
+    <title>Installasjon av systemd - x32-bit</title>
+
+    <para>Rens forrige bygg:</para>
+
+<screen><userinput remap="pre">rm -rf *</userinput></screen>
+
+<!--
+    <para>Løs et problem på x32:</para>
+
+<screen><userinput remap="pre">sed '/log_debug/s@PRI_TIMEX@PRIi64@' -i src/timesync/timesyncd-manager.c
+sed '/long drift_freq;/s@long @int64_t @' -i src/timesync/timesyncd-manager.h</userinput></screen>
+-->
+    <para>Klargjør systemd for kompilering:</para>
+
+    <screen><userinput remap="configure">PKG_CONFIG_PATH="/usr/libx32/pkgconfig" \
+CC="gcc -mx32"                       \
+CXX="g++ -mx32"                      \
+LANG=en_US.UTF-8                     \
+meson setup ..                       \
+      --prefix=/usr                  \
+      --libdir=/usr/libx32           \
+      --buildtype=release            \
+      -D default-dnssec=no           \
+      -D firstboot=false             \
+      -D install-tests=false         \
+      -D ldconfig=false              \
+      -D sysusers=false              \
+      -D rpmmacrosdir=no             \
+      -D homed=false                 \
+      -D userdb=false                \
+      -D man=disabled                \
+      -D mode=release </userinput></screen>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">LANG=en_US.UTF-8 ninja</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">LANG=en_US.UTF-8 DESTDIR=$PWD/DESTDIR ninja install
+cp -av DESTDIR/usr/libx32/libsystemd.so* /usr/libx32/
+cp -av DESTDIR/usr/libx32/libudev.so* /usr/libx32/
+cp -v  DESTDIR/usr/libx32/pkgconfig/* /usr/libx32/pkgconfig/
+rm -rf DESTDIR</userinput></screen>
+
+  </sect2><!-- mx32 -->
+
   <sect2 id="contents-systemd" role="content">
     <title>Innhold i systemd</title>
 

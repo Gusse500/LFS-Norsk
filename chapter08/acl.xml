@@ -67,6 +67,70 @@
 
   </sect2>
 
+  <!-- - - - - - - - - - -->
+  <!-- Multilib - 32bit  -->
+  <!-- - - - - - - - - - -->
+  
+  <sect2 arch="ml_32,ml_all" role="installation">
+    <title>Installasjon av Acl - 32bit</title>
+
+    <para>Rens forrige bygg:</para>
+
+<screen><userinput remap="pre">make distclean</userinput></screen>
+
+    <para>Klargjør Acl for kompilering:</para>
+
+<screen><userinput remap="configure">CC="gcc -m32" ./configure \
+    --prefix=/usr         \
+    --disable-static      \
+    --libdir=/usr/lib32   \
+    --libexecdir=/usr/lib32   \
+    --host=i686-pc-linux-gnu</userinput></screen>
+
+    <para>Compile the package:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make DESTDIR=$PWD/DESTDIR install
+cp -Rv DESTDIR/usr/lib32/* /usr/lib32
+rm -rf DESTDIR</userinput></screen>
+
+  </sect2><!-- m32 -->
+
+  <!-- - - - - - - - - - -->
+  <!-- Multilib - x32bit -->
+  <!-- - - - - - - - - - -->
+  
+  <sect2 arch="ml_x32,ml_all" role="installation">
+    <title>Installasjon av Acl - x32bit</title>
+
+    <para>Rens forrige bygg:</para>
+
+<screen><userinput remap="pre">make distclean</userinput></screen>
+
+    <para>Klargjør Acl for kompilering:</para>
+
+<screen><userinput remap="configure">CC="gcc -mx32" ./configure \
+    --prefix=/usr          \
+    --disable-static       \
+    --libdir=/usr/libx32   \
+    --libexecdir=/usr/libx32   \
+    --host=x86_64-pc-linux-gnux32</userinput></screen>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make DESTDIR=$PWD/DESTDIR install
+cp -Rv DESTDIR/usr/libx32/* /usr/libx32
+rm -rf DESTDIR</userinput></screen>
+
+  </sect2><!-- mx32 -->
+
   <sect2 id="contents-acl" role="content">
     <title>Innhold i Acl</title>
 

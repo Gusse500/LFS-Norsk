@@ -143,6 +143,150 @@ su tester -c "make -k check"</userinput></screen>
 -->
   </sect2>
 
+  <!-- - - - - - - - - - -->
+  <!-- Multilib - 32bit  -->
+  <!-- - - - - - - - - - -->
+  
+  <sect2 arch="ml_32,ml_all" role="installation">
+    <title>Installasjon av Util-linux - 32-bit</title>
+
+    <para>Rens forrige bygg:</para>
+
+<screen><userinput remap="pre">make distclean</userinput></screen>
+
+    <para>Flytt et verktøy ut av veien som valgfritt brukes av 
+	configure, men som vil rapportere ugyldige stier for multilib-bygg.</para>
+
+<screen><userinput remap="configure">mv /usr/bin/ncursesw6-config{,.tmp}</userinput></screen>
+
+    <para>Klargjør Util-linux for kompilering:</para>
+
+<screen revision="sysv"><userinput remap="configure">CC="gcc -m32" \
+./configure ADJTIME_PATH=/var/lib/hwclock/adjtime   \
+            --host=i686-pc-linux-gnu \
+            --libdir=/usr/lib32      \
+            --runstatedir=/run       \
+            --sbindir=/usr/sbin      \
+            --docdir=/usr/share/doc/util-linux-&util-linux-version; \
+            --disable-chfn-chsh      \
+            --disable-login          \
+            --disable-nologin        \
+            --disable-su             \
+            --disable-setpriv        \
+            --disable-runuser        \
+            --disable-pylibmount     \
+            --disable-liblastlog2    \
+            --disable-static         \
+            --without-python         \
+            --without-systemd        \
+            --without-systemdsystemunitdir</userinput></screen>
+
+<screen revision="systemd"><userinput remap="configure">CC="gcc -m32" \
+./configure ADJTIME_PATH=/var/lib/hwclock/adjtime   \
+            --host=i686-pc-linux-gnu \
+            --libdir=/usr/lib32      \
+            --runstatedir=/run       \
+            --sbindir=/usr/sbin      \
+            --docdir=/usr/share/doc/util-linux-&util-linux-version; \
+            --disable-chfn-chsh      \
+            --disable-login          \
+            --disable-nologin        \
+            --disable-su             \
+            --disable-setpriv        \
+            --disable-runuser        \
+            --disable-pylibmount     \
+            --disable-liblastlog2    \
+            --disable-static         \
+            --without-python</userinput></screen>
+
+    <para>Gjenopprett verktøyet som tidligere ble flyttet:</para>
+
+<screen><userinput remap="configure">mv /usr/bin/ncursesw6-config{.tmp,}</userinput></screen>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make DESTDIR=$PWD/DESTDIR install
+cp -Rv DESTDIR/usr/lib32/* /usr/lib32
+rm -rf DESTDIR</userinput></screen>
+
+  </sect2><!-- m32 -->
+
+  <!-- - - - - - - - - - -->
+  <!-- Multilib - x32bit -->
+  <!-- - - - - - - - - - -->
+  
+  <sect2 arch="ml_x32,ml_all" role="installation">
+    <title>Installasjon av Util-linux - x32-bit</title>
+
+    <para>Rens forrige bygg:</para>
+
+<screen><userinput remap="pre">make distclean</userinput></screen>
+
+    <para>Flytt et verktøy ut av veien som valgfritt brukes av 
+	configure, men som vil rapportere ugyldige stier for multilib-bygg.</para>
+
+<screen><userinput remap="configure">mv /usr/bin/ncursesw6-config{,.tmp}</userinput></screen>
+
+    <para>Klargjør Util-linux for kompilering:</para>
+
+<screen revision="sysv"><userinput remap="configure">CC="gcc -mx32" \
+./configure ADJTIME_PATH=/var/lib/hwclock/adjtime   \
+            --host=x86_64-pc-linux-gnux32 \
+            --libdir=/usr/libx32  \
+            --runstatedir=/run    \
+            --sbindir=/usr/sbin   \
+            --docdir=/usr/share/doc/util-linux-&util-linux-version; \
+            --disable-chfn-chsh   \
+            --disable-login       \
+            --disable-nologin     \
+            --disable-su          \
+            --disable-setpriv     \
+            --disable-runuser     \
+            --disable-pylibmount  \
+            --disable-liblastlog2 \
+            --disable-static      \
+            --without-python      \
+            --without-systemd     \
+            --without-systemdsystemunitdir</userinput></screen>
+
+<screen revision="systemd"><userinput remap="configure">CC="gcc -mx32" \
+./configure ADJTIME_PATH=/var/lib/hwclock/adjtime   \
+            --host=x86_64-pc-linux-gnux32 \
+            --libdir=/usr/libx32  \
+            --runstatedir=/run    \
+            --sbindir=/usr/sbin   \
+            --docdir=/usr/share/doc/util-linux-&util-linux-version; \
+            --disable-chfn-chsh   \
+            --disable-login       \
+            --disable-nologin     \
+            --disable-su          \
+            --disable-setpriv     \
+            --disable-runuser     \
+            --disable-pylibmount  \
+            --disable-liblastlog2 \
+            --disable-static      \
+            --without-python</userinput></screen>
+
+    <para>Gjenopprett verktøyet som tidligere ble flyttet:</para>
+
+<screen><userinput remap="configure">mv /usr/bin/ncursesw6-config{.tmp,}</userinput></screen>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make DESTDIR=$PWD/DESTDIR install
+cp -Rv DESTDIR/usr/libx32/* /usr/libx32
+rm -rf DESTDIR</userinput></screen>
+
+  </sect2><!-- mx32 -->
+
   <sect2 id="contents-utillinux" role="content">
     <title>Innhold i Util-linux</title>
 

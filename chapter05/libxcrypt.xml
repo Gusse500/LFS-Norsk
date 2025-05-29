@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
   %general-entities;
 ]>
 
-<sect1 id="ch-system-libxcrypt" role="wrap">
+<sect1 id="ch-tools-libxcrypt" role="wrap">
   <?dbhtml filename="libxcrypt.html"?>
 
   <sect1info condition="script">
@@ -16,15 +16,16 @@
 
   <title>Libxcrypt-&libxcrypt-version;</title>
 
-  <indexterm zone="ch-system-libxcrypt">
+  <indexterm zone="ch-tools-libxcrypt">
     <primary sortas="a-Libxcrypt">Libxcrypt</primary>
   </indexterm>
 
   <sect2 role="package">
     <title/>
 
-    <para>Libxcrypt pakken inneholder et moderne bibliotek for enveis
-    hashing av passord.</para>
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+    href="../chapter08/libxcrypt.xml"
+    xpointer="xpointer(/sect1/sect2[1]/para[1])"/>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -43,7 +44,8 @@
 
     <para>Forbered Libxcrypt for kompilering:</para>
 
-<screen><userinput remap="configure">./configure --prefix=/usr                \
+<screen><userinput remap="configure">./configure --target=$LFS_TGT            \
+            --prefix=/usr                \
             --enable-hashes=strong,glibc \
             --enable-obsolete-api=no     \
             --disable-static             \
@@ -55,8 +57,8 @@
       <varlistentry>
         <term><parameter>--enable-hashes=strong,glibc</parameter></term>
         <listitem>
-          <para>Bygg sterke hash-algoritmer som anbefales for sikkerhetsbruk
-          og hash-algoritmene levert av tradisjonelle Glibc
+          <para>Bygg sterke hash algoritmer anbefalt for sikkerhetsbruk 
+		  tilfeller, og hash algoritmene levert av tradisjonell Glibc
           <systemitem class='library'>libcrypt</systemitem> for
           kompatibilitet.</para>
         </listitem>
@@ -65,18 +67,18 @@
       <varlistentry>
         <term><parameter>--enable-obsolete-api=no</parameter></term>
         <listitem>
-          <para>Deaktiver foreldede API-funksjoner. De trengs ikke for
-          et moderne Linuxsystem bygget fra kilden.</para>
+          <para>Deaktiver foreldede API funksjoner. De er ikke n�dvendige for 
+		  et moderne Linux system bygget fra kildekode.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--disable-failure-tokens</parameter></term>
         <listitem>
-          <para>Deaktiver funksjonen for feiltoken. Det trengs for
-          kompatibilitet med de tradisjonelle hash-bibliotekene til noen
-          plattformer, men et Linuxsystem basert på Glibc trenger ikke
-          den.</para>
+          <para>Deaktiver funksjonen for feiltoken. Den er n�dvendig for 
+		  kompatibilitet med tradisjonelle hash biblioteker p� noen 
+		  plattformer, men et Linux-system basert p� Glibc trenger den 
+		  ikke.</para>
         </listitem>
       </varlistentry>
     </variablelist>
@@ -85,33 +87,13 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>For å teste resultatene, utsted:</para>
+    <para>For � teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
     <para>Installer pakken:</para>
 
-<screen><userinput remap="install">make install</userinput></screen>
-
-    <note>
-
-      <para>Instruksjonene ovenfor har deaktivert foreldede API-funksjoner siden
-      ingen pakke installert ved å kompilere fra kilder ville lenke mot
-      dem under kjøring. Imidlertid er de eneste kjente bare binære applikasjonene
-      som koblingen mot disse funksjonene krever ABI versjon 1. Hvis du må
-      ha slike funksjoner på grunn av en eller annen binær applikasjon eller for å være
-      kompatibel med LSB, bygg pakken på nytt med følgende
-      kommandoer:</para>
-
-<screen role="nodump"><userinput>make distclean
-./configure --prefix=/usr                \
-            --enable-hashes=strong,glibc \
-            --enable-obsolete-api=glibc  \
-            --disable-static             \
-            --disable-failure-tokens
-make
-cp -av --remove-destination .libs/libcrypt.so.1* /usr/lib</userinput></screen>
-    </note>
+<screen><userinput remap="install">make DESTDIR=$LFS install</userinput></screen>
 
   </sect2>
 
@@ -125,10 +107,11 @@ cp -av --remove-destination .libs/libcrypt.so.1* /usr/lib</userinput></screen>
 
 <screen><userinput remap="pre">make distclean</userinput></screen>
 
-    <para>Klargjør Libxcrypt for kompilering:</para>
+    <para>Klargj�r filen for kompilering:</para>
 
 <screen><userinput remap="configure">CC="gcc -m32" \
-./configure --prefix=/usr                \
+./configure --target=$LFS_TGT32          \
+            --prefix=/usr                \
             --host=i686-pc-linux-gnu     \
             --libdir=/usr/lib32          \
             --enable-hashes=strong,glibc \
@@ -142,9 +125,9 @@ cp -av --remove-destination .libs/libcrypt.so.1* /usr/lib</userinput></screen>
 
     <para>Installer pakken:</para>
 
-<screen><userinput remap="install">cp -av .libs/libcrypt.so* /usr/lib32/ &amp;&amp;
-make install-pkgconfigDATA &amp;&amp;
-ln -svf libxcrypt.pc /usr/lib32/pkgconfig/libcrypt.pc</userinput></screen>
+<screen><userinput remap="install">cp -av .libs/libcrypt.so* $LFS/usr/lib32/ &amp;&amp;
+make DESTDIR=$LFS install-pkgconfigDATA &amp;&amp;
+ln -svf libxcrypt.pc $LFS/usr/lib32/pkgconfig/libcrypt.pc</userinput></screen>
 
   </sect2><!-- m32 -->
 
@@ -158,10 +141,11 @@ ln -svf libxcrypt.pc /usr/lib32/pkgconfig/libcrypt.pc</userinput></screen>
 
 <screen><userinput remap="pre">make distclean</userinput></screen>
 
-    <para>Klargjør Libxcrypt for kompilering:</para>
+    <para>Klargj�r filen for kompilering:</para>
 
 <screen><userinput remap="configure">CC="gcc -mx32" \
-./configure --prefix=/usr                 \
+./configure --target=$LFS_TGT32           \
+            --prefix=/usr                 \
             --host=x86_64-pc-linux-gnux32 \
             --libdir=/usr/libx32          \
             --enable-hashes=strong,glibc  \
@@ -175,39 +159,17 @@ ln -svf libxcrypt.pc /usr/lib32/pkgconfig/libcrypt.pc</userinput></screen>
 
     <para>Installer pakken:</para>
 
-<screen><userinput remap="install">cp -av .libs/libcrypt.so* /usr/libx32/ &amp;&amp;
-make install-pkgconfigDATA &amp;&amp;
-ln -svf libxcrypt.pc /usr/libx32/pkgconfig/libcrypt.pc</userinput></screen>
+<screen><userinput remap="install">cp -av .libs/libcrypt.so* $LFS/usr/libx32/ &amp;&amp;
+make DESTDIR=$LFS install-pkgconfigDATA &amp;&amp;
+ln -svf libxcrypt.pc $LFS/usr/libx32/pkgconfig/libcrypt.pc</userinput></screen>
 
   </sect2><!-- mx32 -->
-  <sect2 id="contents-libxcrypt" role="content">
-    <title>Innhold i Libxcrypt</title>
 
-    <segmentedlist>
-      <segtitle>Installerte biblioteker</segtitle>
+  <sect2 role="content">
+    <title/>
 
-      <seglistitem>
-        <seg>libcrypt.so</seg>
-      </seglistitem>
-    </segmentedlist>
-
-    <variablelist>
-      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
-      <?dbfo list-presentation="list"?>
-      <?dbhtml list-presentation="table"?>
-
-      <varlistentry id="libcrypt">
-        <term><filename class="libraryfile">libcrypt</filename></term>
-        <listitem>
-          <para>Inneholder funksjoner for å hashe passord</para>
-          <indexterm zone="ch-system-libxcrypt libcrypt">
-            <primary sortas="c-libcrypt">libcrypt</primary>
-          </indexterm>
-        </listitem>
-      </varlistentry>
-
-    </variablelist>
+    <para>Detaljer om denne pakken finner du i
+    <xref linkend="contents-libxcrypt" role="."/></para>
 
   </sect2>
-
 </sect1>

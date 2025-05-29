@@ -63,6 +63,61 @@
 
   </sect2>
 
+  <!-- - - - - - - - - - -->
+  <!-- Multilib - 32bit  -->
+  <!-- - - - - - - - - - -->
+
+  <sect2 arch="ml_32,ml_all" role="installation">
+    <title>Installasjon av Zlib - 32bit</title>
+
+    <para>Rens forrige bygg:</para>
+
+<screen><userinput remap="pre">make distclean</userinput></screen>
+
+    <para>Klargjør Zlib for kompilering:</para>
+
+<screen><userinput remap="configure">CFLAGS+=" -m32" CXXFLAGS+=" -m32" \
+./configure --prefix=/usr \
+    --libdir=/usr/lib32</userinput></screen>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make DESTDIR=$PWD/DESTDIR install
+cp -Rv DESTDIR/usr/lib32/* /usr/lib32
+rm -rf DESTDIR</userinput></screen>
+
+  </sect2><!-- m32 -->
+
+  <!-- - - - - - - - - - -->
+  <!-- Multilib - x32bit -->
+  <!-- - - - - - - - - - -->
+
+  <sect2 arch="ml_x32,ml_all" role="installation">
+    <title>Installasjon av Zlib - x32bit</title>
+
+<screen><userinput remap="pre">make distclean</userinput></screen>
+
+    <para>Klargjør Zlib for kompilering:</para>
+
+<screen><userinput remap="configure">CFLAGS+=" -mx32" CXXFLAGS+=" -mx32" \
+./configure --prefix=/usr    \
+    --libdir=/usr/libx32</userinput></screen>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make DESTDIR=$PWD/DESTDIR install
+cp -Rv DESTDIR/usr/libx32/* /usr/libx32
+rm -rf DESTDIR</userinput></screen>
+
+  </sect2><!-- mx32 -->
   <sect2 id="contents-zlib" role="content">
     <title>Innhold i Zlib</title>
 

@@ -84,6 +84,9 @@ useradd -s /bin/bash -g &lfs-groupname; -m -k /dev/null &lfs-username;</userinpu
 case $(uname -m) in
   x86_64) chown -v &lfs-username; $LFS/lib64 ;;
 esac</userinput></screen>
+<screen arch="ml_32"  ><userinput>chown -v lfs $LFS/lib32</userinput></screen>
+<screen arch="ml_x32" ><userinput>chown -v lfs $LFS/libx32</userinput></screen>
+<screen arch="ml_all" ><userinput>chown -v lfs $LFS/{lib32,libx32}</userinput></screen>
 
 <note><para>I noen vertssystemer, følgende <command>su</command> kommando fullføres ikke
   riktig og suspenderer påloggingen for &lfs-user; bruker i bakgrunnen.

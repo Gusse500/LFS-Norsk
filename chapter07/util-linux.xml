@@ -127,6 +127,90 @@
 
   </sect2>
 
+  <!-- - - - - - - - - - -->
+  <!-- Multilib - 32bit  -->
+  <!-- - - - - - - - - - -->
+  
+  <sect2 arch="ml_32,ml_all" role="installation">
+    <title>Installasjon av Util-linux - 32-bit</title>
+
+    <para>Rens forrige bygg:</para>
+
+<screen><userinput remap="pre">make distclean</userinput></screen>
+
+    <para>Klargjør Util-linux for kompilering:</para>
+
+<screen><userinput remap="configure">CC="gcc -m32" \
+./configure --host=i686-pc-linux-gnu \
+            --libdir=/usr/lib32      \
+            --runstatedir=/run       \
+            --docdir=/usr/share/doc/util-linux-&util-linux-version; \
+            --disable-chfn-chsh   \
+            --disable-login       \
+            --disable-nologin     \
+            --disable-su          \
+            --disable-setpriv     \
+            --disable-runuser     \
+            --disable-pylibmount  \
+            --disable-static      \
+            --disable-liblastlog2 \
+            --without-python      \
+            ADJTIME_PATH=/var/lib/hwclock/adjtime</userinput></screen>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make DESTDIR=$PWD/DESTDIR install
+cp -Rv DESTDIR/usr/lib32/* /usr/lib32
+rm -rf DESTDIR</userinput></screen>
+
+  </sect2><!-- m32 -->
+
+  <!-- - - - - - - - - - -->
+  <!-- Multilib - x32bit -->
+  <!-- - - - - - - - - - -->
+  
+  <sect2 arch="ml_x32,ml_all" role="installation">
+    <title>Installasjon av Util-linux - x32-bit</title>
+
+    <para>Rens forrige bygg:</para>
+
+<screen><userinput remap="pre">make distclean</userinput></screen>
+
+    <para>Klargjør Util-linux for kompilering:</para>
+
+<screen><userinput remap="configure">CC="gcc -mx32" \
+./configure --host=x86_64-pc-linux-gnux32 \
+            --libdir=/usr/libx32     \
+            --runstatedir=/run       \
+            --docdir=/usr/share/doc/util-linux-&util-linux-version; \
+            --disable-chfn-chsh   \
+            --disable-login       \
+            --disable-nologin     \
+            --disable-su          \
+            --disable-setpriv     \
+            --disable-runuser     \
+            --disable-pylibmount  \
+            --disable-static      \
+            --disable-liblastlog2 \
+            --without-python      \
+            ADJTIME_PATH=/var/lib/hwclock/adjtime</userinput></screen>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make DESTDIR=$PWD/DESTDIR install
+cp -Rv DESTDIR/usr/libx32/* /usr/libx32
+rm -rf DESTDIR</userinput></screen>
+
+  </sect2><!-- mx32 -->
+
   <sect2 role="content">
     <title/>
 

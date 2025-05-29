@@ -23,7 +23,10 @@
     libltdl, og det er kjent at noen .la-filer kan forårsake at BLFS pakker
     feiler under byggingen. Fjern disse filene nå:</para>
 
-<screen><userinput>find /usr/{lib,libexec} -name \*.la -delete</userinput></screen>
+<screen><userinput>find /usr/{lib,libexec} -name \*.la -delete</userinput><userinput arch="ml_32">
+find /usr/lib32 -name \*.la -delete</userinput><userinput arch="ml_x32">
+find /usr/libx32 -name \*.la -delete</userinput><userinput arch="ml_all">
+find /usr/lib{,x}32 -name \*.la -delete</userinput></screen>
 
     <para>
       Den nåværende systemstørrelsen er nå omtrent 3 GB,

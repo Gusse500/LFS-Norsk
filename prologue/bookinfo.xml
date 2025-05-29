@@ -7,7 +7,7 @@
 
 <bookinfo>
   <title>Linux From Scratch</title>
-  <subtitle>Versjon &version;</subtitle>
+  <subtitle>Versjon &version;<phrase arch="ml_32,ml_x32,ml_all">-multilib</phrase></subtitle>
   <subtitle>Publisert &releasedate;</subtitle>
 
   <authorgroup>
@@ -28,6 +28,11 @@
     <author revision="systemd">
       <firstname>Redaktør: DJ</firstname>
       <surname>Lucas</surname>
+    </author>
+
+    <author arch="ml_32,ml_x32,ml_all">
+      <firstname>Redaktør: Thomas</firstname>
+      <surname>Trepl</surname>
     </author>
   </authorgroup>
 

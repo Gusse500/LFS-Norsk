@@ -44,12 +44,25 @@
     <para>Hvis du bygger på x86_64, endre standard mappenavn for 64-bit
     bibliotekene til <quote>lib</quote>:</para>
 
-<screen><userinput remap="pre">case $(uname -m) in
+<screen arch="default"><userinput remap="pre">case $(uname -m) in
   x86_64)
     sed -e '/m64=/s/lib64/lib/' \
         -i.orig gcc/config/i386/t-linux64
   ;;
 esac</userinput></screen>
+
+    <para arch="ml_32,ml_x32,ml_all">Endre standard mappenavn for 64-biters
+	biblioteker til <quote>lib</quote>:</para>
+
+<screen arch="ml_32,ml_x32,ml_all"><userinput remap="pre">sed -e '/m64=/s/lib64/lib/' \
+    -e '/m32=/s/m32=.*/m32=..\/lib32$(call if_multiarch,:i386-linux-gnu)/' \
+    -i.orig gcc/config/i386/t-linux64</userinput></screen>
+
+    <para arch="ml_32,ml_all">Gjør <literal>-mstackrealign</literal> en standard for 32-biters
+      objekter:</para>
+
+<screen arch="ml_32,ml_all"><userinput remap="pre">sed '/STACK_REALIGN_DEFAULT/s/0/(!TARGET_64BIT \&amp;\&amp; TARGET_SSE)/' \
+      -i gcc/config/i386/i386.h</userinput></screen>
 
     <para>GCC dokumentasjonen anbefaler å bygge GCC i en dedikert byggemappe:</para>
 
@@ -58,7 +71,7 @@ cd       build</userinput></screen>
 
     <para>Forbered GCC for kompilering:</para>
 
-<screen><userinput remap="configure">../configure --prefix=/usr            \
+<screen arch="default"><userinput remap="configure">../configure --prefix=/usr            \
              LD=ld                    \
              --enable-languages=c,c++ \
              --enable-default-pie     \
@@ -67,6 +80,21 @@ cd       build</userinput></screen>
              --disable-multilib       \
              --disable-bootstrap      \
              --disable-fixincludes    \
+             --with-system-zlib</userinput></screen>
+<screen arch="ml_32,ml_x32,ml_all"><userinput remap="configure" 
+  arch="ml_32" >mlist=m64,m32</userinput><userinput remap="configure"
+  arch="ml_x32">mlist=m64,mx32</userinput><userinput remap="configure"
+  arch="ml_all">mlist=m64,m32,mx32</userinput>
+<userinput remap="configure">../configure --prefix=/usr               \
+             LD=ld                       \
+             --enable-languages=c,c++    \
+             --enable-default-pie        \
+             --enable-default-ssp        \
+             --enable-host-pie           \
+             --enable-multilib           \
+             --with-multilib-list=$mlist \
+             --disable-bootstrap         \
+             --disable-fixincludes       \
              --with-system-zlib</userinput></screen>
 
     <para>GCC støtter syv forskjellige dataspråk, men
@@ -150,13 +178,10 @@ cd       build</userinput></screen>
 
 <screen><userinput remap="test">ulimit -s -H unlimited</userinput></screen>
 
-    <para>Fjern/fiks nå flere kjente testfeil:</para>
+    <para>Fjern/fiks nå flere kjente testfeil:/para>
 
 <screen><userinput remap="test">sed -e '/cpython/d'               -i ../gcc/testsuite/gcc.dg/plugin/plugin.exp
-sed -e 's/no-pic /&amp;-no-pie /'     -i ../gcc/testsuite/gcc.target/i386/pr113689-1.c
-sed -e 's/300000/(1|300000)/'     -i ../libgomp/testsuite/libgomp.c-c++-common/pr109062.c
-sed -e 's/{ target nonpic } //' \
-    -e '/GOTPCREL/d'              -i ../gcc/testsuite/gcc.target/i386/fentryname3.c</userinput></screen>
+sed -e 's/300000/(1|300000)/'     -i ../libgomp/testsuite/libgomp.c-c++-common/pr109062.c</userinput></screen>
 
     <para>Test resultatene som en ikke-privilegert bruker, men ikke stopp ved feil:</para>
 
@@ -281,10 +306,11 @@ SEARCH_DIR("/usr/local/lib")
 SEARCH_DIR("/lib")
 SEARCH_DIR("/usr/lib");</computeroutput></screen>
 
-   <para>Et 32-bits system kan se noen forskjellige mapper. For eksempel her
+   <para arch="default">Et 32-bits system kan se noen forskjellige mapper. For eksempel her
    er utdata fra en i686-maskin:</para>
 
-<screen><computeroutput>SEARCH_DIR("/usr/i686-pc-linux-gnu/lib32")
+<!-- not using entities here as the dir names has nothing to do with multilib -->
+<screen arch="default"><computeroutput>SEARCH_DIR("/usr/i686-pc-linux-gnu/lib32")
 SEARCH_DIR("/usr/local/lib32")
 SEARCH_DIR("/lib32")
 SEARCH_DIR("/usr/lib32")

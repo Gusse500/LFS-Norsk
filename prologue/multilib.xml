@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 arch="ml_32,ml_x32,ml_all" id="pre-multilib">
+  <?dbhtml filename="multilib.html"?>
+
+  <title>Om Multilib utgaven</title>
+
+  <sect2><title>Hva er Multilib</title>
+
+    <para>I dag har de fleste systemer i x86 verdenen en ordstørrelse på 64
+      bit. Ordstørrelsen er et antall bit som kan brukes samtidig
+      på den mest effektive måten. Tidligere arkitekturer av x86 prosessorer
+      hadde en ordstørrelse på 32 bit, noe som betyr at de har en annen
+      forståelse av hva som er den beste justeringen av data i minnet,
+      samt at de har en annen mekanisme for å adressere en annen størrelse
+      på minnet. Selv instruksjonssettet til 64-bits prosessorer er
+      ganske likt instruksjonene til 32-bits prosessorer. Binærfiler
+      (objekter kompilert til maskinkode) kan ikke kjøres direkte på
+      64-bits systemer.</para>
+
+    <para>Multilib er en mekanisme for å gi støtte til 32-biters
+	binærfiler slik at de kan kjøres av moderne 64-biters CPUer.</para>
+
+  </sect2>
+
+  <sect2><title>Hvorfor bruke Multilib?</title>
+
+    <para>Fra et pedagogisk synspunkt er LFS i sin «native» form
+      sannsynligvis den beste måten å se hvordan et Linux-system bygges fra kildekode.
+      Det er ingen grunn til å forveksle med forskjellige arkitekturer. Men
+      når det er behov for å kjøre 32 binærfiler og du ikke vil bygge
+      hele systemet i 32-bit (noe som ville være sløsing med ressurser
+      nå for tiden), er LFS-multilib et alternativ. Eksempler på et slikt
+      behov kan være
+      <itemizedlist>
+        <listitem><para>Lukket kildekode-programvare uten kildekode kun
+          tilgjengelig for 32-bit. Det kan være tilfelle for skriverdrivere
+		  eller andre typer maskinvaredrivere, selskapet tilbyr
+		  binærfilene. Hvis du har en slik driver, kan LFS-multilib 
+		  hjelpe deg med å få det til å virke.</para>
+        </listitem>
+        <listitem><para>Hvis du vil gå langt utover LFS og sette opp en
+          virtualiseringsplattform som <application>VirtualBox</application>,
+          vil du trenge støtte for multilib</para>
+        </listitem>
+        <listitem><para>eller bare fordi du kan</para>
+        </listitem>
+      </itemizedlist>
+      
+    </para>
+
+    <para>Multilib utgaven av LFS går et lite skritt videre og et
+      lite skritt tilbake til det som ble sagt i forrige avsnitt
+	  når vi snakket om målarkitekturer. På den ene siden er multilib
+	  utgaven fokusert og <emphasis>begrenset</emphasis> til bare x86_64 
+      arkitekturer, derimot, det <emphasis>utvider</emphasis>
+      instruksjonene for å bruke begge mulige arkitekturer, nemlig
+	  32-bit så vel som 64-bit.</para>
+
+    <para>Den går også litt utover den grunnleggende pedagogiske
+      tilnærmingen til LFS, som er å vise deg hvordan du bygger et Linux system.
+	  For å oppnå dette kreves det ingen støtte for flere arkitekturer enn
+	  standardarkitekturen for systemet ditt. Hvis du ikke har
+	  bygget et system tidligere ved hjelp av standard LFS boken, oppfordres
+	  du til å gjøre det før du bruker denne utgaven..</para>
+
+  </sect2>
+
+  <sect2><title>Bygge et Multilib System</title>
+
+    <para>Å bygge et multilib-system er ikke så mye forskjellig fra å
+      bygge et system ved å bruke 'standard' LFS boken. Bortsett fra
+	  noen justeringer her og der, er den mest fremtredende forskjellen at et
+	  multilib system krever kompilering av noen applikasjoner opptil tre
+	  ganger:
+	  én for den primære 64-bitsarkitekturen,
+	  én for 32-bitsarkitekturen (m32),
+	  og igjen for 32-bitsarkitekturen med 32-bits minne
+	  tilgang og 64-bits instruksjonssett (mx32).</para>
+
+    <para>Fortsett bare hvis du og systemet ditt oppfyller følgende
+      krav:
+      <itemizedlist>
+        <listitem>
+          <para>du har en x86_64 kompatibel maskin</para>
+          <note><para>
+            Hvis du har tilgang til kjernekonfigurasjonen for systemet ditt,
+			må du ha
+            <parameter>CONFIG_IA32_EMULATION=y</parameter>
+            satt for å bygge for <parameter>m32</parameter> og
+            <parameter>CONFIG_X86_X32_ABI=y</parameter> satt for å
+			bygge for <parameter>mx32</parameter>. 
+          </para>
+          <para>
+           Hvis du ikke har tilgang til kjernekonfigurasjonen for systemet ditt,
+            kan du kanskje teste kompatibiliteten ved å kjøre
+			følgende kommandoer:
+          </para>
+<screen><userinput>echo 'int main(){}' &gt; dummy.c
+gcc -m32 dummy.c
+./a.out
+
+gcc -mx32 dummy.c
+./a.out</userinput></screen>
+          <para>
+            Hvis en av <command>./a.out</command> kommandoene resulterer i en
+			"Exec format error" melding, så har du ikke en systemkjerne
+			som er i stand til å bygge for den arkitekturen i LFS, og derfor
+			bør du sannsynligvis prøve å bygge et LFS system uten Multilib, men
+			med de nødvendige kjernefunksjonene, og bruke det til å bygge et
+			Multilib system.
+          </para></note>
+        </listitem>
+        <listitem><para>du har allerede noe erfaring med LFS</para></listitem>
+        <listitem><para>du trenger 32-bits støtte</para></listitem>
+      </itemizedlist>
+    </para>
+
+    <para>Hvis du bestod alle tre kravene, kan du bygge
+      LFS i multilib-modus..</para>
+
+  </sect2>
+
+</sect1>

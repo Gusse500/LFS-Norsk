@@ -186,6 +186,38 @@
       UEFI oppstartslaster fra vertsdistroen</emphasis>.</para>
     </note>
 
+    <note arch="ml_32,ml_x32,ml_all">
+      <para>
+        Kjernen på et multilib system må kunne
+		identifisere og starte binærfiler kompilert for andre arkitekturer
+		enn standardarkitekturen.
+      </para>
+
+      <para arch="ml_32,ml_all">
+        Hvis støtte for 32-biters ABI ble bygget, må du sørge for at alternativet
+		"IA32 Emulation" er valgt. Alternativet 'IA32 a.out support' er
+		valgfritt..
+      </para>
+
+      <para arch="ml_x32,ml_all">
+        Hvis støtte for x32bit ABI ble bygget, må du sørge for at alternativet
+		"x32 ABI for 64-bit mode" er valgt.
+      </para>
+
+<screen arch="ml_32">Binary Emulations  ---&gt;
+    [*] IA32 Emulation [CONFIG_IA32_EMULATION]
+    &lt;M&gt;   IA32 a.out support [CONFIG_IA32_AOUT]
+</screen>
+<screen arch="ml_x32">Binary Emulations  ---&gt;
+    [*] x32 ABI for 64-bit mode [CONFIG_X86_X32]
+</screen>
+<screen arch="ml_all">Binary Emulations  ---&gt;
+    [*] IA32 Emulation [CONFIG_IA32_EMULATION]
+    &lt;M&gt;   IA32 a.out support [CONFIG_IA32_AOUT]
+    [*] x32 ABI for 64-bit mode [CONFIG_X86_X32]
+</screen>
+    </note>
+    
     <variablelist>
       <title>Begrunnelsen for de ovennevnte konfigurasjonselementene:</title>
 

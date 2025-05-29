@@ -276,5 +276,36 @@ EOF
 
 bash version-check.sh</userinput></screen>
 
- </sect2>
+    <para arch="ml_32,ml_all">
+      Å bygge m32 multilib støtten krever at kjernen til vertssystemet 
+	  har støtte for 32-bits emulering inkludert:
+    </para>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      href="../chapter10/kernel/multilib-32.xml"/>
+
+    <para arch="ml_x32,ml_all">
+      Å bygge mx32 multilib støtten krever at kjernen til vertssystemet 
+	  har x32 ABI støtte inkludert:
+    </para>
+
+    <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+      href="../chapter10/kernel/multilib-x32.xml"/>
+
+    <para arch="ml_all">
+      Hvis kjernen din ikke har x32 ABI støtte aktivert, men 
+	  bare støtte for 32-bit emulering, kan du fortsette å bygge systemet 
+	  ditt, men du må utelate eventuelle seksjoner som viser instruksjoner 
+	  for å bygge x32 objekter, vice versa.
+    </para>
+
+    <para arch="ml_32,ml_x32,ml_all">
+      Hvis kjernefunksjonen som kreves for en multilib arkitektur ikke 
+	  er aktivert, kan bygging av multilib arkitekturen for en pakke i 
+	  kapittel 8 enten mislykkes umiddelbart, eller forårsake skjulte feil 
+	  fordi autoconf ikke kan undersøke systemfunksjonene ordentlig.
+    </para>
+    
+  </sect2>
+
 </sect1>

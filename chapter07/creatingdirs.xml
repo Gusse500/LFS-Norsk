@@ -42,6 +42,9 @@ ln -sfv /run/lock /var/lock
 install -dv -m 0750 /root
 install -dv -m 1777 /tmp /var/tmp</userinput></screen>
 
+  <para arch="ml_32,ml_x32,ml_all">Nødvendige kataloger for multilib 
+  støtte er allerede opprettet under tidligere installasjonstrinn.</para>
+
   <para>Mapper er som standard opprettet med tillatelsesmodus 755, men
   dette er ikke ønskelig for alle mapper. I kommandoene ovenfor, to
   endringer gjøres&mdash;en til hjemmemappen for brukeren <systemitem

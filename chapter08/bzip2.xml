@@ -103,6 +103,60 @@ done</userinput></screen>
 
   </sect2>
 
+  <!-- - - - - - - - - - -->
+  <!-- Multilib - 32bit  -->
+  <!-- - - - - - - - - - -->
+  
+  <sect2 arch="ml_32,ml_all" role="installation">
+    <title>Installasjon av Bzip2 - 32bit</title>
+
+    <para>Rens forrige bygg:</para>
+
+<screen><userinput remap="pre">make clean</userinput></screen>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">sed -e "s/^CC=.*/CC=gcc -m32/" -i Makefile{,-libbz2_so}
+make -f Makefile-libbz2_so
+make libbz2.a</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">install -Dm755 libbz2.so.1.0.8 /usr/lib32/libbz2.so.1.0.8
+ln -sf libbz2.so.1.0.8 /usr/lib32/libbz2.so
+ln -sf libbz2.so.1.0.8 /usr/lib32/libbz2.so.1
+ln -sf libbz2.so.1.0.8 /usr/lib32/libbz2.so.1.0
+install -Dm644 libbz2.a /usr/lib32/libbz2.a</userinput></screen>
+
+  </sect2><!-- m32 -->
+
+  <!-- - - - - - - - - - -->
+  <!-- Multilib - x32bit -->
+  <!-- - - - - - - - - - -->
+  
+  <sect2 arch="ml_x32,ml_all" role="installation">
+    <title>Installasjon av Bzip2 - x32bit</title>
+
+    <para>Rens forrige bygg:</para>
+
+<screen><userinput remap="pre">make clean</userinput></screen>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">sed -e "s/^CC=.*/CC=gcc -mx32/" -i Makefile{,-libbz2_so}
+make -f Makefile-libbz2_so
+make libbz2.a</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">install -Dm755 libbz2.so.1.0.8 /usr/libx32/libbz2.so.1.0.8
+ln -sf libbz2.so.1.0.8 /usr/libx32/libbz2.so
+ln -sf libbz2.so.1.0.8 /usr/libx32/libbz2.so.1
+ln -sf libbz2.so.1.0.8 /usr/libx32/libbz2.so.1.0
+install -Dm644 libbz2.a /usr/libx32/libbz2.a</userinput></screen>
+
+  </sect2><!-- mx32 -->
+
   <sect2 id="contents-bzip2" role="content">
     <title>Innhold i Bzip2</title>
 
