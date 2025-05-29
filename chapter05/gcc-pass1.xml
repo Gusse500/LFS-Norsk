@@ -241,6 +241,7 @@ cd       build</userinput></screen>
         <listitem>
           <para>På x86_64 støtter LFS ikke en multilib konfigurasjon.
           Denne bryteren er ufarlig for x86.</para>
+        </listitem>
       </varlistentry>
       <varlistentry arch="ml_32,ml_x32,ml_all">
         <term><parameter>--enable-multilib --with-multilib-list=...</parameter></term>
