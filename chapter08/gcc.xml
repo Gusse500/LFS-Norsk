@@ -177,7 +177,7 @@ cd       build</userinput></screen>
 
 <screen><userinput remap="test">ulimit -s -H unlimited</userinput></screen>
 
-    <para>Fjern/fiks nå flere kjente testfeil:/para>
+    <para>Fjern/fiks nå flere kjente testfeil:</para>
 
 <screen><userinput remap="test">sed -e '/cpython/d'               -i ../gcc/testsuite/gcc.dg/plugin/plugin.exp
 sed -e 's/300000/(1|300000)/'     -i ../libgomp/testsuite/libgomp.c-c++-common/pr109062.c</userinput></screen>
