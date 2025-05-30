@@ -133,7 +133,7 @@ cd       build</userinput></screen>
 
     <para>Forbered GCC for kompilering:</para>
 
-<screen><userinput remap="configure">../configure                  \
+<screen arch="default"><userinput remap="configure">../configure                  \
     --target=$LFS_TGT         \
     --prefix=$LFS/tools       \
     --with-glibc-version=&glibc-version; \
