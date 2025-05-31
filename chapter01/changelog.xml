@@ -39,6 +39,25 @@
     <listitem revision="sysv"> or <listitem revision="systemd"> as
     appropriate for the entry or if needed the entire day's listitem.
     -->
+      <para>01.06.2025</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til systemd-257.6. Fikser
+          <ulink url='&lfs-ticket-root;5774'>#5774</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til setuptools-80.9.0. Fikser
+          <ulink url='&lfs-ticket-root;5728'>#5728</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til meson-1.8.1. Fikser
+          <ulink url='&lfs-ticket-root;5731'>#5731</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til automake-1.18. Fikser
+          <ulink url='&lfs-ticket-root;5734'>#5734</ulink>.</para>
+        </listitem>
+
     <listitem>
       <para>15.05.2025</para>
       <itemizedlist>
