@@ -57,29 +57,15 @@ mv -v gmp-&gmp-version; gmp
 tar -xf ../mpc-&mpc-version;.tar.gz
 mv -v mpc-&mpc-version; mpc</userinput></screen>
 
-
-    <para arch="default">Hvis du bygger på x86_64, endre standard mappenavn for 64-bit
+    <para>Hvis du bygger på x86_64, endre standard mappenavn for 64-bit
     bibliotekene til <quote>lib</quote>:</para>
 
-<screen arch="default"><userinput remap="pre">case $(uname -m) in
+<screen><userinput remap="pre">case $(uname -m) in
   x86_64)
     sed -e '/m64=/s/lib64/lib/' \
         -i.orig gcc/config/i386/t-linux64
   ;;
 esac</userinput></screen>
-
-    <para arch="ml_32,ml_x32,ml_all">Endre standard mappenavn for 
-	bibliotekene:</para>
-
-<screen arch="ml_32,ml_x32,ml_all"><userinput remap="pre">sed -e '/m64=/s/lib64/lib/' \
-    -e '/m32=/s/m32=.*/m32=..\/lib32$(call if_multiarch,:i386-linux-gnu)/' \
-    -i.orig gcc/config/i386/t-linux64</userinput></screen>
-
-    <para arch="ml_32,ml_all">Make <literal>-mstackrealign</literal> a default for 32bit
-      objects:</para>
-
-<screen arch="ml_32,ml_all"><userinput remap="pre">sed '/STACK_REALIGN_DEFAULT/s/0/(!TARGET_64BIT \&amp;\&amp; TARGET_SSE)/' \
-      -i gcc/config/i386/i386.h</userinput></screen>
 
     <para>Overstyr byggeregelen for libgcc og libstdc++ deklarasjoner, til
     å tillate byggingen av disse bibliotekene med støtte for POSIX-tråder:</para>
@@ -97,11 +83,10 @@ cd       build</userinput></screen>
 
     <para>Forbered nå GCC for kompilering:</para>
 
-<screen arch="default"><userinput remap="configure">../configure                   \
+<screen><userinput remap="configure">../configure                   \
     --build=$(../config.guess) \
     --host=$LFS_TGT            \
     --target=$LFS_TGT          \
-    LDFLAGS_FOR_TARGET=-L$PWD/$LFS_TGT/libgcc \
     --prefix=/usr              \
     --with-build-sysroot=$LFS  \
     --enable-default-pie       \
@@ -114,29 +99,8 @@ cd       build</userinput></screen>
     --disable-libsanitizer     \
     --disable-libssp           \
     --disable-libvtv           \
-    --enable-languages=c,c++</userinput></screen>
-<screen arch="ml_32,ml_x32,ml_all"><userinput remap="configure" 
-    arch="ml_32">mlist=m64,m32</userinput><userinput remap="configure"
-    arch="ml_x32">mlist=m64,mx32</userinput><userinput remap="configure"
-    arch="ml_all">mlist=m64,m32,mx32</userinput>
-<userinput remap="configure">../configure                                       \
-    --build=$(../config.guess)                     \
-    --host=$LFS_TGT                                \
-    --target=$LFS_TGT                              \
-    LDFLAGS_FOR_TARGET=-L$PWD/$LFS_TGT/libgcc      \
-    --prefix=/usr                                  \
-    --with-build-sysroot=$LFS                      \
-    --enable-default-pie                           \
-    --enable-default-ssp                           \
-    --disable-nls                                  \
-    --enable-multilib --with-multilib-list=$mlist  \
-    --disable-libatomic                            \
-    --disable-libgomp                              \
-    --disable-libquadmath                          \
-    --disable-libsanitizer                         \
-    --disable-libssp                               \
-    --disable-libvtv                               \
-    --enable-languages=c,c++</userinput></screen>
+    --enable-languages=c,c++   \
+    LDFLAGS_FOR_TARGET=-L$PWD/$LFS_TGT/libgcc</userinput></screen>
 
     <variablelist>
       <title>Betydningen av de nye konfigureringsalternativene:</title><!-- WIP -->

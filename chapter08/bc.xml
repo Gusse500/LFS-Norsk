@@ -49,9 +49,9 @@
       <title>Betydningen av konfigureringsalternativene:</title>
 
       <varlistentry>
-        <term><parameter>CC='gcc -std=c99'</parameter></term>
+        <term><parameter>CC=gcc -std=c99</parameter></term>
         <listitem>
-          <para>Denne parameteren angir kompilatoren og C standarden som skal brukes.</para>
+          <para>Denne parameteren spesifiserer kompilatoren og C standard som skal brukes.</para>
         </listitem>
       </varlistentry>
 

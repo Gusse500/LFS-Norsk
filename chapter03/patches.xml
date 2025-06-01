@@ -26,15 +26,15 @@
       </listitem>
     </varlistentry>
 -->
-<!--
+
     <varlistentry>
-      <term>Bash Upstream Fixes Patch - <token>&bash-upstream-fixes-patch-size;</token>:</term>
+      <term>Bash Cross Compile Fix Patch - <token>&bash-crosscompile-fix-patch-size;</token>:</term>
       <listitem>
-        <para>Nedlasting: <ulink url="&patches-root;&bash-upstream-fixes-patch;"/></para>
-        <para>MD5 sum: <literal>&bash-upstream-fixes-patch-md5;</literal></para>
+        <para>Nedlasting: <ulink url="&patches-root;&bash-crosscompile-fix-patch;"/></para>
+        <para>MD5 sum: <literal>&bash-crosscompile-fix-patch-md5;</literal></para>
       </listitem>
     </varlistentry>
--->
+
 <!--
     <varlistentry>
       <term>Binutils Upstream Fixes Patch - <token>&binutils-upstream-patch-size;</token>:</term>
@@ -53,7 +53,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term>Coreutils Upstream Fixe Patch - <token>&coreutils-upstream-patch-size;</token>:</term>
+      <term>Coreutils Upstream Fix Patch - <token>&coreutils-upstream-patch-size;</token>:</term>
       <listitem>
         <para>Nedlasting: <ulink url="&patches-root;&coreutils-upstream-patch;"/></para>
         <para>MD5 sum: <literal>&coreutils-upstream-patch-md5;</literal></para>

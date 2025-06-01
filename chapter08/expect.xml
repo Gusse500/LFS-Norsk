@@ -69,7 +69,7 @@
 
     <para>Gjør nå noen endringer for å tillate bygging av pakken med gcc-15.1 eller nyere:</para>
 
-<screen><userinput remap="pre">patch -Np1 -i ../expect-&expect-version;-gcc15-1.patch</userinput></screen>
+<screen><userinput remap="pre">patch -Np1 -i ../&expect-gcc15-patch;</userinput></screen>
 
     <para>Forbered Expect for kompilering:</para>
 

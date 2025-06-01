@@ -62,6 +62,10 @@
            CFLAGS is still automatically set to -march=something.  -->
     </note>
 
+    <para>Først må du justere kompatibiliteten for gcc-15 og nyere:</para>
+
+<screen><userinput remap="pre">sed -i '/long long t1;/,+1s/()/(...)/' configure</userinput></screen>
+
     <para>Forbered GMP for kompilering:</para>
 
 <screen><userinput remap="pre">sed '/long long t1;/,+1s/()/(...)/' -i configure</userinput></screen>

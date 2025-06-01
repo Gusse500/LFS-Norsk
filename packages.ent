@@ -48,7 +48,7 @@
 <!ENTITY automake-fin-sbu "mindre enn 0.1 SBU (omtrent 1.1 SBU med tester)">
 
 <!ENTITY bash-version "5.3-rc1">
-<!ENTITY bash-size "10,868 KB">
+<!ENTITY bash-size "10,491 KB">
 <!ENTITY bash-url "&gnu;bash/bash-&bash-version;.tar.gz">
 <!ENTITY bash-md5 "f58f56196606a0d0cef9b96b733d256c">
 <!ENTITY bash-home "&gnu-software;bash/">
@@ -211,7 +211,7 @@
 <!ENTITY gawk-fin-sbu "0.2 SBU">
 
 <!ENTITY gcc-version "15.1.0">
-<!ENTITY gcc-size "93,744 KB">
+<!ENTITY gcc-size "95,966 KB">
 <!ENTITY gcc-url "&gnu;gcc/gcc-&gcc-version;/gcc-&gcc-version;.tar.xz">
 <!ENTITY gcc-md5 "e55d13c55428bca27b4d2ea02f883135">
 <!ENTITY gcc-home "https://gcc.gnu.org/">
@@ -309,10 +309,10 @@
 <!ENTITY gzip-fin-du "21 MB">
 <!ENTITY gzip-fin-sbu "0.3 SBU">
 
-<!ENTITY iana-etc-version "20250407">
+<!ENTITY iana-etc-version "20250519">
 <!ENTITY iana-etc-size "592 KB">
 <!ENTITY iana-etc-url "https://github.com/Mic92/iana-etc/releases/download/&iana-etc-version;/iana-etc-&iana-etc-version;.tar.gz">
-<!ENTITY iana-etc-md5 "3bd31fb7fd47dccd4bf74cd5ae4046d9">
+<!ENTITY iana-etc-md5 "45778351c7eda633946a777cd8e24eb8">
 <!ENTITY iana-etc-home "https://www.iana.org/protocols">
 <!ENTITY iana-etc-fin-du "4.8 MB">
 <!ENTITY iana-etc-fin-sbu "mindre enn 0.1 SBU">
@@ -341,16 +341,6 @@
 <!ENTITY iproute2-fin-du "17 MB">
 <!ENTITY iproute2-fin-sbu "0.1 SBU">
 
-<!ENTITY isl-version "0.27">
-<!ENTITY isl-size "1,9 MB">
-<!-- ENTITY isl-url "http://isl.gforge.inria.fr/isl-&isl-version;.tar.xz" -->
-<!-- ENTITY isl-url "https://gcc.gnu.org/pub/gcc/infrastructure/isl-&isl-version;.tar.bz2" -->
-<!ENTITY isl-url "https://libisl.sourceforge.io/isl-&isl-version;.tar.xz">
-<!ENTITY isl-md5 "11ee9d335b227ea2e8579c4ba6e56138">
-<!ENTITY isl-home "http://libisl.sourceforge.io/">
-<!ENTITY isl-fin-du "20 MB">
-<!ENTITY isl-fin-sbu "0.1 SBU">
-
 <!ENTITY jinja2-version "3.1.6">
 <!ENTITY jinja2-size "240 KB">
 <!ENTITY jinja2-url "&pypi-src;/J/Jinja2/jinja2-&jinja2-version;.tar.gz">
@@ -359,10 +349,10 @@
 <!ENTITY jinja2-fin-du "2.5 MB">
 <!ENTITY jinja2-fin-sbu "mindre enn 0.1 SBU">
 
-<!ENTITY kbd-version "2.7.1">
-<!ENTITY kbd-size "1,438 KB">
+<!ENTITY kbd-version "2.8.0">
+<!ENTITY kbd-size "1,448 KB">
 <!ENTITY kbd-url "https://www.kernel.org/pub/linux/utils/kbd/kbd-&kbd-version;.tar.xz">
-<!ENTITY kbd-md5 "f15673d9f748e58f82fa50cff0d0fd20">
+<!ENTITY kbd-md5 "24b5d24f7483726b88f214dc6c77aa41">
 <!ENTITY kbd-home "https://kbd-project.org/">
 <!ENTITY kbd-fin-du "34 MB">
 <!ENTITY kbd-fin-sbu "0.1 SBU">
@@ -375,10 +365,10 @@
 <!ENTITY kmod-fin-du "11 MB">
 <!ENTITY kmod-fin-sbu "mindre enn 0.1 SBU">
 
-<!ENTITY less-version "668">
-<!ENTITY less-size "635 KB">
+<!ENTITY less-version "678">
+<!ENTITY less-size "857 KB">
 <!ENTITY less-url "https://www.greenwoodsoftware.com/less/less-&less-version;.tar.gz">
-<!ENTITY less-md5 "d72760386c5f80702890340d2f66c302">
+<!ENTITY less-md5 "19b055a2ee7db1bf910380fd04c41ffc">
 <!ENTITY less-home "https://www.greenwoodsoftware.com/less/">
 <!ENTITY less-fin-du "14 MB">
 <!ENTITY less-fin-sbu "mindre enn 0.1 SBU">
@@ -529,9 +519,10 @@
 <!ENTITY mpfr-fin-du "43 MB">
 <!ENTITY mpfr-fin-sbu "0.2 SBU">
 
-<!ENTITY ncurses-version "6.5">
-<!ENTITY ncurses-size "3,699 KB">
-<!ENTITY ncurses-url "https://invisible-mirror.net/archives/ncurses/current/ncurses-&ncurses-version;-20250517.tgz">
+<!ENTITY ncurses-version "6.5-20250517">
+<!ENTITY ncurses-base-version "6.5">
+<!ENTITY ncurses-size "3,700 KB">
+<!ENTITY ncurses-url "https://invisible-mirror.net/archives/ncurses/current/ncurses-&ncurses-version;.tgz">
 <!ENTITY ncurses-md5 "f969398c02415326ca075db69e04f87f">
 <!ENTITY ncurses-home "&gnu-software;ncurses/">
 <!ENTITY ncurses-tmp-du "53 MB">
@@ -628,10 +619,10 @@
 <!ENTITY python-docs-md5 "5b65ca5579dac14e425cd247af6fd043">
 <!ENTITY python-docs-size "10,112 KB">
 
-<!ENTITY readline-version "8.3">
+<!ENTITY readline-version "8.3-rc1">
 <!ENTITY readline-soversion "8.3"><!-- used for stripping -->
-<!ENTITY readline-size "2,974 KB">
-<!ENTITY readline-url "&gnu;readline/readline-&readline-version;-rc1.tar.gz">
+<!ENTITY readline-size "3,336 KB">
+<!ENTITY readline-url "&gnu;readline/readline-&readline-version;.tar.gz">
 <!ENTITY readline-md5 "65e32c25e6ba871e5b026d22d0b81002">
 <!ENTITY readline-home "https://tiswww.case.edu/php/chet/readline/rltop.html">
 <!ENTITY readline-fin-du "16 MB">
@@ -681,11 +672,11 @@
 <!--<!ENTITY systemd-url      "&anduin-sources;/systemd-&systemd-version;-&systemd-stable;.tar.xz">-->
 <!ENTITY systemd-md5      "458b07e140cd65d25baf7752398c5d13">
 <!ENTITY systemd-home     "https://www.freedesktop.org/wiki/Software/systemd/">
-<!ENTITY systemd-man-version "257.3">
-<!ENTITY systemd-man-size "733 KB">
+<!ENTITY systemd-man-version "257.6">
+<!ENTITY systemd-man-size "736 KB">
 <!--<!ENTITY systemd-man-url  "&anduin-sources;/systemd-man-pages-&systemd-version;-&systemd-stable;.tar.xz">-->
 <!ENTITY systemd-man-url  "&anduin-sources;/systemd-man-pages-&systemd-man-version;.tar.xz">
-<!ENTITY systemd-man-md5  "9b77c3b066723d490cb10aed4fb05696">
+<!ENTITY systemd-man-md5  "d06eb41840ab4c6138e30ba78387ef4e">
 <!ENTITY systemd-fin-du   "307 MB">
 <!ENTITY systemd-fin-sbu  "1.1 SBU">
 
@@ -754,10 +745,10 @@
 <!ENTITY util-linux-fin-du "316 MB">
 <!ENTITY util-linux-fin-sbu "0.5 SBU">
 
-<!ENTITY vim-version "9.1.1353">
+<!ENTITY vim-version "9.1.1418">
 <!-- <!ENTITY vim-majmin "90"> -->
 <!ENTITY vim-docdir "vim/vim91">
-<!ENTITY vim-size "18,318 KB">
+<!ENTITY vim-size "18,414 KB">
 <!ENTITY vim-url "https://github.com/vim/vim/archive/v&vim-version;/vim-&vim-version;.tar.gz">
 <!-- N.B. LFS 9.0 uses
      https://github.com/vim/vim/archive/v8.1.1846/vim-8.1.1846.tar.gz
@@ -771,7 +762,7 @@
      example, https://github.com/vim/vim/tags?after=v8.1.1847 will show
      us v8.1.1846. -->
 <!--<!ENTITY vim-url "&anduin-sources;/vim-&vim-version;.tar.gz">-->
-<!ENTITY vim-md5 "3234f9dfc973bbfc6ce2441c9fd8ab76">
+<!ENTITY vim-md5 "a39c2c90361a39f2206302bb64f51022">
 <!ENTITY vim-home "https://www.vim.org">
 <!ENTITY vim-fin-du "251 MB">
 <!ENTITY vim-fin-sbu "3.4 SBU">
