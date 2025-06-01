@@ -43,12 +43,17 @@
   <sect2 role="installation">
     <title>Installasjon av Python 3</title>
 
+    <para>Først, installer en sikkerhetsoppdatering for gjeldende pakke:</para>
+
+    <screen><userinput remap="pre">patch -Np1 -i ../&python-security-fixes-patch;</userinput></screen>
+    
     <para>Forbered Python for kompilering:</para>
 
-<screen><userinput remap="configure">./configure --prefix=/usr        \
-            --enable-shared      \
-            --with-system-expat  \
-            --enable-optimizations</userinput></screen>
+<screen><userinput remap="configure">./configure --prefix=/usr          \
+            --enable-shared        \
+            --with-system-expat    \
+            --enable-optimizations \
+            --without-static-libpython</userinput></screen>
 
     <variablelist>
       <title>Betydningen av konfigureringsalternativene:</title>
@@ -69,6 +74,14 @@
         bygget brukes til å forbedre den optimaliserte endelige versjonen.</para>
         <!-- This description was drawn from the README.rst file
         in the Python-3.11.0 package. -->
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term><parameter>--without-static-libpython</parameter></term>
+      <listitem>
+        <para>Denne bryteren forhindrer bygging av et stort, men unødvendig, statisk
+		bibliotek.</para>
       </listitem>
     </varlistentry>
 

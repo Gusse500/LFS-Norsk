@@ -41,6 +41,10 @@
   <sect2 role="installation">
     <title>Installasjon av Coreutils</title>
 
+    <para>Først må du installere en sikkerhetsoppdatering som er identifisert oppstrøms:</para>
+
+<screen><userinput remap="pre">patch -Np1 -i ../&coreutils-upstream-patch;</userinput></screen>
+
     <para>POSIX krever at programmer fra Coreutils gjenkjenner karaktergrenser
     riktig selv i multibyte lokaliteter. Følgende oppdateringer
     fikser dette misligholdet og andre internasjonaliseringsrelaterte feil.</para>
