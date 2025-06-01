@@ -39,6 +39,7 @@
     <listitem revision="sysv"> or <listitem revision="systemd"> as
     appropriate for the entry or if needed the entire day's listitem.
     -->
+    <listitem>
       <para>01.06.2025</para>
       <itemizedlist>
         <listitem>
@@ -90,7 +91,9 @@
           <ulink url='&lfs-ticket-root;5718'>#5714</ulink>.</para>
         </listitem>
       </itemizedlist>
+    </listitem>
 
+    <listitem> 
       <para>15.05.2025</para>
       <itemizedlist>
         <listitem>
