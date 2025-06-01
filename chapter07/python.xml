@@ -52,9 +52,10 @@
 
     <para>Forbered Python for kompilering:</para>
 
-<screen><userinput remap="configure">./configure --prefix=/usr   \
-            --enable-shared \
-            --without-ensurepip</userinput></screen>
+<screen><userinput remap="configure">./configure --prefix=/usr       \
+            --enable-shared     \
+            --without-ensurepip \
+            --without-static-libpython</userinput></screen>
 
     <variablelist>
       <title>Betydningen av konfigureringsalternativet:</title>
@@ -74,6 +75,13 @@
         </listitem>
       </varlistentry>
 
+      <varlistentry>
+        <term><parameter>--without-static-libpython</parameter></term>
+        <listitem>
+          <para>Denne bryteren forhindrer bygging av et stort, men unødvendig, statisk
+		  bibliotek.</para>
+        </listitem>
+      </varlistentry>
     </variablelist>
 
     <para>Kompiler pakken:</para>
