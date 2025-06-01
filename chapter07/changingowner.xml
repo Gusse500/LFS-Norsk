@@ -33,7 +33,7 @@
    bruker <systemitem class="username">root</systemitem> ved å kjøre følgende
    kommando:</para>
 
-<screen><userinput>chown --from &lfs-username; -R root:root $LFS/{usr,var,etc,tools}
+<screen><userinput>chown --from &lfs-username; -R root:root $LFS/{usr,lib,var,etc,bin,sbin,tools}
 case $(uname -m) in
   x86_64) chown --from &lfs-username; -R root:root $LFS/lib64 ;;
 esac</userinput></screen>

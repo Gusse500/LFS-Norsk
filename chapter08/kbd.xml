@@ -80,14 +80,10 @@ sed -i 's/resizecons.8 //' docs/man/man8/Makefile.in</userinput></screen>
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Testene for denne pakken vil alle mislykkes i chroot-miljøet
-	fordi de krever <application>valgrind</application>. I tillegg
-	på et komplett system med <application>valgrind</application>, flere
-    Testene mislykkes fortsatt i et grafisk miljø. Testene består
-	i et ikke-grafisk miljø.</para>
-<!--
+    <para>For å teste resultatene, utsted:</para>
+
 <screen><userinput remap="test">make check</userinput></screen>
--->
+
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
