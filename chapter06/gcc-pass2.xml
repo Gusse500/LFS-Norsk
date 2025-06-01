@@ -100,8 +100,7 @@ cd       build</userinput></screen>
     --disable-libssp           \
     --disable-libvtv           \
     --enable-languages=c,c++   \
-    LDFLAGS_FOR_TARGET=-L$PWD/$LFS_TGT/libgcc 
-    </userinput></screen>
+    LDFLAGS_FOR_TARGET=-L$PWD/$LFS_TGT/libgcc</userinput></screen>
 
     <variablelist>
       <title>Betydningen av de nye konfigureringsalternativene:</title><!-- WIP -->
