@@ -69,6 +69,28 @@
           <para>[bdubbs] - Oppdater til automake-1.18. Fikser
           <ulink url='&lfs-ticket-root;5734'>#5734</ulink>.</para>
         </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater byggeinstruksjonene for å imøtekomme
+          gcc-15 for bc, expect, ncurses, og gmp.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til gcc-15.1.0. Fikser
+          <ulink url='&lfs-ticket-root;5707'>#5707</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til less-678. Fikser
+          <ulink url='&lfs-ticket-root;5724'>#5724</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til readline-8.3-rc1. Fikser
+          <ulink url='&lfs-ticket-root;5726'>#5726</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til bash-5.3-rc1. Fikser
+          <ulink url='&lfs-ticket-root;5718'>#5714</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
 
     <listitem>
       <para>15.05.2025</para>
