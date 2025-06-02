@@ -43,20 +43,6 @@
   <sect2 role="installation">
     <title>Installasjon av Kryss GCC</title>
 
-    <note><para>GCC-15: Faktisk (slutten av april 2025) er multilib grenen 
-      forskjellig fra main (hovedgrenen for LFS utvikling) ettersom multilib 
-      grenen inkluderer gcc-15. Siden gcc bruker en ny C-standard (C23) som standard, 
-	  kan det være noen pakker som ikke kompilerer med denne 
-	  versjonen av gcc.</para>
-      <para>Det er noen justeringer i noen pakker, og noen pakker 
-	  er kandidater for tidlig utgivelse (-rc1). Upstream (LFS main) vil 
-	  vente med å oppgradere til gcc-15 til disse pakkene offisielt 
-	  er utgitt. Det kan vare i noen dager.</para>
-      <para>Merk at BLFS vil inneholde pakker som kanskje ikke bygger med gcc-15 
-	  for øyeblikket. Vi oppgraderte multilib grenen til gcc-15 for folk 
-	  som er interessert i å oppdage disse problemene..</para>
-    </note>
-
     <para>GCC krever pakkene GMP, MPFR og MPC. Siden disse pakkene kanskje 
 	ikke er inkludert i vertsdistribusjonen din, vil de bli bygget med 
 	GCC. Pakk ut hver pakke i GCC kildemappen og gi nytt navn til 

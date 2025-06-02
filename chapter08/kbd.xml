@@ -89,8 +89,6 @@ sed -i 's/resizecons.8 //' docs/man/man8/Makefile.in</userinput></screen>
 <screen><userinput remap="test">make check</userinput></screen>
 -->
 
-<screen><userinput remap="test">make check</userinput></screen>
-
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
