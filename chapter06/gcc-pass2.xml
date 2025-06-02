@@ -94,7 +94,7 @@ cd       build</userinput></screen>
 
     <para>Forbered nå GCC for kompilering:</para>
 
-<screen><userinput remap="configure">../configure                   \
+<screen arch="default"><userinput remap="configure">../configure                   \
     --build=$(../config.guess) \
     --host=$LFS_TGT            \
     --target=$LFS_TGT          \
@@ -120,7 +120,6 @@ cd       build</userinput></screen>
     --build=$(../config.guess)                     \
     --host=$LFS_TGT                                \
     --target=$LFS_TGT                              \
-    LDFLAGS_FOR_TARGET=-L$PWD/$LFS_TGT/libgcc      \
     --prefix=/usr                                  \
     --with-build-sysroot=$LFS                      \
     --enable-default-pie                           \
@@ -134,8 +133,7 @@ cd       build</userinput></screen>
     --disable-libssp                               \
     --disable-libvtv                               \
     --enable-languages=c,c++                       \
-    LDFLAGS_FOR_TARGET=-L$PWD/$LFS_TGT/libgcc 
-    </userinput></screen>
+    LDFLAGS_FOR_TARGET=-L$PWD/$LFS_TGT/libgcc</userinput></screen>
 
     <variablelist>
       <title>Betydningen av de nye konfigureringsalternativene:</title><!-- WIP -->
