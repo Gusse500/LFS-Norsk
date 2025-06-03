@@ -56,7 +56,7 @@
         </listitem>
         <listitem>
           <para>[bdubbs] - Oppdater til systemd-257.6. Fikser
-          <ulink url='&lfs-ticket-root;5774'>#5774</ulink>.</para>
+          <ulink url='&lfs-ticket-root;5674'>#5674</ulink>.</para>
         </listitem>
         <listitem>
           <para>[bdubbs] - Oppdater til setuptools-80.9.0. Fikser
