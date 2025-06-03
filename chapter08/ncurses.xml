@@ -128,7 +128,7 @@
 
     <para>Installasjonen av denne pakken vil overskrive
     <filename class="libraryfile">libncursesw.so.&ncurses-base-version;</filename>.
-	Det kan krasje skallprosessen som bruker kode og data
+    Det kan krasje skallprosessen som bruker kode og data
     fra bibliotekfilen. Installer pakken med
     <literal>DESTDIR</literal>, og bytt ut bibliotekfilen riktig med
     <command>install</command> kommandoen (deklarasjonen
