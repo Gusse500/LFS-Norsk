@@ -127,8 +127,8 @@
          make will spawn new shell processes during "make install".  -->
 
     <para>Installasjonen av denne pakken vil overskrive
-    <filename class="libraryfile">libncursesw.so.&ncurses-version;</filename>
-    .  Det kan krasje skallprosessen som bruker kode og data
+    <filename class="libraryfile">libncursesw.so.&ncurses-base-version;</filename>.
+	Det kan krasje skallprosessen som bruker kode og data
     fra bibliotekfilen. Installer pakken med
     <literal>DESTDIR</literal>, og bytt ut bibliotekfilen riktig med
     <command>install</command> kommandoen (deklarasjonen
