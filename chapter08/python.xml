@@ -77,14 +77,6 @@
       </listitem>
     </varlistentry>
 
-    <varlistentry>
-      <term><parameter>--without-static-libpython</parameter></term>
-      <listitem>
-        <para>Denne bryteren forhindrer bygging av et stort, men unødvendig, statisk
-		bibliotek.</para>
-      </listitem>
-    </varlistentry>
-
     </variablelist>
 
     <para>Kompiler pakken:</para>
