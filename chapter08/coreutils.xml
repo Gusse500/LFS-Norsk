@@ -41,7 +41,7 @@
   <sect2 role="installation">
     <title>Installasjon av Coreutils</title>
 
-    <para>Først må du installere en sikkerhetsoppdatering som er identifisert oppstrøms:</para>
+    <para>Først må du installere en oppdatering for et sikkerhetsproblem som er identifisert oppstrøms:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&coreutils-upstream-patch;</userinput></screen>
 

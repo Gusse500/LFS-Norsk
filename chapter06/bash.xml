@@ -42,11 +42,11 @@
 
   <sect2 role="installation">
     <title>Installasjon av Bash</title>
-
+<!--
     <para>Først, fiks et problem relatert til krysskompilering og gcc-15:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&bash-crosscompile-fix-patch;</userinput></screen>
-
+-->
     <para>Forbered Bash for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr                      \

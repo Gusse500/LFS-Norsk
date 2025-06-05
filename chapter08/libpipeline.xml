@@ -49,9 +49,8 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>For å teste resultatene, utsted:</para>
-
-<screen><userinput remap="test">make check</userinput></screen>
+    <para>Testene krever <application>Check</application> biblioteket
+    som er fjernet fra LFS.</para>
 
     <para>Installer pakken:</para>
 
