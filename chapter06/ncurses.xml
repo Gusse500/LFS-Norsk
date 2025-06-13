@@ -44,13 +44,16 @@
     <title>Installasjon av Ncurses</title>
 
     <para>Først, kjør følgende kommandoer for å bygge <quote>tic</quote>
-    programmet på byggeverten:</para>
+      programmet på byggeverten. Vi installerer den i
+      <filename class="directory">$LFS/tools</filename>, slik at den blir funnet
+      i <envar>PATH</envar> ved behov:</para>
 
 <screen><userinput remap="pre">mkdir build
 pushd build
-  ../configure AWK=gawk
+  ../configure --prefix=$LFS/tools AWK=gawk
   make -C include
   make -C progs tic
+  install progs/tic $LFS/tools/bin
 popd</userinput></screen>
 
     <para>Forbered Ncurses for kompilering:</para>
@@ -139,7 +142,6 @@ popd</userinput></screen>
           is there any updated into? --></para>
         </listitem>
       </varlistentry>
-
     </variablelist>
 
     <para>Kompiler pakken:</para>
@@ -148,27 +150,13 @@ popd</userinput></screen>
 
     <para>Installer pakken:</para>
 
-<screen><userinput remap="install">make DESTDIR=$LFS TIC_PATH=$(pwd)/build/progs/tic install
+<screen><userinput remap="install">make DESTDIR=$LFS install
 ln -sv libncursesw.so $LFS/usr/lib/libncurses.so
 sed -e 's/^#if.*XOPEN.*$/#if 1/' \
     -i $LFS/usr/include/curses.h</userinput></screen>
-<!--
-    <para>Fjern et unødvendig statisk bibliotek som ikke håndteres av
-    <command>configure</command>:</para>
 
-<screen><userinput remap="install">rm -v $LFS/usr/lib/libncurses++w.a</userinput></screen>
--->
     <variablelist>
       <title>Betydningen av installasjonsalternativene:</title>
-
-      <varlistentry>
-        <term><parameter>TIC_PATH=$(pwd)/build/progs/tic</parameter></term>
-        <listitem>
-          <para>Vi må sende stien til den nettopp bygde
-          <command>tic</command> programmet som kjører på byggemaskinen, slik at
-          terminaldatabasen kan opprettes uten feil.</para>
-        </listitem>
-      </varlistentry>
 
       <varlistentry>
         <term><command>ln -sv libncursesw.so $LFS/usr/lib/libncurses.so</command></term>
