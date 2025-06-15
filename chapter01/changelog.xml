@@ -40,6 +40,32 @@
     appropriate for the entry or if needed the entire day's listitem.
     -->
     <listitem>
+      <para>15.06.2025</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til meson-1.8.2. Fikser
+          <ulink url='&lfs-ticket-root;5743'>#5743</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.15.2. Fikser
+          <ulink url='&lfs-ticket-root;5725'>#5725</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til libffi-3.5.1. Fikser
+          <ulink url='&lfs-ticket-root;5741'>#5741</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iproute2-6.15.0. Fikser
+          <ulink url='&lfs-ticket-root;5732'>#5732</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til Python-3.13.5. Fikser
+          <ulink url='&lfs-ticket-root;5743'>#6743</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>04.06.2025</para>
       <itemizedlist>
         <listitem>
