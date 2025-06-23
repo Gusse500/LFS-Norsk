@@ -11,8 +11,8 @@ $exceptions = array();
 //$exceptions[ 'gmp' ] = "UPDIR=/.*(gmp-\d[\d\.-]*\d).*/:DOWNDIR=";
 
 $regex = array();
-$regex[ 'intltool' ] = "/^.*Latest version is (\d[\d\.]+\d).*$/";
-$regex[ 'less'     ] = "/^.*current released version is less-(\d+).*$/";
+$regex[ 'intltool' ] = "/^.*Siste versjon er (\d[\d\.]+\d).*$/";
+$regex[ 'less'     ] = "/^.*nåværende utgitte versjon er less-(\d+).*$/";
 $regex[ 'mpfr'     ] = "/^mpfr-([\d\.]+)\.tar.*$/";
 $regex[ 'tzdata'   ] = "/^.*tzdata([\d]+[a-z]).*$/";
 $regex[ 'xz'       ] = "/^.*xz-([\d\.]*\d).*$/";
@@ -159,7 +159,7 @@ if ( $package == "zstd"       ) $dirpath = github("facebook/zstd");
   // Check for ftp
   if ( preg_match( "/^ftp/", $dirpath ) )
   {
-    echo "ftp should not occur\n";
+    echo "ftp skal ikke forekomme\n";
   }
   else // http(s)
   {
@@ -302,7 +302,7 @@ function get_current()
 
    // Fetech from git and get wget-list
    $current = array();
-   $lfsgit = "https://git.linuxfromscratch.org/lfs.git";
+   $lfsgit = "https://github.com/Gusse500/LFS-Norsk.git";
 
    $tmpdir = exec( "mktemp -d /tmp/lfscheck.XXXXXX" );
    $cdir   = getcwd();
@@ -423,7 +423,7 @@ function html()
                       'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
 <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
 <head>
-<title>LFS Package Currency Check - $date</title>
+<title>Valutasjekk for LFS pakke - $date</title>
 <style type='text/css'>
 h1, h2 {
    text-align      : center;
@@ -458,11 +458,11 @@ table td {
 
 </head>
 <body>
-<h1>LFS Package Currency Check</h1>
-<h2>As of $date GMT</h1>
+<h1>Valutasjekk for LFS pakke</h1>
+<h2>Fra og med $date GMT</h1>
 
 <table>
-<tr><th>LFS Package</th> <th>LFS Version</th> <th>Latest</th> <th>Flag</th></tr>\n";
+<tr><th>LFS Pakke</th> <th>LFS Versjon</th> <th>Siste</th> <th>Flagg</th></tr>\n";
 
    // Get the latest version of each package
    foreach ( $dirs as $pkg => $dir )
@@ -486,10 +486,10 @@ function write_to_stdout()
    global $dirs;
 
    echo "
-LFS Package Currency Check
-As of $date GMT
+Valutasjekk for LFS pakke
+Fra og med $date GMT
 
-LFS Package     LFS Version Latest Flag\n";
+LFS Pakke     LFS Versjon Siste Flagg\n";
 
    // Get the latest version of each package
    foreach ( $dirs as $pkg => $dir )

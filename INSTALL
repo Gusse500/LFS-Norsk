@@ -1,9 +1,9 @@
 LFS Book Conversion Tools Installation Instructions
 
-Etter å ha lastet ned SVN-kilden, er det noen ting som må settes opp
-på datamaskinen din hvis du vil konvertere XML-kilden til noe som er enklere å
+Etter å ha lastet ned SVN kilden, er det noen ting som må settes opp
+på datamaskinen din hvis du vil konvertere XML kilden til noe som er enklere å
 les (f.eks. HTML, TXT eller PDF). Hvis du er interessert i dette, så fortsett
-lesning. Hvis du bare er interessert i å redigere XML-kilden for re-
+lesning. Hvis du bare er interessert i å redigere XML kilden for re-
 innsending til lfs-book eller lfs-dev postlister, så trenger du ikke dette
 dokument. I stedet må du lese LFS Editor's Manual. Se LFS
 nettstedet på https://www.linuxfromscratch.org for mer informasjon.
