@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $# -lt 1 ] ; then
-  echo "This script needs the location of the xml file to update"
+  echo "Dette skriptet trenger plasseringen til xml filen for å oppdatere"
   exit 1
 fi
 
