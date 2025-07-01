@@ -231,8 +231,8 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
       <varlistentry id="debugfs">
         <term><command>debugfs</command></term>
         <listitem>
-          <para>En feilsøker for filsystemet; den kan brukes til å undersøke og endre
-          tilstanden til <systemitem class="filesystem">ext{234}</systemitem>
+          <para>En feilsøker for filsystemet; den kan brukes til å undersøke og 
+		  endre tilstanden til <systemitem class="filesystem">ext{234}</systemitem>
           filsystemer</para>
           <indexterm zone="ch-system-e2fsprogs debugfs">
             <primary sortas="b-debugfs">debugfs</primary>
@@ -333,8 +333,8 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
         <listitem>
           <para>Gjentar angreloggen (undo_log) for et <systemitem
           class="filesystem">ext{234}</systemitem> filsystem
-          funnet på en enhet [Dette kan brukes til å angre en mislykket operasjon av et
-          e2fsprogs program.]</para>
+          funnet på en enhet [Dette kan brukes til å angre en mislykket 
+		  operasjon av et e2fsprogs program.]</para>
           <indexterm zone="ch-system-e2fsprogs e2undo">
             <primary sortas="b-e2undo">e2undo</primary>
           </indexterm>
@@ -430,8 +430,8 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
       <varlistentry id="mk_cmds">
         <term><command>mk_cmds</command></term>
         <listitem>
-          <para>Konverterer en tabell med kommandonavn og hjelpemeldinger til en C
-          kildefil egnet for bruk med <filename
+          <para>Konverterer en tabell med kommandonavn og hjelpemeldinger til 
+		  en C kildefil egnet for bruk med <filename
           class="libraryfile">libss</filename> delsystembibliotek</para>
           <indexterm zone="ch-system-e2fsprogs mk_cmds">
             <primary sortas="b-mk_cmds">mk_cmds</primary>
@@ -487,9 +487,9 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
         <term><command>mklost+found</command></term>
         <listitem>
           <para>Oppretter en <filename class="directory">lost+found</filename>
-          mappe på et <systemitem class="filesystem">ext{234}</systemitem> filsystem
-          ; den forhåndstildeler diskblokker til denne mappen for å lette
-          oppgaven til <command>e2fsck</command></para>
+          mappe på et <systemitem class="filesystem">ext{234}</systemitem> 
+		  filsystem; den forhåndstildeler diskblokker til denne mappen for å 
+		  lette oppgaven til <command>e2fsck</command></para>
           <indexterm zone="ch-system-e2fsprogs mklost-found">
             <primary sortas="b-mklost+found">mklost+found</primary>
           </indexterm>
@@ -542,7 +542,7 @@ install-info --dir-file=/usr/share/info/dir /usr/share/info/com_err.info</userin
       <varlistentry id="libext2fs">
         <term><filename class="libraryfile">libext2fs</filename></term>
         <listitem>
-          <para>Inneholder rutiner for å gjøre det mulig for programmer på brukernivå å manipulere et
+          <para>Inneholder rutiner for å manipulere programmer på brukernivå i et
           <systemitem class="filesystem">ext{234}</systemitem> filsystem</para>
           <indexterm zone="ch-system-e2fsprogs libext2fs">
             <primary sortas="c-libext2fs">libext2fs</primary>
