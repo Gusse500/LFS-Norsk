@@ -43,7 +43,7 @@
   <sect2 role="installation">
     <title>Installasjon av Ncurses</title>
 
-    <para>Først, kjør følgende kommandoer for å bygge <quote>tic</quote>
+    <para>Først, kjør følgende kommandoer for å bygge <command>tic</command>
       programmet på byggeverten. Vi installerer den i
       <filename class="directory">$LFS/tools</filename>, slik at den blir funnet
       i <envar>PATH</envar> ved behov:</para>
