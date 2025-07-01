@@ -129,7 +129,8 @@ su tester -c "make -k check"</userinput></screen>
     </para>
 
     <para>
-      En test, kill: decode functions, er kjent for å mislykkes i chroot miljøet.
+      En test, kill: decode functions, er kjent for å mislykkes 
+      med bash-5.3-rc1 eller nyere.
     </para>
 
     <para>Installer pakken:</para>
