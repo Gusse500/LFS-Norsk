@@ -39,6 +39,45 @@
     <listitem revision="sysv"> or <listitem revision="systemd"> as
     appropriate for the entry or if needed the entire day's listitem.
     -->
+
+    <listitem>
+      <para>15.07.2025</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til readline-8.3. Fikser
+          <ulink url='&lfs-ticket-root;5755'>#5755</ulink>.</para>
+        </listitem>
+        <listitem revision='sysv'>
+          <para>[bdubbs] - Oppdater til perl-5.42.0. Fikser
+          <ulink url='&lfs-ticket-root;5756'>#5756</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til openssl-3.5.1. Fikser
+          <ulink url='&lfs-ticket-root;5723'>#5723</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til ninja-1.13.1. Fikser
+          <ulink url='&lfs-ticket-root;5759'>#5759</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.15.6. Fikser
+          <ulink url='&lfs-ticket-root;5757'>#5757</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til gettext-0.25.1. Fikser
+          <ulink url='&lfs-ticket-root;5753'>#5753</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til e2fsprogs-1.47.3. Fikser
+          <ulink url='&lfs-ticket-root;5758'>#5758</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til bash-5.3. Fikser
+          <ulink url='&lfs-ticket-root;5754'>#5754</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
     <listitem>
       <para>01.07.2025</para>
       <itemizedlist>
