@@ -82,6 +82,16 @@ cd       build</userinput></screen>
     <variablelist>
       <title>Betydningen av konfigurasjonsalternativene:</title>
 
+      <note>
+        <para>
+          I motsetning til andre pakker vises ikke alle alternativene nedenfor 
+          når du kjører <command>./configure --help</command>. For eksempel, for 
+          å finne <option>--with-sysroot</option> alternativer, må du kjøre
+          <command>ld/configure --help</command>. Alle alternativene kan listes 
+          opp samtidig med <command>./configure --help=recursive</command>.
+        </para>
+      </note>
+
       <varlistentry>
         <term><parameter>--prefix=$LFS/tools</parameter></term>
         <listitem>
