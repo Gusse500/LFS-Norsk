@@ -213,7 +213,22 @@ EOF</userinput></screen>
       <filename>/run/systemd/resolve/stub-resolv.conf</filename>. Så det er
       unødvendig å lage en <filename>/etc/resolv.conf</filename>
       manuelt.</para>
-      <!--Lag en
+ 
+      <note>
+        <para>
+          Hvis du vil bruke <command>systemd-resolved</command> for LFS 
+          systemet, men du trenger tilgang til Internett i chroot miljøet (for 
+          eksempel for å bygge en BLFS pakke der byggeprosessen krever en 
+          Internetttilkobling), opprett
+          <filename>/etc/resolv.conf</filename> filen etter den statiske 
+          konfigurasjonen nedenfor for chroot miljøet, slik at navneoppløsningen 
+          vil fungere i chroot miljøet. Når du avslutter chroot miljøet, fjern 
+          den slik at
+          <command>systemd-resolved</command> vil lage symbolkoblingen ved 
+          oppstart.
+        </para>
+      </note>
+ <!--Lag en
       symbollenke i <filename>/etc</filename> for å bruke den genererte filen:</para>
 
 <screen><userinput>ln -sfv /run/systemd/resolve/resolv.conf /etc/resolv.conf</userinput></screen>
