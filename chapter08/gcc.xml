@@ -150,7 +150,7 @@ cd       build</userinput></screen>
 
 <screen><userinput remap="test">ulimit -s -H unlimited</userinput></screen>
 
-    <para>Fjern/fiks nå flere kjente testfeil:</para>
+    <para>Fjern nå flere kjente testfeil:</para>
 
 <screen><userinput remap="test">sed -e '/cpython/d' -i ../gcc/testsuite/gcc.dg/plugin/plugin.exp</userinput></screen>
 
