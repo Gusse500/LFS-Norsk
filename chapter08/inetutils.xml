@@ -109,12 +109,16 @@
     <para>For å teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">make check</userinput></screen>
-<!--
-    <note><para>En test, libls.sh, kan mislykkes i det innledende chroot
-     miljøet, men vil bestå hvis testen kjøres på nytt etter at LFS systemet
-     er ferdig. En test, ping-localhost.sh, vil mislykkes hvis
-     vertssystemet ikke har ipv6 støtte.</para></note>
--->
+
+    <!-- To editors: the failed test is "fail to disable sort with -f" which
+         runs tests/ls -f and checks if the output is **not** sorted.
+         But with ext4 there's a good chance the directory entries returned
+         by the kernel already happen to be sorted.  Mounting a tmpfs on
+         $LFS/tmp seems able to make it pass but we don't do that by the
+         book.  IMO the test is just misdesigned.  -->
+    <para>En test ved navn <filename>libls.sh</filename> er kjent for å 
+    mislykkes noen ganger.</para>
+
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
