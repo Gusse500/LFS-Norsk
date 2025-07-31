@@ -34,7 +34,10 @@
 <screen><computeroutput>install-info: unknown option '--dir-file=/mnt/lfs/usr/info/dir'</computeroutput></screen>
 
   <para>Denne formen for tekst (tekst med fast bredde) viser skjermutdata, vanligvis som
-  resultatet av utstedte kommandoer. Dette formatet brukes også til å vise filnavn,
+  resultatet av utstedte kommandoer.  Hvis du leser boken i HTML format 
+  (i stedet for PDF), skal teksten være blå.</para>
+
+  <para>Teksten med fast bredde brukes også til å vise filnavn,
   som for eksempel <filename>/etc/ld.so.conf</filename>.</para>
 
   <note>
