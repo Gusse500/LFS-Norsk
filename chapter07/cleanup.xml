@@ -162,9 +162,9 @@ tar -cJpf $HOME/lfs-temp-tools-&version;.tar.xz .</userinput></screen>
     miljøvariabelen ikke er satt for brukeren &root; vil den ødelegge
     hele vertssystemet ditt. DU ER ADVART.</para></warning>
 
-<screen role="nodump"><computeroutput>cd $LFS
+<screen role="nodump"><literal>cd $LFS
 rm -rf ./*
-tar -xpf $HOME/lfs-temp-tools-&version;.tar.xz</computeroutput></screen>
+tar -xpf $HOME/lfs-temp-tools-&version;.tar.xz</literal></screen>
 
     <para>
        Igjen, dobbeltsjekk at miljøet er riktig konfigurert
