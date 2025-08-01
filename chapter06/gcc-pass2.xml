@@ -42,11 +42,11 @@
 
   <sect2 role="installation">
     <title>Installasjon av GCC</title>
-<!--
+
     <para>Løs først et problem med den nyeste versjonen av glibc:</para>
 
-    <screen><userinput remap="pre">patch -Np1 -i ../&gcc-upstream-fixes-patch;</userinput></screen>
--->
+    <screen><userinput remap="pre">sed '/struct_termio_sz/d' -i libsanitizer/sanitizer_common/*</userinput></screen>
+
     <para>Som i den første versjonen av GCC, er GMP, MPFR og MPC pakkene
     nødvendig. Pakk ut tarballene og flytt dem til den nødvendige mappen:</para>
 
