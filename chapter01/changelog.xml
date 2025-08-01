@@ -129,7 +129,7 @@
       <itemizedlist>
         <listitem>
           <para>[bdubbs] - Oppdater til meson-1.8.2. Fikser
-          <ulink url='&lfs-ticket-root;5743'>#5743</ulink>.</para>
+          <ulink url='&lfs-ticket-root;5742'>#5742</ulink>.</para>
         </listitem>
         <listitem>
           <para>[bdubbs] - Oppdater til linux-6.15.2. Fikser
@@ -145,7 +145,7 @@
         </listitem>
         <listitem>
           <para>[bdubbs] - Oppdater til Python-3.13.5. Fikser
-          <ulink url='&lfs-ticket-root;5743'>#6743</ulink>.</para>
+          <ulink url='&lfs-ticket-root;5743'>#5743</ulink>.</para>
         </listitem>
       </itemizedlist>
     </listitem>
