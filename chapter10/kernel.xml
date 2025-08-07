@@ -151,13 +151,6 @@
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
         href="kernel/x2apic.xml"/>
 
-      <para>Hvis du bygger et 32-bits system som kjører på en maskinvare
-      med mer enn 4 GB RAM, juster konfigurasjonen slik at kjernen vil
-      kunne bruke opptil 64 GB fysisk RAM:</para>
-
-      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-        href="kernel/highmem.xml"/>
-
       <para>Hvis partisjonen for LFS-systemet er i en NVME SSD (dvs
       enhetsnoden for partisjonen er <filename>/dev/nvme*</filename>
       i stedet for <filename>/dev/sd*</filename>), aktivere NVME støtte ellers
