@@ -76,7 +76,7 @@
 <!ENTITY binutils-tmpp2-sbu "0.4 SBU">
 <!ENTITY binutils-fin-du "819 MB">
 <!ENTITY binutils-fin-sbu "1.6 SBU">
-<!ENTITY libsframe-version "1.0.0">
+<!ENTITY libsframe-version "2.0.0">
 
 <!ENTITY bison-version "3.8.2">
 <!ENTITY bison-size "2,752 KB">
@@ -222,7 +222,7 @@
 <!ENTITY gcc-fin-du "6.3 GB ">
 <!ENTITY gcc-fin-sbu "46 SBU (med tester)">
 <!ENTITY libquadmath-version "0.0.0">
-<!ENTITY libstdcpp-version   "6.0.33">
+<!ENTITY libstdcpp-version   "6.0.34">
 <!ENTITY libitm-version      "1.0.0">
 <!ENTITY libatomic-version   "1.2.0">
 
