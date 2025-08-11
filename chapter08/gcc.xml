@@ -41,10 +41,6 @@
   <sect2 role="installation">
     <title>Installasjon av GCC</title>
 
-    <para>Først må du gjøre en endring som kreves av glibc-2.42 eller nyere:</para>
-
-<screen><userinput remap="pre">sed -i '/struct_termio_sz/d' libsanitizer/sanitizer_common/*</userinput></screen>
-
     <para>Hvis du bygger på x86_64, endre standard mappenavn for 64-bit
     bibliotekene til <quote>lib</quote>:</para>
 
