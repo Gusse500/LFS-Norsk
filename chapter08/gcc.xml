@@ -41,10 +41,6 @@
   <sect2 role="installation">
     <title>Installasjon av GCC</title>
 
-    <para>Først må du gjøre en endring som kreves av glibc-2.42 eller nyere:</para>
-
-<screen><userinput remap="pre">sed -i '/struct_termio_sz/d' libsanitizer/sanitizer_common/*</userinput></screen>
-
     <para>Hvis du bygger på x86_64, endre standard mappenavn for 64-bit
     bibliotekene til <quote>lib</quote>:</para>
 
@@ -174,13 +170,9 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
     url="&test-results;"/> og
     <ulink url="https://gcc.gnu.org/ml/gcc-testresults/"/>.</para>
 
-    <!-- https://github.com/google/sanitizers/issues/1716
-         Affecting any host distro with a large vm.mmap_rnd_bits.
-         The fix is https://github.com/llvm/llvm-project/commit/0784b1eefa36
-         but it's not in GCC 14.  TODO retry with
-             sudo sysctl vm.mmap_rnd_bits=32
-         on the host distro when we update to GCC 15.  -->
-    <para>Tsan testene er kjent for å mislykkes på enkelte vertsdistroer.</para>
+    <!-- https://gcc.gnu.org/PR118885 -->
+    <para>Testene knyttet til <filename>pr90579.c</filename> er kjent for 
+    å mislykkes.</para>
 
     <para>Noen få uventede feil kan ikke alltid unngås. I noen tilfeller
     testfeil avhenger av den spesifikke maskinvaren til systemet.<!--GCC utviklerne

@@ -53,8 +53,8 @@ mv -v gmp-&gmp-version; gmp
 tar -xf ../mpc-&mpc-version;.tar.gz
 mv -v mpc-&mpc-version; mpc</userinput></screen>
 
-    <para>Hvis du bygger på x86_64, endre standard mappenavn for 64-bit
-    bibliotekene til <quote>lib</quote>:</para>
+    <para>Hvis du bygger på x86_64, endre standard mappenavn for 64-biters 
+    biblioteker til <quote>lib</quote>:</para>
 
 <screen><userinput remap="pre">case $(uname -m) in
   x86_64)
@@ -63,7 +63,7 @@ mv -v mpc-&mpc-version; mpc</userinput></screen>
   ;;
 esac</userinput></screen>
 
-    <para>Overstyr byggeregelen for libgcc og libstdc++ deklarasjoner, til
+    <para>Overstyr byggereglene for libgcc og libstdc++ deklarasjoner, til
     å tillate byggingen av disse bibliotekene med støtte for POSIX-tråder:</para>
 
 <screen><userinput remap="pre">sed '/thread_header =/s/@.*@/gthr-posix.h/' \
@@ -107,10 +107,10 @@ cd       build</userinput></screen>
           <para>Normalt, å bruke <parameter>--host</parameter> sørger for at
           en krysskompilator brukes til å bygge GCC, og da vet dennne kompilatoren
           at den må lete etter overskrifter og biblioteker i <filename
-          class="directory">$LFS</filename>. Men byggesystemet til GCC bruker
-          andre verktøy som ikke er klar over denne plasseringen. Denne bryteren
-          sørger for at de finner de nødvendige filene på <filename
-          class="directory">$LFS</filename>, og ikke på verten.</para>
+          class="directory">$LFS</filename>. Byggesystemet for GCC bruker imidlertid 
+          tilleggsverktøy som ikke er klar over denne plasseringen. Denne bryteren 
+          er nødvendig slik at disse verktøyene finner de nødvendige filene i
+          <filename class="directory">$LFS</filename>, og ikke på verten.</para>
         </listitem>
       </varlistentry>
 
