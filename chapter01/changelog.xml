@@ -44,7 +44,7 @@
       <para>08.08.2025</para>
       <itemizedlist>
         <listitem>
-          <para>[bdubbs] - Oppdater til Python-3.13.6. Fikser
+          <para>[bdubbs] - Oppdater til Python-3.13.6 (Sikkerhetsoppdatering). Fikser
           <ulink url='&lfs-ticket-root;5776'>#5776</ulink>.</para>
         </listitem>
         <listitem>
