@@ -41,6 +41,28 @@
     -->
 
     <listitem>
+      <para>08.08.2025</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til Python-3.13.6 (Sikkerhetsoppdatering). Fikser
+          <ulink url='&lfs-ticket-root;5776'>#5776</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til openssl-3.5.2. Fikser
+          <ulink url='&lfs-ticket-root;5775'>#5775</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til libffi-3.5.2. Fikser
+          <ulink url='&lfs-ticket-root;5772'>#5772</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til gcc-15.2.0. Fikser
+          <ulink url='&lfs-ticket-root;5777'>#5777</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>05.08.2025</para>
       <itemizedlist>
         <listitem>
