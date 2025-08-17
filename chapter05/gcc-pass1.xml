@@ -76,9 +76,9 @@ esac</userinput></screen>
       <para>
         Dette eksemplet demonstrerer bruken av
         <parameter>-i.orig</parameter> bryteren. Den gjør at
-        <command>sed</command> kopierer <filename>t-linux64</filename>
-        til <filename>t-linux64.orig</filename>, og deretter redigerer
-        <filename>t-linux64</filename>. Så du kan kjøre
+        <command>sed</command> kopier <filename>t-linux64</filename> filen
+        til <filename>t-linux64.orig</filename>, og deretter redigere den 
+        originale <filename>t-linux64</filename> filen. Så du kan kjøre
         <command>diff -u gcc/config/i386/t-linux64{.orig,}</command>
         for å visualisere endringen som er gjort av <command>sed</command> 
         kommandoen etterpå. Vi bruker ganske enkelt <parameter>-i</parameter> 
