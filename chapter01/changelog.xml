@@ -41,6 +41,45 @@
     -->
 
     <listitem>
+      <para>15.08.2025</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Legg til en modifikasjon i glibc fra oppstrøms for å 
+          løse en inkompatibilitet med valgrind. Fikser
+          <ulink url='&lfs-ticket-root;5778'>#5778</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iana-etc-20250807. Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til vim-9.1.1829. Adresserer
+          <ulink url='&lfs-ticket-root;4500'>#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til ncurses-6.5-20250809. Fikser
+          <ulink url='&lfs-ticket-root;5780'>#5780</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til Python-3.13.7 (Sikkerhetsoppdatering). Fikser
+          <ulink url='&lfs-ticket-root;5779'>#5779</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.16.1. Fikser
+          <ulink url='&lfs-ticket-root;5758'>#5758</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iproute2-6.16.0. Fikser
+          <ulink url='&lfs-ticket-root;5773'>#5773</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til systemd-257.8. Fikser
+          <ulink url='&lfs-ticket-root;5751'>#5751</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>08.08.2025</para>
       <itemizedlist>
         <listitem>
