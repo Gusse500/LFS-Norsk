@@ -106,7 +106,7 @@ unset SRCDIR</userinput></screen>
 
     <para>Installer pakken:</para>
 
-<screen><userinput remap="install">make install &amp;&amp;
+<screen><userinput remap="install">make install 
 chmod 644 /usr/lib/libtclstub&tcl-major-version;.a</userinput></screen>
 
     <para>Gjør det installerte biblioteket skrivbart slik at feilsøkingssymboler kan

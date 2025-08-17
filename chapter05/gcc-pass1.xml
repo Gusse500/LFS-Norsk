@@ -72,6 +72,23 @@ mv -v mpc-&mpc-version; mpc</userinput></screen>
  ;;
 esac</userinput></screen>
 
+    <note>
+      <para>
+        Dette eksemplet demonstrerer bruken av
+        <parameter>-i.orig</parameter> bryteren. Den gjør at
+        <command>sed</command> kopier <filename>t-linux64</filename> filen
+        til <filename>t-linux64.orig</filename>, og deretter redigere den 
+        originale <filename>t-linux64</filename> filen. Så du kan kjøre
+        <command>diff -u gcc/config/i386/t-linux64{.orig,}</command>
+        for å visualisere endringen som er gjort av <command>sed</command> 
+        kommandoen etterpå. Vi bruker ganske enkelt <parameter>-i</parameter> 
+        (som bare redigerer den opprinnelige filen uten å kopiere den) for alle 
+        andre pakker i boken, men du kan endre den til
+        <parameter>-i.orig</parameter> hvis du beholde en kopi av den 
+        opprinnelige filen.
+      </para>
+    </note>
+
     <para>GCC dokumentasjonen anbefaler å bygge GCC
     i en dedikert byggemappe:</para>
 
