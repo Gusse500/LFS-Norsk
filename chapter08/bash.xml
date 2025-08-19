@@ -79,7 +79,7 @@
     <application>Expect</application> og kjør testene som bruker <systemitem
     class="username">tester</systemitem>:</para>
 
-<screen><userinput remap="test">su -s /usr/bin/expect tester &lt;&lt; "EOF"
+<screen><userinput remap="test">LC_ALL=C.UTF-8 su -s /usr/bin/expect tester &lt;&lt; "EOF"
 set timeout -1
 spawn make tests
 expect eof
@@ -96,9 +96,11 @@ EOF</userinput></screen>
     <!-- Some host distros set core file size hard limit < 1000, then the
          test "ulimit -c -S 1000" attempts to set soft limit > hard limit
          and fail.  -->
-    En test med navnet <filename>run-builtins</filename> er kjent for å mislykkes
-    på noen vertsdistroer med en forskjell på den første linjen i
-    utdataen.</para>
+    Testen navngitt <filename>run-builtins</filename> er kjent for å feile på 
+    noen vertsdistribusjoner med en forskjell på linjene 479 og 480 i utdataene. 
+    Noen andre tester trenger <literal>zh_TW.BIG5</literal> og
+    <literal>ja_JP.SJIS</literal> språkinnstillinger, de er kjent for å feile 
+    med mindre disse språkinnstillingene er installert.</para>
 
     <para>Installer pakken:</para>
 
