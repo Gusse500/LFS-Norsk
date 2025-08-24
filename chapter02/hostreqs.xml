@@ -74,9 +74,8 @@
     </listitem>
 
     <listitem>
-      <!-- Pass 1 GCC FTBFS with GCC-5.1 because of
-           https://gcc.gnu.org/PR65801. -->
-      <para><emphasis role="strong">GCC-5.2</emphasis> inkludert C++
+      <!-- See https://gcc.gnu.org/r15-4719.  -->
+      <para><emphasis role="strong">GCC-5.4</emphasis> including the C++
       kompilatoren, <command>g++</command> (Versjoner større enn &gcc-version; er ikke
       anbefalt da de ikke er testet). C og C++ standard
       biblioteker (med deklarasjoner) må også være tilstede slik at C++ kompilatoren kan
