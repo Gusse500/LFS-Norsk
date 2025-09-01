@@ -10,7 +10,7 @@
 
   <title>Endringslogg</title>
 
-  <para>Dette er versjon &version; av Linux From Scratch-boken, datert
+  <para>Dette er versjon &version;<phrase arch="ml_32,ml_x32,ml_all">-multilib</phrase> av Linux From Scratch-boken, datert
   &releasedate;. Hvis denne boken er mer enn seks måneder gammel, er en nyere og bedre
   versjonen sannsynligvis allerede tilgjengelig. For å finne ut, vennligst sjekk et av
   speilene via <ulink url="&lfs-root;mirrors.html"/>.</para>
