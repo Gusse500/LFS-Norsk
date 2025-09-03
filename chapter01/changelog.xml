@@ -41,6 +41,17 @@
     -->
 
     <listitem>
+      <para>03.09.2025</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Legg til en beskrivelse av hvordan man bruker en 
+          kjernebase+patch i kapittel 3. Fikser
+          <ulink url='&lfs-ticket-root;5785'>#5785</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>01.09.2025</para>
       <itemizedlist>
         <listitem>
