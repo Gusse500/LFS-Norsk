@@ -3,6 +3,7 @@
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
   %general-entities;
+  <!ENTITY kernel-directory "https://www.kernel.org/pub/linux/kernel/v6.x">
 ]>
 
 <sect1 id="ch-materials-packages">
@@ -466,15 +467,43 @@
 
         <note>
           <para>Linuxkjernen oppdateres ganske ofte, mange ganger pga
-          oppdagelser av sikkerhetssårbarheter. Den siste tilgjengelige
-          <!--&linux-major-version;.&linux-minor-version;.x--> stabile
-          kjerneversjonen <!--burde--> kan bli
-          brukt, med mindre errata siden sier noe annet.</para>
+          oppdagelser av sikkerhetssårbarheter. Den nyeste tilgjengelige stabile 
+          kjerneversjonen kan brukes, med mindre feilrettingssiden sier noe 
+          annet.</para>
 
           <para>For brukere med begrenset hastighet eller dyr båndbredde som ønsker å
           oppdatere Linux kjernen, en grunnlinjeversjon av pakken og
           oppdateringer kan lastes ned separat. Dette kan spare litt tid eller
-          kostnad for en påfølgende nivåoppgradering av oppdateringer i en mindre utgivelse.
+          kostnad for en påfølgende oppgradering på patchnivå i en mindre 
+          utgivelse.</para>
+
+          <para>
+            Som et eksempel, for linux-&linux-version;, følgende kan lastes ned:
+
+            <itemizedlist spacing="compact">
+              <listitem>
+                <para>
+                  <ulink url='&kernel-directory;/linux-&linux-majmin-version;.tar.xz'/>
+                </para>
+              </listitem>
+              <listitem>
+                <para>
+                  <ulink url='&kernel-directory;/patch-&linux-version;.xz'/>
+                </para>
+              </listitem>
+            </itemizedlist>
+
+            Så i <xref linkend='ch-tools-linux-headers'/> og 
+            <xref linkend='ch-bootable-kernel'/> pakk ut kjernen, endre til 
+            pakkemappen og installer deretter oppdateringen med 
+            <userinput>xzcat ../patch-&linux-version;.xz | patch -Np1</userinput>.
+          </para>
+
+          <para>
+            Hvis det på dette tidspunktet er behov for en nyere punktversjon av kjernen, 
+            er det bare den nyere oppdateringen som trengs. Hvis det imidlertid er 
+            ønskelig med en ny mindre versjon, må både den fullstendige mindre 
+            versjonen og en hvilken som helst ønsket oppdatering lastes ned.
           </para>
         </note>
       </listitem>
