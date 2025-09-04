@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-pcre2" role="wrap">
+  <?dbhtml filename="pcre2.html"?>
+
+  <sect1info condition="script">
+    <productname>pcre2</productname>
+    <productnumber>&pcre2-version;</productnumber>
+    <address>&pcre2-url;</address>
+  </sect1info>
+
+  <title>Pcre2-&pcre2-version;</title>
+
+  <indexterm zone="ch-system-pcre2">
+    <primary sortas="a-Pcre2">Pcre2</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>pcre2 pakken inneholder en ny generasjon av Perl kompatible 
+    biblioteker for regulære uttrykk.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&pcre2-fin-sbu;</seg>
+        <seg>&pcre2-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Pcre2</title>
+
+    <para>Klargjør pcre2 for kompilering:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr                       \
+            --docdir=/usr/share/doc/pcre2-10.45 \
+            --enable-unicode                    \
+            --enable-jit                        \
+            --enable-pcre2-16                   \
+            --enable-pcre2-32                   \
+            --enable-pcre2grep-libz             \
+            --enable-pcre2grep-libbz2           \
+            --enable-pcre2test-libreadline      \
+            --disable-static</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av installasjonsparametrene:</title>
+
+      <varlistentry>
+        <term><parameter>--enable-unicode</parameter></term>
+        <listitem>
+          <para>
+            Dette alternativet aktiverer Unicode støtte og inkluderer 
+            funksjonene for håndtering av UTF-8/16/32 tegnstrenger i biblioteket. 
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--enable-jit</parameter></term>
+        <listitem>
+          <para>
+            Dette alternativet aktiverer Just-in-time kompilering, noe som kan 
+            øke hastigheten på mønstergjenkjenningen betraktelig.  
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--enable-pcre2-16</parameter></term>
+        <listitem>
+          <para>
+            Dette alternativet aktiverer støtte for 16-bits tegn. 
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--enable-pcre2-32</parameter></term>
+        <listitem>
+          <para>
+            Dette alternativet aktiverer støtte for 32-bits tegn. 
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--enable-pcre2grep-libz</parameter></term>
+        <listitem>
+          <para>
+            Dette alternativet legger til støtte for lesing av .gz komprimerte filer til pcre2grep.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--enable-pcre2grep-libbz2</parameter></term>
+        <listitem>
+          <para>
+            Dette alternativet legger til støtte for lesing av .bz2 komprimerte filer til pcre2grep.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--enable-pcre2test-libreadline</parameter></term>
+        <listitem>
+          <para>
+            Dette alternativet legger til linjeredigerings og historikk funksjoner i pcre2test programmet.
+          </para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>For å teste resultatene, utsted:</para>
+
+<screen><userinput remap="test">make check</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+  </sect2>
+
+
+  <sect2 id="contents-pcre2" role="content">
+    <title>Innhold i Pcre2</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installert bibliotek</segtitle>
+
+      <seglistitem>
+        <seg>pcre2grep og pcre2test</seg>
+        <seg>libpcre2-8.so, libpcre2-16.so, libpcre2-32.so, og libpcre2-posix.so</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="pcre2grep">
+        <term><command>pcre2grep</command></term>
+        <listitem>
+          <para>er en versjon av grep som forstår Perl kompatible regulære 
+          uttrykk</para>
+          <indexterm zone="ch-system-pcre2 pcre2grep">
+            <primary sortas="b-pcre2grep">pcre2grep</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="pcre2test">
+        <term><command>pcre2test</command></term>
+        <listitem>
+          <para>kan teste et Perl kompatibelt regulært uttrykk</para>
+          <indexterm zone="ch-system-pcre2 pcre2test">
+            <primary sortas="b-pcre2test">pcre2test</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>

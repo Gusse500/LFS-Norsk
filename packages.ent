@@ -408,7 +408,7 @@
 <!ENTITY libffi-fin-sbu "1.7 SBU">
 
 <!ENTITY libpipeline-version "1.5.8">
-<!ENTITY libpipeline-size "1046 KB">
+<!ENTITY libpipeline-size "1,046 KB">
 <!ENTITY libpipeline-url "&savannah;/releases/libpipeline/libpipeline-&libpipeline-version;.tar.gz">
 <!ENTITY libpipeline-md5 "17ac6969b2015386bcb5d278a08a40b5">
 <!ENTITY libpipeline-home "https://libpipeline.nongnu.org/">
@@ -437,16 +437,14 @@
 -->
 <!ENTITY linux-major-version "6">
 <!ENTITY linux-minor-version "16">
-<!ENTITY linux-patch-version "4">
+<!ENTITY linux-majmin-version "&linux-major-version;.&linux-minor-version;">
+<!ENTITY linux-patch-version "1">
 <!--<!ENTITY linux-version "&linux-major-version;.&linux-minor-version;">-->
 <!ENTITY linux-version "&linux-major-version;.&linux-minor-version;.&linux-patch-version;">
-<!ENTITY linux-size "149,042 KB">
-<!ENTITY linux-url "&kernel;linux/kernel/v&linux-major-version;.x/linux-&linux-major-version;.&linux-minor-version;.tar.xz">
-<!ENTITY linux-md5 "dd850269c3f456c0ff5518b1a2a81836">
-<!ENTITY linux-home "https://www.kernel.org/">
-<!ENTITY linux-patch-url "&kernel;linux/kernel/v&linux-major-version;.x/patch-&linux-version;.xz">
-<!ENTITY linux-patch-md5 "1b5656847514e2c451c68fa9d79da451">
-<!ENTITY linux-patch-size "529 KB">                            
+<!ENTITY linux-size "147,622 KB">
+<!ENTITY linux-url "&kernel;linux/kernel/v&linux-major-version;.x/linux-&linux-version;.tar.xz">
+<!ENTITY linux-md5 "019a3cea6458f01331dfa5afdd1ce252">
+<!ENTITY linux-home "https://www.kernel.org/">                     
 <!-- measured for 6.10.1 / gcc-14.1.0 on x86_64 with -j4 : 
  minimum is allnoconfig 
  typical is defconfig 
@@ -513,7 +511,7 @@
 <!ENTITY markupsafe-fin-sbu "mindre enn 0.1 SBU">
 
 <!ENTITY meson-version "1.8.3">
-<!ENTITY meson-size "2,282">
+<!ENTITY meson-size "2,282 KB">
 <!ENTITY meson-url "&github;/mesonbuild/meson/releases/download/&meson-version;/meson-&meson-version;.tar.gz">
 <!ENTITY meson-md5 "08221d2f515e759686f666ff6409a903">
 <!ENTITY meson-home "https://mesonbuild.com">
@@ -580,6 +578,14 @@
 <!ENTITY patch-tmp-sbu "0.1 SBU">
 <!ENTITY patch-fin-du "13 MB">
 <!ENTITY patch-fin-sbu "0.2 SBU">
+
+<!ENTITY pcre2-version "10.45">
+<!ENTITY pcre2-size "2,024 KB">
+<!ENTITY pcre2-url "&github;/PCRE2Project/pcre2/releases/download/pcre2-&pcre2-version;/pcre2-&pcre2-version;.tar.bz2">
+<!ENTITY pcre2-md5 "f71abbe1b5adf25cd9af5d26ef223b66">
+<!ENTITY pcre2-home "&github;/PCRE2Project/pcre2/">
+<!ENTITY pcre2-fin-du "20 MB">
+<!ENTITY pcre2-fin-sbu "0.5 SBU">
 
 <!ENTITY perl-version-major "5">
 <!ENTITY perl-version-minor "42">
