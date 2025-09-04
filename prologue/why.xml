@@ -91,13 +91,13 @@
         <para>Denne pakken inneholder programmer for komprimering og dekomprimering
         av filer. Det kreves for å dekomprimere mange LFS pakker.</para>
       </listitem>
-
+<!--
       <listitem>
         <para>Check</para>
 
         <para>Denne pakken inneholder et testmiljø for andre programmer.</para>
       </listitem>
-
+-->
       <listitem>
         <para>Coreutils</para>
 
@@ -478,6 +478,14 @@
         å bruke en <emphasis>oppdateringsfil (patch)</emphasis> vanligvis opprettet
         av <application>diff</application> programmet.  Det trengs av
         byggeprosedyren for flere LFS pakker.</para>
+      </listitem>
+
+      <listitem>
+        <para>Pcre2</para>
+
+        <para>Denne pakken inneholder et sett med funksjoner som implementerer 
+        regulært uttrykksmønstersamsvar med samme syntaks og semantikk som 
+        Perl 5.</para>
       </listitem>
 
       <listitem>

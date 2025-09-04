@@ -44,6 +44,10 @@
       <para>03.09.2025</para>
       <itemizedlist>
         <listitem>
+          <para>[bdubbs] - Legg til pcre2 pakken. Fikser
+          <ulink url='&lfs-ticket-root;5782'>#5782</ulink>.</para>
+        </listitem>
+        <listitem>
           <para>[bdubbs] - Legg til en beskrivelse av hvordan man bruker en 
           kjernebase+patch i kapittel 3. Fikser
           <ulink url='&lfs-ticket-root;5785'>#5785</ulink>.</para>

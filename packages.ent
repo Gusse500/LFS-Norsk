@@ -565,6 +565,14 @@
 <!ENTITY patch-fin-du "13 MB">
 <!ENTITY patch-fin-sbu "0.2 SBU">
 
+<!ENTITY pcre2-version "10.45">
+<!ENTITY pcre2-size "2,024 KB">
+<!ENTITY pcre2-url "&github;/PCRE2Project/pcre2/releases/download/pcre2-&pcre2-version;/pcre2-&pcre2-version;.tar.bz2">
+<!ENTITY pcre2-md5 "f71abbe1b5adf25cd9af5d26ef223b66">
+<!ENTITY pcre2-home "&github;/PCRE2Project/pcre2/">
+<!ENTITY pcre2-fin-du "20 MB">
+<!ENTITY pcre2-fin-sbu "0.5 SBU">
+
 <!ENTITY perl-version-major "5">
 <!ENTITY perl-version-minor "42">
 <!ENTITY perl-version-patch "0">
