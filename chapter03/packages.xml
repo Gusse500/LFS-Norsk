@@ -636,6 +636,15 @@
     </varlistentry>
 
     <varlistentry>
+      <term>Pcre2 (&pcre2-version;) - <token>&pcre2-size;</token>:</term>
+      <listitem>
+        <para>Hjemmeside: <ulink url="&pcre2-home;"/></para>
+        <para>Nedlasting: <ulink url="&pcre2-url;"/></para>
+        <para>MD5 sum: <literal>&pcre2-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
       <term>Perl (&perl-version;) - <token>&perl-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&perl-home;"/></para>
