@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-sqlite" role="wrap">
+  <?dbhtml filename="sqlite.html"?>
+
+  <sect1info condition="script">
+    <productname>sqlite</productname>
+    <productnumber>&sqlite-version;</productnumber>
+    <address>&sqlite-url;</address>
+  </sect1info>
+
+  <title>Sqlite-&sqlite-version;</title>
+
+  <indexterm zone="ch-system-sqlite">
+    <primary sortas="a-sqlite">Sqlite</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>Sqlite pakken er et programvarebibliotek som implementerer en 
+    selvstendig, serverløs, transaksjonsbasert SQL databasemotor uten 
+    konfigurasjon.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&sqlite-fin-sbu;</seg>
+        <seg>&sqlite-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av Sqlite</title>
+
+    <para>Pakk ut dokumentasjonen:</para>
+
+<screen><userinput remap="pre">tar -xf ../sqlite-doc-&sqlite-doc-version;.tar.xz</userinput></screen>
+
+    <para>Klargjør Sqlite for kompilering med:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr    \
+            --disable-static  \
+            --enable-fts{4,5} \
+            CPPFLAGS="-D SQLITE_ENABLE_COLUMN_METADATA=1 \
+                      -D SQLITE_ENABLE_UNLOCK_NOTIFY=1   \
+                      -D SQLITE_ENABLE_DBSTAT_VTAB=1     \
+                      -D SQLITE_SECURE_DELETE=1"</userinput></screen>
+    <variablelist>
+      <title>Betydningen av make alternativ:</title>
+
+      <varlistentry>
+        <term><parameter>--enable-fts{4,5}</parameter></term>
+        <listitem>
+          <para>Disse bryterne aktiverer støtte for versjon 4 og 5 av 
+          fulltekstsøkutvidelsen (FTS).</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>CPPFLAGS="-D SQLITE_ENABLE_COLUMN_METADATA=1 ...</parameter></term>
+        <listitem>
+          <para>Noen applikasjoner krever at disse alternativene er aktivert. Den 
+          eneste måten å gjøre dette på er å inkludere dem i CFLAGS eller CPPFLAGS. 
+          Vi bruker sistnevnte, slik at standardverdien (eller en hvilken som helst 
+          verdi angitt av brukeren) for CFLAGS ikke påvirkes. For mer informasjon 
+          om hva som kan spesifiseres, se https://www.sqlite.org/compile.html.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Denne pakken leveres ikke med en testpakke.</para>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+    <para>Installer dokumentasjonen om ønskelig:</para>
+
+<screen><userinput remap="install">install -v -m755 -d /usr/share/doc/sqlite-&sqlite-short-version;
+cp -v -R sqlite-doc-&sqlite-doc-version;/* /usr/share/doc/sqlite-&sqlite-short-version;</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-sqlite" role="content">
+    <title>Innhold i Sqlite</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installerte biblioteker</segtitle>
+      <segtitle>Installerte mapper</segtitle>
+
+      <seglistitem>
+        <seg>sqlite3</seg>
+        <seg>libsqlite3.so</seg>
+        <seg>/usr/share/doc/sqlite-&sqlite-short-version;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="sqlite3">
+        <term><command>sqlite3</command></term>
+        <listitem>
+          <para>er et terminalbasert grensesnitt til SQLite biblioteket som kan 
+          evaluere spørringer interaktivt og vise resultatene</para>
+          <indexterm zone="ch-system-sqlite sqlite3">
+            <primary sortas="b-sqlite3">sqlite3</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libsqlite3.so">
+        <term><filename class="libraryfile">libsqlite3.so</filename></term>
+        <listitem>
+          <para>inneholder SQLite API funksjoner</para> 
+          <indexterm zone="ch-system-sqlite libsqlite3.so">
+            <primary sortas="c-libsqlite3.so">libsqlite3.so</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>

@@ -293,6 +293,7 @@
     <title>Lagt til:</title>
     <listitem><para></para></listitem>  <!-- satisfy build -->
     <listitem><para>pcre2</para></listitem> 
+    <listitem><para>sqlite</para></listitem> 
   </itemizedlist>
 
   <itemizedlist>

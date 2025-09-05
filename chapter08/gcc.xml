@@ -97,10 +97,20 @@ cd       build</userinput></screen>
              --disable-fixincludes       \
              --with-system-zlib</userinput></screen>
 
-    <para>GCC støtter syv forskjellige dataspråk, men
-    forutsetningene for de fleste av dem er ikke installert ennå Se
-    <ulink url="&blfs-book;general/gcc.html">BLFS Bokens GCC side</ulink>
-    for instruksjoner om hvordan du bygger alle GCCs støttede språk.</para>
+    <para>Vi aktiverer bare C og C++ her for å spare byggetid, ettersom ingen 
+    pakker i LFS og BLFS krever GCC for å kompilere andre språk. Legg til
+    <literal>cobol</literal> for Cobol (merk at det vil føre til at GCC 
+    mislykkes å bygge på et 32-bit LFS system),
+    <literal>fortran</literal> for Fortran,
+    <literal>go</literal> for Go,
+    <literal>objc</literal> for Objective C,
+    <literal>obj-c++</literal> for Objective C++, og/eller
+    <literal>m2</literal> for Modula 2 inn i verdien av
+    <parameter>--enable-languages</parameter> alternativet hvis du vil kompilere 
+    programmer på ett eller flere av disse språkene med GCC. GCC støtter også 
+    Ada og D, men koden for å støtte Ada eller D er skrevet i Ada eller D selv, 
+    så støtten kan bare bygges med en eksisterende Ada eller D 
+    kompilatorinstallasjon, og vi kan ikke aktivere støtten her.</para>
 
     <variablelist>
       <title>Betydningen av de nye konfigureringsparametrene:</title>
@@ -111,6 +121,22 @@ cd       build</userinput></screen>
           <para>Denne parameteren gjør at konfigureringsskriptet bruker ld installert
           av binutils bygget tidligere i dette kapittelet, i stedet for
           den kryssbygde versjonen som ellers ville blitt brukt.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--disable-bootstrap</parameter></term>
+        <listitem>
+          <para>Som standard vil byggesystemet til GCC bootstrappe det i tre 
+          trinn med mindre det er bygget som en krysskompilator eller det blir 
+          krysskompilert. Bootstrap prosessen er nødvendig for robusthet, 
+          spesielt når du oppgraderer GCC til en ny versjon. I LFS bruker vi en 
+          annen metode for å bootstrappe GCC (som vi introduserte i
+          <xref linkend='ch-tools-toolchaintechnotes'/>), så her trenger vi ikke 
+          oppstartsprosessen som byggesystemet tilbyr, og vi deaktiverer den for 
+          å redusere byggetiden betydelig. Fjern dette alternativet når du 
+          oppgraderer GCC på et komplett LFS system (i stedet for å bygge 
+          LFS).</para>
         </listitem>
       </varlistentry>
 
