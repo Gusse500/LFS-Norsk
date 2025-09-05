@@ -79,10 +79,10 @@ cd       build</userinput></screen>
     <literal>obj-c++</literal> for Objective C++, og/eller
     <literal>m2</literal> for Modula 2 inn i verdien av
     <parameter>--enable-languages</parameter> alternativet hvis du vil kompilere 
-    programmer på ett eller flere av disse språkene med GCC. Støtte for Ada eller 
-    D kan ikke aktiveres her fordi kompilatoren i GCC er skrevet i selve Ada 
-    eller D, og ​​den kan bare bygges med en eksisterende Ada eller D 
-    kompilatorinstallasjon.</para>
+    programmer på ett eller flere av disse språkene med GCC. GCC støtter også 
+    Ada og D, men koden for å støtte Ada eller D er skrevet i Ada eller D selv, 
+    så støtten kan bare bygges med en eksisterende Ada eller D 
+    kompilatorinstallasjon, og vi kan ikke aktivere støtten her.</para>
 
     <variablelist>
       <title>Betydningen av de nye konfigureringsparametrene:</title>
