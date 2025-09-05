@@ -553,6 +553,13 @@
         på en sikker måte.</para>
       </listitem>
 
+      <listitem>
+        <para>Sqlite</para>
+
+        <para>Denne pakken tilbyr en serverløs, transaksjonell SQL 
+        databasemotor uten konfigurasjon.</para>
+      </listitem>
+
       <listitem revision="sysv">
         <para>Sysklogd</para>
 
