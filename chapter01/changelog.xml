@@ -44,7 +44,11 @@
       <para>03.09.2025</para>
       <itemizedlist>
         <listitem>
-          <para>[bdubbs] - Legg til pcre2 pakken. Fikser
+          <para>[bdubbs] - Legg til sqlite-3.50.4 pakken. Fikser
+          <ulink url='&lfs-ticket-root;5784'>#5784</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Legg til pcre2-10.45 pakken. Fikser
           <ulink url='&lfs-ticket-root;5782'>#5782</ulink>.</para>
         </listitem>
         <listitem>
