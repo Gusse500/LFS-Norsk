@@ -267,7 +267,7 @@ if ( $package == "zstd"       ) $dirpath = github("facebook/zstd");
   if ( $package == "packaging" )
      return find_max( $lines, "/packaging/", "/^.*^.*packaging.([\d\.]+\d)\/.*$/" );
 
-  if ( $book_index == "pcre2" )
+  if ( $package == "pcre2" )
      return find_max( $lines, '/name.:/', '/^.*pcre2-([\d\.]+\d).*$/' );
 
   if ( $package == "procps-ng" )
