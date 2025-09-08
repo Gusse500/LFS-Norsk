@@ -140,7 +140,7 @@ if ( $package == "ncurses"    ) $dirpath = "https://invisible-mirror.net/archive
 if ( $package == "ninja"      ) $dirpath = github("ninja-build/ninja");
 if ( $package == "openssl"    ) $dirpath = github("openssl/openssl");
 if ( $package == "packaging"  ) $dirpath = "https://pypi.org/rss/project/packaging/releases.xml";
-if ( $package == "pcre"       ) $dirpath = github("PCRE2Project/pcre2") );
+if ( $package == "pcre"       ) $dirpath = github("PCRE2Project/pcre2");
 if ( $package == "procps-ng"  ) $dirpath = "https://gitlab.com/procps-ng/procps/-/tags";
 if ( $package == "psmisc"     ) $dirpath = "https://gitlab.com/psmisc/psmisc/-/tags";
 if ( $package == "Python"     ) $dirpath = "https://www.python.org/downloads/source/";
