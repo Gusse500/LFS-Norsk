@@ -3,8 +3,8 @@
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
   %general-entities;
-  <!ENTITY tdbc-ver          "1.1.10">
-  <!ENTITY itcl-ver          "4.3.2">
+  <!ENTITY tdbc-ver          "1.1.12">
+  <!ENTITY itcl-ver          "4.3.4">
 ]>
 
 <sect1 id="ch-system-tcl" role="wrap">
@@ -103,6 +103,10 @@ unset SRCDIR</userinput></screen>
     <para>For å teste resultatene, kjør:</para>
 
 <screen><userinput remap="test">make test</userinput></screen>
+
+    <para>Tre tester (av over 43 000 tester totalt) fra cmdAH.test filen er 
+    kjent for å mislykkes i chroot miljøet. Alle tester består i et komplett 
+    system. </para>
 
     <para>Installer pakken:</para>
 
