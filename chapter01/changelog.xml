@@ -41,6 +41,40 @@
     -->
 
     <listitem>
+      <para>15.09.2025</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til vim-9.1.1754. Addresserer
+          <ulink url='&lfs-ticket-root;5006'>#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iana-etc-20250826. Addresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til tcl8.6.17. Fikser
+          <ulink url='&lfs-ticket-root;5781'>#5781</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til pcre2-10.46. Fikser
+          <ulink url='&lfs-ticket-root;5790'>#5790</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til meson-1.9.0. Fikser
+          <ulink url='&lfs-ticket-root;5788'>#5788</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.16.7. Fikser
+          <ulink url='&lfs-ticket-root;5787'>#5787</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til kbd-2.9.0. Fikser
+          <ulink url='&lfs-ticket-root;5789'>#5789</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>03.09.2025</para>
       <itemizedlist>
         <listitem>
