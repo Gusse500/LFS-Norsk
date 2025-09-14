@@ -105,7 +105,8 @@ unset SRCDIR</userinput></screen>
 <screen><userinput remap="test">make test</userinput></screen>
 
     <para>Tre tester (av over 43 000 tester totalt) fra cmdAH.test filen er 
-    kjent for å mislykkes.</para>
+    kjent for å mislykkes i chroot miljøet. Alle tester består i et komplett 
+    system. </para>
 
     <para>Installer pakken:</para>
 
