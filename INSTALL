@@ -13,19 +13,19 @@ nettstedet på https://www.linuxfromscratch.org for mer informasjon.
 Hvis du vil konvertere XML til HTML, installer følgende:
 
 * libxml2
-  - https://www.linuxfromscratch.org/blfs/view/svn/general/libxml2.html
+  - https://www.lfs.freding.no/blfs/view/svn/general/libxml2.html
 
 * libxslt
-  - https://www.linuxfromscratch.org/blfs/view/svn/general/libxslt.html
+  - https://www.lfs.freding.no/blfs/view/svn/general/libxslt.html
 
 * DocBook 4.5 XML DTD
-  - https://www.linuxfromscratch.org/blfs/view/svn/pst/docbook.html
+  - https://www.lfs.freding.no/blfs/view/svn/pst/docbook.html
 
 * DocBook XSL Stylesheets
-  - https://www.linuxfromscratch.org/blfs/view/svn/pst/docbook-xsl.html
+  - https://www.lfs.freding.no/blfs/view/svn/pst/docbook-xsl.html
 
 * HTMLTidy
-  - https://www.linuxfromscratch.org/blfs/view/svn/general/tidy-html5.html
+  - https://www.lfs.freding.no/blfs/view/svn/general/tidy-html5.html
 
 -------------------------------------------------------------------------------
 
@@ -33,7 +33,7 @@ Hvis du vil konvertere XML til TXT, installer elementene ovenfor og installer de
 følgende:
 
 * lynx
-  - https://www.linuxfromscratch.org/blfs/view/svn/basicnet/lynx.html
+  - https://www.lfs.freding.no/blfs/view/svn/basicnet/lynx.html
 
 -------------------------------------------------------------------------------
 
@@ -41,7 +41,7 @@ Hvis du vil konvertere XML til PDF, installer elementene som er oppført ovenfor
 lynx) og installer deretter følgende:
 
 * JDK
-  - https://www.linuxfromscratch.org/blfs/view/svn/general/openjdk.html
+  - https://www.lfs.freding.no/blfs/view/svn/general/openjdk.html
 
 * FOP and JAI
-  - https://www.linuxfromscratch.org/blfs/view/svn/pst/fop.html
+  - https://www.lfs.freding.no/blfs/view/svn/pst/fop.html
