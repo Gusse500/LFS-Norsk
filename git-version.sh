@@ -57,8 +57,8 @@ version="$rev"
 versiond="$rev-systemd"
 
 if [ "$(git diff HEAD | wc -l)" != "0" ]; then
-    version="$version-wip"
-    versiond="$versiond-wip"
+    version="$version"
+    versiond="$versiond"
 fi
 
 echo "<![ %sysv; ["                                        >  version.ent
