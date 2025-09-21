@@ -102,11 +102,7 @@ unset SRCDIR</userinput></screen>
 
     <para>For å teste resultatene, kjør:</para>
 
-<screen><userinput remap="test">make test</userinput></screen>
-
-    <para>Tre tester (av over 43 000 tester totalt) fra cmdAH.test filen er 
-    kjent for å mislykkes i chroot miljøet. Alle tester består i et komplett 
-    system. </para>
+<screen><userinput remap="test">LC_ALL=C.UTF-8 make test</userinput></screen>
 
     <para>Installer pakken:</para>
 
