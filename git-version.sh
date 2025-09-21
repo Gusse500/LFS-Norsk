@@ -49,7 +49,7 @@ case $day in
     * ) suffix="th";;
 esac
 
-full_date="$day.$month.$year"
+full_date="$day. $month $year"
 
 sha="$(git describe --abbrev=1)"
 rev=$(echo "$sha" | sed 's/-g[^-]*$//')
@@ -57,8 +57,8 @@ version="$rev"
 versiond="$rev-systemd"
 
 if [ "$(git diff HEAD | wc -l)" != "0" ]; then
-    version="$version-wip"
-    versiond="$versiond-wip"
+    version="$version"
+    versiond="$versiond"
 fi
 
 echo "<![ %sysv; ["                                        >  version.ent
