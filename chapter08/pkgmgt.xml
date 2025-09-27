@@ -391,7 +391,16 @@ make DESTDIR=/usr/pkg/libfoo/1.1 install</userinput></screen>
  overstyre den arkitekturspesifikke optimaliseringen for å produsere biblioteker
  egnet for både vertssystemet og systemet(e) der du vil distribuere
  LFS systemet. Ellers får du <computeroutput>Illegal
-    Instruction</computeroutput> feil når du kjører LFS.</para></important>
+    Instruction</computeroutput> feil når du kjører LFS.</para>
+
+    <para>GMP byggesystemet lagrer det arkitekturspesifikke 
+    optimaliseringsalternativet som brukes til å bygge GMP i <filename>gmp.h</filename>, 
+    og byggesystemet til en pakke som bruker GMP kan lese den fra deklarasjonen 
+    og bruke den når den bygger selve pakken. I det minste er MPFR byggesystemet 
+    kjent for å gjøre det. Dermed er det ikke nok å bare gjenoppbygge GMP på et 
+    komplett LFS system du må kompilere MPFR og kanskje andre pakker på nytt ved 
+    hjelp av GMP hvis du vil <quote>konvertere</quote> et komplett LFS system 
+    som skal brukes for en annen CPU.</para></important>
 
     <para>Til slutt må det nye systemet gjøres oppstartbart via <xref
     linkend="ch-bootable-grub"/>.</para>
