@@ -64,7 +64,7 @@ meson setup ..                \
       -D sysusers=false       \
       -D rpmmacrosdir=no      \
       -D homed=disabled       \
-      -D userdb=false         \
+      -D userdb=true          \
       -D man=disabled         \
       -D mode=release         \
       -D pamconfdir=no        \
@@ -141,11 +141,18 @@ meson setup ..                \
       </varlistentry>
 
       <varlistentry>
-        <term><parameter>-D homed=disabled</parameter> og
-        <parameter>-D userdb=false</parameter></term>
+        <term><parameter>-D homed=disabled</parameter></term>
         <listitem>
-          <para>Fjerner to nisser som har avhengigheter som ikke passer
+          <para>Fjerner en daemon som har avhengigheter som ikke passer
           omfanget av LFS.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>-D userdb=true</parameter></term>
+        <listitem>
+          <para>Aktiverer <command>systemd-userdbd</command> daemonen som 
+          GDM i BLFS vil bruke.</para>
         </listitem>
       </varlistentry>
 
@@ -292,7 +299,8 @@ ninja test</userinput></screen>
         systemd-socket-activate, systemd-stsymbolsk lenkedio-bridge, systemd-sysext,
         systemd-tmpfiles, systemd-tty-ask-password-agent,
         systemd-umount (symbolsk lenke til systemd-mount),
-        telinit (symbolsk lenke til systemctl), timedatectl, og udevadm</seg>
+        telinit (symbolsk lenke til systemctl), timedatectl, udevadm, og
+        userdbctl</seg>
         <seg>libnss_myhostname.so.2, libnss_mymachines.so.2,
         libnss_resolve.so.2, libnss_systemd.so.2,
         libsystemd.so, libsystemd-shared-&systemd-version;.so (in /usr/lib/systemd),
@@ -862,6 +870,16 @@ ninja test</userinput></screen>
           utløser uevents for en gitt enhet</para>
           <indexterm zone="ch-system-systemd udevadm">
             <primary sortas="b-udevadm">udevadm</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="userdbctl">
+        <term><command>userdbctl</command></term>
+        <listitem>
+          <para>Inspiserer brukere, grupper og gruppemedlemskap</para>
+          <indexterm zone="ch-system-systemd userdbctl">
+            <primary sortas="b-userdbctl">userdbctl</primary>
           </indexterm>
         </listitem>
       </varlistentry>
