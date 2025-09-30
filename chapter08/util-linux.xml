@@ -41,12 +41,7 @@
 
   <sect2 role="installation">
     <title>Installasjon av Util-linux</title>
-	
-<!--
-    <para>Først deaktiver en problematisk test:</para>
 
-    <screen><userinput remap="pre">sed -i '/test_mkfds/s/^/#/' tests/helpers/Makemodule.am</userinput></screen>
--->
     <para>Forbered Util-linux for kompilering:</para>
 
     <screen revision="sysv"><userinput remap="configure">./configure --bindir=/usr/bin     \
@@ -127,20 +122,16 @@ su tester -c "make -k check"</userinput></screen>
        mislykkes hvis kjernealternativet <option>CONFIG_NETLINK_DIAG</option> ikke er
        aktivert.
     </para>
-
+<!--
     <para>
       En test, kill: decode functions, er kjent for å mislykkes 
       med bash-5.3-rc1 eller nyere.
     </para>
-
+-->
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
-<!--
-  <para>Til slutt, installer manualsidene:</para>
 
-<screen><userinput remap="install">tar -xf ../util-linux-man-pages-&util-linux-version;.tar.xz - -directory /usr/share/man - -strip-components=1</userinput></screen>
--->
   </sect2>
 
   <!-- - - - - - - - - - -->
