@@ -84,6 +84,8 @@ sed '/test_plugin_glvs/d' -i src/testdir/Make_all.mak</userinput></screen>
     vellykket test vil resultere i ordene <computeroutput>ALL
     DONE</computeroutput> i loggfilen ved ferdigstillelse.</para>
 
+    <para>En test, test_matchfuzzy.vim, er kjent for å feile på noen systemer.</para>
+
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
