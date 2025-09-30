@@ -37,6 +37,28 @@
   alternativ måte å laste ned på <ulink
   url="&lfs-root;lfs/mirrors.html#files"/>. </para>
 
+  <important>
+    <para>
+      På neste side finner du flere viktige pakker som ligger på ftp.gnu.org. 
+      Dette nettstedet er den kanoniske plasseringen til de aktuelle pakkene, 
+      men har blitt påvirket av et langvarig distribuert tjenestenektangrep 
+      (DDOS). Se
+      <ulink url="https://news.slashdot.org/story/25/07/06/1737253/the-fsf-faces-active-ongoing-and-increasing-ddos-attacks">slashdot news</ulink> for detaljer.
+    </para>
+
+    <para>
+      Et alternativ til ftp.gnu.org er å bruke et av speilene for det 
+      nettstedet. En liste over speil finnes på 
+      <ulink url="https://www.gnu.org/prep/ftp.en.html"/>
+    </para>
+
+    <para>
+      Hvis du velger å bruke wget listen beskrevet nedenfor, må den filen også 
+      endres for å bruke ønsket speil.
+    </para>
+    
+  </important>
+
   <para>Nedlastede pakker og oppdateringer må oppbevares et sted
   som er praktisk tilgjengelig gjennom hele bygget. En fungerende
   mappe er også nødvendig for å pakke ut kildene og bygge dem.
