@@ -56,6 +56,10 @@
 
  <screen><userinput remap="pre">sed -i '/systemd-sysctl/s/^/#/' rules.d/99-systemd.rules.in</userinput></screen>
 
+    <para>Rett en feil som hindrer udev i å kjøre riktig:</para>
+
+<screen><userinput remap="pre">sed -i "/udev_dependencies,/a \                'link_with': udev_link_with," src/udev/meson.build</userinput></screen>
+
     <para>Juster de hardkodede banene til nettverkskonfigurasjonsfiler for
     frittstående udev installasjon:</para>
 
