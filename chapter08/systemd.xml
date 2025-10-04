@@ -278,7 +278,8 @@ ninja test</userinput></screen>
         machinectl, mount.ddi (symbolsk lenke til systemd-dissect), networkctl,
         oomctl, portablectl, poweroff (symbolsk lenke til
         systemctl), reboot (symbolsk lenke til systemctl), resolvconf (symbolsk lenke til
-        resolvectl), resolvectl, run0, runlevel (symbolsk lenke til systemctl), shutdown
+        resolvectl), resolvectl, run0 (symbolsk lenke til systemd-run), runlevel
+        (symbolsk lenke til systemctl), shutdown
         (symbolsk lenke til systemctl), systemctl, systemd-ac-power, systemd-analyze,
         systemd-ask-password, systemd-cat, systemd-cgls, systemd-cgtop,
         systemd-confext (symbolsk lenke til systemd-sysext), systemd-creds,
@@ -865,7 +866,7 @@ ninja test</userinput></screen>
       <varlistentry id="systemd-vpick">
         <term><command>systemd-vpick</command></term>
         <listitem>
-          <para>Brukes til å løse stier til en versjonsbasert «.v/» mappe</para>
+          <para>Brukes til å løse stier til en versjonert ".v/" mappe</para>
           <indexterm zone="ch-system-systemd systemd-vpick">
             <primary sortas="b-systemd-vpick">systemd-vpick</primary>
           </indexterm>
