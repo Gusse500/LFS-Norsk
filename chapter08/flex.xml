@@ -53,9 +53,9 @@
 
     <para>Forbered Flex for kompilering:</para>
 
-<screen><userinput remap="configure">./configure --prefix=/usr \
-            --docdir=/usr/share/doc/flex-&flex-version; \
-            --disable-static</userinput></screen>
+<screen><userinput remap="configure">./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/flex-&flex-version;</userinput></screen>
 
     <para>Kompiler pakken:</para>
 
