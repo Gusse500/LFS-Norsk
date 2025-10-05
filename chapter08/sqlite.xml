@@ -56,7 +56,7 @@
                       -D SQLITE_ENABLE_DBSTAT_VTAB=1     \
                       -D SQLITE_SECURE_DELETE=1"</userinput></screen>
     <variablelist>
-      <title>Betydningen av make alternativ:</title>
+      <title>Betydningen av konfigurasjonsalternativene:</title>
 
       <varlistentry>
         <term><parameter>--enable-fts{4,5}</parameter></term>
@@ -81,7 +81,13 @@
 
     <para>Kompiler pakken:</para>
 
-<screen><userinput remap="make">make</userinput></screen>
+<screen><userinput remap="make">make LDFLAGS.rpath=""</userinput></screen>
+
+    <para><parameter>LDFLAGS.rpath=""</parameter> alternativet forhindrer 
+    hardkoding av biblioteksøkebaner (rpath) inn i det delte biblioteket. Denne 
+    pakken trenger ikke rpath for en installasjon på standard plassering, og 
+    rpath kan noen ganger forårsake uønskede effekter eller til og med 
+    sikkerhetsproblemer.</para>
 
     <para>Denne pakken leveres ikke med en testpakke.</para>
 
