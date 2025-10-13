@@ -153,7 +153,7 @@ validate: tmpdir version
 	$(Q)./aux-file-data.sh $(RENDERTMP)/lfs-full.xml
 	@echo "Validering fullført."
 
-profile-html:
+profile-html: validate
 	@echo "Genererer profilert XML for XHTML..."
 	$(Q)xsltproc --nonet                              \
                 --stringparam profile.condition html \
