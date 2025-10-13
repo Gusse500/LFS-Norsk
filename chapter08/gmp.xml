@@ -187,7 +187,7 @@ make</userinput></screen>
 
 <screen><userinput remap="test">make check 2>&amp;1 | tee gmp-check-log</userinput></screen>
  
-    <para>Sørg for at alle 197 testene i testpakken bestod.
+    <para>Sørg for at alle 199 testene i testpakken bestod.
 	Sjekk resultatene ved å kjøre følgende kommando:</para>
 
 <screen><userinput remap="test">awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log</userinput></screen>
@@ -245,7 +245,7 @@ make</userinput></screen>
 
 <screen><userinput remap="test">make check 2>&amp;1 | tee gmp-check-log</userinput></screen>
  
-    <para>Sørg for at alle 197 testene i testpakken bestod.
+    <para>Sørg for at alle 199 testene i testpakken bestod.
 	Sjekk resultatene ved å kjøre følgende kommando:</para>
 
 <screen><userinput remap="test">awk '/# PASS:/{total+=$3} ; END{print total}' gmp-check-log</userinput></screen>
