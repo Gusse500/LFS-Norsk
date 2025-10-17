@@ -89,8 +89,7 @@
     og 1 SBU (målt når du bygger Binutils pass 1 med én CPU
     kjerne) bør være nok. Noen tester er rare, så testpakken vil automatisk
     kjøre mislykkede tester på nytt. Hvis en test mislyktes, men deretter består
-    når den kjøres på nytt, bør den anses som bestått.  En test, test_ssl,
-    er kjent for å mislykkes i chroot miljøet.</para>
+    når den kjøres på nytt, bør den anses som bestått.</para>
 
     <para>Installer pakken:</para>
 

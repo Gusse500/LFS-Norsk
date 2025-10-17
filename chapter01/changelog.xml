@@ -41,6 +41,36 @@
     -->
 
     <listitem>
+      <para>15.10.2025</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til less-685. Fikser
+          <ulink url='&lfs-ticket-root;5810'>#5810</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til systemd-258.1. Fikser
+          <ulink url='&lfs-ticket-root;5809'>#5809</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til Python-3.14.0. Fikser
+          <ulink url='&lfs-ticket-root;5806'>#5806</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Update to openssl-3.6.0. Fikser
+          <ulink url='&lfs-ticket-root;5804'>#5804</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.17.2. Fikser
+          <ulink url='&lfs-ticket-root;5802'>#5802</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iproute2-6.17.0. Fikser
+          <ulink url='&lfs-ticket-root;5803'>#5803</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>01.10.2025</para>
       <itemizedlist>
         <listitem>
