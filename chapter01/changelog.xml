@@ -41,6 +41,40 @@
     -->
 
     <listitem>
+      <para>01.11.2025</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til vim-9.1.1888. Addresserer
+          <ulink url='&lfs-ticket-root;5006'>#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iana-etc-20251022. Addresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til pcre2-10.47. Fikser
+          <ulink url='&lfs-ticket-root;5813'>#5814</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til man-pages-6.16. Fikser
+          <ulink url='&lfs-ticket-root;5817'>#5817</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.17.6. Fikser
+          <ulink url='&lfs-ticket-root;5811'>#5811</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til libcap-2.77. Fikser
+          <ulink url='&lfs-ticket-root;5816'>#5815</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til elfutils-0.194. Fikser
+          <ulink url='&lfs-ticket-root;5815'>#5815</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>15.10.2025</para>
       <itemizedlist>
         <listitem>
