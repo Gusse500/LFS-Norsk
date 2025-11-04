@@ -50,7 +50,7 @@
             --disable-debuginfod \
             --enable-libdebuginfod=dummy</userinput></screen>
 
-    <para>Kompiler bare Libelf:</para></para>
+    <para>Kompiler bare Libelf:</para>
 
 <screen><userinput remap="make">make -C lib
 make -C libelf</userinput></screen>
