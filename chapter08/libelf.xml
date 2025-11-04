@@ -59,7 +59,7 @@ make -C libelf</userinput></screen>
 
 <screen><userinput remap="test">make -k check</userinput></screen>
 
-    <para>Kommandoen ovenfor bygger verktøydelen av pakken samt 
+    <para>Kommandoen ovenfor bygger verktøyene som er en del av pakken, samt 
     enhetstestene. To tester er kjent for å mislykkes: dwarf_srclang_check og 
     run-backtrace-native-core.sh.</para>
 
