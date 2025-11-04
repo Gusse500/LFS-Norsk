@@ -50,15 +50,16 @@
             --disable-debuginfod \
             --enable-libdebuginfod=dummy</userinput></screen>
 
-    <para>Kompiler pakken:</para>
+    <para>Kompiler bare Libelf:</para></para>
 
-<screen><userinput remap="make">make</userinput></screen>
+<screen><userinput remap="make">make -C lib
+make -C libelf</userinput></screen>
 
     <para>For å teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">make -k check</userinput></screen>
 
-    <para>To tester er kjent for å mislykkes, dwarf_srclang_check og 
+    <para>To tester er kjent for å mislykkes: dwarf_srclang_check og 
     run-backtrace-native-core.sh.</para>
 
     <para>Installer kun Libelf:</para>
