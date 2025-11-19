@@ -43,6 +43,15 @@
   <sect2 role="installation">
     <title>Installasjon av Libcap</title>
 
+    <note>
+      <para>
+        Hvis du oppdaterer denne pakken på et eksisterende system og go 
+        kompilatoren er installert, forhindre en byggefeil ved å bruke <command>export GOLANG=no</command>
+        før du kjører kommandoene nedenfor. Sørg for å deaktivere <envar>GOLANG</envar>
+        etter at installasjonen er fullført.
+      </para>
+    </note>
+
     <para>Hindre at statiske biblioteker blir installert:</para>
 
 <screen><userinput remap="pre">sed -i '/install -m.*STA/d' libcap/Makefile</userinput></screen>
