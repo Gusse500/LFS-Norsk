@@ -33,16 +33,21 @@ else
 endif
 
 ifndef ARCH
-  ARCH = default
+  ARCH = ml_all
 endif
-ifneq ($(ARCH), default)
+ifneq ($(ARCH), none)
   ifneq ($(ARCH), ml_32)
     ifneq ($(ARCH), ml_x32)
       ifneq ($(ARCH), ml_all)
-        $(error ARCH må være enten 'default' (default hvis ikke aktivert), 'ml_32', 'ml_x32', or 'ml_all'.)
+        $(feil ARCH må enten være 'ml_all' (ml_all hvis ikke angitt), 'ml_32', 'ml_x32', eller 'ingen')
       endif
     endif
   endif
+endif
+ifeq ($(ARCH), none)
+  R_ARCH = default
+else
+  R_ARCH = $(ARCH)
 endif
 
 book: validate profile-html
@@ -54,7 +59,7 @@ book: validate profile-html
       stylesheets/lfs-chunked.xsl                \
       $(RENDERTMP)/lfs-html.xml
 
-	@echo "Kopierer av CSS kode og bilder..."
+	@echo "Kopierer CSS kode og bilder..."
 	$(Q)mkdir -p $(BASEDIR)/stylesheets
 	$(Q)cp stylesheets/lfs-xsl/*.css $(BASEDIR)/stylesheets
 	$(Q)sed -e 's|../stylesheet|stylesheet|' \
@@ -137,7 +142,7 @@ validate: tmpdir version
 	$(Q)xsltproc --nonet                               \
                 --xinclude                            \
                 --stringparam profile.revision $(REV) \
-                --stringparam profile.arch $(ARCH)    \
+                --stringparam profile.arch $(R_ARCH)  \
                 --output $(RENDERTMP)/lfs-html2.xml   \
                 stylesheets/lfs-xsl/profile.xsl       \
                 index.xml
@@ -195,7 +200,7 @@ $(BASEDIR)/md5sums: stylesheets/wget-list.xsl $(DOWNLOADS_DEP)
 	$(Q)xsltproc --nonet                               \
                 --xinclude                            \
                 --stringparam profile.revision $(REV) \
-                --stringparam profile.arch $(ARCH)    \
+                --stringparam profile.arch $(R_ARCH)  \
                 --output $(RENDERTMP)/md5sum.xml      \
                 stylesheets/lfs-xsl/profile.xsl       \
                 chapter03/chapter03.xml
