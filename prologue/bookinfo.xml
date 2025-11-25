@@ -34,6 +34,10 @@
       <firstname>Redaktør: Thomas</firstname>
       <surname>Trepl</surname>
     </author>
+
+    <author arch="ml_32,ml_x32,ml_all">
+      <firstname>Redaktør: Zeckma</firstname>
+    </author>
   </authorgroup>
 
   <copyright id="copyright">
