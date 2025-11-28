@@ -44,7 +44,7 @@ Dette støttes ikke direkte i LFS fordi det ville forstyrre
 pedagogisk mål om å gi instruksjonene som trengs for et
 enkelt grunnleggende Linux-system. Noen LFS/BLFS-redaktører opprettholder en forgrening
 av LFS for flerarkitektur, som er tilgjengelig på <ulink
-url="https://www.linuxfromscratch.org/~thomas/multilib/index.html"/>. Men det
+url="https://lfs.freding.no/lfs/multilib.html"/>. Men det
 er et avansert tema.</para>
 
 </sect1>

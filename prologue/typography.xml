@@ -51,7 +51,7 @@
   <para>Denne tekstformen brukes til flere formål i boken. Dens viktigste
   formålet er å understreke viktige punkter eller elementer.</para>
 
-  <para><ulink url="&lfs-root;"/></para>
+  <para><ulink url="&norsklfs-root;"/></para>
 
   <para>Dette formatet brukes for hyperkoblinger både innenfor LFS-fellesskapet og til
   eksterne sider. Det inkluderer HOWTOer, nedlastingssteder og nettsteder.</para>

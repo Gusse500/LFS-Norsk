@@ -15,14 +15,14 @@
   LFS boken er utgitt. For å sjekke om pakkeversjonene eller
   instruksjonene i denne utgaven av LFS trenger eventuelle modifikasjoner&mdash;å reparere
   sikkerhetssårbarheter eller for å fikse andre feil&mdash;besøk
-  <ulink url="&errata;"/>
+  <ulink url="&errata;errata-development.html"/>
   før du fortsetter med byggingen. Du bør merke deg
   endringer som vises, og bruke dem på den relevante delen av boken mens du
   bygger LFS systemetet.</para>
 
   <para>I tillegg opprettholder Linux From Scratch redaktørene en liste over 
   sikkerhetssårbarheter oppdaget <emphasis>etter</emphasis> at en bok ble utgitt. For å lese listen, besøk
-  <ulink url="&secadv;"/> før du fortsetter med byggingen. Du bør anvende
+  <ulink url="&secadv;advisories.html"/> før du fortsetter med byggingen. Du bør anvende
   endringene foreslått av rådene til de relevante delene av
   boken mens du bygger LFS systemet. Og hvis du vil bruke LFS systemet som
   et ekte skrivebord eller serversystem, bør du fortsette å konsultere
