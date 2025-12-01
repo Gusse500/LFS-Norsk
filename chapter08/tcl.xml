@@ -124,7 +124,7 @@ chmod 644 /usr/lib/libtclstub&tcl-major-version;.a</userinput></screen>
 
     <para>Gi nytt navn til en manualside som er i konflikt med en manualside for Perl:</para>
 
-    <screen><userinput remap="install">mv /usr/share/man/man3/{Thread,Tcl_Thread}.3</userinput></screen>
+    <screen><userinput remap="install">mv -v /usr/share/man/man3/{Thread,Tcl_Thread}.3</userinput></screen>
 
     <para>Eventuelt kan du installere dokumentasjonen ved å utstede
     følgende kommandoer:</para>
