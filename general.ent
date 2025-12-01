@@ -85,11 +85,11 @@
 <!ENTITY norsklfs-root   "https://www.lfs.freding.no/">
 <!ENTITY lfs-root        "https://www.linuxfromscratch.org/">
 <!ENTITY blfs-root       "&norsklfs-root;blfs/">
-<!ENTITY blfs-book       "&norsklfs-root;view/&short-version;/">
+<!ENTITY blfs-book       "&norsklfs-root;blfs/view/&short-version;/">
 <!ENTITY faq-root        "&lfs-root;faq/">
 <!ENTITY hints-root      "&lfs-root;hints/downloads/files/">
 <!ENTITY hints-index     "&lfs-root;hints/list.html">
-<!ENTITY patches-root    "&norsklfs-root;patches/lfs/&generic-version;/">
+<!ENTITY patches-root    "&lfs-root;patches/lfs/&generic-version;/">
 <!-- Only used for sysv (lfs-bootscripts): -->
 <!ENTITY downloads-root  "&norsklfs-root;lfs/downloads/&generic-version;/">
 <!ENTITY livecd-root     "&lfs-root;livecd/">
