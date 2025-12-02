@@ -49,12 +49,22 @@
 <screen><userinput remap="pre">sed -i '/MV.*old/d' Makefile.in
 sed -i '/{OLDSUFF}/c:' support/shlib-install</userinput></screen>
 
-    <para>Forhindre hardkoding biblioteksøkestier (rpath) inn i
+    <para>Forhindre hardkodete biblioteksøkestier (rpath) inn i
     de delte bibliotekene. Denne pakken trenger ikke rpath for en
     installasjon på standardplasseringen, og rpath kan noen ganger forårsake
     uønskede effekter eller til og med sikkerhetsproblemer:</para>
 
 <screen><userinput>sed -i 's/-Wl,-rpath,[^ ]*//' support/shobj-conf</userinput></screen>
+
+    <para>
+      Rett et problem identifisert oppstrøms spesifikt for denne versjonen av readline:
+    </para>
+
+<screen><userinput>sed -e '270a\
+     else\
+       chars_avail = 1;'      \
+    -e '288i\   result = -1;' \
+    -i.orig input.c</userinput></screen>
 
     <para>Forbered Readline for kompilering:</para>
 
