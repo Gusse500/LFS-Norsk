@@ -173,7 +173,11 @@ tar -xpf $HOME/lfs-temp-tools-&version;.tar.xz</literal></screen>
          Hvis du forlot chroot-miljøet for å lage en sikkerhetskopi eller starte byggingen på nytt
          ved hjelp av en gjenoppretting, husk å sjekke at det virtuelle
          filsystemer fortsatt er montert (<command>findmnt | grep
-         $LFS</command>).  Hvis de ikke er montert, monter dem på nytt nå som
+         $LFS</command> skal vise minst
+         <filename class="directory">$LFS/dev</filename>,
+         <filename class="directory">$LFS/proc</filename>, og
+         <filename class="directory">$LFS/sys</filename> som montert).
+         Hvis de ikke er montert, monter dem på nytt nå som
          beskrevet i <xref linkend='ch-tools-kernfs'/> og gå inn i chroot miljøet
          igjen (se <xref linkend='ch-tools-chroot'/>) før du fortsetter.
        </para>
