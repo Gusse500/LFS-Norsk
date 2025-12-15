@@ -41,6 +41,32 @@
     -->
 
     <listitem>
+      <para>15.12.2025</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til tzdata2025c. Fikser
+          <ulink url='&lfs-ticket-root;5833'>#5833</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til Python-3.14.2 (Sikkerhetsoppdatering). Fikser
+          <ulink url='&lfs-ticket-root;5831'>#5831</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til meson-1.10.0. Fikser
+          <ulink url='&lfs-ticket-root;5832'>#5832</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.18.1. Fikser
+          <ulink url='&lfs-ticket-root;5830'>#5830</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iproute2-6.18.0. Fikser
+          <ulink url='&lfs-ticket-root;5829'>#5829</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>2025-12-01</para>
       <itemizedlist>
         <listitem>
