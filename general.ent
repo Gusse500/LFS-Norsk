@@ -82,7 +82,6 @@
 <!ENTITY wget-list       "wget-list-systemd">
 ]]>
 
-<!ENTITY norsklfs-root   "https://www.lfs.freding.no/">
 <!ENTITY lfs-root        "https://www.linuxfromscratch.org/">
 <!ENTITY blfs-root       "&norsklfs-root;blfs/">
 <!ENTITY blfs-book       "&norsklfs-root;blfs/view/&short-version;/">
@@ -148,3 +147,5 @@
 
 <!ENTITY % patches-entities SYSTEM "patches.ent">
 %patches-entities;
+
+<!ENTITY norsklfs-root   "https://www.lfs.freding.no/">
