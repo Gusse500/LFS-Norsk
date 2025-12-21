@@ -43,6 +43,12 @@
   <sect2 role="installation">
     <title>Installasjon av Python 3</title>
 
+    <para>Rett en regresjon som forårsaker problemer i BLFS pakker som 
+    pyatspi:</para>
+
+<screen><userinput remap="pre">sed -e "/self.namespaceURI =/i\        self.ownerDocument = None" \
+    -i Lib/xml/dom/minidom.py</userinput></screen>
+
     <para>Forbered Python for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr          \
