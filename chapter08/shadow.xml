@@ -96,17 +96,6 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</userinput></s
     -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                  \
     -i etc/login.defs</userinput></screen>
 
-<!--
-    <para>Gjør en mindre endring for å lage det første gruppenummeret som genereres
-    av useradd til 1000:</para>
-
-<screen><userinput remap="pre">sed -i 's/1000/999/' etc/useradd</userinput></screen>
--->
-<!--
-    <para>Rett opp en enkel programmeringsfeil ved å endre en fil med følgende kommando:</para>
-
-<screen><userinput remap="pre">sed -e "224s/rounds/min_rounds/" -i libmisc/salt.c</userinput></screen>
--->
     <para>Forbered Shadow for kompilering:</para>
 
 <screen><userinput remap="configure">touch /usr/bin/passwd
@@ -114,6 +103,7 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</userinput></s
             --disable-static    \
             --with-{b,yes}crypt \
             --without-libbsd    \
+            --disable-logind    \
             --with-group-name-max-length=32</userinput></screen>
 
     <variablelist>
@@ -150,7 +140,16 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</userinput></s
           lengden på et gruppenavn til det samme.</para>
         </listitem>
       </varlistentry>
-	  
+	
+      <varlistentry>
+        <term><parameter>--disable-logind</parameter></term>
+        <listitem>
+           <para>Dette alternativet er ikke nødvendig på dette tidspunktet i 
+           LFS, siden det krever systemd og ikke gir noen nytteverdier til 
+           brukere på dette stadiet.</para>
+        </listitem>
+      </varlistentry>
+
       <varlistentry>
         <term><parameter>--without-libbsd</parameter></term>
         <listitem>
