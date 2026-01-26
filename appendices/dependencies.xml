@@ -689,7 +689,7 @@
         <segtitle>&dependencies;</segtitle>
         <seglistitem>
           <seg>Bash, Binutils, Bzip2, Coreutils, Diffutils, Gawk, GCC, Glibc,
-          Grep, Make, Sed, Xz, og Zlib</seg>
+          Grep, Make, Sed, Xz, Zlib, og Zstd</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -3567,7 +3567,7 @@
       <segmentedlist id="zstd-before">
         <segtitle>&before;</segtitle>
         <seglistitem>
-          <seg>Binutils, GCC, Kmod, Libelf, og &systemd-udev;</seg>
+          <seg>Binutils, File, GCC, Kmod, Libelf, og &systemd-udev;</seg>
         </seglistitem>
       </segmentedlist>
 
