@@ -2711,8 +2711,8 @@
         <segtitle>&dependencies;</segtitle>
         <seglistitem>
           <seg>Bash, Binutils, Coreutils, Expat, GCC, Gdbm, Gettext, Glibc,
-          Grep, Libffi, Libxcrypt, Make, Ncurses, OpenSSL, Pkgconf, Sed, og
-          Util-linux</seg>
+          Grep, Libffi, Libxcrypt, Make, Ncurses, OpenSSL, Pkgconf, Sed,
+          Util-linux, og Zstd</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -3567,7 +3567,8 @@
       <segmentedlist id="zstd-before">
         <segtitle>&before;</segtitle>
         <seglistitem>
-          <seg>Binutils, File, GCC, Kmod, Libelf, og &systemd-udev;</seg>
+          <seg>Binutils, File, GCC, Kmod, Libelf, Python,
+          og &systemd-udev;</seg>
         </seglistitem>
       </segmentedlist>
 
