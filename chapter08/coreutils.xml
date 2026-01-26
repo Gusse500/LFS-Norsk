@@ -53,6 +53,13 @@
       uten denne oppdateringen.</para>
     </note>
 
+    <!-- https://github.com/coreutils/coreutils/commit/bd528f923482 -->
+    <para>Rett en feil som forårsaker at <command>cp</command> kommandoen å 
+    henge for alltid når du kopierer sparse filer på
+    <systemitem class='filesystem'>ext4</systemitem> filsystemer:</para>
+
+<screen><userinput remap="pre">sed '/off_t ext_end =/s/ipos/src_pos/' -i src/copy-file-data.c</userinput></screen>
+
     <para>Forbered nå Coreutils for kompilering:</para>
 
 <screen><userinput remap="configure">autoreconf -fv
