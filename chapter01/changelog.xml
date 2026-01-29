@@ -41,6 +41,56 @@
     -->
 
     <listitem>
+      <para>28.01.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til wheel-0.46.3. Fikser
+          <ulink url='&lfs-ticket-root;5849'>#5849</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til shadow-4.19.2. Fikser
+          <ulink url='&lfs-ticket-root;5845'>#5845</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til setuptools-80.10.2. Fikser
+          <ulink url='&lfs-ticket-root;5848'>#5848</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til packaging-26.0. Fikser
+          <ulink url='&lfs-ticket-root;5847'>#5847</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til openssl-3.6.1 (Sikkerhetsoppdatering). Fikser
+          <ulink url='&lfs-ticket-root;5851'>#5851</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til meson-1.10.1. Fikser
+          <ulink url='&lfs-ticket-root;5844'>#5844</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.18.7. Fikser
+          <ulink url='&lfs-ticket-root;5843'>#5843</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til less-691. Fikser
+          <ulink url='&lfs-ticket-root;5846'>#5846</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iana-etc-20260123. Addresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til grub-2.14. Fikser
+          <ulink url='&lfs-ticket-root;5842'>#5842</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til glibc-2.43 (Sikkerhetsoppdatering). Fikser
+          <ulink url='&lfs-ticket-root;5850'>#5850</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>15.01.2026</para>
       <itemizedlist>
         <listitem>
@@ -229,7 +279,7 @@
           <ulink url='&lfs-ticket-root;5806'>#5806</ulink>.</para>
         </listitem>
         <listitem>
-          <para>[bdubbs] - Update to openssl-3.6.0. Fikser
+          <para>[bdubbs] - Oppdater til openssl-3.6.0. Fikser
           <ulink url='&lfs-ticket-root;5804'>#5804</ulink>.</para>
         </listitem>
         <listitem>
