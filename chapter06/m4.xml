@@ -42,12 +42,12 @@
 
   <sect2 role="installation">
     <title>Installasjon av M4</title>
-<!--
-    <para>Gjør først noen rettelser introdusert av glibc-2.28:</para>
 
-<screen><userinput remap="pre">sed -i 's/IO_ftrylockfile/IO_EOF_SEEN/' lib/*.c
-echo "#define _IO_IN_BACKUP 0x100" >> lib/stdio-impl.h</userinput></screen>
--->
+    <para>Først, gjør noen rettelser introdusert av glibc-2.43:</para>
+
+<screen><userinput remap="pre">sed -r '/_GL_EXTERN_C/s/w?memchr|bsearch/(&amp;)/' \
+    -i $(find -name \*.in.h)</userinput></screen>
+
     <para>Forbered M4 for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr   \

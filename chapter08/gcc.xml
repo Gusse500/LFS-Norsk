@@ -41,6 +41,10 @@
   <sect2 role="installation">
     <title>Installasjon av GCC</title>
 
+    <para>Først, gjør noen rettelser introdusert av glibc-2.43:</para>
+
+    <screen><userinput remap="pre">sed -i 's/char [*]q/const &amp;/' libgomp/affinity-fmt.c</userinput></screen>
+
     <para>Hvis du bygger på x86_64, endre standard mappenavn for 64-bit
     bibliotekene til <quote>lib</quote>:</para>
 
@@ -197,8 +201,11 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
     <ulink url="https://gcc.gnu.org/ml/gcc-testresults/"/>.</para>
 
     <!-- https://gcc.gnu.org/PR118885 -->
-    <para>Testene knyttet til <filename>pr90579.c</filename> er kjent for 
-    å mislykkes.</para>
+    <para>Fire tester relatert til <filename>pr90579.c</filename> er kjent 
+    for å mislykkes.</para>
+
+    <para>Fem tester relatert til <filename>analyzer/strchr-1.c</filename> er 
+    kjent for å mislykkes.</para>
 
     <para>Noen få uventede feil kan ikke alltid unngås. I noen tilfeller
     testfeil avhenger av den spesifikke maskinvaren til systemet.<!--GCC utviklerne
