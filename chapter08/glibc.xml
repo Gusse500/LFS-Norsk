@@ -42,26 +42,26 @@
 
   <sect2 role="installation">
     <title>Installation of Glibc</title>
-
+<!--
     <para>Først, bruk noen endringer fra oppstrøms:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&glibc-upstream-patch;</userinput></screen>
-
+-->
     <para>Noen av Glibc programmene bruker ikke-FHS kompatible
     <filename class="directory">/var/db</filename> mappen til å lagre
     kjøretidsdataene i. Bruk følgende oppdatering for å forsikre om at slike programmer
     lagrer kjøretidsdataene deres på de FHS kompatible stedene:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&glibc-fhs-patch;</userinput></screen>
-
-    <para>Retter nå et problem som kan ødelegge Valgrind i BLFS:</para>
+<!--
+    <para>Rett nå et problem som kan ødelegge Valgrind i BLFS:</para>
 
 <screen><userinput remap="pre">sed -e '/unistd.h/i #include &lt;string.h&gt;' \
     -e '/libc_rwlock_init/c\
   __libc_rwlock_define_initialized (, reset_lock);\
   memcpy (&amp;lock, &amp;reset_lock, sizeof (lock));' \
     -i stdlib/abort.c </userinput></screen>
-
+-->
     <para>Glibc dokumentasjonen anbefaler å bygge Glibc
     i en dedikert byggemappe:</para>
 

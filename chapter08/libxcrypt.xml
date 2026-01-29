@@ -41,6 +41,10 @@
   <sect2 role="installation">
     <title>Installasjon av Libxcrypt</title>
 
+    <para>Først, gjør noen rettelser introdusert av glibc-2.43:</para>
+
+<screen><userinput remap="pre">sed -i '/strchr/s/const//' lib/crypt-{sm3,gost}-yescrypt.c</userinput></screen>
+
     <para>Forbered Libxcrypt for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr                \
