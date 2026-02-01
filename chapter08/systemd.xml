@@ -216,20 +216,25 @@ meson setup ..                \
 
 <screen><userinput remap="make">ninja</userinput></screen>
 
-    <para>Noen tester trenger en grunnleggende <filename>/etc/os-release</filename> fil.
-    For å teste resultatene, utsted:</para>
+    <para>Én test oppretter et monteringspunkt i
+    <filename class='directory'>/tmp</filename> som vi ikke kan rydde opp så 
+    lett etter å ha kjørt testpakken, og noen tester trenger en grunnleggende
+    <filename>/etc/os-release</filename> fil.  For å teste resultatene, opprett 
+    denne filen og kjør testpakken i et separat monteringsnavneområde (slik at 
+    monteringspunktet bare er synlig for testpakken og at det blir ryddet opp 
+    automatisk etter at testpakken er ferdig):</para>
 
 <screen><userinput remap="test">echo 'NAME="Linux From Scratch"' &gt; /etc/os-release
-ninja test</userinput></screen>
+unshare -m ninja test</userinput></screen>
 
     <!-- test-namespace needs /run/systemd/inaccessible/sock, which only exists
          after initializing the system with systemd.  -->
     <para>En test navngitt <literal>systemd:core / test-namespace</literal>
     er kjent for å mislykkes i LFS chroot miljøet. Noen andre tester kan
     mislykkes fordi de er avhengige av ulike kjernekonfigurasjonsalternativer.
-    Testen navngitt <literal>systemd:test / test-copy</literal> kan få tidsavbrudd
-    på grunn av en I/O overbelastning med et stort parallelt jobbnummer, men det
-    ville passert hvis du kjørte alene med
+    Testen navngitt <literal>systemd:test / test-copy</literal> kan få 
+    tidsavbrudd på grunn av en I/O overbelastning med et stort parallelt 
+    jobbnummer, men det ville passert hvis du kjørte alene med
     <command>meson test test-copy</command>.</para>
 
     <para>Installer pakken:</para>
