@@ -395,7 +395,13 @@
     <para>Med mindre modulstøtte er deaktivert i kjernekonfigurasjonen,
     installere modulene med:</para>
 
-<screen><userinput remap="install">make modules_install</userinput></screen>
+<screen><userinput remap="install">make INSTALL_MOD_STRIP=1 modules_install</userinput></screen>
+
+    <!-- FIXME: I don't think this is the correct solution.  -->
+    <para><parameter>INSTALL_MOD_STRIP=1</parameter> alternativet gjør at 
+    byggesystemet stripper kjernemodulene etter installasjon. Vi trenger det 
+    for å omgå en minneallokeringsfeil når kjernen laster inn store moduler 
+    (for eksempel AMDGPU modulen).</para>
 
     <para>Etter at kjernekompileringen er fullført, er flere trinn
     nødvendig for å fullføre installasjonen. Noen filer må kopieres til
