@@ -58,13 +58,12 @@ make -C libelf</userinput></screen>
     <para>For å teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">make -k check</userinput></screen>
--->
-
-    <para>Testpakken feiler å bygge med glibc-2.43 eller nyere.</para>
 
     <para>Kommandoen ovenfor bygger verktøyene som er en del av pakken, samt 
     enhetstestene. To tester er kjent for å mislykkes: dwarf_srclang_check og 
     run-backtrace-native-core.sh.</para>
+-->
+    <para>Testpakken feiler å bygge med glibc-2.43 eller nyere.</para>
 
     <para>Installer kun Libelf:</para>
 
