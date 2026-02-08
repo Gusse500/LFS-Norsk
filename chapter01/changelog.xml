@@ -41,6 +41,48 @@
     -->
 
     <listitem>
+      <para>08.02.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til systemd-259.1. Fikser
+          <ulink url='&lfs-ticket-root;5864'>#5864</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til shadow-4.19.3. Fikser
+          <ulink url='&lfs-ticket-root;5858'>#5858</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til setuptools-81.0.0 (Python modul). Fikser
+          <ulink url='&lfs-ticket-root;5863'>#5863</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til Python3-3.14.3. Fikser
+          <ulink url='&lfs-ticket-root;5859'>#5859</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til procps-ng-4.0.6. Fikser
+          <ulink url='&lfs-ticket-root;5863'>#5853</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.18.9. Fikser
+          <ulink url='&lfs-ticket-root;5854'>#5854</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til gettext-1.0. Fikser
+          <ulink url='&lfs-ticket-root;5852'>#5852</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til expat-2.7.4 (Sikkerhetsoppdatering). Fikser
+          <ulink url='&lfs-ticket-root;5855'>#5855</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til coreutils-9.10.tar.xz. Fikser
+          <ulink url='&lfs-ticket-root;5862'>#5862</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>28.01.2026</para>
       <itemizedlist>
         <listitem>
