@@ -63,6 +63,12 @@
       aggressiv optimalisering.</para>
     </warning>
 
+    <!-- See https://wiki.linuxfromscratch.org/lfs/ticket/5857. Remove this at
+    next grub version -->
+    <para>Først fiks jeg en feil introdusert i grub-2.14:</para>
+
+<screen><userinput remap="pre">sed 's/--image-base/--nonexist-linker-option/' -i configure</userinput></screen>
+
     <para>Forbered GRUB for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr     \
