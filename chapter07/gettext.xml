@@ -43,11 +43,6 @@
   <sect2 role="installation">
     <title>Installasjon av Gettext</title>
 
-    <para>Først, gjør noen rettelser introdusert av glibc-2.43:</para>
-
-<screen><userinput remap="pre">sed -r '/_GL_EXTERN_C/s/w?memchr|bsearch/(&amp;)/' \
-    -i $(find -name \*.in.h)</userinput></screen>
-
     <para>For vårt midlertidige sett med verktøy trenger vi bare å installere
      tre programmer fra Gettext.</para>
 

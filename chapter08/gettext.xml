@@ -43,11 +43,6 @@
   <sect2 role="installation">
     <title>Installasjon av Gettext</title>
 
-    <para>Først, gjør en rettelse som kreves av glibc-2.43 og senere:</para>
-
-<screen><userinput remap="pre">sed -r '/_GL_EXTERN_C/s/w?memchr|bsearch/(&amp;)/' \
-    -i $(find -name \*.in.h)</userinput></screen>
-
     <para>Forbered Gettext for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr    \
