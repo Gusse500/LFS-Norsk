@@ -41,6 +41,44 @@
     -->
 
     <listitem>
+      <para>14.02.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til vim-9.1.2144 (Sikkerhetsoppdatering). Addresserer
+          <ulink url='&lfs-ticket-root;4500'>#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til setuptools-82.0.0 (Python modul). Fikser
+          <ulink url='&lfs-ticket-root;5868'>#5868</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til man-pages-6.17. Fikser
+          <ulink url='&lfs-ticket-root;5870'>#5870</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til m4-1.4.21. Fikser
+          <ulink url='&lfs-ticket-root;5866'>#5866</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.18.10. Fikser
+          <ulink url='&lfs-ticket-root;5854'>#5854</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til less-692. Fikser
+          <ulink url='&lfs-ticket-root;5869'>#5869</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iana-etc-20260202. Addresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til binutils-2.46.0. Fikser
+          <ulink url='&lfs-ticket-root;5865'>#5865</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>08.02.2026</para>
       <itemizedlist>
         <listitem>
