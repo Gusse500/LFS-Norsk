@@ -67,8 +67,7 @@
 <screen><userinput remap="configure">autoreconf -fv
 automake -af
 FORCE_UNSAFE_CONFIGURE=1 ./configure \
-            --prefix=/usr            \
-            --enable-no-install-program=kill,uptime</userinput></screen>
+            --prefix=/usr</userinput></screen>
 
     <variablelist>
       <title>Betydningen av kommandoene og konfigureringsalternativene:</title>
@@ -104,15 +103,16 @@ FORCE_UNSAFE_CONFIGURE=1 ./configure \
           </para>
         </listitem>
       </varlistentry>
-
+<!--
       <varlistentry>
-        <term><parameter>--enable-no-install-program=kill,uptime</parameter></term>
+        <term><parameter>- -enable-no-install-program=kill,uptime</parameter></term>
         <listitem>
           <para>Hensikten med denne bryteren er å hindre Coreutils fra å
           installere programmer som vil bli installert av andre pakker senere.
           </para>
         </listitem>
       </varlistentry>
+-->
     </variablelist>
 
     <para>Kompiler pakken:</para>
