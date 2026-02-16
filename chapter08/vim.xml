@@ -84,8 +84,8 @@ sed '/test_plugin_glvs/d' -i src/testdir/Make_all.mak</userinput></screen>
     vellykket test vil resultere i ordene <computeroutput>ALL
     DONE</computeroutput> i loggfilen ved ferdigstillelse.</para>
 
-    <para>En test, Test_client_server_stopinsert(), er kjent for å feile av og 
-	til på noen systemer.</para>
+    <para>To tester, Test_client_server_stopinsert() og Test_popup_setbuf(), er 
+    kjent for å feile på noen systemer.</para>
 
     <para>Installer pakken:</para>
 
