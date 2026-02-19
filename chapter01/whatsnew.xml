@@ -281,9 +281,9 @@
     <listitem>
       <para>Xz-&xz-version;</para>
     </listitem>
-    <!--<listitem>
+    <listitem>
       <para>Zlib-&zlib-version;</para>
-    </listitem>-->
+    </listitem>
     <!--<listitem>
       <para>Zstd-&zstd-version;</para>
     </listitem>-->
