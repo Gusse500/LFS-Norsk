@@ -301,7 +301,7 @@
   <itemizedlist>
     <title>Lagt til:</title>
     <listitem><para></para></listitem>  <!-- satisfy build -->
-    <listitem><para>Coreutils-9.9-i18n-1.patch</para></listitem> 
+    <listitem><para>Coreutils-9.10-i18n-1.patch</para></listitem> 
     <!--<listitem><para>Glibc-2.42-upstream_fixes-1.patch</para></listitem> -->
   </itemizedlist>
 
