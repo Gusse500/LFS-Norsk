@@ -45,7 +45,7 @@
 
     <screen><userinput remap="pre">sed -i 's/char [*]q/const &amp;/' libgomp/affinity-fmt.c</userinput></screen>
 
-    <para>Hvis du bygger på x86_64, endre standard mappenavn for 64-bit
+    <para arch="default">Hvis du bygger på x86_64, endre standard mappenavn for 64-bit
     bibliotekene til <quote>lib</quote>:</para>
 
 <screen arch="default"><userinput remap="pre">case $(uname -m) in
