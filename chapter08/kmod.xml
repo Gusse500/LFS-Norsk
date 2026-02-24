@@ -80,11 +80,11 @@ meson setup --prefix=/usr ..    \
   </sect2>
 
   <!-- - - - - - - - - - -->
-  <!-- Multilib - 32bit  -->
+  <!-- Multilib - 32-bit  -->
   <!-- - - - - - - - - - -->
   
   <sect2 arch="ml_32,ml_all" role="installation">
-    <title>Installasjon av Kmod - 32bit</title>
+    <title>Installasjon av Kmod - 32-bit</title>
 
     <para>Rens forrige bygg:</para>
     
@@ -113,11 +113,11 @@ rm -rf DESTDIR</userinput></screen>
   </sect2><!-- m32 -->
 
   <!-- - - - - - - - - - -->
-  <!-- Multilib - x32bit -->
+  <!-- Multilib - x32-bit -->
   <!-- - - - - - - - - - -->
   
   <sect2 arch="ml_x32,ml_all" role="installation">
-    <title>Installasjon av Kmod - x32bit</title>
+    <title>Installasjon av Kmod - x32-bit</title>
 
     <para>Rens forrige bygg:</para>
 
