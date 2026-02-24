@@ -24,11 +24,11 @@
 %version-entities;
 <![ %sysv; [
 <!ENTITY short-version   "svn">    <!-- Used below in &blfs-book; -->
-<!ENTITY errata          "&norsklfs-root;lfs/errata/development/">
+<!ENTITY errata          "&norsklfs-root;lfs/errata/development/errata-development.html">
 ]]>
 <![ %systemd; [
 <!ENTITY short-version  "systemd"> <!-- Used below in &blfs-book; -->
-<!ENTITY errata          "&norsklfs-root;lfs/errata/systemd/">
+<!ENTITY errata          "&norsklfs-root;lfs/errata/systemd/errata-systemd.html">
 ]]>
 <!ENTITY generic-version "development"> <!-- Used below in
                                              &patches-root;,

@@ -186,7 +186,7 @@ EOF</userinput></screen>
       <para>For å bruke disse stavefilene, trengs noen konfigurasjoner i
       <filename>/etc/vimrc</filename> , f.eks.:</para>
 
-<screen><literal>set spelllang=en,ru
+<screen><literal>set spelllang=en,nb
 set spell</literal></screen>
 
       <para>For mer informasjon, se

@@ -167,12 +167,12 @@ done</userinput></screen>
     <note>
 
       <para>Instruksjonene ovenfor oppretter ikke Ncurses med ikke-brede tegn
-      biblioteker siden ingen pakke installert ved kompilering fra kilder ville kobles
-      mot dem under kjøring. Imidlertid den eneste kjente bare binær
-      applikasjonen som kobler mot Ncurses-biblioteker med ikke-brede karakterer
-      krever versjon 5. Hvis du må ha slike biblioteker på grunn av noen bare binær
-      applikasjon eller for å være kompatibel med LSB, bygg pakken på nytt med
-      følgende kommandoer:</para>
+      biblioteker siden ingen pakke installert ved kompilering fra kilder ville 
+      kobles mot dem under kjøring. Imidlertid den eneste kjente bare-binær
+      applikasjonen som kobler mot Ncurses biblioteker med ikke-brede karakterer
+      krever versjon 5. Hvis du må ha slike biblioteker på grunn av en 
+      bare-binær applikasjon eller for å være kompatibel med LSB, bygg pakken på 
+      nytt med følgende kommandoer:</para>
 
 <screen role="nodump"><userinput>make distclean
 ./configure --prefix=/usr     \

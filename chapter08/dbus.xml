@@ -24,12 +24,12 @@
     <title/>
 
     <para>D-Bus er et meldingsbusssystem, en enkel måte for applikasjoner å snakke til
-    hverandre. D-Bus leverer både en systemnisse (system daemon) (for hendelser som f.eks
-    "ny maskinvareenhet lagt til" eller "skriverkø endret") og en
-    per brukerpåloggingsøkt nisse (for generelle IPC behov blant brukerens
-    applikasjoner). Dessuten er meldingsbussen bygget på toppen av et generelt en-til-en
+    hverandre. D-Bus leverer både en system daemon (for hendelser som f.eks "ny 
+    maskinvareenhet lagt til" eller "skriverkø endret") og en per bruker 
+    påloggingsøkt daemon (for generelle IPC behov blant brukerens applikasjoner). 
+    Dessuten er meldingsbussen bygget på toppen av et generelt en-til-en 
     rammeverk for meldingsoverføring, som kan brukes av to applikasjoner til å
-    kommunisere direkte (uten å gå gjennom meldingsbussnissen).</para>
+    kommunisere direkte (uten å gå gjennom meldingsbuss daemonen).</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>

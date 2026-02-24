@@ -169,8 +169,8 @@ cd       build</userinput></screen>
       <para>
         PIE (position independent executable) er en teknikk for å produsere
         binære programmer som kan lastes hvor som helst i minnet. Uten PIE,
-        sikkerhetsfunksjonen kalt ASLR (Address Space Layout Randomization)
-        kan legges til for de delte bibliotekene, men ikke de kjørbare
+        kan sikkerhetsfunksjonen kalt ASLR (Address Space Layout Randomization)
+        legges til for de delte bibliotekene, men ikke de kjørbare
         filen. Aktivering av PIE tillater ASLR for de kjørbare filene i tillegg til
         de delte bibliotekene, og reduserer noen angrep basert på faste
         adresser til sensitiv kode eller data i de kjørbare filene.
@@ -198,12 +198,12 @@ cd       build</userinput></screen>
     </important>
 
     <para>GCC kan trenge mer stabelplass for å kompilere noen ekstremt komplekse
-    kodemønstre. Som en forholdsregel for vertsdistros med en liten stabelbegrensing,
-    angi eksplisitt stabelstørrelsen hard grense til uendelig.
-    På de fleste vertsdistroer (og det endelige LFS systemet) er den harde grensen
-    uendelig som standard, men det er ingen skade ved å angi det eksplisitt.
-    Det er ikke nødvendig å endre myk grense for stabelstørrelsen fordi GCC vil
-    sette den automatisk til en passende verdi, så lenge verdien
+    kodemønstre. Som en forholdsregel for en vertsdistro med en liten 
+    stabelbegrensing, angi eksplisitt stabelstørrelsen sin harde grense til 
+    uendelig. På de fleste vertsdistroer (og det endelige LFS systemet) er den 
+    harde grensen uendelig som standard, men det gjør ingen skade å angi det 
+    eksplisitt. Det er ikke nødvendig å endre myk grense for stabelstørrelsen 
+    fordi GCC vil sette den automatisk til en passende verdi, så lenge verdien
     ikke overskrider den harde grensen:</para>
 
 <screen><userinput remap="test">ulimit -s -H unlimited</userinput></screen>

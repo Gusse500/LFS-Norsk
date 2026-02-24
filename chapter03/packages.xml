@@ -16,7 +16,7 @@
     før du laster ned pakker for å finne ut om en nyere versjon av noen
     pakken bør brukes for å unngå sikkerhetssårbarheter.</para>
 
-    <para>Oppstrøms kilder kan fjerne gamle utgivelser, spesielt når de
+    <para>Oppstrøms kilder kan fjerne gamle utgivelser, spesielt når 
     utgivelser inneholder en sikkerhetssårbarhet. Hvis en URL nedenfor ikke er
     tilgjengelig, bør du lese sikkerhetsrådene først for å finne ut
     om en nyere versjon (med sårbarheten fikset) skal brukes. Hvis
