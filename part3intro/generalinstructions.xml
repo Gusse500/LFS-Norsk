@@ -20,7 +20,7 @@
       typen problem er vanligvis et resultat av gjenbruk av et eller annet opprettet skript
       for en tidligere LFS utgivelse. Slik gjenbruk frarådes sterkt. Hvis
       du gjenbruker skript for en tidligere LFS utgivelse av en eller annen grunn,
-      mo du være veldig forsiktig med å oppdatere skriptene for å matche gjeldende versjon
+      må du være veldig forsiktig med å oppdatere skriptene for å matche gjeldende versjon
       av LFS boken.
     </para>
   </caution>

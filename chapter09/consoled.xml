@@ -98,7 +98,7 @@
      Whenever you want to change the following, please inform the jhalfs
      maintainer(s). -->
 <screen><userinput>cat &gt; /etc/vconsole.conf &lt;&lt; "EOF"
-<literal>KEYMAP=de-latin1
+<literal>KEYMAP=nb-latin1
 FONT=Lat2-Terminus16</literal>
 EOF</userinput></screen>
 
