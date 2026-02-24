@@ -87,7 +87,7 @@ make clean</userinput></screen>
     <para>Installer det delte biblioteket:</para>
 
 <screen><userinput remap="install">cp -av libbz2.so.* /usr/lib
-ln -sv libbz2.so.&bzip2-version; /usr/lib/libbz2.so</userinput></screen>
+ln -sfv libbz2.so.&bzip2-version; /usr/lib/libbz2.so</userinput></screen>
 
     <para>Navnet på det delte biblioteket er ikke standardisert, og det varierer 
     mellom distroer. Instruksjonen ovenfor har installert
@@ -96,7 +96,7 @@ ln -sv libbz2.so.&bzip2-version; /usr/lib/libbz2.so</userinput></screen>
     <filename class='libraryfile'>libbz2.so.1</filename> som noen andre 
     distribusjoner bruker. Opprett en kompatibilitetssymbolsk lenke for dem:</para>
 
-<screen><userinput>ln -sv libbz2.so.&bzip2-version; /usr/lib/libbz2.so.1</userinput></screen>
+<screen><userinput>ln -sfv libbz2.so.&bzip2-version; /usr/lib/libbz2.so.1</userinput></screen>
 
     <note>
       <para>Symbollenke tilnærmingen er bare gyldig her fordi bibliotek 
