@@ -21,11 +21,11 @@
     <title>Konfigurasjonsfiler for nettverksgrensesnitt</title>
 
     <para>Fra og med versjon 209, inneholder systemd en nettverkskonfigurasjons
-    nisse (daemon) kalt <command>systemd-networkd</command> som kan brukes til
+    daemon kalt <command>systemd-networkd</command> som kan brukes til
     grunnleggende nettverkskonfigurasjon. I tillegg, siden versjon 213, DNS
-    navneoppløsning kan håndteres av <command>systemd-resolved</command> i stedet for
-    den statiske <filename>/etc/resolv.conf</filename> filen. Begge tjenestene er
-    aktivert som standard.</para>
+    navneoppløsning kan håndteres av <command>systemd-resolved</command> i 
+    stedet for den statiske <filename>/etc/resolv.conf</filename> filen. Begge 
+    tjenestene er aktivert som standard.</para>
 
     <note>
       <para>
@@ -68,8 +68,8 @@
 
       <note>
         <para>Grensesnittnavnene avhenger av implementeringen og
-        konfigurasjon av udev nissen som kjører på systemet. Udev
-        nissen for LFS (<command>systemd-udevd</command>, installert i
+        konfigurasjon av udev daemonen som kjører på systemet. Udev
+        daemonen for LFS (<command>systemd-udevd</command>, installert i
         <xref linkend="ch-system-systemd"/>) vil ikke kjøre med mindre LFS
         systemet er startet opp. Så det er upålitelig å bestemme grensesnittnavnet
         som brukes i LFS systemet ved å kjøre disse kommandoene på vertens
@@ -86,7 +86,7 @@
 
       <para>
         Hvis du foretrekker å bruke de klassiske eller tilpassede nettverksgrensesnittnavnene,
-        det er tre alternative måter å gjøre det på:</para>
+        er det tre alternative måter å gjøre det på:</para>
 
       <itemizedlist>
         <listitem>

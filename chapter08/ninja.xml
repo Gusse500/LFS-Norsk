@@ -40,16 +40,16 @@
   <sect2 role="installation">
     <title>Installasjon av Ninja</title>
 
-    <para>Når den kjøres, kjører <command>ninja</command> normalt et maksimalt antall prosesser
+    <para>Når den kjøres, kjører <command>ninja</command> normalt er maksimalt antall prosesser
     parallelt. Som standard er dette antall kjerner på systemet
     pluss to. I noen tilfeller kan dette overopphete en CPU eller bruke opp systemets
     minne.  Når <command>ninja</command> påkalles fra kommandolinjen, å sende parameteren -jN
     vil begrense antall parallelle prosesser. Noen pakker
     legger inn utførelsen av <command>ninja</command>, og gir ikke parameteren -j videre til den.</para>
 
-    <para>Ved å bruke den <emphasis>valgfrie</emphasis> prosedyren nedenfor lar en bruker
+    <para>Den <emphasis>valgfrie</emphasis> prosedyren nedenfor lar en bruker
     begrense antall parallelle prosesser via en miljøvariabel,
-    NINJAJOBS.  <emphasis role="bold">For eksempe</emphasis>, å sette:
+    NINJAJOBS.  <emphasis role="bold">For eksempel</emphasis>, å sette:
 
     <screen>export NINJAJOBS=4</screen>
 

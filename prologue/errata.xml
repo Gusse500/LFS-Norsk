@@ -15,7 +15,7 @@
   LFS boken er utgitt. For å sjekke om pakkeversjonene eller
   instruksjonene i denne utgaven av LFS trenger eventuelle modifikasjoner&mdash;å reparere
   sikkerhetssårbarheter eller for å fikse andre feil&mdash;besøk
-  <ulink url="&errata;errata-development.html"/>
+  <ulink url="&errata;"/>
   før du fortsetter med byggingen. Du bør merke deg
   endringer som vises, og bruke dem på den relevante delen av boken mens du
   bygger LFS systemetet.</para>

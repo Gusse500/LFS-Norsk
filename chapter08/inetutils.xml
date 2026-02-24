@@ -64,9 +64,9 @@
         <term><parameter>--disable-logger</parameter></term>
         <listitem>
           <para>Dette alternativet forhindrer Inetutils fra å installere
-          <command>logger</command> programmet, som brukes av skript til
-          sende meldinger til Systemlogg nissen (System Log Daemon). Ikke installer det fordi
-          Util-linux installerer en nyere versjon.</para>
+          <command>logger</command> programmet, som brukes av skript til sende 
+          meldinger til Systemlogg daemonen (System Log Daemon). Ikke installer 
+          det fordi Util-linux installerer en nyere versjon.</para>
         </listitem>
       </varlistentry>
 

@@ -76,17 +76,17 @@ EOF</userinput></screen>
   <sect2>
     <title>Nettverkstidssynkronisering</title>
 
-    <para>Fra og med versjon 213, inneholder systemd en nisse (daemon) kalt
+    <para>Fra og med versjon 213, inneholder systemd en daemon kalt
     <command>systemd-timesyncd</command> som kan brukes til
      synkronisere systemtiden med eksterne NTP servere.</para>
 
-    <para>Nissen er ikke ment som en erstatning for den vel
-     etablerte NTP nissen, men bare som klientimplementering
+    <para>Daemonen er ikke ment som en erstatning for den vel
+     etablerte NTP daemonen, men bare som klientimplementering
      av SNTP protokollen som kan brukes for mindre avanserte
      oppgaver og på ressursbegrensede systemer.</para>
 
     <para>Fra og med systemd versjon 216,
-    <command>systemd-timesyncd</command> nissen er aktivert som
+    <command>systemd-timesyncd</command> er daemonen aktivert som
      standard. Hvis du vil deaktivere den, utsted følgende
      kommando:</para>
 

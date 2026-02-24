@@ -422,13 +422,13 @@ localedef -i zh_CN -f GB18030 zh_CN.GB18030
 localedef -i zh_HK -f BIG5-HKSCS zh_HK.BIG5-HKSCS
 localedef -i zh_TW -f UTF-8 zh_TW.UTF-8</userinput></screen>
 
-    <para>Installer i tillegg lokaliteten for ditt eget land, språk og
-    tegnsett.</para>
+    <para>Installer om ønskelig lokaliteten for Norge, norsk språk og tegnsett.</para> 
+    <screen><userinput remap="locale-norge">localedef -i nb_NO -f UTF-8 nb_NO.UTF-8</userinput></screen>
 
     <para>Alternativt kan du installere alle lokaliteter som er oppført i
     <filename>glibc-&glibc-version;/localedata/SUPPORTED</filename> filen
-    (den inkluderer alle lokaliteter oppført ovenfor og mange flere) med en gang med
-    denne tidkrevende kommandoen:</para>
+    (den inkluderer alle lokaliteter oppført ovenfor og mange flere) men det er
+    en tidkrevende kommando:</para>
 
 <screen><userinput remap="locale-full">make localedata/install-locales</userinput></screen>
 
