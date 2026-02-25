@@ -110,7 +110,7 @@ cups-config = 'cups-config'
 llvm-config = 'llvm-config'
 exe_wrapper = ''
 
-[paths]
+[built-in options]
 libdir = 'lib32'
 
 [properties]
@@ -142,7 +142,7 @@ cups-config = 'cups-config'
 llvm-config = 'llvm-config'
 exe_wrapper = ''
 
-[paths]
+[built-in options]
 libdir = 'libx32'
 
 [properties]
@@ -158,6 +158,11 @@ cpu = 'x86_64'
 endian = 'little'</literal>
 EOF
 done</userinput></screen>
+
+    <note arch="ml_32,ml_x32,ml_all"><para>
+      Disse filene vil bli brukt som standard i pakker som bruker Meson baserte 
+	  byggesystemer for å redusere eventuelle problemer med arkitektur og oppgradering.
+    </para></note>
 
   </sect2>
 
