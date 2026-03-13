@@ -7,26 +7,5 @@
 
 <dedication>
   <title>Dedikasjon</title>
-  <para>Denne boken er dedikert til Ken Moffat.</para>
-
-  <para>
-    Ken Moffat la først ut et innlegg på LFS postlistene 19. mai 2001. Der 
-    diskuterte han hvordan han skulle bygge opp LFS fra februar samme år. I 
-    løpet av de siste 25 årene har Ken vært redaktør og aktiv på postlistene, 
-    alltid villig til å hjelpe.
-  </para>
-
-  <para>
-    En av Kens store interesser var datafonter. I den forbindelse opprettet han 
-    en nettside som fortsatt er aktiv på 
-    <ulink url="https://typosetting.linuxfromscratch.org/"/>.
-    Han var også redaktøren som ledet sikkerhetsrådene, og han tok seg av 
-    utallige sikkerhetsoppdateringer og problemer i løpet av sin tid som 
-    redaktør.
-  </para>
-
-  <para>
-    Ken døde 26. juni 2025. Han er savnet..
-  </para>
-
+  <para>Denne boken er dedikert</para>
 </dedication>
