@@ -41,6 +41,72 @@
     -->
 
     <listitem>
+      <para>15.03.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til vim-9.2.0161. Adresserer
+          <ulink url='&lfs-ticket-root;4500'>#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til tzdata-2026a. Fikser
+          <ulink url='&lfs-ticket-root;5882'>#5882</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til texinfo-7.3. Fikser
+          <ulink url='&lfs-ticket-root;5883'>#5883</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til systemd-259.5. Fikser
+          <ulink url='&lfs-ticket-root;5879'>#5879</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til sqlite-autoconf-3510300 (3.51.3). Fikser
+          <ulink url='&lfs-ticket-root;5885'>#5885</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til shadow-4.19.4. Fikser
+          <ulink url='&lfs-ticket-root;5881'>#5881</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til setuptools-82.0.1 (Python modul). Fikser
+          <ulink url='&lfs-ticket-root;5887'>#5887</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til perl-5.42.1. Fikser
+          <ulink url='&lfs-ticket-root;5886'>#5886</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.19.8. Fikser
+          <ulink url='&lfs-ticket-root;5867'>#5867</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iproute2-6.19.0. Fikser
+          <ulink url='&lfs-ticket-root;5874'>#5874</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iana-etc-20260306. Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til groff-1.24.0. Fikser
+          <ulink url='&lfs-ticket-root;5880'>#5880</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til gawk-5.4.0. Fikser
+          <ulink url='&lfs-ticket-root;5876'>#5876</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til file-5.47. Fikser
+          <ulink url='&lfs-ticket-root;5878'>#5878</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til e2fsprogs-1.47.4. Fikser
+          <ulink url='&lfs-ticket-root;5884'>#5884</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>05.03.2026</para>
       <itemizedlist>
         <listitem>
