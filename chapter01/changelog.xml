@@ -13,8 +13,9 @@
   <para>Dette er versjon &version; av Multilib Linux From Scratch boken,
   datert &releasedate;. Hvis den første endringen i denne endringsloggen er mer 
   enn seks måneder gammel, er det sannsynligvis en nyere og bedre versjon av 
-  denne boken tilgjengelig. For å finne ut av det, vennligst se gjennom 
-  <ulink url="/mlfs/view/"/> eller se <ulink url="/mlfs/news.html"/>.</para>
+  denne boken tilgjengelig. For å finne det ut, vennligst se gjennom MLFS 
+  <ulink url='&lfs-root/mlfs/view/'>version index</ulink> eller se MLFS <ulink
+  url='&lfs-root/mlfs/news.html'>news</ulink> for potensielt nye kunngjøringer.</para>
 
   <para>Nedenfor er en liste over endringer som er gjort siden forrige utgivelse av
   boken.</para>
