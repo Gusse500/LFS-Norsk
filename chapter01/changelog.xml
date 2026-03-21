@@ -14,8 +14,8 @@
   datert &releasedate;. Hvis den første endringen i denne endringsloggen er mer 
   enn seks måneder gammel, er det sannsynligvis en nyere og bedre versjon av 
   denne boken tilgjengelig. For å finne det ut, vennligst se gjennom MLFS 
-  <ulink url='&lfs-root/mlfs/view/'>version index</ulink> eller se MLFS <ulink
-  url='&lfs-root/mlfs/news.html'>news</ulink> for potensielt nye kunngjøringer.</para>
+  <ulink url='&lfs-root;/mlfs/view/'>version index</ulink> eller se MLFS <ulink
+  url='&lfs-root;/mlfs/news.html'>news</ulink> for potensielt nye kunngjøringer.</para>
 
   <para>Nedenfor er en liste over endringer som er gjort siden forrige utgivelse av
   boken.</para>
