@@ -16,7 +16,7 @@ endif
 
 ifneq ($(REV), systemd)
   ifneq ($(REV), sysv)
-    $(feil REV må være 'sysv' eller 'systemd' (standard).)
+    $(feil REV må være 'systemd' (standard) eller 'sysv'.)
   endif
 endif
 
@@ -125,7 +125,6 @@ validate: tmpdir version
 	$(Q)xsltproc --nonet                               \
                 --xinclude                            \
                 --stringparam profile.revision $(REV) \
-                --stringparam profile.arch $(R_ARCH)  \
                 --output $(RENDERTMP)/lfs-html2.xml   \
                 stylesheets/lfs-xsl/profile.xsl       \
                 index.xml
@@ -183,7 +182,6 @@ $(BASEDIR)/md5sums: stylesheets/wget-list.xsl $(DOWNLOADS_DEP)
 	$(Q)xsltproc --nonet                               \
                 --xinclude                            \
                 --stringparam profile.revision $(REV) \
-                --stringparam profile.arch $(R_ARCH)  \
                 --output $(RENDERTMP)/md5sum.xml      \
                 stylesheets/lfs-xsl/profile.xsl       \
                 chapter03/chapter03.xml
