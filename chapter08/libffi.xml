@@ -99,11 +99,7 @@
 
   </sect2>
 
-  <!-- - - - - - - - - - -->
-  <!-- Multilib - 32-bit  -->
-  <!-- - - - - - - - - - -->
-  
-  <sect2 arch="ml_32,ml_all" role="installation">
+  <sect2 role="installation">
     <title>Installasjon av Libffi - 32-bit</title>
 
     <para>Rens forrige bygg:</para>
@@ -133,43 +129,8 @@
 cp -Rv DESTDIR/usr/lib32/* /usr/lib32
 rm -rf DESTDIR</userinput></screen>
 
-  </sect2><!-- m32 -->
+  </sect2>
 
-  <!-- - - - - - - - - - -->
-  <!-- Multilib - x32-bit -->
-  <!-- - - - - - - - - - -->
-  
-  <sect2 arch="ml_x32,ml_all" role="installation">
-    <title>Installasjon av Libffi - x32-bit</title>
-
-    <para>Rens forrige bygg:</para>
-
-<screen><userinput remap="pre">make distclean</userinput></screen>
-
-    <para>Klargjør Libffi for kompilering:</para>
-
-<screen><userinput remap="configure">CC="gcc -mx32" CXX="g++ -mx32"                 \
-./configure --prefix=/usr                      \
-            --libdir=/usr/libx32               \
-            --host=x86_64-unknown-linux-gnux32 \
-            --disable-static                   \
-            --with-gcc-arch=x86_64</userinput></screen>
-
-    <para>Kompiler pakken:</para>
-
-<screen><userinput remap="make">make</userinput></screen>
-
-    <para>For å teste resultatene, utsted:</para>
-
-<screen><userinput remap="test">make check</userinput></screen>
-
-    <para>Installer pakken:</para>
-
-<screen><userinput remap="install">make DESTDIR=$PWD/DESTDIR install
-cp -Rv DESTDIR/usr/libx32/* /usr/libx32
-rm -rf DESTDIR</userinput></screen>
-
-  </sect2><!-- mx32 -->
   <sect2 id="contents-libffi" role="content">
     <title>Innhold i Libffi</title>
 

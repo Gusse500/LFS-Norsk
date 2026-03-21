@@ -62,15 +62,13 @@ mv -v gmp-&gmp-version; gmp
 tar -xf ../mpc-&mpc-version;.tar.gz
 mv -v mpc-&mpc-version; mpc</userinput></screen>
 
-    <para arch="default">På x86_64-verter, sett standard mappenavn for
-    64-bits biblioteker til <quote>lib</quote>:</para>
+    <para>Endre standard mappenavn for 
+    biblioteker:</para>
 
-<screen arch="default"><userinput remap="pre">case $(uname -m) in
-  x86_64)
-    sed -e '/m64=/s/lib64/lib/' \
-        -i.orig gcc/config/i386/t-linux64
- ;;
-esac</userinput></screen>
+<screen><userinput remap="pre">sed -e '/m64=/s/lib64/lib/' \
+    -e '/m32=/s/m32=.*/m32=..\/lib32$(call if_multiarch,:i386-linux-gnu)/' \
+    -i.orig gcc/config/i386/t-linux64
+</userinput></screen>
 
     <note>
       <para>
@@ -89,43 +87,32 @@ esac</userinput></screen>
       </para>
     </note>
 
-    <para arch="ml_32,ml_x32,ml_all">Endre standard mappenavn for 
-	biblioteker:</para>
+    <para>Gjør <literal>-mstackrealign</literal> standard for 32-bit
+    objekter:</para>
 
-<screen arch="ml_32,ml_x32,ml_all"><userinput remap="pre">sed -e '/m64=/s/lib64/lib/' \
-    -e '/m32=/s/m32=.*/m32=..\/lib32$(call if_multiarch,:i386-linux-gnu)/' \
-    -i.orig gcc/config/i386/t-linux64
-</userinput></screen>
-
-    <para arch="ml_32,ml_all">Gjør <literal>-mstackrealign</literal>
-      som standard for 32-bit objekter:</para>
-
-<screen arch="ml_32,ml_all"><userinput remap="pre">sed '/STACK_REALIGN_DEFAULT/s/0/(!TARGET_64BIT \&amp;\&amp; TARGET_SSE)/' \
+<screen><userinput remap="pre">sed '/STACK_REALIGN_DEFAULT/s/0/(!TARGET_64BIT \&amp;\&amp; TARGET_SSE)/' \
       -i gcc/config/i386/i386.h</userinput></screen>
 
-    <note arch="ml_32,ml_all">
-      <para>Å legge til <literal>-mstackrealign</literal> flagg som standard 
-	  hjelper med å løse problemer med gamle binærfiler som ikke kan 
-	  kompileres på nytt på det faktiske operativsystemet.</para>
-
-      <!-- Thanks to xry111 for explaining the technical background: -->
-
-      <para>I dag krever x86-32 SysV psABI (brukt av alle Linux-programmer) 
-        en 16-byte justering av stakkrammen, så rutinene som 
-		bruker SSE vil lagre/laste SSE vektorer på/fra stakken ved hjelp av en
-        <literal>movaps</literal> instruksjon (som bare fungerer med 
-		justerte adresser, men raskere enn motparten som tillater 
-		ujusterte adresser, <literal>movups</literal>).</para>
-
-      <para>Men noen virkelig gamle x86-32 Linux binærfiler (kompilert for omtrent 
-        15 år siden), og alle Windows x86-32 binærfiler som kan 
-		kjøres via <application>Wine</application> eller <application>Steam</application>
-        justerer bare 
-		stakkrammen til 4 byte. Dermed, når den kaller en SSE rutine i LFS 
-		bygget uten <literal>-mstackrealign</literal>,
-        <literal>movdqa</literal> instruksjonen mislykkes med en generell 
-		beskyttelsesfeil, og Linux kjernen avslutter prosessen 
-		med en SIGSEGV.</para>
+    <note>
+      <para><literal>-mstackrealign</literal> har et spesielt formål for 32-bit. 
+      Alle applikasjoner har en stakkrammejustering. Vanligvis i gamle 
+      applikasjoner (og også noen applikasjoner i dagens tidsalder) som er 
+      bygget for 32-bit, vanligvis for Windows, har de en stakkrammejustering 
+      på 4 byte. x86 System V ABI prosessor Tillegget krever at både 
+      32-bit og 64-bit applikasjoner har en stakkrammejustering på 
+      16 byte.</para>
+      <para>Justeringen av stakkrammen er nødvendig for x86 assembleren
+      <literal>movaps</literal> og <literal>movdqa</literal> instruksjoner skal 
+      virke, som brukes som raskere alternativer til <literal>movups</literal>.
+      Når justeringen av stabelrammen ikke er riktig, vil disse 
+      monteringsinstruksjonene utløse en generell beskyttelsesfeil, noe som 
+      fører til en <literal>SIGSEGV</literal> kill signal.</para>
+      <para>For å forhindre dette, <literal>-mstackrealign</literal> tilbyr 
+      forskjellige potensielle stakkrammejusteringer om nødvendig. For å sikre 
+      at all programvare har en god stakkrammejustering, er hver pakke kompilert 
+      med <literal>-mstackrealign</literal>, som 
+      gjør det til standard for målretting av 32-bit. Glibc er den viktigste 
+      som trenger det.</para>
     </note>
 
     <para>GCC dokumentasjonen anbefaler å bygge GCC 
@@ -136,52 +123,28 @@ cd       build</userinput></screen>
 
     <para>Forbered GCC for kompilering:</para>
 
-<screen arch="default"><userinput remap="configure">../configure                  \
-    --target=$LFS_TGT         \
-    --prefix=$LFS/tools       \
-    --with-glibc-version=&glibc-version; \
-    --with-sysroot=$LFS       \
-    --with-newlib             \
-    --without-headers         \
-    --enable-default-pie      \
-    --enable-default-ssp      \
-    --disable-nls             \
-    --disable-shared          \
-    --disable-multilib        \
-    --disable-threads         \
-    --disable-libatomic       \
-    --disable-libgomp         \
-    --disable-libquadmath     \
-    --disable-libssp          \
-    --disable-libvtv          \
-    --disable-libstdcxx       \
-    --enable-languages=c,c++</userinput></screen>
-<screen arch="ml_32,ml_x32,ml_all"><userinput remap="configure" 
-    arch="ml_32">mlist=m64,m32</userinput><userinput remap="configure"
-    arch="ml_x32">mlist=m64,mx32</userinput><userinput remap="configure"
-    arch="ml_all">mlist=m64,m32,mx32</userinput>
-<userinput remap="configure">../configure                    \
-    --target=$LFS_TGT           \
-    --prefix=$LFS/tools         \
-    --with-glibc-version=&glibc-version;   \
-    --with-sysroot=$LFS         \
-    --with-newlib               \
-    --without-headers           \
-    --enable-default-pie        \
-    --enable-default-ssp        \
-    --enable-initfini-array     \
-    --disable-nls               \
-    --disable-shared            \
-    --enable-multilib           \
-    --with-multilib-list=$mlist \
-    --disable-decimal-float     \
-    --disable-threads           \
-    --disable-libatomic         \
-    --disable-libgomp           \
-    --disable-libquadmath       \
-    --disable-libssp            \
-    --disable-libvtv            \
-    --disable-libstdcxx         \
+<screen><userinput remap="configure">../configure                     \
+    --target=$LFS_TGT            \
+    --prefix=$LFS/tools          \
+    --with-glibc-version=&glibc-version;    \
+    --with-sysroot=$LFS          \
+    --with-newlib                \
+    --without-headers            \
+    --enable-default-pie         \
+    --enable-default-ssp         \
+    --enable-initfini-array      \
+    --disable-nls                \
+    --disable-shared             \
+    --enable-multilib            \
+    --with-multilib-list=m64,m32 \
+    --disable-decimal-float      \
+    --disable-threads            \
+    --disable-libatomic          \
+    --disable-libgomp            \
+    --disable-libquadmath        \
+    --disable-libssp             \
+    --disable-libvtv             \
+    --disable-libstdcxx          \
     --enable-languages=c,c++</userinput></screen>
 
     <variablelist>
@@ -241,17 +204,10 @@ cd       build</userinput></screen>
       </varlistentry>
 
       <varlistentry>
-        <term><parameter>--disable-multilib</parameter></term>
-        <listitem>
-          <para>På x86_64 støtter LFS ikke en multilib konfigurasjon.
-          Denne bryteren er ufarlig for x86.</para>
-        </listitem>
-      </varlistentry>
-      <varlistentry arch="ml_32,ml_x32,ml_all">
         <term><parameter>--enable-multilib --with-multilib-list=...</parameter></term>
         <listitem>
-          <para>LFS kan brukes til å støtte multilib. Hvilke de er, er 
-		  spesifisert i multilib listen.</para>				
+          <para>Disse parameterne aktiverer både multilib og hvilke 
+          arkitekturer som skal støttes.</para>			
         </listitem>
       </varlistentry>
 

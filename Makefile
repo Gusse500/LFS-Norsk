@@ -14,40 +14,23 @@ ifndef REV
   REV = systemd
 endif
 
-ifneq ($(REV), sysv)
-  ifneq ($(REV), systemd)
+ifneq ($(REV), systemd)
+  ifneq ($(REV), sysv)
     $(feil REV må være 'sysv' eller 'systemd' (standard).)
   endif
 endif
 
+ifeq ($(REV), systemd)
+  BASEDIR         ?= $(HOME)/public_html/mlfs
+  PDF_OUTPUT      ?= MLFS.pdf
+  NOCHUNKS_OUTPUT ?= MLFS.html
+  DUMPDIR         ?= $(HOME)/mlfs-commands
+endif
 ifeq ($(REV), sysv)
-  BASEDIR         ?= $(HOME)/public_html/lfs-book
-  PDF_OUTPUT      ?= LFS-BOOK.pdf
-  NOCHUNKS_OUTPUT ?= LFS-BOOK.html
-  DUMPDIR         ?= $(HOME)/lfs-commands
-else
-  BASEDIR         ?= $(HOME)/public_html/lfs-systemd
-  PDF_OUTPUT      ?= LFS-SYSD-BOOK.pdf
-  NOCHUNKS_OUTPUT ?= LFS-SYSD-BOOK.html
-  DUMPDIR         ?= $(HOME)/lfs-sysd-commands
-endif
-
-ifndef ARCH
-  ARCH = ml_all
-endif
-ifneq ($(ARCH), none)
-  ifneq ($(ARCH), ml_32)
-    ifneq ($(ARCH), ml_x32)
-      ifneq ($(ARCH), ml_all)
-        $(feil ARCH må enten være 'ml_all' (ml_all hvis ikke angitt), 'ml_32', 'ml_x32', eller 'ingen')
-      endif
-    endif
-  endif
-endif
-ifeq ($(ARCH), none)
-  R_ARCH = default
-else
-  R_ARCH = $(ARCH)
+  BASEDIR         ?= $(HOME)/public_html/mlfs-sysv
+  PDF_OUTPUT      ?= MLFS-SYSV.pdf
+  NOCHUNKS_OUTPUT ?= MLFS-SYSV.html
+  DUMPDIR         ?= $(HOME)/mlfs-sysv-commands
 endif
 
 book: validate profile-html
@@ -228,14 +211,4 @@ dump-commands: validate
 
 all: book nochunks pdf dump-commands
 
-dist:
-	$(Q)DIST=/tmp/LFS-RELEASE ./git-version.sh $(REV)
-	$(Q)rm -f lfs-$$(</tmp/LFS-RELEASE).tar.xz
-	$(Q)tar cJf lfs-$$(</tmp/LFS-RELEASE).tar.xz \
-		$(shell git ls-tree HEAD . --name-only -r) version.ent \
-		-C /tmp LFS-RELEASE \
-		--transform "s,^,lfs-$$(</tmp/LFS-RELEASE)/,"
-	$(Q)echo "Genererer XML tarball lfs-$$(</tmp/LFS-RELEASE).tar.xz"
-
-.PHONY : all book dump-commands nochunks pdf profile-html tmpdir validate md5sums wget-list version dist
-
+.PHONY : all book dump-commands nochunks pdf profile-html tmpdir validate md5sums wget-list version

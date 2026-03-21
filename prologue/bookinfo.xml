@@ -6,8 +6,8 @@
 ]>
 
 <bookinfo>
-  <title>Multilib Linux From Scratch</title>
-  <subtitle>Version &version;</subtitle>
+  <title>Multilib Linux From Scratch<phrase revision='sysv'> (SysVinit Edition)</phrase></title>
+  <subtitle>Versjon &version;</subtitle>
   <subtitle>Publisert &releasedate;</subtitle>
 
   <authorgroup>
@@ -19,23 +19,11 @@
       <firstname>Administrerende redaktør: Bruce</firstname>
       <surname>Dubbs</surname>
     </author>
-
-    <author>
+    <author revision="systemd">
       <firstname>Redaktør: Douglas R.</firstname>
       <surname>Reno</surname>
     </author>
-
     <author>
-      <firstname>Redaktør: DJ</firstname>
-      <surname>Lucas</surname>
-    </author>
-
-    <author arch="ml_32,ml_x32,ml_all">
-      <firstname>Redaktør: Thomas</firstname>
-      <surname>Trepl</surname>
-    </author>
-
-    <author arch="ml_32,ml_x32,ml_all">
       <firstname>Redaktør: Zeckma</firstname>
     </author>
   </authorgroup>
@@ -52,11 +40,11 @@
     <para>Alle rettigheter forbeholdt.</para>
 
     <para>Denne boken er lisensiert under <xref linkend="CC"/>.</para>
-    <para>Datainstruksjoner kan trekkes ut fra boken under
+    <para>Datamaskininstruksjoner kan hentes fra boken under
           <xref linkend="MIT"/>.</para>
 
-    <para><trademark class='registered'>Linux</trademark> er et registrert varemerke for
-    Linus Torvalds.</para>
+    <para><trademark class='registered'>Linux</trademark> er et registrert 
+    varemerke for Linus Torvalds.</para>
 
   </legalnotice>
 

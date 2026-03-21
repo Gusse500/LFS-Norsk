@@ -151,12 +151,14 @@
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
         href="kernel/x2apic.xml"/>
 
-      <para>Hvis du bygger et 32-bits system, 
-      juster konfigurasjonen slik at kjernen kan 
-      bruke opptil 4 GB fysisk RAM:</para>
+      <para>
+        Kjernen på et multilib system må kunne 
+		identifisere og starte binærfiler kompilert for andre arkitekturer 
+		enn standardarkitekturen. Aktiver støtte for 32-bit ABI.
+      </para>
 
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
-        href="kernel/highmem.xml"/>
+        href="kernel/multilib-32.xml"/>
 
       <para>Hvis partisjonen for LFS-systemet er i en NVME SSD (dvs
       enhetsnoden for partisjonen er <filename>/dev/nvme*</filename>
@@ -186,30 +188,6 @@
       UEFI oppstartslaster fra vertsdistroen</emphasis>.</para>
     </note>
 
-    <note arch="ml_32,ml_x32,ml_all">
-      <para>
-        Kjernen på et multilib system må kunne
-		identifisere og starte binærfiler kompilert for andre arkitekturer
-		enn standardarkitekturen.
-      </para>
-
-      <para arch="ml_32,ml_all">
-        Hvis det ble bygget støtte for 32-bit ABI, må du sørge for at 
-        alternativet "IA32-emulering" er valgt.
-      </para>
-
-      <xi:include arch="ml_32,ml_all" xmlns:xi="http://www.w3.org/2001/XInclude"
-        href="kernel/multilib-32.xml"/>
-
-      <para arch="ml_x32,ml_all">
-        Hvis støtte for x32-bit ABI ble bygget, må du sørge for at alternativet
-		"x32 ABI for 64-bit mode" er valgt.
-      </para>
-
-      <xi:include arch="ml_x32,ml_all" xmlns:xi="http://www.w3.org/2001/XInclude"
-        href="kernel/multilib-x32.xml"/>
-    </note>
-    
     <variablelist>
       <title>Begrunnelsen for de ovennevnte konfigurasjonselementene:</title>
 

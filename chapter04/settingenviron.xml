@@ -38,31 +38,18 @@ EOF</userinput></screen>
   <filename>.bashrc</filename> filen istedet. Opprett
   <filename>.bashrc</filename> filen nå</para>
 
-<screen arch="default"><userinput>cat &gt; ~/.bashrc &lt;&lt; "EOF"
-<literal>set +h
-umask 022
-LFS=/mnt/lfs
-LC_ALL=POSIX
-LFS_TGT=$(uname -m)-lfs-linux-gnu
-PATH=/usr/bin
-if [ ! -L /bin ]; then PATH=/bin:$PATH; fi
-PATH=$LFS/tools/bin:$PATH
-CONFIG_SITE=$LFS/usr/share/config.site
-export LFS LC_ALL LFS_TGT PATH CONFIG_SITE</literal>
-EOF</userinput></screen>
-<screen arch="ml_32,ml_x32,ml_all"><userinput>cat &gt; ~/.bashrc &lt;&lt; "EOF"
+<screen><userinput>cat &gt; ~/.bashrc &lt;&lt; "EOF"
 <literal>set +h
 umask 022
 LFS=/mnt/lfs
 LC_ALL=POSIX
 LFS_TGT=x86_64-lfs-linux-gnu
 LFS_TGT32=i686-lfs-linux-gnu
-LFS_TGTX32=x86_64-lfs-linux-gnux32
 PATH=/usr/bin
 if [ ! -L /bin ]; then PATH=/bin:$PATH; fi
 PATH=$LFS/tools/bin:$PATH
 CONFIG_SITE=$LFS/usr/share/config.site
-export LFS LC_ALL LFS_TGT LFS_TGT32 LFS_TGTX32 PATH</literal>
+export LFS LC_ALL LFS_TGT LFS_TGT32 PATH</literal>
 EOF</userinput></screen>
 
   <variablelist>
@@ -115,12 +102,12 @@ EOF</userinput></screen>
     </varlistentry>
 
     <varlistentry>
-      <term><parameter>LFS_TGT=$(uname -m)-lfs-linux-gnu</parameter></term>
+      <term><parameter>LFS_TGT*=*-lfs-linux-gnu</parameter></term>
       <listitem>
-  <para><envar>LFS_TGT</envar> variabelen setter en ikke-standard, men kompatibel
-  maskinbeskrivelse for bruk når du bygger vår krysskompiler og linker og når du krysskompiler
-  vår midlertidige verktøykjede. Mer informasjon finnes i
-  <xref linkend="ch-tools-toolchaintechnotes" role=""/>.</para>
+  <para><envar>LFS_TGT*</envar> variabler angir ikke-standard, men kompatible 
+  maskinbeskrivelser for bruk ved bygging av krysskompilatorer og lenkere og ved 
+  krysskompilering av den midlertidige verktøykjeden. Mer informasjon er gitt 
+  av <xref linkend="ch-tools-toolchaintechnotes" role=""/>.</para>
       </listitem>
     </varlistentry>
 

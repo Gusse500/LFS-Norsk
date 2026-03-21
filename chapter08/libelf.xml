@@ -73,11 +73,7 @@ rm /usr/lib/libelf.a</userinput></screen>
 
   </sect2>
 
-  <!-- - - - - - - - - - -->
-  <!-- Multilib - 32-bit  -->
-  <!-- - - - - - - - - - -->
-  
-  <sect2 arch="ml_32,ml_all" role="installation">
+  <sect2 role="installation">
     <title>Installasjon av Libelf - 32-bit</title>
 
     <para>Rens forrige bygg:</para>
@@ -104,40 +100,7 @@ install -vDm644 config/libelf.pc DESTDIR/usr/lib32/pkgconfig/libelf.pc
 cp -Rv DESTDIR/usr/lib32/* /usr/lib32
 rm -rf DESTDIR</userinput></screen>
 
-  </sect2><!-- m32 -->
-
-  <!-- - - - - - - - - - -->
-  <!-- Multilib - x32-bit -->
-  <!-- - - - - - - - - - -->
-  
-  <sect2 arch="ml_x32,ml_all" role="installation">
-    <title>Installasjon av Libelf - x32-bit</title>
-
-    <para>Rens forrige bygg:</para>
-
-<screen><userinput remap="pre">make distclean</userinput></screen>
-
-    <para>Klargjør Libelf for kompilering:</para>
-
-<screen><userinput remap="configure">CC="gcc -mx32" CXX="g++ -mx32"            \
-./configure --prefix=/usr                 \
-            --libdir=/usr/libx32          \
-            --host=x86_64-pc-linux-gnux32 \
-            --disable-debuginfod          \
-            --enable-libdebuginfod=dummy</userinput></screen>
-
-    <para>Kompiler pakken:</para>
-
-<screen><userinput remap="make">make</userinput></screen>
-
-    <para>Installer pakken:</para>
-
-<screen><userinput remap="install">make DESTDIR=$PWD/DESTDIR -C libelf install
-install -vDm644 config/libelf.pc DESTDIR/usr/libx32/pkgconfig/libelf.pc
-cp -Rv DESTDIR/usr/libx32/* /usr/libx32
-rm -rf DESTDIR</userinput></screen>
-
-  </sect2><!-- mx32 -->
+  </sect2>
 
   <sect2 id="contents-elfutils" role="content">
     <title>Innhold i Libelf</title>

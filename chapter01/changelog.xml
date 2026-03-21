@@ -10,10 +10,11 @@
 
   <title>Endringslogg</title>
 
-  <para>Dette er versjon &version;<phrase arch="ml_32,ml_x32,ml_all">-multilib</phrase> av Linux From Scratch-boken, datert
-  &releasedate;. Hvis denne boken er mer enn seks måneder gammel, er en nyere og bedre
-  versjonen sannsynligvis allerede tilgjengelig. For å finne ut, vennligst sjekk et av
-  speilene via <ulink url="&lfs-root;mirrors.html"/>.</para>
+  <para>Dette er versjon &version; av Multilib Linux From Scratch boken,
+  datert &releasedate;. Hvis den første endringen i denne endringsloggen er mer 
+  enn seks måneder gammel, er det sannsynligvis en nyere og bedre versjon av 
+  denne boken tilgjengelig. For å finne ut av det, vennligst se gjennom 
+  <ulink url="/mlfs/view/"/> eller se <ulink url="/mlfs/news.html"/>.</para>
 
   <para>Nedenfor er en liste over endringer som er gjort siden forrige utgivelse av
   boken.</para>
@@ -39,6 +40,15 @@
     <listitem revision="sysv"> or <listitem revision="systemd"> as
     appropriate for the entry or if needed the entire day's listitem.
     -->
+
+    <listitem>
+      <para>19.03.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[zeckma] - Fjernet x32-bit støtte.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
 
     <listitem>
       <para>15.03.2026</para>

@@ -5,7 +5,7 @@
   %general-entities;
 ]>
 
-<sect1 arch="ml_32,ml_x32,ml_all" id="pre-multilib">
+<sect1 id="pre-multilib">
   <?dbhtml filename="multilib.html"?>
 
   <title>Om Multilib Utgaven</title>
@@ -31,9 +31,8 @@
 	for programvarens bitstørrelse, samtidig som den tilbyr en hovedsakelig 
 	64-biters opplevelse.</para>
 
-    <para>Denne boken inneholder 32-biters (i?86) og x32-biters 
-	avhengigheter og verktøykjeder beregnet for 64-biters x86 
-	(x86_64) systemer.</para>
+    <para>Denne boken inneholder 32-bits (i?86) avhengigheter og verktøykjeder 
+    beregnet for 64-bits x86 (x86_64/AMD64) systemer.</para>
 
   </sect2>
 
@@ -54,30 +53,29 @@
 	Verktøykjedene som er på plass må få den støtten.</para>
 
     <para>MLFS' oppgave er å utruste systemet med verktøykjeder som kan målrette 
-	32-bit og/eller x32-bit, og deretter sørge for grunnleggende avhengigheter 
-	som tillater at 32-bit/x32-bit kompileringer av pakker utenfor LFS lykkes 
-	og fungerer som forventet.</para>
+      32-bit, deretter gi grunnleggende avhengigheter som tillater 32-bits 
+      kompilering og utførelse av pakker innenfor og utenfor basis LFS.</para>
 
   </sect2>
 
   <sect2><title>Formålet med et Multilib system</title>
 
     <para>LFS blir i dag behandlet som pedagogisk materiale man kan lære av, og 
-	i mindre grad som å bruke det produserte resultatet i det daglige. Å 
-	installere støtte for forskjellige bitstørrelser gir mere og gjør den første 
-	LFS installasjonsopplevelsen mer forvirrende. Det anbefales å ha installert 
-	LFS før du installerer MLFS. Men hvis du velger å gjøre det siste, kan du 
-	støte på situasjoner der det er ganske fordelaktig å ha et 
-	flerbibliotekssystem. Følgende er en ikke-uttømmende liste over grunner til 
-	å gjøre det:
+      i mindre grad som å bruke det produserte resultatet i hverdagen. Å 
+      installere støtte for forskjellige bitstørrelser gir mer nytte og gjør den 
+      første LFS installasjonsopplevelsen mer forvirrende. Det anbefales å ha 
+      installert LFS før du installerer MLFS. Hvis du velger å installere vanlig 
+      LFS, kan du imidlertid støte på situasjoner der det er ganske fordelaktig 
+      å ha et flerbibliotekssystem. Følgende er en ikke-uttømmende liste over 
+      grunner til å gjøre det:
       <itemizedlist>
         <listitem><para>Lukket kildekode programvare finnes kun for 32-bit. Det 
 		kan være tilfelle for enkelte drivere eller noe 
 		skrivebordsprogramvare.</para></listitem>
         <listitem><para>Sette opp virtualisering for et system med en annen 
 		bitstørrelse.</para></listitem>
-        <listitem><para>Å lære det grunnleggende om hvordan multilib settes 
-		opp.</para></listitem>
+        <listitem><para>Å lære det grunnleggende om hvordan multilib  
+          virker.</para></listitem>
       </itemizedlist>
       
     </para>
@@ -87,74 +85,67 @@
   <sect2><title>Bygge et Multilib system</title>
 
     <para>Tidligere ble det nevnt at MLFS gjør det samme som LFS, som er å 
-	boote systemet fra en annen Linux distribusjon. Samtidig ble det nevnt 
-	at en kompilator uten støtte for andre bitstørrelser innebygd vil 
-	mislykkes i å bygge noe for den bitstørrelsen. Dette betyr at for å 
-	bygge en kompilator med støtte for andre bitstørrelser 
-	(32-bit og x32-bit), må systemet du booter fra ha den støtten innebygd 
-	i kompilatorene og må ha avhengighetene som følger med 
-	dem.</para>
+      boote systemet fra en annen Linux distribusjon. Samtidig ble det nevnt 
+      at en kompilator uten støtte for andre bitstørrelser innebygd vil 
+      mislykkes i å bygge noe for den bitstørrelsen. Dette betyr  
+      at for å bygge en kompilator med støtte for andre bitstørrelser (32-bit). 
+      Trenger du at systemet du bootstrapper fra har den støtten innebygd i 
+      verktøykjeden og må ha avhengighetene som kreves av 
+      den.</para>
 
     <para>Over tid fant brukere av MLFS ut at det beste mediet for dette 
-	formålet er <ulink
+      formålet er <ulink
       url="https://www.gentoo.org/downloads/#amd64">Gentoo CD</ulink>. Det er 
-	  personlig preferanse om du vil bruke den minimale installasjons CD-en, 
-	  LiveGUI USB bildet eller QCOW2 bildet. LiveGUI USB bildet er svært 
-	  brukervennlig, og bruker KDE som skrivebordsmiljø og har nettlesere for 
-	  å bruke. CD-ene tilbyr støtte for 32-bit og x32-bit i tillegg til 64-bit. 
-	  Hvis du allerede har bygget et MLFS system, tilbyr MLFS et godt grunnlag 
-	  for å starte opp fra også.</para>
+      personlig preferanse om du vil bruke den minimale installasjons CD-en, 
+      LiveGUI USB bildet eller QCOW2 bildet. LiveGUI USB bildet er svært 
+      brukervennlig, bruker KDE Plasma som skrivebordsmiljø og har 
+      nettlesere til bruk. CD-ene tilbyr 32-bits støtte på AMD64 (x86_64). 
+      Hvis du allerede har bygget et MLFS system, tilbyr MLFS et godt grunnlag 
+      for oppstart også.</para>
 
     <para>Å bygge et multilib system er ikke så mye forskjellig fra å bygge et 
 	system ved hjelp av den vanlige LFS boken. I tillegg til å innlemme 
 	endringer som tillater multilib støtte i noen pakker eller verktøykjeder, 
-	krever den totale prosessen at noen pakker kompileres flere ganger:
+	krever den totale prosessen at noen pakker kompileres et par ganger:
       <orderedlist>
         <listitem>
-          <para>For 64-bit (kan tilby både programmer, biblioteker 
-		  og data)</para>
+          <para>For 64-bit (kan tilby programmer, libraries, deklarasjonsfiler,
+          Pkg-config filer, og ressurser)</para>
         </listitem>
-        <listitem arch="ml_32,ml_all">
-          <para>For 32-bit (installerer vanligvis bare biblioteker)</para>
-        </listitem>
-        <listitem arch="ml_x32,ml_all">
-          <para>For x32-bit (installerer vanligvis bare biblioteker)</para>
+        <listitem>
+          <para>For 32-bit (installerer vanligvis bare biblioteker, svært 
+          sjelden arkitekturspesifikke deklarasjonsfiler og arkitekturspesifikke 
+          pakkekonfigurasjonsfiler)</para>
         </listitem>
       </orderedlist>
     </para>
 
-    <para>Fortsett hvis systemet ditt 
-	oppfyller følgende krav:
+    <para>Fortsett hvis systemet ditt oppfyller følgende krav:
       <itemizedlist>
         <listitem>
-          <para>Du har et x86_64-system.</para>
+          <para>Du har et x86_64/AMD64 system med et x86_64/AMD64 
+          operativsystem.</para>
         </listitem>
         <listitem>
           <para>
-            Kunne kjøre 32-bit/x32-bit programvare. Sjekk kompatibiliteten 
+            Kunne kjøre 32-bit programvare. Sjekk kompatibiliteten 
 			ved å kjøre følgende kommandoer:
           </para>
 <screen><userinput>echo 'int main(){}' &gt; dummy.c
-</userinput><userinput arch="ml_32,ml_all">gcc -m32 dummy.c
+gcc -m32 dummy.c
 ./a.out
-
-</userinput><userinput arch="ml_x32,ml_all">gcc -mx32 dummy.c
-./a.out
-
-</userinput><userinput>rm -vf dummy.c a.out</userinput></screen>
+rm -vf dummy.c a.out</userinput></screen>
           <para>
-            Hvis kommandoene ovenfor resulterer i "Exec-format"- eller 
-			kompilatorfeil, har du ikke en systemkjerne og/eller verktøykjede 
-			som er i stand til å bygge for en eller alle arkitekturene ovenfor 
-			i LFS. På det tidspunktet kan du prøve å bruke en annen 
-			distribusjon eller installasjonsmedium.
+            Hvis kommandoene ovenfor resulterer i «Exec format» eller 
+            kompilatorfeil, har du ikke en systemkjerne og/eller verktøykjede 
+            som er i stand til å bygge eller kjøre 32-biters programvare. Prøv 
+            deretter å bruke en annen distribusjon eller installasjonsmedium.
           </para>
         </listitem>
       </itemizedlist>
     </para>
 
-    <para>Hvis du har bestått arkitekturkravene ovenfor, 
-	kan du bygge MLFS.</para>
+    <para>Hvis du har bestått arkitekturkravene ovenfor, kan du bygge MLFS.</para>
 
   </sect2>
 
