@@ -41,6 +41,28 @@
   <sect2 role="installation">
     <title>Installasjon av XML::Parser</title>
 
+    <note>
+      <para>Denne pakken skal etter planen flyttes til BLFS. Inntil det kan 
+      gjøres, må to Python moduler legges til. For å gjøre det, må vi også 
+      aktivere DNS ved å midlertidig legge til /etc/resolv.conf.</para>
+
+<screen><userinput role="nodump">cat > /etc/resolv.conf &lt;&lt; EOF
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+EOF</userinput></screen>
+    </note>
+
+    <para>Legg nå til to Python moduler:</para>
+    
+<screen><userinput remap="pre">yes | cpan -i File::ShareDir
+yes | cpan -i File::ShareDir::Install</userinput></screen>
+
+    <para>Fullfør denne midlertidige løsningen ved å fjerne /etc/resolv.conf. 
+    En diskusjon om denne filen vil bli holdt 
+    på <xref linkend='resolv.conf'/></para>
+
+<screen><userinput remap="pre">rm /etc/resolv.conf</userinput></screen>
+
     <para>Forbered XML::Parser for kompilering:</para>
 
 <screen><userinput remap="configure">perl Makefile.PL</userinput></screen>
