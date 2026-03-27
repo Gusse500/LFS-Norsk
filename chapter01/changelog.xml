@@ -43,6 +43,28 @@
     -->
 
     <listitem>
+      <para>26.03.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til XML-Parser-2.53 (Sikkerhetsoppdatering). 
+          Fikser <ulink url='&lfs-ticket-root;5892'>#5892</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Legg en sed til glibc-2.43 (Sikkerhetsoppdatering). 
+          Fikser <ulink url='&lfs-ticket-root;5895'>#5895</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Legg til en oppdatering for Python-3.14.3 (Sikkerhetsoppdatering). 
+          Fikser <ulink url='&lfs-ticket-root;5896'>#5896</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til expat-2.7.5 (Sikkerhetsoppdatering). 
+          Fikser <ulink url='&lfs-ticket-root;5891'>#5891</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>19.03.2026</para>
       <itemizedlist>
         <listitem>

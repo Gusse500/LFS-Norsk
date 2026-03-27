@@ -42,11 +42,13 @@
 
   <sect2 role="installation">
     <title>Installation of Glibc</title>
-<!--
-    <para>Først, bruk noen endringer fra oppstrøms:</para>
 
-<screen><userinput remap="pre">patch -Np1 -i ../&glibc-upstream-patch;</userinput></screen>
--->
+    <para>Først, bruk en rettelse på DNS behandling fra oppstrøms:</para>
+
+<screen><userinput remap="pre">sed -e '/while..ancount/c\  for (; ancount > 0; --ancount)'  \
+    -e '/binary_hnok..expected/s/expected_name/name_buffer/' \
+    -i resolv/nss_dns/dns-host.c</userinput></screen>
+
     <para>Noen av Glibc programmene bruker ikke-FHS kompatible
     <filename class="directory">/var/db</filename> mappen til å lagre
     kjøretidsdataene i. Bruk følgende oppdatering for å forsikre om at slike programmer
