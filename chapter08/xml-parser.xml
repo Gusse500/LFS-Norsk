@@ -43,16 +43,23 @@
 
     <note>
       <para>Denne pakken skal etter planen flyttes til BLFS. Inntil det kan 
-      gjøres, må to Python moduler legges til. For å gjøre det, må vi også 
+      gjøres, må to Perl moduler legges til. For å gjøre det, må vi også 
       aktivere DNS ved å midlertidig legge til /etc/resolv.conf.</para>
 
 <screen><userinput role="nodump">cat > /etc/resolv.conf &lt;&lt; EOF
 nameserver 8.8.8.8
 nameserver 8.8.4.4
 EOF</userinput></screen>
+
+      <para>Alternativt kan du hoppe over denne pakken og den neste pakken 
+      (intltool) siden ingenting annet i LFS trenger dem. Når du bygger en BLFS 
+      pakke som krever XML::Parser eller intltool, installer disse modulene 
+      med å følge <ulink
+      url='&blfs-book;general/perl-deps.html#perl-file-sharedir'>BLFS 
+      instruksjon</ulink>, og installer deretter denne pakken.</para>
     </note>
 
-    <para>Legg nå til to Python moduler:</para>
+    <para>Legg nå til to Perl moduler:</para>
     
 <screen><userinput remap="pre">yes | cpan -i File::ShareDir
 yes | cpan -i File::ShareDir::Install</userinput></screen>
