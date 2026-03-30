@@ -204,6 +204,10 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
     <para>Fire tester relatert til <filename>pr90579.c</filename> er kjent 
     for å mislykkes.</para>
 
+    <!-- https://gcc.gnu.org/PR124682 -->
+    <para>Åtte tester relatert til <filename>builtin-math-6.c</filename> er
+    kjent for å feile.</para>
+
     <para>Fem tester relatert til <filename>analyzer/strchr-1.c</filename> er 
     kjent for å mislykkes.</para>
 
