@@ -44,6 +44,10 @@
       <para>01.04.2026</para>
       <itemizedlist>
         <listitem>
+          <para>[bdubbs] - Oppdater til xz-5.8.3 (Sikkerhetsoppdatering). Fikser
+          <ulink url='&lfs-ticket-root;5899'>#5899</ulink>.</para>
+        </listitem>
+        <listitem>
           <para>[bdubbs] - Oppdater til XML-Parser-2.54 (Sikkerhetsoppdatering). 
           Fikser (igjen) <ulink url='&lfs-ticket-root;5892'>#5892</ulink>.</para>
         </listitem>
