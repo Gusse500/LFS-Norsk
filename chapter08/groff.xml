@@ -61,6 +61,8 @@
 
 <screen><userinput remap="test">make check</userinput></screen>
 
+    <para>Én test, neqn-smoke-test.sh, er kjent for å mislykkes.</para>
+
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">make install</userinput></screen>
