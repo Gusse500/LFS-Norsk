@@ -198,4 +198,68 @@
 
     </sect3>
   </sect2>
+
+  <sect2>
+  <title>Et eksempel på diskoppsett</title>
+
+  <para>Nedenfor er et eksempel på et oppsett for en tom diskstasjon.</para>
+
+<screen>Number  Start (sector)    End (sector)        Size   Code  Name
+   1            2048           22527       10.0 MiB  EF00  EFI system partition
+   2           22528           24575     1024.0 KiB  EF02  BIOS boot partition
+   3           24576         1048575      500.0 MiB  8300  /boot
+   4         1048576         5242879        2.0 GiB  8200  swap
+   5         5242880        89128959       40.0 GiB  8300  lfs13.0+
+   6        89128960       173015039       40.0 GiB  8300  /home</screen>
+
+  <para>Eksemplet ovenfor gjør noen antagelser:
+     <itemizedlist>
+       <listitem>
+         <para>Partisjonstabellen er en GUID partisjonstabell (GPT).</para>
+       </listitem>
+
+       <listitem>
+         <para>Både EFI og BIOS oppstartspartisjoner er til stede, men bare én 
+         vil bli brukt. Hvilken som brukes avhenger av systemets BIOS. Hvis 
+         systemet er gammelt, vil det ikke ha UEFI funksjoner i det hele tatt. 
+         Noen nyere systemer kan deaktivere UEFI gjennom BIOS ved å deaktivere 
+         "Sikker oppstart" og aktivere "Legacy Support" eller "CSM" 
+         (kompatibilitets støttemodus). Hvis du vet på forhånd hvilken modus du 
+         vil bruke, kan den andre partisjonen utelates.</para>
+       </listitem>
+
+       <listitem>
+         <para>EFI partisjonen må formateres som VFAT.</para>
+       </listitem>
+
+       <listitem>
+         <para>BIOS partisjonen er ikke formatert.</para>
+       </listitem>
+       
+       <listitem>
+         <para>Swap partisjonen må formateres som swap.</para>
+       </listitem>
+       
+       <listitem>
+         <para>/boot partisjonen kan formateres som ext2 siden det sjelden 
+         skrives til den (og da bare av root) og den trenger ikke en 
+         journal.</para>
+       </listitem>
+       
+       <listitem>
+         <para>Anbefalingen for alle andre partisjoner er å bruke ext4 
+         formatering.</para>
+       </listitem>
+
+       <listitem>
+         <para>En annen partisjon kan legges til for å installere "vert" 
+         systemet for å bygge LFS. En partisjon med minimal størrelse, 10 GiB, 
+         bør være tilstrekkelig. Hvis du bygger systemet med en LiveCD, er det 
+         ikke sikkert at en vertspartisjon er nødvendig.</para>
+       </listitem>
+
+     </itemizedlist>
+
+  </para>
+  </sect2>
 </sect1>
