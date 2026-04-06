@@ -167,6 +167,20 @@
 
       <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
         href="kernel/nvme.xml"/>
+
+      <para>Hvis du starter opp med UEFI, juster kjernen slik at den har støtte 
+      for EFI partisjoner og kjøretidsstøtte, i tillegg til å støtte DOS VFAT 
+      filsystemet som er nødvendig for EFI partisjonen:</para>
+
+      <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"
+        href="kernel/uefi.xml"/>
+
+      <para>
+        Hvis <literal>PARTITION_ADVANCED</literal> ikke er valgt,
+        <literal>EFI_PARTITION</literal> vil bli skjult, men implisitt valgt. 
+        Ikke velg <literal>PARTITION_ADVANCED</literal>
+        bare fordi du må boote via UEFI.
+      </para>
     </note>
 
     <note revision="systemd">
@@ -179,14 +193,6 @@
     for BLFS pakker, se <ulink
     url="&lfs-root;blfs/view/&short-version;/longindex.html#kernel-config-index">BLFS
     Indeks over kjerneinnstillinger</ulink>.</para>
-
-    <note>
-      <para>Hvis vertsmaskinvaren din bruker UEFI og du ønsker å starte opp
-      LFS systemet med det, bør du justere noen kjernekonfigurasjon
-      som på følgende <ulink url="&blfs-book;postlfs/grub-setup.html#uefi-kernel">
-      BLFS side</ulink> <emphasis role='bold'>selv om du bruker
-      UEFI oppstartslaster fra vertsdistroen</emphasis>.</para>
-    </note>
 
     <variablelist>
       <title>Begrunnelsen for de ovennevnte konfigurasjonselementene:</title>
