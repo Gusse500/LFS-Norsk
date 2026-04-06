@@ -304,11 +304,13 @@ EOF</userinput></screen>
       systemer, <filename>efi_gop</filename> og <filename>efi_uga</filename> er 
       for videostøtte. GOP, eller Graphics Output Protocol, er den moderne 
       tilnærmingen. UGA, eller UGA Draw Protocol, er en eldre måte å håndtere 
-      det på. I en typisk konfigurasjon er disse fire modulene allerede innebygd 
-      i hoved GRUB avbildningen av <command>grub-install</command>, og de fire
-      <command>insmod</command> kommandoer vil ikke gjøre noe; de ​​gjør 
-      imidlertid ingen skade uansett, og de kan være nødvendige med noen 
-      sjeldne konfigurasjoner.
+      det på. 
+      I en typisk konfigurasjon, <filename>part_gpt</filename> og
+      <filename>ext2</filename> moduler er allerede innebygd i hoved GRUB 
+      avbildningen av <command>grub-install</command>, og
+      <command>insmod</command> kommandoer for dem vil ikke gjøre noe. 
+      Imidlertid gjør de ingen skade uansett, og de kan være nødvendige med 
+      noen sjeldne konfigurasjoner.
     </para>
 
     <para>
