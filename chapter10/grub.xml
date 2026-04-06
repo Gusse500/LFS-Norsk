@@ -111,14 +111,13 @@ xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso</userinput></
     <filename>/etc/fstab</filename>.</para>
 
     <note>
-      <para><filename class="directory">/boot</filename> kan ligge på verten. 
-      Med denne konfigurasjonen bør du bind-mount den slik at LFS kan få 
-      tilgang til mappen.</para>
-      <para>Utenfor chrooten bør du binde <filename
-      class="directory">/boot</filename> som sådan:</para>
-<screen role="nodump"><userinput>mount -v --bind /boot $LFS/boot</userinput></screen>
-      <para>Nå skal <filename class="directory">/boot</filename> fra verten 
-      være tilgjengelig i LFS chrooten.</para>
+      <para>Hvis vertsdistribusjonen bruker en separat partisjon for
+      <filename class="directory">/boot</filename> og du vil at LFS systemet 
+      skal bruke den partisjonen til
+      <filename class="directory">/boot</filename> også, bare monter 
+      partisjonen på <filename class="directory">$LFS/boot</filename>
+      i vertsdistribusjonen. Linux kjernen støtter montering av én partisjon på 
+      flere monteringspunkter.</para>
     </note>
 
     <para>Å la <filename class="directory">/boot</filename> være på den 
