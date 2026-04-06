@@ -365,9 +365,9 @@ EOF</userinput></screen>
       men å gjøre det vil kreve en initramfs, som er utenfor omfanget av 
       LFS.</para>
       <para>Navnet på enhetsnoden for en partisjon i
-      <filename class='directory'>/dev</filename> kan også endres (dette er 
-      mindre sannsynlig enn en endring i GRUB betegnelsen). Du kan også erstatte 
-      stier til enhetsnoder som <literal>/dev/sda1</literal> med
+      <filename class='directory'>/dev</filename> kan også endres (veldig ofte 
+      på noen systemer med flere NVME disker). Du kan også erstatte stier til 
+      enhetsnoder som <literal>/dev/sda1</literal> med
       <literal>PARTUUID=<replaceable>&lt;partisjon UUID&gt;</replaceable></literal>,
       i <filename>/etc/fstab</filename>, for å unngå en potensiell oppstartsfeil 
       i tilfelle enhetens nodenavn har endret seg.</para>
