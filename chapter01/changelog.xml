@@ -41,6 +41,16 @@
     -->
 
     <listitem>
+      <para>04.04.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[zeckma] - Gi støtte for UEFI oppstart. Fikser
+          <ulink url='&lfs-ticket-root;5819'>#5819</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>01.04.2026</para>
       <itemizedlist>
         <listitem>
