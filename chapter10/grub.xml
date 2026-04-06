@@ -40,6 +40,16 @@ xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso</userinput></
   </sect2>
 
   <sect2>
+    <title>Slå av sikker oppstart</title>
+
+    <para>LFS har ikke de nødvendige pakkene for å støtte sikker oppstart. For å 
+    konfigurere oppstartsprosessen ved å følge instruksjonene i denne delen, må 
+    sikker oppstart være slått av fra konfigurasjonsgrensesnittet til fastvaren. 
+    Les dokumentasjonen fra produsenten av systemet ditt for å finne ut 
+    hvordan.</para>
+  </sect2>
+
+  <sect2>
     <title>GRUB navnekonvensjoner</title>
 
     <para>GRUB bruker sin egen navnestruktur for stasjoner og partisjoner i 
