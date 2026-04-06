@@ -23,7 +23,28 @@
   <sect2 role="package">
     <title/>
 
-    <para>GRUB pakken inneholder en oppstartslaster (GRand Unified Bootloader).</para>
+    <para>GRUB pakken inneholder GRand Unified Bootloader.</para>
+
+    <note><para>Denne siden er delt inn i flere seksjoner som har som mål å 
+    installere for en spesifikk oppstartsmetode (BIOS, 64-bit UEFI og 32-bit 
+    UEFI). GRUB kan ikke bygges med alle oppstartsmetodearkitekturene samtidig.</para>
+    <para>Du kan hoppe over andre deler for å gå til oppstartsmetoden du 
+    trenger. Hvis du er i tvil, kan du følge alle delene, noe som vil koste 
+    ekstra byggetid. Etter at du har installert støtte for oppstartsmetoden din, 
+    kan du fortsette med å bygge resten av pakkene i dette kapittelet. Å gjøre 
+    LFS systemet ditt oppstartbart med GRUB vil bli diskutert i <xref linkend="ch-bootable-grub"
+    role='.'/></para></note>
+
+    <warning>
+      <para>Fjern alle miljøvariabler som kan påvirke byggingen:</para>
+
+      <screen><userinput remap='pre'>unset {C,CPP,CXX,LD}FLAGS</userinput></screen>
+
+      <para>Ikke prøv å <quote>tuning</quote> denne pakken med tilpassede 
+      kompileringsflagg. Denne pakken er en oppstartslaster. 
+      Lavnivåoperasjonene i kildekoden kan bli ødelagt av aggressiv 
+      optimalisering.</para>
+    </warning>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -38,38 +59,15 @@
   </sect2>
 
   <sect2 role="installation">
-    <title>Installasjon av GRUB</title>
-
-    <note>
-      <para>
-        Hvis systemet ditt har UEFI støtte og du ønsker å starte LFS med UEFI,
-        må du installere GRUB med UEFI støtte (og dets avhengigheter) med å
-        følge instruksjonene på
-        <ulink url="&blfs-book;postlfs/grub-efi.html">BLFS siden</ulink>.
-		Du kan hoppe over denne pakken, eller installere denne pakken og BLFS
-        GRUB for UEFI pakken uten konflikt (BLFS siden gir
-        instruksjoner for begge tilfeller).
-      </para>
-    </note>
-
-    <warning>
-      <para>Fjern eventuelle miljøvariabler som kan påvirke bygget:</para>
-
-      <screen><userinput remap='pre'>unset {C,CPP,CXX,LD}FLAGS</userinput></screen>
-
-      <para>Ikke prøv å <quote>optimalisere</quote> denne pakken med tilpassete
-      kompileringsflagg. Denne pakken er en oppstartslaster. Da kan lavnivå
-      operasjonene i kildekoden bli brutt av
-      aggressiv optimalisering.</para>
-    </warning>
+    <title>Installasjon av GRUB for BIOS</title>
 
     <!-- See https://wiki.linuxfromscratch.org/lfs/ticket/5857. Remove this at
     next grub version -->
-    <para>Først fiks jeg en feil introdusert i grub-2.14:</para>
+    <para>Først fikser du en feil som ble introdusert i grub-2.14:</para>
 
 <screen><userinput remap="pre">sed 's/--image-base/--nonexist-linker-option/' -i configure</userinput></screen>
 
-    <para>Forbered GRUB for kompilering:</para>
+    <para>Klargjør GRUB for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr     \
             --sysconfdir=/etc \
@@ -77,21 +75,21 @@
             --disable-werror</userinput></screen>
 
     <variablelist>
-      <title>Betydningen av de nye konfigureringsalternativene:</title>
+      <title>Betydningen av de nye konfigurasjonsalternativene:</title>
 
       <varlistentry>
         <term><parameter>--disable-werror</parameter></term>
         <listitem>
-          <para>Dette gjør at bygget kan fullføres med advarsler
-          fra nyere Flex versjoner.</para>
+          <para>Dette gjør at byggingen kan fullføres med advarsler introdusert 
+          av nyere versjoner av Flex.</para>
         </listitem>
       </varlistentry>
 
       <varlistentry>
         <term><parameter>--disable-efiemu</parameter></term>
         <listitem>
-          <para>Dette alternativet minimerer det som bygges ved å deaktivere en funksjon og
-          eliminere noen testprogrammer som ikke er nødvendig for LFS.</para>
+          <para>Dette alternativet minimerer det som bygges ved å deaktivere en 
+          funksjon og eliminere noen testprogrammer som ikke er nødvendige for LFS.</para>
         </listitem>
       </varlistentry>
 
@@ -101,16 +99,120 @@
 
 <screen><userinput remap="make">make</userinput></screen>
 
-    <para>Testpakken for denne pakken anbefales ikke. Mesteparten av
-    testene avhenger av pakker som ikke er tilgjengelige i det begrensete
-    LFS miljøet. For å kjøre testene uansett, kjør <command>make check</command>.</para>
+    <para>Testpakken for denne pakken anbefales ikke. De fleste testene er 
+    avhengige av pakker som ikke er tilgjengelige i det begrensede LFS miljøet. 
+    For å kjøre testene likevel, kjør <command>make check</command>.</para>
 
     <para>Installer pakken:</para>
 
+    <screen><userinput remap="install">make install</userinput></screen>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av GRUB for 64-bit UEFI</title>
+
+    <para>Hvis du vil starte opp med 64-bit UEFI, bør du bygge støtte for 
+    det.</para>
+
+    <para>Først, hvis du bygde GRUB fra noen av seksjonene ovenfor,rens 
+    kildetreet:</para>
+
+<screen><userinput remap="pre">make clean</userinput></screen>
+
+    <para>Fiks en feil introdusert i grub-2.14:</para>
+
+<screen><userinput remap="pre">sed 's/--image-base/--nonexist-linker-option/' -i configure</userinput></screen>
+
+    <para>Konfigurer nå GRUB for 64-bit UEFI støtte:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr       \
+            --sysconfdir=/etc   \
+            --target=x86_64     \
+            --with-platform=efi \
+            --disable-efiemu    \
+            --disable-werror</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av de nye konfigurasjonsalternativene:</title>
+
+      <varlistentry>
+        <term><parameter>--target=x86_64</parameter></term>
+        <listitem>
+          <para>Dette definerer at UEFI fastvarearkitekturen er x86_64, som 
+          GRUB skal målrette seg mot.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--with-platform=efi</parameter></term>
+        <listitem>
+          <para>Dette spesifiserer at EFI er en plattform GRUB skal målrette seg 
+          mot. I kombinasjon med <parameter>--target=x86_64</parameter>, vil 
+          GRUB ha muligheten til å målrette mot <literal>x86_64-efi</literal>
+          plattformen.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Kompiler pakken for 64-biters UEFI støtte:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Installer støtte for 64-bit UEFI:</para>
+
 <screen><userinput remap="install">make install</userinput></screen>
 
-  <para>Å gjøre LFS systemet oppstartbart med GRUB vil bli diskutert i
-  <xref linkend="ch-bootable-grub" role='.'/></para>
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av GRUB for 32-bit UEFI</title>
+
+    <para>Hvis du vil starte opp med 32-bit UEFI, noe som er svært sjeldent, 
+    bør du bygge støtte for det.</para>
+
+    <para>Først, hvis du bygde GRUB fra noen av seksjonene ovenfor, rens 
+    kildetreet:</para>
+
+<screen><userinput remap="pre">make clean</userinput></screen>
+
+    <para>Fiks en feil introdusert i grub-2.14:</para>
+
+<screen><userinput remap="pre">sed 's/--image-base/--nonexist-linker-option/' -i configure</userinput></screen>
+
+    <para>Konfigurer nå GRUB for 32-bit UEFI støtte:</para>
+
+<screen><userinput remap="configure">./configure --prefix=/usr       \
+            --sysconfdir=/etc   \
+            --target=i386       \
+            --with-platform=efi \
+            --disable-efiemu    \
+            --disable-werror</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av de nye konfigurasjonsalternativene:</title>
+
+      <varlistentry>
+        <term><parameter>--target=i386</parameter></term>
+        <listitem>
+          <para>Dette definerer at UEFI fastvarearkitekturen er i386/32-bit, 
+          som GRUB skal målrette seg mot. I kombinasjon med
+          <parameter>--with-platform=efi</parameter>, vil GRUB ha muligheten 
+          til å målrette <literal>i386-efi</literal>
+          plattformen.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Kompiler pakken for 32-bit UEFI støtte:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>Installer støtte for 32-bit UEFI:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
 
   </sect2>
 
@@ -137,6 +239,12 @@
       </seglistitem>
     </segmentedlist>
 
+    <note><para>
+      <filename class="directory">/usr/lib/grub</filename> vil ha forskjellig 
+      innhold basert på hvilken(e) plattform(er) du har installert GRUB for. 
+      Nemlig, det vil være forskjellige GRUB moduler for hver plattform.
+    </para></note>
+
     <variablelist>
       <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
       <?dbfo list-presentation="list"?>
@@ -155,7 +263,7 @@
       <varlistentry id="grub-editenv">
         <term><command>grub-editenv</command></term>
         <listitem>
-          <para>Et verktøy for å redigere miljøblokken</para>
+          <para>Er et verktøy for å redigere miljøblokken</para>
           <indexterm zone="ch-system-grub grub-editenv">
             <primary sortas="b-grub-editenv">grub-editenv</primary>
           </indexterm>
@@ -175,7 +283,7 @@
       <varlistentry id="grub-fstest">
         <term><command>grub-fstest</command></term>
         <listitem>
-          <para>Verktøy for å feilsøke fil system driveren</para>
+          <para>Er et verktøy for å feilsøke filsystemdriveren</para>
           <indexterm zone="ch-system-grub grub-fstest">
             <primary sortas="b-grub-fstest">grub-fstest</primary>
           </indexterm>
@@ -185,7 +293,7 @@
       <varlistentry id="grub-glue-efi">
         <term><command>grub-glue-efi</command></term>
         <listitem>
-          <para>Limer 32-biters og 64-biters binære filer til en enkelt fil (for Apple maskiner)</para>
+          <para>Limer 32-biters og 64-biters binærfiler inn i én fil (for Apple maskiner)</para>
           <indexterm zone="ch-system-grub grub-glue-efi">
             <primary sortas="b-grub-glue-efi">grub-glue-efi</primary>
           </indexterm>
@@ -205,8 +313,8 @@
       <varlistentry id="grub-kbdcomp">
         <term><command>grub-kbdcomp</command></term>
         <listitem>
-          <para>Skript som konverterer et xkb oppsett til et som gjenkjennes av
-          GRUB</para>
+          <para>Er et skript som konverterer et xkb layout til et som 
+          gjenkjennes av GRUB</para>
           <indexterm zone="ch-system-grub grub-kbdcomp">
             <primary sortas="b-grub-kbdcomp">grub-kbdcomp</primary>
           </indexterm>
@@ -216,8 +324,8 @@
       <varlistentry id="grub-macbless">
         <term><command>grub-macbless</command></term>
         <listitem>
-          <para>Er Mac-style bless for HFS eller HFS+ filsystemer (<command>bless</command>
-          er særegen for Apple-maskiner; det gjør en enhet oppstartbar)</para>
+          <para>Er Mac stil bless for HFS eller HFS+ filsystemer (<command>bless</command>
+          er særegent for Apple maskiner; det gjør en enhet oppstartbar)</para>
           <indexterm zone="ch-system-grub grub-macbless">
             <primary sortas="b-grub-macbless">grub-macbless</primary>
           </indexterm>
@@ -238,7 +346,7 @@
       <varlistentry id="grub-mkconfig">
         <term><command>grub-mkconfig</command></term>
         <listitem>
-          <para>Generer en <filename>grub.cfg</filename> fil</para>
+          <para>Genererer en <filename>grub.cfg</filename> fil</para>
           <indexterm zone="ch-system-grub grub-mkconfig">
             <primary sortas="b-grub-mkconfig">grub-mkconfig</primary>
           </indexterm>
@@ -258,7 +366,7 @@
       <varlistentry id="grub-mklayout">
         <term><command>grub-mklayout</command></term>
         <listitem>
-          <para>Genererer en GRUB tastaturoppsettfil</para>
+          <para>Genererer en GRUB tastaturlayoutfil</para>
           <indexterm zone="ch-system-grub grub-mklayout">
             <primary sortas="b-grub-mklayout">grub-mklayout</primary>
           </indexterm>
@@ -268,7 +376,7 @@
       <varlistentry id="grub-mknetdir">
         <term><command>grub-mknetdir</command></term>
         <listitem>
-          <para>Forbereder en GRUB netboot mappe</para>
+          <para>Klargjør en GRUB netboot mappe</para>
           <indexterm zone="ch-system-grub grub-mknetdir">
             <primary sortas="b-grub-mknetdir">grub-mknetdir</primary>
           </indexterm>
@@ -278,7 +386,7 @@
       <varlistentry id="grub-mkpasswd-pbkdf2">
         <term><command>grub-mkpasswd-pbkdf2</command></term>
         <listitem>
-          <para>Genererer et kryptert PBKDF2 passord for bruk i
+          <para>Genererer et kryptert PBKDF2 passord for bruk i 
           oppstartsmenyen</para>
           <indexterm zone="ch-system-grub grub-mkpasswd-pbkdf2">
             <primary sortas="b-grub-mkpasswd-pbkdf2">grub-mkpasswd-pbkdf2</primary>
@@ -289,7 +397,7 @@
       <varlistentry id="grub-mkrelpath">
         <term><command>grub-mkrelpath</command></term>
         <listitem>
-          <para>Gir et systembanenavn i forhold til roten</para>
+          <para>Lager et systemstinavn relativt til roten</para>
           <indexterm zone="ch-system-grub grub-mkrelpath">
             <primary sortas="b-grub-mkrelpath">grub-mkrelpath</primary>
           </indexterm>
@@ -299,8 +407,8 @@
       <varlistentry id="grub-mkrescue">
         <term><command>grub-mkrescue</command></term>
         <listitem>
-          <para>Lager et oppstartbart bilde av GRUB som passer for en diskett,
-          CDROM/DVD, eller en USB stasjon</para>
+          <para>Lager et oppstartbart bilde av GRUB som passer for en diskett, 
+          CD-ROM/DVD eller en USB stasjon</para>
           <indexterm zone="ch-system-grub grub-mkrescue">
             <primary sortas="b-grub-mkrescue">grub-mkrescue</primary>
           </indexterm>
@@ -320,7 +428,7 @@
       <varlistentry id="grub-ofpathname">
         <term><command>grub-ofpathname</command></term>
         <listitem>
-          <para>Er et hjelpeprogram som skriver ut banen til en GRUBenhet</para>
+          <para>Er et hjelpeprogram som skriver ut banen til en GRUB enhet</para>
           <indexterm zone="ch-system-grub grub-ofpathname">
             <primary sortas="b-grub-ofpathname">grub-ofpathname</primary>
           </indexterm>
@@ -340,7 +448,7 @@
       <varlistentry id="grub-reboot">
         <term><command>grub-reboot</command></term>
         <listitem>
-          <para>Angir standard oppstartsoppføring for GRUB bare for neste oppstart</para>
+          <para>Angir standard oppstartsoppføring for GRUB kun for neste oppstart</para>
           <indexterm zone="ch-system-grub grub-reboot">
             <primary sortas="b-grub-reboot">grub-reboot</primary>
           </indexterm>
@@ -350,7 +458,7 @@
       <varlistentry id="grub-render-label">
         <term><command>grub-render-label</command></term>
         <listitem>
-          <para>Gjengir Apple .disk_label for Apple Macer</para>
+          <para>Gjengir Apple .disk_label for Apple Macs</para>
           <indexterm zone="ch-system-grub grub-render-label">
             <primary sortas="b-grub-render-label">grub-render-label</primary>
           </indexterm>
@@ -390,7 +498,7 @@
       <varlistentry id="grub-syslinux2cfg">
         <term><command>grub-syslinux2cfg</command></term>
         <listitem>
-          <para>Forvandler en syslinux konfigurasjonsfil til grub.cfg format</para>
+          <para>Transformerer en syslinux konfigurasjonsfil til grub.cfg format</para>
           <indexterm zone="ch-system-grub grub-syslinux2cfg">
             <primary sortas="b-grub-syslinux2cfg">grub-syslinux2cfg</primary>
           </indexterm>
