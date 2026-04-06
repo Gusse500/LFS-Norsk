@@ -46,7 +46,7 @@ xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso</userinput></
     konfigurere oppstartsprosessen ved å følge instruksjonene i denne delen, må 
     sikker oppstart være slått av fra konfigurasjonsgrensesnittet til fastvaren. 
     Les dokumentasjonen fra produsenten av systemet ditt for å finne ut 
-    hvordan.</para>
+    hvordan å slå av støtte for sikker oppstart.</para>
   </sect2>
 
   <sect2>
@@ -116,7 +116,7 @@ xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso</userinput></
       skal bruke den partisjonen til
       <filename class="directory">/boot</filename> også, bare monter 
       partisjonen på <filename class="directory">$LFS/boot</filename>
-      i vertsdistribusjonen. Linux kjernen støtter montering av én partisjon på 
+      i vertsdistribusjonen. Linuxkjernen støtter montering av partisjoner på 
       flere monteringspunkter.</para>
     </note>
 
