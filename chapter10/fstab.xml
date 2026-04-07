@@ -67,13 +67,13 @@ EOF</userinput></screen>
   under File systems -&gt; Native Language Support ved konfigurering av kjernen)
   har blitt kompilert inn i kjernen eller bygget som en modul. Imidlertid, hvis
   tegnsettet til lokaliteten er UTF-8, det tilsvarende alternativet
-  <option>iocharset=utf8</option> ville gjøre at filsystemet skiller mellom store og små bokstaver. For å
-  fikse dette, bruk spesialalternativet <option>utf8</option> i stedet for
-  <option>iocharset=utf8</option>, for UTF-8 lokaliteter.
-  <quote>codepage</quote> alternativet er også nødvendig for vfat- og smbfs-filsystemer.
-  Det bør settes til tegnsettnummeret som brukes under MS-DOS i ditt land.
-  For eksempel, for å montere USB-flash-stasjoner, ville en ru_RU.KOI8-R bruker
-  trenge følgende i alternativdelen av monteringslinjen i
+  <option>iocharset=utf8</option> ville gjøre at filsystemet skiller mellom 
+  store og små bokstaver. For å fikse dette, bruk spesialalternativet 
+  <option>utf8</option> i stedet for <option>iocharset=utf8</option>, for UTF-8 
+  lokaliteter. <quote>codepage</quote> alternativet er også nødvendig for vfat 
+  og smbfs filsystemer. Det bør settes til tegnsettnummeret som brukes under 
+  MS-DOS i ditt land. For eksempel, for å montere USB flashstasjoner, ville en 
+  ru_RU.KOI8-R bruker trenge følgende i alternativdelen av monteringslinjen i
   <filename>/etc/fstab</filename>:</para>
 
 <screen><literal>noauto,user,quiet,showexec,codepage=866,iocharset=koi8r</literal></screen>
@@ -83,10 +83,28 @@ EOF</userinput></screen>
 <screen><literal>noauto,user,quiet,showexec,codepage=866,utf8</literal></screen>
 
   <para>Merk at å bruke <option>iocharset</option> er standard for
-  <literal>iso8859-1</literal> ((så filsystemet skiller mellom store og små bokstaver)
-  , og <option>utf8</option> alternativet forteller
+  <literal>iso8859-1</literal> ((så filsystemet skiller mellom store og små 
+  bokstaver), og <option>utf8</option> alternativet forteller
   kjernen å konvertere filnavnene ved hjelp av UTF-8 slik at de kan være
   tolket i UTF-8 lokaliteten.</para>
+
+  <para>
+    Når du starter opp med UEFI, må ESP formateres som et FAT filsystem, 
+    vanligvis VFAT. Denne filen ser den som VFAT uansett. Et eksempel på hvordan 
+    du ville gå frem med en oppføring for ESP vil se slik ut:
+  </para>
+
+<screen><userinput>cat &gt;&gt; /etc/fstab &lt;&lt; "EOF"
+<literal>/dev/<replaceable>&lt;zzz&gt;</replaceable>     /boot/efi    vfat     rw,relatime,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro 0 2</literal>
+EOF</userinput></screen>
+
+  <para>
+    <literal>iso8859-1</literal> IO tegnsettet brukes her siden UEFI 
+    fastvareimplementeringer søker etter <filename
+    class="directory">\EFI\BOOT\BOOT...EFI</filename>, som i et miljø med store 
+    og små bokstaver ikke ville være oppfylt. Så det tegnsettet brukes for å 
+    sikre at EFI bildet kan finnes.
+  </para>
 
   <!--note>
     <para>I det siste tilfellet sender kjernen følgende melding:</para>
@@ -95,8 +113,8 @@ EOF</userinput></screen>
     filesystem will be case sensitive!</computeroutput></screen>
 
     <para>Denne negative anbefalingen bør ignoreres, siden alle andre verdier
-    av <quote>iocharset</quote> alternativet resulterer i feil visning av filnavn i
-    UTF-8 lokaliteter.</para>
+    av <quote>iocharset</quote> alternativet resulterer i feil visning av 
+    filnavn i UTF-8 lokaliteter.</para>
   </note-->
 
   <para>Det er også mulig å spesifisere standard kodesett og iocharset verdier for
@@ -113,9 +131,9 @@ EOF</userinput></screen>
 
   <para>Det er mulig å gjøre ext3 filsystemet pålitelig på tvers av strømfeil
    for enkelte harddisktyper. For å gjøre dette, legg til
-  <option>barrier=1</option> monteringsalternativet til den aktuelle oppføringen i
-  <filename>/etc/fstab</filename>.  For å sjekke om diskstasjonen støtter
-  dette alternativet, kjør
+  <option>barrier=1</option> monteringsalternativet til den aktuelle 
+  oppføringen i <filename>/etc/fstab</filename>.  For å sjekke om diskstasjonen 
+  støtter dette alternativet, kjør
   <ulink url="&blfs-book;general/hdparm.html">hdparm</ulink>
   på den aktuelle diskstasjonen. For eksempel hvis:</para>
 
@@ -125,5 +143,6 @@ EOF</userinput></screen>
 
   <para>Merk: Logical Volume Management (LVM) baserte partisjoner kan ikke bruke
   <option>barrier</option> valget.</para>
+
 -->
 </sect1>
