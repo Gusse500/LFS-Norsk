@@ -89,33 +89,42 @@ EOF</userinput></screen>
   tolket i UTF-8 lokaliteten.</para>
 
   <para>
-    Når du starter opp med UEFI, må ESP formateres som et FAT filsystem, 
+    Når du installerer GRUB med UEFI, må ESP formateres som et FAT filsystem, 
     vanligvis VFAT. Denne filen ser den som VFAT uansett. Et eksempel på hvordan 
     du ville gå frem med en oppføring for ESP vil se slik ut:
   </para>
 
 <screen><userinput>cat &gt;&gt; /etc/fstab &lt;&lt; "EOF"
-<literal>/dev/<replaceable>&lt;zzz&gt;</replaceable>     /boot/efi    vfat     rw,relatime,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro 0 2</literal>
+<literal>/dev/<replaceable>&lt;zzz&gt;</replaceable>  /boot/efi  vfat  rw,relatime,codepage=437,iocharset=iso8859-1   0   2</literal>
 EOF</userinput></screen>
 
   <para>
     <literal>iso8859-1</literal> IO tegnsettet brukes her siden UEFI 
     fastvareimplementeringer søker etter <filename
     class="directory">\EFI\BOOT\BOOT...EFI</filename>, som i et miljø med store 
-    og små bokstaver ikke ville være oppfylt. Så det tegnsettet brukes for å 
-    sikre at EFI bildet kan finnes.
+    og små bokstaver ikke ville være oppfylt.
   </para>
 
-  <!--note>
+   <note>
+    <para>
+      EFI filsystemet trenger bare å monteres når GRUB installeres. Systemet 
+      bruker denne partisjonen før kjernen lastes inn, og brukes ikke ellers. Et 
+      alternativ til å legge til denne oppføringen i fstab filen er å montere 
+      den manuelt før kjøring av <command>grub-install</command> under
+      i <xref linkend="ch-bootable-grub"/>.
+    </para>
+  </note>
+
     <para>I det siste tilfellet sender kjernen følgende melding:</para>
 
+<!--  <note>
 <screen><computeroutput>FAT: utf8 is not a recommended IO charset for FAT filesystems,
     filesystem will be case sensitive!</computeroutput></screen>
 
     <para>Denne negative anbefalingen bør ignoreres, siden alle andre verdier
     av <quote>iocharset</quote> alternativet resulterer i feil visning av 
     filnavn i UTF-8 lokaliteter.</para>
-  </note-->
+  </note>-->
 
   <para>Det er også mulig å spesifisere standard kodesett og iocharset verdier for
   noen filsystemer under kjernekonfigurasjon. De relevante parameterne
