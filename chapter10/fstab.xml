@@ -99,10 +99,14 @@ EOF</userinput></screen>
 EOF</userinput></screen>
 
   <para>
-    <literal>iso8859-1</literal> IO tegnsettet brukes her siden UEFI 
-    fastvareimplementeringer søker etter <filename
-    class="directory">\EFI\BOOT\BOOT...EFI</filename>, som i et miljø med store 
-    og små bokstaver ikke ville være oppfylt.
+    <literal>iso8859-1</literal> IO tegnsettet brukes her, siden vi vil 
+    aktivere det som en del av kjernens UEFI konfigurasjon i
+    <xref linkend='ch-bootable-kernel'/>.  Teknisk sett bør IO tegnsettet 
+    samsvare med språkinnstillingen din, som vi har diskutert ovenfor. Navnet 
+    på alle filene i ESP inneholder imidlertid bare 7-bit ASCII tegn, så alt 
+    vil gå bra så lenge tegnsettet for språkinnstillingen din behandler 7-bit 
+    ASCII tegn på samme måte som ISO-8859-1. For eksempel er UTF-8 et slikt 
+    tegnsett.
   </para>
 
    <note>
@@ -115,9 +119,9 @@ EOF</userinput></screen>
     </para>
   </note>
 
-    <para>I det siste tilfellet sender kjernen følgende melding:</para>
+<!--<para>I det siste tilfellet sender kjernen følgende melding:</para>
 
-<!--  <note>
+    <note>
 <screen><computeroutput>FAT: utf8 is not a recommended IO charset for FAT filesystems,
     filesystem will be case sensitive!</computeroutput></screen>
 
