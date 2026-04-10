@@ -56,7 +56,7 @@
   <para>Husk betegnelsen på den nye partisjonen (f.eks., <filename
   class="devicefile">sda5</filename>). Denne boken vil referere til dette som
   LFS partisjonen. Husk også betegnelsen på <systemitem
-  class="filesystem">swap</systemitem> partisjonen. Disse navnene vil være
+  class="filesystem">swap</systemitem> Disse navnene vil være
   nødvendig senere for <filename>/etc/fstab</filename> filen.</para>
 
   <sect2>
@@ -112,12 +112,13 @@
     opprettet hvis den ikke eksisterer allerede. Denne partisjonen er ikke 
     formatert, men må være tilgjengelig for GRUB for bruk under installasjonen 
     av oppstartslasteren. Denne partisjonen vil normalt være merket 'BIOS Boot' 
-    hvis den opprettes av <command>fdisk</command> eller har en kode på 
-    <emphasis>EF02</emphasis> hvis du bruker <command>gdisk</command> kommandoen.</para>
+    hvis den opprettes av <command>fdisk</command> eller har en kode på
+    <emphasis>EF02</emphasis> hvis du bruker <command>gdisk</command>
+    kommandoen.</para>
 
-    <para>If the boot disk is partitioned with an MBR Partition Table, or DOS
-    disklabel, then this partition is not needed as space already exists before
-    the first partition that Grub can use.</para>
+    <para>Hvis oppstartsdisken er partisjonert med en MBR partisjonstabell, 
+    eller DOS disklabel, er ikke denne partisjonen nødvendig, ettersom det 
+    allerede finnes plass før den første partisjonen Grub kan bruke.</para>
 
     <note><para>Grub Bios partisjonen må være på stasjonen som BIOS
     bruker for å starte opp systemet. Dette er ikke nødvendigvis den stasjonen 
@@ -133,14 +134,13 @@
     nødvendig når du starter opp systemet med UEFI. Den lagrer EFI applikasjonen 
     som kjøres under oppstart. Oppstartsstasjonen kan partisjoneres med MBR 
     partisjonstabell eller DOS, men kompatibilitetsproblemer vil ofte oppstå som 
-    et resultat. Derfor er det alltid en god idé å partisjonere 
-    oppstartsstasjonen med en GUID partisjonstabell (GPT). Hvis du bare starter 
-    opp LFS fra partisjonen, kan 20 MB eller mindre være tilstrekkelig. 
-    Partisjonen bør være større enn EFI avbildningsstørrelsen fordi GRUB dumper 
-    mye data til partisjonen før EFI avbildningen opprettes. For å være på den 
-    sikre siden anbefales 128 MB til 256 MB, men kan reduseres mye med litt 
-    eksperimentering. Partisjons etiketten bør være 'EFI System' hvis du 
-    bruker <command>fdisk</command>.</para>
+    et resultat. Derfor er det alltid en god idé å partisjonere oppstartsstasjonen 
+    med en GUID partisjonstabell (GPT). Hvis du bare starter opp LFS fra partisjonen, 
+    kan 20 MB eller mindre være tilstrekkelig. Partisjonen bør være større enn EFI 
+    avbildningsstørrelsen fordi GRUB dumper mye data til partisjonen før EFI avbildningen 
+    opprettes. For å være på den sikre siden anbefales 128 MB til 256 MB, men kan 
+    reduseres mye med litt eksperimentering. Partisjons etiketten bør være 'EFI 
+    System' hvis du bruker <command>fdisk</command>.</para>
 
     <para>For Grub bør EFI systempartisjonen være plassert på
     <filename class="directory">/boot/efi</filename>.</para>
@@ -151,7 +151,8 @@
     UEFI oppstart ikke fungerer som forventet.</para>
     </sect3>
 
-    <title>Bekvemmelig partisjoner</title>
+    <sect3>
+    <title>Nyttige partisjoner</title>
 
     <para>Det er flere andre partisjoner som ikke er påkrevd, men som bør
     vurderes når du designer et diskoppsett. Følgende liste
@@ -215,7 +216,7 @@
     </itemizedlist>
 
     <para>Enhver separat partisjon som du ønsker automatisk montert når
-    systemet starter må spesifiseres i <filename>/etc/fstab</filename> file.
+    systemet starter må spesifiseres i <filename>/etc/fstab</filename> filen.
     Detaljer om hvordan du spesifiserer partisjoner vil bli diskutert i <xref
     linkend="ch-bootable-fstab"/>.</para>
 
@@ -260,7 +261,7 @@
        </listitem>
        
        <listitem>
-         <para>Swap partisjonen må formateres som swap.</para>
+         <para>Vekselminne partisjonen må formateres som swap.</para>
        </listitem>
        
        <listitem>
