@@ -100,13 +100,13 @@ xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso</userinput></
 
     <para>Plasseringen av oppstartspartisjonen er et valg av brukeren som 
     påvirker konfigurasjonen. En anbefaling er å ha en separat liten (foreslått 
-    størrelse er 200 MB) partisjon kun for oppstartsinformasjon. Ved å gjøre dette 
-    kan ikke bare LFS, men enhver Linux distribusjon, få tilgang til de samme 
-    oppstartsfilene, og dermed ethvert oppstartet system. Hvis du velger å gjøre 
-    dette, må du montere den separate partisjonen, flytte alle filer i gjeldende
-    <filename class="directory">/boot</filename> mappen (f.eks. Linux kjernen du 
-    nettopp bygde i forrige avsnitt) til den nye partisjonen. Du må deretter 
-    avmontere partisjonen og montere den på nytt som <filename
+    størrelse er 200 MB) partisjon kun for oppstartsinformasjon. Ved å gjøre 
+    dette kan ikke bare LFS, men enhver Linux distribusjon, få tilgang til de 
+    samme oppstartsfilene, og dermed ethvert oppstartet system. Hvis du velger å 
+    gjøre dette, må du montere den separate partisjonen, flytte alle filer i 
+    gjeldende <filename class="directory">/boot</filename> mappen (f.eks. Linux 
+    kjernen du nettopp bygde i forrige avsnitt) til den nye partisjonen. Du må 
+    deretter avmontere partisjonen og montere den på nytt som <filename
     class="directory">/boot</filename>. Hvis du gjør dette, sørg for å oppdatere
     <filename>/etc/fstab</filename>.</para>
 
@@ -222,7 +222,7 @@ xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso</userinput></
       <note>
         <para>
           Noen UEFI oppstartslastere, selv om de er sjeldne, hopper over den 
-          hardkodede EFI banen. Slike systemer er som regel gamle, som Lenevo 
+          hardkodede EFI banen. Slike systemer er som regel gamle, som Lenovo 
           ThinkPads eller HP stasjonære/bærbare datamaskiner. Når 
           oppstartsoppføringen mangler i BIOS, må du installere BLFS pakken <ulink
           url="&blfs-book;postlfs/efibootmgr.html">efibootmgr</ulink> for å 
