@@ -19,29 +19,29 @@
   Dette er nok til å lagre alle kildetarballene og kompilere pakkene.
   Men hvis LFS systemet er ment å være det primære Linux systemet,
   vil tilleggsprogramvare sannsynligvis bli installert som vil kreve ekstra
-  plass. En 30 GB partisjon er en rimelig størrelse for å sørge for nok plass. LFS
-  systemet i seg selv vil ikke ta så mye plass. En stor del av dette
-  kravet er å sørge for tilstrekkelig ledig midlertidig lagring samt
-  for å legge til flere funksjoner etter at LFS er fullført. I tillegg kompilering av
+  plass. En 30 GB partisjon er en rimelig størrelse for å sørge for nok plass. 
+  LFS systemet i seg selv vil ikke ta så mye plass. En stor del av dette kravet 
+  er å sørge for tilstrekkelig ledig midlertidig lagring samtfor å legge til 
+  flere funksjoner etter at LFS er fullført. I tillegg kompilering av
   pakker kan kreve mye diskplass som vil bli gjenvunnet etter at
   pakken er installert.</para>
 
   <para>Fordi det ikke alltid er nok minne (RAM) tilgjengelig
   for kompileringsprosesser er det en god ide å bruke en liten diskpartisjon som
   <systemitem class="filesystem">swap</systemitem>. Dette brukes av
-  kjernen for å lagre sjelden brukte data og la mer minne være tilgjengelig for aktive
-  prosesser. <systemitem class="filesystem">swap</systemitem> partisjon for
-  et LFS system kan være det samme som det som brukes av vertssystemet, i
+  kjernen for å lagre sjelden brukte data og la mer minne være tilgjengelig for 
+  aktive prosesser. <systemitem class="filesystem">swap</systemitem> partisjon 
+  for et LFS system kan være det samme som det som brukes av vertssystemet, i
   det tilfellet er det ikke er nødvendig å opprette en annen.</para>
 
   <para>Start et diskpartisjoneringsprogram som f.eks <command>cfdisk</command>
-  eller <command>fdisk</command> med et kommandolinjealternativ som navngir harddisken
-  som den nye partisjonen vil bli opprettet på&mdash;for eksempel
+  eller <command>fdisk</command> med et kommandolinjealternativ som navngir 
+  harddisken som den nye partisjonen vil bli opprettet på&mdash;for eksempel
   <filename class="devicefile">/dev/sda</filename> for den primære
   diskstasjonen. Lag en innebygd Linux partisjon og en
-  <systemitem class="filesystem">swap</systemitem> partisjon, hvis nødvendig. Vennligst
-  referere til <ulink role='man' url='&man;cfdisk.8'>cfdisk(8)</ulink> eller
-  <ulink role='man' url='&man;fdisk.8'>fdisk(8)</ulink> hvis
+  <systemitem class="filesystem">swap</systemitem> partisjon, hvis nødvendig. 
+  Vennligst referere til <ulink role='man' url='&man;cfdisk.8'>cfdisk(8)</ulink> 
+  eller <ulink role='man' url='&man;fdisk.8'>fdisk(8)</ulink> hvis
   du ennå ikke vet hvordan du bruker programmene.</para>
 
   <note><para>For erfarne brukere er andre partisjoneringsordninger mulig.
@@ -56,19 +56,19 @@
   <para>Husk betegnelsen på den nye partisjonen (f.eks., <filename
   class="devicefile">sda5</filename>). Denne boken vil referere til dette som
   LFS partisjonen. Husk også betegnelsen på <systemitem
-  class="filesystem">swap</systemitem> partisjonen. Disse navnene vil være
+  class="filesystem">swap</systemitem> Disse navnene vil være
   nødvendig senere for <filename>/etc/fstab</filename> filen.</para>
 
   <sect2>
   <title>Andre partisjonsproblemer</title>
 
   <para>Forespørsler om råd om systempartisjonering legges ofte ut på LFS E-post
-  lister. Dette er et høyst subjektivt tema. Standard for de fleste distribusjoner
-  er å bruke hele stasjonen med unntak av en liten partisjon til vekselminne. Dette
-  er ikke optimalt for LFS av flere grunner. Det reduserer fleksibiliteten, gjør
-  deling av data på tvers av flere distribusjoner eller LFS bygg vanskeligere, gjør
-  sikkerhetskopiering mer tidkrevende, og kan kaste bort diskplass gjennom ineffektiv
-  allokering av filsystemstrukturer.</para>
+  lister. Dette er et høyst subjektivt tema. Standard for de fleste 
+  distribusjoner er å bruke hele stasjonen med unntak av en liten partisjon til 
+  vekselminne. Dette er ikke optimalt for LFS av flere grunner. Det reduserer 
+  fleksibiliteten, gjør deling av data på tvers av flere distribusjoner eller 
+  LFS bygg vanskeligere, gjør sikkerhetskopiering mer tidkrevende, og kan kaste 
+  bort diskplass gjennom ineffektiv allokering av filsystemstrukturer.</para>
 
     <sect3>
     <title>Rotpartisjonen</title>
@@ -82,10 +82,10 @@
     <sect3>
     <title>Vekselminnepartisjonen</title>
 
-    <para>De fleste distribusjoner oppretter automatisk et vekselminnepartisjon. Som regel
-    er den anbefalte størrelsen på vekselminnepartisjonen omtrent det dobbelte av
-    fysisk RAM, men dette er sjelden nødvendig. Hvis diskplassen er begrenset,
-    hold vekselminnepartisjonen til to gigabyte og overvåk mengden
+    <para>De fleste distribusjoner oppretter automatisk et vekselminnepartisjon. 
+    Som regel er den anbefalte størrelsen på vekselminnepartisjonen omtrent det 
+    dobbelte av fysisk RAM, men dette er sjelden nødvendig. Hvis diskplassen er 
+    begrenset,hold vekselminnepartisjonen til to gigabyte og overvåk mengden
     diskveksling.</para>
 
     <para>Hvis du vil bruke dvalefunksjonen (suspend-to-disk) i Linux,
@@ -93,14 +93,14 @@
     maskinen. I dette tilfellet bør størrelsen på vekselminnepartisjonen være
     minst like stor som systemets installerte RAM.</para>
 
-    <para>Bruk av vekselminne er aldri bra. For mekaniske harddisker kan du generelt
-    fortelle om et system veksler ved å bare lytte til diskaktivitet og
+    <para>Bruk av vekselminne er aldri bra. For mekaniske harddisker kan du 
+    generelt fortelle om et system veksler ved å bare lytte til diskaktivitet og
     observere hvordan systemet reagerer på kommandoer. Med en SSD vil du ikke
-    kunne høre veksling, men du kan se hvor mye vekslingsplass som brukes
-    ved å kjøre <command>top</command> eller <command>free</command> programmene. Bruken av
-    en SSD for en vekselminnepartisjon bør unngås hvis mulig. Den første
-    reaksjon på veksling bør være å se etter en urimelig kommando som f.eks
-    prøver å redigere en fil på fem gigabyte. Hvis veksling er normalt,
+    kunne høre veksling, men du kan se hvor mye vekslingsplass som brukes ved å 
+    kjøre <command>top</command> eller <command>free</command> programmene. 
+    Bruken av en SSD for en vekselminnepartisjon bør unngås hvis mulig. Den 
+    første reaksjon på veksling bør være å se etter en urimelig kommando som 
+    f.eks prøver å redigere en fil på fem gigabyte. Hvis veksling er normalt,
     er den beste løsningen å kjøpe mer RAM til ditt
     system.</para> </sect3>
 
@@ -109,21 +109,50 @@
 
     <para>Hvis <emphasis>boot disk</emphasis> har blitt partisjonert med en
     GUID Partisjons Tabell (GPT), da må en liten, vanligvis 1 MB, partisjon bli
-    opprettet hvis den ikke eksisterer allerede. Denne partisjonen er ikke formatert, men
-    må være tilgjengelig for GRUB for bruk under installasjonen av
-    oppstartslasteren. Denne partisjonen vil normalt være merket 'BIOS Boot' hvis den opprettes av
-    <command>fdisk</command> eller har en kode på <emphasis>EF02</emphasis> hvis du
-    bruker <command>gdisk</command> kommandoen.</para>
+    opprettet hvis den ikke eksisterer allerede. Denne partisjonen er ikke 
+    formatert, men må være tilgjengelig for GRUB for bruk under installasjonen 
+    av oppstartslasteren. Denne partisjonen vil normalt være merket 'BIOS Boot' 
+    hvis den opprettes av <command>fdisk</command> eller har en kode på
+    <emphasis>EF02</emphasis> hvis du bruker <command>gdisk</command>
+    kommandoen.</para>
+
+    <para>Hvis oppstartsdisken er partisjonert med en MBR partisjonstabell, 
+    eller DOS disklabel, er ikke denne partisjonen nødvendig, ettersom det 
+    allerede finnes plass før den første partisjonen Grub kan bruke.</para>
 
     <note><para>Grub Bios partisjonen må være på stasjonen som BIOS
-    bruker for å starte opp systemet. Dette er ikke nødvendigvis den stasjonen som holder
-    LFS rotpartisjon. Disker på et system kan bruke forskjellig
+    bruker for å starte opp systemet. Dette er ikke nødvendigvis den stasjonen 
+    som holder LFS rotpartisjon. Disker på et system kan bruke forskjellig
     partisjonstabelltyper. Nødvendigheten av Grub Bios partisjonen avhenger
     bare på partisjonstabelltypen til oppstartsdisken.</para></note>
     </sect3>
 
     <sect3>
-    <title>Bekvemmelig partisjoner</title>
+    <title>EFI systempartisjonen</title>
+
+    <para>Denne partisjonen, også kjent som <emphasis>ESP</emphasis>, er 
+    nødvendig når du starter opp systemet med UEFI. Den lagrer EFI applikasjonen 
+    som kjøres under oppstart. Oppstartsstasjonen kan partisjoneres med MBR 
+    partisjonstabell eller DOS, men kompatibilitetsproblemer vil ofte oppstå som 
+    et resultat. Derfor er det alltid en god idé å partisjonere oppstartsstasjonen 
+    med en GUID partisjonstabell (GPT). Hvis du bare starter opp LFS fra partisjonen, 
+    kan 20 MB eller mindre være tilstrekkelig. Partisjonen bør være større enn EFI 
+    avbildningsstørrelsen fordi GRUB dumper mye data til partisjonen før EFI avbildningen 
+    opprettes. For å være på den sikre siden anbefales 128 MB til 256 MB, men kan 
+    reduseres mye med litt eksperimentering. Partisjons etiketten bør være 'EFI 
+    System' hvis du bruker <command>fdisk</command>.</para>
+
+    <para>For Grub bør EFI systempartisjonen være plassert på
+    <filename class="directory">/boot/efi</filename>.</para>
+
+    <para>Mange UEFI systemer har et alternativ for kompatibilitetsstøttemodus 
+    (CSM) eller Legacy Boot, som lar deg starte opp med BIOS. Det kan være lurt 
+    å opprette en Grub BIOS partisjon hvis systemet ditt støtter CSM i tilfelle 
+    UEFI oppstart ikke fungerer som forventet.</para>
+    </sect3>
+
+    <sect3>
+    <title>Nyttige partisjoner</title>
 
     <para>Det er flere andre partisjoner som ikke er påkrevd, men som bør
     vurderes når du designer et diskoppsett. Følgende liste
@@ -131,21 +160,16 @@
 
     <itemizedlist>
 
-      <listitem><para>/boot &ndash; Sterkt anbefalt. Bruk denne partisjonen til å
-      lagre kjerner og annen oppstartsinformasjon. For å minimere potensielle
-      oppstartsproblemer med større disker, gjør dette til den første fysiske partisjonen på
-      din første diskstasjon. En partisjonsstørrelse på 200 megabyte er
-      tilstrekkelig.</para></listitem>
-
-      <listitem><para>/boot/efi &ndash; EFI systempartisjonen, som er
-      nødvendig for å starte opp systemet med UEFI. Les
-      <ulink url="&blfs-book;postlfs/grub-setup.html">BLFS siden</ulink>
-      for detaljer.</para></listitem>
+      <listitem><para>/boot &ndash; Sterkt anbefalt. Bruk denne partisjonen til 
+      å lagre kjerner og annen oppstartsinformasjon. For å minimere potensielle
+      oppstartsproblemer med større disker, gjør dette til den første fysiske 
+      partisjonen på din første diskstasjon. En partisjonsstørrelse på 200 
+      megabyte er tilstrekkelig.</para></listitem>
 
       <listitem><para>/home &ndash; Sterkt anbefalt. Del hjemmemappen
       og brukertilpasning på tvers av flere distribusjoner eller LFS
-      bygginger. Størrelsen er vanligvis ganske stor og avhenger av tilgjengelig disk
-      plass.</para></listitem>
+      bygginger. Størrelsen er vanligvis ganske stor og avhenger av tilgjengelig 
+      diskplass.</para></listitem>
 
       <listitem><para>/usr &ndash; I LFS,
       <filename class="directory">/bin</filename>,
@@ -156,9 +180,9 @@
       nødvendig for at systemet skal kjøre. For LFS en egen partisjon for
       <filename class="directory">/usr</filename> er normalt ikke nødvendig.
       Hvis du lager det uansett, bør du lage en partisjon som er stor nok til å
-      passe til alle programmer og biblioteker i systemet. Rotpartisjonen kan være
-      veldig liten (kanskje bare en gigabyte) i denne konfigurasjonen, så det er
-      egnet for en tynnklient eller diskløs arbeidsstasjon (hvor
+      passe til alle programmer og biblioteker i systemet. Rotpartisjonen kan 
+      være veldig liten (kanskje bare en gigabyte) i denne konfigurasjonen, så 
+      det er egnet for en tynnklient eller diskløs arbeidsstasjon (hvor
       <filename class="directory">/usr</filename> monteres fra en fjernserver).
       Du bør imidlertid være oppmerksom på at initramfs (ikke dekket av
       LFS) vil være nødvendig for å starte et system med en separat
@@ -171,8 +195,8 @@
       </listitem>
 
       <listitem revision='sysv'><para>/tmp &ndash; En separat /tmp partisjon
-      er sjeldent, men nyttig hvis du konfigurerer en tynnklient. Denne partisjonen, hvis
-      brukt, vil vanligvis ikke trenge å overstige et par
+      er sjeldent, men nyttig hvis du konfigurerer en tynnklient. Denne 
+      partisjonen, hvis brukt, vil vanligvis ikke trenge å overstige et par
       gigabyte. Hvis du har nok RAM, kan du montere en
       <systemitem class='filesystem'>tmpfs</systemitem> på /tmp å lage
       tilgangen til midlertidige filer raskere.</para></listitem>
@@ -192,7 +216,7 @@
     </itemizedlist>
 
     <para>Enhver separat partisjon som du ønsker automatisk montert når
-    systemet starter må spesifiseres i <filename>/etc/fstab</filename> file.
+    systemet starter må spesifiseres i <filename>/etc/fstab</filename> filen.
     Detaljer om hvordan du spesifiserer partisjoner vil bli diskutert i <xref
     linkend="ch-bootable-fstab"/>.</para>
 
@@ -237,7 +261,7 @@
        </listitem>
        
        <listitem>
-         <para>Swap partisjonen må formateres som swap.</para>
+         <para>Vekselminne partisjonen må formateres som swap.</para>
        </listitem>
        
        <listitem>
