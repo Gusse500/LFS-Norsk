@@ -49,11 +49,11 @@
 	de resulterende mappene slik at GCC byggeprosedyrene automatisk 
 	bruker dem.:</para>
 
-    <note><para>Det er ofte misforståelser om dette kapittelet. 
-	Fremgangsmåtene er de samme som i alle andre kapitler, som forklart tidligere. (<xref
-    linkend='buildinstr'/>).  Først, pakk ut gcc-&gcc-version; tarball fra 
-	kildemappen og deretter endre til mappen som ble opprettet. Først da bør du 
-	fortsette med instruksjonene nedenfor.</para></note>
+    <note><para>Det er hyppige misforståelser om instruksjoner her. Prosedyrene
+    er de samme som alle andre pakker som forklart tidligere (<xref
+    linkend='buildinstr'/>). Først pakker du ut gcc-&gcc-version; tarballen fra 
+    kildemappen, og endre deretter til den opprettede mappen. Først da bør du
+    fortsett med instruksjonene nedenfor.</para></note>
 
 <screen><userinput remap="pre">tar -xf ../mpfr-&mpfr-version;.tar.xz
 mv -v mpfr-&mpfr-version; mpfr
@@ -164,9 +164,9 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--with-newlib</parameter></term>
         <listitem>
-          <para>Siden et fungerende C bibliotek ikke er tilgjengelig ennå sikrer dette
-          at inhibit_libc konstanten blir definert når du bygger libgcc. Dette forhindrer
-          kompilering av kode som krever libc støtte.</para>
+          <para>Siden et fungerende C bibliotek ikke er tilgjengelig ennå som 
+          sikrer at inhibit_libc konstanten blir definert når du bygger libgcc. 
+          Dette forhindrer kompilering av kode som krever libc støtte.</para>
         </listitem>
       </varlistentry>
 
@@ -175,8 +175,8 @@ cd       build</userinput></screen>
         <listitem>
           <para>Når du oppretter en komplett tverrkompilator, krever GCC
           standarddeklarasjoner som er kompatible med målsystemet. For vårt
-          formål vil disse deklarasjonene ikke være nødvendige. Denne bryteren hindrer
-          GCC i å lete etter dem.</para>
+          formål vil disse deklarasjonene ikke være nødvendige. Denne bryteren 
+          hindrer GCC i å lete etter dem.</para>
         </listitem>
       </varlistentry>
 
@@ -184,12 +184,12 @@ cd       build</userinput></screen>
       <term><parameter>--enable-default-pie and
       --enable-default-ssp</parameter></term>
         <listitem>
-          <para>Disse bryterne lar GCC kompilere programmer med
-	      noen herdende sikkerhetsfunksjoner (mer informasjon om de
-	      i <xref linkend="pie-ssp-info"/> kapittel 8) som standard. De er
-	      strengt tatt ikke nødvendig på dette stadiet, siden kompilatoren bare vil 
-		  produsere midlertidige kjørbare filer. Men det er renere å ha de 
-		  midlertidige pakkene så nær de endelige som mulig.
+          <para>Disse bryterne lar GCC kompilere programmer med noen herdende 
+          sikkerhetsfunksjoner (mer informasjon om de i 
+          <xref linkend="pie-ssp-info"/> kapittel 8) som standard. De er strengt 
+          tatt ikke nødvendig på dette stadiet, siden kompilatoren bare vil 
+          produsere midlertidige kjørbare filer. Men det er renere å ha de 
+          midlertidige pakkene så nær de endelige som mulig.
           </para>
         </listitem>
       </varlistentry>
@@ -243,24 +243,24 @@ cd       build</userinput></screen>
 
     <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>Dette bygget av GCC har installert et par interne
-    systemdeklarasjoner.  Normalt vil en av dem, <filename>limits.h</filename>, i sin tur
-    inkludere den tilsvarende system <filename>limits.h</filename> systemdeklarasjonen, i
-    dette tilfellet, <filename>$LFS/usr/include/limits.h</filename>. På tidspunktet for
-    denne byggingen av GCC eksisterer imidlertid ikke <filename>$LFS/usr/include/limits.h</filename>
-    så den interne deklarasjonen som nettopp har blitt installert er en
-    delvis, selvstendig fil og inkluderer ikke de utvidede funksjonene til
-    systemdeklarasjonen. Dette er tilstrekkelig for å bygge glibc, men den fullstendige
-    interne deklarasjonen vil være nødvendig senere. Lag en fullversjon av den interne
-    deklarasjonen ved å bruke en kommando som er identisk med det GCC byggesystemet gjør
-    under normale omstendigheter:</para>
+    <para>Dette bygget av GCC har installert et par interne systemdeklarasjoner.  
+    Normalt vil et av dem, <filename>limits.h</filename>, i sin tur inkludere 
+    den tilsvarende <filename>limits.h</filename> systemdeklarasjonen, i dette 
+    tilfellet, <filename>$LFS/usr/include/limits.h</filename>. På tidspunktet 
+    for denne byggingen av GCC eksisterer imidlertid ikke <filename>$LFS/usr/include/limits.h</filename> 
+    så den interne deklarasjonen som nettopp har blitt installert er en delvis, 
+    selvstendig fil og inkluderer ikke de utvidede funksjonene til 
+    systemdeklarasjonen. Dette er tilstrekkelig for å bygge glibc, men den 
+    fullstendige interne deklarasjonen vil være nødvendig senere. Lag en 
+    fullversjon av den interne deklarasjonen ved å bruke en kommando som er 
+    identisk med det GCC byggesystemet gjør under normale omstendigheter:</para>
 
     <note>
       <para>Kommandoen nedenfor viser et eksempel på nestet kommandoerstatning
-      ved å bruke to metoder: backquotes og a <literal>$()</literal> konstruksjon. 
-      Det kan skrives om ved å bruke samme metode for begge erstatningene,
-      men vises på denne måten for å demonstrere hvordan de kan blandes. Som regel
-      er <literal>$()</literal> metoden foretrukket.</para>
+      ved å bruke to metoder: backquotes og a <literal>$()</literal> 
+      konstruksjon. Det kan skrives om ved å bruke samme metode for begge 
+      erstatningene, men vises på denne måten for å demonstrere hvordan de kan 
+      blandes. Som regel er <literal>$()</literal> metoden foretrukket.</para>
     </note>
 
 <screen><userinput remap="install">cd ..
