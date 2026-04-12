@@ -224,7 +224,7 @@
 
         <para>Denne pakken inneholder et program som genererer en perfekt
         hashfunksjon fra et nøkkelsett. Den kreves av
-        <phrase revision='sysv'>Udev</phrase>
+        <phrase revision='openrc,sysv'>Udev</phrase>
         <phrase revision='systemd'>Systemd</phrase>.</para>
       </listitem>
 
@@ -287,6 +287,12 @@
         verktøypakken for nettverk (net-tools) for sine IPv6-funksjoner.  </para>
       </listitem>
 
+      <listitem>
+        <para>ISL</para>
+
+        <para>Denne pakken inneholder et bibliotek for å manipulere heltallspunkter. 
+        Den brukes hovedsakelig av GCC for å aktivere grafittløkkeoptimaliseringer.</para>
+      </listitem>
       <listitem revision="systemd">
         <para>Jinja2</para>
 
@@ -463,8 +469,20 @@
         pakker i LFS.</para>
       </listitem>
 
+      <listitem revision="openrc">
+        <para>OpenRC</para>
+
+        <para>Denne pakken gir et <application>init</application> program og 
+        systemkontrollfunksjoner som et alternativ til Systemd. Det har en 
+        mindre installasjonsstørrelse, men sterk støtte sammenlignet med andre 
+        som SysVinit. Den brukes av noen få Linux distribusjoner som Gentoo og 
+        Alpine.</para>
+      </listitem>
+
+
+
       <listitem>
-        <para>Openssl</para>
+        <para>OpenSSL</para>
 
         <para>Denne pakken inneholder administrasjonsverktøy og biblioteker knyttet til
         kryptografi. Disse er nyttige for å gi kryptografiske funksjoner til
@@ -560,7 +578,7 @@
         databasemotor uten konfigurasjon.</para>
       </listitem>
 
-      <listitem revision="sysv">
+      <listitem revision="openrc,sysv">
         <para>Sysklogd</para>
 
         <para>Denne pakken inneholder programmer for logging av systemmeldinger,
@@ -573,7 +591,8 @@
 
         <para>Denne pakken gir et <application>init</application> program
         og flere ekstra oppstarts- og systemkontrollfunksjoner som et
-        alternativ til SysVinit. Den brukes av mange kommersielle distribusjoner.
+        alternativ til andre init systemer. Den brukes av mange kommersielle 
+        distribusjoner.
         </para>
       </listitem>
 
@@ -582,10 +601,10 @@
 
         <para>Denne pakken gir <application>init</application>
         programmet, som er overordnet for alle andre prosesser på et Linux
-        system. </para>
+        system.</para>
       </listitem>
   
-      <listitem revision="sysv">
+      <listitem revision="openrc,sysv">
         <para>Udev</para>
 
         <para>Denne pakken er en enhetsbehandler. Den styrer dynamisk eierskapet,

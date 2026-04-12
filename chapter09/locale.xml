@@ -127,7 +127,7 @@ EOF</userinput></screen>
   <para><phrase revision='systemd'>Påloggingsskallene er ofte upåvirket av
   innstillingene i <filename>/etc/locale.conf</filename>. </phrase>Opprett
   <filename>/etc/profile</filename>
-  <phrase revision='sysv'>når de riktige lokale innstillingene har blitt
+  <phrase revision='openrc,sysv'>når de riktige lokale innstillingene har blitt
   bestemt for å angi ønsket lokalitet</phrase><phrase
   revision='systemd'>for å lese lokalinnstillinger fra
   <filename>/etc/locale.conf</filename> og eksporter dem</phrase>,
@@ -158,7 +158,7 @@ fi
 # End /etc/profile</literal>
 EOF</userinput></screen>
 
-<screen revision="sysv"><userinput>cat &gt; /etc/profile &lt;&lt; "EOF"
+<screen revision="openrc,sysv"><userinput>cat &gt; /etc/profile &lt;&lt; "EOF"
 <literal># Begin /etc/profile
 
 for i in $(locale); do

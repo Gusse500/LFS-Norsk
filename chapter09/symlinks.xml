@@ -10,7 +10,7 @@
 
   <title>Administrere enheter</title>
 
-  <sect2 revision="sysv">
+  <sect2 revision="openrc,sysv">
 
     <title>Nettverksenheter</title>
 
@@ -129,7 +129,7 @@
 
   </sect2>
 
-  <sect2 revision="sysv">
+  <sect2 revision="openrc,sysv">
 
     <title>CD-ROM symbolkoblinger</title>
 

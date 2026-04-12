@@ -4,7 +4,7 @@
   <!ENTITY % general-entities SYSTEM "../general.ent">
   %general-entities;
   <!-- Convenient entity for "Systemd" or "Udev" -->
-  <!ENTITY systemd-udev "<phrase revision='systemd'>Systemd</phrase><phrase revision='sysv'>Udev</phrase>">
+  <!ENTITY systemd-udev "<phrase revision='systemd'>Systemd</phrase><phrase revision='openrc,sysv'>Udev</phrase>">
   <!ENTITY bdb "<ulink url='https://www.oracle.com/database/technologies/related/berkeleydb.html'>Berkeley DB</ulink>">
 ]>
 
@@ -2411,6 +2411,46 @@
         <seglistitem>
           <seg>Ingen</seg>
         </seglistitem>
+      </segmentedlist>
+
+<!-- Begin OpenRC dependency info -->                                      
+  <bridgehead renderas="sect2" id="openrcinit-dep" revision='openrc'>OpenRC</bridgehead>
+ 
+      <segmentedlist id="openrcinit-depends" revision='openrc'>                           
+        <segtitle>&dependencies;</segtitle>                                               
+        <seglistitem>                                                                     
+          <seg>Binutils, GCC, Glibc, Meson, Ninja, og Psmisc</seg>                       
+        </seglistitem>                                                                    
+      </segmentedlist>                                                                    
+                                                                                          
+      <segmentedlist id="openrcinit-rundeps" revision='openrc'>                           
+        <segtitle>&runtime;</segtitle>                                                    
+        <seglistitem>                                                                     
+          <seg>Glibc</seg>                                                                
+        </seglistitem>                                                                    
+      </segmentedlist>                                                                    
+                                                                                          
+      <segmentedlist id="openrcinit-testdeps" revision='openrc'>                          
+        <segtitle>&testsuites;</segtitle>                                                 
+        <seglistitem>                                                                     
+          <seg>Bash, Meson, og Ninja</seg>                                    
+        </seglistitem>                                                     
+      </segmentedlist>                                                          
+                                                                              
+      <segmentedlist id="openrcinit-before" revision='openrc'>              
+        <segtitle>&before;</segtitle>                                         
+        <seglistitem>                                           
+          <seg>Ingen</seg>                                       
+        </seglistitem>                                                  
+      </segmentedlist>                                                      
+                                                                       
+      <segmentedlist id="openrcinit-optdeps" revision='openrc'>                
+        <segtitle>&external;</segtitle>                                       
+        <seglistitem>                                           
+          <seg>                                                 
+            <ulink url="&blfs-book;postlfs/linux-pam.html">Linux-PAM</ulink>
+          </seg>                                                            
+        </seglistitem>                                                      
       </segmentedlist>
 
 <!-- Begin Packaging dependency info -->

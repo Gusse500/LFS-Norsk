@@ -5,7 +5,7 @@
   %general-entities;
 ]>
 
-<sect1 id="ch-config-introduction" revision="sysv">
+<sect1 id="ch-config-introduction" revision="openrc,sysv">
   <?dbhtml filename="introduction.html"?>
 
   <title>Introduksjon</title>
@@ -18,7 +18,21 @@
     prosessene må organiseres for å sikre at oppgavene utføres på riktig måte
     og utføres så raskt som mulig.</para>
 
-  <sect2 id='sysv-desc'>
+
+  <sect2 revision='openrc' id='openrc-desc'>
+    <title>OpenRC</title>
+
+    <para>OpenRC kombinerer metodikken til både SysVinit og Systemd. OpenRC har 
+    konseptet med tjenester med avhengighetsinformasjon, men bruker et 
+    kjørenivåskjema som ligner på SysVinit. OpenRC, i likhet med SysVinit og 
+    Systemd, bruker <command>init</command> og starter opp alle prosesser og 
+    daemoner etter behov. Du kan velge hvilket kjørenivå du vil være på,
+    <literal>default</literal> har flest tjenester og er standard. For 
+    informasjon om kjørenivåer, se <xref linkend="ch-config-usage"/>.</para>
+
+  </sect2>
+
+  <sect2 revision='sysv' id='sysv-desc'>
     <title>System V</title>
 
     <para>System V er den klassiske oppstartsprosessen som har blitt brukt i Unix og
@@ -43,44 +57,74 @@
 
     <para>Vanlig standard kjørenivå er 3 eller 5.</para>
 
-    <bridgehead renderas="sect3">Fordeler</bridgehead>
+  </sect2>
+
+  <sect2>
+    <title>Fordeler</title>
 
     <itemizedlist>
       <listitem>
-          <para>Etablert, godt forstått system.</para>
+        <para>Etablert, godt forstått system.</para>
       </listitem>
 
       <listitem>
-          <para>Enkelt å tilpasse.</para>
+        <para>Enkelt å tilpasse.</para>
+      </listitem>
+
+      <listitem revision="openrc">
+        <para>Godt støttet og støttet av store Linux distribusjoner.</para>
+      </listitem>
+
+      <listitem revision="openrc">
+        <para>Parallellisert.</para>
+      </listitem>
+
+      <listitem revision="openrc">
+        <para>Cgroups støtte.</para>
       </listitem>
 
     </itemizedlist>
 
+  </sect2>
 
-    <bridgehead renderas="sect3">Ulemper</bridgehead>
+  <sect2>
+    <title>Ulemper</title>
 
     <itemizedlist>
-      <listitem>
-          <para>Kan være tregere å starte opp. Et middels hastighetsbasert LFS system
-          tar 8-12 sekunder der oppstartstiden måles fra
-          første kjernemelding til login ledeteksten.
-          Nettverkstilkobling er vanligvis etablert ca. 2 sekunder
-          etter påloggingsforespørselen.</para>
+      <listitem revision="openrc">
+        <para>Det er ikke så praktisk som Systemd.</para>
       </listitem>
 
-      <listitem>
-          <para>Seriell behandling av oppstartsoppgaver. Dette er relatert til forrige
-          punkt. En forsinkelse i enhver prosess, for eksempel en filsystemsjekk, vil
-          forsinke hele oppstartsprosessen.</para>
+      <listitem revision="openrc">
+        <para>Den tilbyr ikke den mengden verktøy som Systemd gjør.</para>
       </listitem>
 
-      <listitem>
-          <para>Støtter ikke direkte avanserte funksjoner som
-          kontrollgrupper (cgroups) og planlegging av rettferdig andel per bruker.</para>
+      <listitem revision="openrc">
+        <para>Enkelte funksjoner som prosjekter er avhengige av, som bare finnes 
+        i Systemd, kan ta litt tid før de ser paritet i OpenRC.</para>
       </listitem>
 
-      <listitem>
-          <para>Å legge til skript krever manuelle, statiske sekvensbeslutninger.</para>
+      <listitem revision="sysv">
+        <para>Kan være tregere å starte opp. Et LFS system med middels hastighet 
+        tar 8–12 sekunder, der oppstartstiden måles fra den første 
+        kjernemeldingen til påloggingsledeteksten. Nettverkstilkoblingen 
+        opprettes vanligvis omtrent 2 sekunder etter 
+        påloggingsledeteksten.</para>
+      </listitem>
+
+      <listitem revision="sysv">
+        <para>Seriell prosessering av oppstartsoppgaver. Dette er relatert til 
+        forrige punkt. En forsinkelse i en prosess, for eksempel en 
+        filsystemsjekk, vil forsinke hele oppstartsprosessen.</para>
+      </listitem>
+
+      <listitem revision="sysv">
+        <para>Støtter ikke direkte avanserte funksjoner som kontrollgrupper 
+        (cgroups) og planlegging av rettferdig andel per bruker.</para>
+      </listitem>
+
+      <listitem revision="sysv">
+        <para>Å legge til skript krever manuelle, statiske sekvenseringsbeslutninger.</para>
       </listitem>
 
     </itemizedlist>
@@ -88,4 +132,3 @@
   </sect2>
 
 </sect1>
-

@@ -41,7 +41,7 @@
     deg til å utføre kopier/lim inn handlinger i dine virtuelle
     terminaler.</para></listitem>
 
-    <listitem revision="sysv"><para>
+    <listitem revision="openrc,sysv"><para>
     Hvis du er i en situasjon med statisk IP-konfigurasjon som
     ikke oppfyller nettverkskravene dine, installerer en pakke
     som for eksempel <ulink url='&blfs-book;basicnet/dhcpcd.html'>dhcpcd</ulink>

@@ -37,10 +37,20 @@
       </itemizedlist>
     </listitem>
 
-    Note:  If a change is only specific to sysv or systemd, then use
-    <listitem revision="sysv"> or <listitem revision="systemd"> as
+    Note:  If a change is only specific to one or two init systems, then use
+    <listitem revision="init-system1,init-system2"> or as
     appropriate for the entry or if needed the entire day's listitem.
     -->
+
+    <listitem>
+      <para>06.04.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[zeckma] - Gir OpenRC støtte (erstatter ikke Systemd eller 
+          SysVinit).</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
 
     <listitem>
       <para>04.04.2026</para>

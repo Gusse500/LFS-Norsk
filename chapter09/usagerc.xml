@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-config-usage" revision="openrc">
+  <?dbhtml filename="usage.html"?>
+
+  <title>OpenRC bruk og konfigurasjon</title>
+
+  <indexterm zone="ch-config-usage">
+    <primary sortas="a-Usage">Usage</primary>
+    <secondary>usage</secondary>
+  </indexterm>
+
+  <sect2>
+    <title>Hvordan fungerer OpenRC?</title>
+
+    <para>Denne versjonen av LFS bruker en spesiell oppstartsfunksjon kalt 
+    OpenRC, som starter tjenester i henhold til en serie av 
+    <emphasis>kjørenivåer</emphasis>. Disse kjørenivåene er litt forskjellige 
+    fra init systemer som SysVinit. Selv om disse kjørenivåene eksisterer, er 
+    det mye mindre kompleksitet involvert i OpenRC tjenester. Prosessen krever 
+    ikke oppstartsskript.</para>
+  
+    <para>Det er en alternativ oppstartsprosedyre kalt
+    <command>systemd</command>. Vi vil ikke diskutere den oppstartsprosessen noe 
+    videre her. For en detaljert beskrivelse besøk <ulink
+    url="https://www.linux.com/training-tutorials/understanding-and-using-systemd/"/>.</para>
+
+    <para>OpenRC sitt kjørenivåopplegg har fem kjørenivåer som er viktig, med
+    muligheten til å legge til flere. Hver av de fem tilsvarer visse moduser 
+    datamaskinen er i, f.eks hvis den starter, slår seg av eller ikke har noe 
+    nettverk. Her er beskrivelser av de forskjellige kjøringsnivåene slik de er 
+    implementert i LFS:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>
+          sysinit: henter frem og monterer virtuelle kjernefilsystemer
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          boot: starter opp viktige tjenester som å stille inn tid og sjekker 
+          filsystemet
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          nonetwork: standard uten nettverk
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          default: hvor de fleste tjenester bør være, som å sette opp 
+          lydtjenester
+        </para>
+      </listitem>
+      <listitem>
+        <para>
+          shutdown: dreper alle prosesser og remonterer <filename
+          class="directory">/</filename> i skrivebeskyttet modus
+        </para>
+      </listitem>
+    </itemizedlist>
+
+    <para>
+      Hver tjeneste har avhengighetsinformasjon, så en tjeneste på et gitt 
+      kjørenivå startes på riktig tidspunkt hvis det har riktig 
+      avhengighetsinformasjon.
+    </para>
+
+  </sect2>
+
+  <sect2 id="conf-openrc" role="configuration">
+  <title>Konfigurere OpenRC</title>
+
+  <indexterm zone="conf-openrc">
+    <primary sortas="a-OpenRC">OpenRC</primary>
+    <secondary>configuring</secondary>
+  </indexterm>
+
+  <para>Hver gang et system startes, <command>agetty</command> kjøres for et 
+  antall <literal>tty</literal> enheter. OpenRC gir en
+  <command>agetty</command> tjeneste, men starter den ikke for hver
+  <literal>tty</literal> som trenger det. Opprett og aktiver disse 
+  tjenester:</para>
+
+<screen><userinput>rm -vf /etc/runlevels/default/agetty*
+for i in $(seq 1 6); do
+  ln -sfv agetty /etc/init.d/agetty.tty$i
+  rc-update add agetty.tty$i default
+done</userinput></screen>
+
+  <para>Disse <literal>tty</literal> tjenestene startes på
+  <literal>default</literal> kjørenivå.</para>
+
+  </sect2>
+
+  <sect2 id="ch-config-udevd">
+    <title>Opprette Udevd tjenesten</title>
+
+    <indexterm zone="ch-config-udevd">
+      <primary sortas="d-udevd">udevd</primary>
+    <secondary>configuring</secondary></indexterm>
+
+  <para>OpenRC sender ikke tjenester for <command>udevd</command>, som fører 
+  til at kjernemoduler ikke blir lastet. Opprett og aktiver dem nå:</para>
+
+<screen><userinput>cat &gt; /etc/init.d/udevd &lt;&lt; "EOF"
+<literal>#!/sbin/openrc-run
+# Starts the udevd daemon.
+# Authors: Zeckma - zeckma@linuxfromscratch.com
+# Version: LFS &version;
+
+description="starts the udevd daemon"
+
+command=/sbin/udevd
+command_background=yes
+pidfile="/run/${RC_SVCNAME}.pid"
+
+depend() {
+  after localnet
+  after modules
+}
+
+stop() {
+  ebegin "Stopping ${RC_SVCNAME}"
+  /bin/udevadm control --exit
+  eend $?
+}</literal>
+EOF
+
+cat &gt; /etc/init.d/udev-trigger &lt;&lt; "EOF"
+<literal>#!/sbin/openrc-run
+# Coldplugs devices and settles the udevd daemon.
+# Authors: Zeckma - zeckma@linuxfromscratch.com
+# Version: LFS &version;
+
+description="coldplugs devices"
+
+depend() {
+  after udevd
+  provides dev
+  keyword -shutdown
+}
+
+start() {
+  ebegin "Coldplugging devices"
+
+  /bin/udevadm trigger --action=add    --type=subsystems
+  /bin/udevadm trigger --action=add    --type=devices
+  /bin/udevadm trigger --action=change --type=devices
+
+# Wait for udevd to process the uevents we triggered
+  /bin/udevadm settle --timeout=5
+
+# If any LVM based partitions are on the system, ensure they
+# are activated so they can be used.
+  if [ -x /sbin/vgchange ]; then /sbin/vgchange -a y >/dev/null; fi
+}</literal>
+EOF
+
+for i in udev{d,-trigger}; do
+  chmod 755 /etc/init.d/$i
+  rc-update add $i sysinit
+done</userinput></screen>
+
+    <para>
+      Disse tjenestene skal laste de fleste om ikke alle moduler automatisk. 
+      Hvis du trenger å laste en gitt modul, men den blir ikke lastet, skriv 
+      modulnavnet til <filename>/etc/conf.d/modules</filename> konfigurasjonsfilen.
+    </para>
+
+  </sect2>
+
+  <sect2 id="ch-config-sysklogd">
+    <title>Opprette Sysklogd tjenesten</title>
+
+    <indexterm zone="ch-config-sysklogd">
+      <primary sortas="d-sysklogd">sysklogd</primary>
+    <secondary>configuring</secondary></indexterm>
+
+  <para>OpenRC sender ikke en tjeneste for <command>syslogd</command>, som 
+  leder at viktige meldinger ikke blir fanget opp. Opprett og aktiver tjenesten 
+  for logger:</para>
+
+<screen><userinput>cat &gt; /etc/init.d/sysklogd &lt;&lt; "EOF"
+<literal>#!/sbin/openrc-run
+# Starts the sysklogd daemon.
+# Authors: Zeckma - zeckma@linuxfromscratch.com
+# Version: LFS &version;
+
+command=/sbin/syslogd
+pidfile="/run/${RC_SVCNAME}.pid"
+command_background=true
+command_args="-F ${sysklogd_options}"
+
+depend() {
+  need clock hostname
+  after root
+  provide logger
+}
+
+reload() {
+  ebegin "Reloading sysklogd"
+  start-stop-daemon --signal HUP --pidfile ${pidfile}
+  eend $?
+}</literal>
+EOF
+
+chmod 755 /etc/init.d/sysklogd
+rc-update add sysklogd boot</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="ch-config-clock">
+    <title>Konfigurere systemklokken</title>
+
+    <indexterm zone="ch-config-clock">
+      <primary sortas="d-setclock">setclock</primary>
+    <secondary>configuring</secondary></indexterm>
+
+  <para>OpenRC gir en <command>hwclock</command> tjeneste som leser fra 
+  maskinvareklokken. Deretter setter den tiden. Denne tiden er hentet fra enten 
+  å bruke tidssonedata fra <filename>/etc/localtime</filename>, eller den gjør 
+  rett og slett ikke noe og viser tiden som den er. For å vite hva du skal gjøre 
+  med maskinvaretiden må den bestemme om tiden er UTC eller lokal. Den kan ikke 
+  gjøre dette på egen hånd, så en konfigurasjonsfil er nødvendig. OpenRC har 
+  allerede en, og bør redigeres.</para>
+
+  <para>Hvis du ikke husker om maskinvareklokken er satt til UTC eller ikke, 
+  finn ut ved å kjøre <userinput>hwclock --localtime --show</userinput>
+  kommandoen. Dette vil vise hva gjeldende tid er i henhold til 
+  maskinvareklokken. Hvis denne tiden stemmer overens med hva klokken din sier, 
+  er maskinvareklokken det satt til lokal tid. Hvis utdataen fra 
+  <command>hwclock</command> ikke er lokaltid, sjansen er stor for at den er 
+  satt til UTC tid. Bekreft dette ved å legge til eller trekke fra riktig antall 
+  timer for tidssonen til tiden vist av <command>hwclock</command>. For 
+  eksempel, hvis du for øyeblikket er i CET tidssonen, som også er kjent som 
+  GMT +0100, trekk fra en time til den lokale tid. (ta høyde for sommertid)</para>
+
+  <para>Når du vet tiden maskinvaren bruker, rediger
+  <filename>/etc/conf.d/hwclock</filename> etter behov. Det er nok av 
+  kommentarer som forklarer hva du skal redigere.</para>
+
+  </sect2>
+
+  <sect2 id="ch-config-console">
+  <?dbhtml filename="console.html"?>
+
+  <title>Konfigurere Linux konsollen</title>
+
+  <indexterm zone="ch-config-console">
+    <primary sortas="d-console">console</primary>
+    <secondary>configuring</secondary>
+  </indexterm>
+
+  <para>Denne delen diskuterer hvordan du konfigurerer
+  <command>consolefont</command> og <command>keymap</command> tjenester som å 
+  sette opp konsollfonten og tastaturkartet. Hvis ikke-ASCII-tegn (f.eks 
+  opphavsrettstegn, det britiske pundtegnet og eurosymbolet) ikke vil bli brukt 
+  og tastaturet er et amerikansk tastatur, kan mye av denne delen hoppes over. 
+  Uten konfigurasjonsfilene, <command>consolefont</command> og
+  <command>keymap</command> tjenester vil bruke standardinnstillingene.</para>
+
+  <para><command>consolefont</command> tjenesten leser
+  <filename>/etc/conf.d/consolefont</filename> filen for 
+  konfigurasjonsinformasjon. Bestem hvilken skjermskrift som skal brukes. Søk <filename
+  class="directory">/usr/share/consolefonts</filename> for gyldige fonter.</para>
+
+  <para><command>keymaps</command> tjenesten leser
+  <filename>/etc/conf.d/keymaps</filename> filen for 
+  konfigurasjonsinformasjon. Bestem hvilket keymap som skal brukes. Ulike 
+  språkspesifikke HOWTOer kan også hjelpe med dette; se <ulink
+  url="https://tldp.org/HOWTO/HOWTO-INDEX/other-lang.html"/>. Hvis fortsatt i 
+  tvil, se i <filename class="directory">/usr/share/keymaps</filename>
+  mappen for gyldige keymaps.</para>
+
+  <para>For både <command>consolefont</command> og <command>keymaps</command>,
+  finnes konfigurasjonsfiler for begge og har kommentarer som gir god 
+  informasjon om hva som skal gis til hver parameter.</para>
+
+  <!-- Added because folks keep posting their console file with X questions
+  to blfs-support list -->
+  <note>
+    <para>Konfigurasjonsfilene for konsollen kontrollerer kun lokaliseringen 
+    av Linux tekstkonsollen. Innstillingen har ingenting å gjøre med riktig 
+    tastaturoppsett og terminalfonter i X Window System, med ssh økter, 
+    eller med en seriell konsoll.</para>
+  </note>
+
+  </sect2>
+
+  <sect2 id="ch-config-agetty">
+    <title>Konfigurere Agetty</title>
+
+    <para>
+      Hvis du ikke vil at oppstartsloggene skal slettes på den første TTY, som 
+      Agetty vil slette som standard, legg til <option>--noclear</option> til
+      <literal>agetty_options</literal> i
+      <filename>/etc/conf.d/agetty</filename> filen.
+    </para>
+
+  </sect2>
+
+  <sect2 id="ch-config-rc">
+    <title>rc.conf filen</title>
+
+    <indexterm zone="ch-config-rc">
+      <primary sortas="a-rc.conf">rc.conf</primary>
+    </indexterm>
+
+    <para><filename>/etc/rc.conf</filename> filen inneholder innstillinger som kontrollere 
+    hvordan OpenRC starter og fungerer. For eksempel kan du fortelle OpenRC å starte 
+    tjenester parallelt, eller du kan spesifisere hvilket kjørenivå du vil at system 
+    skal kjøre på. I de fleste tilfeller trenger du ikke å redigere denne filen.</para>
+
+  </sect2>
+
+  <sect2 id="ch-config-other-rc">
+    <title>Andre OpenRC konfigurasjonsfiler</title>
+
+    <para>Mange andre tjenester har konfigurasjonsfiler i <filename
+    class="directory">/etc/conf.d</filename> og skal samsvare med tjenestenavnet 
+    funnet i <filename class="directory">/etc/init.d</filename>. Hvis en 
+    tjeneste gir deg problemer, kan det være en konfigurasjonsfil for det 
+    allerede, og bør ha kommentarer.</para>
+
+  </sect2>
+</sect1>

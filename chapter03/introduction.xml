@@ -107,15 +107,7 @@
   som en inngang til kommandoen <command>wget</command> ,bruk:</para>
 
 <screen role="nodump"><userinput>wget --input-file=&wget-list; --continue --directory-prefix=$LFS/sources</userinput></screen>
-<!--
-  <note><para>
-    The <filename>wget-list</filename> filen nevnt ovenfor henter alle
-    pakker for både sysV og systemd versjonene av LFS. Det er totalt
-    fem ekstra små pakker som ikke er nødvendig for den gjeldende boken.
-    <filename>md5sums</filename> filen nevnt nedenfor er spesifikk for
-    gjeldende bok.
-  </para></note>
--->
+
   <para>I tillegg, fra og med LFS 7.0, er det en egen fil,
   <ulink url="../md5sums">md5sums</ulink>, som kan brukes til å bekrefte at alle
   de riktige pakkene er tilgjengelige før du fortsetter. Legg inn denne filen i

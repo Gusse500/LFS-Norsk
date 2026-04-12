@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-openrc" role="wrap" revision="openrc">
+  <?dbhtml filename="openrc.html"?>
+
+  <sect1info condition="script">
+    <productname>openrc</productname>
+    <productnumber>&openrc-version;</productnumber>
+    <address>&openrc-url;</address>
+  </sect1info>
+
+  <title>OpenRC-&openrc-version;</title>
+
+  <indexterm zone="ch-system-openrc">
+    <primary sortas="a-OpenRC">OpenRC</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>OpenRC pakken inneholder programmer for å kontrollere oppstart, 
+    kjøring og avslutning av systemet.</para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&openrc-fin-sbu;</seg>
+        <seg>&openrc-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av OpenRC</title>
+
+    <para>Rett et skript for å tillate en normal installasjon:</para>
+
+<screen><userinput remap="pre">sed -i '/set -u/d' tools/meson_final.sh</userinput></screen>
+
+    <para>Klargjør OpenRC for kompilering:</para>
+
+<screen><userinput remap="configure">mkdir build
+cd    build
+
+meson setup --prefix=/usr       \
+            --buildtype=release \
+            -D pam=false ..</userinput></screen>
+
+    <variablelist>
+      <title>Betydningen av konfigurasjonsalternativene:</title>
+
+      <varlistentry>
+        <term><parameter>-D pam=false</parameter></term>
+        <listitem>
+          <para>Dette deaktiverer behovet for Linux-PAM for byggingen, siden 
+          det ikke er installert ennå.</para>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">ninja</userinput></screen>
+
+    <para>For å kjøre testene, utsted:</para>
+
+<screen><userinput remap="test">ninja test</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">ninja install &amp;&amp;
+mv -v /sbin/rc-update /bin</userinput></screen>
+
+    <para>OpenRC tilbyr <application>init</application> og andre egne 
+    programmer. Imidlertid opprettes ikke forkortelsene for dem. Opprett 
+    symbolske lenker:</para>
+
+<screen><userinput>for i in {init,shutdown}; do
+  ln -sv openrc-$i /sbin/$i
+done
+
+cat &gt; /sbin/poweroff &lt;&lt; "EOF"
+<literal>#!/bin/sh
+/sbin/shutdown --poweroff now</literal>
+EOF
+
+cat &gt; /sbin/reboot &lt;&lt; "EOF"
+<literal>#!/bin/sh
+/sbin/shutdown --reboot now</literal>
+EOF
+
+chmod 755 /sbin/poweroff /sbin/reboot</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-openrc" role="content">
+    <title>Innhold i OpenRC</title>
+
+    <segmentedlist>
+      <segtitle>Installerte programmer</segtitle>
+      <segtitle>Installerte biblioteker</segtitle>
+      <segtitle>Installerte mapper</segtitle>
+
+      <seglistitem>
+        <seg>
+          rc-status,
+          init (lenke til openrc-init),
+          openrc,
+          openrc-init,
+          openrc-run,
+          openrc-shutdown,
+          poweroff,
+          rc-service,
+          rc-sstat,
+          rc-update,
+          reboot,
+          shutdown (lenke til openrc-shutdown),
+          start-stop-daemon, og
+          supervise-daemon
+        </seg>
+        <seg>
+          libeinfo.so og
+          librc.so
+        </seg>
+        <seg>
+          /etc/conf.d,
+          /etc/init.d,
+          /etc/local.d,
+          /etc/runlevels,
+          /etc/sysctl.d,
+          /usr/libexec/rc, og
+          /usr/share/openrc
+        </seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="rc-status">
+        <term><command>rc-status</command></term>
+        <listitem>
+          <para>
+            Gir statusen til en tjeneste
+          </para>
+          <indexterm zone="ch-system-openrc rc-status">
+            <primary sortas="b-rc-status">rc-status</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="init">
+        <term><command>init</command></term>
+        <listitem>
+          <para>
+            Er den første prosessen som startes når kjernen har initialisert 
+            maskinvaren; den tar over oppstartsprosessen og starter alle 
+            tjenestene; symbollenke til <command>openrc-init</command>
+          </para>
+          <indexterm zone="ch-system-openrc init">
+            <primary sortas="b-init">init</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="openrc">
+        <term><command>openrc</command></term>
+        <listitem>
+          <para>
+            starter og stopper tjenester på et gitt kjørenivå
+          </para>
+          <indexterm zone="ch-system-openrc openrc">
+            <primary sortas="b-openrc">openrc</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="openrc-init">
+        <term><command>openrc-init</command></term>
+        <listitem>
+          <para>
+            Blir kalt fra <command>init</command> og starter hver tjeneste 
+            etter behov
+          </para>
+          <indexterm zone="ch-system-openrc openrc-init">
+            <primary sortas="b-openrc-init">openrc-init</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="openrc-run">
+        <term><command>openrc-run</command></term>
+        <listitem>
+          <para>
+            Tillater bruk av skallkommandoer i en tjenestefil
+          </para>
+          <indexterm zone="ch-system-openrc openrc-run">
+            <primary sortas="b-openrc-run">openrc-run</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="openrc-shutdown">
+        <term><command>openrc-shutdown</command></term>
+        <listitem>
+          <para>
+            Slår av systemet på en sikker måte, signaliserer alle prosesser og 
+            varsler alle innloggede brukere
+          </para>
+          <indexterm zone="ch-system-openrc openrc-shutdown">
+            <primary sortas="b-openrc-shutdown">openrc-shutdown</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="poweroff">
+        <term><command>poweroff</command></term>
+        <listitem>
+          <para>
+            Kaller <command>openrc-shutdown</command> med
+            <parameter>--poweroff</parameter>, stoppe alle tjenester og 
+            prosesser før systemet slås av
+          </para>
+          <indexterm zone="ch-system-openrc poweroff">
+            <primary sortas="b-poweroff">poweroff</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="rc-service">
+        <term><command>rc-service</command></term>
+        <listitem>
+          <para>
+            Kjører en gitt tjeneste etter å ha funnet den
+          </para>
+          <indexterm zone="ch-system-openrc rc-service">
+            <primary sortas="b-rc-service">rc-service</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="rc-sstat">
+        <term><command>rc-sstat</command></term>
+        <listitem>
+          <para>
+            Gir statusen til de viktigste tjenestene, etterfulgt av vanlige 
+            tjenester
+          </para>
+          <indexterm zone="ch-system-openrc rc-sstat">
+            <primary sortas="b-rc-sstat">rc-sstat</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="rc-update">
+        <term><command>rc-update</command></term>
+        <listitem>
+          <para>
+            Legger til og fjerner tjenester på et kjørenivå
+          </para>
+          <indexterm zone="ch-system-openrc rc-update">
+            <primary sortas="b-rc-update">rc-update</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="reboot">
+        <term><command>reboot</command></term>
+        <listitem>
+          <para>
+            Kaller <command>openrc-shutdown</command> med
+            <parameter>--reboot</parameter>, stoppe alle tjenester og prosesser 
+            før systemet startet på nytt
+          </para>
+          <indexterm zone="ch-system-openrc reboot">
+            <primary sortas="b-reboot">reboot</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="shutdown">
+        <term><command>shutdown</command></term>
+        <listitem>
+          <para>
+            Er en symbollenke til <command>openrc-shutdown</command>
+          </para>
+          <indexterm zone="ch-system-openrc shutdown">
+            <primary sortas="b-shutdown">shutdown</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="start-stop-daemon">
+        <term><command>start-stop-daemon</command></term>
+        <listitem>
+          <para>
+            Starter eller stopper en daemon i en tjenestefil
+          </para>
+          <indexterm zone="ch-system-openrc start-stop-daemon">
+            <primary sortas="b-start-stop-daemon">start-stop-daemon</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="supervise-daemon">
+        <term><command>supervise-daemon</command></term>
+        <listitem>
+          <para>
+            Overvåker en daemon i en tjenestefil
+          </para>
+          <indexterm zone="ch-system-openrc supervise-daemon">
+            <primary sortas="b-supervise-daemon">supervise-daemon</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libeinfo">
+        <term><filename class="libraryfile">libeinfo</filename></term>
+        <listitem>
+          <para>
+            Inneholder funksjoner for å sende ut fargede meldinger
+          </para>
+          <indexterm zone="ch-system-openrc libeinfo">
+            <primary sortas="c-libeinfo">libeinfo</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="librc">
+        <term><filename class="libraryfile">librc</filename></term>
+        <listitem>
+          <para>
+            Tilbyr OpenRC kjernefunksjoner
+          </para>
+          <indexterm zone="ch-system-openrc librc">
+            <primary sortas="c-librc">librc</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+
+  </sect2>
+
+</sect1>

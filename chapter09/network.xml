@@ -5,7 +5,7 @@
   %general-entities;
 ]>
 
-<sect1 id="ch-config-network" revision="sysv">
+<sect1 id="ch-config-network" revision="openrc,sysv">
   <?dbhtml filename="network.html"?>
 
   <title>Generell nettverkskonfigurasjon</title>
@@ -17,15 +17,20 @@
   <sect2>
     <title>Opprette konfigurasjonsfiler for nettverksgrensesnitt</title>
 
-    <para>Hvilke grensesnitt bringes opp og ned av nettverksskriptet
-    avhenger vanligvis av filene i <filename
-    class="directory">/etc/sysconfig/</filename>.  Denne mappen bør
-    inneholde en fil for hvert grensesnitt som skal konfigureres, for eksempel
-    <filename>ifconfig.xyz</filename>, hvor <quote>xyz</quote> skal beskrive
-    nettverkskortet. Grensesnittnavnet (f.eks. eth0) er vanligvis passende.
-    Inne i denne filen er attributter til dette grensesnittet, for eksempel dets IP
-    adresse(r), nettverksmasker og så videre. Det er nødvendig at stammen av
-    filnavnet er <emphasis>ifconfig</emphasis>.</para>
+    <para revision="sysv">Filene i <filename
+    class="directory">/etc/sysconfig/</filename>
+    bestemmer vanligvis hvilke grensesnitt som aktiveres og deaktiveres av 
+    nettverksskriptet. Denne mappen skal inneholde en fil for hvert grensesnitt 
+    som skal konfigureres, for eksempel
+    <filename>ifconfig.xyz</filename>, hvor <quote>xyz</quote> beskriver 
+    nettverkskortet. Grensesnittnavnet (f.eks. eth0) er vanligvis passende. Hver 
+    fil inneholder attributtene til ett grensesnitt, for eksempel IP adresse(r), 
+    subnettmasker og så videre. Stammen av filnavnet må 
+    være <emphasis>ifconfig</emphasis>.</para>
+
+    <para revision="openrc"><filename>/etc/conf.d/network</filename> filen
+    bestemmer hvilke grensesnitt som bringes opp og ned av
+    <command>network</command> servicen.</para>
 
     <note>
       <para>Hvis prosedyren i forrige avsnitt ikke ble brukt, vil udev
@@ -44,11 +49,15 @@
       <emphasis>selv om det er i chroot miljøet</emphasis>.</para>
     </note>
 
-    <para>Følgende kommando oppretter en eksempelfil for
+    <para revision="openrc">For å spesifisere grensesnittene du vil starte, 
+    rediger <filename>/etc/conf.d/network</filename> konfigurasjonsfilen, 
+    som har mange kommentarer.</para>
+
+    <para revision="sysv">Følgende kommando oppretter en eksempelfil for
     <emphasis>eth0</emphasis> enheten med en statisk IP-adresse:</para>
 <!-- jhalfs er avhengig av verdiene for IFACE, IP, etc. Hvis du ønsker å endre
       dem, vennligst informer jhalfs vedlikeholder(e). -->
-<screen><userinput>cd /etc/sysconfig/
+<screen revision="sysv"><userinput>cd /etc/sysconfig/
 cat &gt; ifconfig.<replaceable>eth0</replaceable> &lt;&lt; "EOF"
 <literal>ONBOOT=<replaceable>yes</replaceable>
 IFACE=<replaceable>eth0</replaceable>
@@ -59,42 +68,44 @@ PREFIX=<replaceable>24</replaceable>
 BROADCAST=<replaceable>192.168.1.255</replaceable></literal>
 EOF</userinput></screen>
 
-    <para>Verdiene i kursiv må endres i hver fil for å samsvare
-    med riktig oppsett.</para>
+    <para revision="sysv">Verdiene i kursiv må endres i hver fil for å sette 
+    opp grensesnittene riktig.</para>
 
-    <para>Hvis <envar>ONBOOT</envar> variabelen er satt til <literal>yes</literal>
-    System V nettverksskript vil hente opp nettverksgrensesnittkortet (NIC) under
-    systemets oppstartsprosess. Hvis satt til noe annet enn <literal>yes</literal> vil NIC
-    bli ignorert av nettverksskriptet og ikke automatisk hentet frem.
-    Grensesnittet kan startes eller stoppes manuelt med
-    <command>ifup</command> og <command>ifdown</command> kommandoene.</para>
+    <para revision="sysv">Hvis <envar>ONBOOT</envar> variabelen er satt til
+    <literal>yes</literal> System V nettverksskriptet vil åpne nettverkskortet 
+    (NIC) under systemoppstartsprosessen. Hvis satt til noe annet enn 
+    <literal>yes</literal>, vil NIC bli ignorert av nettverksskriptet og vil 
+    ikke startes automatisk. Grensesnitt kan startes eller stoppes manuelt 
+    med <command>ifup</command> og
+    <command>ifdown</command> kommandoer.</para>
 
-    <para><envar>IFACE</envar> variabelen definerer grensesnittnavnet,
-    for eksempel eth0. Det kreves for all konfigurasjon av 
-    nettverksenhetsfiler. Filnavnet må samsvare med denne verdien.</para>
+    <para revision="sysv"><envar>IFACE</envar> Variabelen definerer grensesnittnavnet, 
+    for eksempel eth0. Den er nødvendig for alle konfigurasjonsfiler for 
+    nettverksenheter. Filtypen må samsvare med denne verdien.</para>
 
-    <para><envar>SERVICE</envar> variabelen definerer metoden som brukes for
-    få IP adressen. LFS-Bootscripts pakken har en modulær IP
-    tildelingsformat, og oppretter flere filer i <filename
-    class="directory">/lib/services/</filename> mappen som tillater annen IP
-    tildelingsmetoder. Dette brukes ofte for dynamisk vertskonfigurasjon
-    Protokoll (DHCP), som er adressert i BLFS boken.</para>
+    <para revision="sysv"><envar>SERVICE</envar> variabelen definerer metoden 
+    som brukes for å hente IP adressen. LFS Bootscripts pakken har et modulært 
+    IP tildelingsformat, og det å opprette tilleggsfiler i
+    <filename class="directory">/lib/services/</filename> mappen tillater andre 
+    IP tildelingsmetoder. Dette brukes ofte for Dynamic Host Configuration 
+    Protocol (DHCP), som er omtalt i BLFS boken.</para>
 
-    <para><envar>GATEWAY</envar> variabelen skal inneholde standard
-    standardruter (gateway) IP adresse, hvis en er til stede. Hvis ikke, så kommenter
-    variabelen helt ut.</para>
+    <para revision="sysv"><envar>GATEWAY</envar> variabelen bør inneholde 
+    standard gateway IP adresse, hvis en finnes. Hvis ikke, kommenter ut 
+    variabelen fullstendig.</para>
 
-    <para><envar>PREFIX</envar> variabelen inneholder antall
-    biter som brukes i subnettet. Hver oktett i en IP-adresse er 8 bits. Hvis
-    subnettets nettmaske er 255.255.255.0, bruker den deretter de tre første oktettene
-    (24 bits) for å spesifisere nettverksnummeret. Hvis nettmasken er 255.255.255.240,
-    ville det være å bruke de første 28 bitene. Prefikser lengre enn 24 biter er
-    ofte brukt av DSL- og kabelbaserte Internett-leverandører (ISP).
-    I dette eksemplet (PREFIX=24) er nettmasken 255.255.255.0. Juster
-    <envar>PREFIX</envar> variabel i henhold til ditt spesifikke undernett.
-    Hvis det utelates, er PREFIX sin standard 24.</para>
+    <para revision="sysv"><envar>PREFIX</envar> variabelen angir antall biter 
+    som brukes i delnettet. Hvert segment av en IP adresse er 8 biter. Hvis 
+    delnettets nettmaske er 255.255.255.0, bruker den de tre første segmentene 
+    (24 biter) til å spesifisere nettverksnummeret. Hvis nettmasken er 
+    255.255.255.240, bruker delnettet de første 28 bitene. Prefikser som er 
+    lengre enn 24 biter brukes ofte av DSL og kabelbaserte internettleverandører 
+    (ISP-er). I dette eksemplet (PREFIX=24) er nettmasken 255.255.255.0. 
+    Juster <envar>PREFIX</envar> variabel i henhold til ditt spesifikke delnett. 
+    Hvis utelatt, settes PREFIX til 24 som standard.</para>
 
-    <para>For mer informasjon se <command>ifup</command> man side.</para>
+    <para revision="sysv">For mer informasjon, se <command>ifup</command>
+    manualside.</para>
 
   </sect2>
   <sect2 id="resolv.conf">

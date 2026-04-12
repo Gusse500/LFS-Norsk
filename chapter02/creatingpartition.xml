@@ -201,11 +201,14 @@
       <systemitem class='filesystem'>tmpfs</systemitem> på /tmp å lage
       tilgangen til midlertidige filer raskere.</para></listitem>
 
-      <listitem revision='systemd'><para>/tmp &ndash; Som standard, systemd
+      <listitem revision='systemd,openrc'><para>/tmp &ndash; Som standard,
+      <phrase revision="systemd">systemd</phrase>
+      <phrase revision="openrc">OpenRC</phrase>
       monterer en <systemitem class='filesystem'>tmpfs</systemitem> her.
+      <phrase revision="systemd">
       Hvis du vil overstyre atferden, følg
       <xref linkend='systemd-no-tmpfs'/> når du konfigurere LFS
-      systemet.</para></listitem>
+      systemet.</phrase></para></listitem>
 
       <listitem><para>/usr/src &ndash; Denne partisjonen er veldig
       nyttig for å gi en plassering for å lagre BLFS kildefiler og

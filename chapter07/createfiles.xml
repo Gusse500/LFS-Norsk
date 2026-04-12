@@ -60,7 +60,7 @@ EOF</userinput></screen>
   <para>Opprett <filename>/etc/passwd</filename> filen ved å kjøre følgende
   kommando:</para>
 
-<screen revision="sysv"><userinput>cat &gt; /etc/passwd &lt;&lt; "EOF"
+<screen revision="openrc,sysv"><userinput>cat &gt; /etc/passwd &lt;&lt; "EOF"
 <literal>root:x:0:0:root:/root:/bin/bash
 bin:x:1:1:bin:/dev/null:/usr/bin/false
 daemon:x:6:6:Daemon User:/dev/null:/usr/bin/false
@@ -92,7 +92,7 @@ EOF</userinput></screen>
   <para>Opprett <filename>/etc/group</filename> filen ved å kjøre følgende
   kommando:</para>
 
-<screen revision="sysv"><userinput>cat &gt; /etc/group &lt;&lt; "EOF"
+<screen revision="openrc,sysv"><userinput>cat &gt; /etc/group &lt;&lt; "EOF"
 <literal>root:x:0:
 bin:x:1:daemon
 sys:x:2:
@@ -168,7 +168,7 @@ EOF</userinput></screen>
   med en GID på 1 å være tilstede. GID på 5 er mye brukt for
   <systemitem class="groupname">tty</systemitem> gruppen, og tallet 5 er
   også brukt i <phrase revision="systemd">systemd</phrase>
-  <phrase revision="sysv"><filename>/etc/fstab</filename></phrase> for
+  <phrase revision="openrc,sysv"><filename>/etc/fstab</filename></phrase> for
   <systemitem class="filesystem">devpts</systemitem> filsystemet.
   Alle andre gruppenavn og GID-er kan velges fritt av systemets
   administrator siden velskrevne programmer ikke er avhengige av GID-nummer,
@@ -223,9 +223,11 @@ chmod -v 600  /var/log/btmp</userinput></screen>
 
   <note><para><filename>/run/utmp</filename> filen 
   registrerer brukerne som for øyeblikket er logget inn.
-  <phrase revision='sysv'>Denne filen opprettes dynamisk i oppstartsskriptene.
-  </phrase><phrase revision='systemd'>Denne filen opprettes dynamisk når en 
-  bruker logger seg på systemet.</phrase></para></note>
+  Denne filen opprettes dynamisk
+  <phrase revision='sysv'>i oppstartsskriptene.</phrase>
+  <phrase revision='openrc'>av OpenRC tjenestene.</phrase>
+  <phrase revision='systemd'>når en bruker logger seg inn i systemet.</phrase>
+  </para></note>
 
   <!-- AFAIK they are not vital for system function, users requiring such
        info should rely on systemd-logind or elogind or some custom PAM
