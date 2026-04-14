@@ -42,15 +42,57 @@
     appropriate for the entry or if needed the entire day's listitem.
     -->
 
+      <para>15.04.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdater til meson-1.11.0. Fikser
+          <ulink url='&lfs-ticket-root;5911'>#5911</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Flyttet intltool og XML-Parser til BLFS. Fikser
+          <ulink url='&lfs-ticket-root;4964'>#4964</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til vim-9.1.0340 (Sikkerhetsoppdatering). Fikser
+          <ulink url='&lfs-ticket-root;5904'>#5904</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til util-linux-2.42 (Sikkerhetsoppdatering). Fikser
+          <ulink url='&lfs-ticket-root;5900'>#5900</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til sqlite-3.53.0. Fikser
+          <ulink url='&lfs-ticket-root;5909'>#5909</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til Python3-3.14.4 (Sikkerhetsoppdatering). Fikser
+          <ulink url='&lfs-ticket-root;5907'>#5907</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til openssl-3.6.2 (Sikkerhetsoppdatering). Fikser
+          <ulink url='&lfs-ticket-root;5906'>#5906</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til linux-6.19.12. Fikser
+          <ulink url='&lfs-ticket-root;5903'>#5903</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til libcap-2.78 (Sikkerhetsoppdatering). Fikser
+          <ulink url='&lfs-ticket-root;5905'>#5905</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdater til iana-etc-20260409. Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
     <listitem>
       <para>06.04.2026</para>
       <itemizedlist>
         <listitem>
           <para>[zeckma] - Gir OpenRC støtte (erstatter ikke Systemd eller 
           SysVinit).</para>
-        </listitem>
-      </itemizedlist>
-    </listitem>
 
     <listitem>
       <para>04.04.2026</para>
