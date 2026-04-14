@@ -203,7 +203,6 @@
     <!--<listitem revision="openrc">
       <para>OpenRC-&openrc-version;</para>
     </listitem>-->
-    <!--<listitem>
     <listitem>
       <para>OpenSSL-&openssl-version;</para>
     </listitem>

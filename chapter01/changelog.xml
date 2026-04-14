@@ -93,6 +93,9 @@
         <listitem>
           <para>[zeckma] - Gir OpenRC støtte (erstatter ikke Systemd eller 
           SysVinit).</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
 
     <listitem>
       <para>04.04.2026</para>
