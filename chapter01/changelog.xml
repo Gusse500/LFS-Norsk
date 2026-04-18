@@ -62,7 +62,7 @@
           <ulink url='&lfs-ticket-root;4964'>#4964</ulink>.</para>
         </listitem>
         <listitem>
-          <para>[bdubbs] - Oppdater til vim-9.1.0340 (Sikkerhetsoppdatering). Fikser
+          <para>[bdubbs] - Oppdater til vim-9.2.0340 (Sikkerhetsoppdatering). Fikser
           <ulink url='&lfs-ticket-root;5904'>#5904</ulink>.</para>
         </listitem>
         <listitem>
@@ -118,7 +118,7 @@
           Fikser (igjen) <ulink url='&lfs-ticket-root;5892'>#5892</ulink>.</para>
         </listitem>
         <listitem>
-          <para>[bdubbs] - Oppdater til vim-9.1.0272. Adresserer
+          <para>[bdubbs] - Oppdater til vim-9.2.0272. Adresserer
           <ulink url='&lfs-ticket-root;4500'>#4500</ulink>.</para>
         </listitem>
         <listitem>
