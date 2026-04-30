@@ -116,7 +116,7 @@ xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso</userinput></
       skal bruke den partisjonen til
       <filename class="directory">/boot</filename> også, bare monter 
       partisjonen på <filename class="directory">$LFS/boot</filename>
-      i vertsdistribusjonen. Linuxkjernen støtter montering av partisjoner på 
+      i vertsdistribusjonen. Linuxkjernen støtter montering av en partisjon på 
       flere monteringspunkter.</para>
     </note>
 
