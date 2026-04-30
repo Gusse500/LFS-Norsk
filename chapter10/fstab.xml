@@ -101,7 +101,8 @@ EOF</userinput></screen>
   <para>
     <literal>iso8859-1</literal> IO tegnsettet brukes her, siden vi vil 
     aktivere det som en del av kjernens UEFI konfigurasjon i
-    <xref linkend='ch-bootable-kernel'/>.  Teknisk sett bør IO tegnsettet 
+    <xref linkend='ch-bootable-kernel' role='.'/>  
+    Teknisk sett bør IO tegnsettet 
     samsvare med språkinnstillingen din, som vi har diskutert ovenfor. Navnet 
     på alle filene i ESP inneholder imidlertid bare 7-bit ASCII tegn, så alt 
     vil gå bra så lenge tegnsettet for språkinnstillingen din behandler 7-bit 
@@ -115,7 +116,7 @@ EOF</userinput></screen>
       bruker denne partisjonen før kjernen lastes inn, og brukes ikke ellers. Et 
       alternativ til å legge til denne oppføringen i fstab filen er å montere 
       den manuelt før kjøring av <command>grub-install</command> under
-      i <xref linkend="ch-bootable-grub"/>.
+      i <xref linkend="ch-bootable-grub" role='.'/>
     </para>
   </note>
 
