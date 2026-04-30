@@ -261,7 +261,7 @@
        </listitem>
        
        <listitem>
-         <para>Vekselminne partisjonen må formateres som swap.</para>
+         <para>Swap partisjonen må initialiseres.</para>
        </listitem>
        
        <listitem>
