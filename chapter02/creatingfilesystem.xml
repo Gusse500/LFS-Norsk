@@ -64,9 +64,10 @@
   <para>Erstatt <replaceable>&lt;xxx&gt;</replaceable> med navnet på LFS
   partisjonen.</para>
 
-  <para>Hvis du bruker en eksisterende <systemitem class="filesystem">swap
-  </systemitem> partisjon, er det ikke nødvendig å formatere den. Hvis en ny
-  <systemitem class="filesystem"> swap</systemitem> partisjonen ble opprettet,
+  <para>Hvis du bruker en eksisterende
+  <systemitem class="filesystem">swap</systemitem> partisjon, er det ikke 
+  nødvendig å formatere den. Hvis en ny
+  <systemitem class="filesystem">swap</systemitem> partisjonen ble opprettet, 
   må den initialiseres med denne kommandoen:</para>
 
 <screen role="nodump"><userinput>mkswap /dev/<replaceable>&lt;yyy&gt;</replaceable></userinput></screen>

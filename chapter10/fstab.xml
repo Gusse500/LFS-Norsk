@@ -89,9 +89,12 @@ EOF</userinput></screen>
   tolket i UTF-8 lokaliteten.</para>
 
   <para>
-    Når du installerer GRUB med UEFI, må ESP formateres som et FAT filsystem, 
-    vanligvis VFAT. Denne filen ser den som VFAT uansett. Et eksempel på hvordan 
-    du ville gå frem med en oppføring for ESP vil se slik ut:
+    Når du installerer GRUB med UEFI, må ESP formateres som et FAT filsystem 
+    (EXFAT bør ikke regnes som et). I Linuxkjernen håndterer VFAT driveren alle 
+    FAT filsystemene, så denne filen vil inneholde <literal>vfat</literal> 
+    uansett. 
+    Et eksempel på hvordan du ville gå frem for en oppføring for ESP ville se 
+    ut slik:
   </para>
 
 <screen><userinput>cat &gt;&gt; /etc/fstab &lt;&lt; "EOF"
@@ -101,7 +104,8 @@ EOF</userinput></screen>
   <para>
     <literal>iso8859-1</literal> IO tegnsettet brukes her, siden vi vil 
     aktivere det som en del av kjernens UEFI konfigurasjon i
-    <xref linkend='ch-bootable-kernel'/>.  Teknisk sett bør IO tegnsettet 
+    <xref linkend='ch-bootable-kernel' role='.'/>  
+    Teknisk sett bør IO tegnsettet 
     samsvare med språkinnstillingen din, som vi har diskutert ovenfor. Navnet 
     på alle filene i ESP inneholder imidlertid bare 7-bit ASCII tegn, så alt 
     vil gå bra så lenge tegnsettet for språkinnstillingen din behandler 7-bit 
@@ -115,7 +119,7 @@ EOF</userinput></screen>
       bruker denne partisjonen før kjernen lastes inn, og brukes ikke ellers. Et 
       alternativ til å legge til denne oppføringen i fstab filen er å montere 
       den manuelt før kjøring av <command>grub-install</command> under
-      i <xref linkend="ch-bootable-grub"/>.
+      i <xref linkend="ch-bootable-grub" role='.'/>
     </para>
   </note>
 

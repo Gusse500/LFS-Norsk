@@ -116,7 +116,7 @@ xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso</userinput></
       skal bruke den partisjonen til
       <filename class="directory">/boot</filename> også, bare monter 
       partisjonen på <filename class="directory">$LFS/boot</filename>
-      i vertsdistribusjonen. Linuxkjernen støtter montering av partisjoner på 
+      i vertsdistribusjonen. Linuxkjernen støtter montering av en partisjon på 
       flere monteringspunkter.</para>
     </note>
 
@@ -313,8 +313,8 @@ EOF</userinput></screen>
       <systemitem class='filesystem'>ext4</systemitem> filsystemer. På UEFI 
       systemer, <filename>efi_gop</filename> og <filename>efi_uga</filename> er 
       for videostøtte. GOP, eller Graphics Output Protocol, er den moderne 
-      tilnærmingen. UGA, eller UGA Draw Protocol, er en eldre måte å håndtere 
-      det på. 
+      tilnærmingen. UGA, eller Universal Graphics Adaptor, 
+      er en arv av måten å håndtere det på. 
       I en typisk konfigurasjon, <filename>part_gpt</filename> og
       <filename>ext2</filename> moduler er allerede innebygd i hoved GRUB 
       avbildningen av <command>grub-install</command>, og
