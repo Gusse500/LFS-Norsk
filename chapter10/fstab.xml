@@ -89,9 +89,12 @@ EOF</userinput></screen>
   tolket i UTF-8 lokaliteten.</para>
 
   <para>
-    Når du installerer GRUB med UEFI, må ESP formateres som et FAT filsystem, 
-    vanligvis VFAT. Denne filen ser den som VFAT uansett. Et eksempel på hvordan 
-    du ville gå frem med en oppføring for ESP vil se slik ut:
+    Når du installerer GRUB med UEFI, må ESP formateres som et FAT filsystem 
+    (EXFAT bør ikke regnes som et). I Linuxkjernen håndterer VFAT driveren alle 
+    FAT filsystemene, så denne filen vil inneholde <literal>vfat</literal> 
+    uansett. 
+    Et eksempel på hvordan du ville gå frem for en oppføring for ESP ville se 
+    ut slik:
   </para>
 
 <screen><userinput>cat &gt;&gt; /etc/fstab &lt;&lt; "EOF"
