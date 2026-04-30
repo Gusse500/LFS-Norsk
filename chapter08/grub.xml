@@ -120,10 +120,6 @@
 
 <screen><userinput remap="pre">make clean</userinput></screen>
 
-    <para>Fiks en feil introdusert i grub-2.14:</para>
-
-<screen><userinput remap="pre">sed 's/--image-base/--nonexist-linker-option/' -i configure</userinput></screen>
-
     <para>Konfigurer nå GRUB for 64-bit UEFI støtte:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr       \
@@ -176,10 +172,6 @@
     kildetreet:</para>
 
 <screen><userinput remap="pre">make clean</userinput></screen>
-
-    <para>Fiks en feil introdusert i grub-2.14:</para>
-
-<screen><userinput remap="pre">sed 's/--image-base/--nonexist-linker-option/' -i configure</userinput></screen>
 
     <para>Konfigurer nå GRUB for 32-bit UEFI støtte:</para>
 
