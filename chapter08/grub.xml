@@ -115,8 +115,8 @@
     <para>Hvis du vil starte opp med 64-bit UEFI, bør du bygge støtte for 
     det.</para>
 
-    <para>Først, hvis du bygde GRUB fra noen av seksjonene ovenfor,rens 
-    kildetreet:</para>
+    <para>Først, hvis du bygde GRUB fra seksjonene ovenfor, 
+    rens kildetreet:</para>
 
 <screen><userinput remap="pre">make clean</userinput></screen>
 
