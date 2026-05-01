@@ -41,11 +41,74 @@
     -->
 
     <listitem>
+      <para>01.05.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til wheel-0.47.0 (Python modul). Fikser
+          <ulink url='&lfs-ticket-root;5922'>#5922</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til tzdata2026b. Fikser
+          <ulink url='&lfs-ticket-root;5923'>#5923</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til sed-4.10. Fikser
+          <ulink url='&lfs-ticket-root;5921'>#5921</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til packaging-26.2 (Python modul). Fikser
+          <ulink url='&lfs-ticket-root;5913'>#5913</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til mpc-1.4.1. Fikser
+          <ulink url='&lfs-ticket-root;5916'>#5916</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til meson-1.11.1. Fikser
+          <ulink url='&lfs-ticket-root;5919'>#5919</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til vim-9.2.0421 (Sikkerhetsoppdatering). 
+          Fikser <ulink url='&lfs-ticket-root;5914'>#5914</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til man-pages-6.18. Fikser
+          <ulink url='&lfs-ticket-root;5920'>#5920</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til iproute2-7.0.0. Fikser
+          <ulink url='&lfs-ticket-root;5925'>#5925</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til inetutils-2.8. Fikser
+          <ulink url='&lfs-ticket-root;5926'>#5926</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til expat-2.8.0 (Sikkerhetsoppdatering). 
+          Fikser <ulink url='&lfs-ticket-root;5924'>#5924</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til elfutils-0.195 (libelf). Fikser
+          <ulink url='&lfs-ticket-root;5915'>#5915</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til coreutils-9.11. Fikser
+          <ulink url='&lfs-ticket-root;5918'>#5918</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til iana-etc-20260424. Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>15.04.2026</para>
       <itemizedlist>
         <listitem>
-          <para>[jlocash] - Oppdater Python-3.14.4 oppdatering for 2 nye problemer (sikkerhetsoppdatering). 
-          Adresser <ulink url='&lfs-ticket-root;5910'>#5910</ulink>.</para>
+          <para>[jlocash] - Oppdater Python-3.14.4 oppdatering for 2 nye problemer 
+          (sikkerhetsoppdatering). Adresser 
+          <ulink url='&lfs-ticket-root;5910'>#5910</ulink>.</para>
         </listitem>
       </itemizedlist>
     </listitem>
