@@ -145,7 +145,7 @@
     <para>For Grub bør EFI systempartisjonen være plassert på
     <filename class="directory">/boot/efi</filename>.</para>
 
-    <para>Mange UEFI systemer har et alternativ for kompatibilitetsstøttemodus 
+    <para>Mange UEFI systemer har et alternativ for kompatibilitetsstøttemodul 
     (CSM) eller Legacy Boot, som lar deg starte opp med BIOS. Det kan være lurt 
     å opprette en Grub BIOS partisjon hvis systemet ditt støtter CSM i tilfelle 
     UEFI oppstart ikke fungerer som forventet.</para>
@@ -247,11 +247,11 @@
 
        <listitem>
          <para>Både EFI og BIOS oppstartspartisjoner er til stede, men bare én 
-         vil bli brukt. Hvilken som brukes avhenger av systemets BIOS. Hvis 
+         vil bli brukt. Hvilken som brukes avhenger av systemets fastvare. Hvis 
          systemet er gammelt, vil det ikke ha UEFI funksjoner i det hele tatt. 
-         Noen nyere systemer kan deaktivere UEFI gjennom BIOS ved å deaktivere 
-         "Sikker oppstart" og aktivere "Legacy Support" eller "CSM" 
-         (kompatibilitets støttemodus). Hvis du vet på forhånd hvilken modus du 
+         Noen nyere systemer kan deaktivere UEFI gjennom fastvareoppsett ved å 
+         deaktivere "Sikker oppstart" og aktivere "Legacy Support" eller "CSM" 
+         (Compatibility Support Module). Hvis du vet på forhånd hvilken modus du 
          vil bruke, kan den andre partisjonen utelates.</para>
        </listitem>
 

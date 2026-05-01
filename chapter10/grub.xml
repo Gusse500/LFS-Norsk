@@ -216,15 +216,15 @@ xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso</userinput></
         plassering ville føre til at plasseringen i en EFI variabel ble 
         registrert, men LFS mangler BLFS pakken <ulink
         url="&blfs-book;postlfs/efibootmgr.html">efibootmgr</ulink>, som er 
-        nødvendig for å manipulere EFI variabler.
+        nødvendig for GRUB for å registrere plasseringen i EFI variabelen.
       </para>
 
       <note>
         <para>
-          Noen UEFI oppstartslastere, selv om de er sjeldne, hopper over den 
-          hardkodede EFI banen. Slike systemer er som regel gamle, som Lenovo 
+          Noen UEFI oppstartslastere, selv om de er sjeldne, hopper over 
+          standard EFI bane. Slike systemer er som regel gamle, som Lenovo 
           ThinkPads eller HP stasjonære/bærbare datamaskiner. Når 
-          oppstartsoppføringen mangler i BIOS, må du installere BLFS pakken <ulink
+          oppstartsoppføringen mangler i fastvareoppsettet, må du installere BLFS pakken <ulink
           url="&blfs-book;postlfs/efibootmgr.html">efibootmgr</ulink> for å 
           opprette en oppstartsoppføring for UEFI. Hvis det er enklere, kan 
           pakken installeres via distribusjonens pakkebehandler, hvis aktuelt, 
@@ -244,9 +244,9 @@ xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso</userinput></
   -p <replaceable>&lt;y&gt;</replaceable> -L "LFS" -l '\EFI\BOOT\BOOT<replaceable>&lt;X64&gt;</replaceable>.EFI'</userinput></screen>
         <para>
           <literal>/dev/sd<replaceable>&lt;x&gt;</replaceable></literal>
-          stasjonen bør samsvare med den du installerer LFS på.
+          stasjonen skal være enhetsnoden for disken der ESP-en finnes.
           <replaceable>&lt;y&gt;</replaceable> partisjonsnummeret skal samsvare 
-          med nummeret som ESP-en er montert på. Hvis ESP-en er på
+          med nummeret til ESP-en. Hvis ESP-en er på
           <literal>/dev/sda2</literal>, da ville partisjonsnummeret være
           <literal>2</literal>. Hvis du bruker 32-bit UEFI, må du erstatte
           <replaceable>&lt;X64&gt;</replaceable> med <literal>IA32</literal>.
