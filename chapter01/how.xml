@@ -26,6 +26,11 @@
   <para>Som et alternativ til å installere en separat distribusjon på din
   maskin, kan det være lurt å bruke en LiveCD fra en kommersiell distribusjon.</para>
 
+  <note><para>Distribusjonsverter for rullerende utgivelser, som Arch Linux, 
+  oppdaterer ofte til nyere pakkeversjoner ganske raskt, noe som kan forårsake 
+  konfigurasjons eller byggefeil med versjonene av pakkene i denne boken. En ny 
+  kjerne, GCC  eller OpenSSL hovedversjon kan forårsake slike problemer.</para></note>
+
   <!--
   <note>
     <para>LFS LiveCD fungerer kanskje ikke på nyere maskinvarekonfigurasjoner,
