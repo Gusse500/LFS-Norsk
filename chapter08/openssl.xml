@@ -73,10 +73,11 @@
     <option>CONFIG_CRYPTO_AES_NI_INTEL</option> hvis CPU støtter AES-NI)
     aktivert. Hvis den mislykkes, kan den trygt ignoreres.</para>
 
-    <para>Installer pakken:</para>
+    <para>Installer pakken (å sette en tom
+    <envar>INSTALL_LIBS</envar> forhindrer installasjon av statiske 
+    biblioteker):</para>
 
-<screen><userinput remap="install">sed -i '/INSTALL_LIBS/s/libcrypto.a libssl.a//' Makefile
-make MANSUFFIX=ssl install</userinput></screen>
+<screen><userinput remap="install">make INSTALL_LIBS= MANSUFFIX=ssl install</userinput></screen>
 
     <para>Legg til versjonen i dokumentasjonsmappenavnet, for å være
     i samsvarer med andre pakker:</para>

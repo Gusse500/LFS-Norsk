@@ -510,37 +510,6 @@
 
   </sect2>
 
-  <sect2 id="conf-modprobe" role="configuration">
-    <title>Konfigurere rekkefølgen på Linux modullasting</title>
-
-    <indexterm zone="conf-modprobe">
-      <primary sortas="e-/etc/modprobe.d/usb.conf">/etc/modprobe.d/usb.conf</primary>
-    </indexterm>
-
-    <para>Mesteparten av tiden lastes Linux moduler automatisk, men
-    noen ganger trenger den en bestemt retning. Programmet som laster
-    moduler, <command>modprobe</command> eller <command>insmod</command>, bruker
-    <filename>/etc/modprobe.d/usb.conf</filename> for dette formålet. Denne filen
-    må opprettes slik at hvis USB-driverne (ehci_hcd, ohci_hcd og
-    uhci_hcd) har blitt bygget som moduler, vil de bli lastet inn i riktig
-    rekkefølge; ehci_hcd må lastes før ohci_hcd og uhci_hcd i rekkefølge
-    for å unngå at det sendes ut en advarsel ved oppstart.</para>
-
-    <para>Opprett en ny fil <filename>/etc/modprobe.d/usb.conf</filename> ved å kjøre
-    følgende:</para>
-
-<screen><userinput>install -v -m755 -d /etc/modprobe.d
-cat &gt; /etc/modprobe.d/usb.conf &lt;&lt; "EOF"
-<literal># Begin /etc/modprobe.d/usb.conf
-
-install ohci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i ohci_hcd ; true
-install uhci_hcd /sbin/modprobe ehci_hcd ; /sbin/modprobe -i uhci_hcd ; true
-
-# End /etc/modprobe.d/usb.conf</literal>
-EOF</userinput></screen>
-
-  </sect2>
-
   <sect2 id="contents-kernel" role="content">
     <title>Innhold i Linux</title>
 
