@@ -37,6 +37,9 @@
    <para>Tidligere versjoner av de oppførte programvarepakkene kan fungere, men 
    har ikke blitt testet.</para>
 
+   <para>Vertssystemer som har det nyeste programvaresettet kan forårsake 
+   problemer når man bygger en kryssverktøykjede.</para>
+
   <itemizedlist spacing="compact">
 
     <listitem>
