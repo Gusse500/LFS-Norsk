@@ -206,7 +206,8 @@ esac</userinput></screen>
         modell (For eksempel
         <emphasis>elf/tst-cpu-features-cpuinfo</emphasis>) eller vertskjerne
         versjon (for eksempel
-        <emphasis>stdlib/tst-arc4random-thread</emphasis>).</para>
+        <emphasis>stdlib/tst-arc4random-thread</emphasis>), eller med en 
+        vertskjerne nyere enn &linux-version;.</para>
       </listitem>
 
     </itemizedlist>
