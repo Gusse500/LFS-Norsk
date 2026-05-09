@@ -37,15 +37,16 @@
    <para>Tidligere versjoner av de oppførte programvarepakkene kan fungere, men 
    har ikke blitt testet.</para>
 
-   <warning><para>Vær oppmerksom på at GCC nyere enn &gcc-version; eller 
-   Binutils nyere enn &binutils-version; ikke er testet. Spesielt GCC nyere enn
-   &gcc-version; har høy sannsynlighet for å ødelegge byggingen av denne LFS 
+   <warning><para>Vær oppmerksom på at GCC nyere (eksklusivt) enn &gcc-version;
+   eller Binutils nyere (eksklusivt) enn &binutils-version; er ikke testet. 
+   Spesielt forventes det at en nyere GCC vil ha stor sannsynlighet for å 
+   ødelegge byggingen av denne 
    utgivelsen. Ikke rapporter et slikt brudd til LFS redaktørene. Prøv å lese 
    en nyere utgivelse av LFS boken (hvis en finnes), eller bruk en eldre 
    vertsdistribusjon, eller nedgrader GCC (hvis vertsdistribusjonen støtter 
    det), eller les den nyeste LFS utviklingsboken (hvis den fortsatt ikke 
-   støtter GCC &gcc-version; eller nyere, vent til redaktørene oppdaterer boken 
-   i løpet av 2 til 4 uker).</para></warning>
+   støtter GCC versjonen på vertsdistribusjonen din, vent på at redaktørene 
+   oppdaterer boken i 2 til 4 uker).</para></warning>
 
   <itemizedlist spacing="compact">
 
