@@ -37,15 +37,32 @@
    <para>Tidligere versjoner av de oppførte programvarepakkene kan fungere, men 
    har ikke blitt testet.</para>
 
-   <warning><para>Vær oppmerksom på at GCC nyere enn &gcc-version; eller 
-   Binutils nyere enn &binutils-version; ikke er testet. Spesielt GCC nyere enn
-   &gcc-version; har høy sannsynlighet for å ødelegge byggingen av denne LFS 
-   utgivelsen. Ikke rapporter et slikt brudd til LFS redaktørene. Prøv å lese 
-   en nyere utgivelse av LFS boken (hvis en finnes), eller bruk en eldre 
-   vertsdistribusjon, eller nedgrader GCC (hvis vertsdistribusjonen støtter 
-   det), eller les den nyeste LFS utviklingsboken (hvis den fortsatt ikke 
-   støtter GCC &gcc-version; eller nyere, vent til redaktørene oppdaterer boken 
-   i løpet av 2 til 4 uker).</para></warning>
+   <warning>
+     <para>
+       Vær oppmerksom på at GCC nyere enn &gcc-version;
+       eller Binutils nyere enn &binutils-version; ikke er testet. 
+       En nyere GCC vil sannsynligvis ødelegge byggingen av denne LFS 
+       utgivelsen. Ikke rapporter et slikt brudd til LFS redaktørene. Hvis 
+       vertsdistribusjonen din har nyere versjoner av disse pakkene, 
+       har du flere alternativer:
+       <itemizedlist>
+         <listitem>
+           <simpara>Bruk en nyere utgave av LFS boken hvis en finnes</simpara>
+         </listitem>
+         <listitem>
+           <simpara>Bruk en eldre vertsdistribusjon</simpara>
+         </listitem>
+         <listitem>
+           <simpara>Nedgrader GCC hvis det støttes av vertsdistribusjonen</simpara>
+         </listitem>
+         <listitem>
+           <simpara>Bruk den nyeste LFS utviklingsboken. Oppdateringer til den 
+           nyeste versjonen av pakker i LFS legges vanligvis til innen to til 
+           fire uker etter pakkeutgivelsen.</simpara>
+         </listitem>
+       </itemizedlist>
+     </para>
+   </warning>
 
   <itemizedlist spacing="compact">
 
