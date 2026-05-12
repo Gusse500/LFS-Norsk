@@ -43,7 +43,7 @@
   <sect2 role="installation">
     <title>Installasjon av Python 3</title>
 
-    <para>Først installer en sikkerhetsoppdatering for problemer identifisert oppstrøms:</para>
+    <para>Først, installer en oppdatering for kompatibilitet med OpenSSL4 og Linux7:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&python-security-fixes-patch;</userinput></screen>
 

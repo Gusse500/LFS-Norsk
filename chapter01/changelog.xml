@@ -41,6 +41,48 @@
     -->
 
     <listitem>
+      <para>11.05.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til vim-9.2.0461 (Sikkerhetsoppdatering). 
+          Fikser <ulink url='&lfs-ticket-root;5938'>#5938</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til sqlite-3.53.2. Fikser
+          <ulink url='&lfs-ticket-root;5929'>#5929</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til Python-3.14.5. Fikser
+          <ulink url='&lfs-ticket-root;5931'>#5931</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til openssl-4.0.0. Fikser
+          <ulink url='&lfs-ticket-root;5912'>#5912</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til linux-7.0.5. Fikser
+          <ulink url='&lfs-ticket-root;5917'>#5917</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til iana-etc-20260604. Adresserer
+          <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Legg til Python-3.14.5 linux7 byggeoppdatering. 
+          Adresserer <ulink url='&lfs-ticket-root;5931'>#5931</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Legg til glibc linux7 fiksoppdatering (sikkerhetsrettelse). 
+          Fikser <ulink url='&lfs-ticket-root;5930'>#5930</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Legg til systemd openssl4 byggeoppdatering. 
+          Adresserer <ulink url='&lfs-ticket-root;5912'>#5912</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>08.05.2026</para>
       <itemizedlist>
         <listitem>
@@ -49,6 +91,7 @@
         </listitem>
       </itemizedlist>
     </listitem>
+
 
     <listitem>
       <para>01.05.2026</para>
