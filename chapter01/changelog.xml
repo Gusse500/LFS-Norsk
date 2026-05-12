@@ -41,6 +41,16 @@
     -->
 
     <listitem>
+      <para>08.05.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til gcc-16.1.0.  Fikser
+          <ulink url='&lfs-ticket-root;5927'>#5927</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>01.05.2026</para>
       <itemizedlist>
         <listitem>
