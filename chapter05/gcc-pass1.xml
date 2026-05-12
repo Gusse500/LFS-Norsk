@@ -198,8 +198,8 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--enable-languages=c,c++</parameter></term>
         <listitem>
-          <para>Dette alternativet sikrer at bare C og C ++ kompilatorene blir bygget.
-          Dette er de eneste språkene som trengs nå.</para>
+          <para>Dette alternativet sikrer at bare C og C ++ kompilatorene blir 
+          bygget. Dette er de eneste språkene som trengs nå.</para>
         </listitem>
       </varlistentry>
 
@@ -225,17 +225,8 @@ cd       build</userinput></screen>
     fullversjon av den interne deklarasjonen ved å bruke en kommando som er 
     identisk med det GCC byggesystemet gjør under normale omstendigheter:</para>
 
-    <note>
-      <para>Kommandoen nedenfor viser et eksempel på nestet kommandoerstatning
-      ved å bruke to metoder: backquotes og a <literal>$()</literal> 
-      konstruksjon. Det kan skrives om ved å bruke samme metode for begge 
-      erstatningene, men vises på denne måten for å demonstrere hvordan de kan 
-      blandes. Som regel er <literal>$()</literal> metoden foretrukket.</para>
-    </note>
-
-<screen><userinput remap="install">cd ..
-cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
-  `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/include/limits.h</userinput></screen>
+<screen><userinput remap="install">cat ../gcc/{limitx,glimits,limity}.h  > \
+  $($LFS_TGT-gcc -print-file-name=include)/limits.h</userinput></screen>
   </sect2>
 
   <sect2 role="content">

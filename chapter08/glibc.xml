@@ -55,15 +55,11 @@
     lagrer kjøretidsdataene deres på de FHS kompatible stedene:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&glibc-fhs-patch;</userinput></screen>
-<!--
-    <para>Rett nå et problem som kan ødelegge Valgrind i BLFS:</para>
 
-<screen><userinput remap="pre">sed -e '/unistd.h/i #include &lt;string.h&gt;' \
-    -e '/libc_rwlock_init/c\
-  __libc_rwlock_define_initialized (, reset_lock);\
-  memcpy (&amp;lock, &amp;reset_lock, sizeof (lock));' \
-    -i stdlib/abort.c </userinput></screen>
--->
+    <para>Legg nå til noen rettelser for å håndtere bygging og testing med Linux 7:</para>
+
+<screen><userinput remap="pre">patch -Np1 -i ../&glibc-upstream-patch;</userinput></screen>
+
     <para>Glibc dokumentasjonen anbefaler å bygge Glibc
     i en dedikert byggemappe:</para>
 
