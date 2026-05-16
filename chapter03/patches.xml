@@ -19,7 +19,7 @@
   <variablelist role="materials">
 <!--
     <varlistentry>
-      <term>Autoconf Consolidated Fixes Patch - <token>&autoconf-fixes-patch-size;</token>:</term>
+      <term>Autoconf konsoliderte fiks oppdateringer - <token>&autoconf-fixes-patch-size;</token>:</term>
       <listitem>
         <para>Nedlasting: <ulink url="&patches-root;&autoconf-fixes-patch;"/></para>
         <para>MD5 sum: <literal>&autoconf-fixes-patch-md5;</literal></para>
@@ -27,7 +27,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term>Bash Cross Compile Fix Patch - <token>&bash-crosscompile-fix-patch-size;</token>:</term>
+      <term>Bash krysskompilering fiks oppdatering - <token>&bash-crosscompile-fix-patch-size;</token>:</term>
       <listitem>
         <para>Nedlasting: <ulink url="&patches-root;&bash-crosscompile-fix-patch;"/></para>
         <para>MD5 sum: <literal>&bash-crosscompile-fix-patch-md5;</literal></para>
@@ -36,7 +36,7 @@
 -->
 <!--
     <varlistentry>
-      <term>Binutils Upstream Fixes Patch - <token>&binutils-upstream-patch-size;</token>:</term>
+      <term>Binutils oppstrøms fiks oppdatering - <token>&binutils-upstream-patch-size;</token>:</term>
       <listitem>
         <para>Nedlasting: <ulink url="&patches-root;&binutils-upstream-patch;"/></para>
         <para>MD5 sum: <literal>&binutils-upstream-patch-md5;</literal></para>
@@ -44,7 +44,7 @@
     </varlistentry>
 -->
     <varlistentry>
-      <term>Bzip2 Documentation Patch - <token>&bzip2-docs-patch-size;</token>:</term>
+      <term>Bzip2 dokumentasjon oppdateringer - <token>&bzip2-docs-patch-size;</token>:</term>
       <listitem>
         <para>Nedlasting: <ulink url="&patches-root;&bzip2-docs-patch;"/></para>
         <para>MD5 sum: <literal>&bzip2-docs-patch-md5;</literal></para>
@@ -52,7 +52,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term>Coreutils Internationalization Fixes Patch - <token>&coreutils-i18n-patch-size;</token>:</term>
+      <term>Coreutils fiks for internasjonalisering - <token>&coreutils-i18n-patch-size;</token>:</term>
       <listitem>
         <para>Nedlasting: <ulink url="&patches-root;&coreutils-i18n-patch;"/></para>
         <para>MD5 sum: <literal>&coreutils-i18n-patch-md5;</literal></para>
@@ -60,7 +60,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term>Expect GCC15 Patch - <token>&expect-gcc15-patch-size;</token>:</term>
+      <term>Expect GCC15 oppdateringer - <token>&expect-gcc15-patch-size;</token>:</term>
       <listitem>
         <para>Nedlasting: <ulink url="&patches-root;&expect-gcc15-patch;"/></para>
         <para>MD5 sum: <literal>&expect-gcc15-patch-md5;</literal></para>
@@ -69,7 +69,7 @@
 
 <!--
     <varlistentry>
-      <term>Gcc glibc-2.36 Fixes Patch - <token>&gcc-upstream-fixes-patch-size;</token>:</term>
+      <term>Gcc glibc-2.36 fikser oppdateringer - <token>&gcc-upstream-fixes-patch-size;</token>:</term>
       <listitem>
         <para>Nedlasting: <ulink url="&patches-root;&gcc-upstream-fixes-patch;"/></para>
         <para>MD5 sum: <literal>&gcc-upstream-fixes-patch-md5;</literal></para>
@@ -78,7 +78,7 @@
 -->
 
     <varlistentry>
-      <term>Glibc Linux7 Fix Patch - <token>&glibc-upstream-patch-size;</token>:</term>
+      <term>Glibc Linux7 fiks oppdatering - <token>&glibc-upstream-patch-size;</token>:</term>
       <listitem>
         <para>Nedlasting: <ulink url="&patches-root;&glibc-upstream-patch;"/></para>
         <para>MD5 sum: <literal>&glibc-upstream-patch-md5;</literal></para>
@@ -86,7 +86,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term>Glibc FHS Patch - <token>&glibc-fhs-patch-size;</token>:</term>
+      <term>Glibc FHS oppdatering - <token>&glibc-fhs-patch-size;</token>:</term>
       <listitem>
         <para>Nedlasting: <ulink url="&patches-root;&glibc-fhs-patch;"/></para>
         <para>MD5 sum: <literal>&glibc-fhs-patch-md5;</literal></para>
@@ -94,7 +94,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term>Kbd Backspace/Delete Fix Patch - <token>&kbd-backspace-patch-size;</token>:</term>
+      <term>Kbd Tilbake/Slett fiks oppdatering - <token>&kbd-backspace-patch-size;</token>:</term>
       <listitem>
         <para>Nedlasting: <ulink url="&patches-root;&kbd-backspace-patch;"/></para>
         <para>MD5 sum: <literal>&kbd-backspace-patch-md5;</literal></para>
@@ -102,7 +102,7 @@
     </varlistentry>
 <!--
     <varlistentry>
-      <term>Meson Upstream Fix Patch - <token>&meson-fix-patch-size;</token>:</term>
+      <term>Meson oppstrøms fiks oppdatering - <token>&meson-fix-patch-size;</token>:</term>
       <listitem>
         <para>Nedlasting: <ulink url="&patches-root;&meson-fix-patch;"/></para>
         <para>MD5 sum: <literal>&meson-fix-patch-md5;</literal></para>
@@ -110,7 +110,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term>Libpipeline Checks Patch - <token>&libpipeline-checks-patch-size;</token>:</term>
+      <term>Libpipeline sjekk oppdatering - <token>&libpipeline-checks-patch-size;</token>:</term>
       <listitem>
         <para>Nedlasting: <ulink url="&patches-root;&libpipeline-checks-patch;"/></para>
         <para>MD5 sum: <literal>&libpipeline-checks-patch-md5;</literal></para>
@@ -118,7 +118,7 @@
     </varlistentry>
 
     <varlistentry>
-      <term>Perl Upstream Fix Patch - <token>&perl-upstream-fix-patch-size;</token>:</term>
+      <term>Perl oppstrøms fiks oppdatering - <token>&perl-upstream-fix-patch-size;</token>:</term>
       <listitem>
         <para>Nedlasting: <ulink url="&patches-root;&perl-upstream-fix-patch;"/></para>
         <para>MD5 sum: <literal>&perl-upstream-fix-patch-md5;</literal></para>
@@ -126,7 +126,15 @@
     </varlistentry>
 -->
     <varlistentry>
-      <term>Python OpenSSL 4 Patch - <token>&python-security-fixes-patch-size;</token>:</term>
+      <term>Python OpenSSL 4 oppdatering - <token>&python-openssl4-fixes-patch-size;</token>:</term>
+      <listitem>
+        <para>Nedlasting: <ulink url="&patches-root;&python-openssl4-fixes-patch;"/></para>
+        <para>MD5 sum: <literal>&python-openssl4-fixes-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
+      <term>Python sikkerhet fiks oppdatering - <token>&python-security-fixes-patch-size;</token>:</term>
       <listitem>
         <para>Nedlasting: <ulink url="&patches-root;&python-security-fixes-patch;"/></para>
         <para>MD5 sum: <literal>&python-security-fixes-patch-md5;</literal></para>
@@ -134,7 +142,7 @@
     </varlistentry>
 
     <varlistentry revision="sysv">
-      <term>SysVinit Consolidated Patch - <token>&sysvinit-consolidated-patch-size;</token>:</term>
+      <term>SysVinit konsolidert oppdatering - <token>&sysvinit-consolidated-patch-size;</token>:</term>
       <listitem>
         <para>Nedlasting: <ulink url="&patches-root;&sysvinit-consolidated-patch;"/></para>
         <para>MD5 sum: <literal>&sysvinit-consolidated-patch-md5;</literal></para>
@@ -142,7 +150,7 @@
     </varlistentry>
 
     <varlistentry revision="systemd">
-      <term>Systemd OpenSSL 4 Patch - <token>&systemd-upstream-patch-size;</token>:</term>
+      <term>Systemd OpenSSL 4 oppdatering - <token>&systemd-upstream-patch-size;</token>:</term>
       <listitem>
         <para>Nedlasting: <ulink url="&patches-root;&systemd-upstream-patch;"/></para>
         <para>MD5 sum: <literal>&systemd-upstream-patch-md5;</literal></para>
@@ -151,7 +159,7 @@
 
 <!--
     <varlistentry>
-      <term>Xz Upstream Fix Patch - <token>&xz-upstream-fix-patch-size;</token>:</term>
+      <term>Xz oppstrøms fiks oppdatering - <token>&xz-upstream-fix-patch-size;</token>:</term>
       <listitem>
         <para>Nedlasting: <ulink url="&patches-root;&xz-upstream-fix-patch;"/></para>
         <para>MD5 sum: <literal>&xz-upstream-fix-patch-md5;</literal></para>
@@ -160,7 +168,7 @@
 -->
 <!--
     <varlistentry>
-      <term>Zstd Upstream Fixes Patch - <token>&zstd-upstream-fixes-patch-size;</token>:</term>
+      <term>Zstd oppstrøms fiks oppdatering - <token>&zstd-upstream-fixes-patch-size;</token>:</term>
       <listitem>
         <para>Nedlasting: <ulink url="&patches-root;&zstd-upstream-fixes-patch;"/></para>
         <para>MD5 sum: <literal>&zstd-upstream-fixes-patch-md5;</literal></para>
