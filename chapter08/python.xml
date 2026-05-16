@@ -45,6 +45,11 @@
 
     <para>Først, installer en oppdatering for kompatibilitet med OpenSSL4:</para>
 
+<screen><userinput remap="pre">patch -Np1 -i ../&python-openssl4-fixes-patch;</userinput></screen>
+
+    <para>Deretter, fiks to sikkerhetsproblemer:</para>
+
+
 <screen><userinput remap="pre">patch -Np1 -i ../&python-security-fixes-patch;</userinput></screen>
 
     <para>Forbered Python for kompilering:</para>
