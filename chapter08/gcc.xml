@@ -232,7 +232,7 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
     <filename>gcc.dg/ipa/pr122458.c</filename>,
     <filename>gcc.dg/lto/toplevel-*-asm-*</filename>, og
     <filename>gcc.dg/plugin/crash-test-nested-*.c</filename> er kjent for å 
-    feile.  Testen <filename>g++.dg/gomp/deprecate-1.C</para> er kjent for å 
+    feile.  Testen <filename>g++.dg/gomp/deprecate-1.C</filename> er kjent for å 
     mislykkes noen ganger.</para>
 
     <para>Redaktørene i LFS har undersøkt disse feilene og bekreftet at ingen 
