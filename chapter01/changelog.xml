@@ -43,6 +43,17 @@
     -->
 
     <listitem>
+      <para>18.05.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Fiks CVE-2026-4046, CVE-2026-5450, og
+          CVE-2026-5928 i glibc (Sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;5930">#5930</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>14.05.2026</para>
       <itemizedlist>
         <listitem>
@@ -101,8 +112,7 @@
           Adresserer <ulink url='&lfs-ticket-root;5931'>#5931</ulink>.</para>
         </listitem>
         <listitem>
-          <para>[bdubbs] - Legg til glibc linux7 fiksoppdatering (sikkerhetsrettelse). 
-          Fikser <ulink url='&lfs-ticket-root;5930'>#5930</ulink>.</para>
+          <para>[bdubbs] - Legg til glibc linux7 oppdatering fiks.</para>
         </listitem>
         <listitem>
           <para>[bdubbs] - Legg til systemd openssl4 byggeoppdatering. 
