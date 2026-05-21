@@ -78,7 +78,7 @@
 -->
 
     <varlistentry>
-      <term>Glibc Linux7 fiks oppdatering - <token>&glibc-upstream-patch-size;</token>:</term>
+      <term>Glibc oppstrøms fikser oppdatering - <token>&glibc-upstream-patch-size;</token>:</term>
       <listitem>
         <para>Nedlasting: <ulink url="&patches-root;&glibc-upstream-patch;"/></para>
         <para>MD5 sum: <literal>&glibc-upstream-patch-md5;</literal></para>
