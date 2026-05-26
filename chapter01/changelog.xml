@@ -43,6 +43,16 @@
     -->
 
     <listitem>
+      <para>24.05.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til linux-7.0.10 (Sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;5942">#5942</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>20.05.2026</para>
       <itemizedlist>
         <listitem>
