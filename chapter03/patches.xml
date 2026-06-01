@@ -148,7 +148,7 @@
         <para>MD5 sum: <literal>&sysvinit-consolidated-patch-md5;</literal></para>
       </listitem>
     </varlistentry>
-
+<!--
     <varlistentry revision="systemd">
       <term>Systemd OpenSSL 4 oppdatering - <token>&systemd-upstream-patch-size;</token>:</term>
       <listitem>
@@ -156,7 +156,7 @@
         <para>MD5 sum: <literal>&systemd-upstream-patch-md5;</literal></para>
       </listitem>
     </varlistentry>
-
+-->
 <!--
     <varlistentry>
       <term>Xz oppstrøms fiks oppdatering - <token>&xz-upstream-fix-patch-size;</token>:</term>
