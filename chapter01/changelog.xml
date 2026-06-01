@@ -41,6 +41,36 @@
     -->
 
     <listitem>
+      <para>01.06.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til systemd-260.2. Fikser
+          <ulink url="&lfs-ticket-root;5944">#5944</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til kbd-2.10.0. Fikser
+          <ulink url="&lfs-ticket-root;5943">#5943</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til util-linux-2.42.1. Fikser
+          <ulink url="&lfs-ticket-root;5939">#5939</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til less-702. Fikser
+          <ulink url="&lfs-ticket-root;5941">#5941</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til vim-9.2.0567 (Sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;5940">#5940</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til iana-etc-20260529. Adresserer
+          <ulink url="&lfs-ticket-root;5006">#5006</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>24.05.2026</para>
       <itemizedlist>
         <listitem>
@@ -122,7 +152,7 @@
           <ulink url='&lfs-ticket-root;5917'>#5917</ulink>.</para>
         </listitem>
         <listitem>
-          <para>[bdubbs] - Oppdatering til iana-etc-20260604. Adresserer
+          <para>[bdubbs] - Oppdatering til iana-etc-20260504. Adresserer
           <ulink url='&lfs-ticket-root;5006'>#5006</ulink>.</para>
         </listitem>
         <listitem>
