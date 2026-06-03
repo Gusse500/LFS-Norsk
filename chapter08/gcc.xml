@@ -199,7 +199,7 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
 
     <para>For å trekke ut et sammendrag av resultatene for testpakken, kjør:</para>
 
-<screen><userinput remap="test">../contrib/test_summary</userinput></screen>
+<screen><userinput remap="test">../contrib/test_summary -t</userinput></screen>
 
     <para>For å filtrere ut bare sammendragene, kanaliser utdataene gjennom
     <userinput>grep -A7 Summ</userinput>.</para>
