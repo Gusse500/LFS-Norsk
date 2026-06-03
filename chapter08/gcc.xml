@@ -77,18 +77,20 @@ cd       build</userinput></screen>
 
     <para>Vi aktiverer bare C og C++ her for å spare byggetid, ettersom ingen 
     pakker i LFS og BLFS krever GCC for å kompilere andre språk. Legg til
-    <literal>cobol</literal> for Cobol (merk at det vil føre til at GCC 
-    mislykkes å bygge på et 32-bit LFS system),
+    <literal>algol68</literal> for Algol 68,
     <literal>fortran</literal> for Fortran,
     <literal>go</literal> for Go,
     <literal>objc</literal> for Objective C,
     <literal>obj-c++</literal> for Objective C++, og/eller
     <literal>m2</literal> for Modula 2 inn i verdien av
     <parameter>--enable-languages</parameter> alternativet hvis du vil kompilere 
-    programmer på ett eller flere av disse språkene med GCC. GCC støtter også 
-    Ada og D, men koden for å støtte Ada eller D er skrevet i Ada eller D selv, 
-    så støtten kan bare bygges med en eksisterende Ada eller D 
-    kompilatorinstallasjon, og vi kan ikke aktivere støtten her.</para>
+    programmer på ett eller flere av disse språkene med GCC.</para>
+
+    <para>GCC støtter også språkene Ada, COBOL og D. Men det ville kreve noen 
+    avhengigheter som ikke er tilgjengelige i det grunnleggende LFS systemet og 
+    ville overskride omfanget av denne boken. Les
+    <ulink url='https://gcc.gnu.org/install/prerequisites.html'>the upstream
+    documentation</ulink> for detaljer.</para>
 
     <variablelist>
       <title>Betydningen av de nye konfigureringsparametrene:</title>
