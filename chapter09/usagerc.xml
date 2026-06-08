@@ -184,9 +184,12 @@ done</userinput></screen>
       <primary sortas="d-sysklogd">sysklogd</primary>
     <secondary>configuring</secondary></indexterm>
 
-  <para>OpenRC sender ikke en tjeneste for <command>syslogd</command>, som 
-  leder at viktige meldinger ikke blir fanget opp. Opprett og aktiver tjenesten 
-  for logger:</para>
+    <para>
+      OpenRC leverer ikke en tjeneste for <command>syslogd</command>, som kan 
+      føre til at meldinger fra ting som daemoner, autorisasjonskall og kjernen 
+      ikke blir fanget opp og lagret for revisjon. Opprett og aktiver tjenesten 
+      for loggeren:
+    </para>
 
 <screen><userinput>cat &gt; /etc/init.d/sysklogd &lt;&lt; "EOF"
 <literal>#!/sbin/openrc-run
