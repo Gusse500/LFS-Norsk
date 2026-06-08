@@ -116,7 +116,15 @@
         <para>MD5 sum: <literal>&libpipeline-checks-patch-md5;</literal></para>
       </listitem>
     </varlistentry>
-
+-->
+    <varlistentry>
+      <term>OpenRC Lock oppdatering - <token>&openrc-lock-patch-size;</token>:</term>
+      <listitem>
+        <para>Nedlasting: <ulink url="&lfs-root;glfs/view/dev/download/openrc/&openrc-lock-patch;"/></para>
+        <para>MD5 sum: <literal>&openrc-lock-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+<!--
     <varlistentry>
       <term>Perl oppstrøms fiks oppdatering - <token>&perl-upstream-fix-patch-size;</token>:</term>
       <listitem>

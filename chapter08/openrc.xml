@@ -41,6 +41,11 @@
   <sect2 role="installation">
     <title>Installasjon av OpenRC</title>
 
+    <para>Bruk en oppdatering for å lage gruppen som administrerer <filename
+    class="directory">/run/lock</filename> konfigurerbar:</para>
+
+<screen><userinput remap="pre">patch -Np1 -i ../&openrc-lock-patch;</userinput></screen>
+
     <para>Rett et skript for å tillate en normal installasjon:</para>
 
 <screen><userinput remap="pre">sed -i '/set -u/d' tools/meson_final.sh</userinput></screen>
@@ -52,10 +57,23 @@ cd    build
 
 meson setup --prefix=/usr       \
             --buildtype=release \
+            -D uucp_group=root  \
             -D pam=false ..</userinput></screen>
 
     <variablelist>
       <title>Betydningen av konfigurasjonsalternativene:</title>
+
+      <varlistentry>
+        <term><parameter>-D uucp_group=root</parameter></term>
+        <listitem>
+          <para>Dette endrer hvem som eier og forvalter <filename
+          class="directory">/run/lock</filename>, ettersom OpenRC vil prøve å 
+          bruke <systemitem class="groupname">uucp</systemitem> gruppen for å 
+          administrere det. Mange distribusjoner bruker i dag <systemitem
+          class="groupname">lock</systemitem> gruppen, men LFS bruker <systemitem
+          class="groupname">root</systemitem> i stedet.</para>
+        </listitem>
+      </varlistentry>
 
       <varlistentry>
         <term><parameter>-D pam=false</parameter></term>
