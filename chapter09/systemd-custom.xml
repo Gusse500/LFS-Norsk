@@ -59,7 +59,7 @@ EOF</userinput></screen>
     <para>Alternativt, hvis en egen partisjon for
     <filename class="directory">/tmp</filename> er ønsket, spesifiser
     partisjonen i en <filename>/etc/fstab</filename> oppføring.</para>
-
+<!--
     <warning>
       <para>
         Ikke lag den symbolske lenken ovenfor hvis en separat partisjon brukes
@@ -68,7 +68,7 @@ EOF</userinput></screen>
         ubrukelig ved oppstart.
       </para>
     </warning>
-
+-->
   </sect2>
 
   <sect2>
