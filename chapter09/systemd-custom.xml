@@ -54,7 +54,7 @@ EOF</userinput></screen>
     en tmpfs. Hvis dette ikke er ønsket, kan det overstyres ved å utføre
     følgende kommando:</para>
 
-<screen role="nodump"><userinput>ln -sfv /dev/null /etc/systemd/system/tmp.mount</userinput></screen>
+<screen role="nodump"><userinput>systemctl mask tmp.mount</userinput></screen>
 
     <para>Alternativt, hvis en egen partisjon for
     <filename class="directory">/tmp</filename> er ønsket, spesifiser
