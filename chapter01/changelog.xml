@@ -43,6 +43,44 @@
     -->
 
     <listitem>
+      <para>15.06.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til binutils-2.46.1. Fikser
+          <ulink url="&lfs-ticket-root;5950">#5950</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til file-5.48. Fikser
+          <ulink url="&lfs-ticket-root;5949">#5949</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til less-704. Fikser
+          <ulink url="&lfs-ticket-root;5948">#5948</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til linux-7.0.12. Fikser
+          <ulink url="&lfs-ticket-root;5945">#5945</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til openssl-4.0.1. Fikser
+          <ulink url="&lfs-ticket-root;5951">#5951</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til Python3-3.14.6. Fikser
+          <ulink url="&lfs-ticket-root;5952">#5952</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til sqlite-autoconf-3.53.2. Fikser
+          <ulink url="&lfs-ticket-root;5946">#5946</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til vim-9.2.0640 (Sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;5947">#5947</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>01.06.2026</para>
       <itemizedlist>
         <listitem>

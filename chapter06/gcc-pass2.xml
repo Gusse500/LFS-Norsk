@@ -84,6 +84,7 @@ cd       build</userinput></screen>
     --with-build-sysroot=$LFS    \
     --enable-default-pie         \
     --enable-default-ssp         \
+    --disable-fixincludes        \
     --disable-nls                \
     --enable-multilib            \
     --with-multilib-list=m64,m32 \
@@ -126,6 +127,17 @@ cd       build</userinput></screen>
           tilleggsverktøy som ikke er klar over denne plasseringen. Denne bryteren 
           er nødvendig slik at disse verktøyene finner de nødvendige filene i
           <filename class="directory">$LFS</filename>, og ikke på verten.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--disable-fixincludes</parameter></term>
+        <listitem>
+          <para>Som standard vil noen systemdeklarasoner under installasjonen av 
+          GCC <quote>låses</quote> til å brukes med GCC. Dette er ikke 
+          nødvendig for et moderne Linux system, og potensielt skadelig hvis en 
+          pakke installeres på nytt etter installasjon av GCC. Denne bryteren 
+          hindrer GCC i å <quote>låse</quote> deklarasjonene.</para>
         </listitem>
       </varlistentry>
 

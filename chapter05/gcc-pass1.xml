@@ -132,6 +132,7 @@ cd       build</userinput></screen>
     --without-headers            \
     --enable-default-pie         \
     --enable-default-ssp         \
+    --disable-fixincludes        \
     --enable-initfini-array      \
     --disable-nls                \
     --disable-shared             \
@@ -191,6 +192,18 @@ cd       build</userinput></screen>
           produsere midlertidige kjørbare filer. Men det er renere å ha de 
           midlertidige pakkene så nær de endelige som mulig.
           </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--disable-fixincludes</parameter></term>
+        <listitem>
+          <para>Som standard vil noen systemdeklarasjoner bli vist under 
+          installasjonen av GCC <quote>låst</quote> til å brukes med GCC. På 
+          dette tidspunktet har vi ikke installert noen deklarasjoner som 
+          krysskompilatoren kan bruke, så å bygge hjelpeprogrammene for 
+          <quote>låsing</quote> ville bare kaste bort tid. Denne bryteren deaktiverer
+          <quote>låsingen</quote> og hopper over byggingen av disse programmene.</para>
         </listitem>
       </varlistentry>
 
