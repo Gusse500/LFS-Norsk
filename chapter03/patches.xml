@@ -126,10 +126,10 @@
     </varlistentry>
 -->
     <varlistentry>
-      <term>Python OpenSSL 4 oppdatering - <token>&python-openssl4-fixes-patch-size;</token>:</term>
+      <term>Python konsolidert oppdatering - <token>&python-consolidated-fixes-patch-size;</token>:</term>
       <listitem>
-        <para>Nedlasting: <ulink url="&patches-root;&python-openssl4-fixes-patch;"/></para>
-        <para>MD5 sum: <literal>&python-openssl4-fixes-patch-md5;</literal></para>
+        <para>Nedlasting: <ulink url="&patches-root;&python-consolidated-fixes-patch;"/></para>
+        <para>MD5 sum: <literal>&python-consolidated-fixes-patch-md5;</literal></para>
       </listitem>
     </varlistentry>
 
@@ -149,6 +149,13 @@
       </listitem>
     </varlistentry>
 -->
+    <varlistentry>
+      <term>Tar oppstrøms oppdatering - <token>&tar-aclfix-patch-size;</token>:</term>
+      <listitem>
+        <para>Nedlasting: <ulink url="&tar-aclfix-patch;"/></para>
+        <para>MD5 sum: <literal>&tar-aclfix-patch-md5;</literal></para>
+      </listitem>
+    </varlistentry>
 <!--
     <varlistentry>
       <term>Xz oppstrøms fiks oppdatering - <token>&xz-upstream-fix-patch-size;</token>:</term>
