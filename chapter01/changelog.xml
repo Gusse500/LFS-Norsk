@@ -43,6 +43,64 @@
     -->
 
     <listitem>
+      <para>01.07.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Lagt til tar-1.35-acl_fix-1.patch. Adresserer problem 
+          som oppstår fra acl-2.4.0.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Lagt til Python3-3.14.6 konsoliderte rettelser (sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;5961">#5961</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til attr-2.6.0 (sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;5967">#5967</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til acl-2.4.0 (sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;5966">#5966</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til expat-2.8.2 (sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;5964">#5964</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til iana-etc-20260617. Adresserer
+          <ulink url="&lfs-ticket-root;5006">#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til iproute2-7.1.0. Fikser
+          <ulink url="&lfs-ticket-root;5954">#5954</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til libffi-3.6.0. Fikser
+          <ulink url="&lfs-ticket-root;5958">#5958</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til linux-7.1.1. Fikser
+          <ulink url="&lfs-ticket-root;5953">#5953</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til sqlite-autoconf-3.53.3. Fikser
+          <ulink url="&lfs-ticket-root;5965">#5965</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til systemd-261. Fikser
+          <ulink url="&lfs-ticket-root;5959">#5959</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til util-linux-2.42.2 (sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;5955">#5955</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til vim-9.2.0752 (sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;5956">#5956</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>15.06.2026</para>
       <itemizedlist>
         <listitem>
