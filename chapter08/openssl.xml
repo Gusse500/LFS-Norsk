@@ -63,7 +63,12 @@
 
     <para>For å teste resultatene, utsted:</para>
 
-<screen><userinput remap="test">HARNESS_JOBS=<replaceable>$(nproc)</replaceable> make test</userinput></screen>
+<screen><userinput remap="test">make test</userinput></screen>
+
+    <para>Som standard bruker testpakken alle tilgjengelige CPU kjerner. Hvis 
+    du vil bruke færre kjerner, sett inn
+    <parameter>HARNESS_JOBS=<replaceable>&lt;N&gt;</replaceable></parameter>
+    med N erstattet av antall logiske CPU kjerner du vil bruke.</para>
 
     <para>En test, 30-test_afalg.t, er kjent for å mislykkes hvis vertskjernen
     ikke har <option>CONFIG_CRYPTO_USER_API_SKCIPHER</option> aktivert,
