@@ -291,6 +291,22 @@ useradd -D --gid 999</userinput></screen>
 
     </variablelist>
 
+    <para>
+      Til slutt, opprett de tomme <filename>/etc/subuid</filename> og
+      <filename>/etc/subgid</filename> filene:
+    </para>
+
+    <screen><userinput>touch /etc/sub{u,g}id</userinput></screen>
+
+    <para>
+      Innholdet i disse filene vil bli automatisk oppdatert av noen verktøy 
+      levert av Shadow for å tildele underordnede bruker og gruppe ID-er. 
+      Les manualsidene
+      <ulink role='man' url='&man;subuid.5'>subuid(5)</ulink> og
+      <ulink role='man' url='&man;subgid.5'>subgid(5)</ulink> for detaljer om 
+      de underordnede ID-ene.
+    </para>
+
   </sect2>
 
   <sect2 role="configuration">
