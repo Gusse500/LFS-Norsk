@@ -2583,7 +2583,7 @@
       <segmentedlist id="pkgconf-depends">
         <segtitle>&dependencies;</segtitle>
         <seglistitem>
-          <seg>Binutils, GCC, Glibc, Meson, Ninja, and Python</seg>
+          <seg>Binutils, GCC, Glibc, Meson, Ninja, og Python</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2711,7 +2711,7 @@
         <seglistitem>
           <seg>Bash, Binutils, Coreutils, Expat, GCC, Gdbm, Gettext, Glibc,
           Grep, Libffi, Libxcrypt, Make, Ncurses, OpenSSL, Pkgconf, Sed,
-          Util-linux, and Zlib</seg>
+          Util-linux, og Zlib</seg>
         </seglistitem>
       </segmentedlist>
 
@@ -2913,7 +2913,7 @@
       <segmentedlist id="Sqlite-depends">
         <segtitle>&dependencies;</segtitle>
         <seglistitem>
-          <seg>Bash, Binutils, GCC, Glibc, Gzip, Make, Ncurses, Readline, and Zlib</seg>
+          <seg>Bash, Binutils, GCC, Glibc, Gzip, Make, Ncurses, Readline, og Zlib</seg>
         </seglistitem>
       </segmentedlist>
 
