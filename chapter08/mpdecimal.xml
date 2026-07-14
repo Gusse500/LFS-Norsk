@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-system-mpdecimal" role="wrap">
+  <?dbhtml filename="mpdecimal.html"?>
+
+  <sect1info condition="script">
+    <productname>mpdecimal</productname>
+    <productnumber>&mpdecimal-version;</productnumber>
+    <address>&mpdecimal-url;</address>
+  </sect1info>
+
+  <title>mpdecimal-&mpdecimal-version;</title>
+
+  <indexterm zone="ch-system-mpdecimal">
+    <primary sortas="a-Mpdecimal">mpdecimal</primary>
+  </indexterm>
+
+  <sect2 role="package">
+    <title/>
+
+    <para>
+      Pakken mpdecimal inneholder raske C/C++ biblioteker for korrekt avrundet 
+      flyttall med vilkårlig presisjonsdesimal.
+    </para>
+
+    <segmentedlist>
+      <segtitle>&buildtime;</segtitle>
+      <segtitle>&diskspace;</segtitle>
+
+      <seglistitem>
+        <seg>&mpdecimal-fin-sbu;</seg>
+        <seg>&mpdecimal-fin-du;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+  </sect2>
+
+  <sect2 role="installation">
+    <title>Installasjon av mpdecimal</title>
+
+    <para>Forbered mpdecimal for kompilering:</para>
+
+<screen><userinput remap="configure">
+./configure --prefix=/usr    \
+            --disable-static \
+            --docdir=/usr/share/doc/mpdecimal-&mpdecimal-version;</userinput></screen>
+
+    <para>Kompiler pakken:</para>
+
+<screen><userinput remap="make">make</userinput></screen>
+
+    <para>For å teste resultatene, utsted:</para>
+
+<screen><userinput remap="test">make check_local</userinput></screen>
+
+    <para>Installer pakken:</para>
+
+<screen><userinput remap="install">make install</userinput></screen>
+
+  </sect2>
+
+  <sect2 id="contents-mpdecimal" role="content">
+    <title>Innhold i mpdecimal</title>
+
+    <segmentedlist>
+      <segtitle>Installerte biblioteker</segtitle>
+      <segtitle>Installert mappe</segtitle>
+
+      <seglistitem>
+        <seg>libmpdec.so and libmpdec++.so</seg>
+        <seg>/usr/share/doc/mpdecimal-&mpdecimal-version;</seg>
+      </seglistitem>
+    </segmentedlist>
+
+    <variablelist>
+      <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
+      <?dbfo list-presentation="list"?>
+      <?dbhtml list-presentation="table"?>
+
+      <varlistentry id="libmpdec">
+        <term><filename class="libraryfile">libmpdec</filename></term>
+        <listitem>
+          <para>Inneholder vilkårlig presisjons desimal flyttallsaritmetikk 
+          funksjoner for C programmer</para>
+          <indexterm zone="ch-system-mpdecimal libmpdec">
+            <primary sortas="c-libmpdec">libmpdec</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry id="libmpdecpp">
+        <term><filename class="libraryfile">libmpdec++</filename></term>
+        <listitem>
+          <para>Inneholder vilkårlig presisjons desimal flyttallsaritmetikk 
+          funksjoner for C++ programmer</para>
+          <indexterm zone="ch-system-mpdecimal libmpdecpp">
+            <primary sortas="c-libmpdecpp">libmpdec++</primary>
+          </indexterm>
+        </listitem>
+      </varlistentry>
+
+    </variablelist>
+  </sect2>
+
+</sect1>
