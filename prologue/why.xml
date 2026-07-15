@@ -438,6 +438,13 @@
       </listitem>
 
       <listitem>
+        <para>Mpdecimal</para>
+
+        <para>Denne pakken leverer aritmetiske funksjoner for desimalflyttall.
+        Den kreves av Python.</para>
+      </listitem>
+
+      <listitem>
         <para>MPFR</para>
 
         <para>Denne pakken inneholder funksjoner for multipresisjons
