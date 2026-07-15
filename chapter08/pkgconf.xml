@@ -44,19 +44,25 @@
 
     <title>Installasjon av Pkgconf</title>
 
-    <para>Forbered Pkgconf for kompilering:</para>
+    <para>Først, arbeid deg rundt en sirkulær avhengighet av meson:</para>
 
-<screen><userinput remap="configure">./configure --prefix=/usr    \
-            --disable-static \
-            --docdir=/usr/share/doc/pkgconf-&pkgconf-version;</userinput></screen>
+<screen><userinput remap="pre">tar -xf ../meson-&meson-version;.tar.gz</userinput></screen>
 
     <para>Forbered Pkgconf for kompilering:</para>
 
-<screen><userinput remap="make">make</userinput></screen>
+<screen><userinput remap="configure">mkdir build
+cd    build
+
+python3 ../meson-&meson-version;/meson.py setup --prefix=/usr --buildtype=release ..</userinput></screen>
+
+    <para>Forbered Pkgconf for kompilering:</para>
+
+<screen><userinput remap="make">ninja</userinput></screen>
 
     <para>Installer pakken:</para>
 
-<screen><userinput remap="install">make install</userinput></screen>
+<screen><userinput remap="install">ninja install
+mv /usr/share/doc/pkgconf{,-&pkgconf-version;}</userinput></screen>
 
     <para>For å opprettholde kompatibilitet med den originale Pkg-config oppretter du to
     symbolkoblinger:</para>
@@ -138,7 +144,7 @@ EOF</userinput></screen>
       </varlistentry>
 
       <varlistentry id="libpkgconf">
-        <term><filename class="libraryfile">libpkgconf</filename></term>
+        <term><filename class="libraryfile">libpkgconf.so</filename></term>
         <listitem>
           <para>Inneholder det meste av pkgconf sin funksjonalitet, mens det tillater
           andre verktøy som IDEer og kompilatorer å bruke rammeverket</para>

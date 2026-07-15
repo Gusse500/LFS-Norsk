@@ -591,6 +591,15 @@
     </varlistentry>
 
     <varlistentry>
+      <term>mpdecimal (&mpdecimal-version;) - <token>&mpdecimal-size;</token>:</term>
+      <listitem>
+        <para>Hjemmeside: <ulink url="&mpdecimal-home;"/></para>
+        <para>Nedlasting: <ulink url="&mpdecimal-url;"/></para>
+        <para>MD5 sum: <literal>&mpdecimal-md5;</literal></para>
+      </listitem>
+    </varlistentry>
+
+    <varlistentry>
       <term>MPFR (&mpfr-version;) - <token>&mpfr-size;</token>:</term>
       <listitem>
         <para>Hjemmeside: <ulink url="&mpfr-home;"/></para>
@@ -766,12 +775,12 @@
         <para>Hjemmeside: <ulink url="&sqlite-home;"/></para>
         <para>Nedlasting: <ulink url="&sqlite-doc-url;"/></para>
         <para>MD5 sum: <literal>&sqlite-doc-md5;</literal></para>
-
+<!--
         <note>
           <para>Linux From Scratch teamet genererer sin egen tarball av 
           dokumentasjonssidene ved hjelp av zip filen for sqlite dokumentasjonen. 
           Dette gjøres for å unngå unødvendige avhengigheter.</para>
-        </note>
+        </note>-->
       </listitem>
     </varlistentry>
 

@@ -57,7 +57,7 @@
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <para>En test navngitt <filename>test/cp.test</filename> er kjent for å
+    <para>En test navngitt <filename>test/cp.run</filename> er kjent for å
     feile fordi <application>Coreutils</application> ikke er bygget med
     <application>Acl</application> støtte enda.</para>
 
