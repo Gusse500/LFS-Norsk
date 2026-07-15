@@ -2233,7 +2233,7 @@
       </segmentedlist>
 
       <segmentedlist id="mpdecimal-testdeps">
-        <segtitle>&testsuiandtes;</segtitle>
+        <segtitle>&testsuites;</segtitle>
         <seglistitem>
           <seg>Ingen</seg>
         </seglistitem>
