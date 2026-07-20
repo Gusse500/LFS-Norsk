@@ -60,13 +60,14 @@ cd       build</userinput></screen>
 
     <para>Forbered libstdc++ for kompilering:</para>
 
-<screen><userinput remap="configure">../libstdc++-v3/configure           \
-    --host=$LFS_TGT                 \
-    --build=$(../config.guess)      \
-    --prefix=/usr                   \
-    --enable-multilib               \
-    --disable-nls                   \
-    --disable-libstdcxx-pch         \
+<screen><userinput remap="configure">../libstdc++-v3/configure      \
+    --host=$LFS_TGT            \
+    --build=$(../config.guess) \
+    CXX=$LFS_TGT-gcc           \
+    --prefix=/usr              \
+    --enable-multilib         \
+    --disable-nls              \
+    --disable-libstdcxx-pch    \
     --with-gxx-include-dir=/tools/$LFS_TGT/include/c++/&gcc-version;</userinput></screen>
 
     <variablelist>
@@ -78,6 +79,23 @@ cd       build</userinput></screen>
           <para>Spesifiserer at krysskompilatoren vi nettopp har bygget
           skal brukes i stedet for den i
           <filename>/usr/bin</filename>.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>CXX=$LFS_TGT-gcc</parameter></term>
+        <listitem>
+          <para>Spesifiserer å bruke <command>$LFS_TGT-gcc</command> å kompilere 
+          C++ koden. Standardinnstillingen, <command>$LFS_TGT-g++</command>,
+          ville automatisk spesifisere kobling mot
+          <systemitem class='library'>libstdc++</systemitem> når man aktiverer 
+          lenkeren, men i vårt tilfelle
+          <systemitem class='library'>libstdc++</systemitem> er ikke installert 
+          ennå, så noen kontroller i <command>configure</command>
+          skriptet ville oppføre seg feil med <command>$LFS_TGT-g++</command>.  
+          I en vanlig bygging sendes denne overstyringen automatisk til
+          <command>configure</command> skript fra toppnivåmappen. 
+          Her sender vi det eksplisitt.</para>
         </listitem>
       </varlistentry>
 
