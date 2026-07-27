@@ -14,7 +14,7 @@ $regex = array();
 $regex[ 'intltool' ] = "/^.*Siste versjon er (\d[\d\.]+\d).*$/";
 $regex[ 'less'     ] = "/^.*nåværende utgitte versjon er less-(\d+).*$/";
 $regex[ 'mpfr'     ] = "/^mpfr-([\d\.]+)\.tar.*$/";
-$regex[ 'tzdata'   ] = "/^.*tzdata([\d]+[a-z]).*$/";
+$regex[ 'tzdata'   ] = "/^.*(20\d\d[a-z]).*$/";
 $regex[ 'xz'       ] = "/^.*xz-([\d\.]*\d).*$/";
 $regex[ 'zlib'     ] = "/^.*zlib ([\d\.]*\d).*$/";
 
