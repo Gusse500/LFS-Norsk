@@ -58,6 +58,7 @@ cd       build</userinput></screen>
              --enable-64-bit-bfd \
              --enable-new-dtags  \
              --with-system-zlib  \
+             --with-lib-path=/usr/lib \
              --enable-default-hash-style=gnu</userinput></screen>
 
     <variablelist>
@@ -83,6 +84,22 @@ cd       build</userinput></screen>
         <listitem>
           <para>Bruk det installerte zlib biblioteket i stedet for å bygge den
           inkluderte versjonen.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term><parameter>--with-lib-path=/usr/lib</parameter></term>
+        <listitem>
+          <para>Angi banen for lenkeren (<command>ld</command>)
+          å søke. Som standard søker den i flere ikke-eksisterende mapper på LFS 
+          i tillegg til <filename class='directory'>/usr/lib</filename>,
+          spesielt <filename class='directory'>/usr/lib64</filename>
+          mappen som vi bevisst unngår. I tilfelle
+          <filename class='directory'>/usr/lib64</filename> ble feilaktig 
+          opprettet og fylt med noen biblioteker, noe som gjorde at 
+          <command>ld</command> hvis du ikke søker i banen, kan problemet 
+          fremheves tidligere, med en feil som finner disse bibliotekene når du 
+          bygger en pakke med dem (i stedet for når du kjører den pakken).</para>
         </listitem>
       </varlistentry>
 
