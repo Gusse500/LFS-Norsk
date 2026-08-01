@@ -59,6 +59,10 @@ python3 ../meson-&meson-version;/meson.py setup --prefix=/usr --buildtype=releas
 
 <screen><userinput remap="make">ninja</userinput></screen>
 
+    <para>For å teste resultatene, utsted:</para>
+
+<screen><userinput remap="test">ninja test</userinput></screen>
+
     <para>Installer pakken:</para>
 
 <screen><userinput remap="install">ninja install
