@@ -43,6 +43,16 @@
   <sect2 role="installation">
     <title>Installasjon av M4</title>
 
+     <para>
+       Sørg for at pakker som bruker gnulib oppdager noen nyere funksjoner 
+       som finnes i glibc-2.44.
+     </para>
+
+<screen><userinput remap="pre">cat &gt; $LFS/usr/share/config.site &lt;&lt; EOF
+ac_cv_func_posix_spawn_file_actions_addchdir=yes
+ac_cv_func_posix_spawn_file_actions_addfchdir=yes
+EOF</userinput></screen>
+
     <para>Forbered M4 for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr   \
