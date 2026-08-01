@@ -153,6 +153,21 @@ cd       build</userinput></screen>
       </varlistentry>
 
       <varlistentry>
+        <term><parameter>CXX="$LFS_TGT-gcc -nostdinc++"</parameter></term>
+        <listitem>
+          <para>Spesifiserer å bruke <command>$LFS_TGT-gcc</command> å kompilere 
+          C++ koden som <xref linkend='ch-tools-libstdcpp'/> og forhindre 
+          kompilatoren i å bruke deklarasjonene fra den forrige libstdc++ 
+          installasjonen. Å blande disse deklarasjonene og C++ deklarasjonene 
+          fra den nåværende libstdc++ bygget kan forårsake at
+          <literal>#include_next</literal> direktivene ikke finner C 
+          deklarasjonene. I en vanlig bygging sendes denne overstyringen 
+          automatisk til <command>configure</command> skriptet fra 
+          toppnivåmappen. Her sender vi det eksplisitt.</para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
         <term><parameter>LDFLAGS_FOR_TARGET=...</parameter></term>
         <listitem>
           <para>Tillat <filename class="libraryfile">libstdc++</filename> å

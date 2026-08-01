@@ -312,13 +312,8 @@ readelf -l a.out | grep ': /lib'</userinput></screen>
   ignoreres, men ellers bør utdata fra den siste kommandoen være:</para>
 
 <screen><computeroutput>SEARCH_DIR("/usr/x86_64-pc-linux-gnu/lib64")
-SEARCH_DIR("/usr/local/lib64")
-SEARCH_DIR("/lib64")
-SEARCH_DIR("/usr/lib64")
-SEARCH_DIR("/usr/x86_64-pc-linux-gnu/lib")
-SEARCH_DIR("/usr/local/lib")
-SEARCH_DIR("/lib")
-SEARCH_DIR("/usr/lib");</computeroutput></screen>
+SEARCH_DIR("/usr/lib");
+SEARCH_DIR("/usr/x86_64-pc-linux-gnu/lib")</computeroutput></screen>
 
   <para>Neste forsikre deg om at vi bruker riktig libc:</para>
 
