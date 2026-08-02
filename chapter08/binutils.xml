@@ -90,15 +90,15 @@ cd       build</userinput></screen>
       <varlistentry>
         <term><parameter>--with-lib-path=/usr/lib</parameter></term>
         <listitem>
-          <para>Angi banen for lenkeren (<command>ld</command>)
-          å søke. Som standard søker den i flere ikke-eksisterende mapper på LFS 
-          i tillegg til <filename class='directory'>/usr/lib</filename>,
+          <para>Angi banen som lenkeren (<command>ld</command>) skal
+          søke i. Som standard søker den i flere mapper som ikke eksister i LFS 
+          utenom <filename class='directory'>/usr/lib</filename>,
           spesielt <filename class='directory'>/usr/lib64</filename>
-          mappen som vi bevisst unngår. I tilfelle
-          <filename class='directory'>/usr/lib64</filename> ble feilaktig 
-          opprettet og fylt med noen biblioteker, noe som gjorde at 
-          <command>ld</command> hvis du ikke søker i banen, kan problemet 
-          fremheves tidligere, med en feil som finner disse bibliotekene når du 
+          mappen som vi bevisst unngår. I tilfeller hvor
+          <filename class='directory'>/usr/lib64</filename> feilaktig blir 
+          opprettet og fylt med noen biblioteker, gjør det at  
+          <command>ld</command> ikke søker i banen, som kan fremheve  
+          problemet tidligere, med en feil for å finne disse bibliotekene når du 
           bygger en pakke med dem (i stedet for når du kjører den pakken).</para>
         </listitem>
       </varlistentry>
