@@ -54,6 +54,10 @@
 
 <screen><userinput remap="install">make install</userinput></screen>
 
+    <para>Fjern et ubrukelig statisk bibliotek:</para>
+
+<screen><userinput remap="install">rm -fv /usr/lib/libz.a</userinput></screen>
+
   </sect2>
 
   <sect2 role="content">

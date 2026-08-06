@@ -50,13 +50,12 @@
 
 <screen><userinput remap="pre">patch -Np1 -i ../&glibc-fhs-patch;</userinput></screen>
 
-<!--
-    <para>Legg nå til noen rettelser for å håndtere bygging og testing med 
-    Linux 7, og fiks 5 sikkerhetsproblemer som ble funnet etter glibc-2.43 
-    utgivelsen:</para>
+    <para>Fiks nå et problem som forårsaker at 
+    <ulink role='man' url='&man;tanh.3'>tanh(3)</ulink> funksjonen krasjer på 
+    noen gamle x86_64-prosessorer. Nyere x86_64-prosessorer og 32-bit x86 
+    prosessorer er ikke berørt, men oppdateringen gjør heller ingen skade:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&glibc-upstream-patch;</userinput></screen>
--->
 
     <para>Glibc dokumentasjonen anbefaler å bygge Glibc
     i en dedikert byggemappe:</para>
