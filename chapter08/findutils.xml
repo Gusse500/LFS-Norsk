@@ -83,7 +83,12 @@ esac</userinput></screen>
     <para>For å teste resultatene, utsted:</para>
 
 <screen><userinput remap="test">chown -R tester .
-su tester -c "PATH=$PATH make check"</userinput></screen>
+su tester -c "PATH=$PATH make check -k"</userinput></screen>
+
+    <!-- See the bottom https://sourceware.org/glibc/wiki/Release/2.44 -->
+    <para>
+      En test med navnet <filename>test-regex-el</filename> er kjent for å feile.
+    </para>
 
     <para>Installer pakken:</para>
 
