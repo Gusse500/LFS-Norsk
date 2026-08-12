@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
   <!ENTITY % general-entities SYSTEM "../general.ent">
@@ -23,8 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>ISL er et trådsikkert C-bibliotek for å manipulere sett og relasjoner av 
-	heltallspunkter avgrenset av affine begrensninger.</para>
+    <para>ISL er et trÃ¥dsikkert C-bibliotek for Ã¥ manipulere sett og relasjoner 
+    av heltallspunkter avgrenset av affine begrensninger.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -41,7 +41,7 @@
   <sect2 role="installation">
     <title>Installasjon av ISL</title>
 
-    <para>Klargjør ISL for kompilering:</para>
+    <para>KlargjÃ¦r ISL for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr    \
             --disable-static \
@@ -63,6 +63,10 @@
     <para>Kompiler pakken:</para>
 
 <screen><userinput remap="make">make</userinput></screen>
+
+    <para>For Ã¥ teste resultatene, utsted:</para>
+
+<screen><userinput remap="test">make check</userinput></screen>
 
     <para>Installer pakken og dokumentasjonen:</para>
 
