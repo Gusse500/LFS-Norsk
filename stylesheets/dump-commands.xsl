@@ -70,7 +70,7 @@
       <xsl:text># Denne blokken må redigeres for å passe dine behov.</xsl:text>
       <xsl:value-of select="$newline"/>
     </xsl:if>
-    <xsl:apply-templates/>
+    <xsl:apply-templates mode="userinput"/>
     <xsl:value-of select="$newline"/>
     <xsl:if test=".//replaceable">
       <xsl:text># Slutt på redigerbar blokk.</xsl:text>
@@ -78,7 +78,7 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template match="replaceable">
+  <xsl:template match="replaceable" mode="userinput">
     <xsl:text>**REDIGERMEG</xsl:text>
     <xsl:apply-templates/>
     <xsl:text>REDIGERMEG**</xsl:text>
