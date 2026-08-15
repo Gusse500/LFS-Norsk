@@ -29,7 +29,7 @@ INOTIFY_USER='*'
 TMPFS='*'
 TMPFS_POSIX_ACL='*'
 CGROUP_SCHED='* '
-TTY='*'
+       
 LEGACY_TIOCSTI=' '
 
 revision='systemd'
@@ -37,3 +37,7 @@ revision='systemd'
 [RT_GROUP_SCHED]
 value = ' '
 comment = 'This may cause some systemd features malfunction'
+
+[TTY]
+value = '*'
+forced = true
