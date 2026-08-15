@@ -41,6 +41,52 @@
     -->
 
     <listitem>
+      <para>15.08.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til expat-2.8.3 (Sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;5996">#5996</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til iana-etc-20260805. Adresserer
+          <ulink url="&lfs-ticket-root;5006">#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til libffi-3.8.0. Fikser
+          <ulink url="&lfs-ticket-root;5993">#5993</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til linux-7.1.8. Fikser
+          <ulink url="&lfs-ticket-root;5997">#5997</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til meson-1.12.0. Fikser
+          <ulink url="&lfs-ticket-root;5998">#5998</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til procps-ng-4.0.7. Fikser
+          <ulink url="&lfs-ticket-root;6000">#6000</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til setuptools-84.0.0 (Python modul). Fikser
+          <ulink url="&lfs-ticket-root;5994">#5994</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til shadow-4.20.2. Fikser
+          <ulink url="&lfs-ticket-root;5995">#5995</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til vim-9.2.0954. Adresserer
+          <ulink url="&lfs-ticket-root;4500">#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til wheel-0.48.0 (Python modul). Fikser
+          <ulink url="&lfs-ticket-root;5999">#5999</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>07.08.2026</para>
       <itemizedlist>
         <listitem>
