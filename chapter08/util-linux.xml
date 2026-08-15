@@ -113,13 +113,8 @@ chown -R tester .
 su tester -c "make -k check"</userinput></screen>
 
     <para> 
-       <emphasis>hardlink</emphasis> tester vil mislykkes hvis vertens kjerne
-       ikke har alternativet<option>CONFIG_CRYPTO_USER_API_HASH</option>
-       aktivert eller har ingen alternativer som gir en SHA256 implementering
-       (for eksempel, <option>CONFIG_CRYPTO_SHA256</option>, eller
-       <option>CONFIG_CRYPTO_SHA256_SSSE3</option> hvis CPU støtter
-       Supplemental SSE3) aktivert. I tillegg vil lsfd: inotify testen
-       mislykkes hvis kjernealternativet <option>CONFIG_NETLINK_DIAG</option> ikke er
+       lsfd: inotify testen vil mislykkes hvis 
+       kjernealternativet <option>CONFIG_NETLINK_DIAG</option> ikke er 
        aktivert.
     </para>
 <!--
