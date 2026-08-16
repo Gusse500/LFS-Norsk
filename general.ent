@@ -71,7 +71,6 @@
 <!ENTITY short-version   "svn">  <!-- Used below in &blfs-book; -->
 ]]>
 <![ %systemd; [
-<!ENTITY version         "%relnum;-systemd-rc%rcnum;">
 <!ENTITY short-version   "systemd">  <!-- Used below in &blfs-book; -->
 ]]>
 <!ENTITY errata          "&norsklfs-root;lfs/errata/&version;/">
@@ -118,7 +117,7 @@
 <!ENTITY min-kernel      "5.10">
 
 <!--
-<!ENTITY patches-rootd   "&norsklfs-root;patches/lfs/&generic-versiond;/">
+<!ENTITY patches-rootd   "&lfs-root;patches/lfs/&generic-versiond;/">
 <!ENTITY downloads-rootd "&norsklfs-root;lfs/downloads/&generic-versiond;/">
 <!ENTITY test-resultsd   "&lfs-root;lfs/build-logs/&generic-versiond;/">
 <!ENTITY erratad         "&norsklfs-root;lfs/errata/&generic-versiond;/">
