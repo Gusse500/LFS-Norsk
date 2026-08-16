@@ -622,7 +622,7 @@ EOF</userinput></screen>
   denne mappen inkludere en linje som spesifiserer ønsket biblioteksti.
   For å legge til denne funksjonen, kjør følgende kommandoer:</para>
 
-<screen role="nodump"><userinput>cat &gt;&gt; /etc/ld.so.conf &lt;&lt; "EOF"
+<screen><userinput>cat &gt;&gt; /etc/ld.so.conf &lt;&lt; "EOF"
 <literal># Add an include directory
 include /etc/ld.so.conf.d/*.conf
 </literal>
