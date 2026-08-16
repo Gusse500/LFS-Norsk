@@ -137,7 +137,7 @@
       <term>Python Openssl4 oppdatering - <token>&python-openssl4-fixes-patch-size;</token>:</term>
       <listitem>
         <para>Nedlasting: <ulink url="&patches-root;Python/&python-openssl4-fixes-patch;"/></para>
-        <para>MD5 sum: <literal>&python-consolidated-fixes-patch-md5;</literal></para>
+        <para>MD5 sum: <literal>&python-openssl4-fixes-patch-md5;</literal></para>
       </listitem>
     </varlistentry>
 
