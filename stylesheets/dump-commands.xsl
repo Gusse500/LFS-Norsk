@@ -6,9 +6,7 @@
 
 <!-- XSLT stylesheet to extract commands from [B,H]LFS books. -->
 
-  <xsl:variable name="newline">
-    <xsl:text>&#xA;</xsl:text>
-  </xsl:variable>
+  <xsl:variable name="newline" select="'&#xA;'"/>
 
   <xsl:template match="/">
     <xsl:apply-templates select="//sect1"/>
@@ -52,29 +50,29 @@
       <xsl:choose>
         <xsl:when test="@role = 'root'">
           <xsl:text># Kjør dette som root</xsl:text>
-          <xsl:value-of select="$newline"/>
+          <xsl:copy-of select="$newline"/>
           <xsl:apply-templates select="userinput"/>
           <xsl:text># Avslutt root kommandoer</xsl:text>
-          <xsl:value-of select="$newline"/>
+          <xsl:copy-of select="$newline"/>
         </xsl:when>
         <xsl:otherwise>
           <xsl:apply-templates select="userinput"/>
         </xsl:otherwise>
       </xsl:choose>
-      <xsl:value-of select="$newline"/>
+      <xsl:copy-of select="$newline"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="userinput">
     <xsl:if test=".//replaceable">
       <xsl:text># Denne blokken må redigeres for å passe dine behov.</xsl:text>
-      <xsl:value-of select="$newline"/>
+      <xsl:copy-of select="$newline"/>
     </xsl:if>
     <xsl:apply-templates mode="userinput"/>
-    <xsl:value-of select="$newline"/>
+    <xsl:copy-of select="$newline"/>
     <xsl:if test=".//replaceable">
       <xsl:text># Slutt på redigerbar blokk.</xsl:text>
-      <xsl:value-of select="$newline"/>
+      <xsl:copy-of select="$newline"/>
     </xsl:if>
   </xsl:template>
 
