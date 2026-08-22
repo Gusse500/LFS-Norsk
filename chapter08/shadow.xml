@@ -102,10 +102,6 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</userinput></s
     -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                  \
     -i etc/login.defs</userinput></screen>
 
-    <para>Nå fikser vi et problem med inkluderte deklarasjoner:</para>
-
-<screen><userinput remap="pre">sed -i '/stdio.h/i #include &lt;stdint.h&gt;' lib/find_new_sub_*ids.c</userinput></screen>
-
     <para>Forbered Shadow for kompilering:</para>
 
 <screen><userinput remap="configure">touch /usr/bin/passwd
@@ -221,16 +217,13 @@ make -C man install-man</userinput></screen>
     grupper; angi og endre passordene deres; og utføre annen administrativ
     oppgaver. For en fullstendig forklaring av hva <emphasis>passordskygging</emphasis>
     betyr, se <filename>doc/HOWTO</filename> filen i den utpakkede
-    kildetreet. Hvis du bruker Shadowstøtte, husk at programmer som trenger
-    å bekrefte passord (skjermbehandlere, FTP-programmer, pop3-nisser, etc.)
-    må være Shadowkompatibel. Det vil si at de må kunne jobbe med
-    skyggelagte passord.</para>
+    kildetreet.</para>
 
-    <para>For å aktivere skyggelagte passord, kjør følgende kommando:</para>
+    <para>Aktivere skyggelagte passord:</para>
 
 <screen><userinput>pwconv</userinput></screen>
 
-    <para>For å aktivere skyggelagte gruppepassord, kjør:</para>
+    <para>Aktivere skyggelagte gruppepassord:</para>
 
 <screen><userinput>grpconv</userinput></screen>
 
