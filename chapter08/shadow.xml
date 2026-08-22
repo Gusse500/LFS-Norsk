@@ -102,10 +102,6 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</userinput></s
     -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                  \
     -i etc/login.defs</userinput></screen>
 
-    <para>Nå fikser vi et problem med inkluderte deklarasjoner:</para>
-
-<screen><userinput remap="pre">sed -i '/stdio.h/i #include &lt;stdint.h&gt;' lib/find_new_sub_*ids.c</userinput></screen>
-
     <para>Forbered Shadow for kompilering:</para>
 
 <screen><userinput remap="configure">touch /usr/bin/passwd
