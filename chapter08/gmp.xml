@@ -23,8 +23,8 @@
   <sect2 role="package">
     <title/>
 
-    <para>GMP pakken inneholder matematikkbiblioteker. Disse har nyttige 
-    funksjoner for vilkårlig presisjonsaritmetikk.</para>
+    <para>GMP pakken inneholder matematikkbiblioteker. Disse har nyttige funksjoner
+    for vilkårlig presisjonsaritmetikk.</para>
 
     <segmentedlist>
       <segtitle>&buildtime;</segtitle>
@@ -43,18 +43,18 @@
 
     <note>
       <para>Hvis du bygger for 32-bit x86, men du har en CPU som er
-      i stand til å kjøre 64-bits kode <emphasis>og</emphasis> du har 
-      spesifisert <envar>CFLAGS</envar> i miljøet vil konfigureringsskriptet
+      i stand til å kjøre 64-bits kode <emphasis>og</emphasis> du har spesifisert
+      <envar>CFLAGS</envar> i miljøet vil konfigureringsskriptet
       forsøke å konfigurere for 64-biter og mislykkes.
       Unngå dette ved å påkalle configure kommandoen nedenfor med
 <screen role="nodump"><userinput><parameter>ABI=32</parameter> ./configure ...</userinput></screen></para>
     </note>
 
     <note>
-      <para>Standardinnstillingene til GMP produserer biblioteker optimalisert 
-      for vertsprosessoren. Hvis det er ønskelig med biblioteker egnet for 
-      prosessorer mindre kapable enn vertens CPU, kan generiske biblioteker bli
-      opprettet ved å legge til <option>--disable-assembly</option> alternativet
+      <para>Standardinnstillingene til GMP produserer biblioteker optimalisert for
+      vertsprosessoren. Hvis det er ønskelig med biblioteker egnet for prosessorer mindre
+      kapable enn vertens CPU, kan generiske biblioteker bli
+      opprettet ved å legge til <option>--host=none-linux-gnu</option> alternativet
       til <command>configure</command> kommandoen.</para>
 
       <!-- To editors: the configure script says "the none host is obsolete,
@@ -107,8 +107,8 @@ make html</userinput></screen>
 
 <screen><userinput remap="test">make check</userinput></screen>
 
-    <caution><para>Koden i gmp er svært optimalisert for prosessoren hvor den er 
-    bygget. Noen ganger vil koden som oppdager prosessoren feilidentifisere
+    <caution><para>Koden i gmp er svært optimalisert for prosessoren hvor
+    den er bygget. Noen ganger vil koden som oppdager prosessoren feilidentifisere
     systemets evner og det vil være feil i testene eller andre
     applikasjoner som bruker gmp bibliotekene med meldingen
     <computeroutput>Illegal instruction</computeroutput>.
