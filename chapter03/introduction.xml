@@ -40,18 +40,22 @@
   <important>
     <para>
       På neste side finner du flere viktige pakker som ligger på 
-      <uri>ftpmirror.gnu.org</uri>.  Den kanoniske plasseringen til emnepakkene 
-      er <uri>ftp.gnu.org</uri> men på grunn av et langvarig distribuert 
+      <systemitem class='domainname'>ftpmirror.gnu.org</systemitem>.  Den
+      kanoniske plasseringen til emnepakkene er
+      <systemitem class='domainname'>ftp.gnu.org</systemitem> men på grunn av
       tjenestenektangrep (DDOS) foreslo nettstedets administrator at LFS 
       redaktørene skulle bruke
-      <uri>ftpmirror.gnu.org</uri> i stedet. Se
+      <systemitem class='domainname'>ftpmirror.gnu.org</systemitem> i stedet.
+      Se
       <ulink url="https://news.slashdot.org/story/25/07/06/1737253/the-fsf-faces-active-ongoing-and-increasing-ddos-attacks">Slashdot News</ulink> for detaljer.
     </para>
 
     <para>
-      <uri>ftpmirror.gnu.org</uri> URL-en omdirigerer faktisk til et av speilene 
-      til <uri>ftp.gnu.org</uri> nettstedet. Du kan også velge et speil manuelt 
-      i stedet for å bruke <uri>ftpmirror.gnu.org</uri>.
+      <systemitem class='domainname'>ftpmirror.gnu.org</systemitem> URLen
+      omdirigerer faktisk til et av speilene til
+      <systemitem class='domainname'>ftp.gnu.org</systemitem> nettstedet. Du
+      kan også velge et speil manuelt i stedet for å bruke
+      <systemitem class='domainname'>ftpmirror.gnu.org</systemitem>.
       En liste over speil finnes på
       <ulink url="https://www.gnu.org/prep/ftp.en.html"/>.
       Hvis du velger å bruke wget listen beskrevet nedenfor, kan også den filen 
