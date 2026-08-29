@@ -78,8 +78,7 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</userinput></s
 
     <para id="shadow-login_defs">I stedet for å bruke standard
     <emphasis>SHA512</emphasis> metoden, bruk den sikrere
-    <emphasis>YESCRYPT</emphasis> metode for passordkryptering, som også
-    tillater passord lengre enn 8 tegn.
+    <emphasis>YESCRYPT</emphasis> metode for passordkryptering.
     Det er også nødvendig å endre
     det foreldede <filename class="directory">/var/spool/mail</filename> plasseringen
     for brukerpostbokser som Shadow bruker som standard til <filename
@@ -98,8 +97,8 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</userinput></s
     </warning>
 
     <screen><userinput remap="pre">sed -e 's:#ENCRYPT_METHOD SHA512:ENCRYPT_METHOD YESCRYPT:' \
-    -e 's:/var/spool/mail:/var/mail:'                   \
-    -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                  \
+        -e 's:/var/spool/mail:/var/mail:'                      \
+        -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                     \
     -i etc/login.defs</userinput></screen>
 
     <para>Forbered Shadow for kompilering:</para>
