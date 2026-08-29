@@ -77,7 +77,7 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</userinput></s
 find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</userinput></screen>
 
     <para id="shadow-login_defs">I stedet for å bruke standard
-    <emphasis>crypt</emphasis> metoden, bruk den mye sikrere
+    <emphasis>SHA512</emphasis> metoden, bruk den sikrere
     <emphasis>YESCRYPT</emphasis> metode for passordkryptering, som også
     tillater passord lengre enn 8 tegn.
     Det er også nødvendig å endre
@@ -97,7 +97,7 @@ find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;</userinput></s
       i <filename>.bashrc</filename> filen eller andre steder.</para>
     </warning>
 
-<screen><userinput remap="pre">sed -e 's:#ENCRYPT_METHOD DES:ENCRYPT_METHOD YESCRYPT:' \
+    <screen><userinput remap="pre">sed -e 's:#ENCRYPT_METHOD SHA512:ENCRYPT_METHOD YESCRYPT:' \
     -e 's:/var/spool/mail:/var/mail:'                   \
     -e '/PATH=/{s@/sbin:@@;s@/bin:@@}'                  \
     -i etc/login.defs</userinput></screen>
