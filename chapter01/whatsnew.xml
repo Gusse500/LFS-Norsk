@@ -309,8 +309,8 @@
   <itemizedlist>
     <title>Fjernet:</title>
     <listitem><para></para></listitem>  <!-- satisfy build -->
-    <listitem><para>XML-Parser (Flyttet til BLFS)</para></listitem> 
-    <listitem><para>intltool (Flyttet til BLFS)</para></listitem>  
+    <listitem><para>XML-Parser (Flyttet til BLFS)</para></listitem>
+    <listitem><para>intltool (Flyttet til BLFS)</para></listitem>
     <!--<listitem><para>Coreutils-9.7-i18n-1.patch</para></listitem>-->
   </itemizedlist>
 
