@@ -10,41 +10,26 @@
 
   <title>LFS målarkitekturer</title>
 
-<para>Den primære målarkitekturene til LFS er AMD/Intel x86 (32-bit)
-og x86_64 (64-bit) CPUer. På den annen side er instruksjonene i denne boken
-også kjent for å fungere, med noen modifikasjoner, med Power PC og ARM CPUer. Hovedforutsetningen for å
+<para>De primære målarkitekturene til LFS er AMD/Intel x86_64 (64-bit) CPU-er.
+Instruksjonene i denne boken er også kjent for å fungere på 32-bit x86 CPU-er
+med SSE2-støtte (for eksempel Pentium 4), men ikke testet med tidligere, mindre
+kapable 32-bit x86-prosessorer. På den annen side er instruksjonene i denne
+boken også kjent for å fungere, med noen modifikasjoner, med Power PC og ARM
+CPUer. Hovedforutsetningen for å
 bygge et system som bruker en av disse CPUene, i
 i tillegg til de på neste side, er et eksisterende Linux-system som f.eks
-tidligere LFS installasjon, Ubuntu, Red Hat/Fedora, SuSE eller annen distribusjon
-som retter seg mot arkitekturen du har. Vær også oppmerksom på at en 32-bit
-distribusjon kan installeres og brukes som et vertssystem på en 64-bit AMD/Intel
-datamaskin.</para>
-
-<para>Gevinsten ved å bygge på et 64-bitssystem
-sammenlignet med et 32-bits system er minimal.
-For eksempel, i en testbygging av LFS-9.1 på et Core i7-4790 CPU-basert system,
-ved bruk av 4 kjerner ble følgende statistikk målt:</para>
-
-<screen><computeroutput>Arkitektur Byggetid     Byggestørrelse
-32-bit       239.9 minutter  3.6 GB
-64-bit       233.2 minutter  4.4 GB</computeroutput></screen>
-
-<para>Som du kan se, på den samme maskinvaren, er 64-bits bygg bare 3% raskere
-og er 22 % større enn 32-bits bygg. Hvis du planlegger å bruke LFS som en LAMP
-server, eller en brannmur, kan en 32-bits CPU stort sett være tilstrekkelig. På den andre
-siden, trenger flere pakker i BLFS nå mer enn 4 GB RAM for å bygges
-og/eller å kjøre, slik at hvis du planlegger å bruke LFS som skrivebord, så anbefaler LFS forfatterne
-å bygge på et 64-bitssystem.</para>
+tidligere LFS installasjon, Ubuntu, Red Hat/Fedora, SuSE eller annen
+distribusjon som retter seg mot arkitekturen du har.</para>
 
 <para>Standard 64-bits bygg som et resultat av LFS regnes som et
-<quote>rent</quote> 64-bits system. Det vil si at den bare støtter 64-biters kjørbare filer
-. Å bygge et <quote>flerarkitekturs</quote> system krever kompilering av mange
-applikasjoner to ganger, en gang for et 32-bitssystem og en gang for et 64-bitssystem.
-Dette støttes ikke direkte i LFS fordi det ville forstyrre
-pedagogisk mål om å gi instruksjonene som trengs for et
-enkelt grunnleggende Linux-system. Noen LFS/BLFS-redaktører opprettholder en forgrening
-av LFS for flerarkitektur, som er tilgjengelig på <ulink
-url="https://lfs.freding.no/lfs/multilib.html"/>. Men det
+<quote>rent</quote> 64-bits system. Det vil si at den bare støtter 64-biters
+kjørbare filer. Å bygge et <quote>flerarkitekturs</quote> system krever
+kompilering av mange applikasjoner to ganger, en gang for et 32-bitssystem og en
+gang for et 64-bitssystem. Dette støttes ikke direkte i LFS fordi det ville
+forstyrre pedagogisk mål om å gi instruksjonene som trengs for et
+enkelt grunnleggende Linux-system. Noen LFS/BLFS-redaktører opprettholder en
+forgrening av LFS for flerarkitektur, som er tilgjengelig på <ulink
+url="https://www.lfs.freding.no/mlfs/view/dev/"/>. Men det
 er et avansert tema.</para>
 
 </sect1>

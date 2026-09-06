@@ -15,7 +15,7 @@
   er å bruke en tilgjengelig tom partisjon eller, hvis du har nok upartisjonert
   plass, å lage en.</para>
 
-  <para>Et minimalt system krever en partisjon på rundt 10 gigabyte (GB).
+  <para>Et minimalt system krever en partisjon på rundt 15 gigabyte (GB).
   Dette er nok til å lagre alle kildetarballene og kompilere pakkene.
   Men hvis LFS systemet er ment å være det primære Linux systemet,
   vil tilleggsprogramvare sannsynligvis bli installert som vil kreve ekstra
