@@ -192,8 +192,7 @@ su tester -c "PATH=$PATH make -k check"</userinput></screen>
     <userinput>grep -A7 Summ</userinput>.</para>
 
     <para>Resultatene kan sammenlignes med de som ligger på <ulink
-    url="&test-results;"/> og
-    <ulink url="https://gcc.gnu.org/ml/gcc-testresults/"/>.</para>
+    url="&test-results;"/>.</para>
 
     <para>I <filename class='directory'>gcc.target/i386</filename>
     testene, testene navngitt
