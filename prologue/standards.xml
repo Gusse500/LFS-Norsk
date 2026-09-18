@@ -18,8 +18,8 @@
 
     <itemizedlist>
       <listitem>
-        <para><ulink url="https://pubs.opengroup.org/onlinepubs/9699919799/">
-        POSIX.1-2008</ulink>.</para>
+        <para><ulink url="https://pubs.opengroup.org/onlinepubs/9799919799/">
+        POSIX.1-2024</ulink>.</para>
       </listitem>
       <listitem>
         <para><ulink
@@ -27,204 +27,24 @@
         Standard for filsystemhierarki (FHS) Versjon 3.0</ulink></para>
 
       </listitem>
-      <listitem>
-        <para><ulink url="https://refspecs.linuxfoundation.org/lsb.shtml">Linux
-        Standard base (LSB) Versjon 5.0 (2015)</ulink></para>
-
-        <para>LSB har fire separate standarder: Kjerne, Skrivebord,
-        Språk og Bildebehandling. I tillegg til generiske krav
-        er det også arkitekturspesifikke krav. Det er også to
-        områder for prøvebruk: Gtk3 og grafikk.  LFS forsøker å samsvare med LSB
-        spesifikasjoner for IA32 (32-bit x86) eller AMD64 (x86_64)
-        arkitekturer omtalt i forrige avsnitt.</para>
-
-        <note><para>Mange mennesker er ikke enige i kravene til LSB.
-        Hovedformålet med å definere det er å sikre at proprietær programvare
-        vil kunne installeres og kjøres riktig på et kompatibelt system.
-        Siden LFS er kildebasert, har brukeren full kontroll over hvilke
-        pakker som er ønsket og mange velger å ikke installere noen pakker som
-        er spesifisert av LSB.</para></note>
-
-      </listitem>
     </itemizedlist>
 
-    <para>Å opprette et komplett LFS system som er i stand til å bestå LSB
-    sertifiseringstester er mulig, men ikke uten mange tilleggspakker
-    som er utenfor omfanget av LFS. Installasjonsveiledning for noen av disse
-    tilleggspakker finnes i BLFS. </para>
-
-    <variablelist>
-      <bridgehead renderas="sect3">Pakker levert av LFS som trengs
-           for å tilfredsstille LSB kravene</bridgehead>
-      <?dbfo list-presentation="list"?>
-      <?dbhtml list-presentation="table"?>
-
-      <varlistentry>
-        <term><emphasis>LSB Kjerne:</emphasis></term>
-        <listitem>
-          <para>
-            Bash, Bc, Binutils, Coreutils, Diffutils, File, Findutils, Gawk,
-            GCC, Gettext, Glibc, Grep, Gzip, M4, Man-DB, Procps, Psmisc,
-            Sed, Shadow, <phrase revision='sysv'>SysVinit</phrase><phrase
-            revision='systemd'>Systemd</phrase>, Tar, Util-linux, Zlib
-          </para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term><emphasis>LSB Skrivebord:</emphasis></term>
-        <listitem>
-          <para>Ingen</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term><emphasis>LSB Språk:</emphasis></term>
-        <listitem>
-          <para>Perl</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term><emphasis>LSB Bildebehandling:</emphasis></term>
-        <listitem>
-          <para>Ingen</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term><emphasis>LSB Gtk3 og LSB Grafikk (Prøvebruk):</emphasis></term>
-        <listitem>
-          <para>Ingen</para>
-        </listitem>
-      </varlistentry>
-
-    </variablelist>
-
-    <variablelist>
-      <bridgehead renderas="sect3">Pakker levert av BLFS som trengs
-           for å tilfredsstille LSB kravene</bridgehead>
-      <?dbfo list-presentation="list"?>
-      <?dbhtml list-presentation="table"?>
-
-      <varlistentry>
-        <term><emphasis>LSB Kjerne:</emphasis></term>
-        <listitem>
-          <para>At, Batch (en del av At), BLFS Bash Startup Files, Cpio, Ed,
-          Fcrontab, LSB-Tools, NSPR, NSS, Linux-PAM, Pax, Sendmail
-          (eller Postfix eller Exim), Time
-          </para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term><emphasis>LSB Skrivebord:</emphasis></term>
-        <listitem>
-          <para>Alsa, ATK, Cairo, Desktop-file-utils, Freetype, Fontconfig,
-          Gdk-pixbuf, Glib2, GLU, Icon-naming-utils, Libjpeg-turbo,
-          Libxml2, Mesa, Pango, Xdg-utils, Xorg</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term><emphasis>LSB Språk:</emphasis></term>
-        <listitem>
-          <para>Libxml2, Libxslt</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term><emphasis>LSB Bildebehandling:</emphasis></term>
-        <listitem>
-          <para>CUPS, Cups-filters, Ghostscript, SANE</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term><emphasis>LSB Gtk3 and LSB Grafikk (Prøvebruk):</emphasis></term>
-        <listitem>
-          <para>GTK+3</para>
-        </listitem>
-      </varlistentry>
-
-    </variablelist>
-
-    <variablelist>
-      <bridgehead renderas="sect3">Komponenter som ikke følger med eller valgfritt
-      levert av LFS eller BLFS som trengs for å tilfredsstille LSB
-      Krav</bridgehead>
-      <?dbfo list-presentation="list"?>
-      <?dbhtml list-presentation="table"?>
-
-      <varlistentry>
-        <term><emphasis>LSB Kjerne:</emphasis></term>
-        <listitem>
-          <para>
-            <command>install_initd</command>,
-            <filename class='libraryfile'>libcrypt.so.1</filename>
-            (kan leveres med valgfrie instruksjoner for LFS
-            Libxcrypt pakken),
-            <filename class='libraryfile'>libncurses.so.5</filename>
-            (kan leveres med valgfrie instruksjoner for LFS
-            Ncurses pakken),
-            <filename class='libraryfile'>libncursesw.so.5</filename>
-            (men <filename class='libraryfile'>libncursesw.so.6</filename>
-            leveres av LFS Ncurses pakken)
-          </para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term><emphasis>LSB Skrivebord:</emphasis></term>
-        <listitem>
-          <para>
-            <filename class='libraryfile'>libgdk-x11-2.0.so</filename>
-            (men <filename class='libraryfile'>libgdk-3.so</filename>
-            leveres av BLFS GTK+-3 pakken),
-            <filename class='libraryfile'>libgtk-x11-2.0.so</filename>
-            (men <filename class='libraryfile'>libgtk-3.so</filename>
-            og <filename class='libraryfile'>libgtk-4.so</filename>
-            leveres av BLFS GTK+-3 and GTK-4 pakkene),
-            <filename class='libraryfile'>libpng12.so</filename>
-            (men <filename class='libraryfile'>libpng16.so</filename>
-            leveres av BLFS Libpng pakken),
-            <filename class='libraryfile'>libQt*.so.4</filename>
-            (men <filename class='libraryfile'>libQt6*.so.6</filename>
-            leveres av BLFS Qt6 pakken),
-            <filename class='libraryfile'>libtiff.so.4</filename>
-            (men <filename class='libraryfile'>libtiff.so.6</filename>
-            leveres av BLFS Libtiff pakken)
-          </para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term><emphasis>LSB Språk:</emphasis></term>
-        <listitem>
-          <para><command>/usr/bin/python</command> (LSB krever Python2 men
-          LFS og BLFS leverer bare Python3)</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term><emphasis>LSB Bildebehandling:</emphasis></term>
-        <listitem>
-          <para>Ingen</para>
-        </listitem>
-      </varlistentry>
-
-      <varlistentry>
-        <term><emphasis>LSB Gtk3 and LSB Grafikk (Prøvebruk):</emphasis></term>
-        <listitem>
-          <para>
-            <filename class='libraryfile'>libpng15.so</filename>
-            (men <filename class='libraryfile'>libpng16.so</filename>
-            leveres av BLFS Libpng pakken)
-          </para>
-        </listitem>
-      </varlistentry>
-
-    </variablelist>
-
+    <para>
+      <ulink url="https://refspecs.linuxfoundation.org/lsb.shtml">Linux
+      Standard Base (LSB) Version 5.0 (2015)</ulink> var ment å sikre
+      at binære programvarepakker kan installeres og kjøres på en kompatibel
+      systemet, men det er nedlagt nå. I dag er det ikke praktisk å bygge en
+      system som tilfredsstiller de gamle LSB kravene, og en binær programvare
+      pakke sendes vanligvis i en form som inneholder alle de nødvendige
+      tredjepartskomponenter (kanskje bortsett fra veldig grunnleggende og
+      bevarte som glibc, bash eller coreutils), for eksempel en tarball som
+      inneholder alle komponentene, en statisk koblet kjørbar, eller en
+      lettvekter containerbilde som AppImage eller Flatpak, i stedet for å stole
+      på LSB hvis det er ment å være distroagnostisk. LFS redaktører hadde brukt
+      LSB som en referanse tidligere, men nå i hele LSB er det bare kravet
+      om den dynamiske linkerbanen som vurderes seriøst (i
+      <xref linkend='ch-tools-glibc'/> noen symbolkoblinger vil bli opprettet
+      for krav).
+    </para>
 </sect1>
 
