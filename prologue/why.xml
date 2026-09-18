@@ -50,17 +50,17 @@
         <para>Automake</para>
 
         <para>Denne pakken inneholder programmer for å generere Make filer fra
-        en mal. Det er ofte nødvendig for å gjenoppbygge en pakke etter oppdateringer
-        til byggeprosedyrene.</para>
+        en mal. Det er ofte nødvendig for å gjenoppbygge en pakke etter
+        oppdateringer til byggeprosedyrene.</para>
       </listitem>
 
       <listitem>
         <para>Bash</para>
 
-        <para>Denne pakken tilfredsstiller et LSB-kjernekrav for å gi
-        et Bourne Shell grensesnitt til systemet. Det ble valgt over
+        <para>Denne pakken gir et skall som kan kjøres i en modus
+        strengt i samsvar med POSIX spesifikasjonen. Det ble valgt over
         andre skallpakker på grunn av dens vanlige bruk og omfattende
-        funksjoner utover grunnleggende skallfunksjoner.</para>
+        funksjoner.</para>
       </listitem>
 
       <listitem>
