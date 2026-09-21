@@ -41,6 +41,17 @@
     -->
 
     <listitem>
+      <para>18.09.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Oppdater glibc oppstrøms oppdatering
+            (Sikkerhetsoppdatering).  Fikser
+            <ulink url="&lfs-ticket-root;6023">#6023</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>15.09.2026</para>
       <itemizedlist>
         <listitem>
