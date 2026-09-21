@@ -70,7 +70,7 @@
       <para>
         Hvis du gjenoppbygger glibc for et eksisterende LFS-system med en ad-hoc
         løsning for gnulib hengeproblemet på
-        <filename>/&#8288;usr/share/config.site</filename> (introdusert med <ulink
+        <filename>/usr/share/config.site</filename> (introdusert med <ulink
         url='&lfs-root;lfs/view/13.1-systemd/chapter06/m4.html'>krysskompilert
         M4 i LFS 13.1</ulink>), fjern det:
       </para>
