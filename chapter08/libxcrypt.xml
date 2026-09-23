@@ -103,8 +103,8 @@
       ingen pakke installert ved å kompilere fra kilder ville lenke mot
       dem under kjøring. Imidlertid er de eneste kjente bare binære applikasjonene
       som koblingen mot disse funksjonene krever ABI versjon 1. Hvis du må
-      ha slike funksjoner på grunn av en eller annen binær applikasjon eller for å være
-      kompatibel med LSB, bygg pakken på nytt med følgende
+      ha slike funksjoner på grunn av en eller annen binær applikasjon, bygg
+      pakken på nytt med følgende
       kommandoer:</para>
 
 <screen role="nodump"><userinput>make distclean

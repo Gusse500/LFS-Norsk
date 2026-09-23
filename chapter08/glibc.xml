@@ -50,12 +50,33 @@
 
 <screen><userinput remap="pre">patch -Np1 -i ../&glibc-fhs-patch;</userinput></screen>
 
-    <para>Fiks et problem som forårsaker at <ulink role='man'
-    url='&man;tanh.3'>tanh(3)</ulink> funksjonen krasjer på noen gamle 
-    x86_64 prosessorer, og for å fikse installasjon med flere
-    <command>make</command> jobber:</para>
+    <para>Løs ulike problemer identifisert etter glibc 2.44-utgivelsen,
+    inkludert en som forårsaker at <ulink role='man'
+    url='&man;tanh.3'>tanh(3)</ulink> funksjonen krasjer på noen gamle
+    x86_64 prosessorer, en forårsaker noen pakker som bruker gnulib
+    å henge på ubestemt tid under kjøring, noen forårsaker bygge eller testing
+    feil med parallell <command>make</command> jobber, og seks
+    sikkerhetssårbarheter:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&glibc-upstream-patch;</userinput></screen>
+
+    <!-- Remove this when we update to 2.45.  There should be no need to
+         move this to the upgrading note: in 2.45 those symbols will be
+         added again using a better way, so the ad-hoc hack should make
+         no harm with 2.45.
+         &#8288; is a clue to html not to break between characters.
+    -->
+    <important>
+      <para>
+        Hvis du gjenoppbygger glibc for et eksisterende LFS-system med en ad-hoc
+        løsning for gnulib hengeproblemet på
+        <filename>/usr/share/config.site</filename> (introdusert med <ulink
+        url='&lfs-root;lfs/view/13.1-systemd/chapter06/m4.html'>krysskompilert
+        M4 i LFS 13.1</ulink>), fjern det:
+      </para>
+
+      <screen role='nodump'><userinput>rm -fv /usr/share/config.site</userinput></screen>
+    </important>
 
     <para>Glibc dokumentasjonen anbefaler å bygge Glibc
     i en dedikert byggemappe:</para>

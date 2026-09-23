@@ -43,10 +43,83 @@
     -->
 
     <listitem>
+      <para>18.09.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Oppdater glibc oppstrøms oppdatering
+            (Sikkerhetsoppdatering).  Fikser
+            <ulink url="&lfs-ticket-root;6023">#6023</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>15.09.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til automake-1.19. Fikser
+            <ulink url="&lfs-ticket-root;6017">#6017</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til elfutils-0.196. Fikser
+            <ulink url="&lfs-ticket-root;6091">#6001</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til expat-2.8.4 (Sikkerhetsoppdatering). Fikser
+            <ulink url="&lfs-ticket-root;6012">#6012</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til iana-etc-20260911. Addresserer
+            <ulink url="&lfs-ticket-root;5006">#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til iproute2-7.2.0. Fikser
+            <ulink url="&lfs-ticket-root;6015">#6015</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til linux-7.2.6. Fikser
+            <ulink url="&lfs-ticket-root;6002">#6002</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til man-pages-6.19. Fikser
+            <ulink url="&lfs-ticket-root;6004">#6004</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til openssl-4.0.2 (Sikkerhetsoppdatering). Fikser
+            <ulink url="&lfs-ticket-root;6005">#6005</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til pcre2-10.48 (Sikkerhetsoppdatering). Fikser
+            <ulink url="&lfs-ticket-root;6013">#6013</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til pkgconf-3.0.7. Fikser
+            <ulink url="&lfs-ticket-root;6003">#6003</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til systemd-261.3. Fikser
+            <ulink url="&lfs-ticket-root;6018">#6018</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til tzdata2026d. Fikser
+            <ulink url="&lfs-ticket-root;6019">#6019</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til vim-9.2.1099. Addresserer
+            <ulink url="&lfs-ticket-root;4500">#4500</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til xz-5.8.4 (Sikkerhetsoppdatering). Fikser
+            <ulink url="&lfs-ticket-root;6016">#6015</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>01.09.2026</para>
       <itemizedlist>
         <listitem>
-          <para>[zeckma] - MLFS-13.1 utgitt.</para>
+          <para>[bdubbs] - LFS-13.1 utgitt.</para>
         </listitem>
       </itemizedlist>
     </listitem>
