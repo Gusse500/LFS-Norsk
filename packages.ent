@@ -343,6 +343,16 @@
 <!ENTITY iproute2-fin-du "18 MB">
 <!ENTITY iproute2-fin-sbu "0.1 SBU">
 
+<!ENTITY isl-version "0.28">
+<!ENTITY isl-size "1.9 MB">
+<!-- ENTITY isl-url "http://isl.gforge.inria.fr/isl-&isl-version;.tar.xz" -->
+<!-- ENTITY isl-url "https://gcc.gnu.org/pub/gcc/infrastructure/isl-&isl-version;.tar.bz2" -->
+<!ENTITY isl-url "https://libisl.sourceforge.io/isl-&isl-version;.tar.xz">
+<!ENTITY isl-md5 "2b84af1d8d9ffab00a69470bfe097709">
+<!ENTITY isl-home "http://libisl.sourceforge.io/">
+<!ENTITY isl-fin-du "14 MB">
+<!ENTITY isl-fin-sbu "0.3 SBU">
+
 <!ENTITY jinja2-version "3.1.6">
 <!ENTITY jinja2-size "240 KB">
 <!ENTITY jinja2-url "&pypi-src;/J/Jinja2/jinja2-&jinja2-version;.tar.gz">
@@ -550,6 +560,14 @@
 <!ENTITY ninja-home "https://ninja-build.org/">
 <!ENTITY ninja-fin-du "43 MB">
 <!ENTITY ninja-fin-sbu "0.2 SBU">
+
+<!ENTITY openrc-version "0.63.3">
+<!ENTITY openrc-size "264 KB">
+<!ENTITY openrc-url "&github;/OpenRC/openrc/archive/&openrc-version;/openrc-&openrc-version;.tar.gz">
+<!ENTITY openrc-md5 "837e7895fae3d8bb33643acb974e2c07">
+<!ENTITY openrc-home "https://wiki.gentoo.org/wiki/OpenRC">
+<!ENTITY openrc-fin-du "13 MB">
+<!ENTITY openrc-fin-sbu "0.1 SBU">
 
 <!ENTITY openssl-version "4.0.2">
 <!ENTITY openssl-size "53,862 KB">

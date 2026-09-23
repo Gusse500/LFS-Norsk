@@ -200,6 +200,9 @@
     <!--<listitem>
       <para>Ninja-&ninja-version;</para>
     </listitem>-->
+    <!--<listitem revision="openrc">
+    <para>OpenRC-&openrc-version;</para>
+    </listitem>-->
     <listitem>
       <para>OpenSSL-&openssl-version;</para>
     </listitem>
