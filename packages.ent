@@ -618,19 +618,19 @@
 <!-- If python minor version changes, updates in python and
      meson pages will be needed: python3.6 and python3.6m -->
 
-<!ENTITY python-version "3.14.7">
+<!ENTITY python-version "3.14.8">
 <!ENTITY python-minor "3.14">
-<!ENTITY python-size "23,911 KB">
+<!ENTITY python-size "23,566 KB">
 <!ENTITY python-url "https://www.python.org/ftp/python/&python-version;/Python-&python-version;.tar.xz">
-<!ENTITY python-md5 "a4c4c2991b4126e227073c2d9445f432">
+<!ENTITY python-md5 "129e654fc09bda21b21c7b4b5ac516e9">
 <!ENTITY python-home "https://www.python.org/">
 <!ENTITY python-tmp-du "603 MB">
 <!ENTITY python-tmp-sbu "0.5 SBU">
 <!ENTITY python-fin-du "509 MB">
 <!ENTITY python-fin-sbu "2.7 SBU">
 <!ENTITY python-docs-url "https://www.python.org/ftp/python/doc/&python-version;/python-&python-version;-docs-html.tar.bz2">
-<!ENTITY python-docs-md5 "bdf55dddc02a76961d61730f06d18849">
-<!ENTITY python-docs-size "10,916 KB">
+<!ENTITY python-docs-md5 "4663f851d6435cccea6ffd9d3c625651">
+<!ENTITY python-docs-size "8,245 KB">
 
 <!ENTITY readline-version "8.3">
 <!ENTITY readline-soversion "8.3"><!-- used for stripping -->

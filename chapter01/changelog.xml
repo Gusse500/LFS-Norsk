@@ -41,6 +41,16 @@
     -->
 
     <listitem>
+      <para>02.10.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til Python-3.14.8 (Sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;6007">#6007</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>01.10.2026</para>
       <itemizedlist>
         <listitem>
@@ -88,7 +98,7 @@
           <ulink url="&lfs-ticket-root;6031">#6031</ulink>.</para>
         </listitem>
         <listitem>
-         <para>[bdubbs] - Oppdatering til systemd-262. Fikser
+          <para>[bdubbs] - Oppdatering til systemd-262. Fikser
           <ulink url="&lfs-ticket-root;6030">#6030</ulink>.</para>
         </listitem>
         <listitem>
@@ -101,7 +111,6 @@
         </listitem>
       </itemizedlist>
     </listitem>
-
 
     <listitem>
       <para>18.09.2026</para>
