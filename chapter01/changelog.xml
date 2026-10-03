@@ -43,6 +43,78 @@
     -->
 
     <listitem>
+      <para>02.10.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til Python-3.14.8 (Sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;6007">#6007</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>01.10.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til coreutils-9.12. Fikser
+          <ulink url="&lfs-ticket-root;6020">#6020</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til expat-2.8.5 (Sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;6027">#6027</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til flit_core-4.1.0 (Python modul). Fikser
+          <ulink url="&lfs-ticket-root;6021">#6021</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til groff-1.24.2. Fikser
+          <ulink url="&lfs-ticket-root;6034">#6034</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til gzip-1.15. Fikser
+          <ulink url="&lfs-ticket-root;6025">#6025</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til less-710. Fikser
+          <ulink url="&lfs-ticket-root;6024">#6024</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til linux-7.2.8. Fikser
+          <ulink url="&lfs-ticket-root;6024">#6024</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til meson-1.12.1. Fikser
+          <ulink url="&lfs-ticket-root;6029">#6029</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til openssl-4.0.3 (Sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;6033">#6033</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til pcre2-10.49 (Sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;6032">#6032</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til shadow-4.20.3. Fikser
+          <ulink url="&lfs-ticket-root;6031">#6031</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til systemd-262. Fikser
+          <ulink url="&lfs-ticket-root;6030">#6030</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til tzdata20263. Fikser
+          <ulink url="&lfs-ticket-root;6035">#6035</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til util-linux-2.42.4 (Sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;6014">#6014</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>18.09.2026</para>
       <itemizedlist>
         <listitem>
