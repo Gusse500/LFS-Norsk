@@ -147,7 +147,7 @@ rm -rf DESTDIR</userinput></screen>
 
       <seglistitem>
         <seg>
-          c_rehash og openssl
+          openssl
         </seg>
         <seg>
           libcrypto.so og libssl.so
@@ -165,7 +165,7 @@ rm -rf DESTDIR</userinput></screen>
       <bridgehead renderas="sect3">Korte beskrivelser</bridgehead>
       <?dbfo list-presentation="list"?>
       <?dbhtml list-presentation="table"?>
-
+<!--
       <varlistentry id="c_rehash">
         <term><command>c_rehash</command></term>
         <listitem>
@@ -181,7 +181,7 @@ rm -rf DESTDIR</userinput></screen>
           </indexterm>
         </listitem>
       </varlistentry>
-
+-->
       <varlistentry id="openssl-prog">
         <term><command>openssl</command></term>
         <listitem>
