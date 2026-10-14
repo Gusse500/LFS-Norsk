@@ -193,7 +193,8 @@ xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso</userinput></
         annen oppstartslaster (for eksempel GRUB installasjonen fra 
         vertsdistribusjonen eller Windows Boot Manager). Ta en sikkerhetskopi av 
         filen slik at den kan gjenopprettes senere eller lastes inn som en 
-        sekundær oppstartslaster av den nye GRUB installasjonen fra LFS.</para>
+        sekundær oppstartslaster (via en GRUB funksjonalitet kalt
+        <quote>chainloading</quote>) av den nye GRUB installasjonen fra LFS.</para>
       </warning>
 
 <screen role="nodump"><userinput>grub-install --target=x86_64-efi --removable</userinput></screen>
@@ -221,44 +222,76 @@ xorriso -as cdrecord -v dev=/dev/cdrw blank=as_needed grub-img.iso</userinput></
 
       <note>
         <para>
-          Noen UEFI oppstartslastere, selv om de er sjeldne, hopper over 
-          standard EFI bane. Slike systemer er som regel gamle, som Lenovo 
-          ThinkPads eller HP stasjonære/bærbare datamaskiner. Når 
-          oppstartsoppføringen mangler i fastvareoppsettet, må du installere BLFS pakken <ulink
-          url="&blfs-book;postlfs/efibootmgr.html">efibootmgr</ulink> for å 
-          opprette en oppstartsoppføring for UEFI. Hvis det er enklere, kan 
-          pakken installeres via distribusjonens pakkebehandler, hvis aktuelt, 
-          og brukes på verten i stedet for på LFS systemet. Dette kan forhindre 
-          behovet for å laste ned flere tarballer til LFS systemet for nå.
+          Bruken av standardplasseringen fungerer kanskje ikke i enkelte scenarier:
         </para>
+
+        <itemizedlist>
+          <listitem>
+            <para>
+              Noen UEFI fastvareimplementeringer ignorerer standard
+              EFI sti i det hele tatt
+            </para>
+          </listitem>
+
+          <listitem>
+            <para>
+              Hvis en <quote>velkjent</quote> oppstartslaster (spesielt
+              Windows Boot Manager) finnes i samme ESP, noe UEFI
+              fastvareimplementeringer vil starte den oppstartslasteren i stedet
+              for den på standardbanen
+            </para>
+          </listitem>
+
+          <listitem>
+            <para>
+              Med en multi-boot konfigurasjon, de andre operativsystemene
+              kan overskrive filen på standard EFI-bane (spesielt,
+              under en systemoppdatering) og bryte LFS grub installasjonen
+            </para>
+          </listitem>
+        </itemizedlist>
+
         <para>
-          Installer først pakken, og monter deretter EFI variabelfilsystemet 
-          hvis det ikke allerede er montert:
+          I disse scenariene må du installere BLFS pakken <ulink
+          url="&blfs-book;postlfs/efibootmgr.html">efibootmgr</ulink> for å
+          opprette en oppstartsoppføring for UEFI. Installer først pakken, og
+          monter deretter EFI variabelt filsystem hvis det ikke allerede er montert:
         </para>
+
 <screen role="nodump"><userinput>mountpoint /sys/firmware/efi/efivars ||
   mount -v -t efivarfs efivarfs /sys/firmware/efi/efivars</userinput></screen>
+
         <para>
-          Opprett nå en oppstartsoppføring for EFI:
+          Installer nå GRUB på en LFS spesifikk plassering og legg til en
+          oppføring merket <quote>LFS</quote> for EFI:
         </para>
-<screen role="nodump"><userinput>efibootmgr -c -d /dev/sd<replaceable>&lt;x&gt;</replaceable> \
-  -p <replaceable>&lt;y&gt;</replaceable> -L "LFS" -l '\EFI\BOOT\BOOT<replaceable>&lt;X64&gt;</replaceable>.EFI'</userinput></screen>
+
+<screen role="nodump"><userinput>efibootmgr -B -L <replaceable>LFS</replaceable>
+grub-install --target=x86_64-efi --bootloader-id=<replaceable>LFS</replaceable></userinput></screen>
+
         <para>
-          <literal>/dev/sd<replaceable>&lt;x&gt;</replaceable></literal>
-          stasjonen skal være enhetsnoden for disken der ESP-en finnes.
-          <replaceable>&lt;y&gt;</replaceable> partisjonsnummeret skal samsvare 
-          med nummeret til ESP-en. Hvis ESP-en er på
-          <literal>/dev/sda2</literal>, da ville partisjonsnummeret være
-          <literal>2</literal>. Hvis du bruker 32-bit UEFI, må du erstatte
-          <replaceable>&lt;X64&gt;</replaceable> med <literal>IA32</literal>.
+          <command>efibootmgr -B</command> kommandoen fjerner oppstartsoppføringen
+          fra en tidligere LFS-installasjon (hvis en finnes).
+          Du kan erstatte <replaceable>LFS</replaceable> med en annen
+          identifier hvis du installerer flere LFS systemer på
+          maskinen og du ønsker å holde deres oppstartslastere uavhengige.
         </para>
 
         <para>
-          Noen (ødelagte) fastvarer kan kreve ytterligere parametere 
-          for <command>efibootmgr</command>, som
+          Noe (ødelagt) fastvare kan kreve å påkalle
+          <command>efibootmgr -c</command> kommandoen direkte fordi de
+          fastvareimplementeringer trenger ytterligere parametere som
+          <command>grub-install</command> ikke gir, som
           <parameter>--full-dev-path</parameter> eller
           <parameter>-e 1 -E</parameter>.  Les manualsiden
-          <ulink role='man' url='&man;efibootmgr.8'>efibootmgr(8)</ulink>
-          for detaljer.
+          for hvordan du bruker <command>efibootmgr -c</command> kommandoen.
+          Det kan være lettere å legge til
+          <literal>--debug |&amp; efibootmgr</literal> for å vise
+          <command>efibootmgr -c</command> kommandoen påkalt av
+          <command>grub-install</command> og deretter redigere den. Husk å
+          kjøre <command>efibootmgr -B</command> kommandoen igjen for å fjerne
+          oppføringen opprettet av grub før du kjører den redigerte
+          <command>efibootmgr -c</command> kommandoen.
         </para>
 
         <para>
