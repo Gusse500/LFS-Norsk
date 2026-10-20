@@ -295,7 +295,7 @@
 
 <!ENTITY grub-version "2.16">
 <!ENTITY grub-size "7,753 KB">
-<!ENTITY grub-url "&gnu;grub/grub-&grub-version;.tar.xz">
+<!ENTITY grub-url "https://gitlab.freedesktop.org/api/v4/projects/26558/packages/generic/source-assets/grub-&grub-version;/grub-&grub-version;.tar.xz">
 <!ENTITY grub-md5 "1c611aa4712ce1ea447b9cbdfdb072a4">
 <!ENTITY grub-home "&gnu-software;grub/">
 <!ENTITY grub-fin-du "245 MB">
