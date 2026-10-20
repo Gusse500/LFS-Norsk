@@ -40,6 +40,16 @@
     appropriate for the entry or if needed the entire day's listitem.
     -->
 
+    <listitem revision='sysv'>
+      <para>16.10.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[zeckma] - Oppdatering til sysklogd-2.8.0. Fikser
+          <ulink url="&lfs-ticket-root;6052">#6052</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
     <listitem>
       <para>15.10.2026</para>
       <itemizedlist>
