@@ -40,6 +40,54 @@
     appropriate for the entry or if needed the entire day's listitem.
     -->
 
+    <listitem revision='sysv'>
+      <para>16.10.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[zeckma] - Oppdatering til sysklogd-2.8.0. Fikser
+          <ulink url="&lfs-ticket-root;6052">#6052</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>15.10.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til expat-2.9.0 (Sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;6039">#6039</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til grub-2.16. Fikser
+          <ulink url="&lfs-ticket-root;6038">#6038</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til iana-etc-20261009. Adresserer
+          <ulink url="&lfs-ticket-root;5006">#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til linux-7.2.10. Fikser
+          <ulink url="&lfs-ticket-root;6037">#6037</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til markupsafe-3.0.4. Fikser
+          <ulink url="&lfs-ticket-root;6036">#6036</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til pkgconf-3.0.8. Fikser
+          <ulink url="&lfs-ticket-root;6045">#6045</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til sqlite-3.54.0. Fikser
+          <ulink url="&lfs-ticket-root;6047">#6047</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til vim-9.2.1178 (Sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;6048">#6048</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
     <listitem>
       <para>02.10.2026</para>
       <itemizedlist>

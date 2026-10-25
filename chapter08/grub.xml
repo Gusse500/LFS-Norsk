@@ -62,11 +62,11 @@
     <title>Installasjon av GRUB for BIOS</title>
 
     <!-- See https://wiki.linuxfromscratch.org/lfs/ticket/5857. Remove this at
-    next grub version -->
+    next grub version
     <para>Først fikser du en feil som ble introdusert i grub-2.14:</para>
 
-<screen><userinput remap="pre">sed 's/--image-base/--nonexist-linker-option/' -i configure</userinput></screen>
-
+<screen><userinput remap="pre">sed 's/- -image-base/- -nonexist-linker-option/' -i configure</userinput></screen>
+-->
     <para>Klargjør GRUB for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr     \
