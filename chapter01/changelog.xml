@@ -40,6 +40,60 @@
     appropriate for the entry or if needed the entire day's listitem.
     -->
 
+    <listitem>
+      <para>25.10.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til elfutils-0.197. Fikser
+          <ulink url="&lfs-ticket-root;6055">#6055</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til iana-etc-20261015. Adresserer
+          <ulink url="&lfs-ticket-root;5006">#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til iproute2-7.3.0. Fikser
+          <ulink url="&lfs-ticket-root;6057">#6057</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til linux-7.3. Fikser
+          <ulink url="&lfs-ticket-root;6050">#6050</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til man-pages-6.20. Fikser
+          <ulink url="&lfs-ticket-root;6058">#6058</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til openssl-4.1.0. Fikser
+          <ulink url="&lfs-ticket-root;6061">#6061</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til pkgconf-3.0.10. Fikser
+          <ulink url="&lfs-ticket-root;6051">#6051</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til Python3-3.15.1. Fikser
+          <ulink url="&lfs-ticket-root;6046">#6046</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til setuptools-84.2.1 (Pythonmodul). Fikser
+          <ulink url="&lfs-ticket-root;6056">#6056</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til sqlite-3.54.1. Fikser
+          <ulink url="&lfs-ticket-root;6053">#6053</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til systemd-262.1. Fikser
+          <ulink url="&lfs-ticket-root;6054">#6054</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til vim-9.2.1225 (Sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;6060">#6060</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
     <listitem revision='sysv'>
       <para>16.10.2026</para>
       <itemizedlist>

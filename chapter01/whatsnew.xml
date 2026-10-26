@@ -233,9 +233,9 @@
     <!--<listitem>
       <para>Sed-&sed-version;</para>
     </listitem>-->
-    <!--<listitem>
+    <listitem>
       <para>Setuptools-&setuptools-version;</para>
-    </listitem>-->
+    </listitem>
     <listitem>
       <para>Shadow-&shadow-version;</para>
     </listitem>
