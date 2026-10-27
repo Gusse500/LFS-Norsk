@@ -206,9 +206,9 @@
     <!--<listitem>
       <para>Packaging-&packaging-version;</para>
     </listitem>-->
-    <!--<listitem>
+    <listitem>
       <para>Patch-&patch-version;</para>
-    </listitem>-->
+    </listitem>
     <listitem>
       <para>Pcre2-&pcre2-version;</para>
     </listitem>

@@ -559,10 +559,10 @@
 <!ENTITY packaging-fin-du "3.0 MB">
 <!ENTITY packaging-fin-sbu "mindre enn 0.1 SBU">
 
-<!ENTITY patch-version "2.8">
-<!ENTITY patch-size "886 KB">
+<!ENTITY patch-version "2.8.1">
+<!ENTITY patch-size "919 KB">
 <!ENTITY patch-url "&gnu;patch/patch-&patch-version;.tar.xz">
-<!ENTITY patch-md5 "149327a021d41c8f88d034eab41c039f">
+<!ENTITY patch-md5 "385458c8de6334c36b56ce7fd198411c">
 <!ENTITY patch-home "https://savannah.gnu.org/projects/patch/">
 <!ENTITY patch-tmp-du "14 MB">
 <!ENTITY patch-tmp-sbu "0.1 SBU">
@@ -618,19 +618,19 @@
 <!-- If python minor version changes, updates in python and
      meson pages will be needed: python3.6 and python3.6m -->
 
-<!ENTITY python-version "3.15.1">
+<!ENTITY python-version "3.15.2">
 <!ENTITY python-minor "3.15">
-<!ENTITY python-size "34,951 KB">
+<!ENTITY python-size "27,306 KB">
 <!ENTITY python-url "https://www.python.org/ftp/python/&python-version;/Python-&python-version;.tar.xz">
-<!ENTITY python-md5 "a8c1eb2f694453eaed08c02902a186a6">
+<!ENTITY python-md5 "fa9fdb83b421033bd86f43662d311f69">
 <!ENTITY python-home "https://www.python.org/">
 <!ENTITY python-tmp-du "603 MB">
 <!ENTITY python-tmp-sbu "0.5 SBU">
 <!ENTITY python-fin-du "509 MB">
 <!ENTITY python-fin-sbu "2.7 SBU">
 <!ENTITY python-docs-url "https://www.python.org/ftp/python/doc/&python-version;/python-&python-version;-docs-html.tar.bz2">
-<!ENTITY python-docs-md5 "53713065578bf7a971d83d1b7bcfc149">
-<!ENTITY python-docs-size "19,179 KB">
+<!ENTITY python-docs-md5 "0e00ffa02d844bc89ea83c00af42ec91">
+<!ENTITY python-docs-size "11,251 KB">
 
 <!ENTITY readline-version "8.3">
 <!ENTITY readline-soversion "8.3"><!-- used for stripping -->
