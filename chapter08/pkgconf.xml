@@ -44,7 +44,11 @@
 
     <title>Installasjon av Pkgconf</title>
 
-    <para>Først, arbeid deg rundt en sirkulær avhengighet av meson:</para>
+    <para>Fjern først en test som forårsaker at byggingen mislykkes:</para>
+
+<screen><userinput remap="pre">sed '/^test_api_util_exe/,/^test(.*test_api_util_exe)/d' -i meson.build</userinput></screen>
+
+    <para>Nå, omgå en sirkulær avhengighet av meson:</para>
 
 <screen><userinput remap="pre">tar -xf ../meson-&meson-version;.tar.gz</userinput></screen>
 
