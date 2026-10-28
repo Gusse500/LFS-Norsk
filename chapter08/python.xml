@@ -42,11 +42,11 @@
 
   <sect2 role="installation">
     <title>Installasjon av Python 3</title>
-
+<!--
     <para>Først, installer en oppdatering for kompatibilitet med OpenSSL4:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&python-openssl4-fixes-patch;</userinput></screen>
-
+-->
     <para>Forbered Python for kompilering:</para>
 
 <screen><userinput remap="configure">./configure --prefix=/usr          \
@@ -98,9 +98,8 @@
     <!-- DO NOT REMOVE EVEN IF IT'S NOT REPRODUCIBLE IN JHALFS:
          jhalfs creates /etc/resolv.conf, that's different from the
          by-hand build.  -->
-    <para>To tester, <literal>test_urllib2</literal> og
-    <literal>test_urllibnet</literal>, er kjent for å mislykkes fordi 
-    navneoppløsning ikke er konfigurert i det ufullstendige LFS miljøet.</para>
+    <para>To tester, <literal>test_os2</literal> og
+    <literal>test_httplib</literal>, er kjent for å mislykkes.</para>
 
     <para>Installer pakken:</para>
 
