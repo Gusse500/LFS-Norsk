@@ -41,6 +41,28 @@
     -->
 
     <listitem>
+      <para>01.11.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til flit_core-4.2.0 (Pythonmodul). Fikser
+          <ulink url="&lfs-ticket-root;6063">#6063</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til kmod-34.3. Fikser
+          <ulink url="&lfs-ticket-root;6065">#6065</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til linux-7.3.1. Fikser
+          <ulink url="&lfs-ticket-root;6066">#6066</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til tzdata2026f. Fikser
+          <ulink url="&lfs-ticket-root;6064">#6064</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>26.10.2026</para>
       <itemizedlist>
         <listitem>
