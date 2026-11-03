@@ -149,11 +149,11 @@
 <!ENTITY elfutils-fin-du "159 MB">
 <!ENTITY elfutils-fin-sbu "0.3 SBU">
 
-<!ENTITY expat-version "2.9.0">
-<!ENTITY expat-dl-version "2_9_0">
-<!ENTITY expat-size "516 KB">
+<!ENTITY expat-version "2.10.0">
+<!ENTITY expat-dl-version "2_10_0">
+<!ENTITY expat-size "532 KB">
 <!ENTITY expat-url "&github;/libexpat/libexpat/releases/download/R_&expat-dl-version;/expat-&expat-version;.tar.xz">
-<!ENTITY expat-md5 "fa5ea2bb996c624133368a87206d72af">
+<!ENTITY expat-md5 "8acc7a0749ef59fd17e6b19494cf0bc8">
 <!ENTITY expat-home "https://libexpat.github.io/">
 <!ENTITY expat-fin-du "12 MB">
 <!ENTITY expat-fin-sbu "0.1 SBU">
