@@ -41,6 +41,16 @@
     -->
 
     <listitem>
+      <para>02.11.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[jlocash] - Oppdatering til expat-2.10.0 (Sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;6067">#6067</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>01.11.2026</para>
       <itemizedlist>
         <listitem>
