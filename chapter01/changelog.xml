@@ -41,6 +41,17 @@
     -->
 
     <listitem>
+      <para>2026-11-06</para>
+      <itemizedlist>
+        <listitem>
+          <para>[xry111] - Oppdater glibc oppstrøms fiks patch
+          (Sikkerhetsoppdatering). Fikser <ulink
+          url="&lfs-ticket-root;6070">#6070</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>02.11.2026</para>
       <itemizedlist>
         <listitem>
