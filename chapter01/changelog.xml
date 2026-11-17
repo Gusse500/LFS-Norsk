@@ -43,6 +43,63 @@
     -->
 
     <listitem>
+      <para>15.11.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til automake-1.20. Fikser
+          <ulink url="&lfs-ticket-root;6064">#6074</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til dbus-1.16.4. Fikser
+          <ulink url="&lfs-ticket-root;6079">#6079</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til flex-2.6.13. Fikser
+          <ulink url="&lfs-ticket-root;6077">#6077</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til groff-1.25.0. Fikser
+          <ulink url="&lfs-ticket-root;6075">#6075</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til iana-etc-20261106. Addresserer
+          <ulink url="&lfs-ticket-root;5006">#5006</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til linux-7.3.4. Fikser
+          <ulink url="&lfs-ticket-root;6073">#6073</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til lz4-1.11.1. Fikser
+          <ulink url="&lfs-ticket-root;6068">#6068</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til systemd-262.2. Fikser
+          <ulink url="&lfs-ticket-root;6071">#6071</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[bdubbs] - Oppdatering til vim-9.2.1351 (Sikkerhetsoppdatering). Fikser
+          <ulink url="&lfs-ticket-root;6076">#6076</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
+      <para>06.11.2026</para>
+      <itemizedlist>
+        <listitem>
+          <para>[jlocash] - Oppdatering til zlib-1.4 (Sikkerhetsoppdatering). Fikser <ulink
+          url="&lfs-ticket-root;6069">#6069</ulink>.</para>
+        </listitem>
+        <listitem>
+          <para>[xry111] - Oppdater glibc oppstrøms fiks patch
+          (Sikkerhetsoppdatering). Fikser <ulink
+          url="&lfs-ticket-root;6070">#6070</ulink>.</para>
+        </listitem>
+      </itemizedlist>
+    </listitem>
+
+    <listitem>
       <para>02.11.2026</para>
       <itemizedlist>
         <listitem>

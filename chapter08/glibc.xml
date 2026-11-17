@@ -55,7 +55,7 @@
     url='&man;tanh.3'>tanh(3)</ulink> funksjonen krasjer på noen gamle
     x86_64 prosessorer, en forårsaker noen pakker som bruker gnulib
     å henge på ubestemt tid under kjøring, noen forårsaker bygge eller testing
-    feil med parallell <command>make</command> jobber, og seks
+    feil med parallell <command>make</command> jobber, og syv
     sikkerhetssårbarheter:</para>
 
 <screen><userinput remap="pre">patch -Np1 -i ../&glibc-upstream-patch;</userinput></screen>
@@ -237,6 +237,11 @@ esac</userinput></screen>
 
 <screen><userinput remap="install">sed '/test-installation/s@$(PERL)@echo not running@' -i ../Makefile</userinput></screen>
 
+    <para>Fiks en hardkodet bane til kjørbar laster i
+    <command>ldd</command> skriptet:</para>
+
+<screen><userinput remap="install">sed '/RTLDLIST=/s@/usr@@g' -i elf/ldd</userinput></screen>
+
     <important>
       <para>
         Hvis du oppgraderer Glibc til en ny mindre versjon (for eksempel fra
@@ -346,10 +351,8 @@ install -vm755 dest/usr/lib/*.so.* /usr/lib</userinput></screen>
 
       <para>
         Fortsett deretter å kjøre <command>make install</command> kommandoen,
-        <command>sed</command> kommandoen mot
-        <filename>/usr/bin/ldd</filename>, og kommandoene som skal installere
-        lokalitetene. Når de er ferdige, start systemet på nytt
-        med en gang.
+        og kommandoene som skal installere lokalitetene. Når de er ferdige,
+        start systemet på nytt med en gang.
       </para>
 
       <para>
@@ -371,10 +374,6 @@ unset DIR</userinput></screen>
 
 <screen><userinput remap="install">make install</userinput></screen>
 
-    <para>Fiks en hardkodet bane til den kjørbare lasteren i
-    <command>ldd</command> skriptet:</para>
-
-<screen><userinput remap="install">sed '/RTLDLIST=/s@/usr@@g' -i /usr/bin/ldd</userinput></screen>
 <!--
     <para>Installer konfigurasjonsfilen og kjøretidsmappen for
     <command>nscd</command>:</para>
